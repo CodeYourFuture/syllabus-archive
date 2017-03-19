@@ -23,3 +23,4 @@
   * [Lesson 3](/react/lesson3.md)
   * [Lesson 4](/react/lesson4.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
+* [Contributing](CONTRIBUTING.md)

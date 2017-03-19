@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>Coding Standards and Best Practices · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -58,6 +58,8 @@
 
     
     
+    <link rel="prev" href="react/lesson4.html" />
+    
 
     </head>
     <body>
@@ -85,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -395,7 +397,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="PRACTICES.html">
+        <li class="chapter active" data-level="1.6" data-path="PRACTICES.html">
             
                 <a href="PRACTICES.html">
             
@@ -438,7 +440,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >Coding Standards and Best Practices</a>
     </h1>
 </div>
 
@@ -453,9 +455,86 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="under-construction">Under Construction</h1>
-<p>This is the repo for the new CYF Syllabus.</p>
-<p>For the older version of the Syllabus, please check <a href="https://code-your-future.github.io/syllabus-book/" target="_blank">Syllabus-book</a></p>
+                                <h1 id="coding-standards-and-best-practices">Coding Standards and Best Practices</h1>
+<h2 id="general">General</h2>
+<ul>
+<li><p>Indentation should be consistent</p>
+<ul>
+<li>I.e. all files should use either tabs or spaces and the same width (e.g. 4 characters)</li>
+<li>Do not mix tabs and spaces</li>
+</ul>
+</li>
+<li><p>Use one casing style</p>
+<ul>
+<li>Usually:<ul>
+<li>camelCase for JavaScript</li>
+<li>hyphen-case or camelCase for CSS</li>
+</ul>
+</li>
+<li>Do not mix casing styles e.g. let first_name = person.firstName;</li>
+</ul>
+</li>
+<li><p>Test coverage should be sufficient</p>
+<ul>
+<li>This should meet or exceed the configured threshold; if this isn&apos;t possible, explain why</li>
+</ul>
+</li>
+<li>Comment code that might be difficult to understand...<ul>
+<li>...but also consider simplifying complex code if at all possible. If you find that you&apos;re writing a lot of comments, then it&apos;s a good indicator that your code is too verbose and potentially overengineered</li>
+</ul>
+</li>
+</ul>
+<h2 id="javascript">JavaScript</h2>
+<ul>
+<li><p>Variable and function names should be descriptive</p>
+<ul>
+<li>E.g. <code>const actors = getActorsFromFilm(film);</code> is easier to understand than <code>const temp2 = doStuff(temp);</code></li>
+</ul>
+</li>
+<li><p>Keep functions as short as possible</p>
+<ul>
+<li>If a function is longer than 15 lines, consider breaking it down into smaller functions</li>
+</ul>
+</li>
+<li><p>Use variables if a literal value is repeated more than once</p>
+<ul>
+<li>E.g. <code>console.log(&apos;Peter&apos;, &apos;Peter&apos;.length);</code> -&gt; <code>const name = &apos;Peter&apos;; console.log(name, name.length);</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="css">CSS</h2>
+<ul>
+<li><p>Styles should be based upon class selectors where possible e.g. <code>.some-class</code></p>
+<ul>
+<li>Facilitates reuse</li>
+</ul>
+</li>
+<li><p><strong>Don&apos;t</strong> use ID-based selectors e.g. <code>#some-id</code></p>
+</li>
+<li><p>Avoid styling HTML element selectors directly, unless it&apos;s to remove default browser styling</p>
+</li>
+<li><p>Avoid using style properties in JavaScript</p>
+<ul>
+<li>E.g. <code>myElement.style.display = &apos;none&apos;;</code></li>
+<li>This results in styles that are difficult to reuse</li>
+<li>Use <code>Element.prototype.classList</code> instead e.g. <code>myElement.classList.add(&apos;hidden&apos;);</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="git">Git</h2>
+<ul>
+<li><p>Make small, frequent commits</p>
+<ul>
+<li>If you make a mistake, then it&apos;s easier to revert than if you only make large, occasional commits</li>
+</ul>
+</li>
+<li><p>Avoid committing commented-out code</p>
+<ul>
+<li>If the code exists in a previous commit, then use GitHub or <code>git diff</code> to view it
+0Looking</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -483,6 +562,10 @@
 
             
                 
+                <a href="react/lesson4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Lesson 4">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
                 
             
         
@@ -491,7 +574,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"HTML/CSS","level":"1.2","depth":1,"ref":"","articles":[{"title":"Lesson 1","level":"1.2.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},{"title":"Lesson 2","level":"1.2.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},{"title":"Lesson 3","level":"1.2.3","depth":2,"path":"html-css/lesson3.md","ref":"html-css/lesson3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-03-16T21:30:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-19T10:49:58.497Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Coding Standards and Best Practices","level":"1.6","depth":1,"previous":{"title":"Lesson 4","level":"1.5.4","depth":2,"path":"react/lesson4.md","ref":"react/lesson4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PRACTICES.md","mtime":"2017-03-19T11:22:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-19T10:49:58.497Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

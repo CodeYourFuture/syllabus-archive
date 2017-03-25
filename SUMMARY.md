@@ -10,7 +10,6 @@
   * [Lesson 2](/js-core/lesson2.md)
   * [Lesson 3](/js-core/lesson3.md)
   * [Lesson 4](/js-core/lesson4.md)
-  * [Lesson 5](/js-core/lesson5.md)
 * Node and DB
     * [Lesson 1](/node-db/lesson1.md)
     * [Lesson 2](/node-db/lesson2.md)

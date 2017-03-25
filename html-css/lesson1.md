@@ -6,7 +6,7 @@
 - CSS specificity
 ---
 
-### What makes a web page?
+## What makes a web page?
 
 ![What makes a web page](assets/webpage-parts.png)
 
@@ -31,7 +31,7 @@ The first image is already implemented and is available
 > **Exercise**: Spend 5 minutes exploring the code (HTML and CSS) for this page - notice how the file structure and how the Concerns are separated
 > - Why we don't put everything in one file?
 
-### Semantic HTML
+## Semantic HTML
 
 What is wrong with using `<div>` for all our HTML page?
 
@@ -41,7 +41,7 @@ What is wrong with using `<div>` for all our HTML page?
   - ``<aside role="complementary">``.
     > **Exercise (pair programming):**  Work in pairs to determine where to place these new Tags in the index.html file.
 
-### CSS Selectors
+## CSS Selectors
 
 Selectors define to which elements a set of CSS rules apply.
 
@@ -81,7 +81,7 @@ For more information about selectors, check the [resources section](#resources) 
 2. Implement a background image in the jumbotron.
 
 
-### The cascade
+## The cascade
 The cascade is a fundamental feature of CSS. It is an algorithm defining how to combine properties values originating from different sources. It lies at the core of CSS as stressed by its name: Cascading Style Sheets. ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade))
 
 
@@ -90,7 +90,7 @@ The cascade is a fundamental feature of CSS. It is an algorithm defining how to 
   1. Make all the text in the Jumbotron white (hint: use what you learned about the Cascade)
   2. Update the buttons to look like the screenshot, using the color from the logo (``#ce5f31``) for .btn-primary. (Make this change for all buttons on the page, not just those in the jumbotron.)
 
-### Pseudo classes
+## Pseudo classes
 A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected. For example `:hover` will apply a style when the user hovers over the element specified by the selector.
 
 > **Exercise:**
@@ -98,7 +98,7 @@ A CSS pseudo-class is a keyword added to selectors that specifies a special stat
 1. Change the colors to use `#ef7f52` as the background on hover and `#fff` on focus.
 2. Use what you've learned about :hover and :focus to make the links in the navigation menu show a red (`#ce5f31`) border during those interactions. (make sure the button does not jump when the border is applied)
 
-### Box model
+## Box model
   - How margins, padding and borders effect the size of a block element differently.
 
 ![Box Model](https://mdn.mozillademos.org/files/13647/box-model-standard-small.png)
@@ -110,10 +110,10 @@ Image from MDN https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_t
 2. There is a small gap that appears as you move the mouse from left to right across the menu. Modify the link styles to remove this gap, so that the mouse moves immediately from one link to the next.
 3.  Add a margin to the `Learn More` heading, so that there is more space between the jumbotron and the heading. (make sure it applies only Learn More heading)
 
-### CSS specificity
+## CSS specificity
 What happens if two CSS rules apply to the same element?
 
-## Resources
+# Resources
 1. [HTML5 - elements and their semantic](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
 2. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
 3. [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
@@ -121,7 +121,7 @@ What happens if two CSS rules apply to the same element?
 5. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
 6. [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
-## Homework
+# Homework
 
 1. Move Your Codepen page that you created to Github. That would involve:
   - Create a new Repository under your Github account

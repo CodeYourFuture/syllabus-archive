@@ -1,11 +1,9 @@
-# JavaScript Core 1
+# [Class name]
 ** What we will learn today?**
-- Getting started with JavaScript
-- Variables, assignment and comparison
-- Conditionals
-  - if/else, switch and ternary operator
-- Arrays and loops
-- Objects
+- Topic 1
+- Topic 2
+- Topic 3
+- Topic 4
 ---
 
 ## Topic 1

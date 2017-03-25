@@ -468,37 +468,147 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="week-1-estimated-2-3-hours">Week 1 (estimated 2-3 hours)</h2>
-<p>Review, semantic HTML tags, CSS <code>background</code>, CSS cascade, <code>:hover</code>/<code>:focus</code> states, block <code>margin</code>/<code>padding</code>/<code>border</code>, CSS specificity.</p>
-<ol>
-<li>Introduce the <code>index.html</code> file. Walk through the linked styles and scripts. Indicate where they&apos;ll be making changes.</li>
-<li>Open <code>stylesheet.css</code> and perform quick review of selectors, rules and the cascade. Have them set body <code>background</code>, <code>color</code> and <code>font-size</code> to see how it effects the page.</li>
-<li>Introduce the <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span></code> and <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span></code> tags, and the <code>role=&quot;main&quot;</code> attribute. Also <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span></code>, <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">&gt;</span></span></code> and <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>complementary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span></code>. Ask them to work in pairs to determine where to place these in the <code>index.html</code> file.</li>
-<li>Show how to implement a background image in the jumbotron. Once that&apos;s done, ask them to use what they learned about the cascade to make all the text on the jumbotron white. If they use separate selectors for each block of text, encourage them to set the color on the <code>.jumbotron</code> instead, so that it cascades to all child elements.</li>
-<li>Ask them to update the buttons to look like the screenshot, using the color from the logo (<code>#ce5f31</code>) for <code>.btn-primary</code>. They should make this change for all buttons on the page, not just those in the jumbotron. Once done, introduce the <code>:hover</code> and <code>:focus</code> selectors, and ask them to change the colors to use <code>#ef7f52</code> as the background and <code>#fff</code> for the text in these states.</li>
-<li>Working in pairs, ask them to use what they&apos;ve learned about <code>:hover</code> and <code>:focus</code> to make the links in the navigation menu show a red (<code>#ce5f31</code>) border during interactions. Check that the nav menu items do not jump around (they&apos;ll need a transparent border around links in the base state).</li>
-<li>Describe how margins, padding and borders effect the size of a block element differently. Ask them to give each navigation menu link a left and right padding, and a left and right margin, of <code>1em</code>. Point out the small gap that appears as you move the mouse from left to right across the menu. Ask them to modify the link styles to remove this gap, so that the mouse moves immediately from one link to the next.</li>
-<li>Ask them to add a margin to the &quot;Learn More&quot; heading, so that there is more space between the jumbotron and the heading. If they apply it to <code>h2</code> or <code>heading-underline</code>, it will add a top margin to the &quot;Upcoming Events&quot; heading. Ask them to work in pairs to figure out how they can apply this margin to only the &quot;Learn More&quot; header.</li>
-</ol>
-<h3 id="homework">Homework</h3>
-<ol>
-<li>Read about <a href="http://learn.shayhowe.com/advanced-html-css/complex-selectors/" target="_blank">advanced CSS selectors</a>. Try to complete this <a href="https://flukeout.github.io/" target="_blank">CSS Selector game</a>. It gets hard at the end, but try your best!</li>
-<li>Try to make the articles under &quot;Upcoming Events&quot; look as close to the completed example screenshot as possible. Students should identify inconsistent spacing above and below the second article. They should also make the Facebook events text bold and space out the icon.</li>
-<li>Read about <a href="http://learn.shayhowe.com/html-css/building-forms/" target="_blank">HTML forms</a>. Try to create a new HTML page, <code>contact.html</code>, based off of the example that we&apos;ve been working with so far. In this page, replace the jumbotron and the &quot;Learn More&quot; section with a contact form. This form should ask the user to enter their name, email address and phone number, and present them with a large area to enter a message. You may use <a href="http://getbootstrap.com/components/#input-groups" target="_blank">Bootstrap&apos;s input groups</a> if you like. But also use the CSS techniques you&apos;ve learned so far to style this form like the rest of the site. Things like border colors, labels and buttons should fit with the existing style of the page.</li>
-</ol>
-<h3 id="research-and-present-at-the-next-class">Research and present at the next class</h3>
-<p>Assign one of the following topics to each student. Presentations should be 5 minutes each.</p>
+                                <h1 id="htmlcss-1">HTML/CSS 1</h1>
+<p><strong> What we will learn today?</strong></p>
 <ul>
-<li>HTML aria attributes</li>
-<li>CSS box model</li>
-<li>Vertically centering content</li>
-<li>CSS naming patterns (BEM/OOCSS)</li>
-<li>z-index</li>
-<li>Positioning (absolute, relative, fixed)</li>
-<li>Icon fonts</li>
-<li>CSS transitions</li>
+<li>Semantic HTML tags</li>
+<li>CSS selectors, CSS cascade, Pseudo-classes such as <code>:hover</code>/<code>:focus</code></li>
+<li>Box model: <code>margin</code>/<code>padding</code>/<code>border</code> etc...</li>
+<li>CSS specificity</li>
 </ul>
-<h3 id="prepare-for-the-next-class">Prepare for the next class</h3>
+<hr>
+<h3 id="what-makes-a-web-page">What makes a web page?</h3>
+<p><img src="assets/webpage-parts.png" alt="What makes a web page"></p>
+<p><strong> Separation of Concerns: </strong> In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)</p>
+<blockquote>
+<p><strong>Principles</strong> - During the course, we will highlight principles that apply to the specific topic but also to Computer Science and Programming in general. It is important to understand these principles, terms and apply them to your thinking in general.</p>
+</blockquote>
+<h2 id="code-walkthrough">Code Walkthrough</h2>
+<p>During Today&apos;s class, we will take this partially built site in the first image and gradually transform to the one in the second image.</p>
+<p><a href="assets/screenshot-start.png" target="blank">
+  <img src="assets/screenshot-start.png" style="border: 1px solid #bababa; width: 48%; max-height: 293px">
+</a>
+<a href="assets/screenshot-complete.png" target="blank">
+  <img src="assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
+</a></p>
+<p>The first image is already implemented and is available
+<a href="https://codepen.io/kabaros/project/full/ArrJEA/" target="_blank">on this Codepen</a></p>
+<blockquote>
+<p><strong>Exercise</strong>: Spend 5 minutes exploring the code (HTML and CSS) for this page - notice how the file structure and how the Concerns are separated</p>
+<ul>
+<li>Why we don&apos;t put everything in one file?</li>
+</ul>
+</blockquote>
+<h3 id="semantic-html">Semantic HTML</h3>
+<p>What is wrong with using <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span></code> for all our HTML page?</p>
+<ul>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span></code></li>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span></code> and the role=&quot;main&quot; attribute</li>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span></code>, <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">&gt;</span></span></code></li>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>complementary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span></code>.<blockquote>
+<p><strong>Exercise (pair programming):</strong>  Work in pairs to determine where to place these new Tags in the index.html file.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="css-selectors">CSS Selectors</h3>
+<p>Selectors define to which elements a set of CSS rules apply.</p>
+<ul>
+<li>Type selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements of Type input and set their color to red */
+input {
+color: red
+}
+</code></pre>
+</li>
+<li>Class selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements that have a class name &quot;address-info&quot; and set their color to red */
+.address-info {
+color: red
+}
+</code></pre>
+</li>
+<li>ID selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements that have an ID &quot;input-email&quot; and set their color to red */
+#input-email {
+color: red
+}
+</code></pre>
+</li>
+<li>Combining selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements of Type input that also have a class &quot;address-info&quot; and set their color to red */
+input.address-info {
+color: red
+}
+</code></pre>
+</li>
+</ul>
+<p>For more information about selectors, check the <a href="#resources">resources section</a> of this class.</p>
+<blockquote>
+<p><strong>Exercises:</strong></p>
+<ol>
+<li>Set body background, color and font-size to see how it effects the page.</li>
+<li>Implement a background image in the jumbotron.</li>
+</ol>
+</blockquote>
+<h3 id="the-cascade">The cascade</h3>
+<p>The cascade is a fundamental feature of CSS. It is an algorithm defining how to combine properties values originating from different sources. It lies at the core of CSS as stressed by its name: Cascading Style Sheets. (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade" target="_blank">MDN</a>)</p>
+<blockquote>
+<p><strong>Exercises:</strong></p>
+<ol>
+<li>Make all the text in the Jumbotron white (hint: use what you learned about the Cascade)</li>
+<li>Update the buttons to look like the screenshot, using the color from the logo (<code>#ce5f31</code>) for .btn-primary. (Make this change for all buttons on the page, not just those in the jumbotron.)</li>
+</ol>
+</blockquote>
+<h3 id="pseudo-classes">Pseudo classes</h3>
+<p>A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected. For example <code>:hover</code> will apply a style when the user hovers over the element specified by the selector.</p>
+<blockquote>
+<p><strong>Exercise:</strong>
+Check out this <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank">page</a> for a list of all available pseudo classes.</p>
+<ol>
+<li>Change the colors to use <code>#ef7f52</code> as the background on hover and <code>#fff</code> on focus.</li>
+<li>Use what you&apos;ve learned about :hover and :focus to make the links in the navigation menu show a red (<code>#ce5f31</code>) border during those interactions. (make sure the button does not jump when the border is applied)</li>
+</ol>
+</blockquote>
+<h3 id="box-model">Box model</h3>
+<ul>
+<li>How margins, padding and borders effect the size of a block element differently.</li>
+</ul>
+<p><img src="https://mdn.mozillademos.org/files/13647/box-model-standard-small.png" alt="Box Model"></p>
+<p>Image from MDN <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model" target="_blank">https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model</a></p>
+<blockquote>
+<p><strong>Exercises:</strong></p>
+<ol>
+<li>Give each navigation menu link a left and right padding, and a left and right margin, of 1em.</li>
+<li>There is a small gap that appears as you move the mouse from left to right across the menu. Modify the link styles to remove this gap, so that the mouse moves immediately from one link to the next.</li>
+<li>Add a margin to the <code>Learn More</code> heading, so that there is more space between the jumbotron and the heading. (make sure it applies only Learn More heading)</li>
+</ol>
+</blockquote>
+<h3 id="css-specificity">CSS specificity</h3>
+<p>What happens if two CSS rules apply to the same element?</p>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5" target="_blank">HTML5 - elements and their semantic</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors" target="_blank">CSS Selectors - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade" target="_blank">The Cascade - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model" target="_blank">Box Model - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/CSS/Specificity" target="_blank">CSS specificity - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank">Pseudo classes - MDN</a></li>
+</ol>
+<h2 id="homework">Homework</h2>
+<ol>
+<li><p>Move Your Codepen page that you created to Github. That would involve:</p>
+<ul>
+<li>Create a new Repository under your Github account</li>
+<li>Moving your codepen files to your machine</li>
+<li>Pushing them to Github</li>
+<li>Apply the knowledge you acquired today to improve the page:</li>
+</ul>
+</li>
+<li><p>Read about <a href="http://learn.shayhowe.com/html-css/building-forms/" target="_blank">HTML forms</a>. Create a new HTML page, <code>contact.html</code> and add it to your Codepen site (after you&apos;ve moved it to Github). Create a form to ask the user to enter their <code>name</code>, <code>email</code>, <code>address</code> and <code>phone number</code>, and present them with a large area to enter a <code>message</code>, and a button to <code>submit</code> the message. You may use <a href="http://getbootstrap.com/components/#input-groups" target="_blank">Bootstrap&apos;s input groups</a> if you like. But also use the CSS techniques you&apos;ve learned so far to style this form like the rest of the site. Things like border colors, labels and buttons should fit with the existing style of the page.</p>
+</li>
+<li><p><strong>[Bonus/Optional]</strong> To practice your CSS selectors, play this <a href="https://flukeout.github.io/" target="_blank">CSS Selector game</a>. It gets hard at the end, but try your best! We advise that you read about <a href="http://learn.shayhowe.com/advanced-html-css/complex-selectors/" target="_blank">advanced CSS selectors</a> to help you with the game</p>
+</li>
+<li><p><strong>Research:</strong> Each student chose a topic to read about this week and do a very short presentation (5 minutes) about it next week.
+The list of topics are: <code>HTML aria attributes</code>, <code>CSS box model</code>, <code>Vertically centering content</code>, <code>CSS naming patterns (BEM/OOCSS)</code>, <code>z-index</code>, <code>Positioning (absolute, relative, fixed)</code>, <code>Icon fonts</code>, <code>CSS transitions</code>, <code>Accessibility &amp; SEO</code></p>
+</li>
+</ol>
+<h2 id="prepare-for-the-next-class">Prepare for the next class</h2>
 <ol>
 <li>Read this <a href="https://varvy.com/mobile/media-queries.html" target="_blank">introduction to media queries</a>.</li>
 </ol>
@@ -541,7 +651,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lesson 1","level":"1.2.1","depth":2,"next":{"title":"Lesson 2","level":"1.2.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},"previous":{"title":"HTML/CSS","level":"1.2","depth":1,"ref":"","articles":[{"title":"Lesson 1","level":"1.2.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},{"title":"Lesson 2","level":"1.2.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},{"title":"Lesson 3","level":"1.2.3","depth":2,"path":"html-css/lesson3.md","ref":"html-css/lesson3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/lesson1.md","mtime":"2017-03-19T12:02:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-19T10:49:58.497Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lesson 1","level":"1.2.1","depth":2,"next":{"title":"Lesson 2","level":"1.2.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},"previous":{"title":"HTML/CSS","level":"1.2","depth":1,"ref":"","articles":[{"title":"Lesson 1","level":"1.2.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},{"title":"Lesson 2","level":"1.2.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},{"title":"Lesson 3","level":"1.2.3","depth":2,"path":"html-css/lesson3.md","ref":"html-css/lesson3.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/lesson1.md","mtime":"2017-03-25T15:39:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-25T13:34:03.675Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

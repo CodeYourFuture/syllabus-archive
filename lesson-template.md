@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/status-draft-darkred.svg) ![](https://img.shields.io/badge/status-review-orange.svg) ![](https://img.shields.io/badge/status-ready-green.svg) (have one of these badges on top of your Lessons and follow the guidelines/workflow defined in this [issue](https://github.com/Code-Your-Future/syllabus/issues/9))
 # [Class name]
 ** What we will learn today?**
 - Topic 1

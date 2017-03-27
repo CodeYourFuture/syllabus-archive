@@ -5,6 +5,7 @@
   - Functional utils (map, foreach, filter)
 - Objects
 - Callbacks
+- this
 
 ---
 
@@ -31,4 +32,5 @@ High level explanation of Topic 1 - rely on the exercises
 4. **Research:**
 
 ## Prepare for the next class
-1. Read this [Some Tutorial or Video etc...](https://google.com)
+1. What is "this" [Understanding Javascript this in a crystal clear way](https://youtu.be/yuo8YqKDQ-M)
+2. Read this [Some Tutorial or Video etc...](https://google.com)

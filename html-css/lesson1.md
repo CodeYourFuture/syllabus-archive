@@ -29,7 +29,7 @@ The first image is already implemented and is available
 [on this Codepen](https://codepen.io/kabaros/project/full/ArrJEA/)
 
 > **Exercise**: Spend 5 minutes exploring the code (HTML and CSS) for this page - notice how the file structure and how the Concerns are separated
-> - Why we don't put everything in one file?
+> - Why don't we put everything in one file?
 
 ## Semantic HTML
 

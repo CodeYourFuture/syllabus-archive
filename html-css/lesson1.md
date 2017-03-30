@@ -60,7 +60,7 @@ Some CSS styles applied to one element will be "inherited" by their child elemen
 
 > In English, the word **inherit** refers to something, like the color of your eyes, which you can receive from your parent. We use this to describe how "child" HTML elements can inherit styles from "parent" HTML elements.
 
-We'll do two quick exercises two explore what gets inherited, what doesn't, and why.
+We'll do two quick exercises to explore what gets inherited, what doesn't, and why.
 
 > **Exercise:** Work in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [assets/jumbotron-background.jpg](background image) to the jumbotron. Did these styles have "inheritance"? Why do you think they did or did not?
 

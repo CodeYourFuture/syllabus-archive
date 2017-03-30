@@ -151,13 +151,19 @@ You can also set a transparent border, so that it takes up the space without sho
 
 ## Homework
 
-1. (Est. 1 hour) Move Your Codepen page that you created to Github. That would involve:
+1. (Est. 1 hour) Move your Codepen page that you created to Github. That would involve:
   - Create a new Repository under your Github account
   - Move your codepen files to your machine
   - Push them to Github
-  - Apply the knowledge you acquired today to improve the page
 
-2. (Est. 1 hour) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
+2. (Est. 2-3 hours) Create a new webpage (`.html`) on a subject that you're interested in. The page should not use any framework like Bootstrap and it should include the following elements:
+  - A linked `.css` file applies a consistent color scheme to links and text on your page.
+  - A page header with a title and description for the site.
+  - An articles section with three articles, each including a title, summary and a link.
+  - Proper use of the semantic HTML tags we discussed.
+  - Research the `:first-child` psuedo-class and use it to style the first article so that it stands out from the others.
+
+3. **Optional** (Est. 1 hour) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 
 ## Prepare for the next class
 1. (Est. 2-3 hours) Complete the first and second lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?** and **Starting Small**. *Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead.*

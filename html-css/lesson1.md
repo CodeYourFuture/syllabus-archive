@@ -25,7 +25,7 @@ In today's class, we will begin adapting styles on this example website. We'll r
   <img src="assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
 </a>
 
-The example website you'll begin working with is available [on this Codepen](https://codepen.io/kabaros/project/full/ArrJEA/).
+The example website you'll begin working with is available [on this Codepen](https://codepen.io/natewr/project/editor/AwpkjD/).
 
 > **Exercise**: Spend 5 minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
 

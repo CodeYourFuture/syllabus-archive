@@ -1,5 +1,5 @@
 # HTML/CSS 1
-**What we will learn today?**
+**What will we learn today?**
 - Semantic HTML tags
 - CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`
 - Box model: `margin`/`padding`/`border` etc...

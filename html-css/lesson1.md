@@ -33,13 +33,16 @@ The first image is already implemented and is available
 
 ## Semantic HTML
 
-What is wrong with using `<div>` for all our HTML page?
+What is wrong with using `<div>` for all of the Tags in our HTML page?
 
   - ``<header>``
-  - ``<footer>`` and the role="main" attribute
-  - ``<nav>``, ``<article>``
-  - ``<aside role="complementary">``.
-    > **Exercise (pair programming):**  Work in pairs to determine where to place these new Tags in the index.html file.
+  - ``<footer>``
+  - The ``role="main"`` attribute
+  - ``<nav>``
+  - ``<article>``
+  - ``<aside role="complementary">``
+
+> **Exercise (pair programming):**  Work in pairs to determine where to place these new Tags and Attributes in the index.html file.
 
 ## CSS Selectors
 

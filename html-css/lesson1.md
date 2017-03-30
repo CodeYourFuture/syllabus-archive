@@ -166,4 +166,4 @@ You can also set a transparent border, so that it takes up the space without sho
 3. **Optional** (Est. 1 hour) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 
 ## Prepare for the next class
-1. (Est. 2-3 hours) Complete the first and second lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?** and **Starting Small**. *Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead.*
+1. (Est. 5-6 hours) Complete the first three lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?**, **Starting Small** and **Building Up**. *Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead.*

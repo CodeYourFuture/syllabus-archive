@@ -149,7 +149,7 @@ You can also set a transparent border, so that it takes up the space without sho
 5. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
 6. [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
-# Homework
+## Homework
 
 1. (Est. 1 hour) Move Your Codepen page that you created to Github. That would involve:
   - Create a new Repository under your Github account

@@ -1,5 +1,5 @@
 # HTML/CSS 1
-** What we will learn today?**
+**What we will learn today?**
 - Semantic HTML tags
 - CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`
 - Box model: `margin`/`padding`/`border` etc...
@@ -10,13 +10,13 @@
 
 ![What makes a web page](assets/webpage-parts.png)
 
-** Separation of Concerns: ** In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)
+**Separation of Concerns:** In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)
 
 > **Principles** - During the course, we will highlight principles that apply to the specific topic but also to Computer Science and Programming in general. It is important to understand these principles, terms and apply them to your thinking in general.
 
 ## Code Walkthrough
 
-During Today's class, we will take this partially built site in the first image and gradually transform to the one in the second image.
+In today's class, we will begin adapting styles on this example website. We'll review some of the HTML/CSS basics you already encountered during your application process and learn some new techniques. By the end of the third lesson, we will have worked together to improve the example site on the left so that it looks like the screenshot on the right.
 
 <a href="assets/screenshot-start.png" target="blank">
   <img src="assets/screenshot-start.png" style="border: 1px solid #bababa; width: 48%; max-height: 293px">
@@ -25,15 +25,17 @@ During Today's class, we will take this partially built site in the first image 
   <img src="assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
 </a>
 
-The first image is already implemented and is available
-[on this Codepen](https://codepen.io/kabaros/project/full/ArrJEA/)
+The example website you'll begin working with is available [on this Codepen](https://codepen.io/kabaros/project/full/ArrJEA/).
 
-> **Exercise**: Spend 5 minutes exploring the code (HTML and CSS) for this page - notice how the file structure and how the Concerns are separated
-> - Why don't we put everything in one file?
+> **Exercise**: Spend 5 minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
 
 ## Semantic HTML
 
-What is wrong with using `<div>` for all of the Tags in our HTML page?
+When writing HTML code, you can use different tags to describe the content. Is it a navigation menu, a paragraph of text, or an article? By using the correct tag, you help search engines like Google or screen readers for the visually impaired.
+
+> Semantic HTML is the use of HTML markup to reinforce the semantics, or **meaning**, of the information in webpages and web applications rather than merely to define its presentation or look. [Wikipedia](https://en.wikipedia.org/wiki/Semantic_HTML)
+
+We'll cover the following semantic tags:
 
   - ``<header>``
   - ``<footer>``
@@ -42,7 +44,7 @@ What is wrong with using `<div>` for all of the Tags in our HTML page?
   - ``<article>``
   - ``<aside role="complementary">``
 
-> **Exercise (pair programming):**  Work in pairs to determine where to place these new Tags and Attributes in the index.html file.
+> **Exercise (pair programming):**  Work in pairs to determine where to place these new Tags and Attributes in the index.html file. Who benefits when we write "semantic" HTML?
 
 ## CSS Selectors
 

@@ -68,7 +68,7 @@ Now that the background image is in place, the text is difficult to read. The te
 
 > **Exercise:** Work in pairs and use just one CSS rule to set all of the text in the jumbotron to white. To do this, you'll need to use inheritance. Why do you think some styles, like text color, get inherited?
 
-## Psuedo Classes
+## Pseudo Classes
 
 You can assign CSS rules to a class like this:
 
@@ -78,11 +78,11 @@ You can assign CSS rules to a class like this:
 }
 ```
 
-There are also things called "psuedo" classes. In this section, we'll introduce you to the common psuedo classes for assigning styles to interactions, such as moving your mouse over a link.
+There are also things called "pseudo" classes. In this section, we'll introduce you to the common pseudo classes for assigning styles to interactions, such as moving your mouse over a link.
 
-> "psuedo" is a fancy word for "fake". We call them "psuedo" classes because they're not really there in the HTML, but the browser knows what to do with them.
+> "pseudo" is a fancy word for "fake". We call them "pseudo" classes because they're not really there in the HTML, but the browser knows what to do with them.
 
-Here's an example of a psuedo class which changes the color of a link when the mouse moves over it.
+Here's an example of a pseudo class which changes the color of a link when the mouse moves over it.
 
 ```css
 .btn:hover {
@@ -90,7 +90,7 @@ Here's an example of a psuedo class which changes the color of a link when the m
 }
 ```
 
-Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit `tab` to move between links on a page. So that they can see where they are, you should add effects to the `:focus` psuedo class too.
+Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit `tab` to move between links on a page. So that they can see where they are, you should add effects to the `:focus` pseudo class too.
 
 ```css
 .btn:hover,
@@ -161,7 +161,7 @@ You can also set a transparent border, so that it takes up the space without sho
   - A page header with a title and description for the site.
   - An articles section with three articles, each including a title, summary and a link.
   - Proper use of the semantic HTML tags we discussed.
-  - Research the `:first-child` psuedo-class and use it to style the first article so that it stands out from the others.
+  - Research the `:first-child` pseudo-class and use it to style the first article so that it stands out from the others.
 
 3. **Optional** (Est. 1 hour) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 

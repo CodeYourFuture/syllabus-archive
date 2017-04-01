@@ -1,18 +1,66 @@
-## Week 2 (estimated 2-3 hours)
-The responsive web, media queries, and content positioning.
+# HTML/CSS 2
+**What will we learn today?**
+- Responsive web design
+- Media queries
+- Content layout: flexbox
+- Content layout: floats (maybe)
+- Content layout: relative and absolute positioning (maybe)
+---
 
-1. Student presentations with questions and answers.
-2. Talk about how the web is viewed on many device widths, and a modern developer has to find a way to display content that looks great on every device.
-3. With the developer tools open, have them drag the screen width down to 320px. Point out how the text "Refugees" in the jumbotron exceeds the width of the image. Ask them to reduce the size of the text to `3em`. Now view the webpage in a wider window again, to show how it seems too small on a larger screen.
-4. Introduce the following media query and deconstruct each part: `@media screen and (min-width: 480px)`. Using this knowledge, ask them to increase the font size of the "Refugees" text only when a screen is larger than `480px`.
-5. Using the techniques they've learned, ask them to make sure that the buttons in the jumbotron fit on one line on small screens. (They should modify the padding and font size, rather than removing or hiding text).
-6. Introduce `static` and `relative` positioning ([the difference](http://stackoverflow.com/questions/5011211/difference-between-static-and-relative-positioning)). Point out how elements in the jumbotron appear vertically one after the other, except for the buttons, which appear side by side. Explain the difference between `block` elements and `inline` elements. Ask them to give the buttons within the jumbotron (`.jumbotron .btn`) a `block` display rule to see how they behave differently.
-7. Now have them apply an `absolute` position to `.jumbotron .buttons`. Explain how the `.jumbotron` box no longer extends to contain the `.buttons` box. It falls "outside" of the element.
-8. Have them give the `.jumbotron .buttons` element `left` or `right` attributes of `0`. It should position them outside of thet jumbotron. Add a `position: relative` to the jumbotron to illustrate how absolute positioning works relative to the closest parent element with `position: relative`.
-9. Working in pairs, ask them to use this absolute positioning technique to anchor the buttons ot thebottom of the jumbotron, with each button taking up exactly 50% of the width. This will be a challenging excercise. They'll need to get the absolutely positioned buttons element full width, peg it to the bottom, absolutely position the buttons themselves and then align each one differently. If possible, they should add padding to the bottom of the jumbotron to make room for the buttons and adjust the border radius of the jumbotron so that it doesn't poke out at the corners.
-10. Once they've done this, ask them to reset their styles for all devices larger than `480px`, so that all the elements have relative positioning and their other attributes are "reset" (`border-radius`, `left`, `right`, etc.).
+## Responsive Web Design
+When we build for the web, we're making websites that can be viewed in a phone, a laptop, a tablet and more. To ensure we're presenting a website that's easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.
 
-### Homework
-1. Do the course on [Responsive web design fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). The first lesson has them set up device testing with remote debugging. If you're unable to get this working, or don't have a mobile device to test with, that's ok. Just use the emulator option in your browser's developer tools.
-2. Read more about [positioning content in CSS](http://learn.shayhowe.com/html-css/positioning-content/).
-3. Using what you've learned about floating elements from the responsive web design fundamentals course, float the two "Learn More" articles side-by-side. Do not use Bootstrap's grid to accomplish this. Try to give the first box a grey background. When checking the homework, make sure they've properly cleared the floats for the parent element, that the grey box has visual padding and that the adjacent boxes are aligned vertically. By the end of this assignment, their page should look like the completed example.
+> **Exercise:** As a group, let's brainstorm as many devices as we can think of which might access the websites we build.
+
+See how much variety there is in [viewport sizes](https://decadecity.net/blog/2014/08/19/a-device-agnostic-approach-to-inlining-css).
+
+## Media Queries
+As you learned in your homework assignment, media queries help us change the display of our content depending on the size of the viewport. Let's review what you learned and break down a media query:
+
+```css
+@media screen and (min-width: 900px) {
+	body {
+		background: red;
+	}
+}
+```
+
+In this media query, we're assigning a red background color to the `<body>` element whenever the viewport is larger than `900px`, and we're viewing on a screen.
+
+- `@media` starts the media query
+- `screen` tells it to apply these styles to screen displays. Other displays might be `print`, for when a webpage is being printed.
+- `(min-width: 900px)` tells it to apply these styles when the viewport is larger than `900px`
+
+Finally, we wrap all of our styles for this media query in brackets (`{` and `}`), just like a CSS rule.
+
+> **Exercise:** Working in pairs, reduce the size of the "Bikes for Refugees" text so that it fits on a small screen (`320px`). But make sure it increases in size on larger screens.
+
+> **Exercise:** The two buttons in the jumbotron don't fit on the same line on small screens around `320px` wide. Working independently, can you adjust their size so that they fit on the same line?
+
+## Content Layout: Flexbox
+Flexbox is a name for a set of CSS layout rules which are supported in newer browsers. They allow you to apply rules to elements to place them side-by-side and re-arrange them.
+
+> **Exercise:** Working in pairs, look at [this Codepen](http://codepen.io/natewr/pen/aJPOeR) which uses flexbox. Try to understand how it is working, then use that technique to put the two articles under the "Learn More" section side-by-side.
+
+> **Exercise:** Working in pairs, search on Google for information about the flexbox `order` property. Share what you've found with each other, then use that to position the "How can I help?" box on the left.
+
+Often you will be asked to place a "gutter" between objects that sit side-by-side. A "gutter" is a small amount of open space between two columns. Read about the [justify-content](https://css-tricks.com/almanac/properties/j/justify-content/) property.
+
+> **Exercise:** Add a small gutter between the two articles under the "Learn More" section.
+
+Let's take a break from flexbox for a minute. Do you remember the `:first-child` psuedo class? There's a `:last-child` psuedo class as well.
+
+> **Exercise:** See if you can use these psuedo classes to give the left box a grey background (`#ddd`) and the right box a grey border (`1px solid #ddd`). Use [this screenshot](assets/screenshot-complete.png) to guide you.
+
+Now, back to Flexbox. Read this short article on the [align-items](https://css-tricks.com/almanac/properties/a/align-items/) property. Try out some of the different properties on your "Learn More" boxes to see how they effect the size of the boxes.
+
+> **Exercise:** Working independently, try to position the articles and images side-by-side under the "Upcoming Events" section. Use [this screenshot](assets/screenshot-complete.png) to guide you. If you get stuck, go ahead and ask your partner. Never be afraid to ask!
+
+## Homework
+1. (Est. 1-2 hours) Complete the "Common Responsive Patterns" lesson of the [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893) course.
+2. (Est. 1-2 hours) Complete as many levels of the [Flexbox Froggy](http://flexboxfroggy.com/) game as you can. This will stretch your knowledge of Flexbox and you may need to do some research. It's ok if you can't complete all levels. Do as many as you can.
+2. (Est. 1-2 hours) Revisit the webpage you created in last week's homework assignment. Add a sidebar to your site and move the site description into it. This should appear below the articles on small screens, then switch to a two-column layout with the articles and sidebar sitting side-by-side. Add at least three more articles and then convert them to a grid, so that you show 3 articles per row in a box layout.
+3. (Est. 1-2 hours) Flexbox is relatively new and is not supported in older browsers. In most of your work, you'll use Flexbox. But an employer might want you to use one of the older layout strategies. Read this article to learn about [positioning content in CSS](http://learn.shayhowe.com/html-css/positioning-content/) using floats and absolute positioning.
+
+## Prepare for the next class
+1. (Est. 1 hour) You may remember Bootstrap from your application process. Look at the documentation for [Bootstrap 4](https://v4-alpha.getbootstrap.com/) and look at their examples to see how they are building components.

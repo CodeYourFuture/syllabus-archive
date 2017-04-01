@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Week 0](lesson-0.md)
+* [Week 0](lesson0.md)
 * HTML/CSS
   * [Week 1](/html-css/lesson1.md)
   * [Week 2](/html-css/lesson2.md)

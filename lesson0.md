@@ -1,15 +1,64 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![](https://img.shields.io/badge/status-review-orange.svg)
 
 # Lesson 0
-** What we will learn today?**
-- [Git](#Git)
-- [IDEs](#IDE)
-- [Terminal](#Terminal-basics)
-- [CodeYourFuture](#CodeYourFuture)
+**What we will learn today?**
+- [Terminal](#terminal-basics)
+- [Git](#git)
+- [IDEs](#ide)
+- [CodeYourFuture](#codeyourfuture)
+- [Homework](#homework)
 ---
 
+## Terminal basics
+
+Welcome to the world of Web Development! During your course journey and onwards, the
+**terminal** (also known as **command line**) will be one of your most valuable tools.
+It will help you to interact with you computer faster, by helping you to:
+
+- Create and delete files.
+- Install web development tools.
+- Start a server.
+- Use source control (explained [later in this lesson](#Git)).
+
+All this will make sense as we progress with the lessons. For now, we would like you
+to get familiar with it by following this tutorial:
+
+- [Learn the command line >](https://www.codecademy.com/learn/learn-the-command-line)
+
+### How do I use it on my computer?
+
+So now that you know what the terminal can do for you, how do you use it? Please find
+instructions for your operating system below. After you have followed the instructions,
+open a terminal and write `ls`, then press the `Enter` key. You will see something
+like this:
+
+<div style="text-align: center;">
+  <img
+    src="assets/lesson-0/terminal.png"
+    width="300"
+    alt="Terminal"
+  />
+</div>
+
+#### Linux
+
+The Terminal is already installed. It should be in the list of applications available in
+your computer. [More instructions >](http://www.wikihow.com/Open-a-Terminal-Window-in-Ubuntu)
+
+#### Mac OSx (Apple)
+
+The Terminal is already installed. It should be in the list of applications available in
+your computer. [More instructions >](http://www.wikihow.com/Get-to-the-Command-Line-on-a-Mac)
+
+#### Windows
+
+Install [cmder](http://cmder.net/). After that, open it from your windows menu. When
+mentors ask you to open a terminal, please open `cmder`.
+
 ## Git
-We will use Git as our Version Control System (also known as Source Control)
+
+We will use Git as our Version Control System (also known as Source Control). It's
+like Dropbox for developers. But much better!
 
 > **What is "version control"?** Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
 
@@ -28,11 +77,12 @@ Follow this tutorial from Github to setup Git https://help.github.com/articles/s
 
 
 ### A typical workflow
+
 - If you're basing your work from another project, the first step is typically to **fork** their repo. Read this guide for instructions (https://help.github.com/articles/fork-a-repo/)
 
 - If you're starting a new project then you should follow these steps https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
 
-### Typical Git commands
+### Using Git through the Terminal
   - `git init` ***if it is a new project***, i.e. a project not **cloned** from a repo (or a fork of a repo)
   - `git add .` to to add local files to the **index**
   - `git commit -m "Good explanation of your file changes"` to commit files to the local repo
@@ -42,7 +92,25 @@ Follow this tutorial from Github to setup Git https://help.github.com/articles/s
 
 You will also typically need to set up your email and name once when you install Git `git config --global user.name <name>` and `git config --global user.email <email>`.
 
+### Using Git through a graphical interface
+
+If you don't feel comfortable with the terminal just yet, download the
+[Github client](https://desktop.github.com/).
+
+[Github client guides >](https://help.github.com/desktop/guides/contributing/)
+
+### Pull Requests
+
 You should also learn how to create and work with [Pull Requests](https://help.github.com/articles/about-pull-requests/).
+
+### Github
+
+During our course, we will be using [Github](https://github.com) to store our code.
+Github is the most popular Git service around, and is used by many large companies,
+like Facebook, Airbnb and The Guardian.
+
+[CodeYourFuture's Github page >](https://github.com/Code-Your-Future)
+
 
 ### More Resources
 - Follow this tutorial to learn the basic Git commands https://www.codeschool.com/courses/try-git
@@ -128,14 +196,23 @@ development experience.
 - [Sublime](http://www.sublimetext.com/)
 
 
-## Terminal basics
-- Follow this tutorial https://www.codecademy.com/learn/learn-the-command-line
-
-ToDo: More Resources? iTerm, Windows
-
-
 ## CodeYourFuture
+
 - What we learn?
 - How we work?
 - How we treat each other?
 - Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2016). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
+
+
+## Homework
+
+- Learn how to navigate your computer using a Terminal (view files, copy files).
+- Choose and install an IDE.
+- Open your IDE and create a file named `hello-world.txt`.
+- If you don't have a Github account yet, head to the website and [create one](https://github.com/).
+- [Create a repository](https://github.com/new) in Github and upload `hello-world.txt`
+to it.
+- Send us a link to your repository! You'll find it under `http://github.com/yourusername`.
+
+It's alright if you are getting stuck or if something doesn't look right!
+When it happens, please ask your mentors or classmates for help in Slack.

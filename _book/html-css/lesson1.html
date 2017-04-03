@@ -100,9 +100,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../lesson-0.md">
+        <li class="chapter " data-level="1.2" data-path="../lesson0.html">
             
-                <span>
+                <a href="../lesson0.html">
             
                     
                     Week 0
@@ -456,7 +456,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="htmlcss-1">HTML/CSS 1</h1>
-<p><strong> What we will learn today?</strong></p>
+<p><strong>What will we learn today?</strong></p>
 <ul>
 <li>Semantic HTML tags</li>
 <li>CSS selectors, CSS cascade, Pseudo-classes such as <code>:hover</code>/<code>:focus</code></li>
@@ -466,138 +466,145 @@
 <hr>
 <h2 id="what-makes-a-web-page">What makes a web page?</h2>
 <p><img src="assets/webpage-parts.png" alt="What makes a web page"></p>
-<p><strong> Separation of Concerns: </strong> In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)</p>
+<p><strong>Separation of Concerns:</strong> In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)</p>
 <blockquote>
 <p><strong>Principles</strong> - During the course, we will highlight principles that apply to the specific topic but also to Computer Science and Programming in general. It is important to understand these principles, terms and apply them to your thinking in general.</p>
 </blockquote>
 <h2 id="code-walkthrough">Code Walkthrough</h2>
-<p>During Today&apos;s class, we will take this partially built site in the first image and gradually transform to the one in the second image.</p>
+<p>In today&apos;s class, we will begin adapting styles on this example website. We&apos;ll review some of the HTML/CSS basics you already encountered during your application process and learn some new techniques. By the end of the third lesson, we will have worked together to improve the example site on the left so that it looks like the screenshot on the right.</p>
 <p><a href="assets/screenshot-start.png" target="blank">
   <img src="assets/screenshot-start.png" style="border: 1px solid #bababa; width: 48%; max-height: 293px">
 </a>
 <a href="assets/screenshot-complete.png" target="blank">
   <img src="assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
 </a></p>
-<p>The first image is already implemented and is available
-<a href="https://codepen.io/kabaros/project/full/ArrJEA/" target="_blank">on this Codepen</a></p>
+<p>The example website you&apos;ll begin working with is available <a href="https://codepen.io/natewr/project/editor/AwpkjD/" target="_blank">on this Codepen</a>.</p>
 <blockquote>
-<p><strong>Exercise</strong>: Spend 5 minutes exploring the code (HTML and CSS) for this page - notice how the file structure and how the Concerns are separated</p>
-<ul>
-<li>Why we don&apos;t put everything in one file?</li>
-</ul>
+<p><strong>Exercise</strong>: Spend 5 minutes exploring the <code>.html</code> and <code>.css</code> files for this page. Why don&apos;t we put everything in one file?</p>
 </blockquote>
 <h2 id="semantic-html">Semantic HTML</h2>
-<p>What is wrong with using <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span></code> for all our HTML page?</p>
+<p>When writing HTML code, you can use different tags to describe the content. Is it a navigation menu, a paragraph of text, or an article? By using the correct tag, you help search engines like Google or screen readers for the visually impaired.</p>
+<blockquote>
+<p>Semantic HTML is the use of HTML markup to reinforce the semantics, or <strong>meaning</strong>, of the information in webpages and web applications rather than merely to define its presentation or look. <a href="https://en.wikipedia.org/wiki/Semantic_HTML" target="_blank">Wikipedia</a></p>
+</blockquote>
+<p>We&apos;ll cover the following semantic tags:</p>
 <ul>
 <li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">&gt;</span></span></code></li>
-<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span></code> and the role=&quot;main&quot; attribute</li>
-<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span></code>, <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">&gt;</span></span></code></li>
-<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>complementary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span></code>.<blockquote>
-<p><strong>Exercise (pair programming):</strong>  Work in pairs to determine where to place these new Tags in the index.html file.</p>
-</blockquote>
-</li>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">&gt;</span></span></code></li>
+<li>The <code>role=&quot;main&quot;</code> attribute</li>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nav</span><span class="token punctuation">&gt;</span></span></code></li>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>article</span><span class="token punctuation">&gt;</span></span></code></li>
+<li><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>complementary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span></code></li>
 </ul>
+<blockquote>
+<p><strong>Exercise (pair programming):</strong>  Work in pairs to determine where to place these new Tags and Attributes in the index.html file. Who benefits when we write &quot;semantic&quot; HTML?</p>
+</blockquote>
 <h2 id="css-selectors">CSS Selectors</h2>
-<p>Selectors define to which elements a set of CSS rules apply.</p>
-<ul>
-<li>Type selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements of Type input and set their color to red */
-input {
-color: red
-}
-</code></pre>
-</li>
-<li>Class selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements that have a class name &quot;address-info&quot; and set their color to red */
-.address-info {
-color: red
-}
-</code></pre>
-</li>
-<li>ID selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements that have an ID &quot;input-email&quot; and set their color to red */
-#input-email {
-color: red
-}
-</code></pre>
-</li>
-<li>Combining selectors<pre class="language-"><code class="lang-CSS">/* This CSS snippet would select all elements of Type input that also have a class &quot;address-info&quot; and set their color to red */
-input.address-info {
-color: red
-}
-</code></pre>
-</li>
-</ul>
-<p>For more information about selectors, check the <a href="#resources">resources section</a> of this class.</p>
+<p>During your application process, you became familiar with CSS selectors. We&apos;ll review the basic selectors and then practice combining these to modify our button styles.</p>
 <blockquote>
-<p><strong>Exercises:</strong></p>
-<ol>
-<li>Set body background, color and font-size to see how it effects the page.</li>
-<li>Implement a background image in the jumbotron.</li>
-</ol>
+<p>If you want to review the selectors, read the <a href="http://learn.shayhowe.com/advanced-html-css/complex-selectors/" target="_blank">Common Selectors section</a> of this page.</p>
+<p><strong>Exercise (pair programming):</strong> Work in pairs to make the blue buttons on the page red (<code>#ce5f31</code>). The white button, which says &quot;Volunteer&quot;, should remain white but the text should change to red.</p>
 </blockquote>
-<h2 id="the-cascade">The cascade</h2>
-<p>The cascade is a fundamental feature of CSS. It is an algorithm defining how to combine properties values originating from different sources. It lies at the core of CSS as stressed by its name: Cascading Style Sheets. (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade" target="_blank">MDN</a>)</p>
+<h2 id="css-inheritance">CSS Inheritance</h2>
+<p>Some CSS styles applied to one element will be &quot;inherited&quot; by their child elements. These are usually styles which apply to the content of the elements, such as font family and color. Other properties, like margins, paddings and borders, don&apos;t get passed down to children.</p>
 <blockquote>
-<p><strong>Exercises:</strong></p>
-<ol>
-<li>Make all the text in the Jumbotron white (hint: use what you learned about the Cascade)</li>
-<li>Update the buttons to look like the screenshot, using the color from the logo (<code>#ce5f31</code>) for .btn-primary. (Make this change for all buttons on the page, not just those in the jumbotron.)</li>
-</ol>
+<p>In English, the word <strong>inherit</strong> refers to something, like the color of your eyes, which you can receive from your parent. We use this to describe how &quot;child&quot; HTML elements can inherit styles from &quot;parent&quot; HTML elements.</p>
 </blockquote>
-<h2 id="pseudo-classes">Pseudo classes</h2>
-<p>A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected. For example <code>:hover</code> will apply a style when the user hovers over the element specified by the selector.</p>
+<p>We&apos;ll do two quick exercises to explore what gets inherited, what doesn&apos;t, and why.</p>
 <blockquote>
-<p><strong>Exercise:</strong>
-Check out this <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank">page</a> for a list of all available pseudo classes.</p>
-<ol>
-<li>Change the colors to use <code>#ef7f52</code> as the background on hover and <code>#fff</code> on focus.</li>
-<li>Use what you&apos;ve learned about :hover and :focus to make the links in the navigation menu show a red (<code>#ce5f31</code>) border during those interactions. (make sure the button does not jump when the border is applied)</li>
-</ol>
+<p><strong>Exercise:</strong> Work in pairs and use the <a href="http://www.htmldog.com/references/css/properties/background/" target="_blank">background properties</a> to add a <a href="background%20image">assets/jumbotron-background.jpg</a> to the jumbotron. Did these styles have &quot;inheritance&quot;? Why do you think they did or did not?</p>
 </blockquote>
-<h2 id="box-model">Box model</h2>
-<ul>
-<li>How margins, padding and borders effect the size of a block element differently.</li>
-</ul>
-<p><img src="https://mdn.mozillademos.org/files/13647/box-model-standard-small.png" alt="Box Model"></p>
-<p>Image from MDN <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model" target="_blank">https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model</a></p>
+<p>Now that the background image is in place, the text is difficult to read. The text needs to be white.</p>
 <blockquote>
-<p><strong>Exercises:</strong></p>
-<ol>
-<li>Give each navigation menu link a left and right padding, and a left and right margin, of 1em.</li>
-<li>There is a small gap that appears as you move the mouse from left to right across the menu. Modify the link styles to remove this gap, so that the mouse moves immediately from one link to the next.</li>
-<li>Add a margin to the <code>Learn More</code> heading, so that there is more space between the jumbotron and the heading. (make sure it applies only Learn More heading)</li>
-</ol>
+<p><strong>Exercise:</strong> Work in pairs and use just one CSS rule to set all of the text in the jumbotron to white. To do this, you&apos;ll need to use inheritance. Why do you think some styles, like text color, get inherited?</p>
 </blockquote>
-<h2 id="css-specificity">CSS specificity</h2>
-<p>What happens if two CSS rules apply to the same element?</p>
+<h2 id="pseudo-classes">Pseudo Classes</h2>
+<p>You can assign CSS rules to a class like this:</p>
+<pre class="language-"><code class="lang-css"><span class="token selector">.btn</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #ce5f31<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>There are also things called &quot;pseudo&quot; classes. In this section, we&apos;ll introduce you to the common pseudo classes for assigning styles to interactions, such as moving your mouse over a link.</p>
+<blockquote>
+<p>&quot;pseudo&quot; is a fancy word for &quot;fake&quot;. We call them &quot;pseudo&quot; classes because they&apos;re not really there in the HTML, but the browser knows what to do with them.</p>
+</blockquote>
+<p>Here&apos;s an example of a pseudo class which changes the color of a link when the mouse moves over it.</p>
+<pre class="language-"><code class="lang-css"><span class="token selector">.btn:hover</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #ef7f52<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit <code>tab</code> to move between links on a page. So that they can see where they are, you should add effects to the <code>:focus</code> pseudo class too.</p>
+<pre class="language-"><code class="lang-css"><span class="token selector">.btn:hover,
+.btn:focus</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #ef7f52<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Exercise:</strong> Work in pairs and use the pseudo classes to make the background color of the red buttons change when in a &quot;hover&quot; or &quot;focus&quot; state. See if you can make the white &quot;Volunteer&quot; button change to a different background without effecting the red buttons.</p>
+</blockquote>
+<h2 id="the-cascade">The Cascade</h2>
+<p>CSS stands for Cascading Style Sheets. The &quot;cascade&quot; is a set of rules which the browser uses to choose what to do when two CSS rules conflict. Take the following example:</p>
+<pre class="language-"><code class="lang-css"><span class="token selector">.btn</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">.btn</span> <span class="token punctuation">{</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Should the <code>.btn</code> be red or blue? When identical selectors are next to each other like this, the browser lets the last one override the first one. But in a real-world scenario, you may have CSS scattered across different files. To solve this, we use the cascade.</p>
+<blockquote>
+<p><strong>Exercise:</strong> Read the section on <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance#The_cascade" target="_blank">the cascade</a>. Then pair up. In the example, there are two paragraphs. Pick one paragraph and explain to your partner why it has a particular background color. Then ask your partner to explain the other paragraph.</p>
+<p><strong>Exercise:</strong> Work in pairs to give each one of the navigation menu items a red border (<code>#ce5f31</code>). This border should only appear when the mouse is hovering over it or the item has focus. Then use what you&apos;ve learned about the cascade to give the first navigation menu item (&quot;Home&quot;) a different color border.</p>
+</blockquote>
+<h2 id="box-model">Box Model</h2>
+<p>In CSS, everything is a box. An image is a box. A link is a box. The area around this box can be modified with properites that we call margins, borders and padding. Here&apos;s a diagram showing what the box looks like.</p>
+<p><img src="https://mdn.mozillademos.org/files/13647/box-model-standard-small.png" alt="Box Model. Source: MDN"></p>
+<blockquote>
+<p><strong>Exercise:</strong> Work in pairs and use the <code>margin</code> and <code>padding</code> rules to spread your navigation links out a bit wider. There should be a small gap between them and enough padding so that the border is not too tight on the text.</p>
+</blockquote>
+<p>You may have noticed that the border you added to the navigation links causes the links to jump around when you move your mouse over them. That&apos;s because the border is adding to the width of the box model, pushing the others to the side.</p>
+<p>You can also set a transparent border, so that it takes up the space without showing a visible border.</p>
+<pre class="language-"><code class="lang-css"><span class="token selector">.navlink</span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid transparent<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p><strong>Exercise:</strong> Use a transparent border so that the width of each navigation menu item stays the same even when it is hovered or focused.</p>
+</blockquote>
 <h1 id="resources">Resources</h1>
 <ol>
-<li><a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5" target="_blank">HTML5 - elements and their semantic</a></li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5" target="_blank">HTML5 - semantic elements</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors" target="_blank">CSS Selectors - MDN</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade" target="_blank">The Cascade - MDN</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model" target="_blank">Box Model - MDN</a></li>
+<li><a href="https://css-tricks.com/international-box-sizing-awareness-day/" target="_blank">Box Model, box-sizing: border-box - CSS Tricks</a></li>
 <li><a href="https://developer.mozilla.org/en/docs/Web/CSS/Specificity" target="_blank">CSS specificity - MDN</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes" target="_blank">Pseudo classes - MDN</a></li>
 </ol>
-<h1 id="homework">Homework</h1>
+<h2 id="homework">Homework</h2>
 <ol>
-<li><p>Move Your Codepen page that you created to Github. That would involve:</p>
+<li><p>(Est. 1 hour) Move your Codepen page that you created to Github. That would involve:</p>
 <ul>
 <li>Create a new Repository under your Github account</li>
-<li>Moving your codepen files to your machine</li>
-<li>Pushing them to Github</li>
-<li>Apply the knowledge you acquired today to improve the page:</li>
+<li>Move your codepen files to your machine</li>
+<li>Push them to Github</li>
 </ul>
 </li>
-<li><p>Read about <a href="http://learn.shayhowe.com/html-css/building-forms/" target="_blank">HTML forms</a>. Create a new HTML page, <code>contact.html</code> and add it to your Codepen site (after you&apos;ve moved it to Github). Create a form to ask the user to enter their <code>name</code>, <code>email</code>, <code>address</code> and <code>phone number</code>, and present them with a large area to enter a <code>message</code>, and a button to <code>submit</code> the message. You may use <a href="http://getbootstrap.com/components/#input-groups" target="_blank">Bootstrap&apos;s input groups</a> if you like. But also use the CSS techniques you&apos;ve learned so far to style this form like the rest of the site. Things like border colors, labels and buttons should fit with the existing style of the page.</p>
+<li><p>(Est. 2-3 hours) Create a new webpage (<code>.html</code>) on a subject that you&apos;re interested in. The page should not use any framework like Bootstrap and it should include the following elements:</p>
+<ul>
+<li>A linked <code>.css</code> file applies a consistent color scheme to links and text on your page.</li>
+<li>A page header with a title and description for the site.</li>
+<li>An articles section with three articles, each including a title, summary and a link.</li>
+<li>Proper use of the semantic HTML tags we discussed.</li>
+<li>Research the <code>:first-child</code> pseudo-class and use it to style the first article so that it stands out from the others.</li>
+</ul>
 </li>
-<li><p><strong>[Bonus/Optional]</strong> To practice your CSS selectors, play this <a href="https://flukeout.github.io/" target="_blank">CSS Selector game</a>. It gets hard at the end, but try your best! We advise that you read about <a href="http://learn.shayhowe.com/advanced-html-css/complex-selectors/" target="_blank">advanced CSS selectors</a> to help you with the game</p>
-</li>
-<li><p><strong>Research:</strong> Each student chose a topic to read about this week and do a very short presentation (5 minutes) about it next week.
-The list of topics are: <code>HTML aria attributes</code>, <code>CSS box model</code>, <code>Vertically centering content</code>, <code>CSS naming patterns (BEM/OOCSS)</code>, <code>z-index</code>, <code>Positioning (absolute, relative, fixed)</code>, <code>Icon fonts</code>, <code>CSS transitions</code>, <code>Accessibility &amp; SEO</code></p>
+<li><p><strong>Optional</strong> (Est. 1 hour) Read about <a href="http://learn.shayhowe.com/advanced-html-css/complex-selectors/" target="_blank">advanced CSS selectors</a> and then practice by playing this <a href="https://flukeout.github.io/" target="_blank">CSS selector game</a>. It gets hard at the end, but try your best!</p>
 </li>
 </ol>
 <h2 id="prepare-for-the-next-class">Prepare for the next class</h2>
 <ol>
-<li>Read this <a href="https://varvy.com/mobile/media-queries.html" target="_blank">introduction to media queries</a>.</li>
+<li>(Est. 5-6 hours) Complete the first three lessons in this course on <a href="https://www.udacity.com/course/responsive-web-design-fundamentals--ud893" target="_blank">Responsive Web Design Fundamentals</a>. You should complete <strong>Why Responsive?</strong>, <strong>Starting Small</strong> and <strong>Building Up</strong>. <em>Don&apos;t worry if you don&apos;t have a phone you can use for Remote Debugging. You can use the browser&apos;s Device Emulation instead.</em></li>
 </ol>
 
                                 
@@ -638,7 +645,7 @@ The list of topics are: <code>HTML aria attributes</code>, <code>CSS box model</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.3.1","depth":2,"next":{"title":"Week 2","level":"1.3.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},"previous":{"title":"HTML/CSS","level":"1.3","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.3.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},{"title":"Week 2","level":"1.3.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/lesson1.md","mtime":"2017-03-25T17:55:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-25T13:34:03.675Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.3.1","depth":2,"next":{"title":"Week 2","level":"1.3.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},"previous":{"title":"HTML/CSS","level":"1.3","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.3.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},{"title":"Week 2","level":"1.3.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/lesson1.md","mtime":"2017-04-03T20:27:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-03T20:29:59.550Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -646,10 +653,6 @@ The list of topics are: <code>HTML aria attributes</code>, <code>CSS box model</
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

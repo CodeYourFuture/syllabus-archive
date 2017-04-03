@@ -100,9 +100,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../lesson-0.md">
+        <li class="chapter " data-level="1.2" data-path="../lesson0.html">
             
-                <span>
+                <a href="../lesson0.html">
             
                     
                     Week 0
@@ -455,25 +455,69 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="week-2-estimated-2-3-hours">Week 2 (estimated 2-3 hours)</h2>
-<p>The responsive web, media queries, and content positioning.</p>
+                                <h1 id="htmlcss-2">HTML/CSS 2</h1>
+<p><strong>What will we learn today?</strong></p>
+<ul>
+<li>Responsive web design</li>
+<li>Media queries</li>
+<li>Content layout: flexbox</li>
+<li>Content layout: floats (maybe)</li>
+<li>Content layout: relative and absolute positioning (maybe)</li>
+</ul>
+<hr>
+<h2 id="responsive-web-design">Responsive Web Design</h2>
+<p>When we build for the web, we&apos;re making websites that can be viewed in a phone, a laptop, a tablet and more. To ensure we&apos;re presenting a website that&apos;s easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.</p>
+<blockquote>
+<p><strong>Exercise:</strong> As a group, let&apos;s brainstorm as many devices as we can think of which might access the websites we build.</p>
+</blockquote>
+<p>See how much variety there is in <a href="https://decadecity.net/blog/2014/08/19/a-device-agnostic-approach-to-inlining-css" target="_blank">viewport sizes</a>.</p>
+<h2 id="media-queries">Media Queries</h2>
+<p>As you learned in your homework assignment, media queries help us change the display of our content depending on the size of the viewport. Let&apos;s review what you learned and break down a media query:</p>
+<pre class="language-"><code class="lang-css"><span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 900px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this media query, we&apos;re assigning a red background color to the <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span></code> element whenever the viewport is larger than <code>900px</code>, and we&apos;re viewing on a screen.</p>
+<ul>
+<li><code>@media</code> starts the media query</li>
+<li><code>screen</code> tells it to apply these styles to screen displays. Other displays might be <code>print</code>, for when a webpage is being printed.</li>
+<li><code>(min-width: 900px)</code> tells it to apply these styles when the viewport is larger than <code>900px</code></li>
+</ul>
+<p>Finally, we wrap all of our styles for this media query in brackets (<code>{</code> and <code>}</code>), just like a CSS rule.</p>
+<blockquote>
+<p><strong>Exercise:</strong> Working in pairs, reduce the size of the &quot;Bikes for Refugees&quot; text so that it fits on a small screen (<code>320px</code>). But make sure it increases in size on larger screens.</p>
+<p><strong>Exercise:</strong> The two buttons in the jumbotron don&apos;t fit on the same line on small screens around <code>320px</code> wide. Working independently, can you adjust their size so that they fit on the same line?</p>
+</blockquote>
+<h2 id="content-layout-flexbox">Content Layout: Flexbox</h2>
+<p>Flexbox is a name for a set of CSS layout rules which are supported in newer browsers. They allow you to apply rules to elements to place them side-by-side and re-arrange them.</p>
+<blockquote>
+<p><strong>Exercise:</strong> Working in pairs, look at <a href="http://codepen.io/natewr/pen/aJPOeR" target="_blank">this Codepen</a> which uses flexbox. Try to understand how it is working, then use that technique to put the two articles under the &quot;Learn More&quot; section side-by-side.</p>
+<p><strong>Exercise:</strong> Working in pairs, search on Google for information about the flexbox <code>order</code> property. Share what you&apos;ve found with each other, then use that to position the &quot;How can I help?&quot; box on the left.</p>
+</blockquote>
+<p>Often you will be asked to place a &quot;gutter&quot; between objects that sit side-by-side. A &quot;gutter&quot; is a small amount of open space between two columns. Read about the <a href="https://css-tricks.com/almanac/properties/j/justify-content/" target="_blank">justify-content</a> property.</p>
+<blockquote>
+<p><strong>Exercise:</strong> Add a small gutter between the two articles under the &quot;Learn More&quot; section.</p>
+</blockquote>
+<p>Let&apos;s take a break from flexbox for a minute. Do you remember the <code>:first-child</code> psuedo class? There&apos;s a <code>:last-child</code> psuedo class as well.</p>
+<blockquote>
+<p><strong>Exercise:</strong> See if you can use these psuedo classes to give the left box a grey background (<code>#ddd</code>) and the right box a grey border (<code>1px solid #ddd</code>). Use <a href="assets/screenshot-complete.png">this screenshot</a> to guide you.</p>
+</blockquote>
+<p>Now, back to Flexbox. Read this short article on the <a href="https://css-tricks.com/almanac/properties/a/align-items/" target="_blank">align-items</a> property. Try out some of the different properties on your &quot;Learn More&quot; boxes to see how they effect the size of the boxes.</p>
+<blockquote>
+<p><strong>Exercise:</strong> Working independently, try to position the articles and images side-by-side under the &quot;Upcoming Events&quot; section. Use <a href="assets/screenshot-complete.png">this screenshot</a> to guide you. If you get stuck, go ahead and ask your partner. Never be afraid to ask!</p>
+</blockquote>
+<h2 id="homework">Homework</h2>
 <ol>
-<li>Student presentations with questions and answers.</li>
-<li>Talk about how the web is viewed on many device widths, and a modern developer has to find a way to display content that looks great on every device.</li>
-<li>With the developer tools open, have them drag the screen width down to 320px. Point out how the text &quot;Refugees&quot; in the jumbotron exceeds the width of the image. Ask them to reduce the size of the text to <code>3em</code>. Now view the webpage in a wider window again, to show how it seems too small on a larger screen.</li>
-<li>Introduce the following media query and deconstruct each part: <code>@media screen and (min-width: 480px)</code>. Using this knowledge, ask them to increase the font size of the &quot;Refugees&quot; text only when a screen is larger than <code>480px</code>.</li>
-<li>Using the techniques they&apos;ve learned, ask them to make sure that the buttons in the jumbotron fit on one line on small screens. (They should modify the padding and font size, rather than removing or hiding text).</li>
-<li>Introduce <code>static</code> and <code>relative</code> positioning (<a href="http://stackoverflow.com/questions/5011211/difference-between-static-and-relative-positioning" target="_blank">the difference</a>). Point out how elements in the jumbotron appear vertically one after the other, except for the buttons, which appear side by side. Explain the difference between <code>block</code> elements and <code>inline</code> elements. Ask them to give the buttons within the jumbotron (<code>.jumbotron .btn</code>) a <code>block</code> display rule to see how they behave differently.</li>
-<li>Now have them apply an <code>absolute</code> position to <code>.jumbotron .buttons</code>. Explain how the <code>.jumbotron</code> box no longer extends to contain the <code>.buttons</code> box. It falls &quot;outside&quot; of the element.</li>
-<li>Have them give the <code>.jumbotron .buttons</code> element <code>left</code> or <code>right</code> attributes of <code>0</code>. It should position them outside of thet jumbotron. Add a <code>position: relative</code> to the jumbotron to illustrate how absolute positioning works relative to the closest parent element with <code>position: relative</code>.</li>
-<li>Working in pairs, ask them to use this absolute positioning technique to anchor the buttons ot thebottom of the jumbotron, with each button taking up exactly 50% of the width. This will be a challenging excercise. They&apos;ll need to get the absolutely positioned buttons element full width, peg it to the bottom, absolutely position the buttons themselves and then align each one differently. If possible, they should add padding to the bottom of the jumbotron to make room for the buttons and adjust the border radius of the jumbotron so that it doesn&apos;t poke out at the corners.</li>
-<li>Once they&apos;ve done this, ask them to reset their styles for all devices larger than <code>480px</code>, so that all the elements have relative positioning and their other attributes are &quot;reset&quot; (<code>border-radius</code>, <code>left</code>, <code>right</code>, etc.).</li>
+<li>(Est. 1-2 hours) Complete the &quot;Common Responsive Patterns&quot; lesson of the <a href="https://www.udacity.com/course/responsive-web-design-fundamentals--ud893" target="_blank">Responsive Web Design Fundamentals</a> course.</li>
+<li>(Est. 1-2 hours) Complete as many levels of the <a href="http://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> game as you can. This will stretch your knowledge of Flexbox and you may need to do some research. It&apos;s ok if you can&apos;t complete all levels. Do as many as you can.</li>
+<li>(Est. 1-2 hours) Revisit the webpage you created in last week&apos;s homework assignment. Add a sidebar to your site and move the site description into it. This should appear below the articles on small screens, then switch to a two-column layout with the articles and sidebar sitting side-by-side. Add at least three more articles and then convert them to a grid, so that you show 3 articles per row in a box layout.</li>
+<li>(Est. 1-2 hours) Flexbox is relatively new and is not supported in older browsers. In most of your work, you&apos;ll use Flexbox. But an employer might want you to use one of the older layout strategies. Read this article to learn about <a href="http://learn.shayhowe.com/html-css/positioning-content/" target="_blank">positioning content in CSS</a> using floats and absolute positioning.</li>
 </ol>
-<h3 id="homework">Homework</h3>
+<h2 id="prepare-for-the-next-class">Prepare for the next class</h2>
 <ol>
-<li>Do the course on <a href="https://www.udacity.com/course/responsive-web-design-fundamentals--ud893" target="_blank">Responsive web design fundamentals</a>. The first lesson has them set up device testing with remote debugging. If you&apos;re unable to get this working, or don&apos;t have a mobile device to test with, that&apos;s ok. Just use the emulator option in your browser&apos;s developer tools.</li>
-<li>Read more about <a href="http://learn.shayhowe.com/html-css/positioning-content/" target="_blank">positioning content in CSS</a>.</li>
-<li>Using what you&apos;ve learned about floating elements from the responsive web design fundamentals course, float the two &quot;Learn More&quot; articles side-by-side. Do not use Bootstrap&apos;s grid to accomplish this. Try to give the first box a grey background. When checking the homework, make sure they&apos;ve properly cleared the floats for the parent element, that the grey box has visual padding and that the adjacent boxes are aligned vertically. By the end of this assignment, their page should look like the completed example.</li>
+<li>(Est. 1 hour) You may remember Bootstrap from your application process. Look at the documentation for <a href="https://v4-alpha.getbootstrap.com/" target="_blank">Bootstrap 4</a> and look at their examples to see how they are building components.</li>
 </ol>
 
                                 
@@ -514,7 +558,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 2","level":"1.3.2","depth":2,"next":{"title":"JavaScript Core","level":"1.4","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},{"title":"Week 4","level":"1.4.4","depth":2,"path":"js-core/lesson4.md","ref":"js-core/lesson4.md","articles":[]}]},"previous":{"title":"Week 1","level":"1.3.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/lesson2.md","mtime":"2017-03-19T12:02:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-25T13:34:03.675Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 2","level":"1.3.2","depth":2,"next":{"title":"JavaScript Core","level":"1.4","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},{"title":"Week 4","level":"1.4.4","depth":2,"path":"js-core/lesson4.md","ref":"js-core/lesson4.md","articles":[]}]},"previous":{"title":"Week 1","level":"1.3.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/lesson2.md","mtime":"2017-04-01T15:05:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-03T20:29:59.550Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -522,10 +566,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

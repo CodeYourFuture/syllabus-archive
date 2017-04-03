@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../lesson-0.md">
+        <li class="chapter " data-level="1.2" data-path="../lesson0.html">
             
-                <span>
+                <a href="../lesson0.html">
             
                     
                     Week 0
@@ -469,17 +469,101 @@
 <li>Callbacks</li>
 </ul>
 <hr>
-<h2 id="topic-1">Topic 1</h2>
-<p>High level explanation of Topic 1 - rely on the exercises</p>
+<h2 id="functions">Functions</h2>
+<p>Functions are &quot;self contained&quot; modules of code that accomplish a specific task. Functions usually &quot;take in&quot; data, process 
+it, and &quot;return&quot; a result. Once a function is written, it can be used over and over and over again. (Utah University)</p>
+<pre class="language-"><code class="lang-javascript">
+<span class="token comment" spellcheck="true">//Function declarations</span>
+
+<span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;hello&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">square</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> number<span class="token operator">*</span>number<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">square</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// returns 25</span>
+
+<span class="token comment" spellcheck="true">//Function expressions</span>
+
+<span class="token keyword">var</span> addTen <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token keyword">return</span> number <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">addTen</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// return 15</span>
+</code></pre>
 <blockquote>
-<p><strong>Exercise</strong>: Always have exercises</p>
+<p><strong>Exercise</strong>:
+Open <a href="http://codepen.io/rarmatei/pen/jBpdzx?editors=0012" target="_blank">this CodePen</a> and follow the instructions there</p>
 </blockquote>
-<h2 id="topic-2">Topic 2</h2>
-<h2 id="topic-3">Topic 3</h2>
+<h2 id="callbacks">Callbacks</h2>
+<p>You probably noticed in last few exercises that JavaScript functions can be passed
+as arguments to other functions.</p>
+<p>Callbacks are JavaScript functions that are passed as arguments to other functions
+so they can be executed inside those functions once they&apos;re finished.</p>
+<p>Example:</p>
+<pre class="language-"><code class="lang-javascript">
+<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> x <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="more-arrays-and-loops">More arrays and loops</h2>
+<p>todo:
+mostly codepen exercises</p>
+<h2 id="a-taster-of-functional-programming---foreach-map-filter">A taster of functional programming - forEach, map, filter</h2>
+<p>todo</p>
+<h2 id="more-on-objects">More on objects</h2>
+<p>todo:
+the new keyword, creating objects with constructor functions, primitive types vs reference types</p>
+<h2 id="pass-by-value--reference">Pass by value / reference</h2>
+<p>Consider the example below.</p>
+<pre class="language-"><code class="lang-javascript">
+<span class="token keyword">function</span> <span class="token function">addFive</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    value <span class="token operator">=</span> value <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> ten <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token function">addFive</span><span class="token punctuation">(</span>ten<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>ten<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>We have a function that accepts a value as an argument. The function then adds five to the
+argument and logs the value.
+After invoking the function with the variable <code>ten</code>, the variable is logged.</p>
+<p>What will be the values logged?
+Answer: 10 (not 15)</p>
+<p>Explanation:
+In JavaScript, variables are always passed to function by value. That means only the value
+the variables was holding is passed to the function, and not a reference to the variable&apos;s
+location in memory. That means that inside a function call, any changes we make to its
+arguments will only apply inside the function (as seen in the previous example).</p>
+<p><strong>Be careful though</strong>, as the value of an argument might be a reference to a JavaScript
+object, in which case, changing a property on that object will also reflect everywhere
+else we use a reference to that object.</p>
+<p>For example:</p>
+<pre class="language-"><code class="lang-javascript">
+<span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span>primitive<span class="token punctuation">,</span> object<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    primitive <span class="token operator">=</span> primitive <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    object<span class="token punctuation">.</span>greeting <span class="token operator">=</span> <span class="token string">&quot;how are you?&quot;</span><span class="token punctuation">;</span>
+    object <span class="token operator">=</span> <span class="token punctuation">{</span>
+      greeting<span class="token punctuation">:</span> <span class="token string">&quot;holla!&quot;</span>  
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> primitive <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> object <span class="token operator">=</span> <span class="token punctuation">{</span>
+  greeting<span class="token punctuation">:</span> <span class="token string">&apos;hello&apos;</span>  
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span>primitive<span class="token punctuation">,</span> object<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>primitive<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>object<span class="token punctuation">.</span>greeting<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &quot;how are you?&quot;</span>
+</code></pre>
 <h1 id="resources">Resources</h1>
 <ol>
-<li><a href="https://google.com" target="_blank">Resource 1 to learn more about Topic 1</a></li>
-<li><a href="https://google.com" target="_blank">Resource 2 for Topic 2</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank">Functions</a></li>
 </ol>
 <h1 id="homework">Homework</h1>
 <ol>
@@ -539,7 +623,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 2","level":"1.4.2","depth":2,"next":{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},"previous":{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js-core/lesson2.md","mtime":"2017-03-25T18:37:59.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-25T13:34:03.675Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 2","level":"1.4.2","depth":2,"next":{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},"previous":{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js-core/lesson2.md","mtime":"2017-04-03T20:27:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-03T20:29:59.550Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -547,10 +631,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

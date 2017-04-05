@@ -35,12 +35,13 @@ them in more detail.
 1. Export your website as a zip from CodePen. [Help >](https://blog.codepen.io/documentation/features/exporting-pens/)
 2. Extract the contents of the zip file to a folder in your computer. Keep note of the
 location of this folder.
-4. Read about [git](#git).
-5. Create an account on [Github](https://github.com/).
-6. Put your code in a Gitub repository. [Help >](https://guides.github.com/introduction/getting-your-project-on-github/)
-7. You should now have a page with your code under `http://github.com/your-username/your-repository-name`.
+4. Read about the [terminal](#terminal).
+5. Read about [git](#git).
+6. Install [Git](https://git-scm.com/download/).
+7. Put the contents of the zip folder in a Gitub repository. [How does Github work? (30min) >](https://www.youtube.com/watch?v=E8TXME3bzNs)
+8. You should now have a page with your code under `http://github.com/your-username/your-repository-name`.
 This is a view of your code, and you should see a list of your files, including an `index.html`.
-8. Now all that remains is to publish your website! Still under `http://github.com/your-username/your-repository-name`,
+9. Now all that remains is to publish your website! Still under `http://github.com/your-username/your-repository-name`,
 find the settings icon in the top right corner.
 
 <div style="text-align: center;">
@@ -51,7 +52,7 @@ find the settings icon in the top right corner.
   />
 </div>
 
-9. Find the section named "Github Pages" and select "master branch" in source, then hit
+10. Find the section named "Github Pages" and select "master branch" in source, then hit
 "Save".
 
 <div style="text-align: center;">
@@ -62,7 +63,7 @@ find the settings icon in the top right corner.
   />
 </div>
 
-10. Wait a few minutes, then refresh the page and come back to the Github Pages section.
+11. Wait a few minutes, then refresh the page and come back to the Github Pages section.
 You should see a green bar saying "Your site is published at `http://github.com/your-username/your-repository-name`".
 Click the link, verify that your website is there, then share it with your CYF class!
 

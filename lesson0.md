@@ -2,6 +2,7 @@
 
 # Lesson 0
 **What we will learn today?**
+- [Welcome task](#welcome)
 - [Terminal](#terminal-basics)
 - [Git](#git)
 - [IDEs](#ide)
@@ -9,11 +10,66 @@
 - [Homework](#homework)
 ---
 
+## Welcome!
+
+Welcome to CodeYourFuture and to the world of Web Development! Now that you have built
+a website in CodePen and learned the basics of HTML and CSS, it's time to learn about
+the tools that web developers use in their everyday job. These tools will be used during
+the course, so it is important that you become familiarised with them.
+
+In order to get started, we would like you to try to complete a task at home: move your
+CodePen website to a web address under `https://your-username.github.io/your-site-name`.
+
+In the process, you will learn how to store your code outside CodePen's website, in a location
+where other developers can make changes to it and view a history of all the updates that
+you have made.
+
+If you wish to learn more about the concepts behind the steps we are suggesting below,
+please read the rest of this document.
+
+And remember: it's ok if you are stuck and don't know how to continue. At any point, please
+ask for a mentor's help.
+
+### How to move your website to Github.io
+1. Export your website as a zip from CodePen. [Help >](https://blog.codepen.io/documentation/features/exporting-pens/)
+2. Extract the contents of the zip file to a folder in your computer. Keep note of the
+location of this folder.
+4. Read about [git](#git).
+5. Create an account on [Github](https://github.com/).
+6. Put your code in a Gitub repository. [Help >](https://guides.github.com/introduction/getting-your-project-on-github/)
+7. You should now have a page with your code under `http://github.com/your-username/your-repository-name`.
+This is a view of your code, and you should see a list of your files, including an `index.html`.
+8. Now all that remains is to publish your website! Still under `http://github.com/your-username/your-repository-name`,
+find the settings icon in the top right corner.
+
+<div style="text-align: center;">
+  <img
+    src="assets/lesson-0/repo-settings.png"
+    width="200"
+    alt="Repo settings"
+  />
+</div>
+
+9. Find the section named "Github Pages" and select "master branch" in source, then hit
+"Save".
+
+<div style="text-align: center;">
+  <img
+    src="assets/lesson-0/repo-settings-pages.png"
+    width="200"
+    alt="Repo settings - Github pages"
+  />
+</div>
+
+10. Wait a few minutes, then refresh the page and come back to the Github Pages section.
+You should see a green bar saying "Your site is published at `http://github.com/your-username/your-repository-name`".
+Click the link, verify that your website is there, then share it with your CYF class!
+
 ## Terminal basics
 
-Welcome to the world of Web Development! During your course journey and onwards, the
-**terminal** (also known as **command line**) will be one of your most valuable tools.
-It will help you to interact with you computer faster, by helping you to:
+During your course journey and onwards, the **terminal** (also known as **command line**)
+will be one of your most valuable tools. It will help you to interact with you computer
+faster, by helping you to:
 
 - Create and delete files.
 - Install web development tools.
@@ -52,8 +108,8 @@ your computer. [More instructions >](http://www.wikihow.com/Get-to-the-Command-L
 
 #### Windows
 
-Install [cmder](http://cmder.net/). After that, open it from your windows menu. When
-mentors ask you to open a terminal, please open `cmder`.
+Install [Git](https://git-scm.com/download/). It will bring with it a tool called "Git Bash".
+When the mentors ask you to open a terminal or command line, please open "Git Bash".
 
 ## Git
 
@@ -74,6 +130,8 @@ What is **Github**? Github is a very popular sites where you can publish and sha
 
 ### Get Started
 Follow this tutorial from Github to setup Git https://help.github.com/articles/set-up-git/
+
+Then [learn how to use git from the Terminal >](https://www.codecademy.com/learn/learn-git)
 
 
 ### A typical workflow
@@ -206,13 +264,15 @@ development experience.
 
 ## Homework
 
+- If you have not yet moved your website from CodePen to Github, do it now. Please use the
+information in this section to complete it. 
+- When your website is live at `https://your-username.github.io/your-site-name`, please send
+a link to the slack channel of your class.
 - Learn how to navigate your computer using a Terminal (view files, copy files).
 - Choose and install an IDE.
-- Open your IDE and create a file named `hello-world.txt`.
-- If you don't have a Github account yet, head to the website and [create one](https://github.com/).
-- [Create a repository](https://github.com/new) in Github and upload `hello-world.txt`
-to it.
-- Send us a link to your repository! You'll find it under `http://github.com/yourusername`.
+- Open your website with your chosen IDE and add something to it: text, images, update CSS.
+Commit your changes to Github and verify that `https://your-username.github.io/your-site-name`
+has been updated!
 
 It's alright if you are getting stuck or if something doesn't look right!
 When it happens, please ask your mentors or classmates for help in Slack.

@@ -234,27 +234,24 @@ having to go through the tree view manually.
   />
 </div>
 
-Most IDEs will allow you to do this with a sequence of commands.
+Most IDEs will allow you to do this with a sequence of keys.
 
-- VSCode: **Windows/Linux** Ctrl + P | **Mac** Cmd + P
-- Atom: **Windows/Linux** Ctrl + P | **Mac** Cmd + P
-- Sublime: **Windows/Linux** Ctrl + T | **Mac** Cmd + T
+VSCode sequence: **Windows/Linux** Ctrl + P | **Mac** Cmd + P
 
-### Pick your favourite
+### Install an IDE
 
-For this course, one of the first things that you will need to do is choose an IDE.
-Please find our recommendations below. Feel free to install all of them and see
-which one is your favourite, but in the end it is important that you pick one and
-keep it for the rest of the course.
+For this course, we recommend the usage of [VS Code](https://code.visualstudio.com/). Please
+go ahead and install it, then try opening an HTML file with it via File > Open.
 
-All of them have "package managers", which allow installing plugins to improve your
-development experience.
+[Install VS Code >](https://code.visualstudio.com/)
 
-#### Recommended IDEs
-- [VSCode](https://code.visualstudio.com/)
+#### Other IDEs
+
+Besides VS Code, the IDEs below are also popular with web developers. Feel free to check out their
+websites and see the differences between them and VS Code.
+
 - [Atom](https://atom.io/)
-- [Sublime](http://www.sublimetext.com/)
-
+- [Webstorm](https://www.jetbrains.com/webstorm/)
 
 ## CodeYourFuture
 
@@ -271,8 +268,8 @@ information in this section to complete it.
 - When your website is live at `https://your-username.github.io/your-site-name`, please send
 a link to the slack channel of your class.
 - Learn how to navigate your computer using a Terminal (view files, copy files).
-- Choose and install an IDE.
-- Open your website with your chosen IDE and add something to it: text, images, update CSS.
+- Install [VS Code](https://code.visualstudio.com/).
+- Open your website with VS Code and add something to it: text, images, update CSS.
 Commit your changes to Github and verify that `https://your-username.github.io/your-site-name`
 has been updated!
 

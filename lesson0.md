@@ -241,7 +241,7 @@ VSCode sequence: **Windows/Linux** Ctrl + P | **Mac** Cmd + P
 ### Install an IDE
 
 For this course, we recommend the usage of [VS Code](https://code.visualstudio.com/). Please
-got ahead and install it, then try opening an HTML file with it via File > Open.
+go ahead and install it, then try opening an HTML file with it via File > Open.
 
 [Install VS Code >](https://code.visualstudio.com/)
 

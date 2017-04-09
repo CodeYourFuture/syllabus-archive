@@ -154,11 +154,86 @@ that will be transformed, and the second one is the index of the item in the arr
 The function passed into is also a..callback!
 
 > **Exercise**:
+> Open [this CodePen](http://codepen.io/rarmatei/pen/JWQqoz?editors=0012) and follow the instructions there
+
 
 ## More on objects
 
-todo:
-the new keyword, creating objects with constructor functions, primitive types vs reference types
+Up until now we have created objects using the "literal notation":
+
+```javascript
+var myObject = {
+  greeting: "hello"  
+};
+```
+
+Another way to create object is using a function, combined with the `new` keyword:
+
+```javascript
+function Cat(name, furColor) {
+    this.name = name;
+    this.furColor = furColor;
+}
+
+var myCat = new Cat('Ron', 'blue');
+```
+
+In most cases, using "literal notation" to create a new object will work fine,
+however there might be some cases where you want some special initialisation logic to happen
+every-time you create a new instance of an object:
+
+```javascript
+function Person(firstName, lastName, age) {
+    this.fullName = firstName + " " + lastName;
+    this.yearOfBirth = (new Date()).getFullYear() - age;
+}
+
+var rares = new Person('Rares', 'Matei', 26);
+
+// same object shape as:
+var rares2 = {
+    fullName: 'Rares Matei',
+    yearOfBirth: 1991
+};
+```
+
+We will get back to this in lesson 4 when discussing about prototypes and inheritance. 
+
+> **Exercise**:
+> Open [this CodePen](http://codepen.io/rarmatei/pen/aJgxOL?editors=0012) and follow the instructions there
+
+
+## Value types vs. reference types
+
+A variable can hold two types of values: primitives (value types) and reference types.
+The distinction between them is very important and will be a fundamental addition
+to your JavaScript arsenal.
+
+Primitives are:
+ - string (example: `John Doe`)
+ - number (example: `100`)
+ - boolean (example: `true` or `false`)
+ 
+
+Reference types are:
+- Objects (example: `{greeting: "hello"}`)
+- Arrays (example: `[1,2,3]`)
+- Functions (example: `function doNothing() { }`)
+
+Variables can only hold a few bytes of data. 
+Because primitives have fixed sizes, when you assign a primitive to a variable, 
+it will hold the actual value of the primitive (hence the name "value type").
+But reference types can have practically infinite sizes, so when you assign a reference type 
+to a variable, that variable will hold a reference to it only: an identifier which will tell our program
+where to look for that object in memory.
+
+![Memory assignment](assets/stack_heap.png)
+
+Let's make some sense of the above with exercises!
+
+> **Exercise**:
+> Open [this CodePen](http://codepen.io/rarmatei/pen/jBjoNL?editors=0012) and follow the instructions there
+
 
 ## Pass by value / reference
 
@@ -213,11 +288,13 @@ console.log(primitive); // 10
 console.log(object.greeting); // "how are you?" 
 ```
 
-
 # Resources
 1. [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 1. [Pass by value/reference](http://docstore.mik.ua/orelly/webprog/jscript/ch11_02.htm)
+1. [Primitive Types and Reference Types](http://docstore.mik.ua/orelly/webprog/jscript/ch04_04.htm)
+
 1. [Callbacks](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+1. [Creating objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Creating_new_objects)
 
 # Homework
 

@@ -7,9 +7,9 @@
 - Getting started with JavaScript
 - Simple data types and expressions
 - Variables, assignment and comparison
-- Conditionals
-  - if/else, switch and ternary operator
-- Arrays and loops
+- Conditionals: If/else, switch, ternary operator
+- Arrays
+- Loops: for, while
 - Objects
 
 ---
@@ -170,7 +170,111 @@ Now you can use the identifier instead of the actual value in an expression:
 
 If you want to store a bunch of things, identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** to the rescue!
 
-Arrays
+Imagine an array like a list of variables, but instead of each variable having its own name, only the array has a name. So how do you access a variable inside, then? How do you read and write? Using an *index*!
+
+An index is just a whole number, such as `0`, `1`, `2` and so forth. As in many areas of computing, indices in JavaScript arrays start with `0` --- so `0` is the index of the first element of an Array, `1` is the index of the second element, and so forth.
+
+### Creating an array
+
+The easiest way to create an array is using the bracket (`[]`) syntax. Just put whatever elements you want in your array between the brackets, separated by comma:
+
+```js
+// Arrays can hold any data type
+var countries = ['Scotland', 'Germany', 'Syria'];
+var numbers = [7, 1, 23, 19, 11, 5, 16, 31];
+
+// Data types can be mixed, but be wary of that!
+var mixed = ['Tim', 27];
+
+// Arrays can also be empty
+var emptyArray = [];
+```
+
+### Reading, writing and length
+
+Once you have an array, you might want to read values from it. You do this also using brackets, placed directly behind the array's variable name (identifier). The brackets hold the index of the element you want to read.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+// Remember, the first index is 0
+console.log(countries[0]); // 'Scotland'
+console.log(countries[1]); // 'Germany'
+console.log(countries[2]); // 'Syria'
+```
+
+In a similar fashion, you can write or overwrite values.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+countries[1] = 'Sudan';
+
+console.log(countries); // ['Scotland', 'Sudan', 'Syria']
+```
+
+You can also create new array elements by just writing to the respective index.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+countries[3] = 'Sudan';
+
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan']
+```
+
+You can also use other variables to store in an array, and integer variables to define the index you want to read from.
+
+```js
+var myCountry = 'Sudan';
+var countries = ['Scotland', 'Germany', 'Syria', myCountry];
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan']
+
+var index = 2;
+console.log(countries[index]); // 'Syria'
+```
+
+> Exercise/Homework: What happens when yo try to read from an index that is not there?
+
+A really useful thing to know about an array is its *length*, i.e. the number of elements it contains. You can access it by appending `.length` to the arrays identifier. The length is always 1 more than the largest element index.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+console.log(countries.length); // 3
+```
+
+### Useful array functions
+
+- push
+- concat
+- slice (homework)
+- Functional stuff - lesson 2? map, reduce, filter...
+
+## Loops
+
+### `for` loops
+
+#### Traversing an array
+
+By now you might have noticed that `for` loops can be really useful for working with arrays.
+
+Imagine you want to print out every item in an array:
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+var i;
+
+for(i = 0; i < countries.length; i++) {
+  console.log(countries[i]);
+}
+```
+
+### `while` loops
+
+
+
+## Objects
 
 
 # Resources

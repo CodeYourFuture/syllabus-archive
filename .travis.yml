@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "iojs"
+  - "7"
+before_install:
+  - npm install gitbook -g
+script:
+  - git checkout gh-pages
+  - git
+  - git add _book
+  - gitbook build

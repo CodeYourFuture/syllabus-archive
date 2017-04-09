@@ -299,14 +299,46 @@ console.log(object.greeting); // "how are you?"
 # Homework
 
 1. First part of Homework - Easy
+- write a function that returns whether a number exists in a list
+Example: 
+    [1,2,3,4] -> does 6 exist -> false
+              -> does 3 exist -> true
+- write a function that concatenates two lists together
+Example:
+    [1,2,3], [7,8,9] -> [1,2,3,7,8,9]
+    
+- given the following object shape:
 
-2. Second part of Homework - Intermediate/Hard
-http://reactivex.io/learnrx/ - first 8 exercises from here
+    var person = {
+        name: "Bob",
+        age: 25
+    };
+    
+    Write a function "growOlder()" that accepts a "person" as an argument and returns a new person with his/her age increased by 1.
+    
 
-3. **[Bonus/Optional]** Third part/optional - Hardest
-finish as many exercises from the second exercise link as you can
+2. Second part of Homework:
+Implement solutions to solve the following problems:
+
+Problem 1. 
+Given the following array
+[2,5,7,2,3], and the number T = 8
+Build a solution that finds the two numbers in the array that add up to T.
+
+Problem 2.
+Think about how you would represent an employee as a JavaScript object.
+
+Create the following functions:
+- addEmployee: adds an employee to the list of existing employees
+- search: allows you to search for an employee by name
+- fire: deletes an employee by ID from the list
+- changeRole: accepts as parameters an employee ID and a string for the new role it should have. Finds the employee by ID and changes his/her role.
+
+3. **[Bonus/Optional]** 
+- Try to finish as many exercises as you can from http://reactivex.io/learnrx/ (try to finish up to exercise 8 at least)
+- They're difficult, the point is for you to read, learn and understand more about the `.map` and `.filter` functions. It's okay if you can't finish them all.
 
 4. **Research:**
 
 ## Prepare for the next class
-1. Read this [Some Tutorial or Video etc...](https://google.com)
+1. Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)

@@ -103,7 +103,7 @@ like this:
 The Terminal is already installed. It should be in the list of applications available in
 your computer. [More instructions >](http://www.wikihow.com/Open-a-Terminal-Window-in-Ubuntu)
 
-#### Mac OSx (Apple)
+#### macOS (Apple)
 
 The Terminal is already installed. It should be in the list of applications available in
 your computer. [More instructions >](http://www.wikihow.com/Get-to-the-Command-Line-on-a-Mac)

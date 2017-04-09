@@ -160,11 +160,27 @@ Now you can use the identifier instead of the actual value in an expression:
 
 ## Conditionals
 
+**TODO**
+
 ### Comparisons
+
+**TODO**
 
 - Introduce `==` and `!=`, `<` and `>`
 - Introduce the concept of truthiness and falsiness for non-boolean types
 - Introduce `===` and `!==`
+
+### If/Else
+
+**TODO**
+
+### Switch
+
+**TODO**
+
+### The ternary operator
+
+**TODO**
 
 ## Arrays
 
@@ -244,16 +260,48 @@ var countries = ['Scotland', 'Germany', 'Syria'];
 console.log(countries.length); // 3
 ```
 
-### Useful array functions
+### Useful array methods
 
-- push
-- concat
-- slice (homework)
-- Functional stuff - lesson 2? map, reduce, filter...
+#### Concatenating two arrays
+
+You've learned how you can add two numbers and append two strings, but how does this work for arrays? A simple `arr1 + arr2` will not do, but there is a method you can use: `concat()`. It is a method that you call on the array (similar to how `console.log` is the `log` function called on `console`) and takes the array you want to append as a parameter.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+var moreCountries = ['Sudan', 'Ethiopia', 'France'];
+
+countries.concat(moreCountries);
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan', 'Ethiopia', 'France']
+```
+
+#### Appending an element
+
+If you want to append an element to an array, you can just put it after the last existing element like so:
+
+```js
+countries[countries.length] = 'United States of America';
+```
+
+There is another way though, which is a bit more elegant: the `push` function.
+
+```js
+countries.push('United States of America');
+
+// .push can also be called with multiple parameters
+countries.push('United States of America', 'France');
+```
+
+> Homework: Learn about `.slice` and `.pop`
+
+There are many more useful array functions, which you will learn in lesson 2.
 
 ## Loops
 
+**TODO**
+
 ### `for` loops
+
+**TODO**
 
 #### Traversing an array
 
@@ -272,16 +320,22 @@ for(i = 0; i < countries.length; i++) {
 
 ### `while` loops
 
-
+**TODO**
 
 ## Objects
 
+**TODO**
 
 # Resources
+
+**TODO**
+
 1. [Resource 1 to learn more about Topic 1](https://google.com)
 2. [Resource 2 for Topic 2](https://google.com)
 
 # Homework
+
+**TODO**
 
 1. First part of Homework - Easy
 

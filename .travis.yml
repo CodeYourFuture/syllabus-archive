@@ -5,7 +5,8 @@ node_js:
 before_install:
   - npm install gitbook -g
 script:
-  - git checkout gh-pages
-  - git
-  - git add _book
+  - git branch -d gh-pages
+  - git checkout -b gh-pages
   - gitbook build
+  - git add _book -f
+  - git push -f origin gh-pages

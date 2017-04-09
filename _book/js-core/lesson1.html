@@ -456,31 +456,244 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="javascript-core-1">JavaScript Core 1</h1>
-<p><strong> What we will learn today?</strong></p>
+<p><img src="https://camo.githubusercontent.com/997591db1749880b8b23c96b8f788e69af09c04d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d64726166742d6461726b7265642e737667" alt="Status: Draft"></p>
+<p><strong>What we will learn today?</strong></p>
 <ul>
 <li>Getting started with JavaScript</li>
+<li>Simple data types and expressions</li>
 <li>Variables, assignment and comparison</li>
-<li>Conditionals<ul>
-<li>if/else, switch and ternary operator</li>
-</ul>
-</li>
-<li>Arrays and loops</li>
+<li>Conditionals: If/else, switch, ternary operator</li>
+<li>Arrays</li>
+<li>Loops: for, while</li>
 <li>Objects</li>
 </ul>
 <hr>
-<h2 id="topic-1">Topic 1</h2>
-<p>High level explanation of Topic 1 - rely on the exercises</p>
-<blockquote>
-<p><strong>Exercise</strong>: Always have exercises</p>
+<h2 id="getting-started-with-javascript">Getting started with JavaScript</h2>
+<p>We will spend most of this lesson in Codepen. To get started, go to <a href="codepen.io/pen">codepen.io/pen/</a> to create a new Pen. On the bottom left, click the &quot;Console&quot; button to open the console.</p>
+<p><img src="assets/codepen-console.png" alt="Codepen console"></p>
+<p>You can place your cursor right behind the <code>&gt;</code> sign. Type a simple expression, such as <code>2 + 2</code> and hit enter. You will see expression, as well as its result, in the window above.</p>
+<p><img src="assets/repl.gif" alt="Entering expressions in the Codepen console"></p>
+<p>You will be able to follow most of this session along just entering expressions in the console like this.</p>
+<h2 id="simple-data-types--expressions">Simple data types &amp; Expressions</h2>
+<h3 id="numbers">Numbers</h3>
+<p>Let&#x2019;s start with something seemingly simple - numbers. Here are some:</p>
+<pre class="language-"><code class="lang-js"><span class="token number">1</span>
+<span class="token number">15</span>
+<span class="token number">3195803798</span>
+<span class="token number">1.4</span>
+<span class="token number">0.0000005</span>
+<span class="token number">0</span>
+<span class="token operator">-</span><span class="token number">23</span>
+</code></pre>
+<p>You will see that there are whole numbers (no decimal point) and real numbers (decimal point), which in JavaScript are so-called &#x201C;floating point&#x201D; numbers. Numbers can be positive or negative and they support all the basic math operators that you would expect:</p>
+<pre class="language-"><code class="lang-js"><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">// 4</span>
+<span class="token number">2</span> <span class="token operator">-</span> <span class="token number">5</span> <span class="token comment" spellcheck="true">// -3</span>
+<span class="token number">2</span> <span class="token operator">*</span> <span class="token number">3</span> <span class="token comment" spellcheck="true">// 6</span>
+<span class="token number">10</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">// 5</span>
+<span class="token number">3</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">2</span> <span class="token comment" spellcheck="true">// -6</span>
+</code></pre>
+<p>Operators have the same precedence as in algebra: <code>*</code> and <code>/</code> have higher precedence than <code>+</code> and <code>-</code>.</p>
+<ul>
+<li><strong>TODO:</strong> Do math exercise</li>
+<li><strong>TODO:</strong> What about Infinity, Math.PI, IEEE floating point bullshit, NaN</li>
+</ul>
+<h3 id="strings">Strings</h3>
+<p>Strings represent any sort of text. They are delimited by single quotes (<code>&apos;</code>) or double quotes (<code>&#x201D;</code>) and can be of any length.</p>
+<pre class="language-"><code>&apos;&apos; // empty string
+&quot;&quot; // empty string
+&apos;Hello&apos;
+&apos;I am learning JavaScript&apos;
+&apos;It\&apos;s been a great journey so far!&apos;
+&quot;Double quotes work as well&quot;
+</code></pre><blockquote>
+<p>If you need single or double quotes <em>inside the string</em>, you need to &#x201C;escape&#x201D; them by putting a backslash in front of them. If you don&#x2019;t do this, the JavaScript engine will think the string ends here, because it encounters a quote.</p>
 </blockquote>
-<h2 id="topic-2">Topic 2</h2>
-<h2 id="topic-3">Topic 3</h2>
+<p>The most common operation on strings is to append one string to another. This is called <em>string concatenation</em>. It&#x2019;s achieved by the plus (<code>+</code>) operator:</p>
+<pre class="language-"><code>&quot;Hello&quot; + &quot;World&quot; // &quot;HelloWorld&quot;
+</code></pre><ul>
+<li><strong>TODO:</strong> Introduce string concatenation</li>
+<li><strong>TODO:</strong> What about basic string functions, like substr, replace etc?</li>
+</ul>
+<h3 id="booleans">Booleans</h3>
+<p><a href="https://en.wikipedia.org/wiki/Boolean_data_type" target="_blank">Booleans</a> are a data type that can only have two values: <code>true</code> and <code>false</code>.</p>
+<p>Like numbers, they can be combined using operators, but there are different operators for booleans (analoguous to <a href="https://en.wikipedia.org/wiki/Boolean_algebra" target="_blank">Boolean algebra</a>). The most important ones are:</p>
+<ul>
+<li><code>!</code> (NOT), which negates a value:<pre class="language-"><code class="lang-js"><span class="token operator">!</span><span class="token boolean">true</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token operator">!</span><span class="token boolean">false</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+</li>
+<li><code>&amp;&amp;</code> (AND), which is only true if both operands are true:<pre class="language-"><code class="lang-js"><span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+</li>
+<li><code>||</code> (OR), which is true if at least one of the operands is true:<pre class="language-"><code class="lang-js"><span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// true</span>
+<span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+</li>
+</ul>
+<p><strong>TODO:</strong> When to introduce truthiness and falsiness? Probably in <code>comparisons</code>?</p>
+<hr>
+<blockquote>
+<p><strong>Exercise</strong>: Put simple mathematical expressions into the console: <code>2 * 2</code>, <code>2 + 2</code>, <code>5 * 7 - 13</code>
+<strong>Exercise</strong>: Calculate the area of a circle (<code>r * r * pi</code>). Do a quick Google search on how to use PI in JavaScript.</p>
+<p>See what happens when you &quot;add&quot; two strings together</p>
+<p>Research the JS Math library. sqrt, floor, ceil, round</p>
+<p>Write an expression that outputs the percentage of students who are female. Make it so it outputs it as <code>58%</code>, and make sure you use the actual numbers of women and the total number of students.
+Solution: <code>console.log(Math.round(7 / 17 * 100) + &quot;%&quot;);</code></p>
+</blockquote>
+<h3 id="from-repl-to-consolelog">From REPL to console.log</h3>
+<ul>
+<li>Single expressions are not very useful, you want to write applications</li>
+<li>More than one statement? Move it to the <code>JS</code> box in Codepen</li>
+<li>Now you don&apos;t get any immediate feedback</li>
+<li>Use <code>console.log</code> to print to the console: <code>console.log(3 + 3);</code></li>
+<li>Write statements below each other</li>
+</ul>
+<blockquote>
+<p><strong>THOUGHT:</strong> Codepen does not have a &quot;run&quot; button, so it&apos;s quite intransparent when it actually re-runs a program. Maybe a different tool is better? A simple jsbin configuration, maybe?</p>
+</blockquote>
+<h3 id="variables-and-assignments">Variables and assignments</h3>
+<p>For an expression or a value to be of any use to us, we need to store it in a variable.</p>
+<p>Variables have a name (<em>identifier</em>) that we can use to refer to a value. You can assign a value to a variable with the following statement:</p>
+<pre class="language-"><code>var x = 3;
+^   ^ ^ ^
+|   | | value
+|   | assignment operator
+|   identifier
+declaration statement
+</code></pre><p>Let&#x2019;s break this statement down:</p>
+<ul>
+<li><code>var</code>: With the <code>var</code> statement we tell the JavaScript engine that <code>x</code> is now a variable</li>
+<li><code>x</code>: The variable name/identifier. It can be short or long, but must not contain spaces and must not start with a number.</li>
+<li><code>=</code>: The equal sign is the assigmnent operator</li>
+<li><code>3</code>: The value that we assign to the variable. This can be any number, string or boolean, or any more complex data type that we will introduce later. You can also use an existing variable here.</li>
+<li><code>;</code>: THe semicolon is not strictly needed, but is generally used to terminate a statement.</li>
+</ul>
+<p>Now you can use the identifier instead of the actual value in an expression:</p>
+<p><code>x + x</code>, <code>x * x</code>, <code>console.log(x)</code></p>
+<h2 id="conditionals">Conditionals</h2>
+<p><strong>TODO</strong></p>
+<h3 id="comparisons">Comparisons</h3>
+<p><strong>TODO</strong></p>
+<ul>
+<li>Introduce <code>==</code> and <code>!=</code>, <code>&lt;</code> and <code>&gt;</code></li>
+<li>Introduce the concept of truthiness and falsiness for non-boolean types</li>
+<li>Introduce <code>===</code> and <code>!==</code></li>
+</ul>
+<h3 id="ifelse">If/Else</h3>
+<p><strong>TODO</strong></p>
+<h3 id="switch">Switch</h3>
+<p><strong>TODO</strong></p>
+<h3 id="the-ternary-operator">The ternary operator</h3>
+<p><strong>TODO</strong></p>
+<h2 id="arrays">Arrays</h2>
+<p>If you want to store a bunch of things, identifiers like <code>name1</code>, <code>name2</code>, <code>name3</code> and so on quickly become tiresome. <strong>Arrays</strong> to the rescue!</p>
+<p>Imagine an array like a list of variables, but instead of each variable having its own name, only the array has a name. So how do you access a variable inside, then? How do you read and write? Using an <em>index</em>!</p>
+<p>An index is just a whole number, such as <code>0</code>, <code>1</code>, <code>2</code> and so forth. As in many areas of computing, indices in JavaScript arrays start with <code>0</code> --- so <code>0</code> is the index of the first element of an Array, <code>1</code> is the index of the second element, and so forth.</p>
+<h3 id="creating-an-array">Creating an array</h3>
+<p>The easiest way to create an array is using the bracket (<code>[]</code>) syntax. Just put whatever elements you want in your array between the brackets, separated by comma:</p>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Arrays can hold any data type</span>
+<span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Data types can be mixed, but be wary of that!</span>
+<span class="token keyword">var</span> mixed <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Tim&apos;</span><span class="token punctuation">,</span> <span class="token number">27</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Arrays can also be empty</span>
+<span class="token keyword">var</span> emptyArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="reading-writing-and-length">Reading, writing and length</h3>
+<p>Once you have an array, you might want to read values from it. You do this also using brackets, placed directly behind the array&apos;s variable name (identifier). The brackets hold the index of the element you want to read.</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Remember, the first index is 0</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;Scotland&apos;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;Germany&apos;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;Syria&apos;</span>
+</code></pre>
+<p>In a similar fashion, you can write or overwrite values.</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+countries<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos;Sudan&apos;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [&apos;Scotland&apos;, &apos;Sudan&apos;, &apos;Syria&apos;]</span>
+</code></pre>
+<p>You can also create new array elements by just writing to the respective index.</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+countries<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos;Sudan&apos;</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [&apos;Scotland&apos;, &apos;Germany&apos;, &apos;Syria&apos;, &apos;Sudan&apos;]</span>
+</code></pre>
+<p>You can also use other variables to store in an array, and integer variables to define the index you want to read from.</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> myCountry <span class="token operator">=</span> <span class="token string">&apos;Sudan&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">,</span> myCountry<span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [&apos;Scotland&apos;, &apos;Germany&apos;, &apos;Syria&apos;, &apos;Sudan&apos;]</span>
+
+<span class="token keyword">var</span> index <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// &apos;Syria&apos;</span>
+</code></pre>
+<blockquote>
+<p>Exercise/Homework: What happens when yo try to read from an index that is not there?</p>
+</blockquote>
+<p>A really useful thing to know about an array is its <em>length</em>, i.e. the number of elements it contains. You can access it by appending <code>.length</code> to the arrays identifier. The length is always 1 more than the largest element index.</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3</span>
+</code></pre>
+<h3 id="useful-array-methods">Useful array methods</h3>
+<h4 id="concatenating-two-arrays">Concatenating two arrays</h4>
+<p>You&apos;ve learned how you can add two numbers and append two strings, but how does this work for arrays? A simple <code>arr1 + arr2</code> will not do, but there is a method you can use: <code>concat()</code>. It is a method that you call on the array (similar to how <code>console.log</code> is the <code>log</code> function called on <code>console</code>) and takes the array you want to append as a parameter.</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> moreCountries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Sudan&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Ethiopia&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;France&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+countries<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>moreCountries<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// [&apos;Scotland&apos;, &apos;Germany&apos;, &apos;Syria&apos;, &apos;Sudan&apos;, &apos;Ethiopia&apos;, &apos;France&apos;]</span>
+</code></pre>
+<h4 id="appending-an-element">Appending an element</h4>
+<p>If you want to append an element to an array, you can just put it after the last existing element like so:</p>
+<pre class="language-"><code class="lang-js">countries<span class="token punctuation">[</span>countries<span class="token punctuation">.</span>length<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&apos;United States of America&apos;</span><span class="token punctuation">;</span>
+</code></pre>
+<p>There is another way though, which is a bit more elegant: the <code>push</code> function.</p>
+<pre class="language-"><code class="lang-js">countries<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&apos;United States of America&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// .push can also be called with multiple parameters</span>
+countries<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">&apos;United States of America&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;France&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>Homework: Learn about <code>.slice</code> and <code>.pop</code></p>
+</blockquote>
+<p>There are many more useful array functions, which you will learn in lesson 2.</p>
+<h2 id="loops">Loops</h2>
+<p><strong>TODO</strong></p>
+<h3 id="for-loops"><code>for</code> loops</h3>
+<p><strong>TODO</strong></p>
+<h4 id="traversing-an-array">Traversing an array</h4>
+<p>By now you might have noticed that <code>for</code> loops can be really useful for working with arrays.</p>
+<p>Imagine you want to print out every item in an array:</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> countries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;Scotland&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Germany&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;Syria&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> i<span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> countries<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>countries<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="while-loops"><code>while</code> loops</h3>
+<p><strong>TODO</strong></p>
+<h2 id="objects">Objects</h2>
+<p><strong>TODO</strong></p>
 <h1 id="resources">Resources</h1>
+<p><strong>TODO</strong></p>
 <ol>
 <li><a href="https://google.com" target="_blank">Resource 1 to learn more about Topic 1</a></li>
 <li><a href="https://google.com" target="_blank">Resource 2 for Topic 2</a></li>
 </ol>
 <h1 id="homework">Homework</h1>
+<p><strong>TODO</strong></p>
 <ol>
 <li><p>First part of Homework - Easy</p>
 </li>
@@ -534,7 +747,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.4.1","depth":2,"next":{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},"previous":{"title":"JavaScript Core","level":"1.4","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},{"title":"Week 4","level":"1.4.4","depth":2,"path":"js-core/lesson4.md","ref":"js-core/lesson4.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js-core/lesson1.md","mtime":"2017-04-01T15:05:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-03T20:29:59.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.4.1","depth":2,"next":{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},"previous":{"title":"JavaScript Core","level":"1.4","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},{"title":"Week 4","level":"1.4.4","depth":2,"path":"js-core/lesson4.md","ref":"js-core/lesson4.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight","livereload"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js-core/lesson1.md","mtime":"2017-04-09T18:12:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-09T18:34:39.878Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -542,6 +755,10 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "iojs"
+  - "7"
+before_script:
+  - npm install -g gulp
+script:
+  - gitbook install
+  - gitbook build
+  - git subtree push --prefix _book origin gh-pages

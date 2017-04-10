@@ -1,8 +1,7 @@
 # Contributing
 
 To contribute to the Code Your Future syllabus, fork and open a pull request to
-[this repository](https://github.com/code-your-future/syllabus) or one of the
-[submodules](https://github.com/code-your-future/syllabus).
+[this repository](https://github.com/code-your-future/syllabus).
 
 ## Publish the Gitbook
 

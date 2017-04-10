@@ -22,15 +22,10 @@ gitbook serve
 open http://localhost:4000
 ```
 
-Build the docsite into the `_book` directory
+When pushing your changes, make sure you also push the Gitbook generated under the `docs` directory
 ```
-gitbook build
-```
-
-Publish the built `_book` directory to GitHub pages
-```
-git commit -am 'Publish gitbook'
-git subtree push --prefix _book origin gh-pages
+gitbook build . docs/
+// or npm run build
 ```
 
 ## Add new modules or lessons

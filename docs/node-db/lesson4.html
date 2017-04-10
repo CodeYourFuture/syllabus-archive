@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Week 1 · GitBook</title>
+        <title>Week 4 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="lesson2.html" />
     
+    <link rel="prev" href="lesson3.html" />
     
 
     </head>
@@ -243,7 +243,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.5.1" data-path="lesson1.html">
+        <li class="chapter " data-level="1.5.1" data-path="lesson1.html">
             
                 <a href="lesson1.html">
             
@@ -282,7 +282,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="lesson4.html">
+        <li class="chapter active" data-level="1.5.4" data-path="lesson4.html">
             
                 <a href="lesson4.html">
             
@@ -440,7 +440,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Week 1</a>
+        <a href=".." >Week 4</a>
     </h1>
 </div>
 
@@ -455,34 +455,40 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="week-1-introduction-to-nodejs">Week 1: introduction to Node.js</h2>
-<p>Node.js is a powerful and fast way to write server-side code using JavaScript, our trusty sidekick.</p>
-<h3 id="class">Class</h3>
-<p>For our first session, the Node Girls will be running their introductory workshop to Node.js.</p>
-<p>The workshop materials are here: <a href="https://github.com/node-girls/express-workshop" target="_blank">https://github.com/node-girls/express-workshop</a>.</p>
-<p>Please complete the two tasks in the <a href="https://github.com/node-girls/express-workshop#before-you-start" target="_blank">&quot;before you start&quot;</a> section before you arrive.</p>
-<p>The workshop will start at <strong>10:30 AM</strong> in the usual location. Please make sure to arrive on time!</p>
-<h3 id="homework">Homework</h3>
+                                <h1 id="database-module">Database Module</h1>
+<p>ToDo: Add an intro to DB first - this would be broken to two classes most likely</p>
+<p>In this lesson, we&apos;ll write a Node.js and Express HTTP API that queries a relational database and exposes it as JSON.</p>
+<h2 id="the-database">The Database</h2>
+<p>This is an SQLite database that is based upon the homework from the first database module. The design embraces various one-to-many and many-to-many relationships:</p>
+<p><img src="http://i.imgur.com/e8No8Xt.png" alt="ERD"></p>
+<p>Note that <strong>all of the IDs are auto-incrementing</strong> - this means that when you add a new record to a table, SQLite will manage the primary key for you; there is no need to explicitly set this.</p>
+<p>Perhaps the simplest means of understanding our database is to look at the <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/data/transactions/create-tables.sql" target="_blank">SQL query</a> used to create our tables.</p>
+<h2 id="the-server">The Server</h2>
+<p>This repository contains an <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/src/server.js" target="_blank">Express app</a> that exposes a <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/src/routes/organisations.js" target="_blank">series of routes</a> for interacting with the database.</p>
+<p>There are some <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/test/e2e-test.js" target="_blank">end-to-end tests</a> that will hit the endpoints exposes by the server and ensure that the data is updated as expected.</p>
+<h2 id="your-task">Your Task</h2>
+<p>Implement the <code>GET /organisation</code> route so that the end-to-end test passes! :)</p>
+<p>The server already opens the database, so you just need to query it; you can do this directly in the route file via the imported <code>db</code> object.</p>
+<p>We&apos;re using the <a href="https://github.com/kriasoft/node-sqlite" target="_blank"><code>node-sqlite</code></a> module to connect to and manipulate the database. It follows the same <a href="https://github.com/mapbox/node-sqlite3/wiki/API" target="_blank">API as node-sqlite3</a>, only it returns <code>Promise</code>s in lieu of using callbacks.</p>
+<p>Think carefully about the queries you should make and the joins that may be required.</p>
+<h3 id="woah-thats-a-lot-of-code">Woah, that&apos;s a lot of code!</h3>
+<p>By fulfilling the first route, you&apos;ll have observed that you require a lot of SQL as well as JavaScript operations to provide the data in the format required by the test.</p>
+<p>Additionally, this technique is susceptible to <a href="https://en.wikipedia.org/wiki/SQL_injection" target="_blank">SQL injection</a>, a vulnerability via which malicious SQL code can be executed by an application</p>
 <ul>
-<li>Finish the tasks from the workshop</li>
-<li>Try adding an <code>/about</code> route to your app to serve some HTML. How is this different from using express&apos;s static middleware? We will add some supporting materials to help you with this task during the week. You can see one way of doing it here: <a href="http://stackoverflow.com/questions/4529586/render-basic-html-view" target="_blank">http://stackoverflow.com/questions/4529586/render-basic-html-view</a></li>
-<li>Complete the nodeschool.io &apos;learnyounode&apos; tutorial <a href="https://github.com/workshopper/learnyounode" target="_blank">https://github.com/workshopper/learnyounode</a></li>
-<li>Research the following topics: blocking vs. non-blocking; RESTful APIs; templating engines; HTTP codes; asynchronous programming. Google them! We will be asking questions in next week&apos;s session.</li>
+<li>e.g. requesting <code>HTTP DELETE</code> to <code>http://localhost:8000/organisations/1 OR Id=2</code> will result in two organisations being deleted!</li>
 </ul>
-<p><strong>Important:</strong> When you get stuck during the homework you should follow the following &quot;escalation policy&quot;.</p>
+<p>The best approach is to use an <a href="https://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank">object-relational mapper</a> (ORM) such as <a href="http://sequelize.readthedocs.io/en/latest/api/sequelize/" target="_blank">Sequelize</a> or <a href="http://bookshelfjs.org/" target="_blank">Bookshelf.js</a>. By defining the models and queries in JavaScript, you can craft much cleaner code.</p>
+<p>Reimplement <code>GET /organisation</code> to use an ORM, and then implement the remaining routes in this fashion.</p>
+<h3 id="local-development">Local development</h3>
+<p>Make sure you install all of the project dependencies with <code>npm i</code> before you do anything else. Then you can run these scripts:</p>
 <ul>
-<li>First, search for answers on Google and Stack Overflow. If you have an error message, copy and paste it into Google.</li>
-<li>When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: <a href="http://stackoverflow.com/help/how-to-ask" target="_blank">http://stackoverflow.com/help/how-to-ask</a></li>
-<li>If you cannot get an answer from your fellow students, @ a mentor with your question and we will reply as soon as we can.</li>
+<li><code>npm test</code> - runs ESLint followed by the end-to-end tests</li>
+<li><code>npm start</code> - runs the server via nodemon, restarting on changes to the <code>src</code> directory</li>
 </ul>
-<h4 id="resources">Resources</h4>
-<p>Take a look at the following links to learn more about Node.js.</p>
-<ul>
-<li><a href="https://github.com/maxogden/art-of-node/#the-art-of-node" target="_blank">https://github.com/maxogden/art-of-node/#the-art-of-node</a></li>
-<li><a href="https://www.youtube.com/watch?v=e8ZLfcHxrD8" target="_blank">https://www.youtube.com/watch?v=e8ZLfcHxrD8</a></li>
-<li><a href="https://node.cool#resources" target="_blank">https://node.cool#resources</a>
-0Looking</li>
-</ul>
+<p>Note that this project requires <strong>Node.js 6 or above</strong> due to the user of ES6.</p>
+<h2 id="homework">Homework</h2>
+<p>Complete the class exercises; that should be enough!
+0</p>
 
                                 
                                 </section>
@@ -510,10 +516,10 @@
 
             
                 
-                
-                <a href="lesson2.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Week 2">
-                    <i class="fa fa-angle-right"></i>
+                <a href="lesson3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Week 3">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -522,7 +528,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.5.1","depth":2,"next":{"title":"Week 2","level":"1.5.2","depth":2,"path":"node-db/lesson2.md","ref":"node-db/lesson2.md","articles":[]},"previous":{"title":"Node and DB","level":"1.5","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.5.1","depth":2,"path":"node-db/lesson1.md","ref":"node-db/lesson1.md","articles":[]},{"title":"Week 2","level":"1.5.2","depth":2,"path":"node-db/lesson2.md","ref":"node-db/lesson2.md","articles":[]},{"title":"Week 3","level":"1.5.3","depth":2,"path":"node-db/lesson3.md","ref":"node-db/lesson3.md","articles":[]},{"title":"Week 4","level":"1.5.4","depth":2,"path":"node-db/lesson4.md","ref":"node-db/lesson4.md","articles":[]},{"title":"Week 5","level":"1.5.5","depth":2,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"node-db/lesson1.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T13:11:02.841Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 4","level":"1.5.4","depth":2,"next":{"title":"Week 5","level":"1.5.5","depth":2,"ref":"","articles":[]},"previous":{"title":"Week 3","level":"1.5.3","depth":2,"path":"node-db/lesson3.md","ref":"node-db/lesson3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"node-db/lesson4.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T15:03:24.286Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

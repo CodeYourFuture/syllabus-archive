@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Week 4 · GitBook</title>
+        <title>Week 1 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="lesson2.html" />
     
-    <link rel="prev" href="lesson3.html" />
     
 
     </head>
@@ -243,9 +243,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="lesson1.html">
+        <li class="chapter " data-level="1.5.1" data-path="../node-db/lesson1.html">
             
-                <a href="lesson1.html">
+                <a href="../node-db/lesson1.html">
             
                     
                     Week 1
@@ -256,9 +256,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="lesson2.html">
+        <li class="chapter " data-level="1.5.2" data-path="../node-db/lesson2.html">
             
-                <a href="lesson2.html">
+                <a href="../node-db/lesson2.html">
             
                     
                     Week 2
@@ -269,9 +269,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="lesson3.html">
+        <li class="chapter " data-level="1.5.3" data-path="../node-db/lesson3.html">
             
-                <a href="lesson3.html">
+                <a href="../node-db/lesson3.html">
             
                     
                     Week 3
@@ -282,9 +282,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.4" data-path="lesson4.html">
+        <li class="chapter " data-level="1.5.4" data-path="../node-db/lesson4.html">
             
-                <a href="lesson4.html">
+                <a href="../node-db/lesson4.html">
             
                     
                     Week 4
@@ -327,9 +327,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="../react/lesson1.html">
+        <li class="chapter active" data-level="1.6.1" data-path="lesson1.html">
             
-                <a href="../react/lesson1.html">
+                <a href="lesson1.html">
             
                     
                     Week 1
@@ -340,9 +340,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../react/lesson2.html">
+        <li class="chapter " data-level="1.6.2" data-path="lesson2.html">
             
-                <a href="../react/lesson2.html">
+                <a href="lesson2.html">
             
                     
                     Week 2
@@ -353,9 +353,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="../react/lesson3.html">
+        <li class="chapter " data-level="1.6.3" data-path="lesson3.html">
             
-                <a href="../react/lesson3.html">
+                <a href="lesson3.html">
             
                     
                     Week 3
@@ -366,9 +366,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../react/lesson4.html">
+        <li class="chapter " data-level="1.6.4" data-path="lesson4.html">
             
-                <a href="../react/lesson4.html">
+                <a href="lesson4.html">
             
                     
                     Week 4
@@ -440,7 +440,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Week 4</a>
+        <a href=".." >Week 1</a>
     </h1>
 </div>
 
@@ -455,40 +455,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="database-module">Database Module</h1>
-<p>ToDo: Add an intro to DB first - this would be broken to two classes most likely</p>
-<p>In this lesson, we&apos;ll write a Node.js and Express HTTP API that queries a relational database and exposes it as JSON.</p>
-<h2 id="the-database">The Database</h2>
-<p>This is an SQLite database that is based upon the homework from the first database module. The design embraces various one-to-many and many-to-many relationships:</p>
-<p><img src="http://i.imgur.com/e8No8Xt.png" alt="ERD"></p>
-<p>Note that <strong>all of the IDs are auto-incrementing</strong> - this means that when you add a new record to a table, SQLite will manage the primary key for you; there is no need to explicitly set this.</p>
-<p>Perhaps the simplest means of understanding our database is to look at the <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/data/transactions/create-tables.sql" target="_blank">SQL query</a> used to create our tables.</p>
-<h2 id="the-server">The Server</h2>
-<p>This repository contains an <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/src/server.js" target="_blank">Express app</a> that exposes a <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/src/routes/organisations.js" target="_blank">series of routes</a> for interacting with the database.</p>
-<p>There are some <a href="https://github.com/Code-Your-Future/db-module-ii/blob/master/test/e2e-test.js" target="_blank">end-to-end tests</a> that will hit the endpoints exposes by the server and ensure that the data is updated as expected.</p>
-<h2 id="your-task">Your Task</h2>
-<p>Implement the <code>GET /organisation</code> route so that the end-to-end test passes! :)</p>
-<p>The server already opens the database, so you just need to query it; you can do this directly in the route file via the imported <code>db</code> object.</p>
-<p>We&apos;re using the <a href="https://github.com/kriasoft/node-sqlite" target="_blank"><code>node-sqlite</code></a> module to connect to and manipulate the database. It follows the same <a href="https://github.com/mapbox/node-sqlite3/wiki/API" target="_blank">API as node-sqlite3</a>, only it returns <code>Promise</code>s in lieu of using callbacks.</p>
-<p>Think carefully about the queries you should make and the joins that may be required.</p>
-<h3 id="woah-thats-a-lot-of-code">Woah, that&apos;s a lot of code!</h3>
-<p>By fulfilling the first route, you&apos;ll have observed that you require a lot of SQL as well as JavaScript operations to provide the data in the format required by the test.</p>
-<p>Additionally, this technique is susceptible to <a href="https://en.wikipedia.org/wiki/SQL_injection" target="_blank">SQL injection</a>, a vulnerability via which malicious SQL code can be executed by an application</p>
+                                <h2 id="using-libraries">Using Libraries</h2>
+<p>Using good libraries is encourages where it makes sense. There are many of these which make your life easier, such as jQuery, Angular and others.</p>
 <ul>
-<li>e.g. requesting <code>HTTP DELETE</code> to <code>http://localhost:8000/organisations/1 OR Id=2</code> will result in two organisations being deleted!</li>
+<li>Don&#x2019;t Reinvent The Wheel (solve problems already solved)</li>
+<li>Good Libraries solve browser compatibility issues</li>
+<li>Shared knowledge, reusable skills</li>
 </ul>
-<p>The best approach is to use an <a href="https://en.wikipedia.org/wiki/Object-relational_mapping" target="_blank">object-relational mapper</a> (ORM) such as <a href="http://sequelize.readthedocs.io/en/latest/api/sequelize/" target="_blank">Sequelize</a> or <a href="http://bookshelfjs.org/" target="_blank">Bookshelf.js</a>. By defining the models and queries in JavaScript, you can craft much cleaner code.</p>
-<p>Reimplement <code>GET /organisation</code> to use an ORM, and then implement the remaining routes in this fashion.</p>
-<h3 id="local-development">Local development</h3>
-<p>Make sure you install all of the project dependencies with <code>npm i</code> before you do anything else. Then you can run these scripts:</p>
 <ul>
-<li><code>npm test</code> - runs ESLint followed by the end-to-end tests</li>
-<li><code>npm start</code> - runs the server via nodemon, restarting on changes to the <code>src</code> directory</li>
+<li>Compare code across libraries - <a href="http://todomvc.com/" target="_blank">TodoMVC</a></li>
 </ul>
-<p>Note that this project requires <strong>Node.js 6 or above</strong> due to the user of ES6.</p>
+<p>In this course we will be using React by Facebook.</p>
+<h2 id="node-and-npm">Node and NPM</h2>
+<p><a href="https://nodejs.org/en/" target="_blank">Node</a> is a runtime for Javascript which allows you to run Javascript code on your computer and servers, in addition to the client side/browser.</p>
+<p>In order to install it you need to get the installer <a href="https://nodejs.org/en/" target="_blank">Node</a> and then you will have access to thousands of libraries on <a href="https://www.npmjs.com/" target="_blank">npm</a>.</p>
+<p>Once it is installed you can use it like this:</p>
+<pre class="language-"><code class="lang-sh"><span class="token function">npm</span> <span class="token function">install</span> -g create-react-app
+
+create-react-app my-app
+<span class="token function">cd</span> my-app/
+<span class="token function">npm</span> start
+</code></pre>
+<h2 id="react">React</h2>
+<p><a href="https://facebook.github.io/react/" target="_blank">React</a> is a library by Facebook.</p>
+<ul>
+<li>Uses <a href="https://facebook.github.io/react/docs/introducing-jsx.html" target="_blank">JSX</a></li>
+</ul>
+<pre class="language-"><code class="lang-jsx"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>App<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        Hello World<span class="token operator">!</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>Many good Patterns: Single Responsibility, DRY, abstraction of state</li>
+</ul>
+<h2 id="lets-create-an-app">Let&apos;s create an app!</h2>
+<pre class="language-"><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> -g create-react-app
+
+create-react-app my-app
+<span class="token function">cd</span> my-app/
+<span class="token function">npm</span> start
+</code></pre>
+<h2 id="es6">ES6</h2>
+<p>ES6 is a new standard for Javascript (ECMAScript). It is already supported in many browsers (check compatibility <a href="https://kangax.github.io/compat-table/es6/" target="_blank">here</a>).</p>
+<p>Some useful features:</p>
+<ul>
+<li>Let / Const</li>
+<li>Classes</li>
+<li>Export Modules / Importing</li>
+<li>Arrow functions / scope</li>
+</ul>
+<p>Some features and their ES5 compatible code can be found <a href="http://es6-features.org/" target="_blank">here</a></p>
+<p><a href="https://github.com/ericdouglas/ES6-Learning/blob/master/README.md" target="_blank">Resource list</a></p>
 <h2 id="homework">Homework</h2>
-<p>Complete the class exercises; that should be enough!
-0</p>
+<ul>
+<li><a href="Homework/Homework1.md">Directory of services with components</a></li>
+</ul>
 
                                 
                                 </section>
@@ -516,10 +548,10 @@
 
             
                 
-                <a href="lesson3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Week 3">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
+                <a href="lesson2.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Week 2">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -528,7 +560,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 4","level":"1.5.4","depth":2,"next":{"title":"Week 5","level":"1.5.5","depth":2,"ref":"","articles":[]},"previous":{"title":"Week 3","level":"1.5.3","depth":2,"path":"node-db/lesson3.md","ref":"node-db/lesson3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"node-db/lesson4.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T13:11:02.841Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.6.1","depth":2,"next":{"title":"Week 2","level":"1.6.2","depth":2,"path":"react/lesson2.md","ref":"react/lesson2.md","articles":[]},"previous":{"title":"React","level":"1.6","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.6.1","depth":2,"path":"react/lesson1.md","ref":"react/lesson1.md","articles":[]},{"title":"Week 2","level":"1.6.2","depth":2,"path":"react/lesson2.md","ref":"react/lesson2.md","articles":[]},{"title":"Week 3","level":"1.6.3","depth":2,"path":"react/lesson3.md","ref":"react/lesson3.md","articles":[]},{"title":"Week 4","level":"1.6.4","depth":2,"path":"react/lesson4.md","ref":"react/lesson4.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"react/lesson1.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T15:03:24.286Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

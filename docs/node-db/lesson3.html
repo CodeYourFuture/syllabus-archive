@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Week 4 · GitBook</title>
+        <title>Week 3 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="lesson4.html" />
     
-    <link rel="prev" href="lesson3.html" />
+    
+    <link rel="prev" href="lesson2.html" />
     
 
     </head>
@@ -172,9 +174,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="lesson1.html">
+        <li class="chapter " data-level="1.4.1" data-path="../js-core/lesson1.html">
             
-                <a href="lesson1.html">
+                <a href="../js-core/lesson1.html">
             
                     
                     Week 1
@@ -185,9 +187,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="lesson2.html">
+        <li class="chapter " data-level="1.4.2" data-path="../js-core/lesson2.html">
             
-                <a href="lesson2.html">
+                <a href="../js-core/lesson2.html">
             
                     
                     Week 2
@@ -198,9 +200,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="lesson3.html">
+        <li class="chapter " data-level="1.4.3" data-path="../js-core/lesson3.html">
             
-                <a href="lesson3.html">
+                <a href="../js-core/lesson3.html">
             
                     
                     Week 3
@@ -211,9 +213,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="lesson4.html">
+        <li class="chapter " data-level="1.4.4" data-path="../js-core/lesson4.html">
             
-                <a href="lesson4.html">
+                <a href="../js-core/lesson4.html">
             
                     
                     Week 4
@@ -243,9 +245,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../node-db/lesson1.html">
+        <li class="chapter " data-level="1.5.1" data-path="lesson1.html">
             
-                <a href="../node-db/lesson1.html">
+                <a href="lesson1.html">
             
                     
                     Week 1
@@ -256,9 +258,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../node-db/lesson2.html">
+        <li class="chapter " data-level="1.5.2" data-path="lesson2.html">
             
-                <a href="../node-db/lesson2.html">
+                <a href="lesson2.html">
             
                     
                     Week 2
@@ -269,9 +271,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../node-db/lesson3.html">
+        <li class="chapter active" data-level="1.5.3" data-path="lesson3.html">
             
-                <a href="../node-db/lesson3.html">
+                <a href="lesson3.html">
             
                     
                     Week 3
@@ -282,9 +284,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../node-db/lesson4.html">
+        <li class="chapter " data-level="1.5.4" data-path="lesson4.html">
             
-                <a href="../node-db/lesson4.html">
+                <a href="lesson4.html">
             
                     
                     Week 4
@@ -440,7 +442,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Week 4</a>
+        <a href=".." >Week 3</a>
     </h1>
 </div>
 
@@ -455,39 +457,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="javascript-core-4">JavaScript Core 4</h1>
-<p><strong> What we will learn today?</strong>
-ToDo</p>
-<p>?? maybe Object Oriented JS (prototypes and such),
-call, apply etc.. or more algorithmic techniques (recursion etc..)</p>
-<hr>
-<h2 id="topic-1">Topic 1</h2>
-<p>High level explanation of Topic 1 - rely on the exercises</p>
-<blockquote>
-<p><strong>Exercise</strong>: Always have exercises</p>
-</blockquote>
-<h2 id="topic-2">Topic 2</h2>
-<h2 id="topic-3">Topic 3</h2>
-<h1 id="resources">Resources</h1>
-<ol>
-<li><a href="https://google.com" target="_blank">Resource 1 to learn more about Topic 1</a></li>
-<li><a href="https://google.com" target="_blank">Resource 2 for Topic 2</a></li>
-</ol>
-<h1 id="homework">Homework</h1>
-<ol>
-<li><p>First part of Homework - Easy</p>
+                                <h2 id="week-3---node-cv-app">WEEK 3 - Node CV App</h2>
+<h3 id="morning">Morning!</h3>
+<p>We&apos;ve set up another repository (<a href="https://github.com/Code-Your-Future/node-cv-app" target="_blank">https://github.com/Code-Your-Future/node-cv-app</a>) for you to fork (grab a mentor if you&apos;re curious or confused about all the boilerplate).</p>
+<h2 id="goal">Goal</h2>
+<p>Remember the CV you made all those months ago? This week you will be building an updated version powered by Node.js. You will fetch data from a real-world API (the Github API), perform some operations on that data, and then use it to populate Handlebars templates (this should sound familiar, because you did a similar thing last week). Finally, you will deploy your CV to the internet.</p>
+<h2 id="practical-tasks">Practical tasks</h2>
+<h3 id="api-client">API client</h3>
+<ul>
+<li>complete the <code>fetchFromGithub</code> method in <code>/server/lib/github-client.js</code> so that the <strong>should retrieve user profile information</strong> test passes</li>
+<li><code>/users/{username}/events/public</code> is a github endpoint that returns all a user&apos;s activity on github. Use this, and the documentation about event types <a href="https://developer.github.com/v3/activity/events/types/" target="_blank">https://developer.github.com/v3/activity/events/types/</a>, to add a <code>getUserPullRequests</code> method to the github client which retrieves a list of a user&apos;s pull requests. The <strong>should retrieve user pull requests</strong> test should pass.</li>
+</ul>
+<h3 id="controllers">Controllers</h3>
+<ul>
+<li>Set up a CV controller that outputs your existing HTML CV, using Handlebars templates (if you don&apos;t have your existing CV, make a simple one)</li>
+<li>Add your Github user profile and pull request information to this page by using the Github client</li>
+</ul>
+<h3 id="middleware">Middleware</h3>
+<ul>
+<li>add error handling middleware to send a 404 if the user requests some url not supported by your app, or 503 error if anything goes wrong</li>
+</ul>
+<h4 id="questions-to-think-about">Questions to think about</h4>
+<ul>
+<li>What approaches can you use to make it easier to work with complex data like the responses from the Github API?</li>
+<li>Why haven&apos;t we written all the code in a single <code>app.js</code> file?</li>
+<li>Why are we passing your Github user name from the controller to the github client? Why don&apos;t we just &apos;hard code&apos; it into the github client?</li>
+<li>How are controllers and middleware different? How are they similar?</li>
+</ul>
+<h3 id="extension-tasks">Extension tasks</h3>
+<ul>
+<li>use <code>?format=json</code> query string to send a json only response</li>
+<li>set up a user controller to send the same information, minus your CV, for any user. Try to minimise how much you copy and paste code - can some of the code you wrote be extracted into another shared module in your <code>/lib</code> directory</li>
+<li>using the documentation, find some other interesting data from the github api to put in your CV. Use <code>Promise.all()</code> to wait for all your api calls to respond, and output all the data in your CV page</li>
+<li>extend your error middleware to send a custom 404 response if a user is not found</li>
+</ul>
+<h3 id="deploying-to-heroku">Deploying to Heroku</h3>
+<ul>
+<li>follow this guide to get your app running on a server: <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction" target="_blank">https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction</a> (skip the &apos;prepare your app&apos; section)</li>
+</ul>
+<h2 id="important-concepts">Important concepts</h2>
+<ul>
+<li>Modular JavaScript:<ul>
+<li>D.R.Y.</li>
+<li><code>require</code> and <code>module.exports</code></li>
+<li>how and why to split your code out of <code>server.js</code> into <code>app.js</code>, <code>controllers/</code>, <code>lib/</code></li>
+</ul>
 </li>
-<li><p>Second part of Homework - Intermediate/Hard</p>
+<li>Error handling<ul>
+<li>status codes: <code>404</code> vs <code>503</code></li>
+</ul>
 </li>
-<li><p><strong>[Bonus/Optional]</strong> Third part/optional - Hardest</p>
+<li>The lifecycle of a <code>request</code> and <code>response</code> in express<ul>
+<li>Middleware: <code>app.use()</code></li>
+<li>Routes: <code>app.get()</code>, <code>app.post()</code> etc.</li>
+<li>Route handling with Controllers</li>
+<li>sending a response: <code>response.render()</code>, <code>response.json()</code>, <code>response.send()</code> etc.</li>
+<li>what are the <code>req</code> &amp; <code>res</code> objects doing, really?</li>
+</ul>
 </li>
-<li><p><strong>Research:</strong></p>
+<li>Requesting and using complex data from real-world APIs<ul>
+<li>doing async operations with callbacks and promises</li>
+<li>useful methods for dealing with JS data structures</li>
+<li>using documentation
+0Looking</li>
+</ul>
 </li>
-</ol>
-<h2 id="prepare-for-the-next-class">Prepare for the next class</h2>
-<ol>
-<li>Read this <a href="https://google.com" target="_blank">Some Tutorial or Video etc...</a></li>
-</ol>
+</ul>
 
                                 
                                 </section>
@@ -515,10 +550,14 @@ call, apply etc.. or more algorithmic techniques (recursion etc..)</p>
 
             
                 
-                <a href="lesson3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Week 3">
+                <a href="lesson2.html" class="navigation navigation-prev " aria-label="Previous page: Week 2">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="lesson4.html" class="navigation navigation-next " aria-label="Next page: Week 4">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -527,7 +566,7 @@ call, apply etc.. or more algorithmic techniques (recursion etc..)</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 4","level":"1.4.4","depth":2,"next":{"title":"Node and DB","level":"1.5","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.5.1","depth":2,"path":"node-db/lesson1.md","ref":"node-db/lesson1.md","articles":[]},{"title":"Week 2","level":"1.5.2","depth":2,"path":"node-db/lesson2.md","ref":"node-db/lesson2.md","articles":[]},{"title":"Week 3","level":"1.5.3","depth":2,"path":"node-db/lesson3.md","ref":"node-db/lesson3.md","articles":[]},{"title":"Week 4","level":"1.5.4","depth":2,"path":"node-db/lesson4.md","ref":"node-db/lesson4.md","articles":[]},{"title":"Week 5","level":"1.5.5","depth":2,"ref":"","articles":[]}]},"previous":{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js-core/lesson4.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T13:11:02.841Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 3","level":"1.5.3","depth":2,"next":{"title":"Week 4","level":"1.5.4","depth":2,"path":"node-db/lesson4.md","ref":"node-db/lesson4.md","articles":[]},"previous":{"title":"Week 2","level":"1.5.2","depth":2,"path":"node-db/lesson2.md","ref":"node-db/lesson2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"node-db/lesson3.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T15:03:24.286Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

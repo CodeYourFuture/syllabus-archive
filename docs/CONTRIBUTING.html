@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Coding Standards and Best Practices · GitBook</title>
+        <title>Contributing · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="CONTRIBUTING.html" />
     
-    
-    <link rel="prev" href="react/lesson4.html" />
+    <link rel="prev" href="PRACTICES.html" />
     
 
     </head>
@@ -386,7 +384,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="PRACTICES.html">
+        <li class="chapter " data-level="1.7" data-path="PRACTICES.html">
             
                 <a href="PRACTICES.html">
             
@@ -399,7 +397,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="CONTRIBUTING.html">
+        <li class="chapter active" data-level="1.8" data-path="CONTRIBUTING.html">
             
                 <a href="CONTRIBUTING.html">
             
@@ -442,7 +440,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Coding Standards and Best Practices</a>
+        <a href="." >Contributing</a>
     </h1>
 </div>
 
@@ -457,86 +455,30 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="coding-standards-and-best-practices">Coding Standards and Best Practices</h1>
-<h2 id="general">General</h2>
-<ul>
-<li><p>Indentation should be consistent</p>
-<ul>
-<li>I.e. all files should use either tabs or spaces and the same width (e.g. 4 characters)</li>
-<li>Do not mix tabs and spaces</li>
-</ul>
-</li>
-<li><p>Use one casing style</p>
-<ul>
-<li>Usually:<ul>
-<li>camelCase for JavaScript</li>
-<li>hyphen-case or camelCase for CSS</li>
-</ul>
-</li>
-<li>Do not mix casing styles e.g. let first_name = person.firstName;</li>
-</ul>
-</li>
-<li><p>Test coverage should be sufficient</p>
-<ul>
-<li>This should meet or exceed the configured threshold; if this isn&apos;t possible, explain why</li>
-</ul>
-</li>
-<li>Comment code that might be difficult to understand...<ul>
-<li>...but also consider simplifying complex code if at all possible. If you find that you&apos;re writing a lot of comments, then it&apos;s a good indicator that your code is too verbose and potentially overengineered</li>
-</ul>
-</li>
-</ul>
-<h2 id="javascript">JavaScript</h2>
-<ul>
-<li><p>Variable and function names should be descriptive</p>
-<ul>
-<li>E.g. <code>const actors = getActorsFromFilm(film);</code> is easier to understand than <code>const temp2 = doStuff(temp);</code></li>
-</ul>
-</li>
-<li><p>Keep functions as short as possible</p>
-<ul>
-<li>If a function is longer than 15 lines, consider breaking it down into smaller functions</li>
-</ul>
-</li>
-<li><p>Use variables if a literal value is repeated more than once</p>
-<ul>
-<li>E.g. <code>console.log(&apos;Peter&apos;, &apos;Peter&apos;.length);</code> -&gt; <code>const name = &apos;Peter&apos;; console.log(name, name.length);</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="css">CSS</h2>
-<ul>
-<li><p>Styles should be based upon class selectors where possible e.g. <code>.some-class</code></p>
-<ul>
-<li>Facilitates reuse</li>
-</ul>
-</li>
-<li><p><strong>Don&apos;t</strong> use ID-based selectors e.g. <code>#some-id</code></p>
-</li>
-<li><p>Avoid styling HTML element selectors directly, unless it&apos;s to remove default browser styling</p>
-</li>
-<li><p>Avoid using style properties in JavaScript</p>
-<ul>
-<li>E.g. <code>myElement.style.display = &apos;none&apos;;</code></li>
-<li>This results in styles that are difficult to reuse</li>
-<li>Use <code>Element.prototype.classList</code> instead e.g. <code>myElement.classList.add(&apos;hidden&apos;);</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="git">Git</h2>
-<ul>
-<li><p>Make small, frequent commits</p>
-<ul>
-<li>If you make a mistake, then it&apos;s easier to revert than if you only make large, occasional commits</li>
-</ul>
-</li>
-<li><p>Avoid committing commented-out code</p>
-<ul>
-<li>If the code exists in a previous commit, then use GitHub or <code>git diff</code> to view it
-0Looking</li>
-</ul>
-</li>
-</ul>
+                                <h1 id="contributing">Contributing</h1>
+<p>To contribute to the Code Your Future syllabus, fork and open a pull request to
+<a href="https://github.com/code-your-future/syllabus" target="_blank">this repository</a> or one of the
+<a href="https://github.com/code-your-future/syllabus" target="_blank">submodules</a>.</p>
+<h2 id="publish-the-gitbook">Publish the Gitbook</h2>
+<p>Install the <a href="https://github.com/GitbookIO/gitbook" target="_blank">GitBook</a> CLI:</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> -g gitbook-cli
+</code></pre>
+<p>Install gitbook plugins for this project, if not already installed:</p>
+<pre class="language-"><code class="lang-bash">gitbook <span class="token function">install</span>
+</code></pre>
+<p>Test your changes:</p>
+<pre class="language-"><code>gitbook serve
+open http://localhost:4000
+</code></pre><p>Build the docsite into the <code>_book</code> directory</p>
+<pre class="language-"><code>gitbook build
+</code></pre><p>Publish the built <code>_book</code> directory to GitHub pages</p>
+<pre class="language-"><code>git commit -am &apos;Publish gitbook&apos;
+git subtree push --prefix _book origin gh-pages
+</code></pre><h2 id="add-new-modules-or-lessons">Add new modules or lessons</h2>
+<p>The repo is stuctured as <code>module-name\lesson-number</code> - add your content in the correct file.</p>
+<p>If you&apos;ve added a new file, then Add it as new entry in <a href="https://github.com/Code-Your-Future/syllabus/blob/master/SUMMARY.md" target="_blank">SUMMARY.md</a>.
+If the module contains many individual markdown files, add them as nested bullets under the main README.</p>
+<p><a href="#publish-the-gitbook">Build and publish</a> the site.</p>
 
                                 
                                 </section>
@@ -564,14 +506,10 @@
 
             
                 
-                <a href="react/lesson4.html" class="navigation navigation-prev " aria-label="Previous page: Week 4">
+                <a href="PRACTICES.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Coding Standards and Best Practices">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="CONTRIBUTING.html" class="navigation navigation-next " aria-label="Next page: Contributing">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -580,7 +518,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Coding Standards and Best Practices","level":"1.7","depth":1,"next":{"title":"Contributing","level":"1.8","depth":1,"path":"CONTRIBUTING.md","ref":"CONTRIBUTING.md","articles":[]},"previous":{"title":"Week 4","level":"1.6.4","depth":2,"path":"react/lesson4.md","ref":"react/lesson4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PRACTICES.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T13:11:02.841Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Contributing","level":"1.8","depth":1,"previous":{"title":"Coding Standards and Best Practices","level":"1.7","depth":1,"path":"PRACTICES.md","ref":"PRACTICES.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"CONTRIBUTING.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T15:03:24.286Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

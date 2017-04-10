@@ -153,6 +153,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.3" data-path="../html-css/coding-101.html">
+            
+                <a href="../html-css/coding-101.html">
+            
+                    
+                    Coding 101
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -459,8 +472,6 @@
 <p><img src="https://camo.githubusercontent.com/997591db1749880b8b23c96b8f788e69af09c04d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d64726166742d6461726b7265642e737667" alt="Status: Draft"></p>
 <p><strong>What we will learn today?</strong></p>
 <ul>
-<li>Getting started with JavaScript</li>
-<li>Simple data types and expressions</li>
 <li>Variables, assignment and comparison</li>
 <li>Conditionals: If/else, switch, ternary operator</li>
 <li>Arrays</li>
@@ -468,94 +479,6 @@
 <li>Objects</li>
 </ul>
 <hr>
-<h2 id="getting-started-with-javascript">Getting started with JavaScript</h2>
-<p>We will spend most of this lesson in Codepen. To get started, go to <a href="codepen.io/pen">codepen.io/pen/</a> to create a new Pen. On the bottom left, click the &quot;Console&quot; button to open the console.</p>
-<p><img src="assets/codepen-console.png" alt="Codepen console"></p>
-<p>You can place your cursor right behind the <code>&gt;</code> sign. Type a simple expression, such as <code>2 + 2</code> and hit enter. You will see expression, as well as its result, in the window above.</p>
-<p><img src="assets/repl.gif" alt="Entering expressions in the Codepen console"></p>
-<p>You will be able to follow most of this session along just entering expressions in the console like this.</p>
-<h2 id="simple-data-types--expressions">Simple data types &amp; Expressions</h2>
-<h3 id="numbers">Numbers</h3>
-<p>Let&#x2019;s start with something seemingly simple - numbers. Here are some:</p>
-<pre class="language-"><code class="lang-js"><span class="token number">1</span>
-<span class="token number">15</span>
-<span class="token number">3195803798</span>
-<span class="token number">1.4</span>
-<span class="token number">0.0000005</span>
-<span class="token number">0</span>
-<span class="token operator">-</span><span class="token number">23</span>
-</code></pre>
-<p>You will see that there are whole numbers (no decimal point) and real numbers (decimal point), which in JavaScript are so-called &#x201C;floating point&#x201D; numbers. Numbers can be positive or negative and they support all the basic math operators that you would expect:</p>
-<pre class="language-"><code class="lang-js"><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">// 4</span>
-<span class="token number">2</span> <span class="token operator">-</span> <span class="token number">5</span> <span class="token comment" spellcheck="true">// -3</span>
-<span class="token number">2</span> <span class="token operator">*</span> <span class="token number">3</span> <span class="token comment" spellcheck="true">// 6</span>
-<span class="token number">10</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">// 5</span>
-<span class="token number">3</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">2</span> <span class="token comment" spellcheck="true">// -6</span>
-</code></pre>
-<p>Operators have the same precedence as in algebra: <code>*</code> and <code>/</code> have higher precedence than <code>+</code> and <code>-</code>.</p>
-<ul>
-<li><strong>TODO:</strong> Do math exercise</li>
-<li><strong>TODO:</strong> What about Infinity, Math.PI, IEEE floating point bullshit, NaN</li>
-</ul>
-<h3 id="strings">Strings</h3>
-<p>Strings represent any sort of text. They are delimited by single quotes (<code>&apos;</code>) or double quotes (<code>&#x201D;</code>) and can be of any length.</p>
-<pre class="language-"><code>&apos;&apos; // empty string
-&quot;&quot; // empty string
-&apos;Hello&apos;
-&apos;I am learning JavaScript&apos;
-&apos;It\&apos;s been a great journey so far!&apos;
-&quot;Double quotes work as well&quot;
-</code></pre><blockquote>
-<p>If you need single or double quotes <em>inside the string</em>, you need to &#x201C;escape&#x201D; them by putting a backslash in front of them. If you don&#x2019;t do this, the JavaScript engine will think the string ends here, because it encounters a quote.</p>
-</blockquote>
-<p>The most common operation on strings is to append one string to another. This is called <em>string concatenation</em>. It&#x2019;s achieved by the plus (<code>+</code>) operator:</p>
-<pre class="language-"><code>&quot;Hello&quot; + &quot;World&quot; // &quot;HelloWorld&quot;
-</code></pre><ul>
-<li><strong>TODO:</strong> Introduce string concatenation</li>
-<li><strong>TODO:</strong> What about basic string functions, like substr, replace etc?</li>
-</ul>
-<h3 id="booleans">Booleans</h3>
-<p><a href="https://en.wikipedia.org/wiki/Boolean_data_type" target="_blank">Booleans</a> are a data type that can only have two values: <code>true</code> and <code>false</code>.</p>
-<p>Like numbers, they can be combined using operators, but there are different operators for booleans (analoguous to <a href="https://en.wikipedia.org/wiki/Boolean_algebra" target="_blank">Boolean algebra</a>). The most important ones are:</p>
-<ul>
-<li><code>!</code> (NOT), which negates a value:<pre class="language-"><code class="lang-js"><span class="token operator">!</span><span class="token boolean">true</span> <span class="token comment" spellcheck="true">// false</span>
-<span class="token operator">!</span><span class="token boolean">false</span> <span class="token comment" spellcheck="true">// true</span>
-</code></pre>
-</li>
-<li><code>&amp;&amp;</code> (AND), which is only true if both operands are true:<pre class="language-"><code class="lang-js"><span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
-<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
-<span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// false</span>
-<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
-</code></pre>
-</li>
-<li><code>||</code> (OR), which is true if at least one of the operands is true:<pre class="language-"><code class="lang-js"><span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
-<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// true</span>
-<span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
-<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
-</code></pre>
-</li>
-</ul>
-<p><strong>TODO:</strong> When to introduce truthiness and falsiness? Probably in <code>comparisons</code>?</p>
-<hr>
-<blockquote>
-<p><strong>Exercise</strong>: Put simple mathematical expressions into the console: <code>2 * 2</code>, <code>2 + 2</code>, <code>5 * 7 - 13</code>
-<strong>Exercise</strong>: Calculate the area of a circle (<code>r * r * pi</code>). Do a quick Google search on how to use PI in JavaScript.</p>
-<p>See what happens when you &quot;add&quot; two strings together</p>
-<p>Research the JS Math library. sqrt, floor, ceil, round</p>
-<p>Write an expression that outputs the percentage of students who are female. Make it so it outputs it as <code>58%</code>, and make sure you use the actual numbers of women and the total number of students.
-Solution: <code>console.log(Math.round(7 / 17 * 100) + &quot;%&quot;);</code></p>
-</blockquote>
-<h3 id="from-repl-to-consolelog">From REPL to console.log</h3>
-<ul>
-<li>Single expressions are not very useful, you want to write applications</li>
-<li>More than one statement? Move it to the <code>JS</code> box in Codepen</li>
-<li>Now you don&apos;t get any immediate feedback</li>
-<li>Use <code>console.log</code> to print to the console: <code>console.log(3 + 3);</code></li>
-<li>Write statements below each other</li>
-</ul>
-<blockquote>
-<p><strong>THOUGHT:</strong> Codepen does not have a &quot;run&quot; button, so it&apos;s quite intransparent when it actually re-runs a program. Maybe a different tool is better? A simple jsbin configuration, maybe?</p>
-</blockquote>
 <h3 id="variables-and-assignments">Variables and assignments</h3>
 <p>For an expression or a value to be of any use to us, we need to store it in a variable.</p>
 <p>Variables have a name (<em>identifier</em>) that we can use to refer to a value. You can assign a value to a variable with the following statement:</p>
@@ -747,7 +670,7 @@ countries<span class="token punctuation">.</span><span class="token function">pu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.4.1","depth":2,"next":{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},"previous":{"title":"JavaScript Core","level":"1.4","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},{"title":"Week 4","level":"1.4.4","depth":2,"path":"js-core/lesson4.md","ref":"js-core/lesson4.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js-core/lesson1.md","mtime":"2017-04-10T11:56:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T15:03:24.286Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Week 1","level":"1.4.1","depth":2,"next":{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},"previous":{"title":"JavaScript Core","level":"1.4","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},{"title":"Week 4","level":"1.4.4","depth":2,"path":"js-core/lesson4.md","ref":"js-core/lesson4.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js-core/lesson1.md","mtime":"2017-04-10T18:04:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T18:06:22.666Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

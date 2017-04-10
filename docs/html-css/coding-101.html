@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Week 2 · GitBook</title>
+        <title>Coding 101 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="coding-101.html" />
     
-    
-    <link rel="prev" href="lesson1.html" />
+    <link rel="prev" href="lesson2.html" />
     
 
     </head>
@@ -142,7 +140,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="lesson2.html">
+        <li class="chapter " data-level="1.3.2" data-path="lesson2.html">
             
                 <a href="lesson2.html">
             
@@ -155,7 +153,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="coding-101.html">
+        <li class="chapter active" data-level="1.3.3" data-path="coding-101.html">
             
                 <a href="coding-101.html">
             
@@ -455,7 +453,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Week 2</a>
+        <a href=".." >Coding 101</a>
     </h1>
 </div>
 
@@ -470,70 +468,101 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="htmlcss-2">HTML/CSS 2</h1>
-<p><strong>What will we learn today?</strong></p>
+                                <p><img src="https://camo.githubusercontent.com/997591db1749880b8b23c96b8f788e69af09c04d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d64726166742d6461726b7265642e737667" alt="Status: Draft"></p>
+<h1 id="coding-101">Coding 101</h1>
+<p><strong>What we will learn today?</strong></p>
 <ul>
-<li>Responsive web design</li>
-<li>Media queries</li>
-<li>Content layout: flexbox</li>
-<li>Content layout: floats (maybe)</li>
-<li>Content layout: relative and absolute positioning (maybe)</li>
+<li>Getting started with JavaScript
+-<h2 id="getting-started-with-javascript">Getting started with JavaScript</h2>
+</li>
 </ul>
-<hr>
-<h2 id="responsive-web-design">Responsive Web Design</h2>
-<p>When we build for the web, we&apos;re making websites that can be viewed in a phone, a laptop, a tablet and more. To ensure we&apos;re presenting a website that&apos;s easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.</p>
-<blockquote>
-<p><strong>Exercise:</strong> As a group, let&apos;s brainstorm as many devices as we can think of which might access the websites we build.</p>
-</blockquote>
-<p>See how much variety there is in <a href="https://decadecity.net/blog/2014/08/19/a-device-agnostic-approach-to-inlining-css" target="_blank">viewport sizes</a>.</p>
-<h2 id="media-queries">Media Queries</h2>
-<p>As you learned in your homework assignment, media queries help us change the display of our content depending on the size of the viewport. Let&apos;s review what you learned and break down a media query:</p>
-<pre class="language-"><code class="lang-css"><span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 900px<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
-    <span class="token selector">body</span> <span class="token punctuation">{</span>
-        <span class="token property">background</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<p>We will spend most of this lesson in Codepen. To get started, go to <a href="codepen.io/pen">codepen.io/pen/</a> to create a new Pen. On the bottom left, click the &quot;Console&quot; button to open the console.</p>
+<p><img src="assets/codepen-console.png" alt="Codepen console"></p>
+<p>You can place your cursor right behind the <code>&gt;</code> sign. Type a simple expression, such as <code>2 + 2</code> and hit enter. You will see expression, as well as its result, in the window above.</p>
+<p><img src="assets/repl.gif" alt="Entering expressions in the Codepen console"></p>
+<p>You will be able to follow most of this session along just entering expressions in the console like this.</p>
+<h2 id="simple-data-types--expressions">Simple data types &amp; Expressions</h2>
+<h3 id="numbers">Numbers</h3>
+<p>Let&#x2019;s start with something seemingly simple - numbers. Here are some:</p>
+<pre class="language-"><code class="lang-js"><span class="token number">1</span>
+<span class="token number">15</span>
+<span class="token number">3195803798</span>
+<span class="token number">1.4</span>
+<span class="token number">0.0000005</span>
+<span class="token number">0</span>
+<span class="token operator">-</span><span class="token number">23</span>
 </code></pre>
-<p>In this media query, we&apos;re assigning a red background color to the <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span></code> element whenever the viewport is larger than <code>900px</code>, and we&apos;re viewing on a screen.</p>
+<p>You will see that there are whole numbers (no decimal point) and real numbers (decimal point), which in JavaScript are so-called &#x201C;floating point&#x201D; numbers. Numbers can be positive or negative and they support all the basic math operators that you would expect:</p>
+<pre class="language-"><code class="lang-js"><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">// 4</span>
+<span class="token number">2</span> <span class="token operator">-</span> <span class="token number">5</span> <span class="token comment" spellcheck="true">// -3</span>
+<span class="token number">2</span> <span class="token operator">*</span> <span class="token number">3</span> <span class="token comment" spellcheck="true">// 6</span>
+<span class="token number">10</span> <span class="token operator">/</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">// 5</span>
+<span class="token number">3</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">2</span> <span class="token comment" spellcheck="true">// -6</span>
+</code></pre>
+<p>Operators have the same precedence as in algebra: <code>*</code> and <code>/</code> have higher precedence than <code>+</code> and <code>-</code>.</p>
 <ul>
-<li><code>@media</code> starts the media query</li>
-<li><code>screen</code> tells it to apply these styles to screen displays. Other displays might be <code>print</code>, for when a webpage is being printed.</li>
-<li><code>(min-width: 900px)</code> tells it to apply these styles when the viewport is larger than <code>900px</code></li>
+<li><strong>TODO:</strong> Do math exercise</li>
+<li><strong>TODO:</strong> What about Infinity, Math.PI, IEEE floating point bullshit, NaN</li>
 </ul>
-<p>Finally, we wrap all of our styles for this media query in brackets (<code>{</code> and <code>}</code>), just like a CSS rule.</p>
-<blockquote>
-<p><strong>Exercise:</strong> Working in pairs, reduce the size of the &quot;Bikes for Refugees&quot; text so that it fits on a small screen (<code>320px</code>). But make sure it increases in size on larger screens.</p>
-<p><strong>Exercise:</strong> The two buttons in the jumbotron don&apos;t fit on the same line on small screens around <code>320px</code> wide. Working independently, can you adjust their size so that they fit on the same line?</p>
+<h3 id="strings">Strings</h3>
+<p>Strings represent any sort of text. They are delimited by single quotes (<code>&apos;</code>) or double quotes (<code>&#x201D;</code>) and can be of any length.</p>
+<pre class="language-"><code>&apos;&apos; // empty string
+&quot;&quot; // empty string
+&apos;Hello&apos;
+&apos;I am learning JavaScript&apos;
+&apos;It\&apos;s been a great journey so far!&apos;
+&quot;Double quotes work as well&quot;
+</code></pre><blockquote>
+<p>If you need single or double quotes <em>inside the string</em>, you need to &#x201C;escape&#x201D; them by putting a backslash in front of them. If you don&#x2019;t do this, the JavaScript engine will think the string ends here, because it encounters a quote.</p>
 </blockquote>
-<h2 id="content-layout-flexbox">Content Layout: Flexbox</h2>
-<p>Flexbox is a name for a set of CSS layout rules which are supported in newer browsers. They allow you to apply rules to elements to place them side-by-side and re-arrange them.</p>
+<p>The most common operation on strings is to append one string to another. This is called <em>string concatenation</em>. It&#x2019;s achieved by the plus (<code>+</code>) operator:</p>
+<pre class="language-"><code>&quot;Hello&quot; + &quot;World&quot; // &quot;HelloWorld&quot;
+</code></pre><ul>
+<li><strong>TODO:</strong> Introduce string concatenation</li>
+<li><strong>TODO:</strong> What about basic string functions, like substr, replace etc?</li>
+</ul>
+<h3 id="booleans">Booleans</h3>
+<p><a href="https://en.wikipedia.org/wiki/Boolean_data_type" target="_blank">Booleans</a> are a data type that can only have two values: <code>true</code> and <code>false</code>.</p>
+<p>Like numbers, they can be combined using operators, but there are different operators for booleans (analoguous to <a href="https://en.wikipedia.org/wiki/Boolean_algebra" target="_blank">Boolean algebra</a>). The most important ones are:</p>
+<ul>
+<li><code>!</code> (NOT), which negates a value:<pre class="language-"><code class="lang-js"><span class="token operator">!</span><span class="token boolean">true</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token operator">!</span><span class="token boolean">false</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+</li>
+<li><code>&amp;&amp;</code> (AND), which is only true if both operands are true:<pre class="language-"><code class="lang-js"><span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+</li>
+<li><code>||</code> (OR), which is true if at least one of the operands is true:<pre class="language-"><code class="lang-js"><span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// true</span>
+<span class="token boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
+<span class="token boolean">true</span> <span class="token operator">&amp;&amp;</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+</li>
+</ul>
+<p><strong>TODO:</strong> When to introduce truthiness and falsiness? Probably in <code>comparisons</code>?</p>
+<hr>
 <blockquote>
-<p><strong>Exercise:</strong> Working in pairs, look at <a href="http://codepen.io/natewr/pen/aJPOeR" target="_blank">this Codepen</a> which uses flexbox. Try to understand how it is working, then use that technique to put the two articles under the &quot;Learn More&quot; section side-by-side.</p>
-<p><strong>Exercise:</strong> Working in pairs, search on Google for information about the flexbox <code>order</code> property. Share what you&apos;ve found with each other, then use that to position the &quot;How can I help?&quot; box on the left.</p>
+<p><strong>Exercise</strong>: Put simple mathematical expressions into the console: <code>2 * 2</code>, <code>2 + 2</code>, <code>5 * 7 - 13</code>
+<strong>Exercise</strong>: Calculate the area of a circle (<code>r * r * pi</code>). Do a quick Google search on how to use PI in JavaScript.</p>
+<p>See what happens when you &quot;add&quot; two strings together</p>
+<p>Research the JS Math library. sqrt, floor, ceil, round</p>
+<p>Write an expression that outputs the percentage of students who are female. Make it so it outputs it as <code>58%</code>, and make sure you use the actual numbers of women and the total number of students.
+Solution: <code>console.log(Math.round(7 / 17 * 100) + &quot;%&quot;);</code></p>
 </blockquote>
-<p>Often you will be asked to place a &quot;gutter&quot; between objects that sit side-by-side. A &quot;gutter&quot; is a small amount of open space between two columns. Read about the <a href="https://css-tricks.com/almanac/properties/j/justify-content/" target="_blank">justify-content</a> property.</p>
+<h3 id="from-repl-to-consolelog">From REPL to console.log</h3>
+<ul>
+<li>Single expressions are not very useful, you want to write applications</li>
+<li>More than one statement? Move it to the <code>JS</code> box in Codepen</li>
+<li>Now you don&apos;t get any immediate feedback</li>
+<li>Use <code>console.log</code> to print to the console: <code>console.log(3 + 3);</code></li>
+<li>Write statements below each other</li>
+</ul>
 <blockquote>
-<p><strong>Exercise:</strong> Add a small gutter between the two articles under the &quot;Learn More&quot; section.</p>
+<p><strong>THOUGHT:</strong> Codepen does not have a &quot;run&quot; button, so it&apos;s quite intransparent when it actually re-runs a program. Maybe a different tool is better? A simple jsbin configuration, maybe?</p>
 </blockquote>
-<p>Let&apos;s take a break from flexbox for a minute. Do you remember the <code>:first-child</code> psuedo class? There&apos;s a <code>:last-child</code> psuedo class as well.</p>
-<blockquote>
-<p><strong>Exercise:</strong> See if you can use these psuedo classes to give the left box a grey background (<code>#ddd</code>) and the right box a grey border (<code>1px solid #ddd</code>). Use <a href="assets/screenshot-complete.png">this screenshot</a> to guide you.</p>
-</blockquote>
-<p>Now, back to Flexbox. Read this short article on the <a href="https://css-tricks.com/almanac/properties/a/align-items/" target="_blank">align-items</a> property. Try out some of the different properties on your &quot;Learn More&quot; boxes to see how they effect the size of the boxes.</p>
-<blockquote>
-<p><strong>Exercise:</strong> Working independently, try to position the articles and images side-by-side under the &quot;Upcoming Events&quot; section. Use <a href="assets/screenshot-complete.png">this screenshot</a> to guide you. If you get stuck, go ahead and ask your partner. Never be afraid to ask!</p>
-</blockquote>
-<h2 id="homework">Homework</h2>
-<ol>
-<li>(Est. 1-2 hours) Complete the &quot;Common Responsive Patterns&quot; lesson of the <a href="https://www.udacity.com/course/responsive-web-design-fundamentals--ud893" target="_blank">Responsive Web Design Fundamentals</a> course.</li>
-<li>(Est. 1-2 hours) Complete as many levels of the <a href="http://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> game as you can. This will stretch your knowledge of Flexbox and you may need to do some research. It&apos;s ok if you can&apos;t complete all levels. Do as many as you can.</li>
-<li>(Est. 1-2 hours) Revisit the webpage you created in last week&apos;s homework assignment. Add a sidebar to your site and move the site description into it. This should appear below the articles on small screens, then switch to a two-column layout with the articles and sidebar sitting side-by-side. Add at least three more articles and then convert them to a grid, so that you show 3 articles per row in a box layout.</li>
-<li>(Est. 1-2 hours) Flexbox is relatively new and is not supported in older browsers. In most of your work, you&apos;ll use Flexbox. But an employer might want you to use one of the older layout strategies. Read this article to learn about <a href="http://learn.shayhowe.com/html-css/positioning-content/" target="_blank">positioning content in CSS</a> using floats and absolute positioning.</li>
-</ol>
-<h2 id="prepare-for-the-next-class">Prepare for the next class</h2>
-<ol>
-<li>(Est. 1 hour) You may remember Bootstrap from your application process. Look at the documentation for <a href="https://v4-alpha.getbootstrap.com/" target="_blank">Bootstrap 4</a> and look at their examples to see how they are building components.</li>
-</ol>
 
                                 
                                 </section>
@@ -561,14 +590,10 @@
 
             
                 
-                <a href="lesson1.html" class="navigation navigation-prev " aria-label="Previous page: Week 1">
+                <a href="lesson2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Week 2">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="coding-101.html" class="navigation navigation-next " aria-label="Next page: Coding 101">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -577,7 +602,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Week 2","level":"1.3.2","depth":2,"next":{"title":"Coding 101","level":"1.3.3","depth":2,"path":"html-css/coding-101.md","ref":"html-css/coding-101.md","articles":[]},"previous":{"title":"Week 1","level":"1.3.1","depth":2,"path":"html-css/lesson1.md","ref":"html-css/lesson1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/lesson2.md","mtime":"2017-04-09T18:12:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T18:06:22.666Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Coding 101","level":"1.3.3","depth":2,"next":{"title":"JavaScript Core","level":"1.4","depth":1,"ref":"","articles":[{"title":"Week 1","level":"1.4.1","depth":2,"path":"js-core/lesson1.md","ref":"js-core/lesson1.md","articles":[]},{"title":"Week 2","level":"1.4.2","depth":2,"path":"js-core/lesson2.md","ref":"js-core/lesson2.md","articles":[]},{"title":"Week 3","level":"1.4.3","depth":2,"path":"js-core/lesson3.md","ref":"js-core/lesson3.md","articles":[]},{"title":"Week 4","level":"1.4.4","depth":2,"path":"js-core/lesson4.md","ref":"js-core/lesson4.md","articles":[]}]},"previous":{"title":"Week 2","level":"1.3.2","depth":2,"path":"html-css/lesson2.md","ref":"html-css/lesson2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["prism","-highlight"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html-css/coding-101.md","mtime":"2017-04-10T18:03:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-10T18:06:22.666Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -258,7 +258,7 @@ websites and see the differences between them and VS Code.
 - What we learn?
 - How we work?
 - How we treat each other?
-- Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2016). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
+- Read this Technology Survey from [StackOverflow](https://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
 
 
 ## Homework

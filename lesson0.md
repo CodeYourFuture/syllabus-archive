@@ -128,7 +128,7 @@ This [answer](http://stackoverflow.com/a/1408464) on StackOverflow by [si618](ht
 
 So what is **Git**? Git is one of many Version Control Systems available to use, and by far [the most popular](http://stackoverflow.com/insights/survey/2015#tech-sourcecontrol).
 
-What is **Github**? Github is a very popular sites where you can publish and share your Git repositories, share and collaborate with other people.
+What is **Github**? Github is a very popular site where you can publish and share your Git repositories, share and collaborate with other people.
 
 ### Get Started
 Follow this tutorial from Github to setup Git https://help.github.com/articles/set-up-git/
@@ -258,13 +258,13 @@ websites and see the differences between them and VS Code.
 - What we learn?
 - How we work?
 - How we treat each other?
-- Read this Technology Survey from [StackOverflow](https://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
+- Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
 
 
 ## Homework
 
 - If you have not yet moved your website from CodePen to Github, do it now. Please use the
-information in this section to complete it. 
+information in this section to complete it.
 - When your website is live at `https://your-username.github.io/your-site-name`, please send
 a link to the slack channel of your class.
 - Learn how to navigate your computer using a Terminal (view files, copy files).

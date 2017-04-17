@@ -35,7 +35,7 @@ them in more detail.
 1. Export your website as a zip from CodePen. [Help >](https://blog.codepen.io/documentation/features/exporting-pens/)
 2. Extract the contents of the zip file to a folder in your computer. Keep note of the
 location of this folder.
-4. Read about the [terminal](#terminal).
+4. Read about the [terminal](#terminal-basics).
 5. Read about [git](#git).
 6. Install [Git](https://git-scm.com/download/).
 7. Put the contents of the zip folder in a Gitub repository. [How does Github work? (30min) >](https://www.youtube.com/watch?v=E8TXME3bzNs)
@@ -135,6 +135,7 @@ Follow this tutorial from Github to setup Git https://help.github.com/articles/s
 
 Then [learn how to use git from the Terminal >](https://www.codecademy.com/learn/learn-git)
 
+Try completing [this tutorial >](https://try.github.io/) as well to learn more intermediate features, like branching.
 
 ### A typical workflow
 
@@ -155,7 +156,9 @@ You will also typically need to set up your email and name once when you install
 ### Using Git through a graphical interface
 
 If you don't feel comfortable with the terminal just yet, download the
-[Github client](https://desktop.github.com/).
+[Github client](https://desktop.github.com/). If possible, however, **we recommend becoming 
+comfortable with the Terminal commands and understanding the steps for the different 
+workflows before moving on to visual Git clients.**
 
 [Github client guides >](https://help.github.com/desktop/guides/contributing/)
 

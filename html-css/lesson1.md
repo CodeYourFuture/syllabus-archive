@@ -29,6 +29,8 @@ The example website you'll begin working with is available [on this Codepen](htt
 
 > **Exercise**: Spend 5 minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
 
+> Let's refresh how HTML tags are structured - https://www.w3schools.com/html/html5_syntax.asp
+
 ## Semantic HTML
 
 When writing HTML code, you can use different tags to describe the content. Is it a navigation menu, a paragraph of text, or an article? By using the correct tag, you help search engines like Google or screen readers for the visually impaired.
@@ -151,14 +153,11 @@ You can also set a transparent border, so that it takes up the space without sho
 
 ## Homework
 
-1. (Est. 2-3 hours) Create a new webpage (`.html`) on a subject that you're interested in. The page should not use any framework like Bootstrap and it should include the following elements:
-  - A linked `.css` file applies a consistent color scheme to links and text on your page.
-  - A page header with a title and description for the site.
-  - An articles section with three articles, each including a title, summary and a link.
-  - Proper use of the semantic HTML tags we discussed.
-  - Research the `:first-child` pseudo-class and use it to style the first article so that it stands out from the others.
+1. (Est. 2 hours) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 
-2. **Optional** (Est. 1 hour) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
+2. Fork this repo and follow the instructions on the README - https://github.com/Code-Your-Future/html-css-project
+
+(If you need help with Forking - then refer back to [this tutorial](https://help.github.com/articles/fork-a-repo/))
 
 ## Prepare for the next class
-3. (Est. 5-6 hours) Complete the first three lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?**, **Starting Small** and **Building Up**. *Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead.*
+3. (Est. 4-5 hours) Complete the first three lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?**, **Starting Small** and **Building Up**. *Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead.*

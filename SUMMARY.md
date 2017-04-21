@@ -26,6 +26,7 @@
   * [Week 2](/react/lesson2.md)
   * [Week 3](/react/lesson3.md)
   * [Week 4](/react/lesson4.md)
+* [House Rules](house-rules.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Contributing](CONTRIBUTING.md)
 * [Lesson Template](lesson-template.md)

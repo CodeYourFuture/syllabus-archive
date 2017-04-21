@@ -4,7 +4,7 @@
 
 +  **Leave our space cleaner and tidier than when we arrive**. We are hosted by generous folks who are offering their space (and time) to help us - the least we can do is to keep their space tidy and clean, and consider it our own.
 
-+  **Communication is key**. Setup Slack on your phone and computer, and use it all the time to ask and provide help, enquire about the classes etc...
++  **Communication is key (and in English)**. Setup Slack on your phone and computer, and use it all the time to ask and provide help, enquire about the classes etc... Also, the classes help lots of the students (and volunteers!) to improve their English as a nice side effect, so even if you share a language with some of the participants, resist the temptation and speak in English!
 
 + **Learn to find answers**. A big part of what we teach you is about researching and finding answers by yourself - get in the habit of Googling and finding answers to your questions.
 

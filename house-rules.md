@@ -1,6 +1,6 @@
 # House Rules
 
-+ **Whilst you're a student, arrive on time **. Lots of people are giving freely of their time and knowledge to make the class possible and giving up other commitments to be here. Respect that, and always be on time.
++ **Whilst you're a student, arrive on time**. Lots of people are giving freely of their time and knowledge to make the class possible and giving up other commitments to be here. Respect that, and always be on time.
 
 +  **Leave our space cleaner and tidier than when we arrive**. We are hosted by generous folks who are offering their space (and time) to help us - the least we can do is to keep their space tidy and clean, and consider it our own.
 

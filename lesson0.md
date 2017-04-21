@@ -2,13 +2,22 @@
 
 # Lesson 0
 **What we will learn today?**
+- [CodeYourFuture](#codeyourfuture)
 - [Welcome task](#welcome)
 - [Terminal](#terminal-basics)
 - [Git](#git)
 - [IDEs](#ide)
-- [CodeYourFuture](#codeyourfuture)
 - [Homework](#homework)
 ---
+
+## CodeYourFuture
+
+- Who we are?
+- What we learn?
+  - Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
+- [House Rules](house-rules.md)
+  - How we work?
+  - How we treat each other?
 
 ## Welcome!
 
@@ -255,14 +264,6 @@ websites and see the differences between them and VS Code.
 
 - [Atom](https://atom.io/)
 - [Webstorm](https://www.jetbrains.com/webstorm/)
-
-## CodeYourFuture
-
-- What we learn?
-- How we work?
-- How we treat each other?
-- Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
-
 
 ## Homework
 

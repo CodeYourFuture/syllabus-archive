@@ -18,6 +18,7 @@
 - [House Rules](house-rules.md)
   - How we work?
   - How we treat each other?
+- Standup
 
 ## Welcome!
 

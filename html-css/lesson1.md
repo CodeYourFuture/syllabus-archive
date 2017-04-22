@@ -27,7 +27,7 @@ In today's class, we will begin adapting styles on this example website. We'll r
 
 The example website you'll begin working with is available [on Github](https://github.com/Code-Your-Future/bikes-for-refugees).
 
-In order to get started, please [fork it](https://help.github.com/articles/fork-a-repo/) on Github, so it shows up under your account. Then clone it in your terminal and open it with VS Code (our chose IDE).
+In order to get started, please [fork it](https://help.github.com/articles/fork-a-repo/) on Github, so it shows up under your account. Then [clone it](https://help.github.com/articles/cloning-a-repository/) in your terminal and open it with VS Code (our chosen IDE).
 
 > **Exercise**: Spend 5 minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
 

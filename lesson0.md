@@ -155,7 +155,7 @@ Try completing [this tutorial >](https://try.github.io/) as well to learn more i
 
 ### Using Git through the Terminal
   - `git init` ***if it is a new project***, i.e. a project not **cloned** from a repo (or a fork of a repo)
-  - `git add .` to to add local files to the **index**
+  - `git add .` to add local files to the **index**
   - `git commit -m "Good explanation of your file changes"` to commit files to the local repo
   - `git remote add origin GitRepoRemoteUrl` ***if it is a new project*** (to setup the remote url)
   - `git remote -v` to verify that the remote url is set correctly

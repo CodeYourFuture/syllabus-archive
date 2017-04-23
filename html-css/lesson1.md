@@ -143,7 +143,7 @@ You can also set a transparent border, so that it takes up the space without sho
 
 > **Exercise:** Use a transparent border so that the width of each navigation menu item stays the same even when it is hovered or focused.
 
-> **Exercise (stretch goal):** Extract all the CSS that you would like to be able to use in other websites into a seperate file. This file should be in a seperate repository. Determine the URL of this file and load it alongside your original CSS file.
+> **Exercise (stretch goal):** Extract all the CSS that you would like to be able to use in other websites into a separate file. This file should be in a separate repository. Determine the URL of this file and load it alongside your original CSS file.
 
 # Resources
 1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
@@ -161,6 +161,12 @@ You can also set a transparent border, so that it takes up the space without sho
 2. Fork this repo and follow the instructions on the README - https://github.com/Code-Your-Future/html-css-project
 
 (If you need help with Forking - then refer back to [this tutorial](https://help.github.com/articles/fork-a-repo/))
+
+### Optional
+
+3. Try changing the appearance of the `bikes-for-refugees` page without touching the HTML. Can you move the sidebar to the left side of the page? Can you reverse the order of "upcoming events", by putting "help us cycle" first and "join us for our fundraiser" last?
+
+4. Finish the stretch goal from the last exercise. Extract all the CSS that you would like to be able to use in other websites into a separate file. This file should be in a separate repository, and published under `your-username.github.io/style.css`. Determine the URL of this file and load it alongside your original CSS file in `index.html`.
 
 ## Prepare for the next class
 3. (Est. 4-5 hours) Complete the first three lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?**, **Starting Small** and **Building Up**. *Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead.*

@@ -158,15 +158,19 @@ You can also set a transparent border, so that it takes up the space without sho
 
 1. (Est. 2 hours) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 
-2. Fork this repo and follow the instructions on the README - https://github.com/Code-Your-Future/html-css-project
+2. Using what you have learned before, look at the [build a house](https://github.com/Code-Your-Future/build-a-house) repository and try to build at least 2 of the houses in CSS.
+
+3. Fork this repo and follow the instructions on the README - https://github.com/Code-Your-Future/html-css-project
 
 (If you need help with Forking - then refer back to [this tutorial](https://help.github.com/articles/fork-a-repo/))
 
 ### Optional
 
-3. Try changing the appearance of the `bikes-for-refugees` page without touching the HTML. Can you move the sidebar to the left side of the page? Can you reverse the order of "upcoming events", by putting "help us cycle" first and "join us for our fundraiser" last?
+4. Do our [css challenge](https://github.com/Code-Your-Future/css-challenge). With the same HTML, build different CSS stylesheets to give it several appearances. Do it for at least three examples. For example, [example 1](http://www.csszengarden.com/214/), [example 2](http://www.csszengarden.com/216/) and [example 3](http://www.csszengarden.com/217/). Or pick one from [Zen Garden](http://www.csszengarden.com/).
 
-4. Finish the stretch goal from the last exercise. Extract all the CSS that you would like to be able to use in other websites into a separate file. This file should be in a separate repository, and published under `your-username.github.io/style.css`. Determine the URL of this file and load it alongside your original CSS file in `index.html`.
+5. Try changing the appearance of the `bikes-for-refugees` page without touching the HTML. Can you move the sidebar to the left side of the page? Can you reverse the order of "upcoming events", by putting "help us cycle" first and "join us for our fundraiser" last?
+
+6. Finish the stretch goal from the last exercise. Extract all the CSS that you would like to be able to use in other websites into a separate file. This file should be in a separate repository, and published under `your-username.github.io/style.css`. Determine the URL of this file and load it alongside your original CSS file in `index.html`.
 
 ## Prepare for the next class
 3. (Est. 4-5 hours) Complete the first three lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?**, **Starting Small** and **Building Up**. *Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead.*

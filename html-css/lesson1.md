@@ -59,9 +59,13 @@ In today's class, we will begin adapting styles on this example website. We'll r
   <img src="assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
 </a>
 
-The example website you'll begin working with is available [on this Codepen](https://codepen.io/natewr/project/editor/AwpkjD/).
+The example website you'll begin working with is available [on this GitHub repository](https://github.com/Code-Your-Future/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.
 
-> **Exercise**: Spend 5 minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
+1. `cd ~`
+2. `cd <your-project-directory>`
+3. `git clone git@github.com:<your_username>/bikes-for-refugees.git`
+
+> **Exercise**: Spend a few minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
 
 ## Semantic HTML
 

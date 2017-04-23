@@ -166,6 +166,8 @@ You can also set a transparent border, so that it takes up the space without sho
 
 (If you need help with Forking - then refer back to [this tutorial](https://help.github.com/articles/fork-a-repo/))
 
+(If you need help on how to do pull-requests, check this [pull-request tutorial](https://yangsu.github.io/pull-request-tutorial/))
+
 ### Optional
 
 5. Try changing the appearance of the `bikes-for-refugees` page without touching the HTML. Can you move the sidebar to the left side of the page? Can you reverse the order of "upcoming events", by putting "help us cycle" first and "join us for our fundraiser" last?

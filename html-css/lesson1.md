@@ -179,8 +179,8 @@ You can also set a transparent border, so that it takes up the space without sho
 
 8. Split in groups, research and prepare a presentation about one of these topics (briefly covered in [Lesson 2](https://code-your-future.github.io/syllabus-london/html-css/lesson2.html)):
 
-- Responsive web design [What is it >](https://responsivedesign.is/)
-- Media queries [How to use media queries >](https://www.smashingmagazine.com/2010/07/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/)
-- Flexbox [A Guide to Flexbox >](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- Positioning content (static/fixed/relative/absolute) [Positioning >](https://css-tricks.com/almanac/properties/p/position/)
-- Using Google Chrome Developer Tools to edit CSS on-the-fly. [Open Developer Tools >](https://developers.google.com/web/tools/chrome-devtools/) | [Change CSS on the fly >](https://developers.google.com/web/tools/chrome-devtools/inspect-styles/)
+    - Responsive web design [What is it >](https://responsivedesign.is/)
+    - Media queries [How to use media queries >](https://www.smashingmagazine.com/2010/07/how-to-use-css3-media-queries-to-create-a-mobile-version-of-your-website/)
+    - Flexbox [A Guide to Flexbox >](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+    - Positioning content (static/fixed/relative/absolute) [Positioning >](https://css-tricks.com/almanac/properties/p/position/)
+    - Using Google Chrome Developer Tools to edit CSS on-the-fly. [Open Developer Tools >](https://developers.google.com/web/tools/chrome-devtools/) | [Change CSS on the fly >](https://developers.google.com/web/tools/chrome-devtools/inspect-styles/)

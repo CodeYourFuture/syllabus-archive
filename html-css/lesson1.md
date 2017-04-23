@@ -27,9 +27,9 @@ In today's class, we will begin adapting styles on this example website. We'll r
 
 The example website you'll begin working with is available [on this Codepen](https://codepen.io/natewr/project/editor/AwpkjD/).
 
-> **Exercise**: Spend 5 minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
+> **Further reading** Let's refresh how HTML tags are structured - https://www.w3schools.com/html/html5_syntax.asp
 
-> Let's refresh how HTML tags are structured - https://www.w3schools.com/html/html5_syntax.asp
+> **Exercise (pair programming)**: Pair with another student. One will be typing into the computer (they will be `driving`), the second will be helping out. The person who is driving will create a new repository in their Github account. This repository will contain an empty website. Add the necessary HTML and CSS in order to re-create the top level of the 'bikes for refugees' website: icon, menu links and 'Donate now' button.
 
 ## Semantic HTML
 
@@ -46,7 +46,7 @@ We'll cover the following semantic tags:
   - ``<article>``
   - ``<aside role="complementary">``
 
-> **Exercise (pair programming):**  Work in pairs to determine where to place these new Tags and Attributes in the index.html file. Who benefits when we write "semantic" HTML?
+> **Exercise (pair programming):**  Switch between the person who is driving and the one who is helping out. The person who is now driving will `fork` the repository and `clone` it to their computer. Add the gray section with the text 'Bikes for Refugees' and the two buttons. Update the website to use semantic tags.
 
 ## CSS Selectors
 
@@ -54,7 +54,10 @@ During your application process, you became familiar with CSS selectors. We'll r
 
 > If you want to review the selectors, read the [Common Selectors section](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) of this page.
 
-> **Exercise (pair programming):** Work in pairs to make the blue buttons on the page red (`#ce5f31`). The white button, which says "Volunteer", should remain white but the text should change to red.
+> **Exercise (pair programming):** Continue working in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [assets/jumbotron-background.jpg](background image) to the jumbotron and change the colour of the text to white.
+Change the colour of the buttons and add a hover state.
+
+> **Exercise (stretch goal):** research css transitions and make the background colour fade in.
 
 ## CSS Inheritance
 
@@ -64,11 +67,7 @@ Some CSS styles applied to one element will be "inherited" by their child elemen
 
 We'll do two quick exercises to explore what gets inherited, what doesn't, and why.
 
-> **Exercise:** Work in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [assets/jumbotron-background.jpg](background image) to the jumbotron. Did these styles have "inheritance"? Why do you think they did or did not?
-
-Now that the background image is in place, the text is difficult to read. The text needs to be white.
-
-> **Exercise:** Work in pairs and use just one CSS rule to set all of the text in the jumbotron to white. To do this, you'll need to use inheritance. Why do you think some styles, like text color, get inherited?
+> **Exercise (pair programming):** Now the person who is driving will create a `pull request` to the other person's repository. The other person will review the changes and merge them into his repository. The other person will now drive, after `pulling` the latest changes to his computer. Use just one CSS rule to set all of the text in the jumbotron to white. To do this, you'll need to use inheritance. Why do you think some styles, like text color, get inherited?
 
 ## Pseudo Classes
 
@@ -101,7 +100,7 @@ Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit
 }
 ```
 
-> **Exercise:** Work in pairs and use the pseudo classes to make the background color of the red buttons change when in a "hover" or "focus" state. See if you can make the white "Volunteer" button change to a different background without effecting the red buttons.
+> **Exercise (pair programming):** Add the 'Learn more' section and make each box highlighted when in a "hover" or "focus" state.
 
 ## The Cascade
 
@@ -141,6 +140,8 @@ You can also set a transparent border, so that it takes up the space without sho
 ```
 
 > **Exercise:** Use a transparent border so that the width of each navigation menu item stays the same even when it is hovered or focused.
+
+> **Exercise (stretch goal):** Extract all the CSS that you would like to be able to use in other websites into a seperate file. This file should be in a seperate repository. Determine the URL of this file and load it alongside your original CSS file.
 
 # Resources
 1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)

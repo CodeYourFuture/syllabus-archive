@@ -29,7 +29,7 @@ The example website you'll begin working with is available [on this Codepen](htt
 
 > **Exercise**: Spend 5 minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
 
-> Let's refresh how HTML tags are structured - https://www.w3schools.com/html/html5_syntax.asp
+> Let's refresh how HTML tags are structured - http://marksheet.io/html-syntax.html
 
 ## Semantic HTML
 

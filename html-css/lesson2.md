@@ -35,7 +35,7 @@ Finally, we wrap all of our styles for this media query in brackets (`{` and `}`
 
 > **Exercise:** Working in pairs, reduce the size of the "Bikes for Refugees" text so that it fits on a small screen (`320px`). But make sure it increases in size on larger screens.
 
-> **Exercise:** The two buttons in the jumbotron don't fit on the same line on small screens around `320px` wide. Working independently, can you adjust their size so that they fit on the same line?
+> **Exercise:** The two buttons in the jumbotron don't fit on the same line on small screens around `320px` wide. Can you adjust their size so that they fit on the same line?
 
 ## Content Layout: Flexbox
 Flexbox is a name for a set of CSS layout rules which are supported in newer browsers. They allow you to apply rules to elements to place them side-by-side and re-arrange them.

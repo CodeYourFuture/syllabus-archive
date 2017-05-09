@@ -6,6 +6,7 @@
 
 - What is a computer program?
 - Getting started with JavaScript
+
 ## What is a computer program?
 
 > Intro to programming logic – Making a sandwich (Source: http://static.zerorobotics.mit.edu/docs/team-activities/ProgrammingPeanutButterAndJelly.pdf)
@@ -35,6 +36,34 @@ You can place your cursor right behind the `>` sign. Type a simple expression, s
 ![Entering expressions in the Codepen console](assets/repl.gif)
 
 You will be able to follow most of this session along just entering expressions in the console like this.
+
+
+## Variables and assignments
+
+For an expression or a value to be of any use to us, we need to store it in a variable.
+
+Variables have a name (*identifier*) that we can use to refer to a value. You can assign a value to a variable with the following statement:
+
+```
+var x = 3;
+^   ^ ^ ^
+|   | | value
+|   | assignment operator
+|   identifier
+declaration statement
+```
+
+Let’s break this statement down:
+
+- `var`: With the `var` statement we tell the JavaScript engine that `x` is now a variable
+- `x`: The variable name/identifier. It can be short or long, but must not contain spaces and must not start with a number.
+- `=`: The equal sign is the assigmnent operator
+- `3`: The value that we assign to the variable. This can be any number, string or boolean, or any more complex data type that we will introduce later. You can also use an existing variable here.
+- `;`: THe semicolon is not strictly needed, but is generally used to terminate a statement.
+
+Now you can use the identifier instead of the actual value in an expression:
+
+`x + x`, `x * x`, `console.log(x)`
 
 ## Simple data types & Expressions
 

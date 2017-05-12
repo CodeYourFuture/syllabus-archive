@@ -12,7 +12,8 @@ Using the [Navbar color schemes](https://v4-alpha.getbootstrap.com/components/na
 
 Using the [Card](https://v4-alpha.getbootstrap.com/components/card/#example) example, try to illustrate the way tags are nested inside of each other in a specific hierarchy. Emphasise the practice of paying close attention to documentation and picking up on minor details.
 
-**Git Branching Excercise**
+### Git Branching Excercise
+
 A mentor should act as a `remote` repository and have a large sheet of paper. All students should have 4-5 sheets of paper.
 
 1. The teacher should write the word `master` at the top of the sheet, and write their name below that.

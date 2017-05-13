@@ -38,6 +38,7 @@ When you need to create a website very quickly, in order to test a concept, for 
 
 > Bikes-for-refugees already includes `Boostrap`. Check its [documentation >](http://getbootstrap.com/css/) and add some elements to your page that use boostrap. For example, a [responsive image >](http://getbootstrap.com/css/#images).
 
+
 ## Naming patterns
 
 We use naming patterns to organise our code so that it is easier for colleagues to work with our code -- and easier for us to work with our colleagues' code. In a team of developers, you will need to understand, read and make use of a naming pattern.
@@ -106,3 +107,44 @@ If we changed our Card example to use BEM syntax, it would look like this:
 
 
 ## CSS processors
+
+Two of the most important principles of web development are to `avoid repetition` and aim for `reusability`.
+
+## Homework
+1. If you haven't already, fork the [`css-skin`](https://github.com/Code-Your-Future/css-skin) repository. If you have already forked it, you can use your fork for this exercise.
+
+    - Open `index.html` and look at the images of how your buttons should look like, and then notice the unstyled buttons above.
+    - The unstyled buttons have classes. Use them to write your css in `style.css`, so the buttons receive a style. Go for maximum reusability. Try not to repeat code!
+    - Add more HTML examples, following the same naming pattern as the buttons - for example, a list (`ul`) with items (`li`). Add more than one sytle of element (for example a `ul` that displays the elements vertically and other that displays them horizontally).
+    - Write the CSS for those elements.
+    - As usual, make a pull request and send them to one of the mentors for review!
+
+2. Read about [writing loops in SCSS >](http://clubmate.fi/for-while-and-each-loops-in-sass/) (Sass). Fork this CodePen into your account: https://codepen.io/claudiamm/pen/xdjadV. You have three paragraphs, each with a different `size` classes. Use a SASS `for` loop and nesting in order to create these sizes (tip: you can multiply! `font-size: $i * 10px;`). The final result should look like this:
+
+    ![](assets/loop-paragraph-example.jpg)
+
+    Note: the aim of this exercise is to do a for loop - so please **do NOT** do something like below, as it will not bring you anything new:
+
+    ```
+    .paragraph-size-1 {...}
+    .paragraph-size-2 {...}
+    .paragraph-size-3 {...}
+    ```
+
+### Optional homework, but you're awesome if you do it!
+
+3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `style.css`, create a file called `style.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file. [How to compile SASS >](https://www.youtube.com/watch?v=b0d--jixRwg)
+
+4. Make your `css-skin` project available under `yourname.github.io/css-skin`, as so you can access `style.css` via `yourname.github.io/css-skin/style.css`.
+    - Go back to a website that you have made for CodeYourFuture (either for homework or the one that you built when applying).
+    - Import your `style.css` file using `<link rel="stylesheet" href="http://yourname.github.io/css-skin/style.css" />`.
+    - You can use your buttons and lists in this website too. Give it a try by adding the following code to your page `<button class="btn">Button</button>`.
+    - You've got your own CSS framework now! Use it in your future projects for CodeYourFuture, and update at 
+
+## Reading
+
+- [Getting started with SASS >](https://scotch.io/tutorials/getting-started-with-sass)
+
+## Prepare for next class
+
+TODO: Add Javascript resources.

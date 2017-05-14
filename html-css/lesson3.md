@@ -10,9 +10,9 @@ What we will learn today:
 
 A design framework is a collection of re-usable code snippets which you can use to build a website. It is sometimes called a "design system", "style guide", or "pattern library", and will usually consist of three things:
 
-    1. Brand guidelines define the appropriate typography, colors and logos to use.
-    2. Components define re-usable code snippets for common requirements, like navigation menus.
-    3. Helpers define additional code tools to construct the site, like layout grids.
+1. Brand guidelines define the appropriate typography, colors and logos to use.
+2. Components define re-usable code snippets for common requirements, like navigation menus.
+3. Helpers define additional code tools to construct the site, like layout grids.
 
 Having a design framework is essential when working in large projects, as it allows developers to share code, without having to write the same thing several times. It also allows the core design elements to be changed easily. For example, if all the buttons in your website use the same CSS class, you can change their appearance simply by editing one rule.
 
@@ -160,15 +160,15 @@ Outputs
 
 ```css
 .articles h1 {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .articles p {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 .articles .hero-image {
-  width: 100%;
+    width: 100%;
 }
 ```
 
@@ -176,15 +176,15 @@ Outputs
 
 ```css
 .btn {
-  border-radius: 3px;
+    border-radius: 3px;
 
-  &--primary {
-    background-color: #802be2;
-  }
+    &--primary {
+        background-color: #802be2;
+    }
 
-  &--secondary {
-    background-color: #ffffff;
-  }
+    &--secondary {
+        background-color: #ffffff;
+    }
 }
 ```
 
@@ -192,15 +192,15 @@ Outputs
 
 ```css
 .btn {
-  border-radius: 3px;
+    border-radius: 3px;
 }
 
 .btn--primary {
-  background-color: #802be2;
+    background-color: #802be2;
 }
 
 .btn--secondary {
-  background-color: #ffffff;
+    background-color: #ffffff;
 }
 ```
 
@@ -212,13 +212,13 @@ Do somehting based on a variable.
 $food: apple;
 
 div {
-  @if $food == apple {
-    background-color: red;
-  } @else if $food == pear {
-    color: green;
-  } @else {
-    color: grey;
-  }
+    @if $food == apple {
+        background-color: red;
+    } @else if $food == pear {
+        color: green;
+    } @else {
+        color: grey;
+    }
 }
 ```
 
@@ -284,7 +284,7 @@ Outputs
 
 ### Optional homework
 
-3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `style.css`, create a file called `style.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file. [How to compile SASS with VS Code >](compile-scss-instructions.md)
+3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `style.css`, create a file called `style.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file. [How to compile SASS with VS Code >](/html-css/compile-scss-instructions.md)
 
 4. Make your `css-skin` project available under `yourname.github.io/css-skin`, as so you can access `style.css` via `yourname.github.io/css-skin/skin.css`.
     - Go back to a website that you have made for CodeYourFuture (either for homework or the one that you built when applying).

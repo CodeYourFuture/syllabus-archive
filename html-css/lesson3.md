@@ -284,7 +284,7 @@ Outputs
 
 ### Optional homework
 
-3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `style.css`, create a file called `style.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file. [How to compile SASS with VS Code >](https://code-your-future.github.io/syllabus-london/html-css/compile-scss-instructions)
+3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `skin.css`, create a file called `skin.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file caled `skin.min.scss`. [How to compile SASS with VS Code >](https://code-your-future.github.io/syllabus-london/html-css/compile-scss-instructions)
 
 4. Make your `css-skin` project available under `yourname.github.io/css-skin`, as so you can access `style.css` via `yourname.github.io/css-skin/skin.css`.
     - Go back to a website that you have made for CodeYourFuture (either for homework or the one that you built when applying).

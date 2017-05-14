@@ -20,7 +20,7 @@ Having a design framework is essential when working in large projects, as it all
 Larger companies use design styleguides as a daily tool, allowing them to deliver code faster and improve communication between designers and developers (which is not always easy!!).
 
 - [MailChimp >](http://ux.mailchimp.com/patterns)
-- [Loneny planet >](http://rizzo.lonelyplanet.com/styleguide)
+- [Lonely planet >](http://rizzo.lonelyplanet.com/styleguide)
 - [CodePen >](http://codepen.io/guide/)
 
 ### Open source frameworks
@@ -36,7 +36,7 @@ When you need to create a website very quickly, in order to test a concept, for 
 
 > Still using the developer tools, change the height of the three buttons with one line of code. Do the same for font-sizes.
 
-> Bikes-for-refugees already includes `Boostrap`. Check its [documentation >](http://getbootstrap.com/css/) and add some elements to your page that use boostrap. For example, a [responsive image >](http://getbootstrap.com/css/#images).
+> Bikes-for-refugees already includes `Bootstrap`. Check its [documentation >](http://getbootstrap.com/css/) and add some elements to your page that use bootstrap. For example, a [responsive image >](http://getbootstrap.com/css/#images).
 
 
 ## Naming patterns
@@ -286,7 +286,7 @@ Outputs
 
 3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `skin.css`, create a file called `skin.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file caled `skin.min.scss`. [How to compile SASS with VS Code >](https://code-your-future.github.io/syllabus-london/html-css/compile-scss-instructions)
 
-4. Make your `css-skin` project available under `yourname.github.io/css-skin`, as so you can access `style.css` via `yourname.github.io/css-skin/skin.css`.
+4. Make your `css-skin` project available under `yourname.github.io/css-skin`, as so you can access `skin.css` via `yourname.github.io/css-skin/skin.css`.
     - Go back to a website that you have made for CodeYourFuture (either for homework or the one that you built when applying).
     - Import your `skin.css` file using `<link rel="stylesheet" href="http://yourname.github.io/css-skin/skin.css" />`.
     - You can use your buttons and lists in this website too. Give it a try by adding the following code to your page `<button class="btn">Button</button>`.

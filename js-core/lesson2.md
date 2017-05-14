@@ -8,8 +8,178 @@
 
 ---
 
+
+## Conditionals
+
+**TODO**
+
+### Comparisons
+
+**TODO**
+
+- Introduce `==` and `!=`, `<` and `>`
+- Introduce the concept of truthiness and falsiness for non-boolean types
+- Introduce `===` and `!==`
+
+### If/Else
+
+**TODO**
+
+### Switch
+
+**TODO**
+
+### The ternary operator
+
+**TODO**
+
+## Arrays
+
+If you want to store a bunch of things, identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** to the rescue!
+
+Imagine an array like a list of variables, but instead of each variable having its own name, only the array has a name. So how do you access a variable inside, then? How do you read and write? Using an *index*!
+
+An index is just a whole number, such as `0`, `1`, `2` and so forth. As in many areas of computing, indices in JavaScript arrays start with `0` --- so `0` is the index of the first element of an Array, `1` is the index of the second element, and so forth.
+
+### Creating an array
+
+The easiest way to create an array is using the bracket (`[]`) syntax. Just put whatever elements you want in your array between the brackets, separated by comma:
+
+```js
+// Arrays can hold any data type
+var countries = ['Scotland', 'Germany', 'Syria'];
+var numbers = [7, 1, 23, 19, 11, 5, 16, 31];
+
+// Data types can be mixed, but be wary of that!
+var mixed = ['Tim', 27];
+
+// Arrays can also be empty
+var emptyArray = [];
+```
+
+### Reading, writing and length
+
+Once you have an array, you might want to read values from it. You do this also using brackets, placed directly behind the array's variable name (identifier). The brackets hold the index of the element you want to read.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+// Remember, the first index is 0
+console.log(countries[0]); // 'Scotland'
+console.log(countries[1]); // 'Germany'
+console.log(countries[2]); // 'Syria'
+```
+
+In a similar fashion, you can write or overwrite values.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+countries[1] = 'Sudan';
+
+console.log(countries); // ['Scotland', 'Sudan', 'Syria']
+```
+
+You can also create new array elements by just writing to the respective index.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+countries[3] = 'Sudan';
+
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan']
+```
+
+You can also use other variables to store in an array, and integer variables to define the index you want to read from.
+
+```js
+var myCountry = 'Sudan';
+var countries = ['Scotland', 'Germany', 'Syria', myCountry];
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan']
+
+var index = 2;
+console.log(countries[index]); // 'Syria'
+```
+
+> Exercise/Homework: What happens when yo try to read from an index that is not there?
+
+A really useful thing to know about an array is its *length*, i.e. the number of elements it contains. You can access it by appending `.length` to the arrays identifier. The length is always 1 more than the largest element index.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+
+console.log(countries.length); // 3
+```
+
+### Useful array methods
+
+#### Concatenating two arrays
+
+You've learned how you can add two numbers and append two strings, but how does this work for arrays? A simple `arr1 + arr2` will not do, but there is a method you can use: `concat()`. It is a method that you call on the array (similar to how `console.log` is the `log` function called on `console`) and takes the array you want to append as a parameter.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+var moreCountries = ['Sudan', 'Ethiopia', 'France'];
+
+countries.concat(moreCountries);
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan', 'Ethiopia', 'France']
+```
+
+#### Appending an element
+
+If you want to append an element to an array, you can just put it after the last existing element like so:
+
+```js
+countries[countries.length] = 'United States of America';
+```
+
+There is another way though, which is a bit more elegant: the `push` function.
+
+```js
+countries.push('United States of America');
+
+// .push can also be called with multiple parameters
+countries.push('United States of America', 'France');
+```
+
+> Homework: Learn about `.slice` and `.pop`
+
+There are many more useful array functions, which you will learn in lesson 2.
+
+## Loops
+
+**TODO**
+
+### `for` loops
+
+**TODO**
+
+#### Traversing an array
+
+By now you might have noticed that `for` loops can be really useful for working with arrays.
+
+Imagine you want to print out every item in an array:
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+var i;
+
+for(i = 0; i < countries.length; i++) {
+  console.log(countries[i]);
+}
+```
+
+### `while` loops
+
+**TODO**
+
+## Objects
+
+**TODO**
+
+
 ## Functions
-Functions are "self contained" modules of code that accomplish a specific task. Functions usually "take in" data, process 
+Functions are "self contained" modules of code that accomplish a specific task. Functions usually "take in" data, process
 it, and "return" a result. Once a function is written, it can be used over and over and over again. (Utah University)
 
 
@@ -29,7 +199,7 @@ square(5); // returns 25
 
 //Function expressions
 
-var addTen = function(number) { 
+var addTen = function(number) {
     return number + 10;
 };
 
@@ -45,10 +215,10 @@ addTen(5); // return 15
 
 You probably noticed in last few exercises that JavaScript functions can be passed
 as arguments to other functions.
- 
+
 Callbacks are JavaScript functions that are passed as arguments to other functions
 so they can be executed inside those functions once they're finished.
- 
+
 Example:
 
 ```javascript
@@ -59,8 +229,8 @@ function a(callback) {
         callback();
     }
     return x;
-} 
- 
+}
+
 ```
 
 > **Exercise**:
@@ -126,7 +296,7 @@ You could do something like this:
 var result = [];
 
 for(var i=0; i<numbers.length; i++) {
-    
+
   var current = numbers[i];
   var transformed = addTwo(current);
   result.push(transformed);
@@ -197,7 +367,7 @@ var rares2 = {
 };
 ```
 
-We will get back to this in lesson 4 when discussing about prototypes and inheritance. 
+We will get back to this in lesson 4 when discussing about prototypes and inheritance.
 
 > **Exercise**:
 > Open [this CodePen](http://codepen.io/rarmatei/pen/aJgxOL?editors=0012) and follow the instructions there
@@ -213,17 +383,17 @@ Primitives are:
  - string (example: `John Doe`)
  - number (example: `100`)
  - boolean (example: `true` or `false`)
- 
+
 
 Reference types are:
 - Objects (example: `{greeting: "hello"}`)
 - Arrays (example: `[1,2,3]`)
 - Functions (example: `function doNothing() { }`)
 
-Variables can only hold a few bytes of data. 
-Because primitives have fixed sizes, when you assign a primitive to a variable, 
+Variables can only hold a few bytes of data.
+Because primitives have fixed sizes, when you assign a primitive to a variable,
 it will hold the actual value of the primitive (hence the name "value type").
-But reference types can have practically infinite sizes, so when you assign a reference type 
+But reference types can have practically infinite sizes, so when you assign a reference type
 to a variable, that variable will hold a reference to it only: an identifier which will tell our program
 where to look for that object in memory.
 
@@ -263,7 +433,7 @@ In JavaScript, variables are always passed to function by value. That means only
 the variables was holding is passed to the function, and not a reference to the variable's
 location in memory. That means that inside a function call, any changes we make to its
 arguments will only apply inside the function (as seen in the previous example).
- 
+
 **Be careful though**, as the value of an argument might be a reference to a JavaScript
 object, in which case, changing a property on that object will also reflect everywhere
 else we use a reference to that object.
@@ -285,7 +455,7 @@ var object = {
 };
 a(primitive, object);
 console.log(primitive); // 10
-console.log(object.greeting); // "how are you?" 
+console.log(object.greeting); // "how are you?"
 ```
 
 # Resources
@@ -300,27 +470,27 @@ console.log(object.greeting); // "how are you?"
 
 1. First part of Homework - Easy
 - write a function that returns whether a number exists in a list
-Example: 
+Example:
     [1,2,3,4] -> does 6 exist -> false
               -> does 3 exist -> true
 - write a function that concatenates two lists together
 Example:
     [1,2,3], [7,8,9] -> [1,2,3,7,8,9]
-    
+
 - given the following object shape:
 
     var person = {
         name: "Bob",
         age: 25
     };
-    
+
     Write a function "growOlder()" that accepts a "person" as an argument and returns a new person with his/her age increased by 1.
-    
+
 
 2. Second part of Homework:
 Implement solutions to solve the following problems:
 
-Problem 1. 
+Problem 1.
 Given the following array
 [2,5,7,2,3], and the number T = 8
 Build a solution that finds the two numbers in the array that add up to T.
@@ -334,7 +504,7 @@ Create the following functions:
 - fire: deletes an employee by ID from the list
 - changeRole: accepts as parameters an employee ID and a string for the new role it should have. Finds the employee by ID and changes his/her role.
 
-3. **[Bonus/Optional]** 
+3. **[Bonus/Optional]**
 - Try to finish as many exercises as you can from http://reactivex.io/learnrx/ (try to finish up to exercise 8 at least)
 - They're difficult, the point is for you to read, learn and understand more about the `.map` and `.filter` functions. It's okay if you can't finish them all.
 

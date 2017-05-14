@@ -108,18 +108,167 @@ If we changed our Card example to use BEM syntax, it would look like this:
 
 ## CSS processors
 
-Two of the most important principles of web development are to `avoid repetition` and aim for `reusability`.
+Two of the most important principles of web development are to `avoid repetition` and aim for `reusability`. CSS is a fairly simple language, which is perfect for small websites, but when left to its own devices ends up creating too much repetition.
+
+In order to minimize this, we have tools called CSS processors. There are many, including SASS, LESS, PostCSS and also Javascript based ones. In this lesson, we will learn about SASS.
+
+### Variables
+
+```css
+$border-color: #262626;
+
+.primary-button {
+    border: $border-color 1px solid;
+}
+
+input {
+    border: $border-color 2px dotted;
+}
+```
+
+Outputs
+
+```css
+.primary-button {
+    border: #262626 1px solid;
+}
+
+input {
+    border: #262626 2px dotted;
+}
+```
+
+### Nesting
+
+```css
+.articles {
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        margin-bottom: 30px;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+}
+```
+
+Outputs
+
+```css
+.articles h1 {
+  font-size: 20px;
+}
+
+.articles p {
+  margin-bottom: 30px;
+}
+
+.articles .hero-image {
+  width: 100%;
+}
+```
+
+### Composability
+
+```css
+.btn {
+  border-radius: 3px;
+
+  &--primary {
+    background-color: #802be2;
+  }
+
+  &--secondary {
+    background-color: #ffffff;
+  }
+}
+```
+
+Outputs
+
+```css
+.btn {
+  border-radius: 3px;
+}
+
+.btn--primary {
+  background-color: #802be2;
+}
+
+.btn--secondary {
+  background-color: #ffffff;
+}
+```
+
+### Conditions
+
+Do somehting based on a variable.
+
+```css
+$food: apple;
+
+div {
+  @if $food == apple {
+    background-color: red;
+  } @else if $food == pear {
+    color: green;
+  } @else {
+    color: grey;
+  }
+}
+```
+
+Outputs
+
+```css
+div {
+    background-color: red;
+}
+```
+
+The background color is read because we defined the variable food as `apple` in the beginning.
+
+### Loops
+
+```css
+@for $i from 1 through 8 {
+    $width: percentage(1 / $i)
+
+    .col-#{$i} {
+        width: $width;
+    }
+}
+```
+
+Outputs
+```css
+.col-1 {width: 100%;}
+.col-2 {width: 50%;}
+.col-3 {width: 33.333%;}
+.col-4 {width: 25%;}
+.col-5 {width: 20%;}
+.col-6 {width: 16.666%;}
+.col-7 {width: 14.285%;}
+.col-8 {width: 12.5%;}
+```
+
+(example taken from http://clubmate.fi/for-while-and-each-loops-in-sass/).
+
 
 ## Homework
 1. If you haven't already, fork the [`css-skin`](https://github.com/Code-Your-Future/css-skin) repository. If you have already forked it, you can use your fork for this exercise.
 
     - Open `index.html` and look at the images of how your buttons should look like, and then notice the unstyled buttons above.
-    - The unstyled buttons have classes. Use them to write your css in `style.css`, so the buttons receive a style. Go for maximum reusability. Try not to repeat code!
+    - The unstyled buttons have classes. Use them to write your css in `skin.css`, so the buttons receive a style. Go for maximum reusability. Try not to repeat code!
     - Add more HTML examples, following the same naming pattern as the buttons - for example, a list (`ul`) with items (`li`). Add more than one sytle of element (for example a `ul` that displays the elements vertically and other that displays them horizontally).
     - Write the CSS for those elements.
     - As usual, make a pull request and send them to one of the mentors for review!
 
-2. Read about [writing loops in SCSS >](http://clubmate.fi/for-while-and-each-loops-in-sass/) (Sass). Fork this CodePen into your account: https://codepen.io/claudiamm/pen/xdjadV. You have three paragraphs, each with a different `size` classes. Use a SASS `for` loop and nesting in order to create these sizes (tip: you can multiply! `font-size: $i * 10px;`). The final result should look like this:
+2. Read about [writing loops in SCSS >](http://clubmate.fi/for-while-and-each-loops-in-sass/) (Sass). Fork this CodePen into your account: https://codepen.io/claudiamm/pen/xdjadV. You have three paragraphs, each with a different `paragraph-size` class. First, write the common styles (`color`, etc) for all paragraphs. Use a SASS `for` loop and nesting in order to create the `paragraph-size-1/2/3` styles. The final result should look like this:
 
     ![](assets/loop-paragraph-example.jpg)
 
@@ -131,19 +280,22 @@ Two of the most important principles of web development are to `avoid repetition
     .paragraph-size-3 {...}
     ```
 
-### Optional homework, but you're awesome if you do it!
+    **Tip:** you can multiply! `$i * 10px;`
 
-3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `style.css`, create a file called `style.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file. [How to compile SASS >](https://www.youtube.com/watch?v=b0d--jixRwg)
+### Optional homework
 
-4. Make your `css-skin` project available under `yourname.github.io/css-skin`, as so you can access `style.css` via `yourname.github.io/css-skin/style.css`.
+3. Use SASS in your `css-skin` project instead of normal CSS. Suggestion: alongside `style.css`, create a file called `style.scss`. You will use SASS to transform (compile) your SCSS file into a CSS file. [How to compile SASS with VS Code >](compile-scss-instructions.md)
+
+4. Make your `css-skin` project available under `yourname.github.io/css-skin`, as so you can access `style.css` via `yourname.github.io/css-skin/skin.css`.
     - Go back to a website that you have made for CodeYourFuture (either for homework or the one that you built when applying).
-    - Import your `style.css` file using `<link rel="stylesheet" href="http://yourname.github.io/css-skin/style.css" />`.
+    - Import your `skin.css` file using `<link rel="stylesheet" href="http://yourname.github.io/css-skin/skin.css" />`.
     - You can use your buttons and lists in this website too. Give it a try by adding the following code to your page `<button class="btn">Button</button>`.
     - You've got your own CSS framework now! Use it in your future projects for CodeYourFuture, and update it with new elements when needed. This will help you to build your Github portfolio.
 
 ## Reading
 
 - [Getting started with SASS >](https://scotch.io/tutorials/getting-started-with-sass)
+- [SASS basics >](http://sass-lang.com/guide)
 
 ## Prepare for next class
 

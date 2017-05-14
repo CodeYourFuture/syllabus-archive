@@ -118,3 +118,11 @@ If we changed our Card example to use BEM syntax, it would look like this:
 - [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
 - [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
 - [Bootstrap 4 Documentation](https://v4-alpha.getbootstrap.com/)
+
+## Prepare for next class
+
+Next week, we will begin learning and programming JavaScript. To prepare for the next lesson:
+
+Watch this 2 minutes video:
+
+1. ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU)

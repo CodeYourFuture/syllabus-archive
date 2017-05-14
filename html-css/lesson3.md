@@ -139,7 +139,7 @@ Two of the most important principles of web development are to `avoid repetition
     - Go back to a website that you have made for CodeYourFuture (either for homework or the one that you built when applying).
     - Import your `style.css` file using `<link rel="stylesheet" href="http://yourname.github.io/css-skin/style.css" />`.
     - You can use your buttons and lists in this website too. Give it a try by adding the following code to your page `<button class="btn">Button</button>`.
-    - You've got your own CSS framework now! Use it in your future projects for CodeYourFuture, and update at 
+    - You've got your own CSS framework now! Use it in your future projects for CodeYourFuture, and update it with new elements when needed. This will help you to build your Github portfolio.
 
 ## Reading
 
@@ -147,9 +147,4 @@ Two of the most important principles of web development are to `avoid repetition
 
 ## Prepare for next class
 
-Next week, we will begin learning and programming JavaScript. To prepare for the next lesson:
-
-Watch these videos:
-
-1. ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU)
-2. ['Do You Know the History of JavaScript?'](https://www.youtube.com/watch?v=EUAmiIsp2YU)
+TODO: Add Javascript resources.

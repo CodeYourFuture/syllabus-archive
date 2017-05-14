@@ -236,7 +236,7 @@ The background color is read because we defined the variable food as `apple` in 
 
 ```css
 @for $i from 1 through 8 {
-    $width: percentage(1 / $i)
+    $width: percentage(1 / $i);
 
     .col-#{$i} {
         width: $width;

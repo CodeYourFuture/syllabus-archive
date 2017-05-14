@@ -147,4 +147,9 @@ Two of the most important principles of web development are to `avoid repetition
 
 ## Prepare for next class
 
-TODO: Add Javascript resources.
+Next week, we will begin learning and programming JavaScript. To prepare for the next lesson:
+
+Watch these videos:
+
+1. ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU)
+2. ['Do You Know the History of JavaScript?'](https://www.youtube.com/watch?v=EUAmiIsp2YU)

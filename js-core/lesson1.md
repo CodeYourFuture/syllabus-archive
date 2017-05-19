@@ -200,7 +200,7 @@ if (isHappy === true) {
 }
 ```
 
-Now run this code (not forgetting to put the variable at the top of the Repl), and see what happens! Try changing the value of your variable from `true` to `false`.
+Now run this code and see what happens! Try changing the value of your variable from `true` to `false`.
 
 > **Exercise**
 >
@@ -213,10 +213,18 @@ Now run this code (not forgetting to put the variable at the top of the Repl), a
 >100 % 10 === 0 // 100 divided by 10 leaves a remainder of 0
 >```
 
+> **Exercise**
+> 
+> Now improve your code so that it prints out if the number is positive or negative, as well as even or odd. For example, for `-5` it will print `'negative odd'`, while for `4` it will print `'positive even'`. 
+>
+> **Hint**: You can use the `>` or `<` signs.
+>
+> If you finish early, think about how you would test your code works correctly?
+
 
 # For Loops
 
-Coding is great because it makes it easy to automate boring tasks, like writing the same thing over and over again. A "for loop" lets you do that in JavaScript. For loops basically let you perform the same operation a certain number of times, each time with a different value.
+Coding is great because it makes it easy to automate boring tasks, like writing the same thing over and over again. A "**for** loop" lets you do that in JavaScript. "For loops" let you perform the same operation a certain number of times, each time with a different value.
 
 A for loop has the following syntax:
 
@@ -226,19 +234,19 @@ for (statement 1; statement 2; statement 3) {
 }
 ```
 
-Statement 1 defines a variable for the loop. It is usually a number, which we will increase each time the loop finishes so we can keep track of where we're at. You can set the number to be whatever you want.
+**Statement 1** defines a variable for the loop and assigns it a starting value. It is usually a number, which will increase each time the loop completes an iteration. We can use this number inside the loop to keep track of where we're at. You can set the number to be whatever you want initially.
 
 ```js
 var i=0
 ```
 
-Statement 2 defines how long the loop will go on for. It most often uses the less than (`<`) or less than or equal to (`<=`) operators to set the length.
+**Statement 2** defines how long the loop will go on for (what needs to happen for the loop to stop running?). It most often uses the less than (`<`) or less than or equal to (`<=`) operators to set the length.
 
 ```js
 i < 10
 ```
 
-Statement 3 defines how much to increment the `i` variable by each time. If you just want it to increase by one, then put `i++`, or else you can increase by other numbers like so:
+**Statement 3** defines by how much to increment the `i` variable each time the loop completes an iteration. If you just want it to increase by one, then put `i++`, or else you can increase by other numbers like so:
 
 ```js
 i+=2
@@ -260,7 +268,18 @@ Notice the variable `i` is set to `1`, because we want counting to begin there. 
 
 
 > **Exercise**
-Write a for loop that loops over the numbers from 1 to 100, printing only every second number. So it should return `2, 4, 6, 8, 10...`.
+>
+> Write a for loop that loops over the numbers from 1 to 100, printing only every second number. So it should return `2, 4, 6, 8, 10...`.
+
+> **Exercise**
+>
+> Write a for loop that prints out all the numbers between 1 and 100 divisble by 5. 
+>
+> See if you can think or more than one way to solve this.
+
+> **Exercise**
+>
+> Write a for loop that prints out the sum of all the numbers between 1 and 100.
 
 # Functions
 
@@ -298,7 +317,7 @@ add(2, 3);
 
 Notice I've invoked the function underneath, with the paremeters `2` and `3`. Inside the function, try to `console.log()` your parameters and see what happens.
 
-Now, we want to add these two numbers together, but it isn't enough just to write `x +y`, since we haven't told the function to return anything. It's time for a `return` statement. The return statement specifies the value to output.
+Now, we want to add these two numbers together, but it isn't enough just to write `x + y`, since we haven't told the function to return anything. It's time for a `return` statement. The `return` statement specifies the value to output.
 
 ```js
 function add (x, y) {
@@ -310,7 +329,16 @@ add(2, 3);
 
 Run this code, and hopefully you get the right answer!
 
-> **Exercise** Write a function called `multiply` that multiplies two numbers together. It should take two numbers as parameters and return the answer.
+> **Exercise** 
+>
+> Write a function called `multiply` that multiplies two numbers together. It should take two numbers as parameters and return the answer.
+
+> **Exercise**
+>
+> Go back and copy the code to your previous solution for printing the sum of numbers between 1 and 100. Put this code inside a function.
+> Change the function so it accepts any two limits and prints the sum of all the numbers between those limits.
+>
+> For example: `addBetween(1,3)` should print `6`
 
 # Arrays
 

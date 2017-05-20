@@ -104,6 +104,7 @@ console.log(person.firstName);
 >```
 
 
+
 # Resources
 
 
@@ -112,4 +113,15 @@ console.log(person.firstName);
 4. **Research:**
 
 ## Prepare for the next class
-1. Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)
+1. Look over the MDN page on arrays and try to understand some of the methods arrays have (you can read up to the part on "Creating an array using the result of a match"): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+2. Watch the following video on "Value type vs. reference type": https://www.youtube.com/watch?v=mh-hPzDfb_Q .
+If it makes sense, great! If not, don't worry, we'll be going over the same topic next week and discuss it until it makes sense.
+
+3. Watch the following videos on the `.map` and `.filter` array operators:
+- Map: https://www.youtube.com/watch?v=bCqtb-Z5YGQ
+- Filter: https://www.youtube.com/watch?v=BMUiFMZr7vk
+
+Again, don't worry if nothing makes sense. If you don't understand something, you can Google for more information, and if it still doesn't make sense, we'll be going through these topics next week!
+
+4. Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)

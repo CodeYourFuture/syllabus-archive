@@ -353,3 +353,4 @@ Run this code, and hopefully you get the right answer!
 
 2. Follow [this course](https://www.khanacademy.org/computing/computer-programming/programming) on Khan Academy. It will go through some of the basics that we covered in the class and beyond.
 
+4. **Research:**

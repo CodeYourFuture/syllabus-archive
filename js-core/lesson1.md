@@ -9,9 +9,8 @@
 - Variables
 - Conditionals: If/else
 - Loops
-- Arrays
-- Objects
-- This class is based on the [Node Girls JS Workshop](https://github.com/node-girls/beginners-javascript)
+
+This class is based on the [Node Girls JS Workshop](https://github.com/node-girls/beginners-javascript)
 
 
 ---
@@ -344,8 +343,8 @@ Run this code, and hopefully you get the right answer!
 # Resources
 
 1. [Data Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Data_structures_and_types)
-2. tripe equal
-3. modulus
+2. [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators?v=test)
+3. [Arithmetic Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#.25_.28Modulus.29)
 
 # Homework
 
@@ -353,4 +352,3 @@ Run this code, and hopefully you get the right answer!
 
 2. Follow [this course](https://www.khanacademy.org/computing/computer-programming/programming) on Khan Academy. It will go through some of the basics that we covered in the class and beyond.
 
-4. **Research:**

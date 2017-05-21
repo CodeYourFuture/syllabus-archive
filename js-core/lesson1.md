@@ -18,6 +18,8 @@
 
 # Getting Started
 
+Good afternoon, everyone.
+
 1. Download and install the latest Current version of NodeJS - from https://nodejs.org/en/download/current/
 
 To test that it was installed and running properly, go to your terminal and run the command:

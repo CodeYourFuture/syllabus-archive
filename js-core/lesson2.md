@@ -1,5 +1,6 @@
 # JavaScript Core 2
-** What we will learn today?**
+
+**What we will learn today?**
 - Arrays
 - Objects
 

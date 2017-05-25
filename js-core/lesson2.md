@@ -1,14 +1,15 @@
 # JavaScript Core 2
-** What we will learn today?**
+
+**What we will learn today?**
 - Arrays
 - Objects
-
+- More Arrays methods
 ---
 
 
 # Arrays
 
-If you want to store a bunch of things, identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** are to the rescue!
+If you want to store a **bunch of things**, a **collection** or a **list** of things,  identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** are to the rescue!
 
 Imagine an array like a list or a collection of variables, but instead of each variable having its own name, only the array has a name. So how do you access a variable inside, then? How do you read and write? Using an *index*!
 
@@ -42,14 +43,17 @@ If you want to refer to one specific member of the array, you can do so by using
 console.log(animals[1]);
 ```
 
-Take a guess at which animal that will print out, and see if you're right.
+> Take a guess at which animal that will print out, and see if you're right.
 
 Spoiler alert, it will print out "puppy". That might seem weird, until you learn that JavaScript is a "0-index" language. What that means is that counting in JavaScript starts at 0. So `animals[0]`will print out "tiger". We don't make the rules...
 
-> **Exercise:** **Don't ask a mentor - Google it!**
-How would you `console.log()` the name of every animal in the array?
-If you're thinking a for loop, you're right. This is the perfect opportunity to use our newfound for loop skills for a higher purpose.
-Try googling to find the answer if you're stuck. Google skills are an essential part of being a developer.
+> **Exercise:** 
+>
+> 1. Create an array that contains the countries of all the students in the class (at least five nationalities)
+> 2. `console.log` the number of countries in the Array
+> 3. Now, `console.log()` each country in the list. Hint: **For loops**
+>
+> **Don't ask a mentor - Google it!** Try googling to find the answer if you're stuck. Google skills are an essential part of being a developer.
 
 
 # Objects
@@ -104,24 +108,56 @@ console.log(person.firstName);
 >```
 
 
+# Useful array methods
+
+#### Concatenating two arrays
+
+You've learned how you can add two numbers and append two strings, but how does this work for arrays? A simple `arr1 + arr2` will not do, but there is a method you can use: `concat()`. It is a method that you call on the array (similar to how `console.log` is the `log` function called on `console`) and takes the array you want to append as a parameter.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+var moreCountries = ['Sudan', 'Ethiopia', 'France'];
+
+countries.concat(moreCountries);
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan', 'Ethiopia', 'France']
+```
+
+#### Appending an element
+
+If you want to append an element to an array, you can just put it after the last existing element like so:
+
+```js
+countries[countries.length] = 'United States of America';
+```
+
+There is another way though, which is a bit more elegant: the `push` function.
+
+```js
+countries.push('United States of America');
+
+// .push can also be called with multiple parameters
+countries.push('United States of America', 'France');
+```
+
+> **Exercise**: Search `.slice`, `.splice` and `.pop` and tell us what they do
 
 # Resources
-
+1. [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+2. [Objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+3. [Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 # Homework
+1. [The repo](https://github.com/Code-Your-Future/JS-Core-1-Exercises) that you have forked during the last class contains few challenges - solve them all in JavaScript. You should know all the needed information by now.
+
+2. Follow [this course](https://www.khanacademy.org/computing/computer-programming/programming) on Khan Academy. It will go through some of the basics that we covered in the class and beyond.
 
 4. **Research:**
 
+In the next class, we expect to do a short presentation about one of these topics:
+
+- Conditionals other than If/Else: Switch Statements, Ternary Operators
+- Loops other than For: While loops
+- Read the [documentation about Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Methods) and show us code that implements two of the methods described.
+
 ## Prepare for the next class
-1. Look over the MDN page on arrays and try to understand some of the methods arrays have (you can read up to the part on "Creating an array using the result of a match"): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-
-2. Watch the following video on "Value type vs. reference type": https://www.youtube.com/watch?v=mh-hPzDfb_Q .
-If it makes sense, great! If not, don't worry, we'll be going over the same topic next week and discuss it until it makes sense.
-
-3. Watch the following videos on the `.map` and `.filter` array operators:
-- Map: https://www.youtube.com/watch?v=bCqtb-Z5YGQ
-- Filter: https://www.youtube.com/watch?v=BMUiFMZr7vk
-
-Again, don't worry if nothing makes sense. If you don't understand something, you can Google for more information, and if it still doesn't make sense, we'll be going through these topics next week!
-
-4. Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)
+1. Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)

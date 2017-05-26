@@ -1,7 +1,15 @@
 # JavaScript Core 4
 ** What we will learn today?**
 - A taster of Functional Programming
+- AJAX / API (REST)
+  - Callbacks and Promises
+  - JSON
+- Callbacks
 
+- More Arrays and loops
+  - Functional utils (map, foreach, filter)
+
+- Async - settimeout
 
 ?? maybe Object Oriented JS (prototypes and such),
 call, apply etc.. or more algorithmic techniques (recursion etc..)
@@ -195,6 +203,66 @@ console.log(primitive); // 10
 console.log(object.greeting); // "how are you?"
 ```
 
+
+# Callbacks
+
+You probably noticed in last few exercises that JavaScript functions can be passed as arguments to other functions.
+
+Callbacks are JavaScript functions that are passed as arguments to other functions
+so they can be executed inside those functions once they're finished.
+
+Example:
+
+```javascript
+
+function a(callback) {
+    var x = 1000;
+    if(callback) {
+        callback();
+    }
+    return x;
+}
+
+```
+
+> **Exercise**:
+> - Look up the global `setTimeout` function
+> - Write a function that takes a string as a parameter, waits 2 seconds, and then logs out the string
+
+
+## More arrays and loops + tests
+
+Before we dive into the exercises, a word on testing:
+- All of us write buggy code. Thinking about what inputs our software is supposed to handle
+and writing tests to verify that it behaves as expected for those inputs helps us
+prevent most of those bugs.
+- By writing good tests for our pieces of functionality helps ensure that no one else can
+break it by mistake in the future
+- Sometimes, just by thinking about what tests to write might bring up big flaws in our
+initial logic
+
+Testing example; consider the following code:
+
+```javascript
+function containsBob(a) {
+    return a.includes("bob");
+}
+```
+
+How might we test the above? Some example inputs we can test with:
+
+```javascript
+containsBob("aabobaa"); // expected: true, actual: true
+containsBob("hello"); // expected: false, actual: false
+containsBob("bob"); // expected: true, actual: true
+containsBob("b ob"); // expected: false, actual: false
+containsBob(""); // expected: false, actual: false
+
+containsBob(1); // expected: false, actual: TypeError
+```
+
+> **Exercise**:
+> Open [this CodePen](http://codepen.io/rarmatei/pen/EWJjrZ?editors=0012) and follow the instructions there
 
 
 # Resources

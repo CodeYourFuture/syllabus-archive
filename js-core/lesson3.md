@@ -1,33 +1,69 @@
 # JavaScript Core 3
+
 ** What we will learn today?**
+
 - Modules
 - Unit Testing
-- TDD
-- Intro to JavaScript in the browser
-  - DOM
-  - DOM Events
+- Test-driven development (TDD)
 
 ---
 
-# TODO
-
-- Create repo with boilerplate, function (`third-party.js`) they can `require()`
-- Provide a problem in a non-testable way, so they can refactor it (for exercise in )
-
 # Modules
 
-- Import third-party code
-- `require()`
+So far, all our program has been in a single file. But Node programs can become really large, and having all our code in only one file will not be maintainable.
+
+We can therefore split our code into so-called *modules*. A module is basically a JavaScript file that makes its functionality available to other modules and programs.
+
+## Importing modules
+
+But how do we make use of another module in our program? We need to *import* it, and this is done using a function called `require()`.
+
+> There are different module formats for JavaScript. The one we are using here, which is natively supported by Node, is called **CommonJS**.
+
+```js
+var findNeedle = require('./find-needle.js');
+```
+
+Assuming our program is in the same folder as `find-needle.js`, we can use the above code to import the functionality provided by that module and store it in the `findNeedle` variable.
+
+We can then continue to use the `findNeedle` function as if it we defined it in our own program!
+
+```
+var haystack = ['hay', 'hay', 'needle', 'hay'];
+console.log("Found needle at position " + findNeedle(haystack));
+```
+
+> Modules can not only export functions, but all variable types you already learned about. Most commonly, they export a function or an object containing multiple functions.
 
 > *Exercise:* In your `main.js` file, import the provided `third-party.js` and console.log its result.
 
-- Split code into separate files
-- `module.exports`
+## Creating modules
 
-> *Exercise:* Take a function that you created in last week's homework. Put it in a separate file and _export_ it.
-> Then `require()` is in another file and make sure this program runs.
+As mentioned, it is good practice to split your code into different modules. You do not need one file per function, but you can group similar functionality together.
+
+It is really simple to take existing JavaScript code and turn it into a module by exporting its functionality:
+
+```
+function printName(name) {
+  console.log("My name is " + name);
+}
+
+module.exports = printName;
+```
+
+The key here is the line containing `module.exports`. As you see, this is an assignment, and whatever is assigned to `module.exports` will be made available to other modules and program when this file is imported (remember, using `require()`).
+
+> *Exercise:* Take a function that you created in last week's homework. Put it in a separate file and _export_ it, as described above. Name the file like your function, so when your function is called `myGreatFunction`, name your file `myGreatFunction.js`.
+>
+> Then create`require()` it in another file and make sure this program runs.
 
 # Unit Testing
+
+Testing is a key skill for any software programmer. We need to make sure our software is thoroughly tested, otherwise bad things happen. Testing makes sure our program behave like we intend them to do - if we don't test, we can cause severe bugs. Bad software can make planes crash, companies bankrupt, and users of your software really frustrated.
+
+There are different levels on which we can test software, for example integration testing, end-to-end testing, and unit testing. Today we will deal with unit testing, which is probably the most universal testing discipline.
+
+A unit test is exactly that - it tests a _unit_ of code. "Unit" can mean a lot to
 
 - Why is testing important?
 - Different levels of testing?
@@ -57,23 +93,21 @@ We go through the problems they've already solved in the last week, refactor and
 - Talk about some other tech, like Jasmine, Karma, Mocha, and explain the difference between framework and runner
 - Test coverage
 
-# JS in the browser
-https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples
+# TODO
 
-
-## Topic 1
-High level explanation of Topic 1 - rely on the exercises
-> **Exercise**: Always have exercises
-
-## Topic 2
-## Topic 3
-
+- find good npm module to install and demonstrate use of 3rd party modules
 
 
 # Resources
 1. [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 
 # Homework
+
+## Research
+
+- Research other module formats than CommonJS. What is AMD? What are ES6 modules and how do their differ from CommonJS?
+
+* * *
 
 1. First part of Homework - Easy
 - write a function that returns whether a number exists in a list

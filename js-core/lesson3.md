@@ -1,5 +1,6 @@
 # JavaScript Core 3
 ** What we will learn today?**
+- Modules
 - Unit Testing
 - TDD
 - Intro to JavaScript in the browser
@@ -8,15 +9,53 @@
 
 ---
 
+# TODO
+
+- Create repo with boilerplate, function (`third-party.js`) they can `require()`
+- Provide a problem in a non-testable way, so they can refactor it (for exercise in )
+
+# Modules
+
+- Import third-party code
+- `require()`
+
+> *Exercise:* In your `main.js` file, import the provided `third-party.js` and console.log its result.
+
+- Split code into separate files
+- `module.exports`
+
+> *Exercise:* Take a function that you created in last week's homework. Put it in a separate file and _export_ it.
+> Then `require()` is in another file and make sure this program runs.
+
 # Unit Testing
+
+- Why is testing important?
+- Different levels of testing?
+- Regression?
+- What is TDD? Red, Green, Refactor
+
 We go through the problems they've already solved in the last week, refactor and do them in a testable way - introduce TDD etc..
 
-Why is testing important?
-Different levels of testing?
-Regression?
+- Use a bad version of the "needle in haystack" code
+  - First version isn't even a function (red)
+  - Second version is a function (green)
+  - Third version uses `.indexOf`
 
-maybe we start with not using a framework at all?
-We use `JEST` after
+> *Exercise:* Now you! Take the provided `magic.js` and turn it into a function that returns a result instead of
+> printing it. Then run it using multiple inputs and make sure it returns the correct results *TODO: ELABORATE*
+
+- Let them write their own "expectEqual" function
+
+## Separating code and tests
+
+- Refer back to the section on "Modules"
+- Put leave code in its file, put test in separate file or even folder
+
+## Unit testing frameworks
+
+- Introduce Jest (it's great because it combines test framework and runner)
+- Talk about some other tech, like Jasmine, Karma, Mocha, and explain the difference between framework and runner
+- Test coverage
 
 # JS in the browser
 https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples
@@ -29,7 +68,7 @@ High level explanation of Topic 1 - rely on the exercises
 ## Topic 2
 ## Topic 3
 
- 
+
 
 # Resources
 1. [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)

@@ -203,7 +203,7 @@ var secondBook = new Book("Twilight", 2005);
 
     - Chapter 9: Style - it's a short chapter, everyone start by reading that chapter.
     - ALL: Read the chapter about **Objects** (up to Reference)
-    - Read the chapter about **Arrays** (ignore the Methods section)
+    - Read the chapter about **Arrays**
     - Read the chapter about **Functions** up to the section about **Return**
 
 

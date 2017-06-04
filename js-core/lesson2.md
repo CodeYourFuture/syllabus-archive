@@ -237,5 +237,5 @@ var secondBook = new Book("Twilight", 2005);
 
 
 ## Prepare for the next class
-1. Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)
-2. Reserach **Unit Testing** (next time, know how to answer the question: **what is TDD?**)
+
+Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)

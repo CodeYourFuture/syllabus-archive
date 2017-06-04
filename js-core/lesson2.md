@@ -1,15 +1,17 @@
 # JavaScript Core 2
 
-**What we will learn today?**
+**What will we learn today?**
+
 - Arrays
 - Objects
 - More Arrays methods
+
 ---
 
 
 # Arrays
 
-If you want to store a **bunch of things**, a **collection** or a **list** of things,  identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** are to the rescue!
+If you want to store a **bunch of things**, a **collection** or a **list** of things in variables,  identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** are to the rescue!
 
 Imagine an array like a list or a collection of variables, but instead of each variable having its own name, only the array has a name. So how do you access a variable inside, then? How do you read and write? Using an *index*!
 
@@ -149,11 +151,14 @@ countries.push('United States of America', 'France');
 # Homework
 1. [The repo](https://github.com/Code-Your-Future/JS-Core-1-Exercises) that you have forked during the last class contains few challenges - solve them all in JavaScript. You should know all the needed information by now.
 
-2. Follow [this course](https://www.khanacademy.org/computing/computer-programming/programming) on Khan Academy. It will go through some of the basics that we covered in the class and beyond.
+2. Complete [the Khan Academy course](https://www.khanacademy.org/computing/computer-programming/programming) if you haven't already. It will go through some of the basics that we covered in the class and beyond.
+
+3. Complete the [Codecademy Learn JavaScript Path](https://www.codecademy.com/learn/learn-javascript) if you haven't already. 
 
 4. **Research:**
 
-Read the chapter from JS: The Good parts
+Read these chapters from [JS: The Good parts](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf):
+
 - Chapter 9: Style - it's a short chapter, everyone start by reading that chapter.
 - ALL: Read the chapter about **Objects** (up to Reference)
 - Read the chapter about **Arrays** (ignore the Methods section)

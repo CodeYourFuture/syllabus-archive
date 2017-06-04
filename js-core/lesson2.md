@@ -68,7 +68,6 @@ var countries = ['Scotland', 'Germany', 'Syria'];
 var moreCountries = ['Sudan', 'Ethiopia', 'France'];
 
 countries.concat(moreCountries);
-console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan', 'Ethiopia', 'France']
 ```
 
 #### Appending an element
@@ -88,13 +87,19 @@ countries.push('United States of America');
 countries.push('United States of America', 'France');
 ```
 
-> **Exercise**: Google `.slice`, `.splice` and `.pop`.
+> **Exercise**: Google `.slice`, `.splice`, `.push` and `.pop`.
 
-> 1. Use `push` to add another country to your country array.
-> 2. Use `pop` to remove the last two countries.
-> 3. Using `push`, add enough countries to your array so that `countries.length` is 10. Now use `slice` to return the first 3 countries from the array.
-> 4. Use `splice` to remove the two countries at index positions 5 and 6.
-> 5. Use `splice` to add a new country at index position 2.
+> 1. Use `.push` to add another country to your country array.
+> 2. Use `.pop` to remove the last two countries.
+> 3. Using `.push`, add enough countries to your array so that `countries.length` is 10. Now use `.slice` to return the first 3 countries from the array.
+> 4. Use `.splice` to remove the two countries at index positions 5 and 6.
+> 5. Use `.splice` to add a new country at index position 2.
+
+> **Exercise (advanced)**
+
+> 1. Google the `.map` and `.filter` methods.
+> 2. Create an array of numbers. Use the `.map` method to triple every number in the array.
+> 3. Create an array of words. Use `.filter` to remove every word which is less than 4 letters long.
 
 
 # Objects

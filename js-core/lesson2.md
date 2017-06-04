@@ -3,13 +3,13 @@
 **What will we learn today?**
 
 - Arrays
-- Objects
 - More Arrays methods
+- Objects
 
 ---
 
 
-# Arrays
+# All about Arrays
 
 If you want to store a **bunch of things**, a **collection** or a **list** of things in variables,  identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** are to the rescue!
 
@@ -57,12 +57,45 @@ Spoiler alert, it will print out "puppy". That might seem weird, until you learn
 >
 > **Don't ask a mentor - Google it!** Try googling to find the answer if you're stuck. Google skills are an essential part of being a developer.
 
+# Useful array methods
+
+#### Concatenating two arrays
+
+You've learned how you can add two numbers and append two strings, but how does this work for arrays? A simple `arr1 + arr2` will not do, but there is a method you can use: `concat()`. It is a method that you call on the array (similar to how `console.log` is the `log` function called on `console`) and takes the array you want to append as a parameter.
+
+```js
+var countries = ['Scotland', 'Germany', 'Syria'];
+var moreCountries = ['Sudan', 'Ethiopia', 'France'];
+
+countries.concat(moreCountries);
+console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan', 'Ethiopia', 'France']
+```
+
+#### Appending an element
+
+If you want to append an element to an array, you can just put it after the last existing element like so:
+
+```js
+countries[countries.length] = 'United States of America';
+```
+
+There is another way though, which is a bit more elegant: the `push` function.
+
+```js
+countries.push('United States of America');
+
+// .push can also be called with multiple parameters
+countries.push('United States of America', 'France');
+```
+
+> **Exercise**: Search `.slice`, `.splice` and `.pop` and tell us what they do
+
 
 # Objects
 
 Now for the final data type: objects. Like arrays, they can store multiple bits of information, except objects store the properties of something. For example, you might want to save the name, model and colour of a car. Or the name, time and location of a film playing at the cinema.
 
-The syntax looks like this:
+There are several ways to write objects. Object literals (literal notation) look like this:
 
 ```js
 {
@@ -109,39 +142,37 @@ console.log(person.firstName);
 >// "People call me Jane"
 >```
 
+## Object Constructors
 
-# Useful array methods
-
-#### Concatenating two arrays
-
-You've learned how you can add two numbers and append two strings, but how does this work for arrays? A simple `arr1 + arr2` will not do, but there is a method you can use: `concat()`. It is a method that you call on the array (similar to how `console.log` is the `log` function called on `console`) and takes the array you want to append as a parameter.
+We can also use the object constructor syntax to make a new object. It looks like this:
 
 ```js
-var countries = ['Scotland', 'Germany', 'Syria'];
-var moreCountries = ['Sudan', 'Ethiopia', 'France'];
-
-countries.concat(moreCountries);
-console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan', 'Ethiopia', 'France']
+function Book(name, year) {
+  this.name = name;
+  this.year = '(' + year + ')';
+}
 ```
-
-#### Appending an element
-
-If you want to append an element to an array, you can just put it after the last existing element like so:
+Then, to make a new _instance_ of the object, we write:
 
 ```js
-countries[countries.length] = 'United States of America';
+var firstBook = new Book("War and Peace", 1869);
+var secondBook = new Book("Twilight", 2005);
 ```
 
-There is another way though, which is a bit more elegant: the `push` function.
+> **Exercise**
 
-```js
-countries.push('United States of America');
+> 1. Make an animal object using the object constructor syntax. The object should have key/value pairs for:
+> 
+ - Name.
+ - Family (mammal/reptile/bird etc)
+ - Number of legs.
+ - eatsMeat (_hint_: what data type can you use to represent a yes/no?)
+ - sound 
 
-// .push can also be called with multiple parameters
-countries.push('United States of America', 'France');
-```
+>Then make 5 new instances of the object with different animals.
 
-> **Exercise**: Search `.slice`, `.splice` and `.pop` and tell us what they do
+> 2. A function within an object is called a _method_. Add a method to your animal object called `says`. When you `console.log(dog.says())`, the console should read, 'dog says woof'
+
 
 # Resources
 1. [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
@@ -162,9 +193,11 @@ Read these chapters from [JS: The Good parts](http://bdcampbell.net/javascript/b
 - Chapter 9: Style - it's a short chapter, everyone start by reading that chapter.
 - ALL: Read the chapter about **Objects** (up to Reference)
 - Read the chapter about **Arrays** (ignore the Methods section)
-- Read the chapter about Functions up to the section about **Return**
+- Read the chapter about **Functions** up to the section about **Return**
 
 When reading always try the code snippets by yourself in Node. (change document.writeln to console.log)
+
+Read this article on [Pair Programming](https://medium.com/@dickeyxxx/how-to-pair-program-d6741077e513)
 
 Next class - we want you to do a presentation (including showing some code sample) for one of these concepts:
 
@@ -180,6 +213,8 @@ Next class - we want you to do a presentation (including showing some code sampl
 - [Advanced] [Different ways of Creating objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Creating_new_objects)
 - [Advanced] [Inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Inheritance)
 - [Advanced] [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+
+5. (Optional) Create an account on [Free Code Camp](https://www.freecodecamp.com/) and begin working through the exercises.
 
 
 ## Prepare for the next class

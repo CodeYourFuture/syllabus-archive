@@ -9,6 +9,7 @@
 - Variables
 - Conditionals: If/else
 - Loops
+- Functions
 
 This class is based on the [Node Girls JS Workshop](https://github.com/node-girls/beginners-javascript)
 

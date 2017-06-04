@@ -206,11 +206,13 @@ var secondBook = new Book("Twilight", 2005);
     - Read the chapter about **Arrays** (ignore the Methods section)
     - Read the chapter about **Functions** up to the section about **Return**
 
+
   When reading always try the code snippets by yourself in Node. (change document.writeln to console.log)
 
   - Read this article on [Pair Programming](https://medium.com/@dickeyxxx/how-to-pair-program-d6741077e513)
 
   - Read this page on [Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), a new feature in JavaScript introduced in ES6.
+
 
   Next class - we want you to do a presentation (including showing some code sample) for one of these concepts:
 
@@ -228,6 +230,8 @@ var secondBook = new Book("Twilight", 2005);
     - [Advanced] [Different ways of Creating objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Creating_new_objects)
     - [Advanced] [Inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Inheritance)
     - [Advanced] [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+
+
 
   (Optional) Create an account on [Free Code Camp](https://www.freecodecamp.com/) and begin working through the exercises.
 

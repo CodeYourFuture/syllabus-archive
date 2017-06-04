@@ -104,7 +104,7 @@ countries.push('United States of America', 'France');
 
 # Objects
 
-Now for the final data type: objects. Like arrays, they can store multiple bits of information, except objects store the properties of something. For example, you might want to save the name, model and colour of a car. Or the name, time and location of a film playing at the cinema.
+Like arrays objects can store multiple bits of information, except objects store the properties of something. For example, you might want to save the name, model and colour of a car. Or the name, time and location of a film playing at the cinema.
 
 There are several ways to write objects. Object literals (literal notation) look like this:
 

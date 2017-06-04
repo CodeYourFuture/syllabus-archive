@@ -88,7 +88,13 @@ countries.push('United States of America');
 countries.push('United States of America', 'France');
 ```
 
-> **Exercise**: Search `.slice`, `.splice` and `.pop` and tell us what they do
+> **Exercise**: Google `.slice`, `.splice` and `.pop`.
+
+> 1. Use `push` to add another country to your country array.
+> 2. Use `pop` to remove the last two countries.
+> 3. Using `push`, add enough countries to your array so that `countries.length` is 10. Now use `slice` to return the first 3 countries from the array.
+> 4. Use `splice` to remove the two countries at index positions 5 and 6.
+> 5. Use `splice` to add a new country at index position 2.
 
 
 # Objects

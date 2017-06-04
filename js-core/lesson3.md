@@ -221,9 +221,3 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 - Research other module formats than CommonJS. What is AMD? What are ES6 modules and how do their differ from CommonJS?
 - What are other test frameworks for JavaScript?
 - More parts of the Jest (Jasmine) DSL than just `.toBe()`
-
-**TODO**
-
-## Prepare for the next class
-
-**TODO**

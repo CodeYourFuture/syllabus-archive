@@ -216,20 +216,20 @@ var secondBook = new Book("Twilight", 2005);
 
   Next class - we want you to do a presentation (including showing some code sample) for one of these concepts:
 
-    - Switch Statements and Ternary Operators
-    - Math methods in JavaScript
-    - While loops (compare them to for Loops)
-    - Array.slice and Array.splice
-    - Array.map and Array.forEach
-    - Array.find and Array.filter
-    - Object classes.
-    - ES6.
-    - String.replace, String.search and other String methods
-    - Object.keys (How to loop the properties of an object)
-    - [Function arguments](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/arguments)
-    - [Advanced] [Different ways of Creating objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Creating_new_objects)
-    - [Advanced] [Inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Inheritance)
-    - [Advanced] [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+  - Switch Statements and Ternary Operators
+  - Math methods in JavaScript
+  - While loops (compare them to for Loops)
+  - Array.slice and Array.splice
+  - Array.map and Array.forEach
+  - Array.find and Array.filter
+  - Object classes.
+  - ES6.
+  - String.replace, String.search and other String methods
+  - Object.keys (How to loop the properties of an object)
+  - [Function arguments](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/arguments)
+  - [Advanced] [Different ways of Creating objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Creating_new_objects)
+  - [Advanced] [Inheritance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Inheritance)
+  - [Advanced] [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 
 

@@ -213,7 +213,8 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 3. [Modules](https://nodejs.org/api/modules.html)
 
 # Homework
-1. https://github.com/CodeYourFuture/js-tdd-exercises
+1. Read the Wikipedia article about [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
+2. Solve the exercises in this repo (using TDD) https://github.com/CodeYourFuture/js-tdd-exercises
 
 **TODO**
 

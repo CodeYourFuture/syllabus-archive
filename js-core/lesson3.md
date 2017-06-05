@@ -213,6 +213,7 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 3. [Modules](https://nodejs.org/api/modules.html)
 
 # Homework
+1. https://github.com/CodeYourFuture/js-tdd-exercises
 
 **TODO**
 

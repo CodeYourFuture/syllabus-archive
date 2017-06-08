@@ -10,12 +10,51 @@
 
 ---
 
-## Topic 1
+# Taking functions further
 High level explanation of Topic 1 - rely on the exercises
+
+## 'Fat arrow' functions
+ES6 introduced a new way of structuring functions; the arrow function. Let's compare it against the ES5 syntax:
+
+```js
+
+// ES5
+var multiply = function(x, y) {
+  return x * y;
+};
+
+// ES6
+multiply = (x, y) => { return x * y };
+
+console.log(multiply(2, 3));
+
+```
+
+Arrow functions are quicker to write because they don't require variable assignment. Also, if you're only passing one argument into the arrow function, you don't need to use brackets around the parameter:
+
+```js
+multiplyByTen = num => { return 10 * num };
+
+console.log(multiplyByTen(5));
+```
+
+If you're only going to `return` a single line in an arrow function, you don't even need the curly brackets (or the `return` keyword):
+
+```js
+greet = name => `Hello, I am ${name}!`;
+
+console.log(greet('Ada Lovelace'));
+```
+
+However, there are some important differences between arrow functions and ES5 functions aside from syntax. Try the following exercise:
+
 > **Exercise**: Always have exercises
 
-## Topic 2
-## Topic 3
+# Topic 2
+> **Exercise**: Always have exercises
+
+# Topic 3
+> **Exercise**: Always have exercises
 
 
 # Resources

@@ -62,7 +62,7 @@ When a function is invoked, it receives the parameters that were passed in as we
 1. `arguments` - an array-like object which lists all the parameters which were pass into function
 2. `this` - is an object that refers to the current execution context
 
-The actual object `this` refers to will depend on how the function was called.
+What the actual object `this` refers to will depend on how the function was called.
 
 ## constructor
 A function called using `new` operator is called a `constructor`. It creates a new object inheriting from
@@ -78,7 +78,7 @@ console.log(myCar.color) // red
 ```
 
 ## method
-A function which is a property of an object is called a `method`. When is a function is invoked as a method `this` will refer to the parent object.
+A function which is a property of an object is called a `method`. When a function is invoked as a method `this` will refer to the parent object.
 
 ```js
 var library = {
@@ -103,9 +103,9 @@ var library = {
   numberOfBooks: 0,
   addBooks: function(books){
     this.numberOfBooks += books;
-
+ 
     function double(){
-      this.numberOfBooks += books;
+      this.numberOfBooks *= 2;
     }
 
     double();
@@ -113,7 +113,7 @@ var library = {
 }
 
 library.addBooks(5)// 5
-console.log(this.numberOfBooks);
+console.log(library.numberOfBooks);
 ```
 This is because `double` is a function and it get's passed the `global` object as the value of this
 
@@ -152,7 +152,7 @@ var library = {
 }
 
 library.addBooks(5) // 10
-console.log(this.numberOfBooks);
+console.log(library.numberOfBooks);
 ```
 
 2. `bind` the value of `this` so it is retained. `bind` is a method of `function` which returns a function that has `this` set to the value passed in as a param.

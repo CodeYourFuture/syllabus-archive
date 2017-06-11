@@ -140,11 +140,11 @@ function car(){
     }
   };
 }
-var myCar = car();
-myCar.faster();
-myCar.faster();
-myCar.faster();
-console.log(myCar.getSpeed());
+var golfCart = car();
+golfCart.faster();
+golfCart.faster();
+golfCart.faster();
+console.log(golfCart.getSpeed());
 ```
 
 Both `faster` and `getSpeed` functions retain access to the parent scope and thus the variable `speed`. While the function `car` returns both of those functions, it does not expose the variable `speed` directly. We can only access it using those functions essentially making it a private. It is a useful pattern to restrict access to certain variables and ensure that they can only manipulated via set functions. We can use these functions for example to ensure that only valid values are set.
@@ -165,7 +165,11 @@ var car = fordFactory();
 console.log(car);
 ```
 
-Please note how `fordFactory` does not receive any params. Instead it retains access to its parent scope and is able to refer to the parameters the parent was called with.
+Please note how `fordFactory` does not receive any params. Instead it retains access to its parent scope and is able to refer to the parameters the parent was called with. Most importantly it retains access to the parent scope event after the parent function has returned.
+
+> **Exercise**:
+
+Create an outer function that accepts one parameter `greeting` (such as 'Hello', 'Hi' or anything else you like) and returns a closure which accepts one parameter `name` and retuns the greeting including name. So final output of the closure should be something like 'Hello, German'.
 
 # Context
 When a function is invoked, it receives the parameters that were passed in as well two other objects
@@ -227,7 +231,8 @@ That causes several issues.
   library.addBooks(5)// 5
   console.log(library.numberOfBooks);
   ```
-This is because `double` is a function and it gets passed the `global` object as the value of this
+
+This is because `double` is a function and it gets passed the `global` object as the value of `this`.
 
 2. When a method is called a function we lose our original scope because `this` becomes `window` rather than the parent object.
 
@@ -303,10 +308,27 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 
 > **Exercise**
 
+Above we solved we solved the issue 1. with internal method `double` using tempory variable `that` and we solved issue 2. with detached context using `bind`. Please solve issue 1. using `bind` instead and issue 2. using temporary variable `that`.
+
+Below we turn the `log` method of `console` into a standalone function and remove the `log` method from `console`. However, we still have both `console` and `log`, they just separate entities now. Inside `fixMe` below use `apply` or `call` to invoke `log` using the context of `console` and write 'hello'.
+```js
+function fixMe(console, log){
+  console.log('hello'); // Throws error
+}
+
+var log = console.log;
+console.log = null;
+
+fixMe(console, log);
+```
+
 
 # Resources
 1. [Resource 1 to learn more about Topic 1](https://google.com)
 2. [Resource 2 for Topic 2](https://google.com)
+3. [MDN - Closures](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)
+4. [Understanding scope and context](http://ryanmorr.com/understanding-scope-and-context-in-javascript/)
+5. JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions
 
 # Homework
 

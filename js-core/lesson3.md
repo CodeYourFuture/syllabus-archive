@@ -72,8 +72,27 @@ What we're seeing here is the effect of **scope**. Take a look at the following 
 
 We can see from this picture that each function is like a 'bubble', and it has access to the variable assigned within it, and the variables assigned 'above' it, in it's surrounding function. But note that the 'global' scope doesn't have access to `var o`, and `function outer()` doesn't have access to `var i`. So each function can access the variables in its **parent scope**, and in it's **own, immediate scope**, but it cannot see the variables in its **child scope**.
 
+If a variable is declared outside of a function, in the 'window', it has *'global' scope*. The scope within a function is *'local' scope*:
 
-> **Exercise**: Always have exercises
+  ```js
+  var test = "I'm global";
+
+  function testScope() {
+    var test = "I'm local";
+
+    console.log (test);     
+  }
+
+  testScope();           // output: I'm local
+
+  console.log(test);     // output: I'm global
+  ```
+
+
+> **Exercise**:
+> Work through this quiz: [Scope quiz](http://madebyknight.com/javascript-scope/)
+> Don't worry if you don't get them all right just yet! Take your time to read the explanations.
+
 
 # Closure
 A closure is an inner function that retains access to its parent function's scope.
@@ -388,15 +407,13 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 2. [You Don't Know JavaScript - Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch1.md)
 3. [MDN - Closures](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)
 4. [Understanding scope and context](http://ryanmorr.com/understanding-scope-and-context-in-javascript/)
-5. JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions
+5. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
 
 # Homework
 
-1. First part of Homework - Easy
+1. Watch all of the videos in Wes Bos's ES6 course.
 
-2. Second part of Homework - Intermediate/Hard
-
-3. **[Bonus/Optional]** Third part/optional - Hardest
+2. If you finish that you can move on to [JavaScript30](https://javascript30.com/), another course by WesBos. In this course you'll build something in JavaScript every day, which means lots of cool projects! 
 
 4. **Research:**
 

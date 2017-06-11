@@ -410,6 +410,8 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 3. [MDN - Closures](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)
 4. [Understanding scope and context](http://ryanmorr.com/understanding-scope-and-context-in-javascript/)
 5. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
+6. [You Don't Know Javascript - this or That?](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch1.md)
+7. [You Don't Know JavaScript - this all makes sense now!](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md)
 
 # Homework
 

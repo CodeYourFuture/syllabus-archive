@@ -186,7 +186,7 @@ However, there are some important differences between arrow functions and ES5 fu
 
   ```js
   const ourClass = {
-    members: ['Raymond', 'Adis', 'Flavia', 'Nabil', 'Kia'],
+    members: ['Raymond', 'Adis', 'Flavia', 'Nabil', 'Kiya'],
     className: 'London Class 2',
     classSummary: function() {
       return this.members.map(function(member) {

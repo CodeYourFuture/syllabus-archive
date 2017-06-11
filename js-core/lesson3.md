@@ -13,39 +13,45 @@ You've been working with functions for a few weeks now. Today we're going to div
 ## 'Fat arrow' functions
 ES6 introduced a new way of structuring functions; the arrow function. Let's compare it against the ES5 syntax:
 
-```js
+  ```js
 
-// ES5
-var multiply = function(x, y) {
-  return x * y;
-};
+  // ES5
+  var multiply = function(x, y) {
+    return x * y;
+  };
 
-// ES6
-multiply = (x, y) => { return x * y };
+  // ES6
+  multiply = (x, y) => { return x * y };
 
-console.log(multiply(2, 3));
+  console.log(multiply(2, 3));
 
-```
+  ```
 
 Arrow functions are quicker to write because they don't require variable assignment. Also, if you're only passing one argument into the arrow function, you don't need to use brackets around the parameter:
 
-```js
-multiplyByTen = num => { return 10 * num };
+  ```js
+  multiplyByTen = num => { return 10 * num };
 
-console.log(multiplyByTen(5));
-```
+  console.log(multiplyByTen(5));
+  ```
 
 If you're only going to `return` a single line in an arrow function, you don't even need the curly brackets (or the `return` keyword):
 
-```js
-greet = name => `Hello, I am ${name}!`;
+  ```js
+  greet = name => `Hello, I am ${name}!`;
 
-console.log(greet('Ada Lovelace'));
-```
+  console.log(greet('Ada Lovelace'));
+  ```
 
 However, there are some important differences between arrow functions and ES5 functions aside from syntax. Try the following exercise:
 
-> **Exercise**: Always have exercises
+> **Exercise**: 
+> 
+> Use [JSBin](https://jsbin.com/) for today's exercises.
+> 
+> 1. Write an arrow function that returns the string, `Hello, I am ${name}, and I am ${age} years old.`
+> 2. Write an arrow function that take an array of integers, and returns the sum of the elements in the array. Google and use the built-in `reduce` array method for this.
+> 3. Rewrite the following code to use arrow functions where it makes sense to use them
 
 # Scope
 
@@ -53,52 +59,52 @@ Before we get into what scope is, let's try a little exercise.
 
 Open up jsbin and write the following:
 
-```js
-var firstFunction = function() {
-  var a = 10;
+  ```js
+  var firstFunction = function() {
+    var a = 10;
 
-  var secondFunction = function() {
-    console.log(a);
-  }
+    var secondFunction = function() {
+      console.log(a);
+    }
 
-  secondFunction();
-};
+    secondFunction();
+  };
 
-firstFunction();
-```
+  firstFunction();
+  ```
 
 This should work fine, and the console should print `10`. But what if we swap the positions of `var a` and the `console.log()`?
 
-```js
-var firstFunction = function() {
-  console.log(a);
+  ```js
+  var firstFunction = function() {
+    console.log(a);
 
-  var secondFunction = function() {
-    var a = 10;
-  }
+    var secondFunction = function() {
+      var a = 10;
+    }
 
-  secondFunction();
-};
+    secondFunction();
+  };
 
-firstFunction();
-```
+  firstFunction();
+  ```
 
 This returns an error: `ReferenceError: a is not defined`. You might think that the problem is that we're trying to console log `a` before it's declared in the code order. So let's try putting the `console.log(a)` after `secondFunction`, where `a` is assigned:
 
-```js
-var firstFunction = function() {
+  ```js
+  var firstFunction = function() {
 
-  var secondFunction = function() {
-    var a = 10;
-  }
+    var secondFunction = function() {
+      var a = 10;
+    }
 
-  console.log(a);
+    console.log(a);
 
-  secondFunction();
-};
+    secondFunction();
+  };
 
-firstFunction();
-```
+  firstFunction();
+  ```
 
 Wait, we're still getting the `ReferenceError`! Even if we move the `console.log(a)` underneath where `secondFunction` is called, we _still_ get the error. What's going on?
 
@@ -141,7 +147,7 @@ myCar.faster();
 console.log(myCar.getSpeed());
 ```
 
-Both `faster` and `getSpeed` functions retain access to the parent scope and thus the variable `speed`. While the function `car` returns both of those functions, it does not expose the variable `speed` directly. We can only access it using those functions essentially making it a private. It is a useful patternt to restrict access to certain variables and ensuring that they can only manipulated via set functions. We can use these functions for example to ensure that only valid values are set.
+Both `faster` and `getSpeed` functions retain access to the parent scope and thus the variable `speed`. While the function `car` returns both of those functions, it does not expose the variable `speed` directly. We can only access it using those functions essentially making it a private. It is a useful pattern to restrict access to certain variables and ensure that they can only manipulated via set functions. We can use these functions for example to ensure that only valid values are set.
 
 Closures can also be used to create factories which can retain configuration and be invoked later.
 
@@ -221,7 +227,6 @@ That causes several issues.
   library.addBooks(5)// 5
   console.log(library.numberOfBooks);
   ```
-
 This is because `double` is a function and it gets passed the `global` object as the value of this
 
 2. When a method is called a function we lose our original scope because `this` becomes `window` rather than the parent object.

@@ -388,18 +388,26 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 
 > Above we solved the issue 1. with internal method `double` using tempory variable `that` and we solved issue 2. with detached context using `bind`. Please solve issue 1. using `bind` instead and issue 2. using temporary variable `that`.
 
-> Below we turn the `log` method of `console` into a standalone function and remove the `log` method from `console`. However, we still have both `console` and `log`, they just separate entities now. Inside `fixMe` below use `apply` or `call` to invoke `log` using the context of `console` and write 'hello'.
+> Below we turn the `push` method of the array `films` into a standalone function and remove the `push` method from `films`. However, we still have both the array `films` and `push`, they are just separate entities now. Inside `addMissionImpossible` Calling `push('Mission Impossible')` throws an error because it no longer has a reference to its context. Also, calling `films.push('Mission Impossible')` beacuse films no longer has the method `push`. Use `call` or `apply` to invoke to function `push` with the context `films` to insert another film title into the array films.
 
->  ```js
-  function fixMe(console, log){
-    console.log('hello'); // Throws error
-  }
+> ```js
+> function addMissionImpossible(films, push){
+>   // push('Mission Impossible'); // throws error
+>   // Array.prototype.push called on null or undefined
+>   
+>   // films.push('Mission Impossible'); // throws error
+>   // films.push is not a function
+> }
 
->   var log = console.log;
-  console.log = null;
+> var films = ['Batman', 'Wonder Woman'];
 
->  fixMe(console, log);
-  ```
+> var push = films.push;
+> films.push = null;
+
+> addMissionImpossible(films, push);
+
+> console.log(films);
+> ```
 
 
 # Resources

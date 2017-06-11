@@ -112,8 +112,6 @@ We can see from this picture that each function is like a 'bubble', and it has a
 
 > **Exercise**: Always have exercises
 
-# Topic 3
-> **Exercise**: Always have exercises
 
 # Context
 When a function is invoked, it receives the parameters that were passed in as well two other objects

@@ -415,7 +415,5 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 
 2. If you finish that you can move on to [JavaScript30](https://javascript30.com/), another course by WesBos. In this course you'll build something in JavaScript every day, which means lots of cool projects! 
 
-4. **Research:**
-
 ## Prepare for the next class
-1. Read this [Some Tutorial or Video etc...](https://google.com)
+1. Read this [on Test Driven Development](https://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm)

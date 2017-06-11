@@ -178,5 +178,4 @@ Next class - we want you to do a presentation (including showing some code sampl
 
 
 ## Prepare for the next class
-1. Look over these examples for interacting with the DOM using JavaScript. We'll discuss these in more detail next week, but try to make an idea of the different API methods and what they do. [DOM Examples](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)
-2. Reserach **Unit Testing** (next time, know how to answer the question: **what is TDD?**)
+1. Reserach **Unit Testing** (next time, know how to answer the question: **what is TDD?**)

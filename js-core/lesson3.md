@@ -168,8 +168,11 @@ console.log(car);
 Please note how `fordFactory` does not receive any params. Instead it retains access to its parent scope and is able to refer to the parameters the parent was called with. Most importantly it retains access to the parent scope event after the parent function has returned.
 
 > **Exercise**:
-
-Create an outer function that accepts one parameter `greeting` (such as 'Hello', 'Hi' or anything else you like) and returns a closure which accepts one parameter `name` and retuns the greeting including name. So final output of the closure should be something like 'Hello, German'.
+> 
+> Create an outer function that accepts one parameter `greeting` (such as 'Hello', 'Hi' or anything else you like) 
+> and returns a closure which accepts one parameter `name` and retuns the greeting including name. So final output of 
+> the closure should be something like 'Hello, German'.
+> 
 
 # Context
 When a function is invoked, it receives the parameters that were passed in as well two other objects
@@ -183,29 +186,29 @@ What the actual object `this` refers to will depend on how the function was call
 A function called using `new` operator is called a `constructor`. It creates a new object inheriting from
 its prototype and sets the value of `this` to the new object.
 
-```js
-var Car = function(color){
-  this.color = color;
-}
+  ```js
+  var Car = function(color){
+    this.color = color;
+  }
 
-var myCar = new Car('red');
-console.log(myCar.color) // red
-```
+  var myCar = new Car('red');
+  console.log(myCar.color) // red
+  ```
 
 ## method
 A function which is a property of an object is called a `method`. When a function is invoked as a method `this` will refer to the parent object.
 
-```js
-var library = {
-  numberOfBooks: 0,
-  addBooks: function(books){
-    this.numberOfBooks += books;
+  ```js
+  var library = {
+    numberOfBooks: 0,
+    addBooks: function(books){
+      this.numberOfBooks += books;
+    }
   }
-}
 
-library.addBooks(7);
-console.log(library.numberOfBooks) //7
-```
+  library.addBooks(7);
+  console.log(library.numberOfBooks) //7
+  ```
 
 ## function
 A function which does not belong to a method will have its context set to the global object, which is `window` in the browser and `global` in Node.
@@ -308,19 +311,20 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 
 > **Exercise**
 
-Above we solved we solved the issue 1. with internal method `double` using tempory variable `that` and we solved issue 2. with detached context using `bind`. Please solve issue 1. using `bind` instead and issue 2. using temporary variable `that`.
+> Above we solved we solved the issue 1. with internal method `double` using tempory variable `that` and we solved issue 2. with detached context using `bind`. Please solve issue 1. using `bind` instead and issue 2. using temporary variable `that`.
 
-Below we turn the `log` method of `console` into a standalone function and remove the `log` method from `console`. However, we still have both `console` and `log`, they just separate entities now. Inside `fixMe` below use `apply` or `call` to invoke `log` using the context of `console` and write 'hello'.
-```js
-function fixMe(console, log){
-  console.log('hello'); // Throws error
-}
+> Below we turn the `log` method of `console` into a standalone function and remove the `log` method from `console`. However, we still have both `console` and `log`, they just separate entities now. Inside `fixMe` below use `apply` or `call` to invoke `log` using the context of `console` and write 'hello'.
 
-var log = console.log;
-console.log = null;
+>  ```js
+  function fixMe(console, log){
+    console.log('hello'); // Throws error
+  }
 
-fixMe(console, log);
-```
+>   var log = console.log;
+  console.log = null;
+
+>  fixMe(console, log);
+  ```
 
 
 # Resources

@@ -88,12 +88,6 @@ If a variable is declared outside of a function, in the 'window', it has *'globa
   console.log(test);     // output: I'm global
   ```
 
-
-> **Exercise**:
-> Work through this quiz: [Scope quiz](http://madebyknight.com/javascript-scope/)
-> Don't worry if you don't get them all right just yet! Take your time to read the explanations.
-
-
 # Closure
 A closure is an inner function that retains access to its parent function's scope.
 
@@ -422,6 +416,8 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 1. Watch all of the videos in Wes Bos's ES6 course.
 
 2. If you finish that you can move on to [JavaScript30](https://javascript30.com/), another course by WesBos. In this course you'll build something in JavaScript every day, which means lots of cool projects! 
+
+3. Work through this quiz: [Scope quiz](http://madebyknight.com/javascript-scope/)
 
 ## Prepare for the next class
 1. Read this [on Test Driven Development](https://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm)

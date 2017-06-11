@@ -9,4 +9,4 @@ During the course you will learn a technology stack that helps you build anythin
 
 This is the repo for the updated CYF Syllabus.
 
-For the version that is being taught in our first London class, please check [Syllabus-book](https://code-your-future.github.io/syllabus-book/)
+For the version that is being taught in our first London class, please check [Syllabus-book](https://codeyourfuture.github.io/syllabus-book/)

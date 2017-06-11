@@ -421,5 +421,7 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 
 3. Work through this quiz: [Scope quiz](http://madebyknight.com/javascript-scope/)
 
+4. Next week we'll be moving on to more advanced JavaScript. The key to becoming a good developer is constant practice. Practice your JavaScript basics by signing up for [Codewars](https://www.codewars.com/) and try to do a couple of exercises every day.
+
 ## Prepare for the next class
 1. Read this [on Test Driven Development](https://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm)

@@ -90,13 +90,13 @@ We don't have to build all these things ourselves. Instead there are _unit testi
 
 The unit testing framework we are trying to day is called [Jest](https://facebook.github.io/jest/). It's created by Facebook and useful for all kinds of unit testing (especially testing React, which we will do in a later lesson).
 
-Look into your `jest/` folder. You will find two files there, `sum.js` and `sum.test.js`. The suffix `.test.js` tells Jest that this file contains tests it should execute. To execute the test, run the following command in your terminal:
+Look into your `jest/` folder. You will find a file there, `sum.test.js`. The suffix `.test.js` tells Jest that this file contains tests it should execute. To execute the test, run the following command in your terminal:
 
 ```sh
 npm test
 ```
 
-This command runs the test in `sum.test.js`, which tests the `sum()` function exported by `sum.js`. You can see the test output and the fact that the test passed.
+This command runs the test in `sum.test.js`, which tests the `sum()` function. You can see the test output and the fact that the test passed.
 
 Tests cases in Jest have the following structure:
 

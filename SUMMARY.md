@@ -11,10 +11,11 @@
   * [Week 1](/js-core/lesson1.md)
   * [Week 2](/js-core/lesson2.md)
   * [Week 3](/js-core/lesson3.md)
+  * [Week 3.5 - Pair Programming Day](/js-core/lesson3.5.md)
 * JavaScript Core II
-  * [Week 1](/js-core-2/lesson1.md)
-  * [Week 2](/js-core-2/lesson2.md)
-  * [Week 3](/js-core-2/lesson3.md)
+  * [Week 1](/js-core-2/lesson4.md)
+  * [Week 2](/js-core-2/lesson5.md)
+  * [Week 3](/js-core-2/lesson6.md)
 * Node and DB
     * [Week 1](/node-db/lesson1.md)
     * [Week 2](/node-db/lesson2.md)

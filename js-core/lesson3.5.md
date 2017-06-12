@@ -16,7 +16,7 @@ Today, we want to focus on our problem solving skills, how we think and tackle p
 - Good functions
     - have good names and clear parameter names
     - have single responsibility
-    - be defensive: don't trust your parameter
+    - be defensive: your function might be called with a number when you expect a string, or your parameters might just be undefined. Don't trust your input!
 - Good tests
     - have good test description
     - test for edge cases and unexpected behavior
@@ -30,34 +30,34 @@ The class will be based on Find Alive people exercise on [JS-TDD-Exercises](http
 if you did, let the mentor review it
 
 - Write a function findByAge that finds people over a certain age (age is a parameter)
-    - signature: findByAge(age) - age is a number
-    - example: findByAge(60) returns every person over 60
-- **Refactor** findByAge to take a second paramter (boolean) that makes look for people below a certain age (rather than above)
-    - signature: findByAge(age, isBelow) - age is number, isBelow is Boolean
-    - example: findByAge(60, true) returns every person under 60
-    - findByAge(60, false) returns every person over 60
+    - signature: findByAge(writers, age) - writers is an array age is a number
+    - example: findByAge(writers, 60) returns every person over 60
+- **Refactor** findByAge to take a third parameter (boolean) that makes look for people below a certain age (rather than above)
+    - signature: findByAge(writers, age, isBelow) - writers is an array, age is number, isBelow is Boolean
+    - example: findByAge(writers, 60, true) returns every person under 60
+    - findByAge(writers, 60, false) returns every person over 60
 > This should be the same previous function - and the previous tests should not break
 
 - write a functon to find people by firstName or lastName
-    - signature: findByName(name) - name is a string
-    - example: findByName("Smith") returns every person who has their first name or last name as "smith"
+    - signature: findByName(writers, name) - writers is an array, name is a string
+    - example: findByName(writers, "Smith") returns every person who has their first name or last name as "smith"
 
 - Improve the last function to to match the start of the word not the whole word (add a test first)
     - same signature as previous step
-    - findByName("sm") returns every person whose firstName or lastName **startsWith** "sm"
+    - findByName(writers, "sm") returns every person whose firstName or lastName starts with "sm"
 
 - Write a function that performs a more generic version of this search
 it should take an object that has two keys
-    - signature: findWriter(searchCriteria) - searchCriteria is an object (property, value pairs)
+    - signature: findWriter(writers, searchCriteria) - writers is an array, searchCriteria is an object (property, value pairs)
 ```javascript
 // passing this searchCriteria should return every person who is over 60 and alive
-findWriter({ 
+findWriter(writers, { 
     age: 60,
     alive: true
 });
 ```
 - Write a function called getStatistics that takes an array of writers and returns an object containing stats about the numbers of the writers alive
-        - getStatistics(writersArray);
+        - getStatistics(writers);
 ```javascript
 // response should be an object representing the statistics about how many are alive and how many are dead - sample response:
 {
@@ -74,7 +74,7 @@ findWriter({
 >
 > Add more test cases to verify your solution
 
-- Write a function that accepts a Phrase (string) and finds the longest word
+- Write a function that accepts a phrase (string) and finds the longest word
     - Example string : 'Code Your Future'
     - Expected Output : 'Future'
 - Can your new function reuse the previous function?

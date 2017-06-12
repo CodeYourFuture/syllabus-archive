@@ -3,7 +3,8 @@
 ** What we will learn today?**
 - Callbacks
 - Value Vs reference types
-- Functional programming (.map .filter etc..P)
+- Scoping
+- this
 ---
 
 ## Topic 1

@@ -1,7 +1,9 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 # JavaScript Core 4
 ** What we will learn today?**
-- OO and prototype?
+- OO, Object creation, constructors, new keyword
+- Inheritance?
+- Functional programming (.map .filter etc..P)
 - Promises?
 - ES6?
 ---

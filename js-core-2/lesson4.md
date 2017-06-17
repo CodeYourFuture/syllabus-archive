@@ -256,11 +256,15 @@ Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let 
 
 
 
-
+# Resources
+- DOM Examples and explanation on MDN - https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples
+- AJAX - https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started
 
 # Homework
-
 - Continue working on [the repository](https://github.com/CodeYourFuture/dom-ajax) you forked in this lesson
-    - Open up **readme.md** and follow the instructions in there
+    - Open up **readme.md** and follow the instructions in there.
+    - Submit Pull Request after completing each part.
+- Follow Intro to AJAX course by udacity - https://classroom.udacity.com/courses/ud110 (register and signin if you need to)
+    - Follow the Requests and API lesson
 - Fork [this repo](https://github.com/CodeYourFuture/WebDeveloperTest) and follow the instructions
     - This is a project with several deadlines, make sure you understand the requirements very well and start as soon as possible. Also communicate regularly using both **email** and Slack.

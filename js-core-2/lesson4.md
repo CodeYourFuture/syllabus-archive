@@ -260,5 +260,7 @@ Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let 
 
 # Homework
 
-- Continue working on the repository you forked in this lesson
-- Open up **readme.md** and follow the instructions in there
+- Continue working on [the repository](https://github.com/CodeYourFuture/dom-ajax) you forked in this lesson
+    - Open up **readme.md** and follow the instructions in there
+- Fork [this repo](https://github.com/CodeYourFuture/WebDeveloperTest) and follow the instructions
+    - This is a project with several deadlines, make sure you understand the requirements very well and start as soon as possible. Also communicate regularly using both **email** and Slack.

@@ -28,4 +28,5 @@
   * [Week 4](/react/lesson4.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Contributing](CONTRIBUTING.md)
+* [Mentor's Guide](mentors-guide.md)
 * [Lesson Template](lesson-template.md)

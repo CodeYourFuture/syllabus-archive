@@ -15,9 +15,9 @@ We should also update the classes' branches with **master** regularly (and vice 
 
 A Gitbook for each branch is published automatically on each push:
 
-- master - https://code-your-future.github.io/syllabus-master/
-- London - https://code-your-future.github.io/syllabus-london/
-- Scotland - https://code-your-future.github.io/syllabus-scotland/
+- master - https://CodeYourFuture.github.io/syllabus-master/
+- London - https://CodeYourFuture.github.io/syllabus-london/
+- Scotland - https://CodeYourFuture.github.io/syllabus-scotland/
 
 Mentors should point the students to the individual classes on Github (not the gitbook links) to allow them to get familiar with Git and Github, and to focus on the individual class. Also Point them to the version on your branch.
 

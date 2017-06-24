@@ -1,10 +1,11 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 # JavaScript Core 4
 ** What we will learn today?**
-- Callbacks
-- Value Vs reference types
-- Scoping
-- this
+- OO, Object creation, constructors, new keyword
+- Inheritance?
+- Functional programming (.map .filter etc..P)
+- Promises?
+- ES6?
 ---
 
 ## Topic 1

@@ -1,4 +1,5 @@
 # HTML/CSS 3
+<<<<<<< HEAD
 
 What we will learn today:
 
@@ -40,6 +41,48 @@ When you need to create a website very quickly, in order to test a concept, for 
 
 
 ## Naming patterns
+=======
+- Design frameworks
+- Bootstrap 4 and HTML/CSS frameworks
+- HTML forms
+- Git branching and pull requests
+- Naming patterns (OOCSS, BEM)
+---
+
+## Design Frameworks
+
+A design framework is a collection of re-usable code snippets which you can use to build a website. It is sometimes called a "design system", "style guide", or "pattern library", and will usually consist of three things:
+
+1. **Brand guidelines** define the appropriate typography, colors and logos to use.
+2. **Components** define re-usable code snippets for common requirements, like navigation menus.
+3. **Helpers** define additional code tools to construct the site, like layout grids.
+
+The main goals of a design framework are to ensure design consistency and avoid writing the same code twice.
+
+The BBC's Global Experience Language is a design framework. It calls it's components [design patterns](http://www.bbc.co.uk/gel/guidelines/category/design-patterns) and in the [foundations](http://www.bbc.co.uk/gel/guidelines/category/foundations) section you'll find discussion of layouts and typography.
+
+> **Exercise:** Look at the [Promos](http://www.bbc.co.uk/gel/guidelines/promos) design pattern. As a group, let's try to name all the parts of a Promo that we'll need to consider when designing the component? Now do the same with the [Carousel](http://www.bbc.co.uk/gel/guidelines/carousel) pattern.
+
+## Open-source HTML/CSS/JS Frameworks
+
+[Bootstrap](https://v4-alpha.getbootstrap.com/) and [Foundation](http://foundation.zurb.com/) are popular examples of open-source HTML/CSS/JS frameworks. They help you construct your own design framework by providing a number of re-usable components that are common for web applications.
+
+Bootstrap is CSS and JavaScript code that we [load in our HTML pages](https://v4-alpha.getbootstrap.com/getting-started/introduction/). Bootstrap's documentation describes how to write HTML code that fits the Bootstrap components, including a [grid layout](https://v4-alpha.getbootstrap.com/layout/grid/) as well as several [components](https://v4-alpha.getbootstrap.com/components/alerts/).
+
+> **Exercise:** Fork [this repository](https://github.com/NateWr/groupstrap) and follow the instructions in the [readme](https://github.com/NateWr/groupstrap) to create a new page and add a card component to it.
+
+> **Exercise:** Perform a group exercise illustrating git branching and pull requests. Then create a branch, commit your new page, and issue a pull request. Once all the pull requests are merged, switch back to the `master` branch and update your copy.
+
+## HTML Forms
+
+Forms provide tools for visitors to your webpage to interact by entering details, making selections or performing other actions. When you write an update on Facebook, you're entering a message into a form field, and "posting" that message to Facebook.
+
+> **Exercise:** Read this guide on [HTML forms](http://marksheet.io/html-forms.html). Then add a form to your new page. The form should include fields for the user to write their name, email address and a message. It should also include a button.
+
+> **Exercise:** Look at the documentation for [Bootstrap's form components](https://v4-alpha.getbootstrap.com/components/forms/). Update your form to use Bootstrap's form groups, form controls and buttons. When you're done, create a new branch, commit, and issue a pull request.
+
+## Naming Patterns (OOCSS/BEM)
+>>>>>>> origin/scotland
 
 We use naming patterns to organise our code so that it is easier for colleagues to work with our code -- and easier for us to work with our colleagues' code. In a team of developers, you will need to understand, read and make use of a naming pattern.
 
@@ -67,6 +110,11 @@ Bootstrap uses a naming pattern called **Object-Oriented CSS** (OOCSS). The goal
 
 > **Exercise:** As a group, let's explore the naming patterns in Bootstrap's [Card component](https://v4-alpha.getbootstrap.com/components/card/#example). How is the object-oriented naming pattern used here?
 
+<<<<<<< HEAD
+=======
+> **Exercise:** Read the documentation on Bootstrap's [Card styles](https://v4-alpha.getbootstrap.com/components/card/#card-styles). Apply style adjustments to the cards in your project example.
+
+>>>>>>> origin/scotland
 One of the goals in a naming pattern is to communicate purpose. Let's look at the following example of Bootstrap's Card component:
 
 ```
@@ -105,6 +153,7 @@ If we changed our Card example to use BEM syntax, it would look like this:
 
 > "There are only two hard things in Computer Science: cache invalidation and naming things" - Phil Karlton
 
+<<<<<<< HEAD
 
 ## CSS processors
 
@@ -296,12 +345,32 @@ Outputs
 
 - [Getting started with SASS >](https://scotch.io/tutorials/getting-started-with-sass)
 - [SASS basics >](http://sass-lang.com/guide)
+=======
+## Homework
+
+- Look at as much of the [Bootstrap 4 Documentation](https://v4-alpha.getbootstrap.com/) as you can.
+- Add Bootstrap to the website you've been building for your homework.
+- Add a new HTML page to the website you've been building for your homework. Use Bootstrap's form components to a contact form to this page.
+- Modify the articles in the website you've been building for your homework. Modify their markup to use the BEM naming pattern so that they all look the same.
+
+## Resources
+
+- [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
+- [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
+- [Bootstrap 4 Documentation](https://v4-alpha.getbootstrap.com/)
+>>>>>>> origin/scotland
 
 ## Prepare for next class
 
 Next week, we will begin learning and programming JavaScript. To prepare for the next lesson:
 
+<<<<<<< HEAD
 Watch these videos:
 
 1. ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU)
 2. ['Do You Know the History of JavaScript?'](https://www.youtube.com/watch?v=EUAmiIsp2YU)
+=======
+Watch this 2 minutes video:
+
+1. ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU)
+>>>>>>> origin/scotland

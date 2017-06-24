@@ -13,6 +13,17 @@
 
 This class is based on the [Node Girls JS Workshop](https://github.com/node-girls/beginners-javascript)
 
+<<<<<<< HEAD
+=======
+- Hello World
+- Data  Types
+- Variables
+- Conditionals: If/else
+- Loops
+
+This class is based on the [Node Girls JS Workshop](https://github.com/node-girls/beginners-javascript)
+
+>>>>>>> origin/scotland
 
 ---
 
@@ -25,7 +36,11 @@ To test that it was installed and running properly, go to your terminal and run 
 You should get the node version printed on your terminal, for example, `v7.3.0`
 
 
+<<<<<<< HEAD
 2. Fork the repository - https://github.com/Code-Your-Future/JS-Core-1-Exercises and **Clone** it locally.
+=======
+2. Fork the repositroy - https://github.com/Code-Your-Future/JS-Core-1-Exercises and **Clone** it locally.
+>>>>>>> origin/scotland
 
 3. Once you have the repo locally, go to the folder on your terminal and run `node main.js`
 
@@ -344,7 +359,11 @@ Run this code, and hopefully you get the right answer!
 # Resources
 
 1. [Data Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Data_structures_and_types)
+<<<<<<< HEAD
 2. [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)
+=======
+2. [Comparison Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators?v=test)
+>>>>>>> origin/scotland
 3. [Arithmetic Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#.25_.28Modulus.29)
 
 # Homework
@@ -353,4 +372,7 @@ Run this code, and hopefully you get the right answer!
 
 2. Follow [this course](https://www.khanacademy.org/computing/computer-programming/programming) on Khan Academy. It will go through some of the basics that we covered in the class and beyond.
 
+<<<<<<< HEAD
 3. Complete the [Codecademy Learn JavaScript Path](https://www.codecademy.com/learn/learn-javascript)
+=======
+>>>>>>> origin/scotland

@@ -2,13 +2,23 @@
 
 # Lesson 0
 **What we will learn today?**
+- [CodeYourFuture](#codeyourfuture)
 - [Welcome task](#welcome)
 - [Terminal](#terminal-basics)
 - [Git](#git)
 - [IDEs](#ide)
-- [CodeYourFuture](#codeyourfuture)
 - [Homework](#homework)
 ---
+
+## CodeYourFuture
+
+- Who we are?
+- What we learn?
+  - Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
+- [House Rules](house-rules.md)
+  - How we work?
+  - How we treat each other?
+- Standup
 
 ## Welcome!
 
@@ -35,7 +45,7 @@ them in more detail.
 1. Export your website as a zip from CodePen. [Help >](https://blog.codepen.io/documentation/features/exporting-pens/)
 2. Extract the contents of the zip file to a folder in your computer. Keep note of the
 location of this folder.
-4. Read about the [terminal](#terminal).
+4. Read about the [terminal](#terminal-basics).
 5. Read about [git](#git).
 6. Install [Git](https://git-scm.com/download/).
 7. Put the contents of the zip folder in a Gitub repository. [How does Github work? (30min) >](https://www.youtube.com/watch?v=E8TXME3bzNs)
@@ -135,6 +145,7 @@ Follow this tutorial from Github to setup Git https://help.github.com/articles/s
 
 Then [learn how to use git from the Terminal >](https://www.codecademy.com/learn/learn-git)
 
+Try completing [this tutorial >](https://try.github.io/) as well to learn more intermediate features, like branching.
 
 ### A typical workflow
 
@@ -144,7 +155,7 @@ Then [learn how to use git from the Terminal >](https://www.codecademy.com/learn
 
 ### Using Git through the Terminal
   - `git init` ***if it is a new project***, i.e. a project not **cloned** from a repo (or a fork of a repo)
-  - `git add .` to to add local files to the **index**
+  - `git add .` to add local files to the **index**
   - `git commit -m "Good explanation of your file changes"` to commit files to the local repo
   - `git remote add origin GitRepoRemoteUrl` ***if it is a new project*** (to setup the remote url)
   - `git remote -v` to verify that the remote url is set correctly
@@ -155,7 +166,9 @@ You will also typically need to set up your email and name once when you install
 ### Using Git through a graphical interface
 
 If you don't feel comfortable with the terminal just yet, download the
-[Github client](https://desktop.github.com/).
+[Github client](https://desktop.github.com/). If possible, however, **we recommend becoming 
+comfortable with the Terminal commands and understanding the steps for the different 
+workflows before moving on to visual Git clients.**
 
 [Github client guides >](https://help.github.com/desktop/guides/contributing/)
 
@@ -252,14 +265,6 @@ websites and see the differences between them and VS Code.
 
 - [Atom](https://atom.io/)
 - [Webstorm](https://www.jetbrains.com/webstorm/)
-
-## CodeYourFuture
-
-- What we learn?
-- How we work?
-- How we treat each other?
-- Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
-
 
 ## Homework
 

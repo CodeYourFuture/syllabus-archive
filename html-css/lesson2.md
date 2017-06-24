@@ -7,37 +7,7 @@
 - Content layout: relative and absolute positioning (maybe)
 ---
 
-## Responsive Web Design
-When we build for the web, we're making websites that can be viewed in a phone, a laptop, a tablet and more. To ensure we're presenting a website that's easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.
 
-> **Exercise:** As a group, let's brainstorm as many devices as we can think of which might access the websites we build.
-
-See how much variety there is in [viewport sizes](https://decadecity.net/blog/2014/08/19/a-device-agnostic-approach-to-inlining-css).
-
-## Media Queries
-As you learned in your homework assignment, media queries help us change the display of our content depending on the size of the viewport. Let's review what you learned and break down a media query:
-
-```css
-@media screen and (min-width: 900px) {
-	body {
-		background: red;
-	}
-}
-```
-
-In this media query, we're assigning a red background color to the `<body>` element whenever the viewport is larger than `900px`, and we're viewing on a screen.
-
-- `@media` starts the media query
-- `screen` tells it to apply these styles to screen displays. Other displays might be `print`, for when a webpage is being printed.
-- `(min-width: 900px)` tells it to apply these styles when the viewport is larger than `900px`
-
-Finally, we wrap all of our styles for this media query in brackets (`{` and `}`), just like a CSS rule.
-
-> **Exercise:** (Pair programming) Reduce the size of the "Bikes for Refugees" text so that it fits on a small screen (`320px`). But make sure it increases in size on larger screens.
-
-> **Exercise:** The two buttons in the jumbotron don't fit on the same line on small screens around `320px` wide. Can you adjust their size so that they fit on the same line?
-
-> **Exercise:** (Pair programming) On a small screen (`320px`) replace the menu with a hoverable dropdown menu. Follow [this guide](https://schier.co/blog/2014/10/23/creating-a-pure-css-dropdown-using-the-hover-selector.html).
 
 ## Content Layout: Flexbox
 
@@ -66,7 +36,7 @@ Often you will need to place a "gutter" between objects that sit side-by-side. A
 <<<<<<< HEAD
 Read this short article on the [align-items](https://css-tricks.com/almanac/properties/a/align-items/) property. Try out some of the different properties on your "Learn More" boxes to see how they effect the size of the boxes.
 
-> **Exercise:** The sidebar in your `bikes for refugees` site is [broken](assets/broken-sidebar.png). Fix it to match this using Flexbox: 
+> **Exercise:** The sidebar in your `bikes for refugees` site is [broken](assets/broken-sidebar.png). Fix it to match this using Flexbox:
 ![](assets/fixed-sidebar.png)
 
 ## Homework

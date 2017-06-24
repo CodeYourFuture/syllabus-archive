@@ -1,5 +1,4 @@
 # Introduction
-*[London Branch]*
 This is the course material for [Code Your Future](http://codeyourfuture.co/), a
 not-for-profit volunteer-run coding school for refugees and asylum seekers.
 

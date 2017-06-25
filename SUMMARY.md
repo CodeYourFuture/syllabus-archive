@@ -5,7 +5,7 @@
   * [Git](git.md)
   * [IDEs](ides.md)
 * [Coding 101](/coding-101.md)
-* HTML/CSS
+* [HTML/CSS](/html-css/index.md)
   * [Semantic HTML tags](/html-css/semantic-tags.md)
   * [CSS selectors](/html-css/css-selectors.md)
   * [CSS cascade](html-css/cascade.md)

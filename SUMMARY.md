@@ -2,6 +2,8 @@
 
 * [Introduction](README.md)
 * [Week 0](lesson0.md)
+  * [Git](git.md)
+  * [IDEs](ides.md)
 * [Coding 101](/coding-101.md)
 * HTML/CSS
   * [Semantic HTML tags](/html-css/semantic-tags.md)

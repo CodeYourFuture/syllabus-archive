@@ -31,9 +31,12 @@
   * [Arrow functions](/js-core/arrow-functions.md)
   * [Context](/js-core/context.md)
 * JavaScript Core II
-  * [Week 1](/js-core-2/lesson4.md)
-  * [Week 2](/js-core-2/lesson5.md)
-  * [Week 3](/js-core-2/lesson6.md)
+  * [Debugging](/js-core-2/debugging.md)
+  * [Callbacks](/js-core-2/callbacks.md)
+  * [Testing](/js-core-2/testing.md)
+  * [Modules](/js-core-2/modules.md)
+  * [The DOM](/js-core-2/dom.md)
+  * [AJAX](/js-core-2/ajax.md)
 * Node and DB
     * [Week 1](/node-db/lesson1.md)
     * [Week 2](/node-db/lesson2.md)

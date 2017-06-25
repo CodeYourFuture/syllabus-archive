@@ -18,7 +18,7 @@
   * [Naming patterns](/html-css/naming-patterns.md)
   * [Forms](/html-css/forms.md)
   * [CSS processors](/html-css/css-processors.md)
-* JavaScript Core 1
+* [JavaScript Core 1](/js-core/index.md)
   * [Getting started](/js-core/getting-started.md)
   * [Comments](/js-core/comments.md)
   * [Data types](/js-core/data-types.md)

@@ -1,34 +1,53 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
-# JavaScript Core 4
-** What we will learn today?**
+
+# JavaScript Core 5
+**What will we learn today?**
+- Functions and  Good Design
 - Callbacks
-- Value Vs reference types
-- Scoping
-- this
+- Objects
 ---
 
-## Topic 1
-High level explanation of Topic 1 - rely on the exercises
-> **Exercise**: Always have exercises
+# Functions 
+## Why Functions?
 
-## Topic 2
+> Exercise: A function with lots console.logs, redundant repeated code, then one or two versions of the same. Talk about Design choices ... They give same result but the choice matters
 
-## Topic 3
+## Good Design
+- Ease of Maintenance / Clarity
+    - Naming
+    - Formatting
+    - Commenting
+    - Clear logic
+    - Concise
+    - Redundancy
+- Reusability
+    - DRY
+    - Single Reponsibility
+        - Avoiding global state (scope)
+        - Predictability and Ease of testing
+- Extensibility
 
+> Exercise
+Find all the bad design issues with this function
 
-# Resources
-1. [Resource 1 to learn more about Topic 1](https://google.com)
-2. [Resource 2 for Topic 2](https://google.com)
+> Exercise
+We have some problem to solve, write really bad code that gives the right result. Tell us why it is bad.
+
 
 # Homework
 
-1. First part of Homework - Easy
+- Read Chapter 5 of Code Complete 2 (Design In Construction)
+- Read Chapter 7 (High Quality Routines)
 
-2. Second part of Homework - Intermediate/Hard
+Tbc
 
-3. **[Bonus/Optional]** Third part/optional - Hardest
+1. Work through this quiz: [Scope quiz](http://madebyknight.com/javascript-scope/)
 
-4. **Research:**
+4. Next week we'll be moving on to more advanced JavaScript. The key to becoming a good developer is constant practice. Practice your JavaScript basics by signing up for [Codewars](https://www.codewars.com/) and try to do a couple of exercises every day.
 
-## Prepare for the next class
-1. Read this [Some Tutorial or Video etc...](https://google.com)
+# Resources
+1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
+2. [You Don't Know Javascript - this or That?](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch1.md)
+3. [You Don't Know JavaScript - this all makes sense now!](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md)
+
+

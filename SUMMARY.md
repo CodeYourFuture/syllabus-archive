@@ -60,6 +60,7 @@
   * [Component Life cycle](/react/lifecycle.md)
   * [Routing](/react/routing.md)
 * [House Rules](house-rules.md)
+  * [Code of Conduct](code-of-conduct.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Contributing](CONTRIBUTING.md)
 * [Mentor's Guide](mentors-guide.md)

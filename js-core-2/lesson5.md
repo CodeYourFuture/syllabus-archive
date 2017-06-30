@@ -129,7 +129,13 @@ function Person(name) {
 ```
 This is the *template* that defines what a Person should look like. Now let's create a specific object, an instance of Person.
 
-You'll see the this keyword is being used here as well. What exactly is it doing? When the constructor function is called, this is a reference to the object it creates (its instance). In our example we add a property (name) and a method (greeting) to this so whenever Person is instantiated it returns an object with a name property and a greeting method.
+```javascript
+var sally = new Person('Sally');
+console.log(sally); // { name: 'Sally': greeting: <Function> }
+console.log(sally instanceof Person); // true
+```
+
+You'll see the **this** keyword is being used. What exactly is it doing? When the constructor function is called, this is a reference to the object it creates (its instance). In our example we add a property (name) and a method (greeting) to this so whenever Person is instantiated it returns an object with a name property and a greeting method.
 
 You'll also notice that the constructor function take a parameter, name (which is getting passed to Person when it is instantiated in the example above). When Person is instantiated the name parameter is assigned to the name property of the instance (this.name = name) as well as being used to configure the greeting method.
 

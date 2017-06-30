@@ -77,11 +77,11 @@ From a class we can create (or instantiate) an object. This process is called in
 
 ## Object literals
 
-There are several ways to create objects - we've already used one before: it is called an `object literal`.
+There are several ways to create objects - we've already used one before: _object literals_.
 
 `var person = {}`
 
-In the example above creates an empty object is created. Let's create a more sophisticated object.
+In the example above an empty object is created. Let's create a more sophisticated object.
 
 ```javascript
 var person = {

@@ -1,3 +1,5 @@
+<img src="https://codeyourfuture.co/static/media/cyf_brand.fbcea877.png" alt="Logo" style="width: 200px;"/>
+
 # Introduction
 This is the course material for [Code Your Future](http://codeyourfuture.co/), a
 not-for-profit volunteer-run coding school for refugees and asylum seekers.

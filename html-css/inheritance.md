@@ -1,4 +1,4 @@
-## CSS Inheritance
+# CSS Inheritance
 
 Some CSS styles applied to one element will be "inherited" by their child elements. These are usually styles which apply to the content of the elements, such as font family and color. Other properties, like margins, paddings and borders, don't get passed down to children.
 

@@ -1,4 +1,4 @@
-## Pseudo Classes
+# Pseudo Classes
 
 You can assign CSS rules to a class like this:
 

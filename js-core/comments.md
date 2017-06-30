@@ -1,4 +1,4 @@
-## Comments
+# Comments
 
 You can put comments to help you and others understand your code - use `//` to add a comment (or if it is a multi-line comment, then use `/*` and `*/` around your comment)
 ```js

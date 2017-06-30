@@ -1,4 +1,4 @@
-## Box Model
+# Box Model
 
 In CSS, everything is a box. An image is a box. A link is a box. The area around this box can be modified with properites that we call margins, borders and padding. Here's a diagram showing what the box looks like.
 

@@ -1,4 +1,4 @@
-## AJAX
+# AJAX
 
 ### What's a server?
 

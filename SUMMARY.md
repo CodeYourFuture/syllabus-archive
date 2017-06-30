@@ -1,10 +1,11 @@
 # Summary
 
 * [Introduction](README.md)
-* [Week 0](lesson0.md)
-  * [Git](git.md)
-  * [IDEs](ides.md)
-* [Coding 101](/coding-101.md)
+* [Week 0](/week0/lesson0.md)
+  * [Git](/week0/git.md)
+  * [IDEs](/week0/ides.md)
+  * [Terminal](/week0/terminal.md)
+  * [Coding 101](/week0/coding-101.md)
 * [HTML/CSS](/html-css/index.md)
   * [Semantic HTML tags](/html-css/semantic-tags.md)
   * [CSS selectors](/html-css/css-selectors.md)
@@ -45,7 +46,9 @@
   * [JSON](/js-core-3/json.md)
   * [APIs](/js-core-3/apis.md)
   * [Promises](/js-core-3/promises.md)
-* Node and DB
+* NodeJS
+  * TO BE ADDED
+* Databases
   * TO BE ADDED
 * [React](/react/index.md)
   * [Libraries](/react/libraries.md)

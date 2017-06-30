@@ -1,4 +1,4 @@
-## Media Queries
+# Media Queries
 As you learned in your homework assignment, media queries help us change the display of our content depending on the size of the viewport. Let's review what you learned and break down a media query:
 
 ```css

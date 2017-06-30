@@ -1,4 +1,4 @@
-## The Cascade
+# The Cascade
 
 CSS stands for Cascading Style Sheets. The "cascade" is a set of rules which the browser uses to choose what to do when two CSS rules conflict. Take the following example:
 

@@ -4,10 +4,6 @@
 **What we will learn today?**
 - [CodeYourFuture](#codeyourfuture)
 - [Welcome task](#welcome)
-- [Terminal](#terminal-basics)
-- [Git](#git)
-- [IDEs](#ide)
-- [Homework](#homework)
 ---
 
 ## CodeYourFuture
@@ -15,7 +11,7 @@
 - Who we are?
 - What we learn?
   - Read this Technology Survey from [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay particular attention to the technologies we'll be teaching you (JavaScript, React, NodeJS)
-- [House Rules](house-rules.md)
+- [House Rules](/house-rules.md)
   - How we work?
   - How we treat each other?
 - Standup
@@ -76,52 +72,6 @@ find the settings icon in the top right corner.
 11. Wait a few minutes, then refresh the page and come back to the Github Pages section.
 You should see a green bar saying "Your site is published at `http://github.com/your-username/your-repository-name`".
 Click the link, verify that your website is there, then share it with your CYF class!
-
-## Terminal basics
-
-During your course journey and onwards, the **terminal** (also known as **command line**)
-will be one of your most valuable tools. It will help you to interact with you computer
-faster, by helping you to:
-
-- Create and delete files.
-- Install web development tools.
-- Start a server.
-- Use source control (explained [later in this lesson](#Git)).
-
-All this will make sense as we progress with the lessons. For now, we would like you
-to get familiar with it by following this tutorial:
-
-- [Learn the command line >](https://www.codecademy.com/learn/learn-the-command-line)
-
-### How do I use it on my computer?
-
-So now that you know what the terminal can do for you, how do you use it? Please find
-instructions for your operating system below. After you have followed the instructions,
-open a terminal and write `ls`, then press the `Enter` key. You will see something
-like this:
-
-<div style="text-align: center;">
-  <img
-    src="assets/lesson-0/terminal.png"
-    width="300"
-    alt="Terminal"
-  />
-</div>
-
-#### Linux
-
-The Terminal is already installed. It should be in the list of applications available in
-your computer. [More instructions >](http://www.wikihow.com/Open-a-Terminal-Window-in-Ubuntu)
-
-#### macOS (Apple)
-
-The Terminal is already installed. It should be in the list of applications available in
-your computer. [More instructions >](http://www.wikihow.com/Get-to-the-Command-Line-on-a-Mac)
-
-#### Windows
-
-Install [Git](https://git-scm.com/download/). It will bring with it a tool called "Git Bash".
-When the mentors ask you to open a terminal or command line, please open "Git Bash".
 
 
 ## Homework

@@ -1,4 +1,4 @@
-## Building SCSS with VS Code
+# Building SCSS with VS Code
 
 - Create a file with a `.scss` extension. For example, `skin.scss`.
 - Open the VS Code Extension manager, on the left.

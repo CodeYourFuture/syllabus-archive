@@ -1,4 +1,4 @@
-## HTML Forms
+# HTML Forms
 
 Forms provide tools for visitors to your webpage to interact by entering details, making selections or performing other actions. When you write an update on Facebook, you're entering a message into a form field, and "posting" that message to Facebook.
 ![](http://files.www.gethifi.com/posts/html-forms/campaignmonitor.jpg)

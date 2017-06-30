@@ -1,4 +1,4 @@
-## Naming Patterns
+# Naming Patterns
 
 We use naming patterns to organise our code so that it is easier for colleagues to work with our code -- and easier for us to work with our colleagues' code. In a team of developers, you will need to understand, read and make use of a naming pattern.
 

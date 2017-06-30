@@ -32,7 +32,7 @@
   * [Closures](/js-core/closures.md)
   * [Arrow functions](/js-core/arrow-functions.md)
   * [Context](/js-core/context.md)
-* JavaScript Core II
+* [JavaScript Core II](/js-core-2/index.md)
   * [Debugging](/js-core-2/debugging.md)
   * [Callbacks](/js-core-2/callbacks.md)
   * [Testing](/js-core-2/testing.md)

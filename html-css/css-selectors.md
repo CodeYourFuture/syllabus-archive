@@ -4,10 +4,10 @@ During your application process, you became familiar with CSS selectors. We'll r
 
 If you want to review the selectors, read the [Common Selectors section](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) of this page.
 
-**Exercise (pair programming):** Continue working in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [assets/jumbotron-background.jpg](background image) to the jumbotron and change the colour of the text to white.
+> **Exercise (pair programming):** Continue working in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [assets/jumbotron-background.jpg](background image) to the jumbotron and change the colour of the text to white.
 Change the colour of the buttons and add a hover state.
 
-**Exercise (stretch goal):** research css transitions and make the background colour fade in.
+> **Exercise (stretch goal):** research css transitions and make the background colour fade in.
 
 # Resources
 1. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)

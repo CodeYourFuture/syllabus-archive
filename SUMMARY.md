@@ -46,11 +46,16 @@
   * [APIs](/js-core-3/apis.md)
   * [Promises](/js-core-3/promises.md)
 * Node and DB
-* React
-  * [Week 1](/react/lesson1.md)
-  * [Week 2](/react/lesson2.md)
-  * [Week 3](/react/lesson3.md)
-  * [Week 4](/react/lesson4.md)
+  * TO BE ADDED
+* [React](/react/index.md)
+  * [Libraries](/react/libraries.md)
+  * [Node & NPM](/react/node-npm.md)
+  * [React intro](/react/react-intro.md)
+  * [ES6](/react/es6.md)
+  * [Props](/react/props.md)
+  * [State](/react/state.md)
+  * [Component Life cycle](/react/lifecycle.md)
+  * [Routing](/react/routing.md)
 * [House Rules](house-rules.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Contributing](CONTRIBUTING.md)

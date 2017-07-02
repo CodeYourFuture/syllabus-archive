@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-<<<<<<< HEAD
 * [Week 0](/week0/lesson0.md)
   * [Git](/week0/git.md)
   * [IDEs](/week0/ides.md)
@@ -42,6 +41,7 @@
   * [Good Design](/js-core-2/good-design.md)
   * [Object Oriented Programming](/js-core-2/object-oriented-programming.md)
   * [The DOM](/js-core-2/dom.md)
+  * [Events](/js-core-2/events.md)
   * [AJAX](/js-core-2/ajax.md)
 * [JavaScript Core III](/js-core-3/index.md)
   * [JSON](/js-core-3/json.md)
@@ -62,33 +62,6 @@
   * [Routing](/react/routing.md)
 * [House Rules](house-rules.md)
   * [Code of Conduct](code-of-conduct.md)
-=======
-* [Week 0](lesson0.md)
-* HTML/CSS
-  * [Week 1](/html-css/lesson1.md)
-  * [Week 2](/html-css/lesson2.md)
-  * [Week 3](/html-css/lesson3.md)
-  * [Coding 101](/html-css/coding-101.md)
-* JavaScript Core
-  * [Week 1](/js-core/lesson1.md)
-  * [Week 2](/js-core/lesson2.md)
-  * [Week 3](/js-core/lesson3.md)
-* JavaScript Core II
-  * [Week 4](/js-core-2/lesson4.md)
-  * [Week 5](/js-core-2/lesson5.md)
-  * [Week 6](/js-core-2/lesson6.md)
-* Node and DB
-    * [Week 1](/node-db/lesson1.md)
-    * [Week 2](/node-db/lesson2.md)
-    * [Week 3](/node-db/lesson3.md)
-    * [Week 4](/node-db/lesson4.md)
-    * [Week 5](/node-db/lesson5.md)
-* React
-  * [Week 1](/react/lesson1.md)
-  * [Week 2](/react/lesson2.md)
-  * [Week 3](/react/lesson3.md)
-  * [Week 4](/react/lesson4.md)
->>>>>>> origin/london
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Contributing](CONTRIBUTING.md)
 * [Mentor's Guide](mentors-guide.md)

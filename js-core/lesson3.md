@@ -88,12 +88,6 @@ If a variable is declared outside of a function, in the 'window', it has *'globa
   console.log(test);     // output: I'm global
   ```
 
-
-> **Exercise**:
-> Work through this quiz: [Scope quiz](http://madebyknight.com/javascript-scope/)
-> Don't worry if you don't get them all right just yet! Take your time to read the explanations.
-
-
 # Closure
 A closure is an inner function that retains access to its parent function's scope.
 
@@ -186,7 +180,7 @@ However, there are some important differences between arrow functions and ES5 fu
 
   ```js
   const ourClass = {
-    members: ['Raymond', 'Adis', 'Flavia', 'Nabil', 'Kia'],
+    members: ['Raymond', 'Adis', 'Flavia', 'Nabil', 'Kiya'],
     className: 'London Class 2',
     classSummary: function() {
       return this.members.map(function(member) {
@@ -416,12 +410,18 @@ Another way to invoke functions is using `apply` or `call` methods. They both ac
 3. [MDN - Closures](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)
 4. [Understanding scope and context](http://ryanmorr.com/understanding-scope-and-context-in-javascript/)
 5. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
+6. [You Don't Know Javascript - this or That?](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch1.md)
+7. [You Don't Know JavaScript - this all makes sense now!](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md)
 
 # Homework
 
 1. Watch all of the videos in Wes Bos's ES6 course.
 
 2. If you finish that you can move on to [JavaScript30](https://javascript30.com/), another course by WesBos. In this course you'll build something in JavaScript every day, which means lots of cool projects! 
+
+3. Work through this quiz: [Scope quiz](http://madebyknight.com/javascript-scope/)
+
+4. Next week we'll be moving on to more advanced JavaScript. The key to becoming a good developer is constant practice. Practice your JavaScript basics by signing up for [Codewars](https://www.codewars.com/) and try to do a couple of exercises every day.
 
 ## Prepare for the next class
 1. Read this [on Test Driven Development](https://www.tutorialspoint.com/software_testing_dictionary/test_driven_development.htm)

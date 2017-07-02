@@ -1,14 +1,6 @@
-## JS in the Browser
-
-Up until now we've been using `console.log` to see the results of our code running, because it allows us to focus on writing code and seeing the results instantly. But JavaScript was not meant to be run in `console.log`: it was meant to make web pages pages dynamic.
-
-Lots of websites are powered by JavaScript today, and some (like Facebook) cannot function at all without it: it's become that important to the look and feel of the website.
-
 ## The DOM
 
-Your webpages are made up of a bunch of HTML elements, nested within each other (parents and children). But JavaScript doesn't know about any of that.
-
-Thankfully, in JavaScript we have access to this "DOM" object (Document Object Model) which is actually a representation of our webpage that JavaScript can work with.
+Your webpages are made up of a bunch of HTML elements, nested within each other (parents and children). In JavaScript we have access to this "DOM" object (Document Object Model) which is actually a representation of our webpage that JavaScript can work with.
 
 Here are two examples, HTML and then JavaScript, of how the DOM might look like:
 
@@ -30,94 +22,157 @@ var document = {
 };
 ```
 
+In the browser the DOM is represented by the `window.document` object, which can also be accessed directly using `document`. We can use it to get information about the page loaded into the browser, query the content of the page and edit it. You can see full details of the functionality at https://developer.mozilla.org/en-US/docs/Web/API/Document .
+
+### Querying
+
 The DOM offers a lot of useful functions we can use to find elements on the page. Here are some we'll be using today:
 
-```javascript
+```js
+element = document.getElementById(id);
+```
+`getElementById` accepts an id string as argument and returns an `Element` from the document with a matching id. If no matching `Element` is found the function returns `null`.
+
+```js
+elements = document.getElementsByClassName(names); // or:
+elements = rootElement.getElementsByClassName(names);
+```
+
+`getElementsByClassName` takes a string containing one or more classes and returns an `HTMLCollection`, which is an array-like object containing all elements whose class attributes match the string. We can pass multiple classes as an argument to query for elements matching all classes.
+
+```js
+getElementsByClassName('green bike')
+```
+
+Above call will return elements that have both the `green` and `bike` classes.
+
+`getElementsByClassName` can be called on individual `elements` as well as the top-level `document` object. When calling `getElementsByClassName` on an `element`, the method will query only the children of the `element` rather than the entire `document`
+
+```js
+elements = document.getElementsByTagName(name); // or:
+elements = rootElement.getElementsByTagName(name);
+```
+
+Much like `getElementsByClassName`, `getElementsByTagName` allows us to query for elements using the tag name. `getElementsByTagName` also returns `HTMLCollection` and can be called on `element`s as well as `document`.
+
+All of the above calls return a live reference, which means that the objects will be automatically updated with all changes since the query.
+
+> **Exercise**:
+> - Clone the repo from HTML and CSS class into new `bikes` directory.  `git clone git@github.com:CodeYourFuture/bikes-for-refugees.git bikes`
+> - Create an `index.js` file in `src` folder inside the `bikes` repo.
+> - Put the following code in the `index.js` file: `alert('hello');` to check the file is being loaded
+> - Import the `index.js` file into `index.html` by placing `<script src="src/index.js"></script>` just before the closing `body` html tag.
+> - Open `index.html` in your browser.
+> - In `index.js`:
+> - Using `getElementById`, `getElementsByClassName` or `getElementsByTagName` ...
+> - ... get the element with id `donation-count-alert` and `console.log` it. Look up documentation for `Element` or use a debugger find and `console.log` the contents of the element.
+> - ... get all elements with the class `btn`, loop over them and `console.log` them individually. You may need to look up documentation for `HTMLCollection`.
+> - ... get all links inside the element with id `navbarSupportedContent`, loop over the collection and `console.log` the text inside each link
+
+### Query selector
+
+The above selector functions are available in all browsers, but can be somewhat inflexible for example in situations that require complex lookups. Modern browsers have
+
+```js
     document.querySelector('#mainHeader');
     document.querySelectorAll('p');
 ```
+
 Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
-`.querySelector` selects only the first element it finds, `querySelectorAll` selects all elements (it returns an array).
+`.querySelector` selects only the first element it finds, `querySelectorAll` selects all elements and returns a `NodeList`, which is a collection of `Nodes` (not an array). Unlike the selectors in the previous section, these functions return static results. That means any changes in the DOM will NOT result in updates to the elements.
 
-Once you retrieve an element using `.querySelector`, you can attach an **event** to it. An event is any action that can be performed on that element. For now, we will just use the **click** event:
-
-```javascript
-    var myButton = document.querySelector('#myButton');
-    myButton.addEventListener("click", alertSomething);
-
-    function alertSomething() {
-        alert("Something");
-    }
-```
-
-You will notice in the example example that we passed a second argument to `addEventListener`. That second argument is the **function** that we want to invoke when that event has happened.
 
 > **Exercise**:
-> - Fork the repo [here](https://github.com/CodeYourFuture/dom-ajax) and clone it locally.
-> - Open `index.html` in your browser.
-> - In `./js/main.js` write code so that when a user presses the **Donate a bike today** button, an **alert** pops up, thanking them for their donation.
+> - Comment out the code from previous exercise and rewrite solutions using `querySelector` and `querySelectorAll`. You may need to look up documentation for `NodeList`.
 
-The elements returned by `document.querySelector` have the same properties as a normal HTML element: for example, you can get access to their css **styles**.
 
-```javascript
-    var myElement = document.querySelector('#myElement');
-    myElement.style.backgroundColor = 'red';
+### DOM manipulation
+
+We can use the DOM to edit elements. For example the `textContent` property of elements can used to read as well as set the text contents of an element.
+
+```js
+var x = document.querySelector('.jumbotron h1');
+console.log(x.textContent) // Bikes for Refugees
+x.textContent = "Something else";
+```
+
+Similarly, `innerHTML` property of elements can be used to get the HTML content of an element as well as
+
+```js
+var x = document.querySelector('.jumbotron h1');
+x.innerHTML = `<strong>${x.textContent}</strong>`;
+```
+
+We can also access the `style` property of elements and update various properties
+```js
+var elements = document.querySelectorAll('.btn-primary');
+
+elements.forEach( element => element.style.backgroundColor = 'red' );
+```
+Please note the use of camelCase style attribute names
+
+We can also check it exists, read, change and remove attributes of elements using `hasAttribute`, `getAttribute()`, `removeAttribute` and `setAttribute`
+
+```js
+var elements = document.querySelectorAll('a');
+
+elements.forEach( element => {
+  if( element.hasAttribute('href') ){
+    var href = element.getAttribute('href');
+    console.log(href);
+    element.setAttribute('href', 'https://google.com');
+  }
+});
+```
+What will above code do?
+
+> **Exercise**:
+> - Use above functions to
+> - ... place ` - ` around the text in the navbar links
+> - ... convert links in 'Upcoming Events' section to italic using `<i>` tag
+> - ... make 'Learn more` links green
+
+### Creating and inserting elements
+
+We can use `document.createElement(tagName)` method to create a new element and `document.createTextNode(text)` to create new text contents. The elements created can be manipulated just like the elements above, but the changes will not visible until we insert the new element into the DOM.
+
+We can insert elements into other elements using `element.appendChild` or `element.insertBefore`. For example.
+
+```html
+    <div id="parent">
+        <p>some content</p>
+    </div>
+```
+
+```js
+    var spanNode = document.createElement('span');
+    var textNode = document.createTextNode('hello');
+    spanNode.appendChild(textNode);
+
+    var parentNode = document.getElementById('parent');
+    parentNode.appendChild(spanNode);
+```
+
+What do you think above code will do?
+
+`insertBefore` is a bit more complicated.
+
+```js
+    var insertedNode = parentNode.insertBefore(newNode, referenceNode);
+```
+
+Here `insertedNode` is the the node being inserted, that is `newNode`. `parentNode` is the the parent of the newly inserted node. `newNode` is the node to be inserted and `referenceNode` is the node before which newNode is inserted.
+
+There is no `insertAfter` method. It can be emulated by combining the `insertBefore` method with `nextSibling` property. In the line below we use this approach to insert `nodeOne` after `nodeTwo` inside `parentNode`
+
+```js
+    parentNode.insertBefore(nodeOne, nodeTwo.nextSibling);
 ```
 
 > **Exercise**:
-> Change your code, so that instead of **alerting** something when you press the button, it changes the background color of the Jumbotron to `red`.
-
-Using the `document`, you can also create new elements. These elements will not appear until you append them as a child of another element though:
-
-```javascript
-    var paragraph = document.createElement('p'); // here we're just creating it, element is not visible yet
-    myElement.appendChild(paragraph); // now the element is added to our view, but it's empty
-```
-
-`document.createElement` accepts as an input any element type. So for example `document.createElement('article')` will create a new article element.
-
-You can then change the text displayed inside elements using the `innerText` property:
-
-```javascript
-    paragraph.innerText = "How are you?"; // now we can see the text displaying on the screen
-```
-> **Exercise**:
-> When **Add to learn more** button is clicked it should:
-> - create a new paragraph element
-> - set its inner text property to some message you want
-> - add the paragraph to the `#mainArticles` element just below **Learn more**
-
-We've been using `document.querySelector` to retrieve a single element.
-To retrieve an array of multiple elements (that match a specific class name for example, or a specific tag) we use `document.querySelectorAll`.
-
-```javascript
-    //change the background of all the paragraph items on our page
-    var paragraphs = document.querySelectorAll('p');
-    for(var i=0; i<paragraphs.length; i++) {
-        paragraphs[i].style.backgroundColor = "blue";
-    }
-```
-
-We've learned that `style` and `innerText` are properties of DOM elements. Image tags can also have `width` and `height`.
-
-> **Exercise**:
-> Every time the **All images** button is clicked it should reduce and width and height of all images on the webpage by `10`.
-
-While it's really easy to change styles directly on elements using the `style` property, it is not usually a good idea to mix JavaScript and CSS (see separation of concerns in the first lesson). To solve this, we can use the `className` property to set the class for an element instead of changing its styles directly:
-
-```javascript
-//before: <div id="myContainer"></div>
-var container = document.querySelector('#myContainer');
-container.className = "largeBlock";
-//after: <div id="myContainer" class="largeBlock"></div>
-```
-
-> **Exercise**:
-> Remember the button that changes the color of the jumbotron to `red`? Go back and try to do that without modifying the styles. You can use the `.red` class.
-
-> **Advanced Exercise**:
-> - When you type something into the box below the **Jumbotron** and click the **Add** button it should add a new **Article** below **Learn More** with what you typed as the inner text. It should then clear the input.
-> - Make sure you create a proper **article** that looks like the others above it (it should be an article element, that contains a paragraph element, that contains your text, it should also have the class **article**).
+> - Use the inspector to examine the navbar
+> - Create a new navbar item for Code Your Future which links to `https://codeyourfuture.co/`
+> - Insert it at the end of the navbar
 
 # Resources
-1. DOM Examples and explanation on MDN - https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples
+1. [Document](https://developer.mozilla.org/en-US/docs/Web/API/Document)

@@ -1,5 +1,6 @@
-# Introduction
+<img src="https://codeyourfuture.co/static/media/cyf_brand.fbcea877.png" alt="Logo" style="width: 200px;"/>
 
+# Introduction
 This is the course material for [Code Your Future](http://codeyourfuture.co/), a
 not-for-profit volunteer-run coding school for refugees and asylum seekers.
 
@@ -9,8 +10,4 @@ During the course you will learn a technology stack that helps you build anythin
 
 Please refer to our [contributing guidelines](./CONTRIBUTING.md) for instructions on how to add or update a lesson.
 
-# Under Construction
-
-This is the repo for the updated CYF Syllabus.
-
-For the version that is being taught in our first London class, please check [Syllabus-book](https://codeyourfuture.github.io/syllabus-book/)
+To view this syllabus, visit [https://codeyourfuture.github.io/syllabus-master](https://codeyourfuture.github.io/syllabus-master)

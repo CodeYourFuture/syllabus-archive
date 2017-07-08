@@ -83,8 +83,8 @@ How does the code work? Let's break it down into parts and see what each does.
   var request = new XMLHttpRequest(); 		//creating a request object
 
   request.onreadystatechange = function() {
-    if(request.readyState === 4) {  // check if a response was sent back
-      if(request.status === 200) { 	// check if request was successful
+    if (request.readyState === 4) {  // check if a response was sent back
+      if (request.status === 200) { 	// check if request was successful
         textBox.innerHTML = request.responseText; // the DOM change we would like to make once the request is finished
       } else {
         textBox.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText; // the DOM change to make if there is an error with the request
@@ -106,8 +106,8 @@ request.send(params); 							// sending the request
   var request = new XMLHttpRequest(); 	    //creating a request object
 
   request.onreadystatechange = function() {
-    if(request.readyState === 4) {  // check if a response was sent back
-      if(request.status === 200) { 	// check if request was successful
+    if (request.readyState === 4) {  // check if a response was sent back
+      if (request.status === 200) { 	// check if request was successful
         textBox.innerHTML = request.responseText;
       } else {
         textBox.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;

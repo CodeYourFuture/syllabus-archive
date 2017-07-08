@@ -59,7 +59,7 @@ The server holds the data, but it only sends it to the webpage when there's a re
 
 ### Why Ajax?
 
-There are other ways you can write HTTP requests, such as using Web sockets. What's great about AJAX is that it makes it look like magic! The server and the client communicate effortlessly:
+There are other ways you can communicate between a client a server, such as using Web sockets. What's great about AJAX is that it makes it look like magic! The server and the client communicate effortlessly:
 
 >Update a web page without reloading the page
 Request data from a server - after the page has loaded
@@ -69,11 +69,7 @@ Send data to a server - in the background
 
 ### AJAX Example
 
-The instant update: we can write code that makes the web page instantly update its contents (without reloading the page).
-
-Let's try sending some data from Rares’ phone to the server and see whether it will update the webpage.
-
-> [http://zero-point.github.io/](http://zero-point.github.io/)
+// TODO
 
 
 ### Let's Code!
@@ -133,7 +129,45 @@ Everyone should organise in pairs, one person writing code to **send data (POST)
 
 Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let your partner know what it is!
 
+##JSON - JavaScript Object Notation
+---
 
+- [Intro to JSON (w3schools)](http://www.w3schools.com/js/js_json_intro.asp)
+- [Scott Lowe blog post on JSON](http://blog.scottlowe.org/2013/11/08/a-non-programmers-introduction-to-json/)
+
+JSON is a text-based open standard designed for human-readable data interchange.
+So what? This means JSON provides a way to communicate data in a common way - it is language independant.
+It should look quite familiar to you, as it shares the same format as JavaScript Objects.
+
+```JavaScript
+{
+    "key": "value"
+}
+```
+
+You can take a JavaScript object, and turn in into JSON, via the JSON api:
+```JavaScript
+var myObject = {"key": "value"};
+var jsonString = JSON.stringify(myObject);
+console.log(jsonString);
+
+'{"key":"value"}'
+```
+
+You can also turn a string into JSON:
+```JavaScript
+var jsonString = '{"key": "value"}';
+var myObject = JSON.parse(jsonString);
+console.log(myObject.key);
+
+"value"
+```
+
+## Exercise
+Take the following JSON string, turn it into an object, then show the results.
+If you have time format the results to show individual keys and their values.
+
+    '{"type": "pizza","toppings":["cheese","tomatoe"],"size":15,"crust":"stuffed","base":"deep pan"}'
 
 # Resources
 - DOM Examples and explanation on MDN - https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples

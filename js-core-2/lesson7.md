@@ -95,7 +95,7 @@ How does the code work? Let's break it down into parts and see what each does.
   var params = "Here is some content"; 		// content we want to send
   request.open("POST", url, true);			// adding them to the request
 
-request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
+request.setRequestHeader("Content-type", "text/plain"); //header info
 request.send(params); 							// sending the request
 ```
 
@@ -117,7 +117,7 @@ request.send(params); 							// sending the request
   var url = "http://ajax-cyf.eu-west-1.elasticbeanstalk.com/chatroom/?id=cyf";	                                    //server location
   request.open("GET", url);					// adding it to the request
 
-request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
+request.setRequestHeader("Accepts", "text/plain"); //header info
 request.send(); 								// sending the request
  ```
 

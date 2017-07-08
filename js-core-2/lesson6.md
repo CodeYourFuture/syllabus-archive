@@ -210,6 +210,68 @@ console.log(alice); // { name: 'Bob', greeting: function() {} }
 bob.greeting(); // Hello, my name is Bob
 ```
 
+## Array methods and callbacks
+
+The most useful built in methods in JavaScript are the `Array.prototype` methods. Every array has access to these methods (because Arrays are created by the `Array` constructor function they inherit the the properties of `Array.prototype`).
+
+Of particular use are the `Array` methods that enable you to _iterate_ over an array. We've covered iteration already when we learnt how to use `for` loops. Well, I have some amazing news for you - you will probably never need to write a `for` loop again!
+
+Let's take a look at `Array.prototype.forEach` first. This is pretty much a straight replacement for `for` loops.
+
+```js
+var myArr = [1,2,3];
+
+myArr.forEach(function (item) {
+  console.log(item);
+});
+
+// 1
+// 2
+// 3
+```
+
+OOOOF! Wasn't that glorious?! Much nicer than writing a `for` loop! So how exactly does this work? `forEach` _iterates_ over each item the array. For each item is calls a function - the one that was provided as an parameter to `forEach`.
+
+### Callback functions
+
+Functions that are provided as parameters to another function are called _callback functions_. Often we will write these functions inside the function call like did in the `forEach` example, but we can also pass in reference to an already defined function:
+
+```js
+function callback(item) {
+  console.log(item);
+}
+
+myArr.forEach(callback);
+```
+
+Whether you define your function beforehand or write it straight into the function call will depend on whether you intend on re-using that callback again. 
+
+### More array methods
+
+.map()
+.filter()
+
+### Chaining methods
+
+```js
+var transformedArr = myArr
+  .sort()
+  .map(function (item) {
+    return item * 2
+  })
+  .filter(function (item) {
+    return item < 10
+  }));
+```
+
+Reusuable callbacks.
+
+```js
+var transformedArr = myArr
+  .sort()
+  .map(double)
+  .filter(lessThan10);
+```
 
 # Resources
 1. https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance

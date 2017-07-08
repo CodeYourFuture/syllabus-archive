@@ -69,7 +69,8 @@ Send data to a server - in the background
 
 ### AJAX Example
 
-// TODO
+Visit http://cyf-api.herokuapp.com and check if there is a message for Andrew.
+Visit http://cyf-api.herokuapp.com and send a message to Andrew. You can use standard HTML form submission or an AJAX submission - see what the difference is.
 
 
 ### Let's Code!
@@ -127,7 +128,7 @@ request.send(); 								// sending the request
 
 Everyone should organise in pairs, one person writing code to **send data (POST)** and one to **receive it (GET)**. Once you’ve finished your code, combine it and put it into a html page. Now, try sending each other messages this way.
 
-Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let your partner know what it is!
+Don’t forget to use a **unique id** at the end of the url **(not 'cyf')** and let your partner know what it is!
 
 ## JSON - JavaScript Object Notation
 ---

@@ -6,7 +6,7 @@
 - AJAX
 ---
 
-## AJAX
+## HTTP
 
 ### What's a server?
 

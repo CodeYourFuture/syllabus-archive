@@ -129,7 +129,7 @@ Everyone should organise in pairs, one person writing code to **send data (POST)
 
 Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let your partner know what it is!
 
-##JSON - JavaScript Object Notation
+## JSON - JavaScript Object Notation
 ---
 
 - [Intro to JSON (w3schools)](http://www.w3schools.com/js/js_json_intro.asp)

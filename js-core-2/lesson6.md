@@ -204,7 +204,6 @@ var bob = new Person('Bob', true);
 console.log(alice); // { name: 'Bob', greeting: function() {} }
 bob.greeting(); // Hello, my name is Bob
 ```
-
 # Array methods and callbacks
 
 The most useful built in methods in JavaScript are the `Array.prototype` methods. Every array has access to these methods (because Arrays are created by the `Array` constructor function they inherit the the properties of `Array.prototype`).
@@ -239,34 +238,96 @@ function callback(item) {
 myArr.forEach(callback);
 ```
 
-Whether you define your function beforehand or write it straight into the function call will depend on whether you intend on re-using that callback again. 
+Whether you define your function beforehand or write it straight into the function call will depend on whether you intend on re-using that callback again.
 
 ## More array methods
 
-.map()
-.filter()
+Previously we've used for loops to create new versions of an array doing something like this:
+
+```js
+var arr = [1,2,3];
+var newArr = [];
+
+for (var i = 0; i < arr.length; i++) {
+  var current = arr[i];
+  newArr.push(current + 1)
+}
+
+console.log(newArr); // [2,3,4]
+```
+
+There are several methods on `Array.prototype` that can be used for this sort of task.
+
+The most popular method is `.map()`, which does the following:
+
+- iterates over the array it is called on
+- calls a callback function on every iteration
+- passes in the current array item and its index to the callback function
+- uses the returned value from the callback function to populate a new array
+- returns the new array
+
+That sounds like a lot but once you use `.map()` a few times it'll begin to feel more intuitive. Let's try it and see if we can refactor the for loop example:
+
+```js
+var arr = [1,2,3];
+var newArr = arr.map(function (num) {
+  return num + 1
+});
+console.log(newArr); // [2,3,4]
+```
+
+Another useful array method is `.filter()`. It works in a similar way to map except that rather than return a value in the callback function, you return `true` or `false` depending on whether you want the current item to be included in the new array. Returning `true` means that you want to keep the item, returning `false` means it should be omitted.
+
+Let's create a new array with only numbers greater than 5:
+
+```js
+var arr = [1,2,3,4,5,6,7,8,9];
+var newArr = arr.filter(function (num) {
+  return arr > 5
+});
+console.log(newArr); // [5,6,7,8,9]
+```
+
+> Remember: Most array methods do not change the current array, they return a new array. Check the MDN documentation for the array method if you are not sure about this.
 
 ## Chaining methods
 
-```js
-var transformedArr = myArr
-  .sort()
-  .map(function (item) {
-    return item * 2
-  })
-  .filter(function (item) {
-    return item < 10
-  }));
-```
-
-Reusuable callbacks.
+If we want to apply more than one array method to an array we might try something like this, creating an intermediate variable after each transformation.
 
 ```js
-var transformedArr = myArr
-  .sort()
-  .map(double)
-  .filter(lessThan10);
+var arr = [1,2,3];
+var arrMapped = arr.map(function (num) {
+  return num + 1;
+});
+var arrFiltered = newArr.filter(function (num) {
+  return num > 5;
+});
 ```
+
+This can get quite awkward though, especially when you have to think of a variable name for each stage. Thankfully there is a much simpler way. We can _chain_ methods together:
+
+
+```js
+var newArr = [1,2,3]
+  .map(function (num) {
+    return num + 1;
+  });
+  .filter(function (num) {
+    return num > 5;
+  });
+```
+
+There's nothing magical happening here. This works because:
+- the array methods are returning new arrays
+- every array has access to all the array methods on `Array.prototype`
+
+As soon as an array is returned by an array method we can call another array method on the return value.
+
+> Exercise
+
+> Transform the following array [4,5,3,6,7,8,9,1,2] by 1) sorting it, 2) doubling each number, and 3) filtering numbers less than 10
+> Write named functions that can be used as callbacks.
+
 
 # Intro to ES6
 ECMAScript 2015 (or ES6) is a significant update to JavaScript that introduces new syntax for writing complex applications including classes and modules and other features.

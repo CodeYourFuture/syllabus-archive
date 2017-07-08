@@ -70,6 +70,7 @@ Send data to a server - in the background
 ### AJAX Example
 
 Visit http://cyf-api.herokuapp.com and check if there is a message for Andrew.
+
 Visit http://cyf-api.herokuapp.com and send a message to Andrew. You can use standard HTML form submission or an AJAX submission - see what the difference is.
 
 

@@ -21,12 +21,11 @@ Client–server systems use the **request–response model**: a client sends a r
 
 >An example: We can use the Slack app (the client) to put our messages or pictures on Slack. The content is stored on the Slack servers and other clients can then also access the pictures.
 
-
 ### HTTP requests
 
 A server stores the data, and the client (other programs or computers) requests data or sends some of its own. But how do they talk to each other?
 
-**For the client and the server to communicate they need an established language (a protocol)**. Which is what HTTP (Hypertext Transfer Protocol) is for. It defines the methods you can use to communicate with a server and indicate your desired actions on the resources of the server.
+**For the client and the server to communicate they need an established an agreed upon way of communicating (a protocol)**. Which is what HTTP (Hypertext Transfer Protocol) is for. It defines the methods you can use to communicate with a server and indicate your desired actions on the resources of the server.
 
 There are two main types of requests: GET and POST.
 
@@ -34,14 +33,13 @@ There are two main types of requests: GET and POST.
 
 >With a **POST request** you can send content to the server to be appended to the web resource (e.g. post a photo on Slack).
 
-HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
+HTTP is the language of the internet. In our case we're using HTML and Javascript, but you can send HTTP requests with other laguages as well.
 
 ### AJAX (= Asynchronous JavaScript And XML)
 
 AJAX is a set of useful methods for implementing client-server communication.
 
 ![AJAX Diagram](https://www.w3schools.com/xml/ajax.gif "AJAX Diagram")
-
 
 AJAX just uses a combination of:
 
@@ -71,13 +69,12 @@ Send data to a server - in the background
 
 Visit http://cyf-api.herokuapp.com and check if there is a message for Andrew.
 
-Visit http://cyf-api.herokuapp.com/send and send a message to Andrew. You can use standard HTML form submission or an AJAX request - see what the difference is.
+Visit http://cyf-api.herokuapp.com/send and send a message to Andrew. Look at the first button. You can use standard HTML form submission or an AJAX request. This is the standard way to submit GET and POST requests via HTML when Javascript is not involved. You will research this further in your homework. 
 
 
 ### Let's Code!
 
 How does the code work? Let's break it down into parts and see what each does.
-
 
 #### POST Code
 
@@ -123,8 +120,6 @@ request.setRequestHeader('Accepts', 'text/plain'); //header info
 request.send(); 								// sending the request
  ```
 
-
-
 ### AJAX Exercise
 
 Everyone should organise in pairs, one person writing code to **send data (POST)** and one to **receive it (GET)**. Once you’ve finished your code, combine it and put it into a html page. Now, try sending each other messages this way.
@@ -166,14 +161,29 @@ console.log(myObject.key);
 ```
 
 ## Exercise
-Take the following JSON string, turn it into an object, then show the results.
-If you have time format the results to show individual keys and their values.
+1. Take the following JSON string, turn it into an object, then console log the object.
+2. Print out each key/value pair on a new line.
 
     '{"type": "pizza","toppings":["cheese","tomatoe"],"size":15,"crust":"stuffed","base":"deep pan"}'
 
 # Resources
-- DOM Examples and explanation on MDN - https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples
+- https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data
 - AJAX - https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started
 
 # Homework
-- Follow Intro to AJAX course by udacity - https://classroom.udacity.com/courses/ud110 (register and signin if you need to)
+1. Follow Intro to AJAX course by udacity - https://classroom.udacity.com/courses/ud110 (register and signin if you need to)
+2. http://cyf-api.herokuapp.com/colors/:colorName returns JSON with a hex color in the following format: 
+```JavaScript
+{
+    "color": "#ff0000"
+}
+```
+You must replace the **:colorName** part of the URL with one of the following colors: **blue, red, green, black**. Otherwise, you will receive a **404 Not Found** response.
+
+ a. Make a simple HTML page. Write an AJAX call to GET the color of your choice from the URL above.
+ 
+ b. In the callback to the AJAX call, set the background color of your page (CSS) to the color that is returned.
+ 
+ c. Make a text box input that allows a user of your page type in the color and click a submit button. The background color  should change just like in part b.
+ 
+ d. Write an HTML form that GETs the color from above. It should redirect you to a page that has the color response (you don't have to change anything - this is just to practice HTML forms).

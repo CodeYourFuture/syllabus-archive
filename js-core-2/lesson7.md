@@ -181,7 +181,7 @@ Change the url in the AJAX POST request to:
 var url = 'http://cyf-api.herokuapp.com/chatroom';
 ```
 
-Note that we have remove the ?id={something} part from the URL.
+Note that we have removed the ?id={something} part from the URL.
 
 Now, instead of sending a plain text message, send a JSON object with two properties: "id" and "message".
 "id" be the unique ID that you your partner decided. "message" is whatever you want to say!

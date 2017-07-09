@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg) 
-# # JavaScript Core 7
+# JavaScript Core 7
 ** What we will learn today?**
 - Debugging and Chrome Dev Tools (quick recap)
 - Objects Again

@@ -210,3 +210,9 @@ You must replace the **:colorName** part of the URL with one of the following co
  c. Make a text box input that allows a user of your page type in the color and click a submit button. The background color  should change just like in part b.
  
  d. Write an HTML form that GETs the color from above. It should redirect you to a page that has the color response (you don't have to change anything - this is just to practice HTML forms).
+ 
+ # Prepare for Next Class
+ 
+ Read https://github.com/node-girls/what-is-node and some of the listed [resources](https://github.com/node-girls/what-is-node#resources) in preparation for Node/Express next week.
+ 
+ If you have time, take a look at https://medium.com/javascript-scene/introduction-to-node-express-90c431f9e6fd for setting up an Express/node.js server. Don't worry if it is too complicated - this will be the focus of our next few classes. 

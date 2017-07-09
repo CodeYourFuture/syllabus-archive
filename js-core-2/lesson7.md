@@ -166,6 +166,27 @@ console.log(myObject.key);
 
     '{"type": "pizza","toppings":["cheese","tomatoe"],"size":15,"crust":"stuffed","base":"deep pan"}'
 
+
+
+## Content-Type: application/json
+You will notice that in our example AJAX above, we used a content type of 'text/plain':
+```
+request.setRequestHeader('Content-type', 'text/plain'); //header info
+```
+This is telling the server that we are sending plain text (e.g. the string 'Hello World').
+When working with JSON, we need to tell the server by specifying the content type to be **application/json**.
+
+## Exercise
+Change the url in the AJAX POST request to:
+```
+var url = 'http://cyf-api.herokuapp.com/chatroom';
+```
+
+Note that we have remove the ?id={something} part from the URL.
+
+Now, instead of sending a plain text message, send a JSON object with two properties: "id" and "message".
+"id" be the unique ID that you your partner decided. "message" is whatever you want to say!
+
 # Resources
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data
 - AJAX - https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started

@@ -1,6 +1,5 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
 # JavaScript Core 4
-** What we will learn today?**
+## What we will learn today?
 - HTTP
 - JSON
 - AJAX

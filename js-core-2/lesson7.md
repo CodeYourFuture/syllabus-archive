@@ -174,7 +174,7 @@ You will notice that in our example AJAX above, we used a content type of 'text/
 request.setRequestHeader('Content-type', 'text/plain'); //header info
 ```
 This is telling the server that we are sending plain text (e.g. the string 'Hello World').
-When working with JSON, we need to tell the server by specifying the content type to be **application/json**.
+When working with JSON, we need to tell the server what type of content we are sending by specifying the content type to be **application/json**.
 
 ## Exercise
 Change the url in the AJAX POST request to:

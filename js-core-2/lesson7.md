@@ -46,7 +46,7 @@ AJAX just uses a combination of:
 > - JavaScript and HTML DOM (to display or use the data)
 
 
-**Ajax works behind the scenes, helping the webpage communicate with the server (with GET and POST requests).**
+**AJAX works behind the scenes, helping the webpage communicate with the server (with GET and POST requests).**
 
 >client ----------GET request----------> server returns data to client
 
@@ -54,7 +54,7 @@ AJAX just uses a combination of:
 
 The server holds the data, but it only sends it to the webpage when there's a request. The request can be sent after the page has loaded, for example when a user clicks a button.
 
-### Why Ajax?
+### Why AJAX?
 
 There are other ways you can communicate between a client a server, such as using Web sockets. What's great about AJAX is that it makes it look like magic! The server and the client communicate effortlessly:
 

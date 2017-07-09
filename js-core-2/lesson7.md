@@ -187,6 +187,8 @@ Note that we have remove the ?id={something} part from the URL.
 Now, instead of sending a plain text message, send a JSON object with two properties: "id" and "message".
 "id" be the unique ID that you your partner decided. "message" is whatever you want to say!
 
+Remember to set the correct "Content-Type"
+
 # Resources
 - https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data
 - AJAX - https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started

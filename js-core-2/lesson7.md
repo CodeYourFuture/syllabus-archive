@@ -180,7 +180,10 @@ console.log(object.greeting); // "how are you?"
 > Let's look at the illustrations here: http://www.javascripttutorial.net/javascript-primitive-vs-reference-values/ to understand this behavior better
 
 > **Exercise**
-> - 
+> - Open up the [CodePen here](https://codepen.io/rarmatei/pen/EXraWG?editors=0012)
+> - Create a new `index.html` and `main.js` file
+> - Link the `main.js` from the `index.html` so that it runs in the browser
+> - Copy the exercises from the CodePen above into `main.js` and follow the instructions in the comments
 
 # Scope
 
@@ -280,7 +283,9 @@ console.log(test);     // output: I'm global
 ```
 
 > **Exercise**
-> - 
+> - Continue working on your `main.js` from your previous exercises
+> - Copy the exercises from this [CodePen](https://codepen.io/rarmatei/pen/OgqZaR?editors=0011)
+> - Remember to comment/uncomment each set once you're done with them
 
 # Resources
 1. Objects vs Arrays - https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1

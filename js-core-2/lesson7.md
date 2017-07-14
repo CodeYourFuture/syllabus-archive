@@ -19,7 +19,10 @@ We have been dealing mainly with two types of data structures so far - *Arrays* 
 
 When we are you solving a problem, one of your main decisions as a developer is to choose the data structures you will use to solve it. So when do you use an Array and when do you use an Object.
 
-> Let's talk about the differences between Arrays and Objects - when can you use or the other
+> "Bad programmers worry about the code. Good programmers worry about data structures and their relationships."
+> Linus Torvalds
+
+> Let's talk about the differences between Arrays and Objects - when can you use or the other. As a general rule of thumb:
 
 1. Does the order of data matter? Then use Arrays.
 2. Can the data be organised by a label? Then use Objects.
@@ -61,6 +64,24 @@ hasProperty(student, 'job'); // should return false
 ```
 
 >Exercise: compare that to how you find an element in array?
+
+
+>Exercise
+>Write a function called ownProperty that takes an object which has a prototype, and a field. The function should return true only if the property exists on the object (and *not* it's prototype)
+```js
+var person = {
+    name: "Simon"
+}
+
+var student = {
+    interests: ["javascript", "react"]
+}
+
+student.__proto__ = person // this is setting the prototype of student to be person
+
+ownProperty(student, "name") // should return false
+ownProperty(student, "interests") // should return true
+```
 
 >Exercise
 >Write a function called printObject that takes an object and iterates through all its properties and prints a string formatted property: value

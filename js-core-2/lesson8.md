@@ -1,7 +1,6 @@
 # JavaScript Core 7
-** What we will learn today?**
 
-Today we will be going over previous tricky topics in more depth:
+**Today we will be going over previous tricky topics in more depth:**
 
 - Objects Again
 - Value Vs Reference types Again

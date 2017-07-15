@@ -25,6 +25,10 @@ It would be better to break this table down into respective tables for each enti
 
 Some of the tables contain IDs of related records, such as the appointment table's `id` column, but we still have to explicitly define our relationships. Before we jump into this, let's run some simple queries against the database.
 
+## Where is the database?
+
+The above database, with which we'll be working today, can be found in the [_Introduction to SQL_ repo](https://github.com/CodeYourFuture/introduction-to-sql); please clone this before proceeding.
+
 
 ## Browsing the database
 
@@ -32,7 +36,7 @@ For simplicity, our data is stored in an SQLite database; this is a self-contain
 
 We're going to use [DB Browser for SQLite](http://sqlitebrowser.org/) to access our database, which is available for Windows, OS X, and Linux; please download it from the linked website.
 
-Once it's installed and running, and you've cloned this repository, click _Open Database_, navigate to your copy of said repository, and open _surgery.sqlite_. You'll be greeted with the structure of our database. You may notice that there is a _Browse Data_ tab, but we will not be using this directly; instead, click the _Execute SQL_ tab so we can write our first query.
+Once it's installed and running, click _Open Database_, navigate to your copy of the repository, and open _surgery.sqlite_. You'll be greeted with the structure of our database. You may notice that there is a _Browse Data_ tab, but we will not be using this directly; instead, click the _Execute SQL_ tab so we can write our first query.
 
 
 ## `SELECT`

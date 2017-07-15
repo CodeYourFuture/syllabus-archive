@@ -317,7 +317,7 @@ Wait, we're still getting the `ReferenceError`! Even if we move the `console.log
 
 What we're seeing here is the effect of **scope**. Take a look at the following diagram:
 
-![Scope](./assets/scope_bubbles.png)
+![Scope](../assets/scope_bubbles.png)
 
 
 We can see from this picture that each function is like a 'bubble', and it has access to the variable assigned within it, and the variables assigned 'above' it, in it's surrounding function. But note that the 'global' scope doesn't have access to `var o`, and `function outer()` doesn't have access to `var i`. So each function can access the variables in its **parent scope**, and in it's **own, immediate scope**, but it cannot see the variables in its **child scope**.

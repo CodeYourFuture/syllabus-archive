@@ -179,6 +179,8 @@ But reference types can have practically infinite sizes, so when you assign a re
 to a variable, that variable will hold a reference to it only: an identifier which will tell our program
 where to look for that object in memory.
 
+![Scope](../assets/reference.JPG)
+
 ## Pass by value / reference
 
 Consider the example below.

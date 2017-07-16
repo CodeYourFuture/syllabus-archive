@@ -29,15 +29,7 @@ Throughout each step, we have **bolded** any jargon that you may or may not be f
 
 ## Before you Start
 
-#### 1. Install Node
-
-You will need Node.js installed. Download it from the Node.js website [here](https://nodejs.org/en/).
-
-#### 2. Fork and clone this repository
-
-Fork this repository to your own GitHub account.  Instructions for doing this can be found [here](https://help.github.com/articles/fork-a-repo/).
-
-Then, clone your forked version of the repository to your desktop in the terminal. Instructions for doing this can be found [here](https://help.github.com/articles/cloning-a-repository/), or run the command below.
+Fork the repository https://github.com/CodeYourFuture/express-workshop
 
 `$ git clone https://github.com/YOUR-USERNAME/express-workshop`
 

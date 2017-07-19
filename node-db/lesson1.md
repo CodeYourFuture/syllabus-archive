@@ -4,28 +4,17 @@
 - Node and its ecosystem
 - Express
 - Http
+- JSON format
 - fs
 - This class is based on the [Node Girls Express Workshop](https://github.com/node-girls/express-workshop)
 ---
 
 
-# Express Workshop
-
-## What is this?
+# Intro
 
 This is an introductory workshop to Node.js and Express. You'll be building your own platform to write, publish and save blog posts (a basic content management system, or CMS).
 
-## Why?
-
-[Express](http://expressjs.com/) is one of the most widely-used frameworks for Node.js. It simplifies base features of Node.js, making it easier and faster to build your application's backend. Learning Express gives you a great foundation for becoming a Node.js developer :sparkles:
-
-## Workshop Structure
-
-This workshop is divided into a number of steps. At the end of each segment, you should find a link to continue onto the next step. We suggest you follow along with the tutorial online, and write your code in a separate repository.
-
-You will see code snippets throughout the walkthrough. Try to resist the urge to copy and paste - you will learn much more if you get into the habit of typing things out. If you want to test out small bits of code before adding them to your project, [repl.it](repl.it) is a useful tool.
-
-Throughout each step, we have **bolded** any jargon that you may or may not be familiar with. These terms are explained in the [Keywords](https://github.com/node-girls/express-workshop/#keywords) section at the bottom of each page. You'll also find a link to our cheatsheets under [Useful Links](https://github.com/node-girls/express-workshop/#useful-links).
+> [Express](http://expressjs.com/) is one of the most widely-used frameworks for Node.js. It simplifies base features of Node.js, making it easier and faster to build your application's backend. Learning Express gives you a great foundation for becoming a Node.js developer.
 
 ## Before you Start
 
@@ -51,43 +40,13 @@ This command will initialise a step-by-step process for creating the `package.js
 
 ![starting npm init](https://raw.githubusercontent.com/node-girls/workshop-cms/master/readme-images/step1-npm-init01.png)
 
-It will ask you the following questions:
+It will ask you a bunch of questions.
 
-#### `name`
-* npm suggests a default name for your project in brackets. If you want to give it your own name, just type it next to the brackets and press `Enter`.
-* If you're happy with the name in brackets, simply press `Enter`.
+> You can skip most of the questions but change the `entry point` from `(index.js)` to `server.js`.
 
-#### `version`
-* This is your first project, so it will be version 1.0.0! Nothing to change here, so just press `Enter`.
+> The wizard asks you for the following information: `name`, `version`, `description`, `main`, `test`, `repository`, `keywords`, `author`, `license` - do you understand all of them?
 
-#### `description`
-* A simple description of your project. Write whatever you want and press `Enter`.
-
-#### `entry point`
-* This file will be the starting point for your whole project.
-* Let's change this from `(index.js)` to `server.js`, as we will be building a server later on!
-* Type `server.js` and press `Enter`.
-
-#### `test command`
-* Skip this one for now...press `Enter`.
-
-#### `git repository`
-* This is where your project would live on GitHub.  Press `Enter`.
-
-#### `keywords`
-* (Optional) You can add keywords to help people find your project if they search for it.
-
-#### `author`
-* It's your project, so write your name! You can use your GitHub name or your actual name.
-
-#### `license`
-* You can add a license, but we'll skip this.
-
-You will see a confirmation of your `package.json`. If you're happy with it, press `Enter` to finalise its creation.
-
-![package.json confirmation](https://raw.githubusercontent.com/node-girls/workshop-cms/master/readme-images/step1-npm-init02.png)
-
-Great! You should now see a new file called `package.json` in your project's folder.
+At the endo of the wizard, you should see a new file called `package.json` in your project's folder.
 
 # Step 2 - Installing Express
 
@@ -119,7 +78,6 @@ A server is a computer program. Its job is to send and receive data.
 
 Let's take a website for example.  A website is just a collection of HTML and CSS files, images, maybe some javascript files. When you type a website address in your browser's address bar, the browser (client) sends a **request** to the server that lives at that address. The browser asks the server to give it the files it needs to display the website properly.
 
-
 ![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
 
 ## 1. Create a `server.js` file
@@ -133,8 +91,10 @@ We already installed Express in Step 2, but we need to make sure it is included 
 To import Express, write the following inside `server.js`:
 
 ```js
-var express = require('express');
+const express = require('express');
 ```
+
+> We will try and get used to ES6 syntax - so use `const` and `let` instead of `var`.
 
 ## 3. Initialise the server
 
@@ -143,8 +103,8 @@ To initialise our server, we just need to call the `express()` function. This wi
 Add the second line of code to your `server.js` file:
 
 ```js
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 ```
 
 ## 4. Start 'listening' for potential requests
@@ -156,13 +116,15 @@ We use the **`app.listen`** method to do this. This method takes two arguments: 
 We're going to run our server on port `3000`, and run a simple `console.log` as our callback function. Update your `server.js` file, calling the `app.listen` method:
 
 ```js
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.listen(3000, function () {
   console.log('Server is listening on port 3000. Ready to accept requests!');
 });
 ```
+
+> Try to use ES6 arrow functions instead of `function`.
 
 ## 5. Switch the server on!
 
@@ -192,6 +154,8 @@ The handler function always takes a `request` and `response` object, and sends t
 The `get()` method is used to define a handler function in Express. It takes two parameters: the **endpoint** at which to trigger an action (we'll explain more about this in the next step), and the handler function that tells it exactly what to do. Here's a simple "Hello World!" example:
 
 ```js
+// req is the Request object, res is the Response object
+// (these are just variable names, they can be anything but it's a convention to call them req and res)
 app.get("/", function (req, res) {
     res.send("Hello World!");
 });
@@ -207,8 +171,8 @@ Update your `server.js` file with an empty `app.get()` function:
 
 
 ```js
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 
 app.get("/", function (req, res) {
 
@@ -219,7 +183,7 @@ app.listen(3000, function () {
 });
 ```
 
-Try to `console.log` the `req` object inside the handler function. Restart your server, refresh the browser, then go to your terminal to see what it looks like. You should see a lot of data come through.
+> Exercise: Try to `console.log` the `request` object inside the handler function. Restart your server, refresh the browser, then go to your terminal to see what it looks like. You should see a lot of data come through.
 
 ## 2. Tell your handler function what to do
 
@@ -228,8 +192,8 @@ We want our handler function to send back a message to the client. To do that, w
 Update your handler function like so:
 
 ```js
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 
 app.get("/", function (req, res) {
   res.send("Yay Node Girls!");
@@ -254,7 +218,7 @@ Now, open your favourite browser (we like Chrome), and navigate to `http://local
 
 At the moment our server only does one thing. When it receives a request from the `/` endpoint, it sends back the same response: "Yay Node Girls!".
 
-Want to check? Try typing http://localhost:3000/nodegirls and see what happens.
+> Try typing http://localhost:3000/nodegirls and see what happens.
 
 However by making use of endpoints, we can make the server send different responses for different requests. This concept is called **routing**.
 
@@ -278,7 +242,7 @@ app.get("/chocolate", function (req, res) {
 });
 ```
 
-*Challenge:* Add some code so that your server sends one message when the endpoint is `/node` and another one when it's `/girls`.
+> **Exercise:** Add some code so that your server sends one message when the endpoint is `/node` and another one when it's `/girls`.
 
 # Step 6 - Serving static files
 
@@ -293,20 +257,20 @@ Say we want to serve all the static assets in our "public" folder. The `express.
 ```js
 app.use(express.static("public"));
 ```
-
 ## 1. Serve static files from your server
 
 Delete all your `app.get` endpoint functions, and replace them with the line of code above. Restart your server, refresh your browser and see what happens! If you see a Node Girls CMS, then your static assets have been successfully served.
 
 ### HTTP request methods
-All requests use one of the HTTP methods. The main ones are: `GET, POST, PUT, DELETE`.
+All requests use one of the `HTTP methods`. The main ones are: `GET, POST, PUT, DELETE`.
 
+`app.get` deals with requests that use the `GET` HTTP method.
 
-`app.get` deals with requests that use the `GET` HTTP method.  
+> We will go into these Methods into more details, but for now, think of `GET` as a method for Getting data. `POST` is for POSTing/inserting new data. `PUT` is for updating. `DELETE` is for deleting data.
 
 ### The `POST` http request method
 
-When sending data to the server, we use the `POST` http request method, instead of `GET`.  To understand the difference, follow the "POST vs GET" link in the keywords section below.
+When sending data to the server, we use the `POST` http request method, instead of `GET`.
 
 Let's try `POST`ing some text to the server.
 
@@ -336,6 +300,8 @@ Open up the `index.html` file in your text editor.  If you have a look, you shou
 
 When you hit Send, the form will send a `POST` request to the server, using whatever is in the `action` attribute as the endpoint.  In our case it's `/create-post`.
 
+> **Exercise:** Open Chrome Developers tool, click the button and see what happens.
+
 ### Receiving the blog post on the server
 
 * Data doesn't come through the server in one go; it flows to the server in a **stream**.  Think of a stream as water flowing from a tap into a bucket.  Your job is to collect this water in the server.
@@ -346,14 +312,14 @@ When you hit Send, the form will send a `POST` request to the server, using what
 
 Let's remind ourselves of a simple `GET` route in Express:
 ```js
-app.get('/my-lovely-endpoint', function (req, res) {
+app.get('/hello-world', function (req, res) {
     res.send('Hello there!');
 });
 ```
 
-This time we want to define a route to deal with a `POST` request.  What do you think you would need to do differently?  Experiment and see if you can define a route for the `/create-post` endpoint!
-
-For now, make your `/create-post` handler simply do this: `console.log('/create-post')`.
+> **Exercise:** This time we want to define a route to deal with a `POST` request not a `GET`.  What do you think you would need to do differently?  Experiment and see if you can define a route for the `/create-post` endpoint!
+>
+> For now, make your `/create-post` handler simply do this: `console.log('I am /create-post endpoint')`.
 
 ---
 
@@ -372,9 +338,9 @@ This time though, `express-formidable` is not built-in, we need to explicitly in
 npm install express-formidable --save
 ```
 
-`require` `express-formidable` so you can use it in your code.  You can't use dashes in JavaScript variable names, so just call it `var formidable`.
+`require` `express-formidable` so you can use it in your code.  You can't use dashes in JavaScript variable names, so just call it `const formidable`.
 ```js
-var formidable = require('express-formidable');
+const formidable = require('express-formidable');
 ```
 
 Now add this towards the top of your server, after your `require`s and `app.use(express.static('public'))`, but before your `/create-post` endpoint:
@@ -390,6 +356,10 @@ Refresh your server and have another go at writing a blogpost.
 
 You should now see an object in the console.  The key should be `blogpost`, just like the name attribute in the form on the HTML page.  The value of `blogpost` will be your message!
 
+> **Exercise**: Try putting `app.use(formidable());` at the end of the file (after the `create-post` but before starting the server)
+
+> **What is a middleware in Express?** Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle. The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware. Read more on [the Express documentation](https://expressjs.com/en/guide/writing-middleware.html)
+
 # Step 8 - Saving your blog post
 
 Right now, your precious blog posts aren't being saved anywhere, which is a bit of a shame.  Let's do something about that.
@@ -400,9 +370,7 @@ You'll note that in the data folder there's a new file called `posts.json`.
 
 JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
 
-JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with JSON.parse() and JSON.stringify().
-
-(If you're not sure about Javascript objects, have a chat with your mentor and your team.)
+JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
 
 If you look at `posts.json` will see there's already one blog post there. The format is:
 
@@ -418,12 +386,12 @@ We've used a timestamp as the key so that the blog posts are listed in chronolog
 
 Anytime a blog post comes through to the server, we want to save the data on your computer's hard drive.  To do this, we need to use a built-in Node module: `fs`, which stands for 'file-system'.
 
-Built-in Node modules (core Node modules) are rather like the built-in Express middleware functions.  Only difference is that where you need to have installed Express to use Express middleware functions, the core Node modules come automatically with Node itself.
+Built-in Node modules - **core Node modules** - are rather like the built-in Express middleware functions.  Only difference is that where you need to have installed Express to use Express middleware functions, the core Node modules come automatically with Node itself.
 
 To use `fs`, you'll need to require it at the top of your server file:
 
 ```js
-var fs = require('fs');
+const fs = require('fs');
 ```
 
 The method we need to write to your hard drive is `fs.writeFile`.
@@ -454,8 +422,6 @@ fs.readFile('path/to/file', function (error, file) {
 
 You'll notice that `fs.readFile`'s callback function takes a second argument.  That argument would be the file you're reading.
 
-
-
 Let's read the data from the `posts.json` file.  Make sure you've `require`d the `fs` core Node module at the top of your server file somewhere.
 
 Add this code to your server (put it anywhere after the `require`s for now):
@@ -467,9 +433,7 @@ fs.readFile(__dirname + '/data/posts.json', function (error, file) {
 });
 ```
 
-
 (`__dirname` is a Node global object that gives you a path to current working directory. It's handy if we want to avoid writing the whole path out in full.)
-
 
 If you restart the server, you'll probably see something like this:
 ```bash
@@ -485,11 +449,10 @@ console.log(file.toString());
 
 Add this next bit of code to your `fs.readFile`'s callback function:
 ```js
-var parsedFile = JSON.parse(file);
+const parsedFile = JSON.parse(file);
 ```
 
 Now `parsedFile` is a normal JavaScript object, and we can access the data inside it.
-
 
 Ok, so we've talked about JSON and we've talked about reading and writing files.  You now have the power to save new blog post data to your hard drive!  Work with your partner and your mentor to see if you can figure the next steps out on your own.
 
@@ -505,7 +468,6 @@ Here's a breakdown of what you want to achieve:
 
 Oh by the way, if you want to get the current timestamp, use the JavaScript `Date.now()` method.
 
-Good luck!
 
 # Step 9 - Displaying your blog posts
 
@@ -538,6 +500,4 @@ If all goes well, you should have a fully functional CMS!
 #### Resources
 Take a look at the following links to learn more about Node.js.
 * https://github.com/maxogden/art-of-node/#the-art-of-node
-* https://www.youtube.com/watch?v=e8ZLfcHxrD8
 * https://node.cool#resources
-0Looking

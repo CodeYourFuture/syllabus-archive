@@ -21,6 +21,10 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 
 ![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
 
+# What is Node.js?
+
+  > [Node.js®](https://nodejs.org/en/) is a **JavaScript runtime** built on Chrome's **V8 JavaScript engine**. Node.js uses an **event-driven**, **non-blocking** I/O model that makes it lightweight and efficient.
+
 # Introduction
 
 This is an introductory workshop to Node.js and Express. You'll be building your own platform to write, publish and save blog posts (a basic content management system, or CMS).

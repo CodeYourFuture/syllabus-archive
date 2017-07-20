@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg) 
 # Node 1
-** What we will learn today?**
+**What we will learn today?**
 - Node and its ecosystem
 - Express
 - Http
@@ -9,8 +9,93 @@
 - This class is based on the [Node Girls Express Workshop](https://github.com/node-girls/express-workshop)
 ---
 
+# What is a server?
 
-# Intro
+Servers are computer programs that receive requests from other programs, the *clients* and send back a response e.g share data, information or hardware and software resources.
+
+### ...and what is a server in plain English?
+
+A server is a computer program. Its job is to send and receive data.
+
+Let's take a website for example.  A website is just a collection of HTML and CSS files, images, maybe some javascript files. When you type a website address in your browser's address bar, the browser (client) sends a **request** to the server that lives at that address. The browser asks the server to give it the files it needs to display the website properly.
+
+![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
+
+# What is Node.js?
+
+  > [Node.js®](https://nodejs.org/en/) is a **JavaScript runtime** built on Chrome's **V8 JavaScript engine**. Node.js uses an **event-driven**, **non-blocking** I/O model that makes it lightweight and efficient.
+  
+# What is it used for? 
+
+- web servers, so creating a dynamic websites
+- set up a local web development environment
+- easier to build desktop applications with Electron: Slack, Visual Code, Atom 
+- some of the biggest companies use Node.js in production: Netflix, Walmart, IBM, etc.
+- JavaScript everywhere (used to be PHP, Python, JavaScript, MySQL, Apache, now JavaScript full stack)
+
+# A simple Node.js server
+
+**Simple server**
+```javascript
+const http = require('http'); 	
+
+const server = http.createServer(function (req, res) {
+	res.end("Hello World!")
+});
+
+server.listen(5000); 	
+
+console.log('Node.js web server at port 5000 is running..')
+```
+
+**Server with two routes**    
+```javascript
+const http = require('http'); 	
+
+const server = http.createServer(function (req, res) {
+
+	if (req.url === '/') { //check the URL of the current request
+	
+	console.log("New request to main page at " + Date())
+        
+        // set response header
+        res.writeHead(200, { 'Content-Type': 'text/html' }); 
+        
+        // set response content    
+        res.write('<html><body><h1>This is home Page.</h1></body></html>');
+		res.write('<h2>The time is: ' + Date() + '</h2>');
+        res.end();
+    
+    } else if (req.url === "/student") {
+		
+	console.log("New request to Student page at " + Date())
+        
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write('<html><body><h1>This is student Page.</h1></body></html>');
+        res.end();
+    
+    } else {
+        res.end('<html><body><h2>Invalid Request at ' + Date() + '</h2></body></html>');
+    }
+});
+
+server.listen(5000); 	
+
+console.log('Node.js web server at port 5000 is running..')
+```
+### Exercise
+Can you add another route `/mentor`?  
+
+# What is HTTP?
+
+> It is a protocol that browser and the server uses to talk to each other  
+
+![HTTP](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http_diagram.png)  
+
+Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+
+
+# Introduction
 
 This is an introductory workshop to Node.js and Express. You'll be building your own platform to write, publish and save blog posts (a basic content management system, or CMS).
 
@@ -26,7 +111,7 @@ Fork the repository https://github.com/CodeYourFuture/express-workshop
 
 When creating a Node.js project, you will be installing a lot of different things along the way. If you want to share your project with others, you need to have a list of the things you installed, so that other people know what to install in order to run the project.
 
-In Node.js, this 'list' file is called a `package.json`. The 'things you've installed' are referred to as **dependencies**. Creating this file is the first step in setting up your Node.js project.
+In Node.js, this 'list' file is called a `package.json`. The 'things you've installed' are referred to as **dependencies**. Creating this file is the first step in setting up your Node.js project. 
 
 ## 1. Make a `package.json` file
 
@@ -48,6 +133,8 @@ It will ask you a bunch of questions.
 
 At the endo of the wizard, you should see a new file called `package.json` in your project's folder.
 
+Here is an example `package.json` file for a project called [Passport](https://github.com/jaredhanson/passport/blob/master/package.json).
+
 # Step 2 - Installing Express
 
 Before we write any code, you'll need to install the Express library. We're going to use the **[Node Package Manager (npm)](https://www.npmjs.com/)** to download it using the **`npm install`** command.
@@ -68,17 +155,6 @@ Express should now be installed. Check your `package.json` file to make sure it 
 
 The first thing we need to do is build our server. You will always need to build a server when writing back-end code. A server can be built in pure Node.js, but Express gives us simpler syntax to work with.
 
-## What is a server?
-
-Servers are computer programs that receive requests from other programs, the *clients* and send back a response e.g share data, information or hardware and software resources.
-
-### ...and what is a server in plain English?
-
-A server is a computer program. Its job is to send and receive data.
-
-Let's take a website for example.  A website is just a collection of HTML and CSS files, images, maybe some javascript files. When you type a website address in your browser's address bar, the browser (client) sends a **request** to the server that lives at that address. The browser asks the server to give it the files it needs to display the website properly.
-
-![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
 
 ## 1. Create a `server.js` file
 
@@ -497,7 +573,11 @@ If all goes well, you should have a fully functional CMS!
 * When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
 * If you cannot get an answer from your fellow students, @ a mentor with your question and we will reply as soon as we can.
 
-#### Resources
+# Resources
 Take a look at the following links to learn more about Node.js.
 * https://github.com/maxogden/art-of-node/#the-art-of-node
 * https://node.cool#resources
+
+More about HTTP:
+[Tutsplus tutorial](https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039)
+

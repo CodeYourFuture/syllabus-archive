@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg) 
 # Node 1
-** What we will learn today?**
+**What we will learn today?**
 - Node and its ecosystem
 - Express
 - Http
@@ -9,8 +9,19 @@
 - This class is based on the [Node Girls Express Workshop](https://github.com/node-girls/express-workshop)
 ---
 
+# What is a server?
 
-# Intro
+Servers are computer programs that receive requests from other programs, the *clients* and send back a response e.g share data, information or hardware and software resources.
+
+### ...and what is a server in plain English?
+
+A server is a computer program. Its job is to send and receive data.
+
+Let's take a website for example.  A website is just a collection of HTML and CSS files, images, maybe some javascript files. When you type a website address in your browser's address bar, the browser (client) sends a **request** to the server that lives at that address. The browser asks the server to give it the files it needs to display the website properly.
+
+![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
+
+# Introduction
 
 This is an introductory workshop to Node.js and Express. You'll be building your own platform to write, publish and save blog posts (a basic content management system, or CMS).
 
@@ -68,17 +79,6 @@ Express should now be installed. Check your `package.json` file to make sure it 
 
 The first thing we need to do is build our server. You will always need to build a server when writing back-end code. A server can be built in pure Node.js, but Express gives us simpler syntax to work with.
 
-## What is a server?
-
-Servers are computer programs that receive requests from other programs, the *clients* and send back a response e.g share data, information or hardware and software resources.
-
-### ...and what is a server in plain English?
-
-A server is a computer program. Its job is to send and receive data.
-
-Let's take a website for example.  A website is just a collection of HTML and CSS files, images, maybe some javascript files. When you type a website address in your browser's address bar, the browser (client) sends a **request** to the server that lives at that address. The browser asks the server to give it the files it needs to display the website properly.
-
-![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
 
 ## 1. Create a `server.js` file
 

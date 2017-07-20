@@ -50,7 +50,7 @@ Fork the repository https://github.com/CodeYourFuture/express-workshop
 
 When creating a Node.js project, you will be installing a lot of different things along the way. If you want to share your project with others, you need to have a list of the things you installed, so that other people know what to install in order to run the project.
 
-In Node.js, this 'list' file is called a `package.json`. The 'things you've installed' are referred to as **dependencies**. Creating this file is the first step in setting up your Node.js project.
+In Node.js, this 'list' file is called a `package.json`. The 'things you've installed' are referred to as **dependencies**. Creating this file is the first step in setting up your Node.js project. 
 
 ## 1. Make a `package.json` file
 
@@ -71,6 +71,8 @@ It will ask you a bunch of questions.
 > The wizard asks you for the following information: `name`, `version`, `description`, `main`, `test`, `repository`, `keywords`, `author`, `license` - do you understand all of them?
 
 At the endo of the wizard, you should see a new file called `package.json` in your project's folder.
+
+Here is an example `package.json` file for a project called [Passport](https://github.com/jaredhanson/passport/blob/master/package.json).
 
 # Step 2 - Installing Express
 

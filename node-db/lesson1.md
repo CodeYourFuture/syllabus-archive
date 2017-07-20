@@ -561,16 +561,16 @@ Express has a handy method called `res.sendFile()` that makes it easy to send fi
 
 If all goes well, you should have a fully functional CMS!
 
-### Homework
+# Homework
 
 * Finish the tasks from the workshop
-* Try adding an `/about` route to your app to serve some HTML. How is this different from using express's static middleware? We will add some supporting materials to help you with this task during the week. You can see one way of doing it here: http://stackoverflow.com/questions/4529586/render-basic-html-view
+* Try adding an `/about` route to your app to serve some HTML. How is this different from using express's static middleware? You can see one way of doing it here: http://stackoverflow.com/questions/4529586/render-basic-html-view
 * Complete the nodeschool.io 'learnyounode' tutorial https://github.com/workshopper/learnyounode
 * Research the following topics: blocking vs. non-blocking; RESTful APIs; templating engines; HTTP codes; asynchronous programming. Google them! We will be asking questions in next week's session.
 
 **Important:** When you get stuck during the homework you should follow the following "escalation policy".
 * First, search for answers on Google and Stack Overflow. If you have an error message, copy and paste it into Google.
-* When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
+* When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #scotland-class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
 * If you cannot get an answer from your fellow students, @ a mentor with your question and we will reply as soon as we can.
 
 # Resources

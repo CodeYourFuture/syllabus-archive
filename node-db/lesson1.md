@@ -129,6 +129,10 @@ console.log('Node.js web server at port 5000 is running..')
 
 > It is a language that browser and the server uses to talk to each other  
 
+![HTTP](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http_diagram.png)  
+
+Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+
 
 # Introduction
 

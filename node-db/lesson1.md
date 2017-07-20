@@ -612,7 +612,11 @@ If all goes well, you should have a fully functional CMS!
 * When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
 * If you cannot get an answer from your fellow students, @ a mentor with your question and we will reply as soon as we can.
 
-#### Resources
+# Resources
 Take a look at the following links to learn more about Node.js.
 * https://github.com/maxogden/art-of-node/#the-art-of-node
 * https://node.cool#resources
+
+More about HTTP:
+[Tutsplus tutorial](https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039)
+

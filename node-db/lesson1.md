@@ -35,18 +35,7 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 
 # A simple Node.js server
 
-**No respond**  
-```javascript
-const http = require('http'); 	
-
-const server = http.createServer();
-
-server.listen(5000); 	
-
-console.log('Node.js web server at port 5000 is running..')
-```
-
-**Simple respond, no routing**
+**Simple server**
 ```javascript
 const http = require('http'); 	
 
@@ -59,7 +48,7 @@ server.listen(5000);
 console.log('Node.js web server at port 5000 is running..')
 ```
 
-**Simple server with two routes**    
+**Server with two routes**    
 ```javascript
 const http = require('http'); 	
 
@@ -99,7 +88,7 @@ Can you add another route `/mentor`?
 
 # What is HTTP?
 
-> It is a language that browser and the server uses to talk to each other  
+> It is a protocol that browser and the server uses to talk to each other  
 
 ![HTTP](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http_diagram.png)  
 

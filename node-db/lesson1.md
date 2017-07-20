@@ -24,6 +24,15 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 # What is Node.js?
 
   > [Node.js®](https://nodejs.org/en/) is a **JavaScript runtime** built on Chrome's **V8 JavaScript engine**. Node.js uses an **event-driven**, **non-blocking** I/O model that makes it lightweight and efficient.
+  
+# What is it used for? 
+
+- web servers, so creating a dynamic websites
+- set up a local web development environment
+- easier to build desktop applications with Electron: Slack, Visual Code, Atom 
+- some of the biggest companies use Node.js in production: Netflix, Walmart, IBM, etc.
+- JavaScript everywhere (used to be PHP, Python, JavaScript, MySQL, Apache, now JavaScript full stack)
+
 
 # Introduction
 

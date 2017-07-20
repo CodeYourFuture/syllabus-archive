@@ -37,9 +37,9 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 
 **No respond**  
 ```javascript
-var http = require('http'); 	
+const http = require('http'); 	
 
-var server = http.createServer();
+const server = http.createServer();
 
 server.listen(5000); 	
 
@@ -48,9 +48,9 @@ console.log('Node.js web server at port 5000 is running..')
 
 **Simple respond, no routing**
 ```javascript
-var http = require('http'); 	
+const http = require('http'); 	
 
-var server = http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
 	res.end("Hello World!")
 });
 
@@ -59,45 +59,15 @@ server.listen(5000);
 console.log('Node.js web server at port 5000 is running..')
 ```
 
-**Simple server with one route**    
-```javascript
-var http = require('http'); 	
-
-var server = http.createServer(function (req, res) {
-
-  //check the URL of the current request
-  if (req.url == '/') {
-  
-      console.log("Received a new request at " + Date())
-
-      // set response header
-      res.writeHead(200, { 'Content-Type': 'text/html' }); 
-
-      // set response content    
-      res.write('<html><body><p>This is home Page.</p></body></html>');
-      res.write('The time is: ' + Date());
-      res.end();
-    
-   } else {
-   
-      res.end('Invalid Request!');
-      
-   }
-});
-
-server.listen(5000); 	
-
-console.log('Node.js web server at port 5000 is running..')
-```
 **Simple server with two routes**    
 ```javascript
-var http = require('http'); 	
+const http = require('http'); 	
 
-var server = http.createServer(function (req, res) {
+const server = http.createServer(function (req, res) {
 
 	if (req.url === '/') { //check the URL of the current request
 	
-		console.log("New request to main page at " + Date())
+	console.log("New request to main page at " + Date())
         
         // set response header
         res.writeHead(200, { 'Content-Type': 'text/html' }); 
@@ -109,7 +79,7 @@ var server = http.createServer(function (req, res) {
     
     } else if (req.url === "/student") {
 		
-		console.log("New request to Student page at " + Date())
+	console.log("New request to Student page at " + Date())
         
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write('<html><body><h1>This is student Page.</h1></body></html>');
@@ -124,6 +94,8 @@ server.listen(5000);
 
 console.log('Node.js web server at port 5000 is running..')
 ```
+### Exercise
+Can you add another route `/mentor`?  
 
 # What is HTTP?
 

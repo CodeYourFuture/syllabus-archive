@@ -125,6 +125,11 @@ server.listen(5000);
 console.log('Node.js web server at port 5000 is running..')
 ```
 
+# What is HTTP?
+
+> It is a language that browser and the server uses to talk to each other  
+
+
 # Introduction
 
 This is an introductory workshop to Node.js and Express. You'll be building your own platform to write, publish and save blog posts (a basic content management system, or CMS).

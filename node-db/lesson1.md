@@ -27,6 +27,7 @@ Let's take a website for example.  A website is just a collection of HTML and CS
   
 # What is it used for? 
 
+
 - web servers, so creating a dynamic websites
 - set up a local web development environment
 - easier to build desktop applications with Electron: Slack, Visual Code, Atom 
@@ -97,9 +98,79 @@ Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US
 
 # Introduction
 
-This is an introductory workshop to Node.js and Express. You'll be building your own platform to write, publish and save blog posts (a basic content management system, or CMS).
+- web servers, so creating a dynamic websites
+- set up a local web development environment
+- easier to build desktop applications with Electron: Slack, Visual Code, Atom 
+- some of the biggest companies use Node.js in production: Netflix, Walmart, IBM, etc.
+- JavaScript everywhere (used to be PHP, Python, JavaScript, MySQL, Apache, now JavaScript full stack)
 
-> [Express](http://expressjs.com/) is one of the most widely-used frameworks for Node.js. It simplifies base features of Node.js, making it easier and faster to build your application's backend. Learning Express gives you a great foundation for becoming a Node.js developer.
+# A simple Node.js server
+
+**Simple server**
+```javascript
+const http = require('http'); 	
+
+const server = http.createServer(function (req, res) {
+	res.end("Hello World!")
+});
+
+server.listen(5000); 	
+
+console.log('Node.js web server at port 5000 is running..')
+```
+
+**Server with two routes**    
+```javascript
+const http = require('http'); 	
+
+const server = http.createServer(function (req, res) {
+
+	if (req.url === '/') { //check the URL of the current request
+	
+	console.log("New request to main page at " + Date())
+        
+        // set response header
+        res.writeHead(200, { 'Content-Type': 'text/html' }); 
+        
+        // set response content    
+        res.write('<html><body><h1>This is home Page.</h1></body></html>');
+		res.write('<h2>The time is: ' + Date() + '</h2>');
+        res.end();
+    
+    } else if (req.url === "/student") {
+		
+	console.log("New request to Student page at " + Date())
+        
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write('<html><body><h1>This is student Page.</h1></body></html>');
+        res.end();
+    
+    } else {
+        res.end('<html><body><h2>Invalid Request at ' + Date() + '</h2></body></html>');
+    }
+});
+
+server.listen(5000); 	
+
+console.log('Node.js web server at port 5000 is running..')
+```
+### Exercise
+Can you add another route `/mentor`?  
+
+# What is HTTP?
+
+> It is a protocol that browser and the server uses to talk to each other  
+
+![HTTP](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http_diagram.png)  
+
+Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+
+
+# NodeJs and Express
+
+[Express](http://expressjs.com/) is one of the most widely-used frameworks for Node.js. It simplifies base features of Node.js, making it easier and faster to build your application's backend. Learning Express gives you a great foundation for becoming a Node.js developer.
+
+In the next steps, we will building a **CMS (Content Management System)** - a system to write, publish and save blog posts. Even though we could use core libraries like `http` to build this system, this becomes very complicated and non-maintainable very quickly. That is why we use frameworks like `Express`.
 
 ## Before you Start
 
@@ -561,16 +632,16 @@ Express has a handy method called `res.sendFile()` that makes it easy to send fi
 
 If all goes well, you should have a fully functional CMS!
 
-### Homework
+# Homework
 
 * Finish the tasks from the workshop
-* Try adding an `/about` route to your app to serve some HTML. How is this different from using express's static middleware? We will add some supporting materials to help you with this task during the week. You can see one way of doing it here: http://stackoverflow.com/questions/4529586/render-basic-html-view
+* Try adding an `/about` route to your app to serve some HTML. How is this different from using express's static middleware? You can see one way of doing it here: http://stackoverflow.com/questions/4529586/render-basic-html-view
 * Complete the nodeschool.io 'learnyounode' tutorial https://github.com/workshopper/learnyounode
 * Research the following topics: blocking vs. non-blocking; RESTful APIs; templating engines; HTTP codes; asynchronous programming. Google them! We will be asking questions in next week's session.
 
 **Important:** When you get stuck during the homework you should follow the following "escalation policy".
 * First, search for answers on Google and Stack Overflow. If you have an error message, copy and paste it into Google.
-* When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
+* When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #scotland-class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
 * If you cannot get an answer from your fellow students, @ a mentor with your question and we will reply as soon as we can.
 
 # Resources

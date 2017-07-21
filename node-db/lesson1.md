@@ -95,7 +95,7 @@ Can you add another route `/mentor`?
 Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 
-# NodeJs and Express
+# Node.js and Express
 
 [Express](http://expressjs.com/) is one of the most widely-used frameworks for Node.js. It simplifies base features of Node.js, making it easier and faster to build your application's backend. Learning Express gives you a great foundation for becoming a Node.js developer.
 

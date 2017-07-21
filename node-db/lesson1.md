@@ -338,6 +338,10 @@ However by making use of endpoints, we can make the server send different respon
 
 An endpoint is the part of the URL which comes after `/`. For example: `/chocolate` is the "chocolate" endpoint. It's the URL to which you send a request.
 
+### What is URL?
+
+![alt text](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http1-url-structure.png "URL") 
+
 ## 1. Create your own endpoints and send different responses
 
 We're going to try sending different responses at different endpoints. Remember the `app.get()` method? To set up routing in your server, we just need to repeat this method with different endpoints.

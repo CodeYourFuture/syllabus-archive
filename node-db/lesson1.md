@@ -263,7 +263,7 @@ The handler function always takes a `request` and `response` object, and sends t
 
 ### What does a handler function look like in Express?
 
-The `get()` method is used to define a handler function in Express. It takes two parameters: the **endpoint** at which to trigger an action (we'll explain more about this in the next step), and the handler function that tells it exactly what to do. Here's a simple "Hello World!" example:
+The `get()` [method](http://expressjs.com/en/api.html#app.get.method) is used to define a handler function in Express. It takes two parameters: the **endpoint** at which to trigger an action (we'll explain more about this in the next step), and the handler function that tells it exactly what to do. Here's a simple "Hello World!" example:
 
 ```js
 // req is the Request object, res is the Response object

@@ -299,7 +299,7 @@ app.listen(3000, function () {
 
 ## 2. Tell your handler function what to do
 
-We want our handler function to send back a message to the client. To do that, we're going to use the Express `send()` method. This will update the response object with the message.
+We want our handler function to send back a message to the client. To do that, we're going to use the Express `send()` [method](http://expressjs.com/en/api.html#res.send). This will update the response object with the message.
 
 Update your handler function like so:
 

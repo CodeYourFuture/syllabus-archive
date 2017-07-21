@@ -95,7 +95,7 @@ Can you add another route `/mentor`?
 Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 
-# NodeJs and Express
+# Node.js and Express
 
 [Express](http://expressjs.com/) is one of the most widely-used frameworks for Node.js. It simplifies base features of Node.js, making it easier and faster to build your application's backend. Learning Express gives you a great foundation for becoming a Node.js developer.
 
@@ -134,6 +134,42 @@ It will ask you a bunch of questions.
 At the endo of the wizard, you should see a new file called `package.json` in your project's folder.
 
 Here is an example `package.json` file for a project called [Passport](https://github.com/jaredhanson/passport/blob/master/package.json).
+
+# What is JSON?
+
+JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
+JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
+
+```javascript
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    },
+    {
+      "type": "mobile",
+      "number": "123 456-7890"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+```
 
 # Step 2 - Installing Express
 
@@ -227,7 +263,7 @@ The handler function always takes a `request` and `response` object, and sends t
 
 ### What does a handler function look like in Express?
 
-The `get()` method is used to define a handler function in Express. It takes two parameters: the **endpoint** at which to trigger an action (we'll explain more about this in the next step), and the handler function that tells it exactly what to do. Here's a simple "Hello World!" example:
+The `get()` [method](http://expressjs.com/en/api.html#app.get.method) is used to define a handler function in Express. It takes two parameters: the **endpoint** at which to trigger an action (we'll explain more about this in the next step), and the handler function that tells it exactly what to do. Here's a simple "Hello World!" example:
 
 ```js
 // req is the Request object, res is the Response object
@@ -263,7 +299,7 @@ app.listen(3000, function () {
 
 ## 2. Tell your handler function what to do
 
-We want our handler function to send back a message to the client. To do that, we're going to use the Express `send()` method. This will update the response object with the message.
+We want our handler function to send back a message to the client. To do that, we're going to use the Express `send()` [method](http://expressjs.com/en/api.html#res.send). This will update the response object with the message.
 
 Update your handler function like so:
 
@@ -301,6 +337,10 @@ However by making use of endpoints, we can make the server send different respon
 ### What is an endpoint?
 
 An endpoint is the part of the URL which comes after `/`. For example: `/chocolate` is the "chocolate" endpoint. It's the URL to which you send a request.
+
+### What is URL?
+
+![alt text](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http1-url-structure.png "URL") 
 
 ## 1. Create your own endpoints and send different responses
 
@@ -440,13 +480,7 @@ You should now see an object in the console.  The key should be `blogpost`, just
 
 Right now, your precious blog posts aren't being saved anywhere, which is a bit of a shame.  Let's do something about that.
 
-### JSON - the handy data format
-
 You'll note that in the data folder there's a new file called `posts.json`.
-
-JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
-
-JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
 
 If you look at `posts.json` will see there's already one blog post there. The format is:
 
@@ -580,4 +614,10 @@ Take a look at the following links to learn more about Node.js.
 
 More about HTTP:
 [Tutsplus tutorial](https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039)
+
+Learn more about JSON:
+* http://www.json.org
+* https://en.wikipedia.org/wiki/JSON
+* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 

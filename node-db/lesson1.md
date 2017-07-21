@@ -135,6 +135,42 @@ At the endo of the wizard, you should see a new file called `package.json` in yo
 
 Here is an example `package.json` file for a project called [Passport](https://github.com/jaredhanson/passport/blob/master/package.json).
 
+# What is JSON?
+
+JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
+JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
+
+```javascript
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    },
+    {
+      "type": "mobile",
+      "number": "123 456-7890"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}
+```
+
 # Step 2 - Installing Express
 
 Before we write any code, you'll need to install the Express library. We're going to use the **[Node Package Manager (npm)](https://www.npmjs.com/)** to download it using the **`npm install`** command.
@@ -440,13 +476,7 @@ You should now see an object in the console.  The key should be `blogpost`, just
 
 Right now, your precious blog posts aren't being saved anywhere, which is a bit of a shame.  Let's do something about that.
 
-### JSON - the handy data format
-
 You'll note that in the data folder there's a new file called `posts.json`.
-
-JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
-
-JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
 
 If you look at `posts.json` will see there's already one blog post there. The format is:
 
@@ -580,4 +610,10 @@ Take a look at the following links to learn more about Node.js.
 
 More about HTTP:
 [Tutsplus tutorial](https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039)
+
+Learn more about JSON:
+* http://www.json.org
+* https://en.wikipedia.org/wiki/JSON
+* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 

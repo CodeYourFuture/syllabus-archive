@@ -27,7 +27,7 @@ Let's take a website for example.  A website is just a collection of HTML and CS
   
 # What is it used for? 
 
-- web servers, so creating a dynamic websites
+- web servers, so creating dynamic websites
 - set up a local web development environment
 - easier to build desktop applications with Electron: Slack, Visual Code, Atom 
 - some of the biggest companies use Node.js in production: Netflix, Walmart, IBM, etc.
@@ -90,7 +90,7 @@ Can you add another route `/mentor`?
 
 > It is a protocol that browser and the server uses to talk to each other  
 
-![HTTP](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http_diagram.png)  
+![HTTP](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http_diagram.png)  
 
 Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
@@ -340,7 +340,7 @@ An endpoint is the part of the URL which comes after `/`. For example: `/chocola
 
 ### What is URL?
 
-![alt text](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http1-url-structure.png "URL") 
+![alt text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http1-url-structure.png "URL") 
 
 ## 1. Create your own endpoints and send different responses
 

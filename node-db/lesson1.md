@@ -634,12 +634,21 @@ Now push your code to heroku `git push heroku master`. The push will run few com
 To read more about Heroku and deploying Node Apps to Heroku, check
 https://devcenter.heroku.com/articles/git and https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
 
+# Group Research Topics
+- Security: (https, same origin, cookies, xss etc..)
+- Performance: Request lifecycle (from browser to server and back), Performance considerations and optimisations
+- HTTP and REST: (headers, status codes, Cookies, REST)
+- Node internals: Node event loop, Node core modules, async/sync (non-blocking operations)
+
+The research will be on a Github repo. One member of the group will be responsible of creating a repo, the others will fork it and create Pull Requests for it (that the main repo's owner will have to review and merge).
+
+**We expect each repo to have commits from each member of the group**
+
 # Homework
 
 * Finish the tasks from the workshop
 * Try adding an `/about` route to your app to serve some HTML. How is this different from using express's static middleware? You can see one way of doing it here: http://stackoverflow.com/questions/4529586/render-basic-html-view
 * Complete the nodeschool.io 'learnyounode' tutorial https://github.com/workshopper/learnyounode
-* Research the following topics: blocking vs. non-blocking; RESTful APIs; templating engines; HTTP codes; asynchronous programming. Google them! We will be asking questions in next week's session.
 
 **Important:** When you get stuck during the homework you should follow the following "escalation policy".
 * First, search for answers on Google and Stack Overflow. If you have an error message, copy and paste it into Google.

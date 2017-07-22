@@ -55,7 +55,6 @@ As you can see, rather than worry about where the Counter has started, we are
 only concentrating on the behaviour of the *tick* method, namely that it
 increases the Counter by 1.
 
-
 ## Let's Test
 
 We'll be working on the code [Bowling
@@ -76,4 +75,5 @@ We'll be testing with Jest.
 # Homework
 1. Finish the Bowling Kata that we worked on today. If you have 'finished' it
    in class, continue refactoring it to clean up the code.
+2. Continue work on another 'Kata'. TBC
 2. Project time!

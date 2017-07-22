@@ -64,6 +64,9 @@ We can kick off the first part together, then it will be left to you to
 continue the test driven development. Please work in pairs!
 
 # Resources
+[9 Benefits of Test Driven Development](https://www.madetech.com/blog/9-benefits-of-test-driven-development)
+[Introduction to Test Driven Development
+(TDD)](http://agiledata.org/essays/tdd.html)
 
 
 # Homework

@@ -18,6 +18,8 @@ write the code to make the test pass **GREEN**. At this point, we are safe to
 refactor the code (clean it up - remove duplication). The process is
 **RED-GREEN-REFACTOR**
 
+![rgr](../assets/red_green_refactor.jpg)
+
 ## Behavioural Driven Development (BDD)
 
 You've already seen the structure of standard unit tests:

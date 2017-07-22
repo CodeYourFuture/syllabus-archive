@@ -7,7 +7,7 @@
 - Let's Test
 ---
 
-## Test Driven Development (TDD)
+### Test Driven Development (TDD)
 > Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. ([Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development))
 
 A key principle in TDD is that we write think about our requirements before we dive into code: What should our program be able to do? What are the small components that make up a larger program?
@@ -20,7 +20,7 @@ refactor the code (clean it up - remove duplication). The process is
 
 ![rgr](../assets/red_green_refactor.jpg)
 
-## Behavioural Driven Development (BDD)
+### Behavioural Driven Development (BDD)
 
 You've already seen the structure of standard unit tests:
 
@@ -58,7 +58,7 @@ only concentrating on the behaviour of the *tick* method, namely that it
 increases the Counter by 1.
 
 
-## Let's Test
+### Let's Test
 
 We'll be working on the code [Bowling
 Kata](https://github.com/CodeYourFuture/bowling-tdd) today to practice TDD.
@@ -69,13 +69,18 @@ To start, clone the directory linked above, which will give you the basic file
 setup. After cloning, `npm install` and you'll be ready to go.
 We'll be testing with Jest.
 
-# Resources
+## Resources
 [9 Benefits of Test Driven Development](https://www.madetech.com/blog/9-benefits-of-test-driven-development)
 
 [Introduction to Test Driven Development
 (TDD)](http://agiledata.org/essays/tdd.html)
 
-# Homework
+## Homework
 1. Finish the Bowling Kata that we worked on today. If you have 'finished' it
    in class, continue refactoring it to clean up the code.
 2. Project time!
+
+## Prepare for Next Class
+Read https://github.com/node-girls/what-is-node and some of the listed resources in preparation for Node/Express next week.
+
+If you have time, take a look at https://medium.com/javascript-scene/introduction-to-node-express-90c431f9e6fd for setting up an Express/node.js server. Don't worry if it is too complicated - this will be the focus of our next few classes.

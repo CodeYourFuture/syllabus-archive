@@ -63,6 +63,10 @@ Kata](https://github.com/CodeYourFuture/bowling-tdd) today to practice TDD.
 We can kick off the first part together, then it will be left to you to
 continue the test driven development. Please work in pairs!
 
+To start, clone the directory linked above, which will give you the basic file
+setup. After cloning, `npm install` and you'll be ready to go.
+We'll be testing with Jest.
+
 # Resources
 [9 Benefits of Test Driven Development](https://www.madetech.com/blog/9-benefits-of-test-driven-development)
 

@@ -68,7 +68,7 @@ continue the test driven development. Please work in pairs!
 [Introduction to Test Driven Development
 (TDD)](http://agiledata.org/essays/tdd.html)
 
-
 # Homework
 1. Finish the Bowling Kata that we worked on today. If you have 'finished' it
    in class, continue refactoring it to clean up the code.
+2. Project time!

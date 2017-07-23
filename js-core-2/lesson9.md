@@ -57,12 +57,7 @@ As you can see, rather than worry about where the Counter has started, we are
 only concentrating on the behaviour of the *tick* method, namely that it
 increases the Counter by 1.
 
-<<<<<<< HEAD
-## Let's Test
-=======
-
 ### Let's Test
->>>>>>> ac261e0f846f98ffe994bbb6b263fa4a13ef9ed3
 
 We'll be working on the code [Bowling
 Kata](https://github.com/CodeYourFuture/bowling-tdd) today to practice TDD.
@@ -74,16 +69,17 @@ setup. After cloning, `npm install` and you'll be ready to go.
 We'll be testing with Jest.
 
 ## Resources
-[9 Benefits of Test Driven Development](https://www.madetech.com/blog/9-benefits-of-test-driven-development)
+* [9 Benefits of Test Driven Development](https://www.madetech.com/blog/9-benefits-of-test-driven-development)
 
-[Introduction to Test Driven Development
+* [Introduction to Test Driven Development
 (TDD)](http://agiledata.org/essays/tdd.html)
 
 ## Homework
 1. Finish the Bowling Kata that we worked on today. If you have 'finished' it
    in class, continue refactoring it to clean up the code.
-2. Continue work on another 'Kata'. TBC
-2. Project time!
+
+## Project
+2. [Project time](https://github.com/CodeYourFuture/WebDeveloperTest)
 
 ## Prepare for Next Class
 Read https://github.com/node-girls/what-is-node and some of the listed resources in preparation for Node/Express next week.

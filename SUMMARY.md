@@ -17,6 +17,7 @@
   * [Week 6](/js-core-2/lesson6.md)
   * [Week 7](/js-core-2/lesson7.md)
   * [Week 8](/js-core-2/lesson8.md)
+  * [Week 9](/js-core-2/lesson9.md)
 * Node and DB
     * [Week 1](/node-db/lesson1.md)
     * [Week 2](/node-db/lesson2.md)

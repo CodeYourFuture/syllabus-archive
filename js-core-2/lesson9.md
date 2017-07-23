@@ -79,9 +79,9 @@ We'll be testing with Jest.
    in class, continue refactoring it to clean up the code.
 
 ## Project
-2. [Project time](https://github.com/CodeYourFuture/WebDeveloperTest)
+2. [Project time](https://github.com/CodeYourFuture/Web-developer-project-london)
 
 ## Prepare for Next Class
-Read https://github.com/node-girls/what-is-node and some of the listed resources in preparation for Node/Express next week.
+* Read https://github.com/node-girls/what-is-node and some of the listed resources in preparation for Node/Express next week.
 
-If you have time, take a look at https://medium.com/javascript-scene/introduction-to-node-express-90c431f9e6fd for setting up an Express/node.js server. Don't worry if it is too complicated - this will be the focus of our next few classes.
+* If you have time, take a look at https://medium.com/javascript-scene/introduction-to-node-express-90c431f9e6fd for setting up an Express/node.js server. Don't worry if it is too complicated - this will be the focus of our next few classes.

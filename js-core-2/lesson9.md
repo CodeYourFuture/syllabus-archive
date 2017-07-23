@@ -85,6 +85,8 @@ We'll be testing with Jest.
 2. [Project time](https://github.com/CodeYourFuture/Web-developer-project-london)
 
 ## Prepare for Next Class
+* Watch (and ideally implement) - https://www.youtube.com/watch?annotation_id=annotation_2934154685&feature=iv&src_vid=ndKRjmA6WNA&v=FqMIyTH9wSg
+
 * Read https://github.com/node-girls/what-is-node and some of the listed resources in preparation for Node/Express next week.
 
 * If you have time, take a look at https://medium.com/javascript-scene/introduction-to-node-express-90c431f9e6fd for setting up an Express/node.js server. Don't worry if it is too complicated - this will be the focus of our next few classes.

@@ -77,8 +77,9 @@ We'll be testing with Jest.
 ## Homework
 1. Finish the Bowling Kata that we worked on today. If you have 'finished' it
    in class, continue refactoring it to clean up the code.
-2. Do another Kata from http://kata-log.rocks/tdd.html - Suggestions (in order
-   from easy to difficult) - Roman Numerals, Mars Rover, Tic Tac Toe. 
+2. Do another Kata (Test Driven is mandatory!) from http://kata-log.rocks/tdd.html - Suggestions (in order
+   from easy to difficult) - Roman Numerals, Mars Rover, Tic Tac Toe. Your
+   mentor can help you with this in a 1-1.
 
 ## Project
 2. [Project time](https://github.com/CodeYourFuture/Web-developer-project-london)

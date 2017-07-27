@@ -18,9 +18,9 @@
   * [Week 9 - More Arrays and ES6](/js-core-2/lesson6.md)
   * [Week 10 - More Objects and core JS](/js-core-2/lesson7.md)
 * Node and DB
-    * [Week 11](/node-db/lesson1.md)
-    * [Week 12](/node-db/lesson2.md)
-    * [Week 13](/node-db/lesson3.md)
+    * [Week 11 - Node and Express 101](/node-db/lesson1.md)
+    * [Week 12 - Templating and APIs ](/node-db/lesson2.md)
+    * [Week 13 - Promises and Mongo](/node-db/lesson3.md)
     * [Week 14](/node-db/lesson4.md)
     * [Week 15](/node-db/lesson5.md)
 * React

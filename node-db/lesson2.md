@@ -3,10 +3,7 @@
 **What we will learn today?**
 - Recap
 - Templating
-    - MVC
-- Callbacks
-    - callback hell
-    - promises
+- Callbacks and Callback hell
 - Middleware and Error handling
 - Deploying to Heroku
 
@@ -16,6 +13,8 @@
 Fork and Clone the repo - https://github.com/CodeYourFuture/express-workshop-2
 
 # Recap
+
+Let's have a look at the repo we've just forked.
 
 - **Package.json**: Remember how in the last lesson we added a *package.json* file and added dependencies like *express* to it.
 

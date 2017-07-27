@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg) 
-# Node 1
+# Node 2
 **What we will learn today?**
 - Recap
 - Templating
@@ -238,34 +238,6 @@ oReq.send();
 
 The code above is very hard to understand and follow. Notice the pyramid shape `})` - This is often called the **callback hell**.
 
-## Promises
-Callbacks are a fundamental part of JavaScript - the fact that functions are *first-class citizens* and it's possible to pass them around is very powerful and makes JavaScript different from many other programming languages. You should learn how to read, write callbacks and be comfortable around them. Though, there are other more advanced solutions for tackling the callback hell.
-
-**Promises** are a way to write async code that still appears as though it is executing in a top-down way, and handles more types of errors due to encouraged use of try/catch style error handling.
-
-> **The Promise object** represents the eventual completion (or failure) of an asynchronous operation, and its resulting value. [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-
-This example from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) helps to **promisify** the `setTimeout` example. 
-
-```javascript
-let myFirstPromise = new Promise((resolve, reject) => {
-  // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
-  // In this example, we use setTimeout(...) to simulate async code. 
-  // In reality, you will probably be using something like XHR or an HTML5 API.
-  setTimeout(function(){
-    resolve("Success!"); // Yay! Everything went well!
-  }, 250);
-});
-
-myFirstPromise.then((successMessage) => {
-  // successMessage is whatever we passed in the resolve(...) function above.
-  // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
-  console.log("Yay! " + successMessage);
-});
-```
-
-> **Exercise**: Let's rewrite the code above using `fetch` which provides an alternative to `XmlHttpRequest` that uses a Promise-based API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-
 # Middleware
 Middleware functions are functions that have access to the request object, `req`, the response object, `res`, and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named `next`.
 
@@ -310,18 +282,10 @@ app.use(myLogger)
 > **Exercise**: Follow the tutorial for writing `requestTime` at https://expressjs.com/en/guide/writing-middleware.html and add it to your own application
 
 # Using Express.Router
-We have lots of Routes in **server.js**, let's use 
-
-> Use the express.Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.
+We have lots of Routes in **server.js**, we can use the express.Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.
 https://expressjs.com/en/guide/routing.html#express-router
 
-> **Exercise**: Let's use `express.Router` to organise the routes in **server.js** in a more *modular* fashion. Write your new file under `/routes/site-routes.js`.
-
-# MVC
-> Model–view–controller (MVC) is a software architectural pattern for implementing user interfaces on computers. It divides a given application into three interconnected parts in order to separate internal representations of information from the ways that information is presented to and accepted from the user. The MVC design pattern decouples these major components allowing for efficient code reuse and parallel development. (Wikipedia)
-
-> Let's watch Wes Bos' video about MVC together
-> **Exercise**: create a **controllers** folder, add a **blogController** and move the logic for your routes (currently in **routes/site-routes.js**) to this new file.
+> **Exercise**: Use `express.Router` to organise the routes in **server.js** in a more *modular* fashion. Write your new file under `/routes/site-routes.js`.
 
 # APIs
 APIs (Application Programming Interfaces) provide a way for applications to communicate with each other. We already consumed an API earlier in the day: **Github API**. We managed to *communicate* with Github and get important information. We - the client - can use this information in a number of different ways. Our client, in this case, is a Web page but it could have easily been a Mobile Application, or a TV setbox etc...
@@ -335,7 +299,6 @@ APIs (Application Programming Interfaces) provide a way for applications to comm
 https://www.youtube.com/watch?v=7YcW25PHnAA - What is a REST API (up to 3 minutes)
 
 > Go to the url `https://api.github.com/users/CodeYourFuture/repos`
-
 
 # Deploying to Heroku
 
@@ -384,8 +347,8 @@ https://devcenter.heroku.com/articles/git and https://devcenter.heroku.com/artic
 - Write a posts endpoint that you can hit and that should save to the JSON file (use the helper functions we added)
 - Secure the Admin page so that it's only visible if a certain query parameter is provided
     - Can you go a bit further with adding proper security? Research the internet for solutions in **Express.js**
-- Add a route `posts/:postid` that the displays a specific post
-- Consume a posts API built by another colleague (and deployed to Heroku) to display their latest blog posts on 
+- Add a route `posts/:postid` that displays a specific post
+- Consume a posts API built by another colleague (and deployed to Heroku) to display their latest blog posts.
 
 # Resources
 - Callback hell - http://callbackhell.com/

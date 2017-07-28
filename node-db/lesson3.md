@@ -1,57 +1,42 @@
-## WEEK 3 - Node CV App
+![](https://img.shields.io/badge/status-draft-darkred.svg) 
+# Node 3
+**What we will learn today?**
+- Recap
+- Promises
+- MVC
+- Mongo
+---
 
-### Morning!
+# Promises
+Callbacks are a fundamental part of JavaScript - the fact that functions are *first-class citizens* and it's possible to pass them around is very powerful and makes JavaScript different from many other programming languages. You should learn how to read, write callbacks and be comfortable around them. Though, there are other more advanced solutions for tackling the callback hell.
 
-We've set up another repository (https://github.com/Code-Your-Future/node-cv-app) for you to fork (grab a mentor if you're curious or confused about all the boilerplate).
+**Promises** are a way to write async code that still appears as though it is executing in a top-down way, and handles more types of errors due to encouraged use of try/catch style error handling.
 
-## Goal
+> **The Promise object** represents the eventual completion (or failure) of an asynchronous operation, and its resulting value. [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-Remember the CV you made all those months ago? This week you will be building an updated version powered by Node.js. You will fetch data from a real-world API (the Github API), perform some operations on that data, and then use it to populate Handlebars templates (this should sound familiar, because you did a similar thing last week). Finally, you will deploy your CV to the internet.
+This example from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) helps to **promisify** the `setTimeout` example. 
 
-## Practical tasks
+```javascript
+let myFirstPromise = new Promise((resolve, reject) => {
+  // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
+  // In this example, we use setTimeout(...) to simulate async code. 
+  // In reality, you will probably be using something like XHR or an HTML5 API.
+  setTimeout(function(){
+    resolve("Success!"); // Yay! Everything went well!
+  }, 250);
+});
 
-### API client
- - complete the `fetchFromGithub` method in `/server/lib/github-client.js` so that the **should retrieve user profile information** test passes
- - `/users/{username}/events/public` is a github endpoint that returns all a user's activity on github. Use this, and the documentation about event types https://developer.github.com/v3/activity/events/types/, to add a `getUserPullRequests` method to the github client which retrieves a list of a user's pull requests. The **should retrieve user pull requests** test should pass.
+myFirstPromise.then((successMessage) => {
+  // successMessage is whatever we passed in the resolve(...) function above.
+  // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+  console.log("Yay! " + successMessage);
+});
+```
 
-### Controllers
- - Set up a CV controller that outputs your existing HTML CV, using Handlebars templates (if you don't have your existing CV, make a simple one)
- - Add your Github user profile and pull request information to this page by using the Github client
+> **Exercise**: Let's rewrite the code above using `fetch` which provides an alternative to `XmlHttpRequest` that uses a Promise-based API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
-### Middleware
- - add error handling middleware to send a 404 if the user requests some url not supported by your app, or 503 error if anything goes wrong
+# MVC
+> Model–view–controller (MVC) is a software architectural pattern for implementing user interfaces on computers. It divides a given application into three interconnected parts in order to separate internal representations of information from the ways that information is presented to and accepted from the user. The MVC design pattern decouples these major components allowing for efficient code reuse and parallel development. (Wikipedia)
 
-#### Questions to think about
- - What approaches can you use to make it easier to work with complex data like the responses from the Github API?
- - Why haven't we written all the code in a single `app.js` file?
- - Why are we passing your Github user name from the controller to the github client? Why don't we just 'hard code' it into the github client?
- - How are controllers and middleware different? How are they similar?
-
-### Extension tasks
- - use `?format=json` query string to send a json only response
- - set up a user controller to send the same information, minus your CV, for any user. Try to minimise how much you copy and paste code - can some of the code you wrote be extracted into another shared module in your `/lib` directory
- - using the documentation, find some other interesting data from the github api to put in your CV. Use `Promise.all()` to wait for all your api calls to respond, and output all the data in your CV page
- - extend your error middleware to send a custom 404 response if a user is not found
-
-### Deploying to Heroku
-- follow this guide to get your app running on a server: https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction (skip the 'prepare your app' section)
-
-## Important concepts
-
-- Modular JavaScript:
-  - D.R.Y.
-  - `require` and `module.exports`
-  - how and why to split your code out of `server.js` into `app.js`, `controllers/`, `lib/`
-- Error handling
-  - status codes: `404` vs `503`
-- The lifecycle of a `request` and `response` in express
-  - Middleware: `app.use()`
-  - Routes: `app.get()`, `app.post()` etc.
-  - Route handling with Controllers
-  - sending a response: `response.render()`, `response.json()`, `response.send()` etc.
-  - what are the `req` & `res` objects doing, really?
-- Requesting and using complex data from real-world APIs
-  - doing async operations with callbacks and promises
-  - useful methods for dealing with JS data structures
-  - using documentation
-0Looking
+> Watch Wes Bos' video about MVC together
+> **Exercise**: create a **controllers** folder, add a **blogController** and move the logic for your routes (currently in **routes/site-routes.js**) to this new file.

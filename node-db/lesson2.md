@@ -44,6 +44,23 @@ At the moment, we're just serving static HTML files from the *public* folder. **
 
 > A server-side dynamic web page is a web page whose construction is controlled by an application server that processes server-side scripts. In server-side scripting, parameters determine how the assembly of every new web page proceeds, including the setting up of more client-side processing.
 
+## Websites - a small detour
+
+What is wrong with this [website?](http://cyf-template-1.s3-website-eu-west-1.amazonaws.com/)  
+
+Is this one any [better?](http://cyf-template-2.s3-website-eu-west-1.amazonaws.com)  
+
+The final view is [here](http://cyf-template-3.s3-website-eu-west-1.amazonaws.com/)  
+
+What was missing in the first example? 
+
+![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/data.json.png)   
+
+So what is the point of all these?  
+
+![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/html-data-template.png)   
+
+
 ## Template Engines
 A template engine enables you to use static template files in your application. At **runtime**, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page, as it reduces duplicate code ([DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)).
 
@@ -84,6 +101,8 @@ app.get('/', function (req, res) {
 > **Exercise**: Add similar endpoints for `/my-cv` and `/admin`.
 
 > **Exercise**: Let's create a template called `contact` and delete the endpoint we created earlier for `/contact` - render a view instead - similar to what we did with the previous endpoints.
+
+> **Exercise**: Remember how we changed **Contact** to **Contact Information**? Try to change now **Contact Information** to **Get in touch**. Was it any easier? 
 
 ## Template passing info from Controller to Template
 When we were using the *static* HTML pages from *public/* folder - the heading text shown on top of the page (on the photo) used to change when we go to different pages. Now that we switched to the template, we've lost that behavior as the code for this part comes from the centralised **Layout** (views/layouts/main.handlebars).

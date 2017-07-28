@@ -95,7 +95,7 @@ How can we imitate that behavior without having to duplicate code or serve stati
     ```javascript
     app.get('/', function (req, res) {
         res.render('index', {
-            title: 'Etzali Blog', // insert your name instead 
+            title: 'Etzali Profile', // insert your name instead 
         });
     });
     ```
@@ -116,7 +116,7 @@ How can we imitate that behavior without having to duplicate code or serve stati
 
 > **Exercise**: Pass the `subheading` from the route to the view as well.
 
-> **Exercise**: Change Title to default to "My Blog" if no title was provided. Look at #if helpers for Handlebars http://handlebarsjs.com/builtin_helpers.html
+> **Exercise**: Change Title to default to "My Profile" if no title was provided. Look at #if helpers for Handlebars http://handlebarsjs.com/builtin_helpers.html
 
 ## Partials
 Handlebars allows for template reuse through partials. Partials are normal Handlebars templates that may be called directly by other templates. ([Handlebars documentation](http://handlebarsjs.com/partials.html))
@@ -161,7 +161,7 @@ app.get('/', function (req, res) {
         const postsJson = JSON.parse(fileData);
         // send the json to the Template to render
         res.render('index', {
-          title: 'Etzali Blog', // insert your name instead
+          title: 'Etzali Profile', // insert your name instead
           posts: postsJson
         });
     };

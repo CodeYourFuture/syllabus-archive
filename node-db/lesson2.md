@@ -44,6 +44,23 @@ At the moment, we're just serving static HTML files from the *public* folder. **
 
 > A server-side dynamic web page is a web page whose construction is controlled by an application server that processes server-side scripts. In server-side scripting, parameters determine how the assembly of every new web page proceeds, including the setting up of more client-side processing.
 
+## Websites - a small detour
+
+What is wrong with this [website?](http://cyf-template-1.s3-website-eu-west-1.amazonaws.com/)  
+
+Is this one any [better?](http://cyf-template-2.s3-website-eu-west-1.amazonaws.com)  
+
+The final view is [here](http://cyf-template-3.s3-website-eu-west-1.amazonaws.com/)  
+
+What was missing in the first example? 
+
+![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/data.json.png)   
+
+So what is the point of all these?  
+
+![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/html-data-template.png)   
+
+
 ## Template Engines
 A template engine enables you to use static template files in your application. At **runtime**, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page, as it reduces duplicate code ([DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)).
 

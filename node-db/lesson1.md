@@ -131,13 +131,13 @@ It will ask you a bunch of questions.
 
 > The wizard asks you for the following information: `name`, `version`, `description`, `main`, `test`, `repository`, `keywords`, `author`, `license` - do you understand all of them?
 
-At the endo of the wizard, you should see a new file called `package.json` in your project's folder.
+At the end of the wizard, you should see a new file called `package.json` in your project's folder.
 
 Here is an example `package.json` file for a project called [Passport](https://github.com/jaredhanson/passport/blob/master/package.json).
 
 # What is JSON?
 
-JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
+JSON (JavaScript Object Notation) is a type of file for structuring data in a human-readable way. It is also a really popular format for sending data across the web.
 JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
 
 ```javascript
@@ -652,7 +652,7 @@ The research will be on a Github repo. One member of the group will be responsib
 
 **Important:** When you get stuck during the homework you should follow the following "escalation policy".
 * First, search for answers on Google and Stack Overflow. If you have an error message, copy and paste it into Google.
-* When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #scotland-class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
+* When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #london-class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
 * If you cannot get an answer from your fellow students, @ a mentor with your question and we will reply as soon as we can.
 
 # Resources

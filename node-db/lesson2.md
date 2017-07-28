@@ -102,6 +102,8 @@ app.get('/', function (req, res) {
 
 > **Exercise**: Let's create a template called `contact` and delete the endpoint we created earlier for `/contact` - render a view instead - similar to what we did with the previous endpoints.
 
+> **Exercise**: Remember how we changed **Contact** to **Contact Information**? Try to change now **Contact Information** to **Get in touch**. Was it any easier? 
+
 ## Template passing info from Controller to Template
 When we were using the *static* HTML pages from *public/* folder - the heading text shown on top of the page (on the photo) used to change when we go to different pages. Now that we switched to the template, we've lost that behavior as the code for this part comes from the centralised **Layout** (views/layouts/main.handlebars).
 

@@ -2,6 +2,8 @@
 # Node 3
 **What we will learn today?**
 - Recap
+- Middleware
+- Express.Router
 - Promises
 - MVC
 - Mongo

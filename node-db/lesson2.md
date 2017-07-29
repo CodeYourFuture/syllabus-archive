@@ -314,9 +314,24 @@ APIs (Application Programming Interfaces) provide a way for applications to comm
 > Hint: make use `res.sendFile`
 
 ## REST API
-https://www.youtube.com/watch?v=7YcW25PHnAA - What is a REST API (up to 3 minutes)
+REST (REpresentational State Transfer) and RESTful APIs provide a way (an architecture) for building APIs that is simple and scalable.
 
-> Go to the url `https://api.github.com/users/CodeYourFuture/repos`
+There are many constraints and aspects to building a REST API, but one fundamental constraint is the use of a URL (Uniform Resource Locator) and HTTP Methods (GET, POST, PUT, DELETE etc..)
+
+In our *endpoint* that we just created `/api/get-posts`, the *get* part of the URL is redundant as the HTTP Method `GET` already tells that we are *GETting* a *Resource*. The Resource in this case is called **posts**.
+
+> Exercise: Let's rename our endpoint to `/posts` so that it follows RESTful architecture.
+>
+> **What would the endpoint for creating posts be called?**
+
+> **Watch**: https://www.youtube.com/watch?v=7YcW25PHnAA - What is a REST API (up to 3 minutes)
+
+REST is a big topic that we will revisit again. The table below from Wikipedia shows how a typical RESTful API would look like.
+
+![](assets/REST.png)
+[Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer#Uniform_interface)
+
+For now, remember when building APIs, to use **Resource** names to identify your endpoints and make use of the **HTTP methods (Verbs)** to describe operations performed on those resources.
 
 # Deploying to Heroku
 
@@ -361,12 +376,16 @@ https://devcenter.heroku.com/articles/git and https://devcenter.heroku.com/artic
 
 # Homework
 - Deploy to Heroku if you haven't yet
+- Add a route `posts/:postid` that displays a specific post - Read about route parameters on [Express documentation](https://expressjs.com/en/guide/routing.html#route-parameters)
+    - When the user clicks on a route in the home page, navigate them to your route.
+    - Amend your JSON structure to have a **postId** that you can use it to identify which post we want to display.
 - Implement the Admin page. 
-- Write a posts endpoint that you can hit and that should save to the JSON file (use the helper functions we added)
+    - Write a posts endpoint that you can hit and that should save to the JSON file (use the helper functions we added under **helpers/savePost**)
+    - Make an AJAX call from the **front end** (the admin page) to your new endpoint.
+    - You might need to use `formidable` or `body-parser` middleware to get the data on the server.
+- Consume a posts API built by another colleague (and deployed to Heroku) to display their latest blog posts. You can display the posts on any page that you see suitable (or add a new page).
 - Secure the Admin page so that it's only visible if a certain query parameter is provided
     - Can you go a bit further with adding proper security? Research the internet for solutions in **Express.js**
-- Add a route `posts/:postid` that displays a specific post
-- Consume a posts API built by another colleague (and deployed to Heroku) to display their latest blog posts.
 
 # Resources
 - Callback hell - http://callbackhell.com/

@@ -16,7 +16,7 @@ Callbacks are a fundamental part of JavaScript - the fact that functions are *fi
 
 This example from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) helps to **promisify** the `setTimeout` example. 
 
-```javascript
+``js
 let myFirstPromise = new Promise((resolve, reject) => {
   // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
   // In this example, we use setTimeout(...) to simulate async code. 

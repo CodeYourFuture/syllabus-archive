@@ -35,7 +35,7 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 # A simple Node.js server
 
 **Simple server**
-```javascript
+``js
 const http = require('http'); 	
 
 const server = http.createServer(function (req, res) {
@@ -48,7 +48,7 @@ console.log('Node.js web server at port 5000 is running..')
 ```
 
 **Server with two routes**    
-```javascript
+``js
 const http = require('http'); 	
 
 const server = http.createServer(function (req, res) {
@@ -139,7 +139,7 @@ Here is an example `package.json` file for a project called [Passport](https://g
 JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
 JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
 
-```javascript
+``js
 {
   "firstName": "John",
   "lastName": "Smith",

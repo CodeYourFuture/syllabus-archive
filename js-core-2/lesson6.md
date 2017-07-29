@@ -334,7 +334,7 @@ ECMAScript 2015 (or ES6) is a significant update to JavaScript that introduces n
 
 ## const and let
 on JS Bin, let's write this simple code snippet
-```javascript
+``js
 function sayGreeting(name, gender) {
     var greeting = 'Hello';
     var nameWithTitle;

@@ -16,10 +16,26 @@ Servers are computer programs that receive requests from other programs, the *cl
 ### ...and what is a server in plain English?
 
 A server is a computer program. Its job is to send and receive data.
+![simple server](/node-db/images/server_simple.png)
+We can use a server for some complex operations
+
+![server with operation](/node-db/images/server_simple_sum.png)
+
+Or have a polite server that replies with some text
+
+![server returns text](/node-db/images/server_simple_hello.png)
 
 Let's take a website for example.  A website is just a collection of HTML and CSS files, images, maybe some javascript files. When you type a website address in your browser's address bar, the browser (client) sends a **request** to the server that lives at that address. The browser asks the server to give it the files it needs to display the website properly.
 
-![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
+![Server flow](/node-db/images/server_http.png)
+
+# What is HTTP?
+
+> It is a protocol that browser and the server uses to talk to each other  
+
+![HTTP](/node-db/images/http_diagram.png)
+
+Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
 # What is Node.js?
 
@@ -35,65 +51,32 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 
 # A simple Node.js server
 
+Fork the repository https://github.com/CodeYourFuture/node-workshop
+
+`$ git clone https://github.com/YOUR-USERNAME/node-workshop`
+
 **Simple server**
-```javascript
-const http = require('http'); 	
 
-const server = http.createServer(function (req, res) {
-	res.end("Hello World!")
-});
+Take a look to the code and start the simple server
 
-server.listen(5000); 	
+`$ node node-workshop/scripts/simple_server.js`
 
-console.log('Node.js web server at port 5000 is running..')
-```
+And open http://localhost:5000
 
 **Server with two routes**    
-```javascript
-const http = require('http'); 	
 
-const server = http.createServer(function (req, res) {
+> Stop the previous server if is still running with Ctrl + C in the terminal
 
-	if (req.url === '/') { //check the URL of the current request
-	
-	console.log("New request to main page at " + Date())
-        
-        // set response header
-        res.writeHead(200, { 'Content-Type': 'text/html' }); 
-        
-        // set response content    
-        res.write('<html><body><h1>This is home Page.</h1></body></html>');
-		res.write('<h2>The time is: ' + Date() + '</h2>');
-        res.end();
-    
-    } else if (req.url === "/student") {
-		
-	console.log("New request to Student page at " + Date())
-        
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write('<html><body><h1>This is student Page.</h1></body></html>');
-        res.end();
-    
-    } else {
-        res.end('<html><body><h2>Invalid Request at ' + Date() + '</h2></body></html>');
-    }
-});
+Take a look to the code and start the server with routes
 
-server.listen(5000); 	
+`$ node node-workshop/scripts/server_with_routes.js`
 
-console.log('Node.js web server at port 5000 is running..')
-```
+Open http://localhost:5000
+
+And http://localhost:5000/student
+
 ### Exercise
 Can you add another route `/mentor`?  
-
-# What is HTTP?
-
-> It is a protocol that browser and the server uses to talk to each other  
-
-![HTTP](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http_diagram.png)  
-
-Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
-
 
 # Node.js and Express
 
@@ -340,8 +323,7 @@ An endpoint is the part of the URL which comes after `/`. For example: `/chocola
 
 ### What is URL?
 
-![alt text](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http1-url-structure.png "URL") 
-
+![alt text](/node-db/images/http1-url-structure.png "URL") 
 ## 1. Create your own endpoints and send different responses
 
 We're going to try sending different responses at different endpoints. Remember the `app.get()` method? To set up routing in your server, we just need to repeat this method with different endpoints.

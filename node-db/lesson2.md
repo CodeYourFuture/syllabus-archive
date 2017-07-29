@@ -256,55 +256,6 @@ oReq.send();
 
 The code above is very hard to understand and follow. Notice the pyramid shape `})` - This is often called the **callback hell**.
 
-# Middleware
-Middleware functions are functions that have access to the request object, `req`, the response object, `res`, and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named `next`.
-
-Middleware functions can perform the following tasks:
-
-- Execute any code
-- Make changes to the request and the response objects
-- End the request-response cycle
-- Call the next middleware function in the stack
-
-> **Exercise**: We've already used one built-in middleware in our app - what was it?
-
-## Handle Page Not found
-> Try to navigate to a url that doesn't exist. What do you get? Open the **Developer tools** and check what status code do you get back.
-
-```js
-app.use(function (req, res, next) {
-  res.status(404).render('404');
-});
-```
-
-## Setup an error handler
-You define error-handling middleware in the same way as other middleware, except with four arguments instead of three; specifically with the signature (err, req, res, next):
-
-```js
-app.use(function (err, req, res, next) {
-  console.error(err.stack)
-  res.status(500).send('Something broke!')
-})
-```
-
-### Let's write a custom middleware
-```js
-var myLogger = function (req, res, next) {
-  console.log('LOGGED')
-  next()
-}
-
-app.use(myLogger)
-```
-
-> **Exercise**: Follow the tutorial for writing `requestTime` at https://expressjs.com/en/guide/writing-middleware.html and add it to your own application
-
-# Using Express.Router
-We have lots of Routes in **server.js**, we can use the express.Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.
-https://expressjs.com/en/guide/routing.html#express-router
-
-> **Exercise**: Use `express.Router` to organise the routes in **server.js** in a more *modular* fashion. Write your new file under `/routes/site-routes.js`.
-
 # APIs
 APIs (Application Programming Interfaces) provide a way for applications to communicate with each other. We already consumed an API earlier in the day: **Github API**. We managed to *communicate* with Github and get important information. We - the client - can use this information in a number of different ways. Our client, in this case, is a Web page but it could have easily been a Mobile Application, or a TV setbox etc...
 

@@ -75,7 +75,7 @@ To add it to your project:
 
 Then in your `server.js`, we need to configure the `middleware` for Handlebars.
 
-``js
+```js
 
 // Add this to the top of your file
 const exphbs  = require('express-handlebars');
@@ -92,7 +92,7 @@ app.set('view engine', 'handlebars');
 
 Then add these routes:
 
-``js
+```js
 app.get('/', function (req, res) {
     res.render('index');
 });
@@ -111,7 +111,7 @@ How can we imitate that behavior without having to duplicate code or serve stati
 
 1. Let's modify the `/` route to pass the title of the page.
 
-    ``js
+    ```js
     app.get('/', function (req, res) {
         res.render('index', {
             title: 'Etzali Profile', // insert your name instead 
@@ -170,7 +170,7 @@ For now, we will finish by using the **each** helper.
 
 In the `route`, let's load the file in `data/posts.json`:
 
-``js
+```js
 app.get('/', function (req, res) {
     const filePath = __dirname + '/data/posts.json';
     const callbackFunction = function(error, file) {
@@ -234,7 +234,7 @@ The **client-side code** in *github-client.js* should look familiar.
 In the code where we retrieve the repos data from Github, imagine if we had a requirement, that for each repo retrieved, we have to make another API call to retrieve all the available branches (there is a property called *branches_url* that we can use to get that info). And then, once we have all the branches, make _another_ API call to get the info for each branch.
 
 The code to do so, will look something similar to this:
-``js
+```js
 var oReq = new XMLHttpRequest();
 oReq.addEventListener('load', function() {
     var oReq2 = new XMLHttpRequest();
@@ -271,7 +271,7 @@ Middleware functions can perform the following tasks:
 ## Handle Page Not found
 > Try to navigate to a url that doesn't exist. What do you get? Open the **Developer tools** and check what status code do you get back.
 
-``js
+```js
 app.use(function (req, res, next) {
   res.status(404).render('404');
 });
@@ -280,7 +280,7 @@ app.use(function (req, res, next) {
 ## Setup an error handler
 You define error-handling middleware in the same way as other middleware, except with four arguments instead of three; specifically with the signature (err, req, res, next):
 
-``js
+```js
 app.use(function (err, req, res, next) {
   console.error(err.stack)
   res.status(500).send('Something broke!')
@@ -288,7 +288,7 @@ app.use(function (err, req, res, next) {
 ```
 
 ### Let's write a custom middleware
-``js
+```js
 var myLogger = function (req, res, next) {
   console.log('LOGGED')
   next()

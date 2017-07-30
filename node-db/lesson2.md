@@ -87,7 +87,7 @@ app.set('view engine', 'handlebars');
 
 > Let's look at the folder `views/layouts/main.handlebars`
 
-- Notice the ```{{{body}}}```. What do you think this is?
+- There is a **placeholder for body** where the "body" get injected - can you find it?
 - Notice the *index.handlebars*, *my-cv.handlebars* and *admin.handlebars*.
 
 

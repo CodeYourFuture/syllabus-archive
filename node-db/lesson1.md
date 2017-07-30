@@ -37,9 +37,13 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 
 Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
+# What is URL?
+
+![alt text](/node-db/images/http1-url-structure.png "URL") 
+
 # What is Node.js?
 
-  > [Node.js®](https://nodejs.org/en/) is a **JavaScript runtime** built on Chrome's **V8 JavaScript engine**. Node.js uses an **event-driven**, **non-blocking** I/O model that makes it lightweight and efficient.
+  > [Node.js](https://nodejs.org/en/) is a **JavaScript runtime** built on Chrome's **V8 JavaScript engine**. Node.js uses an **event-driven**, **non-blocking** I/O model that makes it lightweight and efficient.
   
 # What is it used for? 
 
@@ -65,7 +69,7 @@ And open http://localhost:5000
 
 **Server with two routes**    
 
-> Stop the previous server if is still running with Ctrl + C in the terminal
+> Stop the previous server if is still running with `ctrl + c` in the terminal
 
 Take a look to the code and start the server with routes
 
@@ -321,9 +325,6 @@ However by making use of endpoints, we can make the server send different respon
 
 An endpoint is the part of the URL which comes after `/`. For example: `/chocolate` is the "chocolate" endpoint. It's the URL to which you send a request.
 
-### What is URL?
-
-![alt text](/node-db/images/http1-url-structure.png "URL") 
 ## 1. Create your own endpoints and send different responses
 
 We're going to try sending different responses at different endpoints. Remember the `app.get()` method? To set up routing in your server, we just need to repeat this method with different endpoints.

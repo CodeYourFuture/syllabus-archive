@@ -4,7 +4,7 @@
 - Recap
 - Templating
 - Callbacks and Callback hell
-- Middleware and Error handling
+- APIs
 - Deploying to Heroku
 
 ---
@@ -86,8 +86,8 @@ app.set('view engine', 'handlebars');
 ```
 
 > Let's look at the folder `views/layouts/main.handlebars`
-> - Notice the `{{{body}}}`. What do you think this is?
-> - Notice the *index.handlebars*, *my-cv.handlebars* and *admin.handlebars*.
+- Notice the `{{{body}}}`. What do you think this is?
+- Notice the *index.handlebars*, *my-cv.handlebars* and *admin.handlebars*.
 
 
 Then add these routes:

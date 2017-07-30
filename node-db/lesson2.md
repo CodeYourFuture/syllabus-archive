@@ -86,7 +86,7 @@ app.set('view engine', 'handlebars');
 ```
 
 > Let's look at the folder `views/layouts/main.handlebars`
-- Notice the `{{{body}}}`. What do you think this is?
+- Notice the **{{{body}}}**. What do you think this is?
 - Notice the *index.handlebars*, *my-cv.handlebars* and *admin.handlebars*.
 
 

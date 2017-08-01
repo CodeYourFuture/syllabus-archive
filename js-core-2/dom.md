@@ -74,8 +74,8 @@ All of the above calls return a live reference, which means that the objects wil
 The above selector functions are available in all browsers, but can be somewhat inflexible for example in situations that require complex lookups. Modern browsers have
 
 ```js
-    document.querySelector('#mainHeader');
-    document.querySelectorAll('p');
+document.querySelector('#mainHeader');
+document.querySelectorAll('p');
 ```
 
 Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
@@ -139,18 +139,18 @@ We can use `document.createElement(tagName)` method to create a new element and 
 We can insert elements into other elements using `element.appendChild` or `element.insertBefore`. For example.
 
 ```html
-    <div id="parent">
-        <p>some content</p>
-    </div>
+<div id="parent">
+    <p>some content</p>
+</div>
 ```
 
 ```js
-    var spanNode = document.createElement('span');
-    var textNode = document.createTextNode('hello');
-    spanNode.appendChild(textNode);
+var spanNode = document.createElement('span');
+var textNode = document.createTextNode('hello');
+spanNode.appendChild(textNode);
 
-    var parentNode = document.getElementById('parent');
-    parentNode.appendChild(spanNode);
+var parentNode = document.getElementById('parent');
+parentNode.appendChild(spanNode);
 ```
 
 What do you think above code will do?
@@ -158,7 +158,7 @@ What do you think above code will do?
 `insertBefore` is a bit more complicated.
 
 ```js
-    var insertedNode = parentNode.insertBefore(newNode, referenceNode);
+var insertedNode = parentNode.insertBefore(newNode, referenceNode);
 ```
 
 Here `insertedNode` is the the node being inserted, that is `newNode`. `parentNode` is the the parent of the newly inserted node. `newNode` is the node to be inserted and `referenceNode` is the node before which newNode is inserted.
@@ -166,7 +166,7 @@ Here `insertedNode` is the the node being inserted, that is `newNode`. `parentNo
 There is no `insertAfter` method. It can be emulated by combining the `insertBefore` method with `nextSibling` property. In the line below we use this approach to insert `nodeOne` after `nodeTwo` inside `parentNode`
 
 ```js
-    parentNode.insertBefore(nodeOne, nodeTwo.nextSibling);
+parentNode.insertBefore(nodeOne, nodeTwo.nextSibling);
 ```
 
 > **Exercise**:

@@ -9,7 +9,7 @@ They are used to allow you code to run in the background (asynchronously).
 We have already seen an example of this when working with APIs.
 The `request.onreadystatechange` is a callback function.
 
-```JavaScript
+```js
 function finished() {
     alert('The task has finished');
 }
@@ -26,7 +26,7 @@ thingThatTakesALongTime(finished);
 
 
 Sometimes callbacks are used, so you can handle errors separately.
-```JavaScript
+```js
 function handleError(problem) {
     alert('There was an error: ' + problem);
 }
@@ -60,7 +60,7 @@ A simple example is `setTimeout`.
 This allows you to run a function after a given time period.
 The first argument is the function you want to run, the second argument is the `delay` (in milliseconds)
 
-```JavaScript
+```js
 
 function myFunction() {
     console.log('Hello world!');
@@ -81,7 +81,7 @@ Using callbacks, you can easily apply a function to every element in an array us
 The following snippet, will take an array, and return a new array, where every element in the array is double.
 
 Before:
-```JavaScript
+```js
 var myArray = [1, 5, 10]; // The starting array
 var newArray = []; // The final array
 
@@ -95,7 +95,7 @@ console.log(newArray);
 [2, 10, 20]
 ```
 
-```JavaScript
+```js
 var myArray = [1, 5, 10];
 
 function double(x) {
@@ -123,7 +123,7 @@ They allow for writing easier to understand code when dealing with asynchronous 
 The API is very simple, when you have a promise, you can attach either a `then` callback or a `catch` callback.
 If the promise is successful, the the function in the `then` callback is called. If it fails, then the `catch` callback is called.
 
-```JavaScript
+```js
 var myPromise = new Promise(function(resolve, reject) {
     // Do some work in this function
 
@@ -146,7 +146,7 @@ myPromise.catch(function(value) {
 
 `fetch` is a nicer (more modern) way of creating HTTP requests. It makes heavy use of Promises.
 
-```JavaScript
+```js
 // Chaining for more "advanced" handling
 fetch('http://www.mocky.io/v2/584c3d2d1200001b1e372b01').then(function(response) {
 	return response.json(); // returning another Promise

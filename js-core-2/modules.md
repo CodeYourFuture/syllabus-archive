@@ -38,7 +38,7 @@ Assuming our program is in the same folder as `printName.js`, we can use the abo
 
 We can then continue to use the `printName` function as if it we defined it in our own program!
 
-```
+```js
 var printName = require('./printName.js');
 
 printName();

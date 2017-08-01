@@ -98,7 +98,7 @@ Operators have the same precedence as in algebra: `*` and `/` have higher preced
 
 Strings represent any sort of text. They are delimited by single quotes (`'`) or double quotes (`”`) and can be of any length.
 
-```
+```js
 '' // empty string
 "" // empty string
 'Hello'
@@ -111,7 +111,7 @@ Strings represent any sort of text. They are delimited by single quotes (`'`) or
 
 The most common operation on strings is to append one string to another. This is called *string concatenation*. It’s achieved by the plus (`+`) operator:
 
-```
+```js
 "Hello" + "World" // "HelloWorld"
 ```
 
@@ -138,10 +138,10 @@ true && true // true
 ```
 - `||` (OR), which is true if at least one of the operands is true:
 ```js
-false && false // false
-true && false // true
-false && true // true
-true && true // true
+false || false // false
+true || false // true
+false || true // true
+true || true // true
 ```
 
 **TODO:** When to introduce truthiness and falsiness? Probably in `comparisons`?

@@ -23,7 +23,7 @@ There are many ways to write code that does the same thing. But are they all equ
 
 > Exercise: Let's look at a really obvious example of a function with redundant code. What could we do to improve it?
 
-```JavaScript
+``js
 function printHelloFiveTimes(){
   console.log("Hello");
   console.log("Hello");
@@ -35,7 +35,7 @@ function printHelloFiveTimes(){
 
 Introducing a simple for loop makes our lives a lot easier. This way we can more easily see what the function does and make modifications.
 
-```JavaScript
+``js
 function printHelloFiveTimes(){
   for ( var i = 0; i < 5; i++ ){
     console.log("Hello");
@@ -44,7 +44,7 @@ function printHelloFiveTimes(){
 
 > Exercise: Now, let's look at a different example. Let's say we wanted to welcome mentors:
 
-```JavaScript
+``js
 function welcomeMentors(){
   console.log("Hello Mozafar");
   console.log("Hello Rares");
@@ -56,7 +56,7 @@ function welcomeMentors(){
 
 We could be lazy and change how we welcome the mentors.
 
-```JavaScript
+``js
 function welcomeMentors(){
   var mentorNames = "Mozafar, Rares, Tim, Ashleigh, Gordon";
   console.log("Hello " + mentorNames);
@@ -65,7 +65,7 @@ function welcomeMentors(){
 
 But it's not quite the output we wanted. And we can be smarter about it. Why not a loop?
 
-```JavaScript
+``js
 function welcomeMentors(){
   var mentorNames = ["Mozafar", "Rares", "Tim", "Ashleigh", "Gordon"];
   for ( var i = 0; i < mentorNames.length; i++ ){
@@ -105,7 +105,7 @@ To
 
 As an aside: if you try to run the code it won't work, but not because it's not correct. It's only because it is a fragment of a larger program and lacks some code such as the function updateCorpDatabase(), the initialisation of the global variables referenced (e.g. quarter, profit) and, of course, the HandlesStuff() function also hasn't been called.
 
-```JavaScript
+``js
 function HandlesStuff(inputRecord, savedrecord, income1, income2, expenseType, revenue, expense0, expense1, expense2, screenx, screeny, success){
 
   var i;
@@ -147,7 +147,7 @@ What is wrong with this function?
 
 8. Magic numbers: the function uses several magic numbers: 100, 4.0, 1, 2 and 3. These are numbers that are used directly in an expression rather than saving them first in a variable. This is discouraged as it makes it more difficult to manipulate the values. If we were to save them in a variable they would be easier to find and modify.
 
-```JavaScript
+``js
 tenSquared =  10*10
 tenCubed = 10*10*10
 
@@ -160,7 +160,7 @@ xCubed = x*x*x
 
 10. DRY principle: the function breaks the DRY (Don't Repeat Yourself) rule. The expression profit = revenue - expense0 is written 3 times unnecessarily, the only difference being whether it's the first, second or third expense. This variable can be restructured into an array.
 
-```JavaScript
+``js
 var expense = [expense1,expense2,expense3];
 profit = revenue - expense[expenseType];
 ```
@@ -222,7 +222,7 @@ There are several ways to create objects - we've already used one before: _objec
 
 In the example above an empty object is created. Let's create a more sophisticated object.
 
-```javascript
+``js
 var person = {
   name: ['Simon', 'Muong'],
   age: 32,
@@ -258,7 +258,7 @@ JavaScript, instead, uses special functions called constructor functions to defi
 Let's look at how `constructor functions` work.
 
 
-```javascript
+``js
 function Person(name) {
   this.name = name;
   this.greeting = function() {
@@ -268,7 +268,7 @@ function Person(name) {
 ```
 This is the *template* that defines what a Person should look like. Now let's create a specific object, an instance of Person.
 
-```javascript
+``js
 var sally = new Person('Sally');
 console.log(sally); // { name: 'Sally': greeting: <Function> }
 console.log(sally instanceof Person); // true

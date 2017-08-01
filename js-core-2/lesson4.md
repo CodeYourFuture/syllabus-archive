@@ -29,7 +29,7 @@ Here are two examples, HTML and then JavaScript, of how the DOM might look like:
 </html>
 ```
 
-```javascript
+``js
 var document = {
     body: {
         h1: "Welcome",
@@ -40,7 +40,7 @@ var document = {
 
 The DOM offers a lot of useful functions we can use to find elements on the page. Here are some we'll be using today:
 
-```javascript
+``js
     document.querySelector('#mainHeader');
     document.querySelectorAll('p');
 ```
@@ -49,7 +49,7 @@ Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
 
 Once you retrieve an element using `.querySelector`, you can attach an **event** to it. An event is any action that can be performed on that element. For now, we will just use the **click** event:
 
-```javascript
+``js
     var myButton = document.querySelector('#myButton');
     myButton.addEventListener("click", alertSomething);
 
@@ -67,7 +67,7 @@ You will notice in the example example that we passed a second argument to `addE
 
 The elements returned by `document.querySelector` have the same properties as a normal HTML element: for example, you can get access to their css **styles**.
 
-```javascript
+``js
     var myElement = document.querySelector('#myElement');
     myElement.style.backgroundColor = 'red';
 ```
@@ -77,7 +77,7 @@ The elements returned by `document.querySelector` have the same properties as a 
 
 Using the `document`, you can also create new elements. These elements will not appear until you append them as a child of another element though:
 
-```javascript
+``js
     var paragraph = document.createElement('p'); // here we're just creating it, element is not visible yet
     myElement.appendChild(paragraph); // now the element is added to our view, but it's empty
 ```
@@ -86,7 +86,7 @@ Using the `document`, you can also create new elements. These elements will not 
 
 You can then change the text displayed inside elements using the `innerText` property:
 
-```javascript
+``js
     paragraph.innerText = "How are you?"; // now we can see the text displaying on the screen
 ```
 > **Exercise**:
@@ -98,7 +98,7 @@ You can then change the text displayed inside elements using the `innerText` pro
 We've been using `document.querySelector` to retrieve a single element.
 To retrieve an array of multiple elements (that match a specific class name for example, or a specific tag) we use `document.querySelectorAll`.
 
-```javascript
+``js
     //change the background of all the paragraph items on our page
     var paragraphs = document.querySelectorAll('p');
     for(var i=0; i<paragraphs.length; i++) {
@@ -113,7 +113,7 @@ We've learned that `style` and `innerText` are properties of DOM elements. Image
 
 While it's really easy to change styles directly on elements using the `style` property, it is not usually a good idea to mix JavaScript and CSS (see separation of concerns in the first lesson). To solve this, we can use the `className` property to set the class for an element instead of changing its styles directly:
 
-```javascript
+``js
 //before: <div id="myContainer"></div>
 var container = document.querySelector('#myContainer');
 container.className = "largeBlock";
@@ -204,7 +204,7 @@ How does the code work? Let's break it down into parts and see what each does.
 
 #### POST Code
 
- ```javascript
+ ``js
   var request = new XMLHttpRequest(); 		//creating a request object
 
   request.onreadystatechange = function() {
@@ -227,7 +227,7 @@ request.send(params); 							// sending the request
 
 #### GET Code
 
- ```javascript
+ ``js
   var request = new XMLHttpRequest(); 	    //creating a request object
 
   request.onreadystatechange = function() {

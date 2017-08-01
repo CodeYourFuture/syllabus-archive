@@ -26,7 +26,7 @@ Let's take a website for example.  A website is just a collection of HTML and CS
   
 # What is it used for? 
 
-- web servers, so creating a dynamic websites
+- web servers, so creating dynamic websites
 - set up a local web development environment
 - easier to build desktop applications with Electron: Slack, Visual Code, Atom 
 - some of the biggest companies use Node.js in production: Netflix, Walmart, IBM, etc.
@@ -35,7 +35,7 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 # A simple Node.js server
 
 **Simple server**
-```javascript
+``js
 const http = require('http'); 	
 
 const server = http.createServer(function (req, res) {
@@ -48,7 +48,7 @@ console.log('Node.js web server at port 5000 is running..')
 ```
 
 **Server with two routes**    
-```javascript
+``js
 const http = require('http'); 	
 
 const server = http.createServer(function (req, res) {
@@ -89,7 +89,7 @@ Can you add another route `/mentor`?
 
 > It is a protocol that browser and the server uses to talk to each other  
 
-![HTTP](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http_diagram.png)  
+![HTTP](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http_diagram.png)  
 
 Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
@@ -139,7 +139,7 @@ Here is an example `package.json` file for a project called [Passport](https://g
 JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
 JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
 
-```javascript
+``js
 {
   "firstName": "John",
   "lastName": "Smith",
@@ -339,7 +339,7 @@ An endpoint is the part of the URL which comes after `/`. For example: `/chocola
 
 ### What is URL?
 
-![alt text](https://github.com/Michael-Antczak/syllabus/blob/scotland/node-db/http1-url-structure.png "URL") 
+![alt text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http1-url-structure.png "URL") 
 
 ## 1. Create your own endpoints and send different responses
 

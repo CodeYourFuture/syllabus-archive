@@ -4,7 +4,7 @@
 - Recap
 - Templating
 - Callbacks and Callback hell
-- Middleware and Error handling
+- APIs
 - Deploying to Heroku
 
 ---
@@ -75,7 +75,7 @@ To add it to your project:
 
 Then in your `server.js`, we need to configure the `middleware` for Handlebars.
 
-```javascript
+```js
 
 // Add this to the top of your file
 const exphbs  = require('express-handlebars');
@@ -86,13 +86,14 @@ app.set('view engine', 'handlebars');
 ```
 
 > Let's look at the folder `views/layouts/main.handlebars`
-> - Notice the `{{{body}}}`. What do you think this is?
-> - Notice the *index.handlebars*, *my-cv.handlebars* and *admin.handlebars*.
+
+- There is a **placeholder for body** where the "body" get injected - can you find it?
+- Notice the *index.handlebars*, *my-cv.handlebars* and *admin.handlebars*.
 
 
 Then add these routes:
 
-```javascript
+```js
 app.get('/', function (req, res) {
     res.render('index');
 });
@@ -111,7 +112,7 @@ How can we imitate that behavior without having to duplicate code or serve stati
 
 1. Let's modify the `/` route to pass the title of the page.
 
-    ```javascript
+    ```js
     app.get('/', function (req, res) {
         res.render('index', {
             title: 'Etzali Profile', // insert your name instead 
@@ -170,7 +171,7 @@ For now, we will finish by using the **each** helper.
 
 In the `route`, let's load the file in `data/posts.json`:
 
-```javascript
+```js
 app.get('/', function (req, res) {
     const filePath = __dirname + '/data/posts.json';
     const callbackFunction = function(error, file) {
@@ -234,7 +235,7 @@ The **client-side code** in *github-client.js* should look familiar.
 In the code where we retrieve the repos data from Github, imagine if we had a requirement, that for each repo retrieved, we have to make another API call to retrieve all the available branches (there is a property called *branches_url* that we can use to get that info). And then, once we have all the branches, make _another_ API call to get the info for each branch.
 
 The code to do so, will look something similar to this:
-```javascript
+```js
 var oReq = new XMLHttpRequest();
 oReq.addEventListener('load', function() {
     var oReq2 = new XMLHttpRequest();
@@ -256,55 +257,6 @@ oReq.send();
 
 The code above is very hard to understand and follow. Notice the pyramid shape `})` - This is often called the **callback hell**.
 
-# Middleware
-Middleware functions are functions that have access to the request object, `req`, the response object, `res`, and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named `next`.
-
-Middleware functions can perform the following tasks:
-
-- Execute any code
-- Make changes to the request and the response objects
-- End the request-response cycle
-- Call the next middleware function in the stack
-
-> **Exercise**: We've already used one built-in middleware in our app - what was it?
-
-## Handle Page Not found
-> Try to navigate to a url that doesn't exist. What do you get? Open the **Developer tools** and check what status code do you get back.
-
-```javascript
-app.use(function (req, res, next) {
-  res.status(404).render('404');
-});
-```
-
-## Setup an error handler
-You define error-handling middleware in the same way as other middleware, except with four arguments instead of three; specifically with the signature (err, req, res, next):
-
-```javascript
-app.use(function (err, req, res, next) {
-  console.error(err.stack)
-  res.status(500).send('Something broke!')
-})
-```
-
-### Let's write a custom middleware
-```javascript
-var myLogger = function (req, res, next) {
-  console.log('LOGGED')
-  next()
-}
-
-app.use(myLogger)
-```
-
-> **Exercise**: Follow the tutorial for writing `requestTime` at https://expressjs.com/en/guide/writing-middleware.html and add it to your own application
-
-# Using Express.Router
-We have lots of Routes in **server.js**, we can use the express.Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.
-https://expressjs.com/en/guide/routing.html#express-router
-
-> **Exercise**: Use `express.Router` to organise the routes in **server.js** in a more *modular* fashion. Write your new file under `/routes/site-routes.js`.
-
 # APIs
 APIs (Application Programming Interfaces) provide a way for applications to communicate with each other. We already consumed an API earlier in the day: **Github API**. We managed to *communicate* with Github and get important information. We - the client - can use this information in a number of different ways. Our client, in this case, is a Web page but it could have easily been a Mobile Application, or a TV setbox etc...
 
@@ -314,9 +266,24 @@ APIs (Application Programming Interfaces) provide a way for applications to comm
 > Hint: make use `res.sendFile`
 
 ## REST API
-https://www.youtube.com/watch?v=7YcW25PHnAA - What is a REST API (up to 3 minutes)
+REST (REpresentational State Transfer) and RESTful APIs provide a way (an architecture) for building APIs that is simple and scalable.
 
-> Go to the url `https://api.github.com/users/CodeYourFuture/repos`
+There are many constraints and aspects to building a REST API, but one fundamental constraint is the use of a URL (Uniform Resource Locator) and HTTP Methods (GET, POST, PUT, DELETE etc..)
+
+In our *endpoint* that we just created `/api/get-posts`, the *get* part of the URL is redundant as the HTTP Method `GET` already tells that we are *GETting* a *Resource*. The Resource in this case is called **posts**.
+
+> Exercise: Let's rename our endpoint to `/posts` so that it follows RESTful architecture.
+>
+> **What would the endpoint for creating posts be called?**
+
+> **Watch**: https://www.youtube.com/watch?v=7YcW25PHnAA - What is a REST API (up to 3 minutes)
+
+REST is a big topic that we will revisit again. The table below from Wikipedia shows how a typical RESTful API would look like.
+
+![](assets/REST.png)
+[Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer#Uniform_interface)
+
+For now, remember when building APIs, to use **Resource** names to identify your endpoints and make use of the **HTTP methods (Verbs)** to describe operations performed on those resources.
 
 # Deploying to Heroku
 
@@ -361,12 +328,16 @@ https://devcenter.heroku.com/articles/git and https://devcenter.heroku.com/artic
 
 # Homework
 - Deploy to Heroku if you haven't yet
+- Add a route `posts/:postid` that displays a specific post - Read about route parameters on [Express documentation](https://expressjs.com/en/guide/routing.html#route-parameters)
+    - When the user clicks on a route in the home page, navigate them to your route.
+    - Amend your JSON structure to have a **postId** that you can use it to identify which post we want to display.
 - Implement the Admin page. 
-- Write a posts endpoint that you can hit and that should save to the JSON file (use the helper functions we added)
+    - Write a posts endpoint that you can hit and that should save to the JSON file (use the helper functions we added under **helpers/savePost**)
+    - Make an AJAX call from the **front end** (the admin page) to your new endpoint.
+    - You might need to use `formidable` or `body-parser` middleware to get the data on the server.
+- Consume a posts API built by another colleague (and deployed to Heroku) to display their latest blog posts. You can display the posts on any page that you see suitable (or add a new page).
 - Secure the Admin page so that it's only visible if a certain query parameter is provided
     - Can you go a bit further with adding proper security? Research the internet for solutions in **Express.js**
-- Add a route `posts/:postid` that displays a specific post
-- Consume a posts API built by another colleague (and deployed to Heroku) to display their latest blog posts.
 
 # Resources
 - Callback hell - http://callbackhell.com/

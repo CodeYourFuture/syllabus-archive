@@ -189,7 +189,7 @@ where to look for that object in memory.
 
 Consider the example below.
 
-```javascript
+``js
 
 function addFive(value) {
     value = value + 5;
@@ -220,7 +220,7 @@ else we use a reference to that object.
 
 For example:
 
-```javascript
+``js
 
 function a(primitive, object) {
     primitive = primitive + 5;

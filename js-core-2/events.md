@@ -17,12 +17,12 @@ For each event subscription we will need 3 things.
 To subscribe to the actual event we use the `addEventListener` method of our `target` element like below
 
 ```js
-    var myButton = document.querySelector('#myButton');
-    myButton.addEventListener("click", alertSomething);
+var myButton = document.querySelector('#myButton');
+myButton.addEventListener("click", alertSomething);
 
-    function alertSomething() {
-        alert("Something");
-    }
+function alertSomething() {
+    alert("Something");
+}
 ```
 
 In the above code `myButton` is the target on which we listen to for `click` events and call the event handler `alertSomething` when the click is detected.

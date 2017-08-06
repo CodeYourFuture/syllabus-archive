@@ -13,7 +13,7 @@ for (statement 1; statement 2; statement 3) {
 **Statement 1** defines a variable for the loop and assigns it a starting value. It is usually a number, which will increase each time the loop completes an iteration. We can use this number inside the loop to keep track of where we're at. You can set the number to be whatever you want initially.
 
 ```js
-var i=0
+var i = 0;
 ```
 
 **Statement 2** defines how long the loop will go on for (what needs to happen for the loop to stop running?). It most often uses the less than (`<`) or less than or equal to (`<=`) operators to set the length.
@@ -25,7 +25,7 @@ i < 10
 **Statement 3** defines by how much to increment the `i` variable each time the loop completes an iteration. If you just want it to increase by one, then put `i++`, or else you can increase by other numbers like so:
 
 ```js
-i+=2
+i += 2
 ```
 
 Inside the square brackets goes the code you wish to be executed each time the loop runs. You can refer to the variable `i` from inside the loop.
@@ -35,7 +35,7 @@ Inside the square brackets goes the code you wish to be executed each time the l
 Here's an example of an actual for loop that prints out the numbers 1 to 10:
 
 ```js
-for (var i=1; i <= 10; i++) {
+for (var i = 1; i <= 10; i++) {
   console.log(i);
 }
 ```

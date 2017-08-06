@@ -7,14 +7,14 @@ JSON - JavaScript Object Notation
 JSON is a way of transferring data.
 It works directly with JavaScript, they are plain JavaScript objects.
 
-```JavaScript
+```js
 {
     "key": "value"
 }
 ```
 
 You can take a JavaScript object, and turn in into JSON, via the JSON api:
-```JavaScript
+```js
 var myObject = {"key": "value"};
 var jsonString = JSON.stringify(myObject);
 console.log(jsonString);
@@ -23,7 +23,7 @@ console.log(jsonString);
 ```
 
 You can also turn a string into JSON:
-```JavaScript
+```js
 var jsonString = '{"key": "value"}';
 var myObject = JSON.parse(jsonString);
 console.log(myObject.key);

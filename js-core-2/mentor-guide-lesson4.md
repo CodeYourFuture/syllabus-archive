@@ -1,6 +1,6 @@
 # Possible solutions to class exercises:
 
-```javascript
+``js
 document.querySelector('#donateBike').addEventListener('click', donateClicked)
 
 function donateClicked() {

@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+<<<<<<< HEAD
 * [Week 0](/week0/lesson0.md)
   * [Git](/week0/git.md)
   * [IDEs](/week0/ides.md)
@@ -47,8 +48,23 @@
   * [JSON](/js-core-3/json.md)
   * [APIs](/js-core-3/apis.md)
   * [Promises](/js-core-3/promises.md)
+  * [Constructors](/js-core-3/constructors.md)
+  * [Inheritance](/js-core-3/inheritance.md)
+  * [Array Methods & Callbacks](/js-core-3/array-methods.md)
+  * [ES6](/js-core-3/es6.md)
+  * [Objects again](/js-core-3/objects-again.md)
+  * [Value & Reference types](/js-core-3/value-reference-types.md)
+  * [Scope](/js-core-3/scope.md)
 * NodeJS
-  * TO BE ADDED
+  * [Server](/node/server.md)
+  * [Node.js](/node/node.md)
+  * [Express](/node/express.md)
+  * [Templating](/node/templating.md)
+  * [Callbacks](/node/callbacks.md)
+  * [APIs](/node/apis.md)
+  * [Heroku](/node/heroku.md)
+  * [Middleware](/node/middleware.md)
+  * [Routing](/node/routing.md)
 * Databases
   * TO BE ADDED
 * [React](/react/index.md)

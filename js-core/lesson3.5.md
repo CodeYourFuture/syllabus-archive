@@ -49,7 +49,7 @@ if you did, let the mentor review it
 - Write a function that performs a more generic version of this search
 it should take an object that has two keys
     - signature: findWriter(writers, searchCriteria) - writers is an array, searchCriteria is an object (property, value pairs)
-```javascript
+``js
 // passing this searchCriteria should return every person who is over 60 and alive
 findWriter(writers, { 
     age: 60,
@@ -58,7 +58,7 @@ findWriter(writers, {
 ```
 - Write a function called getStatistics that takes an array of writers and returns an object containing stats about the numbers of the writers alive
         - getStatistics(writers);
-```javascript
+``js
 // response should be an object representing the statistics about how many are alive and how many are dead - sample response:
 {
     alive: 2,

@@ -2,12 +2,15 @@
 # Node 3
 **What we will learn today?**
 - Recap
+- Express Generator
 - Middleware
 - Express.Router
 - Promises
-- MVC
-- Mongo
 ---
+
+# Express Generator
+
+Link to the tutorial https://expressjs.com/en/starter/generator.html
 
 # Middleware
 Middleware functions are functions that have access to the request object, `req`, the response object, `res`, and the next middleware function in the application’s request-response cycle. The next middleware function is commonly denoted by a variable named `next`.

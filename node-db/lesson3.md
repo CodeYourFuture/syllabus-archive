@@ -8,6 +8,30 @@
 - Promises
 ---
 
+# Recap
+What did we do [last time](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/lesson2.md)? 
+Do you remember anything from our [AWS class](https://github.com/Michael-Antczak/Introduction-to-Amazon-Web-Services)? 
+
+### Exercise 
+1. clone [Express workshop 3 project](https://github.com/CodeYourFuture/Express-workshop-3) as a starting point for today
+1. replace the title heading with your name
+1. start the local server and check in the browser that it all works properly
+1. walk through the code, so we all understand what is in there
+
+### Exercise - AMI 
+1. make sure you have access to the AWS keys
+1. spin up a server using Habiiba's AMI
+1. ssh to the server and verify that Node.js is installed
+1. go to the IP address in the browser
+
+### Exercise - ftp
+1. download [FileZilla](https://filezilla-project.org/download.php?type=client)
+1. open FileZilla
+1. setup up a [connection to EC2](https://stackoverflow.com/questions/16744863/connect-to-amazon-ec2-file-directory-using-filezilla-and-sftp)
+1. upload (maybe everything exept `node_modules` folder and the run `npm install` on server)
+1. start the server with `npm start`. Does it work? Why not? (Hint: what is the port?)
+1. make small changes locally, upload and verify in the browse
+
 # Express Generator
 
 Link to the tutorial https://expressjs.com/en/starter/generator.html

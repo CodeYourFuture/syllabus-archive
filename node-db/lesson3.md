@@ -30,7 +30,84 @@ Do you remember anything from our [AWS class](https://github.com/Michael-Antczak
 1. setup up a [connection to EC2](https://stackoverflow.com/questions/16744863/connect-to-amazon-ec2-file-directory-using-filezilla-and-sftp)
 1. upload (maybe everything exept `node_modules` folder and the run `npm install` on server)
 1. start the server with `npm start`. Does it work? Why not? (Hint: what is the port?)
-1. make small changes locally, upload and verify in the browse
+1. make small changes locally, upload and verify in the browser
+
+### Exercise - save new post to file
+We want to have an ability to create a new post when we go to `/admin`. When we click `Send` we want to add the new post to `data/posts.json`. Go!
+
+1. add `body-parser` to the project
+1. add the following lines inside the `server.js`
+```javascript
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
+```
+1. go to `admin.handlebars` and change the type of button from submit to just button. Why? 
+1. add `id="addPostButton"` to the button
+1. create a new JS file inside `js` folder called `add-post.js`
+```javascript
+var addPostButton = document.querySelector('#addPostButton');
+addPostButton.addEventListener('click', function() {
+
+    const title = document.getElementById("title").value;
+    const summary = document.getElementById("summary").value;
+    const contents = document.getElementById("contents").value;
+
+    // create data object
+    const postData= {
+        title: title,
+        summary: summary,
+        contents: contents
+    }
+    
+    // AJAX
+    var url = '/admin';
+    var oReq = new XMLHttpRequest();
+    
+    oReq.addEventListener('load', onLoad);
+    oReq.open('POST', url);
+    //Send the proper header information along with the request
+    oReq.setRequestHeader("Content-type", "application/json");
+    oReq.send(JSON.stringify(postData));
+});
+
+function onLoad() {
+    // clear form 
+    document.getElementById("title").value = "";
+    document.getElementById("summary").value = "";
+    document.getElementById("contents").value = "";
+
+    // redirect to main page
+    window.location.href = '/';
+}
+```
+1. link the file inside the HTML code
+1. add `post` route for `/admin`. This is where we going to process the form data
+```javascript
+app.post('/admin', function (req, res) {
+    
+    const filePath = __dirname + '/data/posts.json';
+
+    const cb = function(error, file) {
+        // we call .toString() to turn the file buffer to a String
+        const fileData = file.toString();
+        // we use JSON.parse to get an object out the String
+        const postsJson = JSON.parse(fileData);
+        // add new post to the file
+        postsJson.push(req.body);
+
+        // write back to file
+        fs.writeFile(filePath, JSON.stringify(postsJson), (err) => {
+            if (err) throw err;
+            console.log('The file has been saved!');
+        });
+        
+        res.end("Success.");
+    };
+
+    fs.readFile(filePath, cb);
+
+});
+```
 
 # Express Generator
 

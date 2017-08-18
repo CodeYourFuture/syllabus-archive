@@ -127,10 +127,72 @@ Let's look at the [AWS Database](https://aws.amazon.com/products/databases/) sec
 
 SQL vs. NoSQL
 
-### Exercise - Store posts to DynamoDB
-1. create table in the AWS console
-1. get keys
-1. add SDK to the project
+## Store posts to DynamoDB
+
+What is [AWS DynamoDB](https://aws.amazon.com/dynamodb/)? What is the price? Where to find docs?   
+Watch the video [Introduction to Amazon DynamoDB](https://aws.amazon.com/dynamodb/getting-started/)
+
+If you have not finished the last exercise, here is the repo that you can use as a starting point: [Express with saving](https://github.com/Michael-Antczak/Express-workshop-3)  
+Use commit b1c85fb8cc97290e6eaef8971f5620b21c2b8e77
+
+### Exercise - Create table in DynamoDB
+1. login to the AWS console and create table DynamoDB. Problems? Why? 
+1. create a table with a name: **cyf-{username}-posts**
+1. look at the structure of our posts in `posts.json`. We will use `title` as primary key
+1. add sort key and use `summary`. Click `Create`
+1. try to add an item to the table in the console. Use `Items` -> `Create Item`. How to add `content`? 
+1. try to add few more posts
+
+### Exercise - Read posts from DynamoDB
+We want to change the code in our app inside the `\` to read posts from DynamoDB. How do we do that? 
+We are going to use AWS SDK for this. 
+
+1. run `npm install --save aws-sdk`
+1. [load credentials](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-json-file.html) - create in the root of the project a file called `config.json`. We will load are keys from there
+1. change `us-east-1` to `eu-east-1` and add the access and secret keys
+1. add AWS to the project
+    ```javascript
+    // Load the SDK for JavaScript
+    var AWS = require('aws-sdk');
+
+    // Load credentials and set region from JSON file
+    AWS.config.loadFromPath('./config.json');
+    ```
+1. now we need to change the route to the root of our project to get the data from Dynamo
+    ```javascript
+    app.get('/', function (req, res) {
+
+        var docClient = new AWS.DynamoDB.DocumentClient();
+
+        var params = {
+            TableName: "cyf-student-posts",
+            ProjectionExpression: "title, summary, content",
+        };
+
+        console.log("Scanning posts table.");
+        docClient.scan(params, onScan);
+
+        function onScan(err, data) {
+            if (err) {
+                console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
+            } else {
+                // print all the posts
+                console.log("Scan succeeded.");
+                data.Items.forEach(function(post) {
+                console.log(
+                        post.title + ": ",
+                        post.summary, "- content:", post.content);
+                });
+
+                res.render('index', {
+                    title: "Michael's profile",
+                    subheading: "A modern Website built in Node with Handlebars",
+                    posts: data.Items
+                });
+            }
+        }
+    });
+    ```
 
 # Express Generator
 

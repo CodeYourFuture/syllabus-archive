@@ -127,7 +127,7 @@ Let's look at the [AWS Database](https://aws.amazon.com/products/databases/) sec
 
 SQL vs. NoSQL
 
-## Store posts to DynamoDB
+## Using DynamoDB with our Express app
 
 What is [AWS DynamoDB](https://aws.amazon.com/dynamodb/)? What is the price? Where to find docs?   
 Watch the video [Introduction to Amazon DynamoDB](https://aws.amazon.com/dynamodb/getting-started/)
@@ -193,6 +193,8 @@ We are going to use AWS SDK for this.
         }
     });
     ```
+
+Discussion: do you think this is a good way to read the posts? If not, why not? How can it be done differently? 
 
 # Express Generator
 

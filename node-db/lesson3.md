@@ -110,6 +110,28 @@ We want to have an ability to create a new post when we go to `/admin`. When we 
     ```
 8. push to server
 
+### Exercise - Handle "Page Not Found"
+> Try to navigate to a url that doesn't exist. What do you get? Open the **Developer tools** and check what status code do you get back.
+
+```js
+app.use(function (req, res, next) {
+  res.status(404).render('404');
+});
+```
+
+# Persisting Data - Intro to DB
+
+What is wrong with the solution above? Why is it not a good idea to save the data to the server's local file? What would happen if you restart the server, or kill it and spin up another one?  Discuss. 
+
+Let's look at the [AWS Database](https://aws.amazon.com/products/databases/) section. What types of data storage can you see? What are the main two groups? 
+
+SQL vs. NoSQL
+
+### Exercise - Store posts to DynamoDB
+1. create table in the AWS console
+1. get keys
+1. add SDK to the project
+
 # Express Generator
 
 Link to the tutorial https://expressjs.com/en/starter/generator.html
@@ -126,14 +148,7 @@ Middleware functions can perform the following tasks:
 
 > **Exercise**: We've already used one built-in middleware in our app - what was it?
 
-## Handle Page Not found
-> Try to navigate to a url that doesn't exist. What do you get? Open the **Developer tools** and check what status code do you get back.
 
-```js
-app.use(function (req, res, next) {
-  res.status(404).render('404');
-});
-```
 
 ## Setup an error handler
 You define error-handling middleware in the same way as other middleware, except with four arguments instead of three; specifically with the signature (err, req, res, next):

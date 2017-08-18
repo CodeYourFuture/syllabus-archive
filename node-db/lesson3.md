@@ -127,7 +127,7 @@ Let's look at the [AWS Database](https://aws.amazon.com/products/databases/) sec
 
 SQL vs. NoSQL
 
-## Using DynamoDB with our Express app
+## Using [DynamoDB with our Express app](http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.html)
 
 What is [AWS DynamoDB](https://aws.amazon.com/dynamodb/)? What is the price? Where to find docs?   
 Watch the video [Introduction to Amazon DynamoDB](https://aws.amazon.com/dynamodb/getting-started/)
@@ -149,6 +149,14 @@ We are going to use AWS SDK for this.
 
 1. run `npm install --save aws-sdk`
 1. [load credentials](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-json-file.html) - create in the root of the project a file called `config.json`. We will load are keys from there
+    ```javascript
+    {
+        "accessKeyId": "YOUR_ACCESS_KEY",
+        "secretAccessKey": "YOUR_SECRET_KEY",
+        "region": "eu-west-1",
+        "endpoint": "https://dynamodb.eu-west-1.amazonaws.com"
+    }
+    ```
 1. change `us-east-1` to `eu-east-1` and add the access and secret keys
 1. add AWS to the project
     ```javascript
@@ -195,6 +203,42 @@ We are going to use AWS SDK for this.
     ```
 
 Discussion: do you think this is a good way to read the posts? If not, why not? How can it be done differently? 
+
+### Exercise - Write posts to DynamoDB
+If you have not finished, you can use the Express app and checkout the commit: 2e4722ac2828da8f6b00d9e63727e9116a08efbd   
+We now have to find a way to write our new posts from the app to the DynamoDB. How can we do that? What needs to be changed? 
+
+1. we need to change the POST behaviour to the `/admin` endpoint
+1. remove the code from this route and just add `console.log(req.body)`. Try it out
+1. add to the route 
+```javascript
+app.post('/admin', function (req, res) {
+
+    // Create the DynamoDB service object
+    var docClient = new AWS.DynamoDB.DocumentClient();
+
+    var params = {
+        TableName: 'cyf-student-posts',
+        Item:{
+            'title' : req.body.title,
+            'summary' : req.body.summary,
+            'content' : req.body.contents,
+        }
+    };
+
+    // Call DynamoDB to add the item to the table
+    console.log("Adding a new item...");
+    docClient.put(params, function(err, data) {
+        if (err) {
+            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("Added item:", JSON.stringify(data, null, 2));
+        }
+    });
+
+});
+```
+1. change `add-posts.js` behaviour to redirect to the main page, since we don't really wait for any reply from the server
 
 # Express Generator
 

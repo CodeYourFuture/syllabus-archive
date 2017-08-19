@@ -125,7 +125,9 @@ What is wrong with the solution above? Why is it not a good idea to save the dat
 
 Let's look at the [AWS Database](https://aws.amazon.com/products/databases/) section. What types of data storage can you see? What are the main two groups? 
 
-SQL vs. NoSQL
+![alt-text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/assets/SQL-vs.-NoSQL-Comparative-Advantages-and-Disadvantages.jpg)
+![alt-text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/assets/NoSQL-vs-SQL.png)
+![alt-text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/assets/SQL-MongoDB%20Correspondence.PNG)
 
 ## Using [DynamoDB with our Express app](http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.html)
 

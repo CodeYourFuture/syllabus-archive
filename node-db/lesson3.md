@@ -2,10 +2,12 @@
 # Node 3
 **What we will learn today?**
 - Recap
+- Transfering files to server
+- Saving data to file
+- Persisting Data - Intro to DB
 - Express Generator
 - Middleware
 - Express.Router
-- Promises
 ---
 
 # Recap
@@ -24,6 +26,8 @@ Do you remember anything from our [AWS class](https://github.com/Michael-Antczak
 1. ssh to the server and verify that Node.js is installed
 1. go to the IP address in the browser
 
+# Transfering files to server
+
 ### Exercise - ftp
 1. download [FileZilla](https://filezilla-project.org/download.php?type=client)
 1. open FileZilla
@@ -31,6 +35,8 @@ Do you remember anything from our [AWS class](https://github.com/Michael-Antczak
 1. upload (maybe everything exept `node_modules` folder and the run `npm install` on server)
 1. start the server with `npm start`. Does it work? Why not? (Hint: what is the port?)
 1. make small changes locally, upload and verify in the browser
+
+# Saving data to file
 
 ### Exercise - save new post to file
 We want to have an ability to create a new post when we go to `/admin`. When we click `Send` we want to add the new post to `data/posts.json`. Go!

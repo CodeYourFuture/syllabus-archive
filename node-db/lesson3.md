@@ -125,7 +125,7 @@ app.use(function (req, res, next) {
 });
 ```
 
-# Persisting Data - Intro to DB
+# Persisting Data - Introduction to Databases
 
 What is wrong with the solution above? Why is it not a good idea to save the data to the server's local file? What would happen if you restart the server, or kill it and spin up another one?  Discuss. 
 
@@ -156,7 +156,7 @@ We want to change the code in our app inside the `\` to read posts from DynamoDB
 We are going to use AWS SDK for this. 
 
 1. run `npm install --save aws-sdk`
-1. [load credentials](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-json-file.html) - create in the root of the project a file called `config.json`. We will load are keys from there
+1. [load credentials](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-json-file.html) - create in the root of the project a file called `config.json`add your access and secret keys
     ```javascript
     {
         "accessKeyId": "YOUR_ACCESS_KEY",
@@ -165,11 +165,10 @@ We are going to use AWS SDK for this.
         "endpoint": "https://dynamodb.eu-west-1.amazonaws.com"
     }
     ```
-1. change `us-east-1` to `eu-east-1` and add the access and secret keys
 1. add AWS to the project
     ```javascript
     // Load the SDK for JavaScript
-    var AWS = require('aws-sdk');
+    const AWS = require('aws-sdk');
 
     // Load credentials and set region from JSON file
     AWS.config.loadFromPath('./config.json');
@@ -194,6 +193,8 @@ We are going to use AWS SDK for this.
             } else {
                 // print all the posts
                 console.log("Scan succeeded.");
+                
+                // Here you can test how to access the posts, not needed for the functionality to work, so could be deleted
                 data.Items.forEach(function(post) {
                 console.log(
                         post.title + ": ",

@@ -13,7 +13,7 @@ Callbacks are a fundamental part of JavaScript - the fact that functions are *fi
 
 This example from [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) helps to **promisify** the `setTimeout` example. 
 
-``js
+```js
 let myFirstPromise = new Promise((resolve, reject) => {
   // We call resolve(...) when what we were doing made async successful, and reject(...) when it failed.
   // In this example, we use setTimeout(...) to simulate async code. 
@@ -31,6 +31,15 @@ myFirstPromise.then((successMessage) => {
 ```
 
 > **Exercise**: Let's rewrite the code above using `fetch` which provides an alternative to `XmlHttpRequest` that uses a Promise-based API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+
+
+# Using Express.Router
+We have lots of Routes in **server.js**. To better organise them, we should use the `express.Router` class. A Router instance is a complete middleware and routing system; for this reason, it is often referred to as a “mini-app”.
+https://expressjs.com/en/guide/routing.html#express-router
+
+> **Exercise**: Use `express.Router` to organise the routes in **server.js** in a more *modular* fashion. Write your new file under `/routes/site-routes.js`.
+
 
 # MVC
 > Model–view–controller (MVC) is a software architectural pattern for implementing user interfaces on computers. It divides a given application into three interconnected parts in order to separate internal representations of information from the ways that information is presented to and accepted from the user. The MVC design pattern decouples these major components allowing for efficient code reuse and parallel development. (Wikipedia)

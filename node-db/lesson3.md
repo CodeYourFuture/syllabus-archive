@@ -42,14 +42,14 @@ We want to have an ability to create a new post when we go to `/admin`. When we 
 
 1. add `body-parser` to the project
 2. add the following lines inside the `server.js`
-    ```javascript
+    ```js
     app.use(bodyParser.json()); 
     app.use(bodyParser.urlencoded({ extended: true }));
     ```
 3. go to `admin.handlebars` and change the type of button from submit to just button. Why? 
 4. add `id="addPostButton"` to the button
 5. create a new JS file inside `js` folder called `add-post.js`
-    ```javascript
+    ```js
     var addPostButton = document.querySelector('#addPostButton');
     addPostButton.addEventListener('click', function() {
 
@@ -87,7 +87,7 @@ We want to have an ability to create a new post when we go to `/admin`. When we 
     ```
 6. link the file inside the HTML code
 7. add `post` route for `/admin`. This is where we going to process the form data
-    ```javascript
+    ```js
     app.post('/admin', function (req, res) {
 
         const filePath = __dirname + '/data/posts.json';
@@ -130,9 +130,9 @@ What is wrong with the solution above? Why is it not a good idea to save the dat
 
 Let's look at the [AWS Database](https://aws.amazon.com/products/databases/) section. What types of data storage can you see? What are the main two groups? 
 
-![alt-text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/assets/SQL-vs.-NoSQL-Comparative-Advantages-and-Disadvantages.jpg)
-![alt-text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/assets/NoSQL-vs-SQL.png)
-![alt-text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/assets/SQL-MongoDB%20Correspondence.PNG)
+![](assets/SQL-vs.-NoSQL-Comparative-Advantages-and-Disadvantages.jpg)
+![](assets/NoSQL-vs-SQL.png)
+![SQL to Mongo](assets/SQL-MongoDB-Correspondence.PNG)
 
 ## Using [DynamoDB with our Express app](http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.html)
 
@@ -156,7 +156,7 @@ We are going to use AWS SDK for this.
 
 1. run `npm install --save aws-sdk`
 1. [load credentials](http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/loading-node-credentials-json-file.html) - create in the root of the project a file called `config.json`add your access and secret keys
-    ```javascript
+    ```js
     {
         "accessKeyId": "YOUR_ACCESS_KEY",
         "secretAccessKey": "YOUR_SECRET_KEY",
@@ -165,7 +165,7 @@ We are going to use AWS SDK for this.
     }
     ```
 1. add AWS to the project
-    ```javascript
+    ```js
     // Load the SDK for JavaScript
     const AWS = require('aws-sdk');
 
@@ -173,7 +173,7 @@ We are going to use AWS SDK for this.
     AWS.config.loadFromPath('./config.json');
     ```
 1. now we need to change the route to the root of our project to get the data from Dynamo
-    ```javascript
+    ```js
     app.get('/', function (req, res) {
 
         var docClient = new AWS.DynamoDB.DocumentClient();
@@ -219,7 +219,7 @@ We now have to find a way to write our new posts from the app to the DynamoDB. H
 1. we need to change the POST behaviour to the `/admin` endpoint
 1. remove the code from this route and just add `console.log(req.body)`. Try it out
 1. add to the route 
-```javascript
+```js
 app.post('/admin', function (req, res) {
 
     // Create the DynamoDB service object
@@ -263,8 +263,6 @@ Middleware functions can perform the following tasks:
 - Call the next middleware function in the stack
 
 > **Exercise**: We've already used one built-in middleware in our app - what was it?
-
-
 
 ## Setup an error handler
 You define error-handling middleware in the same way as other middleware, except with four arguments instead of three; specifically with the signature (err, req, res, next):

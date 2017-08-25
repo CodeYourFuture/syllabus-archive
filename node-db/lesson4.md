@@ -260,6 +260,7 @@ Services like Heroku and AWS can then use these environment variables to configu
 # Homework
 
 Refer to the MongoDB/Node workshop for the Homework tasks - https://github.com/CodeYourFuture/mongo-node-workshop
+- Read https://www.upguard.com/articles/mysql-vs-mongodb
 
 # Resources
 - [Why use a database](https://softwareengineering.stackexchange.com/questions/190482/why-use-a-database-instead-of-just-saving-your-data-to-disk)

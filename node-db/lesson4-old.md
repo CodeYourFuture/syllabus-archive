@@ -52,7 +52,7 @@ Make sure you install all of the project dependencies with `npm i` before you do
 * `npm test` - runs ESLint followed by the end-to-end tests
 * `npm start` - runs the server via nodemon, restarting on changes to the `src` directory
 
-Note that this project requires **Node.js 6 or above** due to the user of ES6.
+Note that this project requires **Node.js 6 or above** due to the use of ES6.
 
 
 ## Homework

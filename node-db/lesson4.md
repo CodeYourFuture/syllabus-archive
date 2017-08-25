@@ -258,25 +258,8 @@ Services like Heroku and AWS can then use these environment variables to configu
 - Commit and push the changes to Heroku and see if it works.
 
 # Homework
-## Link to Single post
-- On the Home page, we display only the summary of a Post. We want the user to be able to click on a post, which will take them to a new page displaying the full contents of the post. The URL format should be `/posts/post_id` where post_id is the MongoDB _id field value.
-> Read about [Route Parameters](https://expressjs.com/en/guide/routing.html#route-parameters) in ExpressJS to perform this task.
 
-## Sorting functionality
-- Add functionality allowing the user to toggle the order in which posts are displayed (from old to new, and vice versa)
-
-## Search functionality
-Create a page where users can search by post title
-- Improve it to search by other fields as a stretch goal.
-
-## CRUD
-create, read, update, and delete (CRUD) are the four basic functions of persistent storage.
-- Add functionality to be able to delete a post (UI/UX up to you - maybe a button or a link next to each post that takes you to a route that deletes the post or an AJAX call to an API endpoint to perform the DELETE operation)
-- Add functionality to be able to edit a post (you might be able to reuse the same page you use for adding, but prepoulate the fields based on the selected post to edit)
-
-## AJAX
-You should have a Students API (if not create one based on this [data](https://airtable.com/shrhS7nKhzwmx5AqW)). Make an AJAX call to display the students information on the right side of the home page.
-- Improve the UX to display [a spinner](http://www.ajaxload.info/) while the api is being called (maybe delibarately delay the call to show the spinner a little longer)
+Refer to the MongoDB/Node workshop for the Homework tasks - https://github.com/CodeYourFuture/mongo-node-workshop
 
 # Resources
 - [Why use a database](https://softwareengineering.stackexchange.com/questions/190482/why-use-a-database-instead-of-just-saving-your-data-to-disk)

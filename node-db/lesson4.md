@@ -2,7 +2,9 @@
 # Node 4
 **What we will learn today?**
 - Databases overview
-- Mongo
+- MongoDB
+- Mongo Shell
+- Mongo with Node
 ---
 
 # Before we start
@@ -29,7 +31,7 @@ In the `mongo` shell (terminal) - run the command `version()` and you should get
 - Databases can store very large numbers of records efficiently (they take up little space).
 - You can have strucutre on your data
 - You can query for data in a database, you can sort data, add/edit/delete data
-- You can index a database to make searches quicker
+- You can optimise a database to make searches (queries) quicker
 - You can relate pieces of data to each other to avoid duplication which makes your information more reliable and less prone to errors
 - ACID
 > In computer science, ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc.
@@ -44,11 +46,28 @@ Relational databases include MySQL, Postgres, Microsoft SQL Server, Oracle Datab
 
 Non-relational databases are relatively new and they include the likes of MongoDB, Casandra, Neo4j etc...
 
-![](assets/SQL-MongoDB-Correspondence.png)
-[https://docs.mongodb.com/manual/reference/sql-comparison/](https://docs.mongodb.com/manual/reference/sql-comparison/)
-
 # Mongo 
 > MongoDB is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents.
+
+## BSON (JSON-like document)
+In a Relational database, information is organised in *rows* in *tables* with predefined *columns*.
+
+In a non-relational database, information is organised in *documents*. MongoDB stores data records in a format similar to JSON called BSON. BSON is a binary representation of JSON documents, though it contains more data types than JSON.
+
+![](https://docs.mongodb.com/manual/_images/crud-annotated-document.bakedsvg.svg)
+
+Let's look at this database table *Students* containing information about students participating in a course
+![](assets/table-example.png)
+> Exercise: What are the columns, rows and tables?
+
+![](assets/SQL-MongoDB-Correspondence.png)
+
+> Exercise: Open https://jsonlint.com/ and write a JSON representation of two rows in the Students table example. Click *Validate JSON* and make sure the document is valid.
+> - Are there any alternative representations you can think of?
+
+**BSON** is very similar to JSON. It contains more data types than JSON, it also allows the field names to not be quoted. Read more information about the format - https://docs.mongodb.com/manual/core/document/.
+
+# Mongo Shell
 
 Let's go to `mongo` shell and start interacting with our database system.
 
@@ -89,8 +108,7 @@ We can also provide an extra parameter `projection` to define what fields we wan
 For example, if we're only interested in the name
 
 ```js
-db.students.find({ country: 'Ethiopia' }, 
-    { name: 1 })
+db.students.find({ country: 'Ethiopia' }, { name: 1 })
 // you can also use { name: true }
 ```
 
@@ -133,13 +151,11 @@ In Mongo, a **database** contains **collections** that contain **BSON documents*
 > Checkpoint: Do you understand all the words highlighed in the last paragraph?
 
 # Node with Mongo
-So far we've been connecting to Mongo using the Mongo shell. Mongo has drivers for most major programming languages but it's especially popular with NodeJS applications as its API and Query model is very intuitive and close to JavaScript syntax and patterns.
+So far we've been connecting to Mongo using the Mongo shell. Mongo has drivers for most major programming languages but it's especially popular with NodeJS applications as its API and Query model is very close to JavaScript syntax and patterns.
 
 Let's start wiring Node with MongoDB as a datastore.
 
-1. Fork and Clone the project [ToDo]. run `npm install` then `npm run dev` to run the application with autoreload - Go to the browser and make sure it's up and running.
-
-> Quick overview of the project strcture: the use of Router.
+1. Fork and Clone the project [https://github.com/CodeYourFuture/mongo-node-workshop](https://github.com/CodeYourFuture/mongo-node-workshop). run `npm install` then `npm run dev` to run the application with autoreload - Go to the browser and make sure it's up and running.
 
 2. Install the MongoDB Node.js Driver
 `npm install mongodb --save`
@@ -241,14 +257,32 @@ Services like Heroku and AWS can then use these environment variables to configu
 > Exercise: Use the environment `MongoDB_URI` to connect to MongoDB on Heroku, but fallback to **localhost connection string** if there is no environment variable provided.
 - Commit and push the changes to Heroku and see if it works.
 
-## CRUD Operations
-create, read, update, and delete (CRUD) are the four basic functions of persistent storage.
+# Homework
+## Link to Single post
+- On the Home page, we display only the summary of a Post. We want the user to be able to click on a post, which will take them to a new page displaying the full contents of the post. The URL format should be `/posts/post_id` where post_id is the MongoDB _id field value.
+> Read about [Route Parameters](https://expressjs.com/en/guide/routing.html#route-parameters) in ExpressJS to perform this task.
 
+## Sorting functionality
+- Add functionality allowing the user to toggle the order in which posts are displayed (from old to new, and vice versa)
+
+## Search functionality
+Create a page where users can search by post title
+- Improve it to search by other fields as a stretch goal.
+
+## CRUD
+create, read, update, and delete (CRUD) are the four basic functions of persistent storage.
+- Add functionality to be able to delete a post (UI/UX up to you - maybe a button or a link next to each post that takes you to a route that deletes the post or an AJAX call to an API endpoint to perform the DELETE operation)
+- Add functionality to be able to edit a post (you might be able to reuse the same page you use for adding, but prepoulate the fields based on the selected post to edit)
+
+## AJAX
+You should have a Students API (if not create one based on this [data](https://airtable.com/shrhS7nKhzwmx5AqW)). Make an AJAX call to display the students information on the right side of the home page.
+- Improve the UX to display [a spinner](http://www.ajaxload.info/) while the api is being called (maybe delibarately delay the call to show the spinner a little longer)
 
 # Resources
 - [Why use a database](https://softwareengineering.stackexchange.com/questions/190482/why-use-a-database-instead-of-just-saving-your-data-to-disk)
 - Databases and Collections https://docs.mongodb.com/manual/core/databases-and-collections/
-- Mongo Documentation - https://docs.mongodb.com/
+- Documents in MongoDB - https://docs.mongodb.com/manual/core/document/
 - Practice on a web Mongo shell 
 https://www.tutorialspoint.com/mongodb_terminal_online.php
 - Environment Variables - https://www.twilio.com/blog/2017/08/working-with-environment-variables-in-node-js.html
+- [https://docs.mongodb.com/manual/reference/sql-comparison/](https://docs.mongodb.com/manual/reference/sql-comparison/)

@@ -283,7 +283,7 @@ comments: [{
 # Resources
 Why Schemaless - https://www.mongodb.com/blog/post/why-schemaless
 Progressive Enhancement - https://www.smashingmagazine.com/2009/04/progressive-enhancement-what-it-is-and-how-to-use-it/
-
+Mongoose CRUD - https://coursework.vschool.io/mongoose-crud/
 
 # Homework
 Group project - https://github.com/CodeYourFuture/group-projects#expressmongodb-projects

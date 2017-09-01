@@ -2,97 +2,34 @@
 
 _Structured Query Language_ (SQL) provides a means of creating and manipulating databases, or more specifically, _relational database management systems_ (RDBMS).
 
+## Getting Started
 
-## What's a Relational Database Management System?
+For today's class, we're going to use [SQLBolt](https://sqlbolt.com/), a website that provides an overview of SQL and then allows one to practise writing queries in the browser.
 
-An RDBMS is a representation of how rows in a table, known as _records_, are stored and related to each other.
+The order of the lessons provided is intuitive, as it progresses from writing simple queries to creating new tables from scratch.
 
-Take a look at this table of patient appointments at a GP surgery:
+Let's study the [introduction to `SELECT` statements](https://sqlbolt.com/lesson/select_queries_introduction) together.
 
-![Flat file database](http://i.imgur.com/IlLazOJ.png)
+Please complete all of the exercises **until [lesson six](https://sqlbolt.com/lesson/select_queries_with_joins)**; we will cover the introduction of `JOIN`s together.
 
-What's wrong with this approach?
+Some of the remaining exercises cover more advanced topics that we can skip for now. Therefore, once we've covered joins, please complete:
 
-In order to accomodate for multiple appointment dates, this single-table approach requires the other columns to be duplicated; this introduces some major concerns:
+* [A short note on `NULL`s](https://sqlbolt.com/lesson/select_queries_with_nulls)
+* [Inserting rows](https://sqlbolt.com/lesson/inserting_rows)
+* [Updating rows](https://sqlbolt.com/lesson/updating_rows)
+* [Deleting rows](https://sqlbolt.com/lesson/deleting_rows)
+* [Creating tables](https://sqlbolt.com/lesson/creating_tables)
+* [Altering tables](https://sqlbolt.com/lesson/altering_tables)
+* [Dropping tables](https://sqlbolt.com/lesson/dropping_tables)
 
-* Larger storage footprint
-* If a patient's doctor or phone number changes, then all copies must be updated
-* Having multiple instances of the same data can result in incorrect input; take a look at the final record
-
-It would be better to break this table down into respective tables for each entity:
-
-![Separate tables](http://i.imgur.com/EBRmA3N.png)
-
-Some of the tables contain IDs of related records, such as the appointment table's `id` column, but we still have to explicitly define our relationships. Before we jump into this, let's run some simple queries against the database.
-
-## Where is the database?
-
-The above database, with which we'll be working today, can be found in the [_Introduction to SQL_ repo](https://github.com/CodeYourFuture/introduction-to-sql); please clone this before proceeding.
+We will take the occasional break to assess how everyone is progressing, and to share answers to some of the exercises.
 
 
-## Browsing the database
+## Stretch Goals / Homework
 
-For simplicity, our data is stored in an SQLite database; this is a self-contained file that can be read from and written to with no configuration, in contrast to MySQL that typically requires a connection string.
+[_SQLite_](https://en.wikipedia.org/wiki/SQLite) is a portable, file-based database format that supports a subset of SQL syntax.
 
-We're going to use [DB Browser for SQLite](http://sqlitebrowser.org/) to access our database, which is available for Windows, OS X, and Linux; please download it from the linked website.
-
-Once it's installed and running, click _Open Database_, navigate to your copy of the repository, and open _surgery.sqlite_. You'll be greeted with the structure of our database. You may notice that there is a _Browse Data_ tab, but we will not be using this directly; instead, click the _Execute SQL_ tab so we can write our first query.
+Head over to the [SQLite Tutorial](http://www.sqlitetutorial.net/) website. Follow the instructions to download an SQLite GUI for your operating system and their sample database, which you will query in the subsequent exercises. Complete as many as possible.
 
 
-## `SELECT`
-
-The `SELECT` statement returns a series of records, and specific columns, from one or more tables. To list the names of all the patients, we can select the `name` column from the `patient` table:
-
-```sql
-SELECT name from patient
-```
-
-Upon clicking the _play_ icon, you should see the names of the two patients in our database.
-
-We can use a comma delimiter to select multiple columns from the table. Try running this query:
-
-```sql
-SELECT name, phoneNumber from patient
-```
-
-As one would expect, both the name and phone number associated with each record are returned.
-
-An asterisk (`*`) wildcard can be used to select all of the columns in a table. Let's execute this against the `appointment` table:
-
-```sql
-SELECT * from appointment
-```
-
-This will return the `id`, `patientId`, and `date` fields of all of our appointments.
-
-
-## The `WHERE` Clause
-
-The `SELECT` statement also supports the `WHERE` clause, which limited the returned record based upon a number of criteria. This is useful for searching for rows based upon the values of certain fields.
-
-To select any patients whose doctor is Peter Overmars (`id` = 1), we can specify this SELECT statement with a combined WHERE clause:
-
-```sql
-SELECT * from patient
-WHERE doctorId = 1
-```
-
-We should only see Jimmie Vaughan's record.
-
-
-## `AND` and `LIKE`
-
-We can use the `AND` keyword to select a record based upon numerous fields. We can also use the `LIKE` keyword to find records by partial field matches. To see all of Jimmie Vaughan's appointments in July, run:
-
-```sql
-SELECT * FROM appointment
-WHERE patientId = 1
-AND date LIKE '%July%'
-```
-
-The `%` denotes a wildcard, representing any value; this allows us to accept any record by date field as long as it contains `July` in the middle of its value.
-
-
-## `Insert Statement`
-
-Thus far, we have only
+In the next lesson, we will use an [_Object-Relational Mapper_](https://en.wikipedia.org/wiki/Object-relational_mapping) (ORM) in Node.js to query and alter an existing SQLite database.

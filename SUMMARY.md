@@ -18,12 +18,14 @@
   * [Week 7](/js-core-2/lesson7.md)
   * [Week 8](/js-core-2/lesson8.md)
   * [Week 9](/js-core-2/lesson9.md)
-* Node and DB
-    * [Week 1](/node-db/lesson1.md)
-    * [Week 2](/node-db/lesson2.md)
-    * [Week 3](/node-db/lesson3.md)
-    * [Week 4](/node-db/lesson4.md)
-    * [Week 5](/node-db/lesson5.md)
+* Node
+    * [Week 1](/node/lesson1.md)
+    * [Week 2](/node/lesson2.md)
+    * [Week 3](/node/lesson3.md)
+    * [Week 4](/node/lesson4.md)
+    * [Week 5](/node/lesson5.md)
+* Databases
+    * [Week 1](/databases/lesson1.md)
 * React
   * [Week 1](/react/lesson1.md)
   * [Week 2](/react/lesson2.md)

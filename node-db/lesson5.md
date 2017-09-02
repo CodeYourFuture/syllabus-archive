@@ -1,4 +1,5 @@
-(https://img.shields.io/badge/status-draft-darkred.svg) 
+![](https://img.shields.io/badge/status-draft-darkred.svg)
+
 # Node 5
 **What we will learn today?**
 - Mongoose
@@ -41,7 +42,7 @@ and we decide to add a new field *profession* to the *persons* documents, then w
 
 One document has the field *profession* while the other does not. The App consuming the documents can just handle not having that field (deciding for example that if there *profession* field then the Person is a Student).
 
-In an RDBMS (Relational Database Management System), we have to update the schema first to add the *profession* column, decide what to do with the existing records (do we default to some value or leave it *null*), decide its type (integer, string, how many characters etc...) then we can use it. There are pros and cons to both types of databases. 
+In an RDBMS (Relational Database Management System), we have to update the schema first to add the *profession* column, decide what to do with the existing records (do we default to some value or leave it *null*), decide its type (integer, string, how many characters etc...) then we can use it. There are pros and cons to both types of databases.
 
 > One of the great benefits of these dynamic objects is that schema migrations become very easy. With a traditional RDBMS, releases of code might contain data migration scripts. Further, each release should have a reverse migration script in case a rollback is necessary. ALTER TABLE operations can be very slow and result in scheduled downtime.
 >
@@ -132,8 +133,8 @@ Let's update our Admin HTML form to be able to save new Posts.
     Then let's define the endpoint
     ```js
     router.post('/save-post', (req, res) => {
-    console.log(req.fields); // contains non-file fields 
-    // req.files will contain files (if you upload images for example)
+      console.log(req.fields); // contains non-file fields
+      // req.files will contain files (if you upload images for example)
     });
     ```
 
@@ -144,23 +145,23 @@ Let's update our Admin HTML form to be able to save new Posts.
     ```js
     // require the model in the top of the file
     router.post('/save-post', (req, res) => {
-    console.log(req.fields); // contains non-file fields
-    const callback = (error, post) => {
-        // Notice the Erorr handling
-        if(error) {
-            console.error(error);
-            return res.redirect('/error');
-        }
-        
-        console.log('post saved successfully', post);
-        res.redirect('/');
-    }
-    
-    mongoose.connect(mongoConnection);
-    // This is using the Model to create an object
-    // based on the fields submitted from the form
-    const newPost = new Post(req.fields);
-    newPost.save(callback);
+      console.log(req.fields); // contains non-file fields
+      const callback = (error, post) => {
+          // Notice the Erorr handling
+          if(error) {
+              console.error(error);
+              return res.redirect('/error');
+          }
+
+          console.log('post saved successfully', post);
+          res.redirect('/');
+      }
+
+      mongoose.connect(mongoConnection);
+      // This is using the Model to create an object
+      // based on the fields submitted from the form
+      const newPost = new Post(req.fields);
+      newPost.save(callback);
     });
     ```
 

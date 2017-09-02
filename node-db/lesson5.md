@@ -1,21 +1,21 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 
 # Node 5
-**What we will learn today?**
+**What will we learn today?**
 - Mongoose
-- Modeling Data
+- Modelling Data
 - Saving Data with HTML forms
     - A note on Progressive Enhancement
-- Modeling Relationships
+- Modelling Relationships
 - Debugging NodeJS
 ---
 # Mongoose
-Mongoose is a libray that provides a straight-forward, **schema-based** solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+Mongoose is a library that allow you to model your application data using a **schema**. It uses type casting, validation, query building, business logic hooks and more to help you manage your data.
 
 ## What is a Schema?
-The term "schema" refers to the organization of data as a blueprint of how the database is constructed. In a Relational Database, the schema will define - among other things - what tables exist in the database, what columns they contain and what type of data they can accept (numbers, strings etc...).
+A "schema" is like a blueprint for your data. In a Relational Database, it will define what tables exist in the database, what columns they contain, and what type of data, like numbers or strings, each column can accept.
 
-Databases like MongoDB are said to be **schema-less**. If we have a collection called *persons* containing *documents* looking like this:
+Databases like MongoDB are said to be **schema-less**. If we have a collection called *persons*, a document may look like this:
 
 ```js
 {
@@ -25,7 +25,7 @@ Databases like MongoDB are said to be **schema-less**. If we have a collection c
 }
 ```
 
-and we decide to add a new field *profession* to the *persons* documents, then we can just add that field in the new document. So we can have two documents like this:
+We can add a document to the *personss* collection with a new field: *profession*. Now we have two documents like this:
 
 ```js
 [{
@@ -40,16 +40,22 @@ and we decide to add a new field *profession* to the *persons* documents, then w
 }]
 ```
 
-One document has the field *profession* while the other does not. The App consuming the documents can just handle not having that field (deciding for example that if there *profession* field then the Person is a Student).
+One document has the field *profession* while the other does not. When we write our app to read the database, it will need to check if the *profession* field exists on a document before trying to use it.
 
-In an RDBMS (Relational Database Management System), we have to update the schema first to add the *profession* column, decide what to do with the existing records (do we default to some value or leave it *null*), decide its type (integer, string, how many characters etc...) then we can use it. There are pros and cons to both types of databases.
+In a Relational Database Management System (RDBMS), we can define the schema (or structure) of our documents and the database will ensure every document has the same structure.
+
+In the schema, we would tell the database what to do if a document doesn't have a *profession* value. For instance, we could tell it to default to some value (`student`) or leave it `null`. We can also tell it what type it should be (eg - `integer` or `string`).
+
+With a schema, our application can be certain that every document it retrieves from the database will have the same structure. There are pros and cons to using databases with and without schemas.
 
 > One of the great benefits of these dynamic objects is that schema migrations become very easy. With a traditional RDBMS, releases of code might contain data migration scripts. Further, each release should have a reverse migration script in case a rollback is necessary. ALTER TABLE operations can be very slow and result in scheduled downtime.
 >
 > With a schemaless database, 90% of the time adjustments to the database become transparent and automatic. For example, if we wish to add GPA to the student objects, we add the attribute, resave, and all is well – if we look up an existing student and reference GPA, we just get back null. Further, if we roll back our code, the new GPA fields in the existing objects are unlikely to cause problems if our code was well written.
 
 ## Mongoose Schema
-Even though being schema-less is one of the selling points of MongoDB, there is benefit to having a *schema* at the Application level, for example to do validation - at the moment, there is nothing stopping us from saving a *person* document as such
+MongoDB is a schema-less database, which makes it easy to use without any configuration. But there is a benefit to having a *schema* at the Application level. For example, with a schema we can perform validation when we are saving data to the database.
+
+At the moment, there is nothing stopping us from saving a *person* document like this:
 
 ```js
 {
@@ -58,15 +64,17 @@ Even though being schema-less is one of the selling points of MongoDB, there is 
 }
 ```
 
-Mongoose helps us add a Schema to provide **validation**, business logic and also provides an easier interface in general to interact with MongoDB.
+> Group discussion: What problems might arise from entering the age as a `string` instead of an `integer`?
+
+Mongoose is a library that provides an easier interface to interact with MongoDB. It also helps us implement a Schema to provide **validation** to our database, so that we can make sure the data we are entering matches our expectations.
 
 ## Exercise
-Let's use Mongoose for our project we've built so far.
+Let's use Mongoose for the project we've built so far.
 
 1. `npm install --save mongoose`
-2. First let's add a Schema for our Models
-    - Create a file Post.js under `/models/Post.js`
-    - We add the Schema to this file.
+2. Add a Schema for our Models
+    - Create a file, `Post.js` under `/models/Post.js`
+    - Define the Schema for a post document in this file.
 
 ```js
 const mongoose = require('mongoose');
@@ -83,7 +91,8 @@ const Post = mongoose.model('posts', schema);
 module.exports = Post;
 ```
 
-3. Then to use the Model, require the file and `mongoose` in the top of your file
+3. To use the Model in our application, require the `Post.js` schema file and `mongoose` at the top of your file:
+
 ```js
 
 // Top of your file
@@ -93,44 +102,61 @@ const mongoose = require('mongoose');
 const Post = require('../models/Post');
 ```
 
-4. Then where you had the code to connect and get the posts - change it to:
+4. Find the code where you connected to the database to retrieve the posts and change it to:
 
 ```js
 mongoose.connect(mongoConnection);
 Post.find({}, callback);
-// callback takes error as first argument, and posts as the second argument
+// callback is a function that takes an error as first argument and the posts as the second argument
 ```
 
 # Form Data - POST
-> **Discussion**: What are the HTTP verbs? which is used to save data?
 
-Let's update our Admin HTML form to be able to save new Posts.
+> **Discussion**: What are the HTTP verbs? Which verbs are used to save data?
 
-1. Go to `admin.handlebars` - let's remove the script at the end of the file `<script src="/js/posts-admin.js"></script>` <- Remove or comment this script
+Let's update the HTML form on our admin page to be able to save new Posts.
 
-2. In the `form`, add the `action` and `method` attribute. It should something similar to this:
-`<form action="/save-post" method="POST" name="sentMessage" id="contactForm" novalidate>`
-    - Open the Developer tools, try to save a Post and see what happens.
+1. Open the `admin.handlebars` file. Remove or comment the script at the end of the file:
 
-    We also need to add a `name` attribute to our form elements i.e.
+    ```
+    <script src="/js/posts-admin.js"></script>
+    ```
 
-    `<input type="text" name="title" ....`
+2. Find the `<form>` tag. Add the `action` and `method` attributes. It should look like this:
 
-    Do the same for `contents` and `summary`.
+    ```
+    <form action="/save-post" method="POST" name="sentMessage" id="contactForm" novalidate>
+    ```
 
-    We can see that the browser is trying to perform a `POST` to `/save-post`
-        - What HTTP status code is returned? What does it mean?
+3. We also need to add a `name` attribute to our form input fields. For example, the title will look like this:
 
-3. Let's create that endpoint `/save-post` to handle this request.
+    ```
+    <input type="text" name="title" ...>
+    ```
 
-    To be able to receive POST data easily, we will use a package called *express-formidable*, so let's start by installing it. `npm install --save express-formidable` then add these two lines on top of `siteController` before defining the routes.
+    Add a `name` attribute to the `contents` and `summary` input fields.
+
+4. Open the Developer tools. Try to save a Post and see what happens.
+
+    > Discussion: The browser is trying to perform a `POST` to `/save-post`. What HTTP status code is returned? What does it mean?
+
+5. Create the endpoint `/save-post` to handle this request.
+
+    We will use a package called `express-formidable` to handle the form requests. Let's start by installing it:
+
+    ```
+    npm install --save express-formidable
+    ```
+
+    Add these two lines to the top of the `siteController`:
 
     ```js
     const formidable = require('express-formidable');
     router.use(formidable());
     ```
 
-    Then let's define the endpoint
+    Then define the route:
+
     ```js
     router.post('/save-post', (req, res) => {
       console.log(req.fields); // contains non-file fields
@@ -138,16 +164,16 @@ Let's update our Admin HTML form to be able to save new Posts.
     });
     ```
 
-    At this point, if you hit save on the form. Our endpoint should log to the console an object containing the data you submitted.
+    Now, if you save the form, our endpoint should log to the console an object containing the data you submitted.
 
-4. Now that we're receiving the data on the server, let's save it to MongoDB. We can make use of our Mongoose models again.
+4. Let's save the data to MongoDB. We will use our Mongoose `Post` model.
 
     ```js
     // require the model in the top of the file
     router.post('/save-post', (req, res) => {
       console.log(req.fields); // contains non-file fields
       const callback = (error, post) => {
-          // Notice the Erorr handling
+          // handle any errors which might ocur
           if(error) {
               console.error(error);
               return res.redirect('/error');
@@ -166,10 +192,12 @@ Let's update our Admin HTML form to be able to save new Posts.
     ```
 
 ## Mongoose Validation
-Notice how you can save a Post now without having a content, summary (or even a title), let's try to fix that.
+You can still save a Post without having any content, summary or title. Let's fix that:
 
 ### Exercise: Make Title mandatory
-Update the Mongoose Model for Posts to be
+
+Update the Mongoose Model for Posts:
+
 ```js
 const schema = new Schema({
     title: {
@@ -181,11 +209,11 @@ const schema = new Schema({
 });
 ```
 
-Now let's try and save a post without a title and see the result.
+Try to save a post without a title and look at what happens:
 - What is the result?
-- Error Handling: Redirect to `/error` if an error is returned (the first argument to the callback is an error)
+- How is the error handled? It redirects to `/error` if an error is returned (the first argument to the callback is an error)
     - Happy Path
-- Make `contents` and `summary` required as well.
+- Make the `contents` and `summary` fields required.
 
 # Form Data - Using AJAX
 
@@ -226,7 +254,7 @@ Go to Chrome Developer tools and Disable JavaScript. Does our *Save Post* functi
 
 > Progressive Enhancement is a powerful methodology that allows Web developers to concentrate on building the best possible websites while balancing the issues inherent in those websites being accessed by multiple unknown user-agents. Progressive Enhancement (PE) is the principle of starting with a rock-solid foundation and then adding enhancements to it if you know certain visiting user-agents can handle the improved experience.
 
-# Modeling Data
+# modelling Data
 What if we want to add a comments sections to our Posts.
 - What are ways to model that data?
 - What if each Post has one Comment only
@@ -238,7 +266,7 @@ With MongoDB, you can take advantage of MongoDB rich documents to embed related 
 ![](https://docs.mongodb.com/manual/_images/data-model-denormalized.bakedsvg.svg)
 
 ## Referencing documents
-Another way of modeling data, is to use Reference documents.
+Another way of modelling data, is to use Reference documents.
 
 ![](https://docs.mongodb.com/manual/_images/data-model-normalized.bakedsvg.svg)
 
@@ -249,7 +277,7 @@ Another way of modeling data, is to use Reference documents.
 ## Reading
 Let's read this blog post together[https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/](https://alexanderzeitler.com/articles/mongoose-referencing-schema-in-properties-and-arrays/)
 
-## Exercise: Data Modeling
+## Exercise: Data modelling
 Requirements: We're building a System for a Hospital. We want to keep track of Doctors and their Appointments with Patients. We need to have the basic information about the doctor (name, contact information and address), the patients (name, age, contact information). Each appointment will have a date, notes from the doctor and a list of prescriptions. A patient is assigned one doctor, and all the appointments will be with the same doctor. A doctor can have up to 20 patients.
 
 - What collections do we need in our database

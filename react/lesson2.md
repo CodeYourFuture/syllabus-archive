@@ -1,139 +1,16 @@
-React Lesson 2
----
+# React 2
+
+**What we will learn today?**
+- More Props and State
+  - Stateful (smart) vs Stateless (dumb) components
+- Component life cycle
+  - componentDidMount: Making API calls
+- Testing React
+
 In this lesson we will be learning to use React components more effectively with deeper understanding of `Props` and `State`.
 
-A React app is basically just a pile of big components (parents) that call smaller (child) components.
+# Component Life Cycle
 
-Props
----
-React components are best understood in terms of parents and children.
-
-Parent or `container` components may have access to the data that they need in order to pass on to multiple child components. These larger components often contain the actions (e.g. API calls) or data processing functions that their child components require and thus are referred to as `smart` components.
-
-Example:
-```jsx
-import React, { Component } from 'react';
-import Organisation from './Organisation';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Organisation
-            name="Refugee Support Network"
-            website="http://www.refugeesupportnetwork.org"
-        />
-      </div>
-    );
-  }
-}
-
-export default App;
-
-```
-
-Child or `presentational` components are essentially smaller customisable to the data that they receive but usually do not have the data in themselves. These are often referred to as `dumb` components - because they do not process the data in themselves:
-
-```jsx
-import React, { Component } from 'react';
-
-class Organisation extends Component {
-  render() {
-    const name = this.props.name;
-    const website = this.props.website;
-    return (
-        <div>
-            Name: {name} <br />
-            Website: {website}
-        </div>
-    );
-  }
-}
-
-export default Organisation;
-
-```
-
-- [Props exercise](https://jsfiddle.net/kabaros/1h9taf1e/)
-
-
-JSX: Map Arrays to Components
----
-When working with APIs we often have collections of things in `Arrays` which we want to map to components. This means we can loop through that data and display the customisable `dumb` component for each one.
-
-```jsx
-
-renderOrganisations() {
-    const orgData = [{ name: 'Organisation 1', borough: 'Camden'}, {name: 'Organisation 2'}];
-    return orgData.map(function renderData(organisation) {
-        return (
-            <Organisation
-                name= {organisation.name}
-                borough={organisation.borough ? organisation.borough : 'None'}
-                website= {organisation.website}
-            />
-        )
-    });
-}
-class App extends Component {
-  render() {
-      return (
-        <div className="App">
-          {this.renderOrganisations()}
-        </div>
-      );
-  }
-}
-
-```
-
-- [Mapping Exercise](https://codepen.io/kabaros/pen/BpLzzE?editors=0010#0)
-
-State
----
-Sometimes a component needs to react to data that doesn't come from a parent component. This is where the component's State comes in.
-
-Props are a Compenent's configuration, they are received from above and they don't usually change by the component itself.
-State starts with a default value (set in the constructor typically) then it gets changed (mutated) by events of the application (user interactions, form input, API calls etc..)
-
-
-Example:
-```jsx
-import React, { Component } from 'react';
-import Organisation from './Organisation';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        website: null
-    }
-  }
-
-  handleChange(event) {
-    this.setState({website: event.target.value});
-  }
-  render() {
-    return (
-      <div className="App">
-        <Organisation
-            name="Refugee Support Network"
-            website={this.state.website}
-        />
-        <input type="text" value={this.state.website} onChange={this.handleChange.bind(this)} />
-      </div>
-    );
-  }
-}
-
-export default App;
-
-```
-
-- [State Exercise](https://codepen.io/kabaros/pen/NdRNmm?editors=0010#0)
-
-Component Life Cycle
----
 ![First Render](/images/firstrender.png "Life Cycle Methods on the first render of a component")
 
 Components have `life cycle` events which are methods that run code at particular times in the process. According to the time that the methods are called, some of them are often prefixed with `will` and `did`.
@@ -173,8 +50,7 @@ These include `setState()` and `forceUpdate()`. You cannot access the state in s
 The complete list of these methods with their descriptions can be found in the documentation [here](https://facebook.github.io/react/docs/react-component.html).
 
 
-API calls
----
+## API calls
 
 In order to make an API called you can call the functions same
 
@@ -202,6 +78,5 @@ componentDidMount() {
 
 Once the state is updated with the data, your component will re-render.
 
-Homework
----
+# Homework
 * [Lesson 2 Homework](Homework/Homework2.md)

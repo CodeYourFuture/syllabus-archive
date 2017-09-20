@@ -22,8 +22,8 @@
     * [Week 13 - Templating and APIs ](/node-db/lesson2.md)
     * [Week 14 - More Node, Middleware and Dynamo](/node-db/lesson3.md)
     * [Week 15 - MongoDB](/node-db/lesson4.md)
-    * [Week 16](/node-db/lesson5.md)
-    * Week 17
+    * [Week 16 - Mongoose](/node-db/lesson5.md)
+    * Week 17 - Node/DB Recap
 * React
   * [Week 18](/react/lesson1.md)
   * [Week 19](/react/lesson2.md)

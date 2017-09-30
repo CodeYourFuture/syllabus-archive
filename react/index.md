@@ -1,5 +1,8 @@
  # React
 
+Recomended reading:
+[https://reactarmory.com/guides/learn-react-by-itself](https://reactarmory.com/guides/learn-react-by-itself)
+
  Example structure:
 
 |Week | Content |

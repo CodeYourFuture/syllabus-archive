@@ -1,57 +1,35 @@
-# Our first component
+# Props
+[Components and props (facebook)](https://reactjs.org/docs/components-and-props.html)
 
-Components in React can be defined by just declaring a function that returns some HTML.
+Components are usually built to be re-usable.
+Sometimes you need to customise them, and you can do so via props.
+Props act just like normal HTML tags, like `<input value="hello" />` where value is a prop.
 
-- Create a new file in `./src/components/button.js`
+To use a prop inside a functional component, they are passed in as the first arguments:
 
-- Create your first component
+```javascript
+import React from "react";
+
+const MyComponent = (props) => (
+  <div style={{backgroundColor: props.color}} />
+)
+
+...
+
+<MyComponent color="red" />
+```
+
+For a class component, props are part of the class instance (or `this`)
 
 ```javascript
 import React from 'react';
 
-function Button() {
-    return <button> Awesome button! </button>;
-}
-
-export default GameButton;
-```
-
-- Switch back to `App.js` and use your new custom component!
-
-```javascript
-import GameButton from './components/gameButton';
-// .........
-  <p className="App-intro">
-    <GameButton/>
-  </p>
-// .........
-```
-
-- Check your browser, it should have refreshed with the latest changes
-
-# Class components
-
-React components are best understood in terms of parents and children.
-
-Parent or `container` components may have access to the data that they need in order to pass it on to multiple child components. These larger components often contain the actions (e.g. API calls) or data processing functions that their child components require and thus are referred to as `smart` components.
-
-These components are usually defined using ES6 classes. So instead of returning the JSX directly, it's returned as part of a `render()` function. Here's how we would define the button component we created above using ES6 classes:
-
-```javascript
-class GameButton extends React.Components {
-
+class MyComponent extends React.Component {
   render() {
-    return <button> Awesome button! </button>;
+  return <div style={{ backgroundColor: this.props.color }} />
   }
 }
 ```
-
-The above is an equivalent component to what we defined using the function. 
-
-Child or "presentational" components are concerned with how things look. They contain very little logic. They are like a function: take some inputs, and return an element (and that's how they're usually written as well, as a function). They don't hold or remember any data: the element that they return is based only on the inputs they received, nothing else.
-
-While functional components are a lot simpler to read and write, using ES6 classes allows us to create more powerful, smarter components.
-
 
 
 JSX: Map Arrays to Components

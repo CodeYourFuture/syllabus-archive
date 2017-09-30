@@ -26,7 +26,7 @@ import React from 'react';
 
 class MyComponent extends React.Component {
   render() {
-  return <div style={{ backgroundColor: this.props.color }} />
+    return <div style={{ backgroundColor: this.props.color }} />;
   }
 }
 ```

@@ -8,7 +8,6 @@ These components are usually defined using ES6 classes. So instead of returning 
 
 ```javascript
 class GameButton extends React.Components {
-
   render() {
     return <button> Awesome button! </button>;
   }

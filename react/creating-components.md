@@ -21,9 +21,7 @@ or using ES6 arrow functions
 ```javascript
 import React from 'react';
 
-const Button = () => (
-  <button> Awesome button! </button>
-);
+const Button = () => <button> Awesome button! </button>;
 
 export default GameButton;
 ```
@@ -33,9 +31,9 @@ export default GameButton;
 ```javascript
 import GameButton from './components/gameButton';
 // .........
-  <p className="App-intro">
-    <GameButton/>
-  </p>
+<p className="App-intro">
+  <GameButton />
+</p>;
 // .........
 ```
 

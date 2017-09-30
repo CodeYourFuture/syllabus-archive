@@ -23,7 +23,7 @@ Besides providing the tools to build powerful and well encapsulated components, 
 Suppose you make an HTTP GET request to "http://blog.com/post?id=123" and you store the result in a variable:
 
 ```javascript
-var post = {id: '123', title: 'Post 1', content: 'Lorem ipsum 1'};
+var post = { id: '123', title: 'Post 1', content: 'Lorem ipsum 1' };
 ```
 
 And our HTML looks like this:
@@ -62,11 +62,10 @@ And then whenever there's a change to `post`, React will take care of changing t
 ```jsx
 import React from 'react';
 
-const Button = () => (
+const Button = () =>
   <button>
     Click me!
-  </button>
-);
+  </button>;
 
 export default Button;
 ```

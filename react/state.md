@@ -40,3 +40,6 @@ export default App;
 ```
 
 - [State Exercise](https://codepen.io/kabaros/pen/NdRNmm?editors=0010#0)
+
+
+Note: different states sometimes missed in designs

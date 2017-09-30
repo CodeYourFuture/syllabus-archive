@@ -1,54 +1,57 @@
-Props
----
+# Our first component
+
+Components in React can be defined by just declaring a function that returns some HTML.
+
+- Create a new file in `./src/components/button.js`
+
+- Create your first component
+
+```javascript
+import React from 'react';
+
+function Button() {
+    return <button> Awesome button! </button>;
+}
+
+export default GameButton;
+```
+
+- Switch back to `App.js` and use your new custom component!
+
+```javascript
+import GameButton from './components/gameButton';
+// .........
+  <p className="App-intro">
+    <GameButton/>
+  </p>
+// .........
+```
+
+- Check your browser, it should have refreshed with the latest changes
+
+# Class components
+
 React components are best understood in terms of parents and children.
 
-Parent or `container` components may have access to the data that they need in order to pass on to multiple child components. These larger components often contain the actions (e.g. API calls) or data processing functions that their child components require and thus are referred to as `smart` components.
+Parent or `container` components may have access to the data that they need in order to pass it on to multiple child components. These larger components often contain the actions (e.g. API calls) or data processing functions that their child components require and thus are referred to as `smart` components.
 
-Example:
-```jsx
-import React, { Component } from 'react';
-import Organisation from './Organisation';
+These components are usually defined using ES6 classes. So instead of returning the JSX directly, it's returned as part of a `render()` function. Here's how we would define the button component we created above using ES6 classes:
 
-class App extends Component {
+```javascript
+class GameButton extends React.Components {
+
   render() {
-    return (
-      <div className="App">
-        <Organisation
-            name="Refugee Support Network"
-            website="http://www.refugeesupportnetwork.org"
-        />
-      </div>
-    );
+    return <button> Awesome button! </button>;
   }
 }
-
-export default App;
-
 ```
 
-Child or `presentational` components are essentially smaller customisable to the data that they receive but usually do not have the data in themselves. These are often referred to as `dumb` components - because they do not process the data in themselves:
+The above is an equivalent component to what we defined using the function. 
 
-```jsx
-import React, { Component } from 'react';
+Child or "presentational" components are concerned with how things look. They contain very little logic. They are like a function: take some inputs, and return an element (and that's how they're usually written as well, as a function). They don't hold or remember any data: the element that they return is based only on the inputs they received, nothing else.
 
-class Organisation extends Component {
-  render() {
-    const name = this.props.name;
-    const website = this.props.website;
-    return (
-        <div>
-            Name: {name} <br />
-            Website: {website}
-        </div>
-    );
-  }
-}
+While functional components are a lot simpler to read and write, using ES6 classes allows us to create more powerful, smarter components.
 
-export default Organisation;
-
-```
-
-- [Props exercise](https://jsfiddle.net/kabaros/1h9taf1e/)
 
 
 JSX: Map Arrays to Components

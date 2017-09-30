@@ -39,7 +39,7 @@ Responses contain two main things:
 ## Performing HTTP requests in JavaScript
 - [w3schools documentation on XMLHttpRequest](http://www.w3schools.com/xml/ajax_intro.asp)
 
-```JavaScript
+```javascript
 var http = new XMLHttpRequest()
 
 // Specify the Method and the URL we want to access

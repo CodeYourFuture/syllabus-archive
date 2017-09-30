@@ -74,7 +74,7 @@ You can either add an event as an attribute. For example, when a user clicks awa
 
 By adding `this` to the function, we can access the value of the input element, by using `input.value`.
 
-```JavaScript
+```javascript
 
 function inputOnBlur(input) {
     alert(input.value);
@@ -83,7 +83,7 @@ function inputOnBlur(input) {
 
 You can also set the value of the element, using the same `value` property.
 
-```JavaScript
+```javascript
 
 function inputOnBlur(input) {
     input.value = 'Some new value';

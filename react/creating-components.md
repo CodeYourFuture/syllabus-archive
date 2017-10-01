@@ -2,7 +2,7 @@
 
 Components in React can be defined by just declaring a function that returns some HTML.
 
-- Create a new file in `./src/components/button.js`
+- Create a new file in `./src/components/Button.js`
 
 - Create your first component
 

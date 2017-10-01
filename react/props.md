@@ -13,7 +13,7 @@ To use a prop inside a functional component, they are passed in as the first arg
 ```javascript
 import React from "react";
 
-const MyComponent = (props) => (
+const Welcome = (props) => (
   <h1>Hello, {props.name}</h1>
 )
 

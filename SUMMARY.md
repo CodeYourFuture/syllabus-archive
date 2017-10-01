@@ -68,9 +68,9 @@
   * TO BE ADDED
 * [React](/react/index.md)
   * [Libraries](/react/libraries.md)
-  * [Node & NPM](/react/node-npm.md)
   * [React intro](/react/react-intro.md)
   * [ES6](/react/es6.md)
+  * [Thinking in React](/react/think-in-react.md)
   * [Creating components](/react/creating-components.md)
   * [Class components](/react/class-components.md)
   * [Props](/react/props.md)

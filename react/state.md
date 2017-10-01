@@ -15,28 +15,34 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        website: null
-    }
+      website: null
+    };
   }
 
   handleChange(event) {
-    this.setState({website: event.target.value});
+    this.setState({ website: event.target.value });
   }
   render() {
     return (
       <div className="App">
         <Organisation
-            name="Refugee Support Network"
-            website={this.state.website}
+          name="Refugee Support Network"
+          website={this.state.website}
         />
-        <input type="text" value={this.state.website} onChange={this.handleChange.bind(this)} />
+        <input
+          type="text"
+          value={this.state.website}
+          onChange={this.handleChange.bind(this)}
+        />
       </div>
     );
   }
 }
 
 export default App;
-
 ```
 
 - [State Exercise](https://codepen.io/kabaros/pen/NdRNmm?editors=0010#0)
+
+
+Note: different states sometimes missed in designs

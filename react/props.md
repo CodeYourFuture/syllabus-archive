@@ -1,55 +1,47 @@
-Props
----
-React components are best understood in terms of parents and children.
+# Props
+[Components and props (facebook)](https://reactjs.org/docs/components-and-props.html)
 
-Parent or `container` components may have access to the data that they need in order to pass on to multiple child components. These larger components often contain the actions (e.g. API calls) or data processing functions that their child components require and thus are referred to as `smart` components.
+Components are usually built to be re-usable.
+Sometimes you need to customise them, and you can do so via props.
+Props act just like normal HTML tags, like `<input value="hello" />` where value is a prop.
+They can be thought of as the configuration of a component.
 
-Example:
-```jsx
-import React, { Component } from 'react';
-import Organisation from './Organisation';
+Props are read only. Whether you declare a component as a function or a class, it must never modify its own props.
 
-class App extends Component {
+To use a prop inside a functional component, they are passed in as the first arguments:
+
+```javascript
+import React from "react";
+
+const MyComponent = (props) => (
+  <h1>Hello, {props.name}</h1>
+)
+
+...
+
+<Welcome name="CodeYourFuture" />
+```
+
+For a class component, props are part of the class instance (or `this`)
+
+```javascript
+import React from 'react';
+
+class Welcome extends React.Component {
   render() {
-    return (
-      <div className="App">
-        <Organisation
-            name="Refugee Support Network"
-            website="http://www.refugeesupportnetwork.org"
-        />
-      </div>
-    );
+    return <h1>Hello, {this.props.name}</h1>;
   }
 }
 
-export default App;
-
+<Welcome name="CodeYourFuture" />;
 ```
 
-Child or `presentational` components are essentially smaller customisable to the data that they receive but usually do not have the data in themselves. These are often referred to as `dumb` components - because they do not process the data in themselves:
+You can pass more than just strings to props, such as numbers or other Javascript objects as follows:
 
-```jsx
-import React, { Component } from 'react';
-
-class Organisation extends Component {
-  render() {
-    const name = this.props.name;
-    const website = this.props.website;
-    return (
-        <div>
-            Name: {name} <br />
-            Website: {website}
-        </div>
-    );
-  }
-}
-
-export default Organisation;
-
+```javascript
+<MyComponent aPropGoesHere={12345} />
+<MyComponent something={{ key: "value", otherKey: "value2" }} />
 ```
-
-- [Props exercise](https://jsfiddle.net/kabaros/1h9taf1e/)
-
 
 JSX: Map Arrays to Components
 ---

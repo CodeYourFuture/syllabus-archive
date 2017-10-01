@@ -71,6 +71,8 @@
   * [Node & NPM](/react/node-npm.md)
   * [React intro](/react/react-intro.md)
   * [ES6](/react/es6.md)
+  * [Creating components](/react/creating-components.md)
+  * [Class components](/react/class-components.md)
   * [Props](/react/props.md)
   * [State](/react/state.md)
   * [Component Life cycle](/react/lifecycle.md)

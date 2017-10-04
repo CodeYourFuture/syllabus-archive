@@ -12,9 +12,9 @@ At the highest level in React - you have components. These are created usually w
 import React, { Component } from 'react'
 
 class MyComponent extends Component {
-	render() {
-	  return <div>Hello World!</div>
-	}
+  render() {
+    return <div>Hello World!</div>
+  }
 }
 
 export default MyComponent
@@ -30,9 +30,9 @@ Then, inside of this file you can write `<MyComponent />` inside your JSX to ren
 
 ```jsx
 class ParentComponent extends Component {
-	render() {
-		return <div><MyComponent /></div>
-	}
+  render() {
+    return <div><MyComponent /></div>
+  }
 }
 
 export default ParentComponent
@@ -49,13 +49,13 @@ import React, { Component } from 'react'
 import Profile from './Profile'
 
 class MyComponent extends Component {
-	render() {
-		return (
-			<div>
-				<Profile name="Scott" age=24 />
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div>
+        <Profile name="Scott" age=24 />
+      </div>
+    )
+  }
 }
 
 export default MyComponent
@@ -67,14 +67,14 @@ Now, if we go take a look at the `Profile` component we can see how those props 
 import React, { Component } from 'react'
 
 class Profile extends Component {
-	render() {
-		return (
-			<div>
-				Name: {this.props.name}
-				Age: {this.props.age}
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div>
+        Name: {this.props.name}
+        Age: {this.props.age}
+      </div>
+    )
+  }
 }
 
 export default Profile
@@ -89,10 +89,10 @@ import React from 'react' // don't need to import Component
 
 function Profile(props) {
   return (
-  	<div>
-  		Name: {props.name}
-  		Age: {props.age}
-  	</div>
+    <div>
+      Name: {props.name}
+      Age: {props.age}
+    </div>
   )
 }
 
@@ -112,47 +112,47 @@ import React, { Component } from 'react'
 
 class Counter extends Component {
 
-	// To initialise our state, we create a constructor and
-	// directly set the state.
-	// This is the **only** place we should ever write "this.state ="
-	constructor() {
-		super()
-		this.state = {
-			counter: 0
-		}
-	}
+  // To initialise our state, we create a constructor and
+  // directly set the state.
+  // This is the **only** place we should ever write "this.state ="
+  constructor() {
+    super()
+    this.state = {
+      counter: 0
+    }
+  }
 
-	// this function will increase the number we have
-	// in our counter by 1 each time it is called
-	incrementCounter() {
-		// we're calling a React-provided method
-		// here to update our state
-		this.setState({
-			counter: this.state.counter + 1
-		})
-	}
+  // this function will increase the number we have
+  // in our counter by 1 each time it is called
+  incrementCounter() {
+    // we're calling a React-provided method
+    // here to update our state
+    this.setState({
+      counter: this.state.counter + 1
+    })
+  }
 
-	// this function does the same as the above except it will
-	// reduce the number we have in the state by 1
-	decrementCounter() {
-		this.setState({
-			counter: this.state.counter - 1
-		})
-	}
+  // this function does the same as the above except it will
+  // reduce the number we have in the state by 1
+  decrementCounter() {
+    this.setState({
+      counter: this.state.counter - 1
+    })
+  }
 
-	render() {
-		// here we render out the current counter with
-		// two buttons, with onClicks that reference
-		// the functions we created above
-		return (
-			<div>
-				<br/>
-				<h1>Counter:{this.state.counter}</h1>
-				<button onClick={this.incrementCounter}>+</button>
-				<button onClick={this.decrementCounter}>-</button>
-			</div>
-		)
-	}
+  render() {
+    // here we render out the current counter with
+    // two buttons, with onClicks that reference
+    // the functions we created above
+    return (
+      <div>
+        <br/>
+        <h1>Counter:{this.state.counter}</h1>
+        <button onClick={this.incrementCounter}>+</button>
+        <button onClick={this.decrementCounter}>-</button>
+      </div>
+    )
+  }
 }
 ```
 
@@ -161,8 +161,8 @@ That's almost it for the recap, before we jump into the next part - have a go at
 1. Change the colour of the counter, based on whether or not it's an even number ([demo here](https://csb-jopk2757y-mkxkadmfba.now.sh/))
 2. Add another button that multiplies the number by 2 ([demo here](https://csb-24pk29x2pn-zpnhuedswr.now.sh/))
 3. Add a slider that modifies that multiplier ([demo here](https://csb-l4kk6zn4kz-ypkmbtwnxy.now.sh/))
-	* So moving the slider to the left makes the multiplier 2, but moving it further to the right will increase the multiplier to 2,3,4 etc.
+  * So moving the slider to the left makes the multiplier 2, but moving it further to the right will increase the multiplier to 2,3,4 etc.
 4. Make the number of counters dynamic ([demo here](https://csb-nr8nvm9k70-fdvdaqcbst.now.sh/))
-	* So you have a remove counter button next to each counter, and an "add new counter" button at which will add a new counter
-	* Each counter should have it's own value
+  * So you have a remove counter button next to each counter, and an "add new counter" button at which will add a new counter
+  * Each counter should have it's own value
 5. Have a go at implementing #4 using a second component

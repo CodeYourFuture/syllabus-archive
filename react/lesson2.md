@@ -1,6 +1,6 @@
 # React Lesson 2
 
-In this lesson we're going to go through a recap of props and state, then we'll hand out a set of small tasks/apps to build in the browser. Most of them should take anywhere from 30 mins to an hour, you won't be expected to finish them all but you will not be given much starting code.
+In this lesson we're going to go through a recap of props and state, then we'll hand out a set of small tasks/apps to build in the browser with `create-react-app`. Most of them should take anywhere from 30 mins to an hour, you won't be expected to finish them all but you will not be given much starting code - they aim is for you to get a good grasp of solving problems in React.
 
 ## Recap
 
@@ -103,7 +103,7 @@ export default Profile
 
 To manage values that can change in your application - you store those values in a component's state. We **must** use class components if we want to store state, and to update the state we need to use `this.setState`, passing it the new object to put in our state. If we use this method to update our state - react will magically handle updating the html/output for us.
 
-(https://csb-vmxpvp07k0-xxlmpfwqxt.now.sh/)[Click here] to view the next snippet. Try it out and understand what it's doing before we take a look at the code for it.
+[Click here](https://csb-vmxpvp07k0-xxlmpfwqxt.now.sh/) to view the next example in a browser. Try it out and understand what it's doing before we take a look at the code for it.
 
 Once you've done that - take a look at the implementation:
 
@@ -156,15 +156,13 @@ class Counter extends Component {
 }
 ```
 
-That's it for the recap, before we jump into the next part - have a go at trying to extend this counter example. Here's a few ideas that you could try:
+That's almost it for the recap, before we jump into the next part - have a go at trying to extend this counter example. Here's a few ideas that you could try:
 
-1. Change the colour of the counter, based on whether or not it's an even number
-2. Add another button that multiplies the number by 2
-3. Add a slider that modifies that multiplier
-	* I.e. moving the slider to the left makes the multiplier 2, but moving it further to the right will increase the multiplier to 2,3,4 etc.
-4. Make the number of counters dynamic
+1. Change the colour of the counter, based on whether or not it's an even number ([demo here](https://csb-jopk2757y-mkxkadmfba.now.sh/))
+2. Add another button that multiplies the number by 2 ([demo here](https://csb-24pk29x2pn-zpnhuedswr.now.sh/))
+3. Add a slider that modifies that multiplier ([demo here](https://csb-l4kk6zn4kz-ypkmbtwnxy.now.sh/))
+	* So moving the slider to the left makes the multiplier 2, but moving it further to the right will increase the multiplier to 2,3,4 etc.
+4. Make the number of counters dynamic ([demo here](https://csb-nr8nvm9k70-fdvdaqcbst.now.sh/))
 	* So you have a remove counter button next to each counter, and an "add new counter" button at which will add a new counter
 	* Each counter should have it's own value
-5. Have a go at implementing #4 using another component
-
-Come and find any of the instructors if you'd like some help.
+5. Have a go at implementing #4 using a second component

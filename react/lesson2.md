@@ -124,7 +124,7 @@ class Counter extends Component {
 
   // this function will increase the number we have
   // in our counter by 1 each time it is called
-  incrementCounter() {
+  incrementCounter = () => {
     // we're calling a React-provided method
     // here to update our state
     this.setState({
@@ -134,7 +134,7 @@ class Counter extends Component {
 
   // this function does the same as the above except it will
   // reduce the number we have in the state by 1
-  decrementCounter() {
+  decrementCounter = () => {
     this.setState({
       counter: this.state.counter - 1
     })
@@ -166,3 +166,83 @@ That's almost it for the recap, before we jump into the next part - have a go at
   * So you have a remove counter button next to each counter, and an "add new counter" button at which will add a new counter
   * Each counter should have it's own value
 5. Have a go at implementing #4 using a second component
+
+
+Further Examples:
+
+* TODO App [example](http://todomvc.com/examples/react/#/)
+* Checkboxes [example]
+
+# Talking to an API
+
+Up until this point we've been building things that are entirely inside our browser - we've never really spoken to another API. We're now going to look into how we would do that.
+
+First of all, it's important to remember that as soon as we start to talk to another service then we have to start thinking about things happening asynchronously (remember callbacks?). React gives you access to a group of things called [lifecycle methods](https://reactjs.org/docs/react-component.html#the-component-lifecycle) to be able to do this.
+
+The most commonly used lifecycle methods (other than `render` and a `constructor`) are `componentDidMount` and `componentShouldUpdate`.
+
+`componentDidMount` is the place where you'd want to make things like API calls and setup. It gets called after `render`.
+
+`componentShouldUpdate` is typically used for performance - if you've got state changing a lot and you're making React re-render things really often then you can use this method to control whether or not it should.
+
+In this example, we're going to load in a list of countries to display them on a page, let's walk through an example of doing that:
+
+```jsx
+import React, { Component } from 'react';
+
+class App extends Component {
+  constructor() {
+    super()
+    // we're going to store our list of countries in the state as an array
+    this.state = {
+      countries: []
+    }
+  }
+
+  // This is our Lifecycle Method
+  componentDidMount() {
+    // here we can pass a url to fetch() and it will return a promise
+    fetch('https://restcountries.eu/rest/v2/all')
+    // then we parse the JSON response from the API
+      .then(response => response.json())
+    // we pass the parsed json into a method on our component
+      .then(this.updateWithCountries)
+  }
+
+  updateWithCountries = (countryList) => {
+    // we call this method when we've finished fetching the countries
+    this.setState({
+      countries: countryList
+    })
+  }
+
+  renderCountry = (country, idx) => {
+    // in our render method we pass this in to the map to create multiple children
+    return (
+      <div key={idx}>
+        <p>Name: {country.name}</p>
+        <p>Population: {country.population}</p>
+        <hr/>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.countries.map(this.renderCountry)}
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+## Homework
+
+Using React:
+
+* Render list of cakes using this [json url](https://gist.githubusercontent.com/hart88/198f29ec5114a3ec3460/raw/8dd19a88f9b8d24c23d9960f3300d0c917a4f07c/cake.json)
+* Add ability to search cakes
+* Add basic ability to edit/add cakes

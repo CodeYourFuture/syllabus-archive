@@ -159,7 +159,7 @@ class Counter extends Component {
 That's almost it for the recap, before we jump into the next part - have a go at trying to extend this counter example. Here's a few ideas that you could try:
 
 1. Change the colour of the counter, based on whether or not it's an even number ([demo here](https://csb-jopk2757y-mkxkadmfba.now.sh/))
-2. Add another button that multiplies the number by 2 ([demo here](https://csb-24pk29x2pn-zpnhuedswr.now.sh/))
+2. Add another button that multiplies the number by 2 ([demo here](https://multiply-counter.surge.sh))
 3. Add a slider that modifies that multiplier ([demo here](https://csb-l4kk6zn4kz-ypkmbtwnxy.now.sh/))
   * So moving the slider to the left makes the multiplier 2, but moving it further to the right will increase the multiplier to 2,3,4 etc.
 4. Make the number of counters dynamic ([demo here](https://csb-nr8nvm9k70-fdvdaqcbst.now.sh/))

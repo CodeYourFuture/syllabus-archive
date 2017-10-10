@@ -63,7 +63,8 @@ When working with APIs we often have collections of things in `Arrays` which we 
 
 ```jsx
 
-renderOrganisations() {
+class App extends Component {
+  renderOrganisations() {
     const orgData = [{ name: 'Organisation 1', borough: 'Camden'}, {name: 'Organisation 2'}];
     return orgData.map(function renderData(organisation) {
         return (
@@ -74,8 +75,8 @@ renderOrganisations() {
             />
         )
     });
-}
-class App extends Component {
+  }
+
   render() {
       return (
         <div className="App">

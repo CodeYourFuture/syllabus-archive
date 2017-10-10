@@ -52,7 +52,7 @@ class MyComponent extends Component {
   render() {
     return (
       <div>
-        <Profile name="Scott" age=24 />
+        <Profile name="Scott" age={24} />
       </div>
     )
   }

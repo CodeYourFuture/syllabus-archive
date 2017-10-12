@@ -43,7 +43,7 @@ In order to make an API called you can call the functions same
 ```jsx
 callAPI = () => {
   const APIAddress =
-    'https://code-your-future.github.io/api-demo/area/All/index.json';
+    'https://codeyourfuture.github.io/api-demo/area/All/index.json';
   fetch(APIAddress)
     .then(function(response) {
       return response.json();

@@ -32,7 +32,7 @@ Other APIs
 --
 These include `setState()` and `forceUpdate()`. You cannot access the state in some lifecycle methods, refer to the diagram above to find out which.
 
-The complete list of these methods with their descriptions can be found in the documentation [here](https://facebook.github.io/react/docs/react-component.html).
+The complete list of these methods with their descriptions can be found in the documentation [here](https://reactjs.org/docs/react-component.html).
 
 
 API calls

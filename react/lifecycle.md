@@ -11,7 +11,7 @@ Even though you have all these methods available to use at your disposal, the on
 
 Mounting
 --
-These are called when a component is being mounted on the DOM such as:
+These are called when a component is being mounted on the DOM.
 
 - `constructor()`
 - `componentWillMount()`
@@ -29,7 +29,7 @@ These are called when a component is updated and being re-rendered, due to chang
 
 Unmonting
 --
-This method is called when a component is being removed from the DOM:
+This method is called when a component is being removed from the DOM.
 
 - `componentWillUnmount()`
 

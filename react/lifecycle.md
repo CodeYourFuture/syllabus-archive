@@ -1,12 +1,8 @@
 Component Life Cycle
 ---
-![First Render](/images/firstrender.png "Life Cycle Methods on the first render of a component")
-
 Components have `life cycle` events which are methods that run code at particular times in the process. According to the time that the methods are called, some of them are often prefixed with `will` and `did`.
 
-The diagram below shows the full picture of what happens during the rendering of a component. Even though you have all these methods available to use at your disposal, the only `required` method is `render()`.
-
-![Component Lifecycle](/images/componentlifecycle.jpg "All lifecycle Methods of a React component")
+Even though you have all these methods available to use at your disposal, the only `required` method is `render()`.
 
 Mounting
 --

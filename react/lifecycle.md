@@ -50,6 +50,8 @@ Other APIs
 The complete list of these methods with their descriptions can be found in the documentation
 [here](https://reactjs.org/docs/react-component.html).
 
+[This counter](https://codepen.io/misaogura/pen/wrxJWy?editors=1111) demonstrates how some of the
+lifecycle methods are called. Play around and even add some more lifecycle methods by yourself!
 
 API calls
 ---

@@ -1,6 +1,11 @@
 Component Life Cycle
 ---
-Components have `life cycle` events which are methods that run code at particular times in the process. According to the time that the methods are called, some of them are often prefixed with `will` and `did`.
+React components in a browser can be in one of three status: **mounted**, **updated**, and **unmounted**.
+
+Components have `lifecycle` events which are methods that run code at particular times in the process.
+Depending on which status of a component they are associated with, lifecycle methods are grouped into
+three categories: **mounting**, **updating**, and **unmounting**. According to the time that the methods
+are called, some of them are often prefixed with `will` and `did`.
 
 Even though you have all these methods available to use at your disposal, the only `required` method is `render()`.
 
@@ -8,42 +13,53 @@ Mounting
 --
 These are called when a component is being mounted on the DOM such as:
 
-- Constructor()
-- componentWillMount()
-- render()
-- etc
+- `constructor()`
+- `componentWillMount()`
+- `componentDidMount()`
+- `render()`
 
 Updating
 --
-When there are changes to the props or state:
+These are called when a component is updated and being re-rendered, due to changes in props or state.
 
-- componentWillReceiveProps()
-- componentDidUpdate()
-- render()
+- `componentWillReceiveProps()`
+- `componentDidUpdate()`
+- `render()`
 - etc
 
 Unmonting
 --
-When a component is being removed from the DOM:
+This method is called when a component is being removed from the DOM:
 
-- componentWillUnmount()
+- `componentWillUnmount()`
+
+Error Handling
+--
+The React `v.16.0.0` introduces better support for error handling.
+
+This method is called when an error occurs during rendering, in a lifecycle method, or in the constructor
+of any child component.
+
+- `componentDidCatch()`
 
 Other APIs
 --
-These include `setState()` and `forceUpdate()`. You cannot access the state in some lifecycle methods, refer to the diagram above to find out which.
+- `setState()`
+- `forceUpdate()`
 
-The complete list of these methods with their descriptions can be found in the documentation [here](https://reactjs.org/docs/react-component.html).
+The complete list of these methods with their descriptions can be found in the documentation
+[here](https://reactjs.org/docs/react-component.html).
 
 
 API calls
 ---
 
-In order to make an API called you can call the functions same
-
+Here is a function to make an API call.
 ```jsx
 callAPI = () => {
   const APIAddress =
     'https://codeyourfuture.github.io/api-demo/area/All/index.json';
+    
   fetch(APIAddress)
     .then(function(response) {
       return response.json();

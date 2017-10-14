@@ -12,7 +12,7 @@
 
 - You'll find in the components folder an `Album` component already written for you to use.
 
-- Fetch an array of albums from https://gist.githubusercontent.com/djgrant/d465b89610f7047c759bdfed087bb4c4/raw/bee48fc79be3df912908d59bcde538f3d1b00edf/beyonce-albums.json.
+- Fetch an array of albums from https://gist.githubusercontent.com/rarmatei/f5ae92ac93d9716affab822a3f54f95b/raw/208c60d8bedabae95f35c2fa01b7010c9e3d8b45/beyonce-albums.json.
 
 - Using the data returned from the API, render a list of `Album` components, passing in the necessary props.
 

@@ -12,11 +12,7 @@
 
 - You'll find in the components folder an `Album` component already written for you to use, and an `Albums` component that you need to complete
 
-<<<<<<< HEAD
-- In the `Albums` component fetch an array of albums from https://gist.githubusercontent.com/rarmatei/f5ae92ac93d9716affab822a3f54f95b/raw/dc014926ed07a10404934d25bfcea382daf53a7f/beyonce-albums.json.
-=======
 - In the `Albums` component fetch an array of albums from https://gist.githubusercontent.com/rarmatei/f5ae92ac93d9716affab822a3f54f95b/raw/e62641b3f5ddd12c4fe34aa0912488224594e5a7/beyonce-albums.json.
->>>>>>> 9371ae8f80075e128e6095d4f97508de2c7abc0f
 
 - Using the data returned from the API, render an array of `Album` components, passing in the necessary props.
 

@@ -10,11 +10,11 @@
 
 - Go to https://github.com/djgrant/beyonce-app and follow the instructions to clone and install the app.
 
-- You'll find in the components folder an `Album` component already written for you to use.
+- You'll find in the components folder an `Album` component already written for you to use, and an `Albums` component that you need to complete
 
-- Fetch an array of albums from https://gist.githubusercontent.com/rarmatei/f5ae92ac93d9716affab822a3f54f95b/raw/208c60d8bedabae95f35c2fa01b7010c9e3d8b45/beyonce-albums.json.
+- In the `Albums` component fetch an array of albums from https://gist.githubusercontent.com/rarmatei/f5ae92ac93d9716affab822a3f54f95b/raw/dc014926ed07a10404934d25bfcea382daf53a7f/beyonce-albums.json.
 
-- Using the data returned from the API, render a list of `Album` components, passing in the necessary props.
+- Using the data returned from the API, render an array of `Album` components, passing in the necessary props.
 
 Things you will need to know:
 - Fetch
@@ -43,23 +43,31 @@ In this challenge we'll split your app into 3 pages.
 
 - Add a navigation bar to your app with links to the routes you've created
 
-- Move the content of each Route into individual files, and import them in `index.js` using the  `Route` `component` prop.
+- Move the content of each Route into individual files, and import them in `index.js` using the  `<Route>` `component` prop.
 
 
 ## Challenge 3: install components to style your app
 
 React components can be configured with props, which makes them ideal for sharing with others.
 
-You can install [all sorts of React components](https://github.com/brillout/awesome-react-components#ui-components)
+There are [all sorts of React components](https://github.com/brillout/awesome-react-components#ui-components) that you can install and use in your projects.
 
-- Install a React UI library
+In the challenge you'll add a video player to the `Album` component.
 
-- TODO
+- Open the `Album` component
+
+- Using npm, install [react-player](https://www.npmjs.com/package/react-player)
+
+- Following the instructions on the [readme](https://www.npmjs.com/package/react-player) add a react-player component into `Album`
+
+- Update your `Albums` component to pass in a `videoUrl` to the `Album` component
+
+- Add `videoUrl` as a prop type to the `Album` component
 
 ## Homework
 
-- Proptypes
 - Find some more content and add another route to your App
 - Using react-router, show the About route content in tabs (see the how this is achieved in https://codesandbox.io/s/pj6v9x94x0)
 <!-- - Add a form to the [TODO] page that posts to an API [TODO] -->
+- Enhance the albums page using components provided by [Material UI](http://www.material-ui.com/#/components/grid-list)
 - (Advanced) Abstract the tabs functionality into a component that you could share with other developers

@@ -1,5 +1,7 @@
 Component Life Cycle
 ---
+Facebook documentation: [https://reactjs.org/docs/react-component.html](https://reactjs.org/docs/react-component.html)
+
 React components in a browser can be in one of three status: **mounted**, **updated**, and **unmounted**.
 
 Components have `lifecycle` events which are methods that run code at particular times in the process.
@@ -29,7 +31,7 @@ These are called when a component is updated and being re-rendered, due to chang
 - `componentDidUpdate()`
 - etc
 
-Unmonting
+Unmounting
 --
 This method is called when a component is being removed from the DOM.
 

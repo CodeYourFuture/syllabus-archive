@@ -23,8 +23,10 @@ Updating
 These are called when a component is updated and being re-rendered, due to changes in props or state.
 
 - `componentWillReceiveProps()`
-- `componentDidUpdate()`
+- `shouldComponentUpdate()`
+- `componentWillUpdate()`
 - `render()`
+- `componentDidUpdate()`
 - etc
 
 Unmonting

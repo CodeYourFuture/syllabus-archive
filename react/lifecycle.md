@@ -15,8 +15,8 @@ These are called when a component is being mounted on the DOM.
 
 - `constructor()`
 - `componentWillMount()`
-- `componentDidMount()`
 - `render()`
+- `componentDidMount()`
 
 Updating
 --

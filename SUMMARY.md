@@ -7,6 +7,7 @@
   * [Week 2](/html-css/lesson2.md)
   * [Week 3](/html-css/lesson3.md)
   * [Coding 101](/html-css/coding-101.md)
+  * [Compile SCSS instructions](/html-css/compile-scss-instructions.md)
 * JavaScript Core
   * [Week 1](/js-core/lesson1.md)
   * [Week 2](/js-core/lesson2.md)

@@ -1,4 +1,4 @@
-*****WARNING********: Submitting a PR to scotland or london is not recommended, and should be considered deprecated.
+**WARNING:** Submitting a PR to scotland or london is not recommended, and should be considered deprecated.
 Please check to see if your content would be better placed inside master, before submitting a PR
 
 

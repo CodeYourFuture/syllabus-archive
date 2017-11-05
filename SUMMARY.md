@@ -7,6 +7,10 @@
   * [Terminal](/week0/terminal.md)
   * [Coding 101](/week0/coding-101.md)
 * [HTML/CSS](/html-css/index.md)
+  * Lessons
+    * [Lesson 1](/html-css/lesson1.md)
+    * [Lesson 2](/html-css/lesson2.md)
+    * [Lesson 3](/html-css/lesson3.md)
   * [Semantic HTML tags](/html-css/semantic-tags.md)
   * [CSS selectors](/html-css/css-selectors.md)
   * [CSS cascade](html-css/cascade.md)

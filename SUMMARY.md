@@ -20,7 +20,7 @@
   * [Forms](/html-css/forms.md)
   * [CSS processors](/html-css/css-processors.md)
 * [JavaScript Core 1](/js-core/index.md)
-  * Lesons
+  * Lessons
     * [Lesson 1](/js-core/lesson1.md)
     * [Lesson 2](/js-core/lesson2.md)
     * [Lesson 3](js-core/lesson3.md)

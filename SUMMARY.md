@@ -42,6 +42,10 @@
   * [Arrow functions](/js-core/arrow-functions.md)
   * [Context](/js-core/context.md)
 * [JavaScript Core II](/js-core-2/index.md)
+  * Lessons
+    * [Lesson 1](/js-core-2/lesson1.md)
+    * [Lesson 2](/js-core-2/lesson2.md)
+    * [Lesson 3](js-core-2/lesson3.md)
   * [Debugging](/js-core-2/debugging.md)
   * [Callbacks](/js-core-2/callbacks.md)
   * [Testing](/js-core-2/testing.md)

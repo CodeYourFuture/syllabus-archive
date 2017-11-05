@@ -27,7 +27,7 @@
   * Lessons
     * [Lesson 1](/js-core/lesson1.md)
     * [Lesson 2](/js-core/lesson2.md)
-    * [Lesson 3](js-core/lesson3.md)
+    * [Lesson 3](/js-core/lesson3.md)
   * [Getting started](/js-core/getting-started.md)
   * [Comments](/js-core/comments.md)
   * [Data types](/js-core/data-types.md)
@@ -45,7 +45,7 @@
   * Lessons
     * [Lesson 1](/js-core-2/lesson1.md)
     * [Lesson 2](/js-core-2/lesson2.md)
-    * [Lesson 3](js-core-2/lesson3.md)
+    * [Lesson 3](/js-core-2/lesson3.md)
   * [Debugging](/js-core-2/debugging.md)
   * [Callbacks](/js-core-2/callbacks.md)
   * [Testing](/js-core-2/testing.md)
@@ -56,6 +56,10 @@
   * [Events](/js-core-2/events.md)
   * [AJAX](/js-core-2/ajax.md)
 * [JavaScript Core III](/js-core-3/index.md)
+  * Lessons
+    * [Lesson 1](/js-core-3/lesson1.md)
+    * [Lesson 2](/js-core-3/lesson2.md)
+    * [Lesson 3](/js-core-3/lesson3.md)
   * [JSON](/js-core-3/json.md)
   * [APIs](/js-core-3/apis.md)
   * [Promises](/js-core-3/promises.md)

@@ -23,7 +23,7 @@
   * Lesons
     * [Lesson 1]()
     * [Lesson 2](/js-core/lesson2.md)
-    * [Lesson 3]()
+    * [Lesson 3](js-core/lesson3.md)
   * [Getting started](/js-core/getting-started.md)
   * [Comments](/js-core/comments.md)
   * [Data types](/js-core/data-types.md)

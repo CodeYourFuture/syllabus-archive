@@ -2,7 +2,7 @@
 
 Components in React can be defined by just declaring a function that returns some HTML.
 
-- Create a new file in `./src/components/button.js`
+- Create a new file in `./src/components/Button.js`
 
 - Create your first component
 
@@ -13,7 +13,7 @@ function Button() {
   return <button> Awesome button! </button>;
 }
 
-export default GameButton;
+export default Button;
 ```
 
 or using ES6 arrow functions
@@ -23,16 +23,16 @@ import React from 'react';
 
 const Button = () => <button> Awesome button! </button>;
 
-export default GameButton;
+export default Button;
 ```
 
 - Switch back to `App.js` and use your new custom component!
 
 ```javascript
-import GameButton from './components/gameButton';
+import Button from './components/Button';
 // .........
 <p className="App-intro">
-  <GameButton />
+  <Button />
 </p>;
 // .........
 ```

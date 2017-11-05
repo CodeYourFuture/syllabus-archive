@@ -13,7 +13,7 @@ To use a prop inside a functional component, they are passed in as the first arg
 ```javascript
 import React from "react";
 
-const MyComponent = (props) => (
+const Welcome = (props) => (
   <h1>Hello, {props.name}</h1>
 )
 
@@ -25,9 +25,9 @@ const MyComponent = (props) => (
 For a class component, props are part of the class instance (or `this`)
 
 ```javascript
-import React, { Component } from 'react';
+import React from 'react';
 
-class Welcome extends Component {
+class Welcome extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;
   }

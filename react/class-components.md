@@ -7,11 +7,15 @@ Parent or `container` components may have access to the data that they need in o
 These components are usually defined using ES6 classes. So instead of returning the JSX directly, it's returned as part of a `render()` function. Here's how we would define the button component we created above using ES6 classes:
 
 ```javascript
-class GameButton extends React.Components {
+import React from 'react';
+
+class Button extends React.Component {
   render() {
     return <button> Awesome button! </button>;
   }
 }
+
+export default Button;
 ```
 
 The above is an equivalent component to what we defined using the function.

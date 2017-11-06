@@ -7,6 +7,10 @@
   * [Terminal](/week0/terminal.md)
   * [Coding 101](/week0/coding-101.md)
 * [HTML/CSS](/html-css/index.md)
+  * Lessons
+    * [Lesson 1](/html-css/lesson1.md)
+    * [Lesson 2](/html-css/lesson2.md)
+    * [Lesson 3](/html-css/lesson3.md)
   * [Semantic HTML tags](/html-css/semantic-tags.md)
   * [CSS selectors](/html-css/css-selectors.md)
   * [CSS cascade](html-css/cascade.md)
@@ -20,6 +24,10 @@
   * [Forms](/html-css/forms.md)
   * [CSS processors](/html-css/css-processors.md)
 * [JavaScript Core 1](/js-core/index.md)
+  * Lessons
+    * [Lesson 1](/js-core/lesson1.md)
+    * [Lesson 2](/js-core/lesson2.md)
+    * [Lesson 3](/js-core/lesson3.md)
   * [Getting started](/js-core/getting-started.md)
   * [Comments](/js-core/comments.md)
   * [Data types](/js-core/data-types.md)
@@ -34,6 +42,10 @@
   * [Arrow functions](/js-core/arrow-functions.md)
   * [Context](/js-core/context.md)
 * [JavaScript Core II](/js-core-2/index.md)
+  * Lessons
+    * [Lesson 1](/js-core-2/lesson1.md)
+    * [Lesson 2](/js-core-2/lesson2.md)
+    * [Lesson 3](/js-core-2/lesson3.md)
   * [Debugging](/js-core-2/debugging.md)
   * [Callbacks](/js-core-2/callbacks.md)
   * [Testing](/js-core-2/testing.md)
@@ -44,6 +56,10 @@
   * [Events](/js-core-2/events.md)
   * [AJAX](/js-core-2/ajax.md)
 * [JavaScript Core III](/js-core-3/index.md)
+  * Lessons
+    * [Lesson 1](/js-core-3/lesson1.md)
+    * [Lesson 2](/js-core-3/lesson2.md)
+    * [Lesson 3](/js-core-3/lesson3.md)
   * [JSON](/js-core-3/json.md)
   * [APIs](/js-core-3/apis.md)
   * [Promises](/js-core-3/promises.md)

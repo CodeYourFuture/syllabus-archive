@@ -199,7 +199,7 @@ var secondBook = new Book("Twilight", 2005);
 
 4. **Research:**
 
-  Read these chapters from [JS: The Good parts](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf):
+  Read these chapters from [JS: The Good parts](https://github.com/iteles/Javascript-the-Good-Parts-notes):
 
     - Chapter 9: Style - it's a short chapter, everyone start by reading that chapter.
     - ALL: Read the chapter about **Objects** (up to Reference)

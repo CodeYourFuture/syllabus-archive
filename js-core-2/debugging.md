@@ -10,7 +10,9 @@ Most code written will contain some errors commonly referred to as bugs. So far 
 
 Here we will look at debugging which allows us to step through the code and inspect variables as every stage as well as step through the call stack.
 
-Let's open the `index.html` file from `debugging-js-exercises` in Chrome. Launch `Developer Tools` by right clicking in the browser and selecting `inspect`. In `Developer Tools` window open the `sources` tab, it's the 3rd tab from the left. (TODO ADD PIC)
+Let's open the `index.html` file from `debugging-js-exercises` in Chrome. Launch `Developer Tools` by right clicking in the browser and selecting `inspect`. In `Developer Tools` window open the `sources` tab, it's the 3rd tab from the left.
+
+![Dev Tools Source Tab](assets/debugging-source-tab.png)
 
 ### Breakpoints
 To step through our code we need first to tell the debugger where to stop. The location where the debugger is told to pause execution is called a `breakpoint`.  This can be done in two ways

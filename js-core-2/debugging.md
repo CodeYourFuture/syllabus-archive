@@ -24,7 +24,7 @@ To step through our code we need first to tell the debugger where to stop. The l
 Having stopped at a break point we can find out more about what is happening in our application. We can
 
 1. Hover mouse over variables to see their values
-2. Inspect the scope and variables in the panel on the left
+2. Inspect the scope and variables in the panel on the right
 3. Inspect call stack. This shows which functions have been called to arrive at current breakpoint. We can click on the functions in the call stack to inspect values from those locations.
 
 ### Controls

@@ -36,7 +36,7 @@ Step in: step into function being called and pause
 Step out: exit function where execution has been halted and pause
 
 ### Error messages and stack traces
-When an error occurs in your application, an `error message` and a `stack trace` will be displayed in the `console`. The error message will you what went wrong and the stack trace will tell you what functions were executed immediately before the error. The `error message` and `stack trace` will each have information about which file and line of code they refer to. Use this information to help you place your `breakpoints`.
+When an error occurs in your application, an `error message` and a `stack trace` will be displayed in the `console`. The error message will tell you what went wrong and the stack trace will tell you what functions were executed immediately before the error. The `error message` and `stack trace` will each have information about which file and line of code they refer to. Use this information to help you place your `breakpoints`.
 
 **Key points**
 * If you are not sure what your code is doing use a debugger to pause execution before the problem location and step through it line by line and inspect variables as you go.

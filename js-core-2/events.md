@@ -2,7 +2,7 @@
 
 Browser events are actions that take place on our web page. They could be user triggered such as a mouse being clicked, a key being pressed or a form submitted. Alternatively, they could be triggered by the system such as a resource being loaded or an error occurring.
 
-We can subscribe to those events using by registering an `eventHandler` to perform a certain action when an event is detected. For example, we may want to update a letter count on a text input when a user types or we may want to perform validation on a form before submitting it.
+We can subscribe to those events by registering an `eventHandler` to perform a certain action when an event is detected. For example, we may want to update a letter count on a text input when a user types or we may want to perform validation on a form before submitting it.
 
 For each event subscription we will need 3 things.
 1. `target` - this is the object where we are listening for events on. For example, it could be a link on which we would like to listen to for clicks.

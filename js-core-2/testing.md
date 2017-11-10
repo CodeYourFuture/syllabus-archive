@@ -1,12 +1,12 @@
 # Unit testing
-Start by cloning the repo at `https://github.com/codeyourfuture/unit-testing-london`. Once the repo is cloned run `npm install` from inside it to install the dependency libraries.
+Start by cloning the repo at `https://github.com/codeyourfuture/unit-testing-london`. Once the repo is cloned run `npm install` from inside it to install the dependencies.
 
 Unit testing is a substantial topic. There are many books written about it and many in-depth discussions online. Here we try to focus on the some of the core aspects, but please note that there will be more content than we may not cover here.
 
 What are some of the aspects of unit tests
 * Unit tests should ensure the correct behaviour or a small unit of code. In JavaScript that usually refers to a single function.
 * Unit tests should be automated.
-* Unit tests should be fast to run. That enables them to be run by developers in the background or before each commit and pick up any errors as early as possible. This can hugely speed up software development by correcting issues as soon as they are detected rather than wait til a tester or even worse, a customer, finds them.
+* Unit tests should be fast to run. That enables them to be run by developers in the background or before each commit and pick up any errors as early as possible. This can hugely speed up software development by correcting issues as soon as they are detected rather than wait until a tester or even worse, a customer, finds them.
 * Unit tests should mock any external dependencies such as database calls or network access. This is because those operations can be slow, require a lot of effort to be put into the right state or produce non-deterministic results. For example, your code may be correct but if your test requires internet access and the network is down the test will fail, thus creating a false error.
 * Unit tests should be easy to maintain. Because they cover only small parts of the code, they should not be affected by code changes outside of the segment being test.
 

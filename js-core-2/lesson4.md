@@ -201,17 +201,7 @@ This is a function which will carry out our test. It expects 2 parameters.
 ### assertion (matcher)
 This is the part that compares the output of the function being tested with expected outcome. This is a series of chained function calls starting the function `expect` which takes the result of the execution as its parameter and returns an `expectation` object with lots of methods that we can use to validate our result.
 
-> Our old friend `closure` revisited
-
-> ```js
-> function expect( result ){
->     return {
->         toBe: function( expected ){
->             validate( result === expected );
->         }
->     }
-> }
-> ```
+The details of all of them are available in [the Jest documentation](https://facebook.github.io/jest/docs/expect.html)
 
 `.toBe()` performs a `===` comparison. Works great for primitives such as `string`s, `number`s and `boolean`s. Fails when comparing `object`s and `array`s because `===` will check if they refer to the same memory location, not their actual values
 

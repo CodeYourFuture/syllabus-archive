@@ -306,9 +306,9 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 
 > *Exercise:* Edit `test/sum.test.js`. Move the actual `sum` function to a different file (`src/sum.js`) and export it from there. The go back to your test file and import the sum function from `sum.js`.
 
-> *Exercise:* Run `npm test function` inside `unit-testing-london`. We have 10 failing tests. 
+> *Exercise:* Run `npm test` inside `unit-testing-london`. We have 10 failing tests. 
 1. To begin with export the `functions` object from `src/functions.js` and import it into `test/functions.test.js`. 
-2. Implement all the functions in `src/functions.js` so all the unit test pass when you run `npm test function`. Do not make remove or change any tests in `test/functions.test.js`. 
+2. Implement all the functions in `src/functions.js` so all the unit test pass when you run `npm test`. Do not make remove or change any tests in `test/functions.test.js`. 
 3. Create a function `src/functions.js` that accepts 2 arrays as arguments and returns a new array which contains all the items from the two inputs. Write a test for that function in `test/functions.test.js`.
 
 # Resources
@@ -321,7 +321,7 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 
 # Homework
 
-1. Finish the exercises from class and make sure `npm test function` passes all tests.
+1. Finish the exercises from class and make sure `npm test` passes all tests.
 2. Read the above resources and make sure you understand the key concepts.
 3. Read up about other module types such as AMD and ES6 modules. How do they differ?
 4. Solve the exercises in this repo https://github.com/CodeYourFuture/js-tdd-exercises

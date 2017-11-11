@@ -250,6 +250,7 @@ We can therefore split our code into so-called *modules*. A module is basically 
 It is really simple to take existing JavaScript code and turn it into a module by exporting its functionality:
 
 ```js
+// In printName.js
 function printName(name) {
   console.log("My name is " + name);
 }
@@ -271,16 +272,17 @@ But how do we make use of another module in our program? We need to *import* it,
 var printName = require('./printName.js');
 ```
 
-> The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
+The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
 
-Assuming our program is in the same folder as `printName.js`, we can use the above code to import the functionality provided by that module and store it in the `printName` variable.
+Paths in `require()` work the same as `cd` in the terminal. See [this introduction to file navigation](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management#navigation-and-exploration) if you need a reminder.
 
-We can then continue to use the `printName` function as if it we defined it in our own program!
+We can now use the example code above to import the functionality provided by that module and store it in the `printName` variable. We can then continue to use the `printName` function as if it we defined it in another file!
 
-```
+```js
+// In a different file to printName.js
 var printName = require('./printName.js');
 
-printName();
+printName('Samira'); // Logs "Hello my name is Samira"
 ```
 
 > Modules can not only export functions, but all variable types you already learned about. Most commonly, they export a function or an object containing multiple functions.

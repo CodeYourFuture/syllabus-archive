@@ -192,15 +192,14 @@ Each unit test will have the following parts.
 
 ### Code to be tested
 This will usually be a function. Even if we are testing a large object we will usually do so one function at a time.
+
 ### test 
 This is a function which will carry out our test. It expects 2 parameters. 
 1. A string describing what we are testing
 2. A `callback` that will contain the actual test code
-### matcher
+
+### assertion (matcher)
 This is the part that compares the output of the function being tested with expected outcome. This is a series of chained function calls starting the function `expect` which takes the result of the execution as its parameter and returns an `expectation` object with lots of methods that we can use to validate our result.
-
-The details of all of them are available at [https://facebook.github.io/jest/docs/expect.html]
-
 
 > Our old friend `closure` revisited
 
@@ -218,24 +217,24 @@ The details of all of them are available at [https://facebook.github.io/jest/doc
 
 ```js
 const a = {b: 'c'};
-expect(a).toBe({b: 'c'}); // false
+expect(a).toBe({b: 'c'}); // fails the test
 ```
 
-To compare actual values of an object we need a function that will iterate over all of the values making sure they all match.
+To compare actual values of an object we need a function that will iterate over all of the values making sure they all match. This is what `.toEqual()` does:
+
 ```js
 const a = {b: 'c'};
-expect(a).toEqual({b: 'c'}); // true
+expect(a).toEqual({b: 'c'}); // passes the test
 ```
 
 We can also check the opposite of a match by inserting a `.not` property into our call chain to invert the result of a matcher.
 
 ```js
-const x = {y: 1};
-x.y++;
-expect(x).not.toBe({y: 1}); // true
+const x = 'foo';
+expect(x).not.toBe('bar'); // passes the test
 ```
 
-There are dozens of matching functions available. Please refer to the Jest documents for details.
+There are dozens of matching functions available. Please refer to the Jest documentation for details.
 
 ### Single test execution
 You will often have fairly large test suites and you may want to isolate one specific test. You can do so by appending the `.only()` method to the `test` object. Hence your test will look something like 
@@ -246,11 +245,13 @@ test.only('this will be the only test that runs', () => {
 });
 ```
 
+Remember to remove `.only` after you're finished focusing on this test, so that you are still testing the rest of the codebase!
+
 # Modules
 
 > This is a bit of an advanced topic at this point. Don't worry if you don't understand all of it - we are going to pick up modules again in a later lesson!
 
-So far, all our programs have been in their own single files. But Node programs can become really large, and having all our code in only one file will not be maintainable.
+So far, all our programs have been in their own single files. But Javascript programs can become really large, and having all our code in only one file will not be maintainable.
 
 We can therefore split our code into so-called *modules*. A module is basically a JavaScript file that makes its functionality available to other modules and programs.
 
@@ -268,7 +269,7 @@ module.exports = printName;
 
 The key here is the line containing `module.exports`. As you see, this is an assignment, and whatever is assigned to `module.exports` will be made available to other modules and program when this file is imported.
 
-> *Together:* Let's do this: Edit the file `test/sum.test.js` and export the function defined there into `src/sum.js`
+> *Together:* Let's do this: Edit the file `test/sum.test.js`, move the `sum()` function defined there and export it
 
 ## Using modules, importing code
 

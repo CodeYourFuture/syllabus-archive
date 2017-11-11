@@ -312,12 +312,12 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 3. Create a function `src/functions.js` that accepts 2 arrays as arguments and returns a new array which contains all the items from the two inputs. Write a test for that function in `test/functions.test.js`.
 
 # Resources
-1. [Primitives in JavaScript and type coercion] (https://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/)
-2. [What is a Pure Function? - Eric Elliot](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
-3. [Unit testing discussion on StackOverflow - follow the links at the top] (https://stackoverflow.com/questions/652292/what-is-unit-testing-and-how-do-you-do-it)
-4. [Unit testing on Wikipedia](https://en.wikipedia.org/wiki/Unit_testing)
-5. [Jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html)
-6. [Understanding callbacks and using them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+1. [Primitives in JavaScript and type coercion](https://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/)
+2. [Understanding callbacks and using them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+3. [What is a Pure Function? - Eric Elliot](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
+4. [Unit testing discussion on StackOverflow - follow the links at the top](https://stackoverflow.com/questions/652292/what-is-unit-testing-and-how-do-you-do-it)
+5. [Unit testing on Wikipedia](https://en.wikipedia.org/wiki/Unit_testing)
+6. [Jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html)
 
 # Homework
 

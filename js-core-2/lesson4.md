@@ -192,50 +192,39 @@ Each unit test will have the following parts.
 
 ### Code to be tested
 This will usually be a function. Even if we are testing a large object we will usually do so one function at a time.
+
 ### test 
 This is a function which will carry out our test. It expects 2 parameters. 
 1. A string describing what we are testing
 2. A `callback` that will contain the actual test code
-### matcher
+
+### assertion (matcher)
 This is the part that compares the output of the function being tested with expected outcome. This is a series of chained function calls starting the function `expect` which takes the result of the execution as its parameter and returns an `expectation` object with lots of methods that we can use to validate our result.
 
-The details of all of them are available at [https://facebook.github.io/jest/docs/expect.html]
-
-
-> Our old friend `closure` revisited
-
-> ```js
-> function expect( result ){
->     return {
->         toBe: function( expected ){
->             validate( result === expected );
->         }
->     }
-> }
-> ```
+The details of all of them are available in [the Jest documentation](https://facebook.github.io/jest/docs/expect.html)
 
 `.toBe()` performs a `===` comparison. Works great for primitives such as `string`s, `number`s and `boolean`s. Fails when comparing `object`s and `array`s because `===` will check if they refer to the same memory location, not their actual values
 
 ```js
 const a = {b: 'c'};
-expect(a).toBe({b: 'c'}); // false
+expect(a).toBe({b: 'c'}); // fails the test
 ```
 
-To compare actual values of an object we need a function that will iterate over all of the values making sure they all match.
+To compare actual values of an object we need a function that will iterate over all of the values making sure they all match. This is what `.toEqual()` does:
+
 ```js
 const a = {b: 'c'};
-expect(a).toEqual({b: 'c'}); // true
+expect(a).toEqual({b: 'c'}); // passes the test
 ```
 
 We can also check the opposite of a match by inserting a `.not` property into our call chain to invert the result of a matcher.
 
 ```js
-const x = {y: 1};
-x.y++;
-expect(x).not.toBe({y: 1}); // true
+const x = 'foo';
+expect(x).not.toBe('bar'); // passes the test
 ```
 
-There are dozens of matching functions available. Please refer to the Jest documents for details.
+There are dozens of matching functions available. Please refer to the Jest documentation for details.
 
 ### Single test execution
 You will often have fairly large test suites and you may want to isolate one specific test. You can do so by appending the `.only()` method to the `test` object. Hence your test will look something like 
@@ -246,11 +235,13 @@ test.only('this will be the only test that runs', () => {
 });
 ```
 
+Remember to remove `.only` after you're finished focusing on this test, so that you are still testing the rest of the codebase!
+
 # Modules
 
 > This is a bit of an advanced topic at this point. Don't worry if you don't understand all of it - we are going to pick up modules again in a later lesson!
 
-So far, all our programs have been in their own single files. But Node programs can become really large, and having all our code in only one file will not be maintainable.
+So far, all our programs have been in their own single files. But Javascript programs can become really large, and having all our code in only one file will not be maintainable.
 
 We can therefore split our code into so-called *modules*. A module is basically a JavaScript file that makes its functionality available to other modules and programs.
 
@@ -259,6 +250,7 @@ We can therefore split our code into so-called *modules*. A module is basically 
 It is really simple to take existing JavaScript code and turn it into a module by exporting its functionality:
 
 ```js
+// In printName.js
 function printName(name) {
   console.log("My name is " + name);
 }
@@ -268,7 +260,7 @@ module.exports = printName;
 
 The key here is the line containing `module.exports`. As you see, this is an assignment, and whatever is assigned to `module.exports` will be made available to other modules and program when this file is imported.
 
-> *Together:* Let's do this: Edit the file `test/sum.test.js` and export the function defined there into `src/sum.js`
+> *Together:* Let's do this: Edit the file `test/sum.test.js`, move the `sum()` function defined there and export it
 
 ## Using modules, importing code
 
@@ -280,16 +272,17 @@ But how do we make use of another module in our program? We need to *import* it,
 var printName = require('./printName.js');
 ```
 
-> The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
+The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
 
-Assuming our program is in the same folder as `printName.js`, we can use the above code to import the functionality provided by that module and store it in the `printName` variable.
+Paths in `require()` work the same as `cd` in the terminal. See [this introduction to file navigation](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management#navigation-and-exploration) if you need a reminder.
 
-We can then continue to use the `printName` function as if it we defined it in our own program!
+We can now use the example code above to import the functionality provided by that module and store it in the `printName` variable. We can then continue to use the `printName` function as if it we defined it in another file!
 
-```
+```js
+// In a different file to printName.js
 var printName = require('./printName.js');
 
-printName();
+printName('Samira'); // Logs "Hello my name is Samira"
 ```
 
 > Modules can not only export functions, but all variable types you already learned about. Most commonly, they export a function or an object containing multiple functions.
@@ -313,22 +306,22 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 
 > *Exercise:* Edit `test/sum.test.js`. Move the actual `sum` function to a different file (`src/sum.js`) and export it from there. The go back to your test file and import the sum function from `sum.js`.
 
-> *Exercise:* Run `npm test function` inside `unit-testing-london`. We have 10 failing tests. 
+> *Exercise:* Run `npm test` inside `unit-testing-london`. We have 10 failing tests. 
 1. To begin with export the `functions` object from `src/functions.js` and import it into `test/functions.test.js`. 
-2. Implement all the functions in `src/functions.js` so all the unit test pass when you run `npm test function`. Do not make remove or change any tests in `test/functions.test.js`. 
+2. Implement all the functions in `src/functions.js` so all the unit test pass when you run `npm test`. Do not make remove or change any tests in `test/functions.test.js`. 
 3. Create a function `src/functions.js` that accepts 2 arrays as arguments and returns a new array which contains all the items from the two inputs. Write a test for that function in `test/functions.test.js`.
 
 # Resources
-1. [Primitives in JavaScript and type coercion] (https://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/)
-2. [What is a Pure Function? - Eric Elliot](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
-3. [Unit testing discussion on StackOverflow - follow the links at the top] (https://stackoverflow.com/questions/652292/what-is-unit-testing-and-how-do-you-do-it)
-4. [Unit testing on Wikipedia](https://en.wikipedia.org/wiki/Unit_testing)
-5. [Jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html)
-6. [Understanding callbacks and using them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+1. [Primitives in JavaScript and type coercion](https://javascriptweblog.wordpress.com/2010/09/27/the-secret-life-of-javascript-primitives/)
+2. [Understanding callbacks and using them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+3. [What is a Pure Function? - Eric Elliot](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
+4. [Unit testing discussion on StackOverflow - follow the links at the top](https://stackoverflow.com/questions/652292/what-is-unit-testing-and-how-do-you-do-it)
+5. [Unit testing on Wikipedia](https://en.wikipedia.org/wiki/Unit_testing)
+6. [Jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html)
 
 # Homework
 
-1. Finish the exercises from class and make sure `npm test function` passes all tests.
+1. Finish the exercises from class and make sure `npm test` passes all tests.
 2. Read the above resources and make sure you understand the key concepts.
 3. Read up about other module types such as AMD and ES6 modules. How do they differ?
 4. Solve the exercises in this repo https://github.com/CodeYourFuture/js-tdd-exercises

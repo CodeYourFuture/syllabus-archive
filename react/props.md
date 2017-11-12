@@ -51,15 +51,13 @@ When working with APIs we often have collections of things in `Arrays` which we 
 
 renderOrganisations() {
     const orgData = [{ name: 'Organisation 1', borough: 'Camden'}, {name: 'Organisation 2'}];
-    return orgData.map(function renderData(organisation) {
-        return (
-            <Organisation
-                name= {organisation.name}
-                borough={organisation.borough ? organisation.borough : 'None'}
-                website= {organisation.website}
-            />
-        )
-    });
+    return orgData.map((organisation) =>
+      <Organisation
+          name= {organisation.name}
+          borough={organisation.borough ? organisation.borough : 'None'}
+          website= {organisation.website}
+      />
+    );
 }
 class App extends Component {
   render() {

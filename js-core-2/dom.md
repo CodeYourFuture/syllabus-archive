@@ -59,7 +59,7 @@ All of the above calls return a live reference, which means that the objects wil
 
 > **Exercise**:
 > - Clone the repo from HTML and CSS class into new `bikes` directory.  `git clone git@github.com:CodeYourFuture/bikes-for-refugees.git bikes`
-> - Create an `index.js` file in `src` folder inside the `bikes` repo.
+> - Create an `index.js` file in a `src` folder inside the `bikes` repo.
 > - Put the following code in the `index.js` file: `alert('hello');` to check the file is being loaded
 > - Import the `index.js` file into `index.html` by placing `<script src="src/index.js"></script>` just before the closing `body` html tag.
 > - Open `index.html` in your browser.
@@ -130,7 +130,7 @@ What will above code do?
 > - Use above functions to
 > - ... place ` - ` around the text in the navbar links
 > - ... convert links in 'Upcoming Events' section to italic using `<i>` tag
-> - ... make 'Learn more` links green
+> - ... make `Learn more` links green
 
 ### Creating and inserting elements
 

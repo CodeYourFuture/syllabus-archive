@@ -77,8 +77,8 @@ function( a, b ){
 
 ```js
 // Not a pure function because it has changed the value outside its scope
-function double( in ){
-    in.value *= 2;
+function double( input ){
+    input.value *= 2;
 }
 
 const myObject = {value: 10};

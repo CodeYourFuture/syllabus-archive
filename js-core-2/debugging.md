@@ -10,7 +10,9 @@ Most code written will contain some errors commonly referred to as bugs. So far 
 
 Here we will look at debugging which allows us to step through the code and inspect variables as every stage as well as step through the call stack.
 
-Let's open the `index.html` file from `debugging-js-exercises` in Chrome. Launch `Developer Tools` by right clicking in the browser and selecting `inspect`. In `Developer Tools` window open the `sources` tab, it's the 3rd tab from the left. (TODO ADD PIC)
+Let's open the `index.html` file from `debugging-js-exercises` in Chrome. Launch `Developer Tools` by right clicking in the browser and selecting `inspect`. In `Developer Tools` window open the `sources` tab, it's the 3rd tab from the left.
+
+![Dev Tools Source Tab](assets/debugging-source-tab.png)
 
 ### Breakpoints
 To step through our code we need first to tell the debugger where to stop. The location where the debugger is told to pause execution is called a `breakpoint`.  This can be done in two ways
@@ -22,7 +24,7 @@ To step through our code we need first to tell the debugger where to stop. The l
 Having stopped at a break point we can find out more about what is happening in our application. We can
 
 1. Hover mouse over variables to see their values
-2. Inspect the scope and variables in the panel on the left
+2. Inspect the scope and variables in the panel on the right
 3. Inspect call stack. This shows which functions have been called to arrive at current breakpoint. We can click on the functions in the call stack to inspect values from those locations.
 
 ### Controls
@@ -34,7 +36,7 @@ Step in: step into function being called and pause
 Step out: exit function where execution has been halted and pause
 
 ### Error messages and stack traces
-When an error occurs in your application, an `error message` and a `stack trace` will be displayed in the `console`. The error message will you what went wrong and the stack trace will tell you what functions were executed immediately before the error. The `error message` and `stack trace` will each have information about which file and line of code they refer to. Use this information to help you place your `breakpoints`.
+When an error occurs in your application, an `error message` and a `stack trace` will be displayed in the `console`. The error message will tell you what went wrong and the stack trace will tell you what functions were executed immediately before the error. The `error message` and `stack trace` will each have information about which file and line of code they refer to. Use this information to help you place your `breakpoints`.
 
 **Key points**
 * If you are not sure what your code is doing use a debugger to pause execution before the problem location and step through it line by line and inspect variables as you go.

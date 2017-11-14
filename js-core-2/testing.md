@@ -43,27 +43,16 @@ Each unit test will have the following parts.
 
 ### Code to be tested
 This will usually be a function. Even if we are testing a large object we will usually do so one function at a time.
+
 ### test
 This is a function which will carry out our test. It expects 2 parameters.
 1. A string describing what we are testing
 2. A `callback` that will contain the actual test code
-### matcher
+
+### Assertion (matcher)
 This is the part that compares the output of the function being tested with expected outcome. This is a series of chained function calls starting the function `expect` which takes the result of the execution as its parameter and returns an `expectation` object with lots of methods that we can use to validate our result.
 
 The details of all of them are available at [https://facebook.github.io/jest/docs/expect.html]
-
-
-> Our old friend `closure` revisited
-
-> ```js
-> function expect( result ){
->     return {
->         toBe: function( expected ){
->             validate( result === expected );
->         }
->     }
-> }
-> ```
 
 `.toBe()` performs a `===` comparison. Works great for primitives such as `string`s, `number`s and `boolean`s. Fails when comparing `object`s and `array`s because `===` will check if they refer to the same memory location, not their actual values
 

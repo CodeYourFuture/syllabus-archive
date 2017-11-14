@@ -11,6 +11,7 @@ We can therefore split our code into so-called *modules*. A module is basically 
 It is really simple to take existing JavaScript code and turn it into a module by exporting its functionality:
 
 ```js
+// In printName.js
 function printName(name) {
   console.log("My name is " + name);
 }
@@ -29,6 +30,7 @@ But how do we make use of another module in our program? We need to *import* it,
 > There are different module formats for JavaScript. The one we are using here, which is natively supported by Node, is called **CommonJS**.
 
 ```js
+// In a different file to printName.js
 var printName = require('./printName.js');
 ```
 

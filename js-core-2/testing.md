@@ -58,24 +58,23 @@ The details of all of them are available at [https://facebook.github.io/jest/doc
 
 ```js
 const a = {b: 'c'};
-expect(a).toBe({b: 'c'}); // false
+expect(a).toBe({b: 'c'}); // fails the test
 ```
 
-To compare actual values of an object we need a function that will iterate over all of the values making sure they all match.
+To compare actual values of an object we need a function that will iterate over all of the values making sure they all match. This is what `.toEqual()` does:
 ```js
 const a = {b: 'c'};
-expect(a).toEqual({b: 'c'}); // true
+expect(a).toEqual({b: 'c'}); // passes the test
 ```
 
 We can also check the opposite of a match by inserting a `.not` property into our call chain to invert the result of a matcher.
 
 ```js
 const x = {y: 1};
-x.y++;
-expect(x).not.toBe({y: 1}); // true
+expect(x).not.toBe({y: 1}); // passes the test
 ```
 
-There are dozens of matching functions available. Please refer to the Jest documents for details.
+There are dozens of matching functions available. Please refer to the Jest documentation for details.
 
 ### Single test execution
 You will often have fairly large test suites and you may want to isolate one specific test. You can do so by appending the `.only()` method to the `test` object. Hence your test will look something like
@@ -85,3 +84,5 @@ test.only('this will be the only test that runs', () => {
   expect(true).toBe(false);
 });
 ```
+
+Remember to remove `.only` after you're finished focusing on this test, so that you are still testing the rest of the codebase!

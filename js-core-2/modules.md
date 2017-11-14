@@ -2,7 +2,7 @@
 
 > This is a bit of an advanced topic at this point. Don't worry if you don't understand all of it - we are going to pick up modules again in a later lesson!
 
-So far, all our programs have been in their own single files. But Node programs can become really large, and having all our code in only one file will not be maintainable.
+So far, all our programs have been in their own single files. But JavaScript programs can become really large, and having all our code in only one file will not be maintainable.
 
 We can therefore split our code into so-called *modules*. A module is basically a JavaScript file that makes its functionality available to other modules and programs.
 
@@ -20,7 +20,7 @@ module.exports = printName;
 
 The key here is the line containing `module.exports`. As you see, this is an assignment, and whatever is assigned to `module.exports` will be made available to other modules and program when this file is imported.
 
-> *Together:* Let's do this: Edit the file `test/sum.test.js` and export the function defined there into `src/sum.js`
+> *Together:* Let's do this: Edit the file `test/sum.test.js`, move the `sum()` function defined there and export it
 
 ## Using modules, importing code
 

@@ -45,7 +45,7 @@ We can then continue to use the `printName` function as if it we defined it in o
 ```js
 var printName = require('./printName.js');
 
-printName();
+printName('Samira'); // Logs "Hello my name is Samira"
 ```
 
 > Modules can not only export functions, but all variable types you already learned about. Most commonly, they export a function or an object containing multiple functions.

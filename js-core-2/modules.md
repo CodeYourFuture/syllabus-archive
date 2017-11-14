@@ -34,7 +34,9 @@ But how do we make use of another module in our program? We need to *import* it,
 var printName = require('./printName.js');
 ```
 
-> The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
+The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
+
+Paths in `require()` work the same as `cd` in the terminal. See [this introduction to file navigation](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management#navigation-and-exploration) if you need a reminder.
 
 Assuming our program is in the same folder as `printName.js`, we can use the above code to import the functionality provided by that module and store it in the `printName` variable.
 

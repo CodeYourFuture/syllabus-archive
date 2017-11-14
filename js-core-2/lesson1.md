@@ -17,7 +17,7 @@ Lesson 1
 
 ## Homework
 
-1. Finish the exercises from class and make sure `npm test function` passes all tests.
+1. Finish the exercises from class and make sure `npm test` passes all tests.
 2. Read the above resources and make sure you understand the key concepts.
 3. Read up about other module types such as AMD and ES6 modules. How do they differ?
 4. Solve the exercises in this repo https://github.com/CodeYourFuture/js-tdd-exercises

@@ -43,50 +43,38 @@ Each unit test will have the following parts.
 
 ### Code to be tested
 This will usually be a function. Even if we are testing a large object we will usually do so one function at a time.
+
 ### test
 This is a function which will carry out our test. It expects 2 parameters.
 1. A string describing what we are testing
 2. A `callback` that will contain the actual test code
-### matcher
+
+### Assertion (matcher)
 This is the part that compares the output of the function being tested with expected outcome. This is a series of chained function calls starting the function `expect` which takes the result of the execution as its parameter and returns an `expectation` object with lots of methods that we can use to validate our result.
 
 The details of all of them are available at [https://facebook.github.io/jest/docs/expect.html]
-
-
-> Our old friend `closure` revisited
-
-> ```js
-> function expect( result ){
->     return {
->         toBe: function( expected ){
->             validate( result === expected );
->         }
->     }
-> }
-> ```
 
 `.toBe()` performs a `===` comparison. Works great for primitives such as `string`s, `number`s and `boolean`s. Fails when comparing `object`s and `array`s because `===` will check if they refer to the same memory location, not their actual values
 
 ```js
 const a = {b: 'c'};
-expect(a).toBe({b: 'c'}); // false
+expect(a).toBe({b: 'c'}); // fails the test
 ```
 
-To compare actual values of an object we need a function that will iterate over all of the values making sure they all match.
+To compare actual values of an object we need a function that will iterate over all of the values making sure they all match. This is what `.toEqual()` does:
 ```js
 const a = {b: 'c'};
-expect(a).toEqual({b: 'c'}); // true
+expect(a).toEqual({b: 'c'}); // passes the test
 ```
 
 We can also check the opposite of a match by inserting a `.not` property into our call chain to invert the result of a matcher.
 
 ```js
 const x = {y: 1};
-x.y++;
-expect(x).not.toBe({y: 1}); // true
+expect(x).not.toBe({y: 1}); // passes the test
 ```
 
-There are dozens of matching functions available. Please refer to the Jest documents for details.
+There are dozens of matching functions available. Please refer to the Jest documentation for details.
 
 ### Single test execution
 You will often have fairly large test suites and you may want to isolate one specific test. You can do so by appending the `.only()` method to the `test` object. Hence your test will look something like
@@ -96,3 +84,5 @@ test.only('this will be the only test that runs', () => {
   expect(true).toBe(false);
 });
 ```
+
+Remember to remove `.only` after you're finished focusing on this test, so that you are still testing the rest of the codebase!

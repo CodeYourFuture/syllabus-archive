@@ -34,8 +34,6 @@
   * AWS Workshop 1
   * [AWS Workshop 2 - DynamoDB](/others/aws-workshop-2)
 
-* [Week 21](/react/lesson4.md)
-
 * [Coding 101](/html-css/coding-101.md)
 
 * [House Rules](house-rules.md)

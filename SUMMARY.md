@@ -1,34 +1,43 @@
 # Summary
 
 * [Introduction](README.md)
-* [Week 0](lesson0.md)
+* [Week 0](/others/lesson0.md)
 * HTML/CSS
-  * [Week 1 - Semantic HTML and CSS](/html-css/lesson1.md)
-  * [Week 2 - Responsive Web and layout](/html-css/lesson2.md)
-  * [Week 3 - Frameworks](/html-css/lesson3.md)
-  * [Coding 101](/html-css/coding-101.md)
-* JavaScript Core
-  * [Week 4 - Hello JavaScript](/js-core/lesson1.md)
-  * [Week 5 - Arrays and Objects](/js-core/lesson2.md)
-  * [Week 6 - Unit Testing and TDD](/js-core/lesson3.md)
-  * [Week 7 - Pair Programming Day](/js-core/lesson3.5.md)
-* JavaScript Core II
-  * [Week 8 - JS in the Browser](/js-core-2/lesson4.md)
-  * [Week 9 - Good design and OO](/js-core-2/lesson5.md)
-  * [Week 10 - More Arrays and ES6](/js-core-2/lesson6.md)
-  * [Week 11 - More Objects and core JS](/js-core-2/lesson7.md)
-* Node and DB
-    * [Week 12 - Node and Express 101](/node-db/lesson1.md)
-    * [Week 13 - Templating and APIs ](/node-db/lesson2.md)
-    * [Week 14 - More Node, Middleware and Dynamo](/node-db/lesson3.md)
-    * [Week 15 - MongoDB](/node-db/lesson4.md)
-    * [Week 16 - Mongoose](/node-db/lesson5.md)
-    * Week 17 - Node/DB Recap
+  * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md)
+  * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md)
+  * [x Week 3 - ?](/html-css/week-03/lesson.md)
+* JavaScript I
+  * [Week 4 - Hello JavaScript](/js-core/week-04/lesson.md)
+  * [Week 5 - Arrays and Objects](/js-core/week-05/lesson.md)
+  * [Week 6 - Debugging and more Data Structures](/js-core/week-06/lesson.md)
+* JavaScript II
+  * [Week 7 - In-depth Functions and Intro to DOM](/js-core-2/week-07/lesson.md)
+  * [Week 8 - JavaScript in the Browser](/js-core-2/week-08/lesson.md)
+  * [Week 9 - Good Code](/js-core-2/week-09/lesson.md)
+* JavaScript III
+  * [Week 10 - TDD](/js-core-3/week-10/lesson.md)
+  * [x Week 11 - ES6 and Promises ](/js-core-3/week-11/lesson.md)
+  * [x Week 12 - Exam? ](/js-core-3/week-12/lesson.md)
+* Node/DB I
+    * [Week 13 - Node and Express 101](/node-db/lesson1.md)
+    * [Week 14 - Templating and APIs ](/node-db/lesson2.md)
+    * ? Week 15 - Node and Mongo?
+* Node/DB II (TBD)
+    * [Week 16 - MongoDB](/node-db/lesson4.md)
+    * [Week 17 - Mongoose](/node-db/lesson5.md)
+    * Week 18 - Node/DB Recap
 * React
-  * [Week 18](/react/lesson1.md)
-  * [Week 19](/react/lesson2.md)
-  * [Week 20](/react/lesson3.md)
-  * [Week 21](/react/lesson4.md)
+  * Week 19 - React 101
+  * Week 20 - State
+  * Week 21 - React-router & Recap
+* Other
+  * AWS Workshop 1
+  * [AWS Workshop 2 - DynamoDB](/others/aws-workshop-2)
+
+* [Week 21](/react/lesson4.md)
+
+* [Coding 101](/html-css/coding-101.md)
+
 * [House Rules](house-rules.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Contributing](CONTRIBUTING.md)

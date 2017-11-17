@@ -3,9 +3,8 @@
 ** What we will learn today?**
 - Debugging and Chrome Dev Tools (quick recap)
 - Objects Again
-- Value Vs reference types
+    - Value Vs reference types
 - Scope
-- Higher Order Functions
 ---
 
 # Debugging
@@ -352,11 +351,4 @@ console.log(test);     // output: I'm global
 1. Objects vs Arrays - https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1
 2. JavaScript Arrays and Objects Are Just Like Books and Newspapers https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746
 
-# Homework
-1. Create an account on [CodeWars](http://www.codewars.com/) and do at least 15 challenges.
-2. Sign up for the [JavaScript 30](https://javascript30.com/) course and do at least 2 project. You can find the starter files for the project here: https://github.com/wesbos/JavaScript30
-
-# Research
-1. [Closures](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)
-2. **.call**, **.apply* and **.bind**: https://alexperry.io/personal/2016/04/03/How-to-use-apply-bind-and-call.html
-3. Higher-order functions: https://medium.com/functional-javascript/higher-order-functions-78084829fff4
+{% include "./homework.md" %}

@@ -2,7 +2,7 @@
 
 > This is a bit of an advanced topic at this point. Don't worry if you don't understand all of it - we are going to pick up modules again in a later lesson!
 
-So far, all our programs have been in their own single files. But Node programs can become really large, and having all our code in only one file will not be maintainable.
+So far, all our programs have been in their own single files. But JavaScript programs can become really large, and having all our code in only one file will not be maintainable.
 
 We can therefore split our code into so-called *modules*. A module is basically a JavaScript file that makes its functionality available to other modules and programs.
 
@@ -11,6 +11,7 @@ We can therefore split our code into so-called *modules*. A module is basically 
 It is really simple to take existing JavaScript code and turn it into a module by exporting its functionality:
 
 ```js
+// In printName.js
 function printName(name) {
   console.log("My name is " + name);
 }
@@ -20,7 +21,7 @@ module.exports = printName;
 
 The key here is the line containing `module.exports`. As you see, this is an assignment, and whatever is assigned to `module.exports` will be made available to other modules and program when this file is imported.
 
-> *Together:* Let's do this: Edit the file `test/sum.test.js` and export the function defined there into `src/sum.js`
+> *Together:* Let's do this: Edit the file `test/sum.test.js`, move the `sum()` function defined there and export it
 
 ## Using modules, importing code
 
@@ -29,10 +30,13 @@ But how do we make use of another module in our program? We need to *import* it,
 > There are different module formats for JavaScript. The one we are using here, which is natively supported by Node, is called **CommonJS**.
 
 ```js
+// In a different file to printName.js
 var printName = require('./printName.js');
 ```
 
-> The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
+The string passed to the `require()` function is a _path_ to the file you are importing. `./` signifies the current directory, so the above command will import a file called "printName.js" that is in the same directory as our program.
+
+Paths in `require()` work the same as `cd` in the terminal. See [this introduction to file navigation](https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management#navigation-and-exploration) if you need a reminder.
 
 Assuming our program is in the same folder as `printName.js`, we can use the above code to import the functionality provided by that module and store it in the `printName` variable.
 
@@ -41,7 +45,7 @@ We can then continue to use the `printName` function as if it we defined it in o
 ```js
 var printName = require('./printName.js');
 
-printName();
+printName('Samira'); // Logs "Hello my name is Samira"
 ```
 
 > Modules can not only export functions, but all variable types you already learned about. Most commonly, they export a function or an object containing multiple functions.
@@ -65,7 +69,7 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 
 > *Exercise:* Edit `test/sum.test.js`. Move the actual `sum` function to a different file (`src/sum.js`) and export it from there. The go back to your test file and import the sum function from `sum.js`.
 
-> *Exercise:* Run `npm test function` inside `unit-testing-london`. We have 10 failing tests.
+> *Exercise:* Run `npm test` inside `unit-testing-london`. We have 10 failing tests.
 1. To begin with export the `functions` object from `src/functions.js` and import it into `test/functions.test.js`.
-2. Implement all the functions in `src/functions.js` so all the unit test pass when you run `npm test function`. Do not make remove or change any tests in `test/functions.test.js`.
+2. Implement all the functions in `src/functions.js` so all the unit test pass when you run `npm test`. Do not make remove or change any tests in `test/functions.test.js`.
 3. Create a function `src/functions.js` that accepts 2 arrays as arguments and returns a new array which contains all the items from the two inputs. Write a test for that function in `test/functions.test.js`.

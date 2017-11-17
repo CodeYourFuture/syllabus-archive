@@ -5,7 +5,7 @@
 * HTML/CSS
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md)
   * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md)
-  * [x Week 3 - ?](/html-css/week-03/lesson.md)
+  * [Week 3 - ?](/html-css/week-03/lesson.md)
 * JavaScript I
   * [Week 4 - Hello JavaScript](/js-core/week-04/lesson.md)
   * [Week 5 - Arrays and Objects](/js-core/week-05/lesson.md)
@@ -17,11 +17,11 @@
 * JavaScript III
   * [Week 10 - TDD](/js-core-3/week-10/lesson.md)
   * [Week 11 - ES6 and Promises ](/js-core-3/week-11/lesson.md)
-  * [Week 12 - Exam? ](/js-core-3/week-12/lesson.md)
+  * Week 12 - Exam?
 * Node/DB I
     * [Week 13 - Node and Express 101](/node-db/lesson1.md)
     * [Week 14 - Templating and APIs ](/node-db/lesson2.md)
-    * ? Week 15 - Node and Mongo?
+    * Week 15 - Node and Mongo?
 * Node/DB II (TBD)
     * Week 16 - MongoDB
     * Week 17 - Mongoose

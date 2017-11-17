@@ -1,14 +1,18 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg) 
 
-To Be Agreed
 
 # Functions and DOM
 ** What we will learn today?**
-- x More Functions
-- x Functional Utilities
-- x Callbacks
+- ![](https://img.shields.io/badge/status-draft-darkred.svg) 
+ More Functions
+- ![](https://img.shields.io/badge/status-draft-darkred.svg) 
+ Functional Utilities
+- ![](https://img.shields.io/badge/status-draft-darkred.svg) 
+ Callbacks
 - Browser: DOM
 ---
+
+To Be Agreed
 
 # JS in the Browser
 

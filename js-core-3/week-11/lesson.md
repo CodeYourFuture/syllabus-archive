@@ -1,6 +1,8 @@
+![](https://img.shields.io/badge/status-draft-darkred.svg) 
 # JavaScript Core 6
 ** What we will learn today?**
 - Intro to ES6
+- ![](https://img.shields.io/badge/status-draft-darkred.svg) Promises
 ---
 
 # Intro to ES6

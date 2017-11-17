@@ -1,4 +1,6 @@
-# JavaScript Core 3
+![](https://img.shields.io/badge/status-draft-darkred.svg)
+
+# TDD
 
 ** What we will learn today?**
 

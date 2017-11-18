@@ -11,7 +11,7 @@ fi
 REPO_NAME="syllabus-$TRAVIS_BRANCH"
 
 
-git clone git@github.com:Code-Your-Future/$REPO_NAME.git
+git clone git@github.com:codeyourfuture/$REPO_NAME.git
 cp -a _book/* ./$REPO_NAME
 cd $REPO_NAME
 rm cyf-key cyf-key.enc

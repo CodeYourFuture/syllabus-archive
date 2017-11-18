@@ -1,7 +1,5 @@
-# Introduction
 
-[![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=master)](https://travis-ci.org/CodeYourFuture/syllabus)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/master/CONTRIBUTING.md)
+# [CYF Syllabus](https://codeyourfuture.github.io/syllabus-master/) &middot; [![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=master)](https://travis-ci.org/CodeYourFuture/syllabus) &middot; [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/master/CONTRIBUTING.md)
 
 
 This is the syllabus and course material for [Code Your Future](http://codeyourfuture.co/), a
@@ -17,7 +15,23 @@ The six-months course contains:
 
 We’ll complement the training with workshops on modern software methodologies and job interview practices, etc.
 
-
 <!--
 For the version that is being taught in our first London class, please check [Syllabus-book](https://codeyourfuture.github.io/syllabus-book/)
 -->
+
+# Contributing
+
+Please read our [Contributing](CONTRIBUTING.md) guide to get started with how you can contribute to the CYF syllabus, or the projects we have for our students.
+
+
+# Getting involved
+
+Do you want to get involved? we are looking for:
+
+- Lead Mentors (in London, Glasgow and Manchester)
+- Fun projects and workshops for learning Javascript
+- PR Reviewers for student homeworks
+- Other volunteers
+
+Please send an email to contact at codeyourfuture.io to get involved!
+

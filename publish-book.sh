@@ -1,12 +1,12 @@
 #!/bin/bash
 
 DATE=$(date +%Y%m%d_%H%M%s)
-TRAVIS_BRANCH="$1"
+TRAVIS_BRANCH="new-master"
 
-if [ "$#" -ne 1 ]; then
-	echo "Please provide a branch (master, london, scotland)"
-	exit 1
-fi
+# if [ "$#" -ne 1 ]; then
+# 	echo "Please provide a branch (master, london, scotland)"
+# 	exit 1
+# fi
 
 REPO_NAME="syllabus-$TRAVIS_BRANCH"
 

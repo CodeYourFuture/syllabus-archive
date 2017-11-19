@@ -1,5 +1,5 @@
 
-# [CYF Syllabus](https://codeyourfuture.github.io/syllabus-master/) &middot; [![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=master)](https://travis-ci.org/CodeYourFuture/syllabus) &middot; [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/master/CONTRIBUTING.md)
+# [CYF Syllabus](https://codeyourfuture.github.io/syllabus-master/) [![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=master)](https://travis-ci.org/CodeYourFuture/syllabus) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/master/CONTRIBUTING.md)
 
 
 This is the syllabus and course material for [Code Your Future](http://codeyourfuture.co/), a

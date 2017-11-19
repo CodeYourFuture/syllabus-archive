@@ -32,10 +32,8 @@
   * Week 21 - React-router & Recap
 * Other
   * AWS Workshop 1
-  * [AWS Workshop 2 - DynamoDB](/others/aws-workshop-2)
-
-* [Coding 101](/html-css/coding-101.md)
-
+  * [AWS Workshop 2 - DynamoDB](/others/aws-workshop-2.md)
+* [Coding 101](/others/coding-101.md)
 * [House Rules](house-rules.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Contributing](CONTRIBUTING.md)

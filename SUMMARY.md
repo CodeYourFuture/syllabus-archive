@@ -5,7 +5,7 @@
 * HTML/CSS
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md)
   * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md)
-  * [Week 3 - ?](/html-css/week-03/lesson.md)
+  * [Week 3 - TODO](/html-css/week-03/lesson.md)
 * JavaScript I
   * [Week 4 - Hello JavaScript](/js-core/week-04/lesson.md)
   * [Week 5 - Arrays and Objects](/js-core/week-05/lesson.md)

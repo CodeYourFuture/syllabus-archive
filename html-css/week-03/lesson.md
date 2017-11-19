@@ -2,7 +2,7 @@
 
 To Be Agreed
 
-# [Class name]
+# HTML/CSS 3
 ** What we will learn today?**
 - Topic 1
 - Topic 2

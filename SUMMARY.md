@@ -17,11 +17,11 @@
 * JavaScript III
   * [Week 10 - TDD](/js-core-3/week-10/lesson.md)
   * [Week 11 - ES6 and Promises ](/js-core-3/week-11/lesson.md)
-  * Week 12 - Exam?
+  * Week 12 - Exam maybe
 * Node/DB I
     * [Week 13 - Node and Express 101](/node-db/lesson1.md)
     * [Week 14 - Templating and APIs ](/node-db/lesson2.md)
-    * Week 15 - Node and Mongo?
+    * Week 15 - Node and Mongo maybe
 * Node/DB II (TBD)
     * Week 16 - MongoDB
     * Week 17 - Mongoose

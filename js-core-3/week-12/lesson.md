@@ -2,7 +2,7 @@
 
 To Be Agreed
 
-# [Class name]
+# JS Core III
 ** What we will learn today?**
 - Topic 1
 - Topic 2

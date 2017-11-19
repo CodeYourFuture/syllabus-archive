@@ -15,10 +15,6 @@ The six-months course contains:
 
 We’ll complement the training with workshops on modern software methodologies and job interview practices, etc.
 
-<!--
-For the version that is being taught in our first London class, please check [Syllabus-book](https://codeyourfuture.github.io/syllabus-book/)
--->
-
 # Contributing
 
 Please read our [Contributing](CONTRIBUTING.md) guide to get started with how you can contribute to the CYF syllabus, or the projects we have for our students.

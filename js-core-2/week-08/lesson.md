@@ -133,12 +133,9 @@ Everyone should organise in pairs, one person writing code to **send data (POST)
 Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let your partner know what it is!
 
 
+## Resources
 
-# Resources
-- DOM Examples and explanation on MDN - https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples
-- AJAX - https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started
-
-
-## Homework
+- [MDN: DOM Examples and explanation](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples)
+- [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
 
 {% include "./homework.md" %}

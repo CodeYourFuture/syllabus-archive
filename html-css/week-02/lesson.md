@@ -1,14 +1,14 @@
 # HTML/CSS 2
 
-![](https://img.shields.io/badge/status-ready-green.svg) 
+![](https://img.shields.io/badge/status-ready-green.svg)
 
 **What will we learn today?**
 
-- Responsive web design
-- Media queries
-- Content layout: flexbox
-- Content layout: floats (maybe)
-- Content layout: relative and absolute positioning (maybe)
+- [Responsive web design](#responsive-web-design)
+- [Media queries](#media-queries)
+- [Flexbox](#flexbox)
+- (Optional) Content layout: floats
+- (Optional) Content layout: relative and absolute positioning
 
 ---
 
@@ -21,6 +21,7 @@ When we build for the web, we're making websites that can be viewed in a phone, 
 See how much variety there is in [viewport sizes](https://decadecity.net/blog/2014/08/19/a-device-agnostic-approach-to-inlining-css).
 
 ## Media Queries
+
 As you learned in your homework assignment, media queries help us change the display of our content depending on the size of the viewport. Let's review what you learned and break down a media query:
 
 ```css
@@ -40,12 +41,11 @@ In this media query, we're assigning a red background color to the `<body>` elem
 Finally, we wrap all of our styles for this media query in brackets (`{` and `}`), just like a CSS rule.
 
 > **Exercise:** Working in pairs, reduce the size of the "Bikes for Refugees" text so that it fits on a small screen (`320px`). But make sure it increases in size on larger screens.
-
 > **Exercise:** The two buttons in the jumbotron don't fit on the same line on small screens around `320px` wide. Can you adjust their size so that they fit on the same line?
 
-## Content Layout: Flexbox
+## Flexbox
 
-Flexbox is a name for a set of CSS layout rules which are supported in newer browsers. They allow you to apply rules to elements to place them side-by-side and re-arrange them. You just specify how you want your elements arranged and the browser will scale this arrangement depending on the screen size and device used for viewing.
+Flexbox is a name for a set of CSS layout rules which are supported in newer browsers for **Content Layout**. They allow you to apply rules to elements to place them side-by-side and re-arrange them. You just specify how you want your elements arranged and the browser will scale this arrangement depending on the screen size and device used for viewing.
 
 Most flexbox rules are applied to the container, to tell it how to arrange its children. However, there are some rules that can be applied to children as well.
 
@@ -53,7 +53,7 @@ You can see all the rules that can be applied to both the container and the chil
 
 > **Exercise:** Continue editing the "Bike for refugees" website by adding 3 boxes below Jumbotron, and using Flexbox, make sure they are arranged like in the sketch below:
 
-<img src="../assets/flexbox_practice.png">
+![](../assets/flexbox_practice.png)
 
 If you finish early, you can add some text in each box and position it in the middle of the box.
 

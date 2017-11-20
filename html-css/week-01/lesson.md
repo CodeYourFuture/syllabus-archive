@@ -13,7 +13,7 @@
 
 ## What makes a web page?
 
-![What makes a web page](assets/webpage-parts.png)
+![What makes a web page](../assets/webpage-parts.png)
 
 **Separation of Concerns:** In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)
 
@@ -37,7 +37,7 @@ All together, let's review the basic syntax in the following example:
 
 HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags or creating an HTML "tree". Between the opening `<article>` tag and the closing `</article>` tag there are three other tags. We call these "child" tags, because they have a parent-child relationship.
 
-![HTML Hierarchy](assets/html-hierarchy.png)
+![HTML Hierarchy](../assets/html-hierarchy.png)
 
 > **Exercise** As a group, let's try to name all of the parent and child tags in the following example.
 
@@ -105,7 +105,7 @@ Some CSS styles applied to one element will be "inherited" by their child elemen
 
 We'll do two quick exercises to explore what gets inherited, what doesn't, and why.
 
-> **Exercise:** Work in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [assets/jumbotron-background.jpg](background image) to the jumbotron. Did these styles have "inheritance"? Why do you think they did or did not?
+> **Exercise:** Work in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [../assets/jumbotron-background.jpg](background image) to the jumbotron. Did these styles have "inheritance"? Why do you think they did or did not?
 
 Now that the background image is in place, the text is difficult to read. The text needs to be white.
 

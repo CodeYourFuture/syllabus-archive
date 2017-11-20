@@ -53,7 +53,7 @@ You can see all the rules that can be applied to both the container and the chil
 
 > **Exercise:** Continue editing the "Bike for refugees" website by adding 3 boxes below Jumbotron, and using Flexbox, make sure they are arranged like in the sketch below:
 
-<img src="assets/flexbox_practice.png">
+<img src="../assets/flexbox_practice.png">
 
 If you finish early, you can add some text in each box and position it in the middle of the box.
 
@@ -62,6 +62,6 @@ Hint: you might need to create a container for the text pieces!
 
 Let's take a break from flexbox for a minute. Do you remember the `:first-child` psuedo class? There's a `:last-child` psuedo class as well.
 
-> **Exercise:** See if you can use these psuedo classes to give the left box a grey background (`#ddd`) and the right box a grey border (`1px solid #ddd`). Use [this screenshot](assets/screenshot-complete.png) to guide you.
+> **Exercise:** See if you can use these psuedo classes to give the left box a grey background (`#ddd`) and the right box a grey border (`1px solid #ddd`). Use [this screenshot](../assets/screenshot-complete.png) to guide you.
 
 {% include "./homework.md" %}

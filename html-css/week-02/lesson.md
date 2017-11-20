@@ -1,14 +1,19 @@
-![](https://img.shields.io/badge/status-ready-green.svg) 
 # HTML/CSS 2
+
+![](https://img.shields.io/badge/status-ready-green.svg) 
+
 **What will we learn today?**
+
 - Responsive web design
 - Media queries
 - Content layout: flexbox
 - Content layout: floats (maybe)
 - Content layout: relative and absolute positioning (maybe)
+
 ---
 
 ## Responsive Web Design
+
 When we build for the web, we're making websites that can be viewed in a phone, a laptop, a tablet and more. To ensure we're presenting a website that's easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.
 
 > **Exercise:** As a group, let's brainstorm as many devices as we can think of which might access the websites we build.
@@ -20,9 +25,9 @@ As you learned in your homework assignment, media queries help us change the dis
 
 ```css
 @media screen and (min-width: 900px) {
-	body {
-		background: red;
-	}
+  body {
+    background: red;
+  }
 }
 ```
 
@@ -44,11 +49,12 @@ Flexbox is a name for a set of CSS layout rules which are supported in newer bro
 
 Most flexbox rules are applied to the container, to tell it how to arrange its children. However, there are some rules that can be applied to children as well.
 
-You can see all the rules that can be applied to both the container and the children here:
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+You can see all the rules that can be applied to both the container and the children [here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 > **Exercise:** Continue editing the "Bike for refugees" website by adding 3 boxes below Jumbotron, and using Flexbox, make sure they are arranged like in the sketch below:
-<img src="assets/flexbox_practice.png">
+
+<img src="../assets/flexbox_practice.png">
+
 If you finish early, you can add some text in each box and position it in the middle of the box.
 
 > **Exercise:** Working independently, try to position the articles and images side-by-side under the "Upcoming Events" section. Use [this screenshot](assets/screenshot-complete.png) to guide you. If you get stuck, go ahead and ask your partner. Never be afraid to ask!
@@ -56,6 +62,6 @@ Hint: you might need to create a container for the text pieces!
 
 Let's take a break from flexbox for a minute. Do you remember the `:first-child` psuedo class? There's a `:last-child` psuedo class as well.
 
-> **Exercise:** See if you can use these psuedo classes to give the left box a grey background (`#ddd`) and the right box a grey border (`1px solid #ddd`). Use [this screenshot](assets/screenshot-complete.png) to guide you.
+> **Exercise:** See if you can use these psuedo classes to give the left box a grey background (`#ddd`) and the right box a grey border (`1px solid #ddd`). Use [this screenshot](../assets/screenshot-complete.png) to guide you.
 
 {% include "./homework.md" %}

@@ -1,17 +1,20 @@
+# JavaScript Core 5
+
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 
-# JavaScript Core 5
 **What will we learn today?**
-- Functions and  Good Design
+
+- [Functions and  Good Design](#functions)
+
 ---
 
-# Functions
+## Functions
+
 ## Why Functions?
 
 The function is considered one of the greatest inventions in computer science. It makes programs easier to read and to understand. It allows for us to more easily modify and extend code. It saves space and improves performance.
 
 At the most basic level, a function is a series of instructions that can take an input and produce an output. Parameters dictate how the function behaves.
-
 
 ![Function Diagram](https://arthurleon.files.wordpress.com/2014/09/function_machine.png?w=240 "Function Diagram") ![Function & Parameters Diagram](https://i2.kknews.cc/large/19f00001508ee348ee0c "Function & Parameters Diagram")
 
@@ -19,10 +22,9 @@ We've used functions a bit, but now we need to know how to use them well.
 
 There are many ways to write code that does the same thing. But are they all equal?
 
-
 > Exercise: Let's look at a really obvious example of a function with redundant code. What could we do to improve it?
 
-``js
+```js
 function printHelloFiveTimes(){
   console.log("Hello");
   console.log("Hello");
@@ -34,7 +36,7 @@ function printHelloFiveTimes(){
 
 Introducing a simple for loop makes our lives a lot easier. This way we can more easily see what the function does and make modifications.
 
-``js
+```js
 function printHelloFiveTimes(){
   for ( var i = 0; i < 5; i++ ){
     console.log("Hello");
@@ -43,7 +45,7 @@ function printHelloFiveTimes(){
 
 > Exercise: Now, let's look at a different example. Let's say we wanted to welcome mentors:
 
-``js
+```js
 function welcomeMentors(){
   console.log("Hello Mozafar");
   console.log("Hello Rares");
@@ -55,7 +57,7 @@ function welcomeMentors(){
 
 We could be lazy and change how we welcome the mentors.
 
-``js
+```js
 function welcomeMentors(){
   var mentorNames = "Mozafar, Rares, Tim, Ashleigh, Gordon";
   console.log("Hello " + mentorNames);
@@ -64,7 +66,7 @@ function welcomeMentors(){
 
 But it's not quite the output we wanted. And we can be smarter about it. Why not a loop?
 
-``js
+```js
 function welcomeMentors(){
   var mentorNames = ["Mozafar", "Rares", "Tim", "Ashleigh", "Gordon"];
   for ( var i = 0; i < mentorNames.length; i++ ){
@@ -84,27 +86,27 @@ There are three main principles you need to know now: clarity, reusability and e
 To
 
 - Ease of Maintenance / Clarity
-    - Naming
-    - Formatting
-    - Commenting
-    - Clear logic
-    - Concise
-    - Avoiding Redundancy
+  - Naming
+  - Formatting
+  - Commenting
+  - Clear logic
+  - Concise
+  - Avoiding Redundancy
 
 - Reusability
-    - DRY
-    - Single Reponsibility
-        - Avoiding global state (scope)
-        - Predictability and Ease of testing
+  - DRY
+  - Single Reponsibility
+    - Avoiding global state (scope)
+    - Predictability and Ease of testing
 
 - Extensibility
-    - Avoiding being unnecessarily specific (e.g. magic numbers)
+  - Avoiding being unnecessarily specific (e.g. magic numbers)
 
 > Exercise: Find all the design issues with this function.
 
 As an aside: if you try to run the code it won't work, but not because it's not correct. It's only because it is a fragment of a larger program and lacks some code such as the function updateCorpDatabase(), the initialisation of the global variables referenced (e.g. quarter, profit) and, of course, the HandlesStuff() function also hasn't been called.
 
-``js
+```js
 function HandlesStuff(inputRecord, savedrecord, income1, income2, expenseType, revenue, expense0, expense1, expense2, screenx, screeny, success){
 
   var i;
@@ -146,7 +148,7 @@ What is wrong with this function?
 
 8. Magic numbers: the function uses several magic numbers: 100, 4.0, 1, 2 and 3. These are numbers that are used directly in an expression rather than saving them first in a variable. This is discouraged as it makes it more difficult to manipulate the values. If we were to save them in a variable they would be easier to find and modify.
 
-``js
+```js
 tenSquared =  10*10
 tenCubed = 10*10*10
 
@@ -159,7 +161,7 @@ xCubed = x*x*x
 
 10. DRY principle: the function breaks the DRY (Don't Repeat Yourself) rule. The expression profit = revenue - expense0 is written 3 times unnecessarily, the only difference being whether it's the first, second or third expense. This variable can be restructured into an array.
 
-``js
+```js
 var expense = [expense1,expense2,expense3];
 profit = revenue - expense[expenseType];
 ```
@@ -170,9 +172,10 @@ Write a function that will print out the number of vowels that are in mentors' n
 
 > Exercise: Now, let's write it well together.
 
-# Resources
+## Resources
+
 1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
-2. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
-3. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
+1. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+1. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
 
-
+{% include "./homework.md" %}

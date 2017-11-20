@@ -1,25 +1,30 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg) 
+# HTML/CSS 3
 
 To Be Agreed
 
-# HTML/CSS 3
+![](https://img.shields.io/badge/status-draft-darkred.svg) 
+
 ** What we will learn today?**
+
 - Topic 1
 - Topic 2
 - Topic 3
 - Topic 4
+
 ---
 
 ## Topic 1
+
 High level explanation of Topic 1 - rely on the exercises
 > **Exercise**: Always have exercises
 
 ## Topic 2
+
 ## Topic 3
 
+## Resources
 
-# Resources
 1. [Resource 1 to learn more about Topic 1](https://google.com)
-2. [Resource 2 for Topic 2](https://google.com)
+1. [Resource 2 for Topic 2](https://google.com)
 
 {% include "./homework.md" %}

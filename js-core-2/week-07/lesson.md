@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/status-ready-green.svg)
+
 # Array methods and callbacks
 
 The most useful built in methods in JavaScript are the `Array.prototype` methods. Every array has access to these methods (because Arrays are created by the `Array` constructor function they inherit the the properties of `Array.prototype`).

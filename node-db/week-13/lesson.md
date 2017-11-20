@@ -1,12 +1,16 @@
 # Node 1
+
 **What we will learn today?**
-- Node and its ecosystem
-- Express
-- Http
-- JSON format
-- fs
-- This class is based on the [Node Girls Express Workshop](https://github.com/node-girls/express-workshop)
+
+- [Node and its ecosystem](#node-and-its-ecosystem)
+- [Express](#express)
+- [Http](#http)
+- [JSON format](#json-format)
+- [fs](#fs)
+
 ---
+
+- This class is based on the [Node Girls Express Workshop](https://github.com/node-girls/express-workshop)
 
 # What is a server?
 
@@ -20,11 +24,11 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 
 ![Server flow](https://files.gitter.im/heron2014/FiiK/server.png)
 
-# What is Node.js?
+## What is Node.js?
 
   > [Node.js®](https://nodejs.org/en/) is a **JavaScript runtime** built on Chrome's **V8 JavaScript engine**. Node.js uses an **event-driven**, **non-blocking** I/O model that makes it lightweight and efficient.
   
-# What is it used for? 
+## What is it used for? 
 
 - web servers, so creating dynamic websites
 - set up a local web development environment
@@ -32,10 +36,10 @@ Let's take a website for example.  A website is just a collection of HTML and CS
 - some of the biggest companies use Node.js in production: Netflix, Walmart, IBM, etc.
 - JavaScript everywhere (used to be PHP, Python, JavaScript, MySQL, Apache, now JavaScript full stack)
 
-# A simple Node.js server
+## A simple Node.js server
 
-**Simple server**
-``js
+### Simple server**
+```js
 const http = require('http'); 	
 
 const server = http.createServer(function (req, res) {
@@ -48,75 +52,68 @@ console.log('Node.js web server at port 5000 is running..')
 ```
 
 **Server with two routes**    
-``js
+
+```js
 const http = require('http'); 	
 
 const server = http.createServer(function (req, res) {
-
-	if (req.url === '/') { //check the URL of the current request
-	
-	console.log("New request to main page at " + Date())
-        
-        // set response header
-        res.writeHead(200, { 'Content-Type': 'text/html' }); 
-        
-        // set response content    
-        res.write('<html><body><h1>This is home Page.</h1></body></html>');
-		res.write('<h2>The time is: ' + Date() + '</h2>');
-        res.end();
-    
-    } else if (req.url === "/student") {
-		
-	console.log("New request to Student page at " + Date())
-        
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.write('<html><body><h1>This is student Page.</h1></body></html>');
-        res.end();
-    
-    } else {
-        res.end('<html><body><h2>Invalid Request at ' + Date() + '</h2></body></html>');
-    }
+  if (req.url === '/') { //check the URL of the current request
+    console.log("New request to main page at " + Date())
+    // set response header
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    // set response content
+    res.write('<html><body><h1>This is home Page.</h1></body></html>');
+    res.write('<h2>The time is: ' + Date() + '</h2>');
+    res.end();
+  } else if (req.url === "/student") {
+    console.log("New request to Student page at " + Date())
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('<html><body><h1>This is student Page.</h1></body></html>');
+    res.end();
+  } else {
+    res.end('<html><body><h2>Invalid Request at ' + Date() + '</h2></body></html>');
+  }
 });
 
-server.listen(5000); 	
+server.listen(5000);
 
 console.log('Node.js web server at port 5000 is running..')
 ```
+
 ### Exercise
 Can you add another route `/mentor`?  
 
-# What is HTTP?
+### What is HTTP?
 
-> It is a protocol that browser and the server uses to talk to each other  
+> It is a protocol that browser and the server uses to talk to each other
 
-![HTTP](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http_diagram.png)  
+![HTTP](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http_diagram.png)
 
 Read more on Mozilla's [An overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
 
-
-# Node.js and Express
+## Express
 
 [Express](http://expressjs.com/) is one of the most widely-used frameworks for Node.js. It simplifies base features of Node.js, making it easier and faster to build your application's backend. Learning Express gives you a great foundation for becoming a Node.js developer.
 
 In the next steps, we will building a **CMS (Content Management System)** - a system to write, publish and save blog posts. Even though we could use core libraries like `http` to build this system, this becomes very complicated and non-maintainable very quickly. That is why we use frameworks like `Express`.
 
-## Before you Start
+### Before you Start
 
 Fork the repository https://github.com/CodeYourFuture/express-workshop
 
 `$ git clone https://github.com/YOUR-USERNAME/express-workshop`
 
-# Step 1 - Setting up your project
+### Step 1 - Setting up your project
 
 When creating a Node.js project, you will be installing a lot of different things along the way. If you want to share your project with others, you need to have a list of the things you installed, so that other people know what to install in order to run the project.
 
 In Node.js, this 'list' file is called a `package.json`. The 'things you've installed' are referred to as **dependencies**. Creating this file is the first step in setting up your Node.js project. 
 
-## 1. Make a `package.json` file
+### 1. Make a `package.json` file
 
 Let's start by creating the `package.json` file. We can add things to it as the project grows. The `package.json` file is easy to create from the command line. Type the following command into your terminal to get started:
 
-```
+```sh
 $ npm init
 ```
 
@@ -139,7 +136,7 @@ Here is an example `package.json` file for a project called [Passport](https://g
 JSON is a type of file for structuring data in a readable way. It is also a really popular format for sending data across the web.
 JSON is a string representation of a Javascript object. JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
 
-``js
+```js
 {
   "firstName": "John",
   "lastName": "Smith",
@@ -242,7 +239,7 @@ app.listen(3000, function () {
 You've built your server, but it isn't running yet. We need to run a command in the terminal to do this. We are going to use the `node` keyword to run the server file.
 
 Type the following command in your terminal:
-```
+```sh
 $ node server.js
 ```
 
@@ -279,7 +276,6 @@ app.get("/", function (req, res) {
 We are now making a handler function with a custom message in our response. You can write any message you want.
 
 Update your `server.js` file with an empty `app.get()` function:
-
 
 ```js
 const express = require("express");
@@ -319,7 +315,7 @@ app.listen(3000, function () {
 
 Quit your server in the terminal with `ctrl + c`. Then restart it to run your new changes.
 
-```
+```sh
 $ node server.js
 ```
 
@@ -359,7 +355,7 @@ app.get("/chocolate", function (req, res) {
 
 > **Exercise:** Add some code so that your server sends one message when the endpoint is `/node` and another one when it's `/girls`.
 
-# Step 6 - Serving static files
+### Step 6 - Serving static files
 
 So we know how to send back a simple message. But what if you want to send back a whole HTML page, or an image?
 
@@ -372,6 +368,7 @@ Say we want to serve all the static assets in our "public" folder. The `express.
 ```js
 app.use(express.static("public"));
 ```
+
 ## 1. Serve static files from your server
 
 Delete all your `app.get` endpoint functions, and replace them with the line of code above. Restart your server, refresh your browser and see what happens! If you see a Node Girls CMS, then your static assets have been successfully served.
@@ -449,24 +446,29 @@ We need another middleware function.  Something that can get extract the content
 This time though, `express-formidable` is not built-in, we need to explicitly install it.
 
 **In your terminal, install express-formidable**
+
 ```bash
 npm install express-formidable --save
 ```
 
 `require` `express-formidable` so you can use it in your code.  You can't use dashes in JavaScript variable names, so just call it `const formidable`.
+
 ```js
 const formidable = require('express-formidable');
 ```
 
 Now add this towards the top of your server, after your `require`s and `app.use(express.static('public'))`, but before your `/create-post` endpoint:
+
 ```js
 app.use(formidable());
-
 ```
+
 Now inside your `/create-post` function, add:
+
 ```js
 console.log(req.fields);
 ```
+
 Refresh your server and have another go at writing a blogpost.
 
 You should now see an object in the console.  The key should be `blogpost`, just like the name attribute in the form on the HTML page.  The value of `blogpost` will be your message!
@@ -475,7 +477,7 @@ You should now see an object in the console.  The key should be `blogpost`, just
 
 > **What is a middleware in Express?** Middleware functions are functions that have access to the request object (req), the response object (res), and the next function in the application’s request-response cycle. The next function is a function in the Express router which, when invoked, executes the middleware succeeding the current middleware. Read more on [the Express documentation](https://expressjs.com/en/guide/writing-middleware.html)
 
-# Step 8 - Saving your blog post
+### Step 8 - Saving your blog post
 
 Right now, your precious blog posts aren't being saved anywhere, which is a bit of a shame.  Let's do something about that.
 
@@ -510,12 +512,12 @@ fs.writeFile('path/to/file', yourData, function (error) {
     // do something
 });
 ```
+
 * Argument 1: the location of the file you want to write to
 * Argument 2: the data you want to write
 * Argument 3: the callback function
 
 The 'path/to/file' will be replaced with the actual path to the file you want to write to.  If it doesn't exist, `fs.writeFile` cleverly creates one for you.  But we already have `posts.json`, so not to worry.
-
 
 ### Reading from your hard drive
 To read data that's already there, you would use `fs.readFile`.  The way to use `fs.readFile` is very similar to `fs.writeFile`:
@@ -545,9 +547,11 @@ fs.readFile(__dirname + '/data/posts.json', function (error, file) {
 (`__dirname` is a Node global object that gives you a path to current working directory. It's handy if we want to avoid writing the whole path out in full.)
 
 If you restart the server, you'll probably see something like this:
+
 ```bash
 <Buffer 7b 0a 20 20 20 20 22 31 34 36 37 33 39 30 33 35 36 32 39 31 22 3a 20 22 54 68 69 73 20 69 73 20 6d 79 20 76 65 72 79 20 66 69 72 73 74 20 62 6c 6f 67 ... >
 ```
+
 This is actually the contents of your `posts.json` file, but in a format called a **buffer**.  To make it a bit more human-readable, you can console.log the file to a string, like this:
 
 ```js
@@ -557,6 +561,7 @@ console.log(file.toString());
 `file` is in JSON format right now.  If we want to access the blog post message inside `file`, we need to parse it from JSON back to a JavaScipt object.
 
 Add this next bit of code to your `fs.readFile`'s callback function:
+
 ```js
 const parsedFile = JSON.parse(file);
 ```
@@ -566,19 +571,20 @@ Now `parsedFile` is a normal JavaScript object, and we can access the data insid
 Ok, so we've talked about JSON and we've talked about reading and writing files.  You now have the power to save new blog post data to your hard drive!  Work with your partner and your mentor to see if you can figure the next steps out on your own.
 
 Here's a breakdown of what you want to achieve:
-* When new blog post data comes through, read from `posts.json` to access its contents
-* Add your new blog post data to the old ones.
-* Write your new combined data back to the `posts.json` file.
+
+- When new blog post data comes through, read from `posts.json` to access its contents
+- Add your new blog post data to the old ones.
+- Write your new combined data back to the `posts.json` file.
 
 ### Things to remember
+
 * `fs.writeFile()` normally overwrites the target file you've given it.  Chances are you don't want to lose all your old blog posts every time you get a new one, so think about how you can combine `fs.readFile()` and `fs.writeFile()` to prevent overwriting.
 
 * You will need to convert between JSON and a JavaScript object several times.  `JSON.parse()` and `JSON.stringify()` are what you need.
 
 Oh by the way, if you want to get the current timestamp, use the JavaScript `Date.now()` method.
 
-
-# Step 9 - Displaying your blog posts
+### Step 9 - Displaying your blog posts
 
 So now we're saving the blog posts to the server.  Time to get them and display them on the page!
 
@@ -586,15 +592,14 @@ If you look inside `public/script.js`, there's a whole bunch of JavaScript code 
 
 `script.js` is trying to load existing posts by making a GET request. Look inside `script.js` and see if you can find any useful endpoints.
 
-
 Your `script.js` file will want to receive the JSON containing your blog posts.  Your job is to make that happen!
 
 Express has a handy method called `res.sendFile()` that makes it easy to send files back to the client.  Feel free to use this with your JSON.
 
-
 If all goes well, you should have a fully functional CMS!
 
-# Group Research Topics
+## Group Research Topics
+
 - Security: (https, same origin, cookies, xss etc..)
 - Performance: Request lifecycle (from browser to server and back), Performance considerations and optimisations
 - HTTP and REST: (headers, status codes, Cookies, REST)
@@ -604,30 +609,25 @@ The research will be on a Github repo. One member of the group will be responsib
 
 **We expect each repo to have commits from each member of the group**
 
-# Homework
+## Resources
 
-* Finish the tasks from the workshop
-* Try adding an `/about` route to your app to serve some HTML. How is this different from using express's static middleware? You can see one way of doing it here: http://stackoverflow.com/questions/4529586/render-basic-html-view
-* Complete the nodeschool.io 'learnyounode' tutorial https://github.com/workshopper/learnyounode
-
-**Important:** When you get stuck during the homework you should follow the following "escalation policy".
-* First, search for answers on Google and Stack Overflow. If you have an error message, copy and paste it into Google.
-* When you are stuck for longer than 20 minutes - no longer! - write a question to your fellow students in the #scotland-class1 channel on slack. Take a while to think carefully about the question. This is an important skill. There is a great guide to writing good questions here: http://stackoverflow.com/help/how-to-ask
-* If you cannot get an answer from your fellow students, @ a mentor with your question and we will reply as soon as we can.
-
-# Resources
 Take a look at the following links to learn more about Node.js.
-* https://github.com/maxogden/art-of-node/#the-art-of-node
-* https://node.cool#resources
+
+- https://github.com/maxogden/art-of-node/#the-art-of-node
+- https://node.cool#resources
 
 More about HTTP:
 [Tutsplus tutorial](https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039)
 
 More about JSON:
-* https://en.wikipedia.org/wiki/JSON
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+
+- https://en.wikipedia.org/wiki/JSON
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
 Heroku:
-Deploying from Git - https://devcenter.heroku.com/articles/git
-Deploying Node Apps - https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
+
+- [Deploying from Git](https://devcenter.heroku.com/articles/git)
+- [Deploying Node Apps](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
+
+{% include "./homework.md" %}

@@ -1,15 +1,16 @@
-![](https://img.shields.io/badge/status-review-orange.svg)
 # JavaScript Core 2
 
+![](https://img.shields.io/badge/status-review-orange.svg)
+
 **What we will learn today?**
-- Arrays
-- Objects
-- More Arrays methods
-- ![](https://img.shields.io/badge/status-draft-darkred.svg) Functions
+
+- [Arrays](#arrays)
+- [Objects](#objects)
+- [Useful Arrays methods](#useful-array-methods)
+
 ---
 
-
-# Arrays
+## Arrays
 
 If you want to store a **bunch of things**, a **collection** or a **list** of things,  identifiers like `name1`, `name2`, `name3` and so on quickly become tiresome. **Arrays** are to the rescue!
 
@@ -25,7 +26,7 @@ The syntax is to list the values separated by commas, inside square brackets:
 
 You can store any type of value inside an array: strings, numbers, booleans. You can even store other arrays, or objects (which you will learn about next).
 
-## Try it out
+### Try it out
 
 Defining an array as a variable looks something like this:
 
@@ -52,13 +53,12 @@ Spoiler alert, it will print out "puppy". That might seem weird, until you learn
 > **Exercise:** 
 >
 > 1. Create an array that contains the countries of all the students in the class (at least five nationalities)
-> 2. `console.log` the number of countries in the Array
-> 3. Now, `console.log()` each country in the list. Hint: **For loops**
+> 1. `console.log` the number of countries in the Array
+> 1. Now, `console.log()` each country in the list. Hint: **For loops**
 >
 > **Don't ask a mentor - Google it!** Try googling to find the answer if you're stuck. Google skills are an essential part of being a developer.
 
-
-# Objects
+## Objects
 
 Now for the final data type: objects. Like arrays, they can store multiple bits of information, except objects store the properties of something. For example, you might want to save the name, model and colour of a car. Or the name, time and location of a film playing at the cinema.
 
@@ -74,7 +74,7 @@ The syntax looks like this:
 
 The names on the left ("property1") are known "keys". Any values can be given to them: strings, booleans, integers.
 
-## Try it out
+### Try it out
 
 Let's define an object that represents a person:
 
@@ -109,10 +109,9 @@ console.log(person.firstName);
 >// "People call me Jane"
 >```
 
+## Useful array methods
 
-# Useful array methods
-
-#### Concatenating two arrays
+### Concatenating two arrays
 
 You've learned how you can add two numbers and append two strings, but how does this work for arrays? A simple `arr1 + arr2` will not do, but there is a method you can use: `concat()`. It is a method that you call on the array (similar to how `console.log` is the `log` function called on `console`) and takes the array you want to append as a parameter.
 
@@ -124,7 +123,7 @@ countries.concat(moreCountries);
 console.log(countries); // ['Scotland', 'Germany', 'Syria', 'Sudan', 'Ethiopia', 'France']
 ```
 
-#### Appending an element
+### Appending an element
 
 If you want to append an element to an array, you can just put it after the last existing element like so:
 
@@ -143,9 +142,10 @@ countries.push('United States of America', 'France');
 
 > **Exercise**: Search `.slice`, `.splice` and `.pop` and tell us what they do
 
-# Resources
+## Resources
+
 1. [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-2. [Objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
-3. [Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+1. [Objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+1. [Strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 {% include "./homework.md" %}

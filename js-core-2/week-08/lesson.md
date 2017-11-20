@@ -4,15 +4,15 @@
 
 ** What we will learn today?**
 
-- JS in the Browser
-- DOM
-- AJAX
+- JS in the Browser - misssing
+- DOM - missing
+- [AJAX](#ajax)
 
 ---
 
 ## AJAX
 
-### What's a server?
+### What's a server
 
 A device or program that **provides functionality to other programs or devices**. There are database servers, mail servers, game servers, etc.
 
@@ -22,9 +22,7 @@ The server communicates with **clients**. Clients can be a web browser, a Slack 
 
 Client–server systems use the **request–response model**: a client sends a request to the server, which performs some action and sends a response back to the client, typically with a result or acknowledgement.
 
-
 >An example: We can use the Slack app (the client) to put our messages or pictures on Slack. The content is stored on the Slack servers and other clients can then also access the pictures.
-
 
 ### HTTP requests
 
@@ -46,18 +44,15 @@ AJAX is a set of useful methods for implementing client-server communication.
 
 ![AJAX Diagram](https://www.w3schools.com/xml/ajax.gif "AJAX Diagram")
 
-
 AJAX just uses a combination of:
 
-> - A browser built-in XMLHttpRequest object (to request data from a web server)
-> - JavaScript and HTML DOM (to display or use the data)
-
+> A browser built-in XMLHttpRequest object (to request data from a web server)
+> JavaScript and HTML DOM (to display or use the data)
 
 **Ajax works behind the scenes, helping the webpage communicate with the server (with GET and POST requests).**
 
->client ----------GET request----------> server returns data to client
-
->client ----------POST request (with content)--------->server updates data with content
+> client ----------GET request----------> server returns data to client
+> client ----------POST request (with content)--------->server updates data with content
 
 The server holds the data, but it only sends it to the webpage when there's a request. The request can be sent after the page has loaded, for example when a user clicks a button.
 
@@ -70,7 +65,6 @@ Request data from a server - after the page has loaded
 Receive data from a server - after the page has loaded
 Send data to a server - in the background
 
-
 ### AJAX Example
 
 The instant update: we can write code that makes the web page instantly update its contents (without reloading the page).
@@ -79,15 +73,13 @@ Let's try sending some data from Rares’ phone to the server and see whether it
 
 > [http://zero-point.github.io/](http://zero-point.github.io/)
 
-
-### Let's Code!
+### Let's Code
 
 How does the code work? Let's break it down into parts and see what each does.
 
-
 #### POST Code
 
- ``js
+ ```js
   var request = new XMLHttpRequest(); 		//creating a request object
 
   request.onreadystatechange = function() {
@@ -105,12 +97,14 @@ How does the code work? Let's break it down into parts and see what each does.
 
 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
 request.send(params); 							// sending the request
+
 ```
 
 
 #### GET Code
 
- ``js
+```js
+
   var request = new XMLHttpRequest(); 	    //creating a request object
 
   request.onreadystatechange = function() {
@@ -127,7 +121,8 @@ request.send(params); 							// sending the request
 
 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
 request.send(); 								// sending the request
- ```
+
+```
 
 
 

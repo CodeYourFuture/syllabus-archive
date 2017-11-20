@@ -13,7 +13,7 @@
   * [Week 6 - Debugging and more Data Structures](/js-core/week-06/lesson.md)
 * [JavaScript II](/js-core-2/index.md)
   * [Week 7 - In-depth Functions and Intro to DOM](/js-core-2/week-07/lesson.md)
-  * [Week 8 - More DOM and AJAX](/js-core-2/week-08/lesson.md)
+  * [Week 8 - DOM and AJAX](/js-core-2/week-08/lesson.md)
   * [Week 9 - Good Code](/js-core-2/week-09/lesson.md)
 * [JavaScript III](/js-core-3/index.md)
   * [Week 10 - TDD](/js-core-3/week-10/lesson.md)

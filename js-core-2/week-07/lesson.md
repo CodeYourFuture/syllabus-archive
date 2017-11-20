@@ -130,4 +130,5 @@ As soon as an array is returned by an array method we can call another array met
 > Write named functions that can be used as callbacks.
 
 # Homework
+
 {% include "./homework.md" %}

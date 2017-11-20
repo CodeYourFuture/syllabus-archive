@@ -16,6 +16,8 @@ We’ll complement the training with workshops on modern software methodologies 
 
 ## Contributing
 
+The current syllabus is thanks to the hard work by our amazing [mentors](https://github.com/orgs/CodeYourFuture/teams/mentors/members) who have dedicated many hours to discussing and contributing content and teaching.
+
 Please read our [Contributing](CONTRIBUTING.md) guide to get started with how you can contribute to the CYF syllabus, or the projects we have for our students.
 
 ## Getting involved

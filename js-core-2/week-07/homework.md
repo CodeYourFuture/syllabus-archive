@@ -1,10 +1,9 @@
-# Homework
+1. Submit a PR and pass all the functions for the [unit-testing-london](https://github.com/CodeYourFuture/unit-testing-london) repository
 
-1. First part of Homework - Easy
-
-2. Second part of Homework - Intermediate/Hard
-
-3. **[Bonus/Optional]** Third part/optional - Hardest
+2. Look at each other's Pull Requests and leave feedback
 
 ## Prepare for the next class
-1. Read this [Some Tutorial or Video etc...](https://google.com)
+
+1. Read: [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+
+2. Read: [Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)

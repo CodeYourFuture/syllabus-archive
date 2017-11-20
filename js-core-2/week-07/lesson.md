@@ -127,5 +127,5 @@ As soon as an array is returned by an array method we can call another array met
 > Transform the following array [4,5,3,6,7,8,9,1,2] by 1) sorting it, 2) doubling each number, and 3) filtering numbers less than 10
 > Write named functions that can be used as callbacks.
 
-# More functions
-[https://github.com/CodeYourFuture/unit-testing-london]
+# Homework
+{% include "./homework.md" %}

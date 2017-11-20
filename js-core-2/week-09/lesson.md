@@ -172,7 +172,7 @@ Write a function that will print out the number of vowels that are in mentors' n
 
 > Exercise: Now, let's write it well together.
 
-# Resources
+## Resources
 
 1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
 1. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)

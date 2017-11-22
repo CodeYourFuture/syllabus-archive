@@ -37,4 +37,5 @@ Do you want to get involved? we are looking for:
 * PR Reviewers for student homeworks
 * Other volunteers
 
-Please send an email to contact at codeyourfuture.io to get involved!
+Please [contact us](https://codeyourfuture.io/apply/mentor) to get involved!
+

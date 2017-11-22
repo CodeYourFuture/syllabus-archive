@@ -7,4 +7,5 @@
 3. **[Bonus/Optional]** Third part/optional - Hardest
 
 ## Prepare for the next class
+
 1. Read this [Some Tutorial or Video etc...](https://google.com)

@@ -20,13 +20,13 @@
   * [Week 11 - ES6 and Promises](/js-core-3/week-11/lesson.md)
   * Week 12 - Exam maybe
 * [Node/DB I](/node-db/index.md)
-    * [Week 13 - Node and Express 101](/node-db/lesson1.md)
-    * [Week 14 - Templating and APIs](/node-db/lesson2.md)
-    * Week 15 - Node and Mongo maybe
+  * [Week 13 - Node and Express 101](/node-db/lesson1.md)
+  * [Week 14 - Templating and APIs](/node-db/lesson2.md)
+  * Week 15 - Node and Mongo maybe
 * Node/DB II (TBD)
-    * Week 16 - MongoDB
-    * Week 17 - Mongoose
-    * Week 18 - Node/DB Recap
+  * Week 16 - MongoDB
+  * Week 17 - Mongoose
+  * Week 18 - Node/DB Recap
 * [React](/react/index.md)
   * Week 19 - React 101
   * Week 20 - State

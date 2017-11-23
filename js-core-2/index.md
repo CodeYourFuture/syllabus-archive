@@ -1,7 +1,7 @@
 # JavaScript Core 2
 
-| Week | Content                                                                |
-| ---- | ---------------------------------------------------------------------- |
-| 1    | Debugging <br> Callbacks <br> Testing <br> Modules                     |
-| 2    | Testing <br> Modules <br> Good Design <br> Object Oriented Programming |
-| 3    | Event Listeners <br> DOM                                               |
+| Week | Content            |
+| ---- | ------------------ |
+| [week-07](./week-07/lesson.md) | Callbacks, Testing |
+| [week-08](./week-08/lesson.md) | DOM, Events, AJAX  |
+| [week-09](./week-09/lesson.md) | Good Code          |

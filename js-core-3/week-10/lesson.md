@@ -17,7 +17,7 @@
 
 # Before we get started
 
-> **Fork**
+> **Fork** >
 > [this repository](https://github.com/CodeYourFuture/js-core-3-exercises) to
 > your own Github account, then **clone** it to your computer.\
 > Today's exercises will be based on this repository.

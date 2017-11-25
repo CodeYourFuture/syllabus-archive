@@ -7,7 +7,7 @@
 ## Prepare for the next class
 
 1. Read:
-   [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+   [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
 2. Read:
    [Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)

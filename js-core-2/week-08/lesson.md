@@ -1,6 +1,6 @@
 # JavaScript Core: in the Browser
 
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![](https://img.shields.io/badge/status-ready-green.svg)
 
 ** What we will learn today?**
 

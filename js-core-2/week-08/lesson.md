@@ -50,8 +50,8 @@ as an argument to query for elements matching all classes.
 // get an Element with id 'submit'
 var form = document.getElementById('myform');
 // get an HTMLCollection containing elements with class 'red'
-// which are children of the 'myform' element
-var inputs = root.getElementsByClassName('red'); 
+// which are children of the 'form' element
+var inputs = form.getElementsByClassName('red'); 
 ```
 
 `getElementsByClassName` can be called on individual `elements` as well as the
@@ -60,8 +60,8 @@ top-level `document` object. When calling `getElementsByClassName` on an
 the entire `document`
 
 ```js
-elements = document.getElementsByTagName('div'); // or:
-elements = someElement.getElementsByTagName('a');
+var elements = document.getElementsByTagName('div'); // or:
+var elements = someElement.getElementsByTagName('a');
 ```
 
 Much like `getElementsByClassName`, `getElementsByTagName` allows us to query

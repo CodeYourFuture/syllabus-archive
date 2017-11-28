@@ -19,19 +19,19 @@
 * [JavaScript III](/js-core-3/index.md)
   * [Week 10 - TDD](/js-core-3/week-10/lesson.md)
   * [Week 11 - ES6 and Promises](/js-core-3/week-11/lesson.md)
-  * Week 12 - Exam maybe
+  * [Week 12 - Exam maybe](/js-core-3/week-12/lesson.md)
 * [Node/DB I](/node-db/index.md)
-  * [Week 13 - Node and Express 101](/node-db/lesson1.md)
-  * [Week 14 - Templating and APIs](/node-db/lesson2.md)
-  * Week 15 - Node and Mongo maybe
-* Node/DB II (TBD)
-  * Week 16 - MongoDB
-  * Week 17 - Mongoose
-  * Week 18 - Node/DB Recap
+  * [Week 13 - Node and Express 101](/node-db/week-13/lesson.md)
+  * [Week 14 - Templating and APIs](/node-db/week-14/lesson.md)
+  * [Week 15 - Node and Mongo maybe](/node-db/week-15/lesson.md)
+* [Node/DB II](/node-db-2/index.md)
+  * [Week 16 - MongoDB](/node-db-2/week-16/lesson.md)
+  * [Week 17 - Mongoose](/node-db-2/week-17/lesson.md)
+  * [Week 18 - Node/DB Recap](/node-db-2/week-18/lesson.md)
 * [React](/react/index.md)
-  * Week 19 - React 101
-  * Week 20 - State
-  * Week 21 - React-router & Recap
+  * [Week 19 - React 101](/react/week-19/lesson.md)
+  * [Week 20 - State](/react/week-20/lesson.md)
+  * [Week 21 - React-router & Recap](/react/week-21/lesson.md)
 * Other
   * AWS Workshop 1
   * [AWS Workshop 2 - DynamoDB](/others/aws-workshop-2.md)

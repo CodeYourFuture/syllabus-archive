@@ -32,9 +32,8 @@
   * [Week 19 - React 101](/react/week-19/lesson.md)
   * [Week 20 - State](/react/week-20/lesson.md)
   * [Week 21 - React-router & Recap](/react/week-21/lesson.md)
-* Other
-  * AWS Workshop 1
-  * [AWS Workshop 2 - DynamoDB](/others/aws-workshop-2.md)
+* [Others](/others/index.md)
+  * [AWS - DynamoDB](/others/aws-workshop-2.md)
 * [Coding 101](/others/coding-101.md)
 * [House Rules](house-rules.md)
 * [Coding Standards and Best Practices](PRACTICES.md)

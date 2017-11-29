@@ -83,7 +83,7 @@ middle of the box.
 
 > **Exercise:** Working independently, try to position the articles and images
 > side-by-side under the "Upcoming Events" section. Use
-> [this screenshot](assets/screenshot-complete.png) to guide you. If you get
+> [this screenshot](../assets/screenshot-complete.png) to guide you. If you get
 > stuck, go ahead and ask your partner. Never be afraid to ask! Hint: you might
 > need to create a container for the text pieces!
 

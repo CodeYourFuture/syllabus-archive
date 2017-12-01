@@ -15,7 +15,7 @@
 * [JavaScript II](/js-core-2/index.md)
   * [Week 7 - In-depth Functions and Intro to DOM](/js-core-2/week-07/lesson.md)
   * [Week 8 - DOM, Events](/js-core-2/week-08/lesson.md)
-  * [Week 9 - Promises, AJAX](/js-core-2/week-09/lesson.md)
+  * [Week 9 - AJAX, Async, Promises](/js-core-2/week-09/lesson.md)
 * [JavaScript III](/js-core-3/index.md)
   * [Week 10 - Good Code, TDD](/js-core-3/week-10/lesson.md)
   * [Week 11 - More TDD, ES6](/js-core-3/week-11/lesson.md)

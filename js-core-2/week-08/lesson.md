@@ -29,7 +29,7 @@ page. Here are some we'll be using today:
 
 ```js
 // gets an Element with id 'submit'
-var element = document.getElementById('submit'); 
+var element = document.getElementById("submit");
 ```
 
 `getElementById` accepts an id string as argument and returns an `Element` from
@@ -38,7 +38,7 @@ returns `null`.
 
 ```js
 // get an HTMLCollection containing elements with class 'link'
-var links = document.getElementsByClassName('link');
+var links = document.getElementsByClassName("link");
 ```
 
 `getElementsByClassName` takes a string containing one or more classes and
@@ -48,10 +48,10 @@ as an argument to query for elements matching all classes.
 
 ```js
 // get an Element with id 'submit'
-var form = document.getElementById('myform');
+var form = document.getElementById("myform");
 // get an HTMLCollection containing elements with class 'red'
 // which are children of the 'form' element
-var inputs = form.getElementsByClassName('red'); 
+var inputs = form.getElementsByClassName("red");
 ```
 
 `getElementsByClassName` can be called on individual `elements` as well as the
@@ -60,8 +60,8 @@ top-level `document` object. When calling `getElementsByClassName` on an
 the entire `document`
 
 ```js
-var elements = document.getElementsByTagName('div'); // or:
-var elements = someElement.getElementsByTagName('a');
+var elements = document.getElementsByTagName("div"); // or:
+var elements = someElement.getElementsByTagName("a");
 ```
 
 Much like `getElementsByClassName`, `getElementsByTagName` allows us to query
@@ -76,8 +76,9 @@ will be automatically updated with all changes since the query.
 > * Clone the repo from HTML and CSS class into new `bikes` directory. `git
 >   clone git@github.com:dmitrigrabov/bikes-for-refugees.git bikes`
 > * Once cloned run `npm install` to download the dependencies:
-> * Implement `getTitle`, `getNumberOfBikes`, `getAllButtonText`, `getNavLinksText` in `src/functions.js`
->   using above methods to get all tests passing using `npm test`:
+> * Implement `getTitle`, `getNumberOfBikes`, `getAllButtonText`,
+>   `getNavLinksText` in `src/functions.js` using above methods to get all tests
+>   passing using `npm test`:
 
 ### Query selector
 
@@ -99,9 +100,8 @@ updates to the elements.
 
 > **Exercise**:
 >
-> * Rewrite solutions to previous exercise using
->   `querySelector` and `querySelectorAll`. You may need to look up
->   documentation for `NodeList`.
+> * Rewrite solutions to previous exercise using `querySelector` and
+>   `querySelectorAll`. You may need to look up documentation for `NodeList`.
 
 ### DOM manipulation
 
@@ -119,7 +119,7 @@ of an element as well as
 
 ```js
 var x = document.querySelector(".jumbotron h1");
-x.innerHTML = '<strong>' + x.textContent + '</strong>';
+x.innerHTML = "<strong>" + x.textContent + "</strong>";
 ```
 
 We can also access the `style` property of elements and update various
@@ -129,7 +129,7 @@ properties
 var elements = document.querySelectorAll(".btn-primary");
 
 elements.forEach(function(element) {
-  element.style.backgroundColor = "red"
+  element.style.backgroundColor = "red";
 });
 ```
 
@@ -199,8 +199,9 @@ to be inserted and `referenceNode` is the node before which newNode is inserted.
 > **Exercise**:
 >
 > * Use the inspector to examine the navbar
-> * Using `createElement` etc. create a new navbar item link 'Code Your Future' which links to
->   `https://codeyourfuture.io/`. It should have same structure as the other links
+> * Using `createElement` etc. create a new navbar item link 'Code Your Future'
+>   which links to `https://codeyourfuture.io/`. It should have same structure
+>   as the other links
 > * Insert it at the end of the navbar
 > * Ensure all tests for above pass
 
@@ -308,12 +309,12 @@ event handlers placed by parent elements will not be triggered.
 
 > **Together**:
 >
-> * Let's prevent clicks on 'Volunteer' button from bubbling up to above listener using `stopPropagation`
+> * Let's prevent clicks on 'Volunteer' button from bubbling up to above
+>   listener using `stopPropagation`
 
 # Resources
 
 1. [Introduction to browser events](https://javascript.info/introduction-browser-events)
 2. [Events](https://developer.mozilla.org/en-US/docs/Web/Events)
-
 
 {% include "./homework.md" %}

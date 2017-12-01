@@ -4,243 +4,341 @@
 
 **What will we learn today?**
 
-* [Functions and Good Design](#functions)
+* [Callbacks](#callbacks)
+* [Asynchronous functions](#asynchronous%20functions)
+* [Promises](#promises)
 
----
+## Callbacks
 
-## Functions
+* [Understand JavaScript Callback Functions and Use Them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+* [JavaScript Callbacks Explained Using Minions ](https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd#.83dht6ta8)
 
-## Why Functions?
+Callbacks are functions, that are called once another function has completed.
+They are used to allow you code to run in the background (asynchronously).
 
-The function is considered one of the greatest inventions in computer science.
-It makes programs easier to read and to understand. It allows for us to more
-easily modify and extend code. It saves space and improves performance.
-
-At the most basic level, a function is a series of instructions that can take an
-input and produce an output. Parameters dictate how the function behaves.
-
-![Function Diagram](https://arthurleon.files.wordpress.com/2014/09/function_machine.png?w=240 "Function Diagram")
-![Function & Parameters Diagram](https://i2.kknews.cc/large/19f00001508ee348ee0c "Function & Parameters Diagram")
-
-We've used functions a bit, but now we need to know how to use them well.
-
-There are many ways to write code that does the same thing. But are they all
-equal?
-
-> Exercise: Let's look at a really obvious example of a function with redundant
-> code. What could we do to improve it?
+We have already seen an example of this when working with APIs. The
+`request.onreadystatechange` is a callback function.
 
 ```js
-function printHelloFiveTimes() {
-  console.log("Hello");
-  console.log("Hello");
-  console.log("Hello");
-  console.log("Hello");
-  console.log("Hello");
+function finished() {
+  alert("The task has finished");
 }
+
+function thingThatTakesALongTime(callback) {
+  //... Task that takes a long time to complete
+
+  callback(); // This is where the 'alert' happens
+}
+
+// Pass the function to 'thingThatTakesALongTime' just like a normal variable
+thingThatTakesALongTime(finished);
 ```
 
-Introducing a simple for loop makes our lives a lot easier. This way we can more
-easily see what the function does and make modifications.
+Sometimes callbacks are used, so you can handle errors separately.
 
 ```js
-function printHelloFiveTimes(){
-  for ( var i = 0; i < 5; i++ ){
-    console.log("Hello");
+function handleError(problem) {
+  alert("There was an error: " + problem);
 }
-```
 
-> Exercise: Now, let's look at a different example. Let's say we wanted to
-> welcome mentors:
-
-```js
-function welcomeMentors() {
-  console.log("Hello Mozafar");
-  console.log("Hello Rares");
-  console.log("Hello Tim");
-  console.log("Hello Ashleigh");
-  console.log("Hello Gordon");
-}
-```
-
-We could be lazy and change how we welcome the mentors.
-
-```js
-function welcomeMentors() {
-  var mentorNames = "Mozafar, Rares, Tim, Ashleigh, Gordon";
-  console.log("Hello " + mentorNames);
-}
-```
-
-But it's not quite the output we wanted. And we can be smarter about it. Why not
-a loop?
-
-```js
-function welcomeMentors() {
-  var mentorNames = ["Mozafar", "Rares", "Tim", "Ashleigh", "Gordon"];
-  for (var i = 0; i < mentorNames.length; i++) {
-    console.log("Hello " + mentorNames[i]);
+function task(x, errorCallback) {
+  if (x !== 0) {
+    errorCallback("X is not 0!");
+    return;
   }
+  return x + 100;
 }
+
+task(0, handleError); // Causes an alert to appear
+task(1, handleError); // Returns 101
 ```
 
-So functions help us to organise and enhance our code. But what makes good
-design? Is it just "shorter is always better"?
+## Asynchronous functions
 
-## Good Design
+* [w3schools](http://www.w3schools.com/jsref/met_win_settimeout.asp)
 
-Design is important if we want our code to be understandable (both to other
-humans, but also to us in the future), to be easy to use and easy to expand.
+So far everything you have been doing has been synchronous. This means your code
+is executed one line at a time, in order. Asynchronous code is not executed in
+order, and can run at any time, in any order.
 
-There are three main principles you need to know now: clarity, reusability and
-extensibility. There are also others, but they are deeply related to these
-three.
+An example of this in real life, are phone calls and text messages.
 
-To
+* Phone calls are `synchronous` because you cant (really) do anything while the
+  other person is speaking. You are always waiting for your turn to respond
+* Text messages are `asynchronous`. When you send a text, you can go away and do
+  something else, until the other person responds.
 
-* Ease of Maintenance / Clarity
-
-  * Naming
-  * Formatting
-  * Commenting
-  * Clear logic
-  * Concise
-  * Avoiding Redundancy
-
-* Reusability
-
-  * DRY
-  * Single Reponsibility
-    * Avoiding global state (scope)
-    * Predictability and Ease of testing
-
-* Extensibility
-  * Avoiding being unnecessarily specific (e.g. magic numbers)
-
-> Exercise: Find all the design issues with this function.
-
-As an aside: if you try to run the code it won't work, but not because it's not
-correct. It's only because it is a fragment of a larger program and lacks some
-code such as the function updateCorpDatabase(), the initialisation of the global
-variables referenced (e.g. quarter, profit) and, of course, the HandlesStuff()
-function also hasn't been called.
+A simple example is `setTimeout`. This allows you to run a function after a
+given time period. The first argument is the function you want to run, the
+second argument is the `delay` (in milliseconds)
 
 ```js
-function HandlesStuff(
-  inputRecord,
-  savedrecord,
-  income1,
-  income2,
-  expenseType,
-  revenue,
-  expense0,
-  expense1,
-  expense2,
-  screenx,
-  screeny,
-  success
-) {
-  var i;
-  for (i = 0; i < 100; i++) {
-    inputRecord[i] = 0;
-  }
-
-  updateCorpDatabase(savedrecord);
-  income1 = income2 * 4.0 / quarter;
-
-  if (expenseType == 0) {
-    profit = revenue - expense0;
-  } else if (expenseType == 1) {
-    profit = revenue - expense1;
-  } else if (expenseType == 2) {
-    profit = revenue - expense2;
-  }
+function myFunction() {
+  console.log("Hello world!");
 }
+
+setTimeout(myFunction, 1000);
+setTimeout(function() {
+  console.log("Goodbye world!");
+}, 500);
 ```
 
-What is wrong with this function?
+Exercise:
 
-1. Naming: the function has a bad name, HandleStuff() tells you nothing about
-   what the function does. It's also considered bad practice to name variables
-   vaguely by separating them through numbers (debt1, expense1, etc). If you
-   find yourself doing this then you should either use an array (such as
-   expenses[]) or use a more specific name for each variable (such as pastIncome
-   and currentIncome). There is also inconsistency in the use of camel casing
-   (inputRecord versus savedrecord).
+1. Go through this tutorial: https://www.learn-js.org/en/Callbacks
+2. Using setTimeout, change the background color of the page after 5 seconds
+   (5000 milliseconds).
+   * Bonus, have the color change _every_ 5 seconds to something different
+     ![](http://g.recordit.co/g2EqBccNzh.gif)
 
-2. Commenting: the function isn't documented at all. It's very difficult to
-   understand what the function's purpose is and how each part of the code
-   contributes to it. By writing comments, the coder communicates their
-   reasoning and helps the function be human readable.
+## `.map` function
 
-3. Layout/ Formatting: the physical organisation of the code on the page gives
-   few hints about its logical organisation. Layout strategies are used
-   inconsistently throughout the code: incorrect indentation, unnecessary
-   spacing (between the two else ifs) and the long list of parameters is
-   unreadable. This makes the code look messy and confusing.
+Using callbacks, you can easily apply a function to every element in an array
+using the map function; The following snippet, will take an array, and return a
+new array, where every element in the array is double.
 
-4. Input variables: the function's input variable, inputRecord, is set
-   (hardcoded) within the function. If it's an input variable, its value should
-   not be modified. If the value of the variable is supposed to be modified,
-   then the variable should not be called inputRecord.
-
-5. Global variables: the function reads and writes global variables - it reads
-   from quarter and writes to profit. It should communicate with other functions
-   more directly, rather than by reading and writing global variables.
-
-6. Single Responsibility: the function does not have a single purpose. It
-   initialises some variables, writes to a database, does some calculations -
-   none of which seem to be related to each other in any way. A function should
-   have a single, clearly defined purpose. This function looks like it needs
-   restructuring: breaking it into multiple functions.
-
-7. Data checks: the function doesn't defend itself against bad data. If quarter
-   equals 0, the expression income2 \* 4.0 / quarter causes a divide-by-zero
-   error.
-
-8. Magic numbers: the function uses several magic numbers: 100, 4.0, 1, 2 and 3.
-   These are numbers that are used directly in an expression rather than saving
-   them first in a variable. This is discouraged as it makes it more difficult
-   to manipulate the values. If we were to save them in a variable they would be
-   easier to find and modify.
+Before:
 
 ```js
-tenSquared = 10 * 10;
-tenCubed = 10 * 10 * 10;
+var myArray = [1, 5, 10]; // The starting array
+var newArray = []; // The final array
 
-x = 10;
-xSquared = x * x;
-xCubed = x * x * x;
+for (var i = 0; i < myArray.length; i++) {
+  var doubleValue = myArray[i] * 2; // Get the value and double it
+  newArray.push(doubleValue); // Add the new value, to the final array
+}
+
+console.log(newArray);
+
+[2, 10, 20];
 ```
-
-9. Useless parameters: some of the function's parameters are never used
-   (screenx, screeny and success). They should be removed because they are
-   confusing. It is tempting when you're starting to code a function to add more
-   parameters thinking that you might need them, but it's important to remove
-   them if you don't end up using them.
-
-10. DRY principle: the function breaks the DRY (Don't Repeat Yourself) rule. The
-    expression profit = revenue - expense0 is written 3 times unnecessarily, the
-    only difference being whether it's the first, second or third expense. This
-    variable can be restructured into an array.
 
 ```js
-var expense = [expense1, expense2, expense3];
-profit = revenue - expense[expenseType];
+var myArray = [1, 5, 10];
+
+function double(x) {
+  // Return double of x
+  return x * 2;
+}
+
+// Applies the `double` function to every element in the array
+var newArray = myArray.map(double);
+
+console.log(newArray);
+
+[2, 10, 20];
 ```
 
-> Exercise: We have the following problem to solve, write really bad code that
-> gives the right result. Tell us why it is bad.
+## Promises
 
-Write a function that will print out the number of vowels that are in mentors'
-names.
+* [MDN docs](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* [promisejs.org](https://www.promisejs.org/)
+* [Google Developer](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
 
-> Exercise: Now, let's write it well together.
+Promises are a new feature of JavaScript (Chrome only for now). They allow for
+writing easier to understand code when dealing with asynchronous functions.
+![](http://exploringjs.com/es6/images/promises----promise_states_simple.jpg) The
+API is very simple, when you have a promise, you can attach either a `then`
+callback or a `catch` callback. If the promise is successful, the the function
+in the `then` callback is called. If it fails, then the `catch` callback is
+called.
+
+```js
+var myPromise = new Promise(function(resolve, reject) {
+  // Do some work in this function
+
+  resolve(100); // If the function was successful
+  //reject(50) // If the function failed
+});
+
+myPromise.then(function(value) {
+  console.log("success: " + value);
+});
+
+myPromise.catch(function(value) {
+  console.log("fail:" + value);
+});
+```
+
+## Fetch
+
+* [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
+* [David Walsh blog](https://davidwalsh.name/fetch)
+
+`fetch` is a nicer (more modern) way of creating HTTP requests. It makes heavy
+use of Promises.
+
+```js
+// Chaining for more "advanced" handling
+fetch("http://www.mocky.io/v2/584c3d2d1200001b1e372b01")
+  .then(function(response) {
+    return response.json(); // returning another Promise
+  })
+  .then(function(json) {
+    // Do something with the json object
+    console.log(json.data); //Prints 'Hello world!'
+  });
+```
+
+Exercise: Rewrite your homework from last week, using `fetch` and `Promises`
+
+# AJAX
+
+### What's a server?
+
+A device or program that **provides functionality to other programs or
+devices**. There are database servers, mail servers, game servers, etc.
+
+They can take the form of industrial server farms that provide a service to
+millions of users (used by Facebook, Google, etc.), to personal servers for
+storing your files.
+
+The server communicates with **clients**. Clients can be a web browser, a Slack
+app, your phone, etc.
+
+Client–server systems use the **request–response model**: a client sends a
+request to the server, which performs some action and sends a response back to
+the client, typically with a result or acknowledgement.
+
+> An example: We can use the Slack app (the client) to put our messages or
+> pictures on Slack. The content is stored on the Slack servers and other
+> clients can then also access the pictures.
+
+### HTTP requests
+
+A server stores the data, and the client (other programs or computers) requests
+data or sends some of its own. But how do they talk to each other?
+
+**For the client and the server to communicate they need an established language
+(a protocol)**. Which is what HTTP (Hypertext Transfer Protocol) is for. It
+defines the methods you can use to communicate with a server and indicate your
+desired actions on the resources of the server.
+
+There are two main types of requests: GET and POST.
+
+> With a **GET request** you can ask for specified resource (e.g. show me that
+> Slack photo).
+
+> With a **POST request** you can send content to the server to be appended to
+> the web resource (e.g. post a photo on Slack).
+
+HTTP is the language of the internet. In our case we're using Javascript, but
+you can send HTTP requests with other laguages as well.
+
+### AJAX (= Asynchronous JavaScript And XML)
+
+AJAX is a set of useful methods for implementing client-server communication.
+
+![AJAX Diagram](https://www.w3schools.com/xml/ajax.gif "AJAX Diagram")
+
+AJAX just uses a combination of:
+
+> * A browser built-in XMLHttpRequest object (to request data from a web server)
+> * JavaScript and HTML DOM (to display or use the data)
+
+**Ajax works behind the scenes, helping the webpage communicate with the server
+(with GET and POST requests).**
+
+> client ----------GET request----------> server returns data to client
+
+> client ----------POST request (with content)--------->server updates data with
+> content
+
+The server holds the data, but it only sends it to the webpage when there's a
+request. The request can be sent after the page has loaded, for example when a
+user clicks a button.
+
+### Why Ajax?
+
+There are other ways you can write HTTP requests, such as using Web sockets.
+What's great about AJAX is that it makes it look like magic! The server and the
+client communicate effortlessly:
+
+> Update a web page without reloading the page Request data from a server -
+> after the page has loaded Receive data from a server - after the page has
+> loaded Send data to a server - in the background
+
+### AJAX Example
+
+The instant update: we can write code that makes the web page instantly update
+its contents (without reloading the page).
+
+Let's try sending some data from Rares’ phone to the server and see whether it
+will update the webpage.
+
+> [http://zero-point.github.io/](http://zero-point.github.io/)
+
+### Let's Code!
+
+How does the code work? Let's break it down into parts and see what each does.
+
+#### POST Code
+
+```javascript
+var request = new XMLHttpRequest(); //creating a request object
+
+request.onreadystatechange = function() {
+  if (request.readyState === 4) {
+    // check if a response was sent back
+    if (request.status === 200) {
+      // check if request was successful
+      textBox.innerHTML = request.responseText;
+    } else {
+      textBox.innerHTML =
+        "An error occurred during your request: " +
+        request.status +
+        " " +
+        request.statusText;
+    }
+  }
+};
+var url = "http://ajax-cyf.eu-west-1.elasticbeanstalk.com/chatroom/?id=cyf"; //server location
+var params = "Here is some content"; // content we want to send
+request.open("POST", url, true); // adding them to the request
+
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
+request.send(params); // sending the request
+```
+
+#### GET Code
+
+```javascript
+var request = new XMLHttpRequest(); //creating a request object
+
+request.onreadystatechange = function() {
+  if (request.readyState === 4) {
+    // check if a response was sent back
+    if (request.status === 200) {
+      // check if request was successful
+      textBox.innerHTML = request.responseText;
+    } else {
+      textBox.innerHTML =
+        "An error occurred during your request: " +
+        request.status +
+        " " +
+        request.statusText;
+    }
+  }
+};
+var url = "http://ajax-cyf.eu-west-1.elasticbeanstalk.com/chatroom/?id=cyf"; //server location
+request.open("GET", url); // adding it to the request
+
+request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
+request.send(); // sending the request
+```
+
+### AJAX Exercise
+
+Everyone should organise in pairs, one person writing code to **send data
+(POST)** and one to **receive it (GET)**. Once you’ve finished your code,
+combine it and put it into a html page. Now, try sending each other messages
+this way.
+
+Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let
+your partner know what it is!
 
 ## Resources
 
-1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
-1. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
-1. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
+1. AJAX - https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started
 
 {% include "./homework.md" %}

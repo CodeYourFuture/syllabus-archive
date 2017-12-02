@@ -10,9 +10,6 @@
 
 ## Callbacks and Asynchronous Functions
 
-* [Understand JavaScript Callback Functions and Use Them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
-* [JavaScript Callbacks Explained Using Minions ](https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd#.83dht6ta8)
-
 We have already seen callback functions - in the Array methods `forEach`, `map`, `filter` etc. They are functions that are passed as parameter to another function.
 
 Callbacks have another purpose as **asynchronous** functions. For these type of functions, the callback is called once another function has completed. This allows you to run some other code while you're waiting for something to finish.
@@ -62,7 +59,7 @@ Exercise:
 
 1. Using setTimeout, change the background color of the page after 5 seconds
    (5000 milliseconds).
-2. **Bonus**: have the color change _every_ 5 seconds to something different
+2. Update your code to make the color change _every_ 5 seconds to something different
      ![](http://g.recordit.co/g2EqBccNzh.gif). Hint: try searching for `setInterval`.
 
 ## Promises
@@ -271,10 +268,17 @@ Everyone should organise in pairs to write a very simple chat application. One p
 
 The URL to send requests to is https://luxuriant-scorpion.glitch.me/chat (for both GET and POST). Note that it is a JSON API, so you'll need the `response.json()` method to parse responses and the `Content-Type` header for POST requests.
 
+1. Create a function that makes a POST request that sends a new chat message to the server
+2. Create a function that makes a GET request that fetches all messages from the server
+3. Wire up the `#fetch-messages` button so that it makes the GET request then inserts the chat messages into the `#message-list` element
+4. Wire up the `#create-message` button so that it makes the POST request
+
 ## Resources
 
-1. [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
-2. [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
-3. [David Walsh blog post](https://davidwalsh.name/fetch)
+1. [Understand JavaScript Callback Functions and Use Them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
+2. [JavaScript Callbacks Explained Using Minions](https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd#.83dht6ta8)
+3. [MDN AJAX docs](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+4. [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
+5. [David Walsh blog post](https://davidwalsh.name/fetch)
 
 {% include "./homework.md" %}

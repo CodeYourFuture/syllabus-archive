@@ -65,44 +65,6 @@ Exercise:
 2. **Bonus**: have the color change _every_ 5 seconds to something different
      ![](http://g.recordit.co/g2EqBccNzh.gif). Hint: try searching for `setInterval`.
 
-## `.map` function
-
-Using callbacks, you can easily apply a function to every element in an array
-using the map function; The following snippet, will take an array, and return a
-new array, where every element in the array is double.
-
-Before:
-
-```js
-var myArray = [1, 5, 10]; // The starting array
-var newArray = []; // The final array
-
-for (var i = 0; i < myArray.length; i++) {
-  var doubleValue = myArray[i] * 2; // Get the value and double it
-  newArray.push(doubleValue); // Add the new value, to the final array
-}
-
-console.log(newArray);
-
-[2, 10, 20];
-```
-
-```js
-var myArray = [1, 5, 10];
-
-function double(x) {
-  // Return double of x
-  return x * 2;
-}
-
-// Applies the `double` function to every element in the array
-var newArray = myArray.map(double);
-
-console.log(newArray);
-
-[2, 10, 20];
-```
-
 ## Promises
 
 * [MDN docs](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)

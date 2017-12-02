@@ -71,21 +71,20 @@ Exercise:
 * [promisejs.org](https://www.promisejs.org/)
 * [Google Developer](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
 
-Promises are a new feature of JavaScript (Chrome only for now). They allow for
+Promises are a new(ish) feature of JavaScript. They allow for
 writing easier to understand code when dealing with asynchronous functions.
-![](http://exploringjs.com/es6/images/promises----promise_states_simple.jpg) The
-API is very simple, when you have a promise, you can attach either a `then`
-callback or a `catch` callback. If the promise is successful, the the function
-in the `then` callback is called. If it fails, then the `catch` callback is
+![](http://exploringjs.com/es6/images/promises----promise_states_simple.jpg)
+
+Promises are more "abstract" than anything we have covered so far. They are a data structure that represents some result that is going to happen in the future. The result starts off as being unknown (pending) as the code has not completed yet. The result can then move to be successful (fulfilled) or failed (rejected).
+
+The API is very simple. When you have a Promise, you can attach a `.then`
+method with a callback and/or a `.catch` method with a callback. If the promise is successful, then the function
+in the `.then` callback is called. If it fails, then the `.catch` callback is
 called.
 
 ```js
-var myPromise = new Promise(function(resolve, reject) {
-  // Do some work in this function
-
-  resolve(100); // If the function was successful
-  //reject(50) // If the function failed
-});
+// Call a function that returns a Promise
+var myPromise = functionThatReturnsAPromise();
 
 myPromise.then(function(value) {
   console.log("success: " + value);
@@ -96,13 +95,54 @@ myPromise.catch(function(value) {
 });
 ```
 
+The `.then` and `.catch` methods can be chained, like with Array methods:
+
+```js
+myPromise.then(function(value) {
+  console.log("success: " + value);
+})
+.catch(function(value) {
+  console.log("fail: " + value);
+})
+```
+
+You can even return a Promise from within a `.then` callback, and keep chaining on more `.then` callbacks. This allows you to process part of the value and keep passing it along the chain:
+
+```js
+// myPromise resolves with a value of 50
+myPromise.then(function(value) {
+  console.log(value) // Logs: 50
+  return Promise.resolve(value + 50); // Returns a new Promise
+})
+.then(function(value) {
+  console.log(value) // Logs: 100
+})
+```
+
+We will look at some common functions that return a Promise in a bit, but you can also create your own Promise. This example shows a Promise being "resolved" (successful):
+
+```js
+var myPromise = new Promise(function(resolve, reject) {
+  // Do some work in this function
+  resolve(100); // Resolves the Promise with the value 100
+});
+```
+
+This example shows a Promise being "rejected" (failed):
+
+```js
+var myPromise = new Promise(function(resolve, reject) {
+  // Do some work in this function
+  reject(50) // Rejects the Promise with the value 50
+});
+```
+
 ## Fetch
 
 * [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
 * [David Walsh blog](https://davidwalsh.name/fetch)
 
-`fetch` is a nicer (more modern) way of creating HTTP requests. It makes heavy
-use of Promises.
+`fetch` is a way of creating HTTP requests in JavaScript. It uses of the Promise API.
 
 ```js
 // Chaining for more "advanced" handling
@@ -112,7 +152,7 @@ fetch("http://www.mocky.io/v2/584c3d2d1200001b1e372b01")
   })
   .then(function(json) {
     // Do something with the json object
-    console.log(json.data); //Prints 'Hello world!'
+    console.log(json.data); // Logs: 'Hello world!'
   });
 ```
 

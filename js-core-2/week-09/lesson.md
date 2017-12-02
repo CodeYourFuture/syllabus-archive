@@ -55,12 +55,11 @@ setTimeout(function() {
 }, 500);
 ```
 
-Exercise:
-
-1. Using setTimeout, change the background color of the page after 5 seconds
-   (5000 milliseconds).
-2. Update your code to make the color change _every_ 5 seconds to something different
-     ![](http://g.recordit.co/g2EqBccNzh.gif). Hint: try searching for `setInterval`.
+>**Exercises**
+>
+> * Using setTimeout, change the background color of the page after 5 seconds (5000 milliseconds).
+> * Update your code to make the color change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
+> ![](http://g.recordit.co/g2EqBccNzh.gif)
 
 ## Promises
 
@@ -134,9 +133,9 @@ var myPromise = new Promise(function(resolve, reject) {
 });
 ```
 
-> **Exercise**
+> **Exercises**
 > 
-> Complete the exercises this [this CodePen](https://codepen.io/fortythieves/pen/QOYgWb?editors=1010)
+> Complete the exercises [this CodePen](https://codepen.io/fortythieves/pen/QOYgWb?editors=1010)
 
 ## AJAX
 

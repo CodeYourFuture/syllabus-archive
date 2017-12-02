@@ -4,80 +4,55 @@
 
 **What will we learn today?**
 
-* [Callbacks](#callbacks)
+* [Callbacks and Asynchronous Functions](#callbacks-and-asynchronous)
 * [Asynchronous functions](#asynchronous%20functions)
 * [Promises](#promises)
 
-## Callbacks
+## Callbacks and Asynchronous Functions
 
 * [Understand JavaScript Callback Functions and Use Them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
 * [JavaScript Callbacks Explained Using Minions ](https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd#.83dht6ta8)
 
-Callbacks are functions, that are called once another function has completed.
-They are used to allow you code to run in the background (asynchronously).
+We have already seen callback functions - in the Array methods `forEach`, `map`, `filter` etc. They are functions that are passed as parameter to another function.
 
-We have already seen an example of this when working with APIs. The
-`request.onreadystatechange` is a callback function.
+Callbacks have another purpose as **asynchronous** functions. For these type of functions, the callback is called once another function has completed. This allows you to run some other code while you're waiting for something to finish.
 
 ```js
 function finished() {
-  alert("The task has finished");
+  console.log("The task has finished");
 }
 
 function thingThatTakesALongTime(callback) {
   //... Task that takes a long time to complete
 
-  callback(); // This is where the 'alert' happens
+  callback(); // This is where the 'console.log' happens
 }
 
 // Pass the function to 'thingThatTakesALongTime' just like a normal variable
 thingThatTakesALongTime(finished);
 ```
 
-Sometimes callbacks are used, so you can handle errors separately.
-
-```js
-function handleError(problem) {
-  alert("There was an error: " + problem);
-}
-
-function task(x, errorCallback) {
-  if (x !== 0) {
-    errorCallback("X is not 0!");
-    return;
-  }
-  return x + 100;
-}
-
-task(0, handleError); // Causes an alert to appear
-task(1, handleError); // Returns 101
-```
-
-## Asynchronous functions
-
-* [w3schools](http://www.w3schools.com/jsref/met_win_settimeout.asp)
-
-So far everything you have been doing has been synchronous. This means your code
-is executed one line at a time, in order. Asynchronous code is not executed in
-order, and can run at any time, in any order.
+So far all of the callbacks you have been using have been **synchronous**. This means your code is executed one line at a time, at the same time, in order. Asynchronous code is not executed in order, and can run at any time, in any order.
 
 An example of this in real life, are phone calls and text messages.
 
-* Phone calls are `synchronous` because you cant (really) do anything while the
+* Phone calls are `synchronous` because you can't (really) do anything while the
   other person is speaking. You are always waiting for your turn to respond
 * Text messages are `asynchronous`. When you send a text, you can go away and do
   something else, until the other person responds.
 
-A simple example is `setTimeout`. This allows you to run a function after a
+A simple example of an asynchronous function is `setTimeout`. This allows you to run a function after a
 given time period. The first argument is the function you want to run, the
 second argument is the `delay` (in milliseconds)
 
 ```js
-function myFunction() {
+// Separate function definition
+function myCallbackFunction() {
   console.log("Hello world!");
 }
+setTimeout(myCallbackFunction, 1000);
 
-setTimeout(myFunction, 1000);
+// Inline function
 setTimeout(function() {
   console.log("Goodbye world!");
 }, 500);
@@ -85,11 +60,10 @@ setTimeout(function() {
 
 Exercise:
 
-1. Go through this tutorial: https://www.learn-js.org/en/Callbacks
-2. Using setTimeout, change the background color of the page after 5 seconds
+1. Using setTimeout, change the background color of the page after 5 seconds
    (5000 milliseconds).
-   * Bonus, have the color change _every_ 5 seconds to something different
-     ![](http://g.recordit.co/g2EqBccNzh.gif)
+2. **Bonus**: have the color change _every_ 5 seconds to something different
+     ![](http://g.recordit.co/g2EqBccNzh.gif). Hint: try searching for `setInterval`.
 
 ## `.map` function
 

@@ -134,6 +134,10 @@ var myPromise = new Promise(function(resolve, reject) {
 });
 ```
 
+> **Exercise**
+> 
+> Complete the exercises this [this CodePen](https://codepen.io/fortythieves/pen/QOYgWb?editors=1010)
+
 ## AJAX
 
 ### What's a server?
@@ -191,9 +195,9 @@ Ajax just uses a combination of:
 Ajax works behind the scenes, helping the webpage communicate with the server
 (with GET and POST requests).
 
-> client ----------GET request----------> server returns data to client
+> client --> GET request --> server returns data to client
 
-> client ----------POST request (with body content)--------->server updates data with body content
+> client --> POST request (with body content) --> server updates data with body content
 
 Typically, the server holds the data, and only sends it to the client (web page) when there's a
 request. Ajax requests are sent after the page has loaded, usually in response to an action by the user. For example when the user clicks a button, some JavaScript will trigger an Ajax request to fetch data.
@@ -262,16 +266,15 @@ fetch('http://www.mocky.io/v2/5a22e20a2f0000c00d5ec665', {
 })
 ```
 
-### AJAX Exercise
-
-Everyone should organise in pairs to write a very simple chat application. One person will write the code to **send data (with a POST request)** to a server and one to **fetch it (with a GET request)**.
-
-The URL to send requests to is https://luxuriant-scorpion.glitch.me/chat (for both GET and POST). Note that it is a JSON API, so you'll need the `response.json()` method to parse responses and the `Content-Type` header for POST requests.
-
-1. Create a function that makes a POST request that sends a new chat message to the server
-2. Create a function that makes a GET request that fetches all messages from the server
-3. Wire up the `#fetch-messages` button so that it makes the GET request then inserts the chat messages into the `#message-list` element
-4. Wire up the `#create-message` button so that it makes the POST request
+> **Exercise**
+> 
+> Everyone should organise in pairs to write a very simple chat application. One person will write the code to **send data (with a POST request)** to a server and one to **fetch it (with a GET request)**.
+> * Start with [this CodePen project](https://codepen.io/fortythieves/pen/mqvmYQ?editors=1010)
+> * Create a function that makes a POST request that sends a new chat message to the server
+> * Create a function that makes a GET request that fetches all messages from the server
+> * Wire up the `#fetch-messages` button so that it makes the GET request then inserts the chat messages into the `#message-list` element
+> * Wire up the `#create-message` button so that it makes the POST request
+> The URL to send requests to is https://luxuriant-scorpion.glitch.me/chat (for both GET and POST). Note that it is a JSON API, so you'll need the `response.json()` method to parse responses and the `Content-Type` header for POST requests.
 
 ## Resources
 

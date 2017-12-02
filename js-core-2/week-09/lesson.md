@@ -5,8 +5,8 @@
 **What will we learn today?**
 
 * [Callbacks and Asynchronous Functions](#callbacks-and-asynchronous)
-* [Asynchronous functions](#asynchronous%20functions)
 * [Promises](#promises)
+* [AJAX](#ajax)
 
 ## Callbacks and Asynchronous Functions
 
@@ -137,33 +137,12 @@ var myPromise = new Promise(function(resolve, reject) {
 });
 ```
 
-## Fetch
-
-* [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
-* [David Walsh blog](https://davidwalsh.name/fetch)
-
-`fetch` is a way of creating HTTP requests in JavaScript. It uses of the Promise API.
-
-```js
-// Chaining for more "advanced" handling
-fetch("http://www.mocky.io/v2/584c3d2d1200001b1e372b01")
-  .then(function(response) {
-    return response.json(); // returning another Promise
-  })
-  .then(function(json) {
-    // Do something with the json object
-    console.log(json.data); // Logs: 'Hello world!'
-  });
-```
-
-Exercise: Rewrite your homework from last week, using `fetch` and `Promises`
-
-# AJAX
+## AJAX
 
 ### What's a server?
 
 A device or program that **provides functionality to other programs or
-devices**. There are database servers, mail servers, game servers, etc.
+devices**. There are database servers, mail servers, game servers, etc. The vast majority of these servers are accessed over the internet.
 
 They can take the form of industrial server farms that provide a service to
 millions of users (used by Facebook, Google, etc.), to personal servers for
@@ -190,7 +169,7 @@ data or sends some of its own. But how do they talk to each other?
 defines the methods you can use to communicate with a server and indicate your
 desired actions on the resources of the server.
 
-There are two main types of requests: GET and POST.
+There are two main types of requests: `GET` and `POST`.
 
 > With a **GET request** you can ask for specified resource (e.g. show me that
 > Slack photo).
@@ -198,123 +177,104 @@ There are two main types of requests: GET and POST.
 > With a **POST request** you can send content to the server to be appended to
 > the web resource (e.g. post a photo on Slack).
 
-HTTP is the language of the internet. In our case we're using Javascript, but
-you can send HTTP requests with other laguages as well.
+HTTP is the language of the internet. In our case we're using JavaScript, but
+you can send HTTP requests with other languages as well.
 
-### AJAX (= Asynchronous JavaScript And XML)
+### AJAX (Asynchronous JavaScript And XML)
 
-AJAX is a set of useful methods for implementing client-server communication.
+AJAX is a technique for implementing client-server communication in the browser. The word is a bit of a misnomer as generally we don't use XML any more, but it's still commonly used to describe this technique.
 
 ![AJAX Diagram](https://www.w3schools.com/xml/ajax.gif "AJAX Diagram")
 
-AJAX just uses a combination of:
+Ajax just uses a combination of:
 
 > * A browser built-in XMLHttpRequest object (to request data from a web server)
 > * JavaScript and HTML DOM (to display or use the data)
 
-**Ajax works behind the scenes, helping the webpage communicate with the server
-(with GET and POST requests).**
+Ajax works behind the scenes, helping the webpage communicate with the server
+(with GET and POST requests).
 
 > client ----------GET request----------> server returns data to client
 
-> client ----------POST request (with content)--------->server updates data with
-> content
+> client ----------POST request (with body content)--------->server updates data with body content
 
-The server holds the data, but it only sends it to the webpage when there's a
-request. The request can be sent after the page has loaded, for example when a
-user clicks a button.
+Typically, the server holds the data, and only sends it to the client (web page) when there's a
+request. Ajax requests are sent after the page has loaded, usually in response to an action by the user. For example when the user clicks a button, some JavaScript will trigger an Ajax request to fetch data.
 
 ### Why Ajax?
 
 There are other ways you can write HTTP requests, such as using Web sockets.
-What's great about AJAX is that it makes it look like magic! The server and the
+What's great about Ajax is that it makes it look like magic! The server and the
 client communicate effortlessly:
 
 > Update a web page without reloading the page Request data from a server -
 > after the page has loaded Receive data from a server - after the page has
 > loaded Send data to a server - in the background
 
-### AJAX Example
+## Fetch
 
-The instant update: we can write code that makes the web page instantly update
-its contents (without reloading the page).
+`fetch` is a way of creating HTTP requests in JavaScript. It uses of the Promise API.
 
-Let's try sending some data from Rares’ phone to the server and see whether it
-will update the webpage.
+This example shows a GET request that fetches some data and logs it out:
 
-> [http://zero-point.github.io/](http://zero-point.github.io/)
-
-### Let's Code!
-
-How does the code work? Let's break it down into parts and see what each does.
-
-#### POST Code
-
-```javascript
-var request = new XMLHttpRequest(); //creating a request object
-
-request.onreadystatechange = function() {
-  if (request.readyState === 4) {
-    // check if a response was sent back
-    if (request.status === 200) {
-      // check if request was successful
-      textBox.innerHTML = request.responseText;
-    } else {
-      textBox.innerHTML =
-        "An error occurred during your request: " +
-        request.status +
-        " " +
-        request.statusText;
-    }
-  }
-};
-var url = "http://ajax-cyf.eu-west-1.elasticbeanstalk.com/chatroom/?id=cyf"; //server location
-var params = "Here is some content"; // content we want to send
-request.open("POST", url, true); // adding them to the request
-
-request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
-request.send(params); // sending the request
+```js
+fetch('http://www.mocky.io/v2/5a22e20a2f0000c00d5ec665')
+  .then(function(response) {
+    // Necessary line to parse the JSON (we'll cover this 
+    // in more detail in upcoming weeks)
+    // Returns another Promise
+    return response.json();
+  })
+  .then(function(json) {
+    // Do something with the json response object
+    console.log(json.data); // Logs: 'Hello world!'
+  });
 ```
 
-#### GET Code
+To create a POST request, you can pass an options object as the second argument to `fetch` with the `method` property set to `'POST'`. Any data that you want to send should be set as the `body` property.
 
-```javascript
-var request = new XMLHttpRequest(); //creating a request object
+Here is an example showing a POST request:
 
-request.onreadystatechange = function() {
-  if (request.readyState === 4) {
-    // check if a response was sent back
-    if (request.status === 200) {
-      // check if request was successful
-      textBox.innerHTML = request.responseText;
-    } else {
-      textBox.innerHTML =
-        "An error occurred during your request: " +
-        request.status +
-        " " +
-        request.statusText;
-    }
-  }
-};
-var url = "http://ajax-cyf.eu-west-1.elasticbeanstalk.com/chatroom/?id=cyf"; //server location
-request.open("GET", url); // adding it to the request
+```js
+fetch('http://www.mocky.io/v2/5a22e20a2f0000c00d5ec665', {
+  method: 'POST',
+  body: 'I am sending a POST request!'
+})
+  .then(function(response) { return response.json() })
+  .then(function(json) {
+    console.log(json.data)
+  })
+```
 
-request.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); //header info
-request.send(); // sending the request
+Typically it is more useful to servers if they receive structured data like JSON. We will cover JSON more in upcoming weeks, but for now it is sufficient to know that it is a way of structuring data to send over the internet.
+
+To send a POST request with JSON you need to add a little more information to the request - a `headers` property must be included which marks the request as contains JSON. This will give the server a hint that it needs to parse JSON in the request.
+
+Here is an example showing a POST request with JSON:
+
+```js
+fetch('http://www.mocky.io/v2/5a22e20a2f0000c00d5ec665', {
+  method: 'POST',
+  headers: {
+    // Mark the request as containing JSON
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ // Converts objects to JSON
+    data: 'I am sending a POST request with JSON'
+  })
+})
 ```
 
 ### AJAX Exercise
 
-Everyone should organise in pairs, one person writing code to **send data
-(POST)** and one to **receive it (GET)**. Once you’ve finished your code,
-combine it and put it into a html page. Now, try sending each other messages
-this way.
+Everyone should organise in pairs to write a very simple chat application. One person will write the code to **send data (with a POST request)** to a server and one to **fetch it (with a GET request)**.
 
-Don’t forget to use a **unique id** at the end of the url (not 'cyf') and let
-your partner know what it is!
+The URL to send requests to is https://luxuriant-scorpion.glitch.me/chat (for both GET and POST). Note that it is a JSON API, so you'll need the `response.json()` method to parse responses and the `Content-Type` header for POST requests.
 
 ## Resources
 
-1. AJAX - https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started
+1. [AJAX](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+2. [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
+3. [David Walsh blog post](https://davidwalsh.name/fetch)
 
 {% include "./homework.md" %}

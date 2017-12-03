@@ -1,11 +1,42 @@
 # Homework
 
-* Finish this tutorial from BBC - http://www.bbc.co.uk/education/topics/z7tp34j
-* Finish this CodeAcademy course on OOP in JavaScript -
-  https://www.codecademy.com/courses/javascript-beginner-en-vj8Tr/0/1
-* Read Chapter 4 - Functions from the book: JavaScript: The Good Parts
-* Read Chapter 5 of Code Complete 2 (Design In Construction)
-* Read Chapter 7 (High Quality Routines)
-* [Optional] Read this chapter of Eloquent JavaScript -
-  http://eloquentjavascript.net/1st_edition/chapter8.html (up to the exercises).
-  Try all the examples on Codepen.
+1. Please Make sure you have finished the bookshelf project, including the
+   stretch goals
+1. Work in pairs to do _Weather App Exercise_ and send the link to your
+   repository on _your trello card_.
+
+## Weather App
+
+Working in pairs, build a web app displaying the 5 day weather forecast for a
+location of your choice. It is up to you how you divide the work, you can each
+do a bit or have one person focus on UI / UX and another on JS code.
+
+One of you should create a repository on github and make sure the other team
+member has access to push to it.
+[Use this guide to help you](https://codeyourfuture.github.io/syllabus-master/others/making-a-pull-request.html).
+
+Use the [OpenWeatherMap weather forecast API](http://openweathermap.org/api) to
+retrieve the current 5 day weather forecast. Use this API code:
+`33fb7454eb75c6a062a86f7f0ee2695a`
+
+* Create context document as a `README.md` file which includes:
+
+  * **Brief**: The problem you are trying to solve
+  * **Core Functionality**: Functionality your app does
+  * **Research** you did for making the app
+  * **Target Audience**
+  * Any other documentation relevant to running the app - details the
+    contribution of each student - explains current functionality as well as any
+    fixes you would add if you had more time
+
+* Make sure your project tackles:
+  * **Visual appeal** A well thought out, visually appealling web page
+  * **Responsive** design that works well with different screen widths and on
+    mobile devices
+  * **Good Code** Well named variable names and functions and short and concise
+    functions with a clear purpose
+
+**Stretch goals**
+
+* Allow user to input or select other locations for the weather forecast
+* Add any functionality you think would be usefull to the users of your app

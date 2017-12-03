@@ -15,8 +15,9 @@ One of you should create a repository on github and make sure the other team
 member has access to push to it.
 [Use this guide to help you](https://codeyourfuture.github.io/syllabus-master/others/making-a-pull-request.html).
 
-Use the [OpenWeatherMap weather forecast API](http://openweathermap.org/api) to
-retrieve the current 5 day weather forecast. Use this API code:
+Read and use the
+[OpenWeatherMap weather forecast API](http://openweathermap.org/api) to retrieve
+the current 5 day weather forecast. Use this API key in your code:
 `33fb7454eb75c6a062a86f7f0ee2695a`
 
 * Create context document as a `README.md` file which includes:
@@ -24,7 +25,7 @@ retrieve the current 5 day weather forecast. Use this API code:
   * **Brief**: The problem you are trying to solve
   * **Core Functionality**: Functionality your app does
   * **Research** you did for making the app
-  * **Target Audience**
+  * **Target Audience** who will be using your app
   * Any other documentation relevant to running the app - details the
     contribution of each student - explains current functionality as well as any
     fixes you would add if you had more time

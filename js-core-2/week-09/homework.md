@@ -17,14 +17,16 @@ member has access to push to it.
 
 Read and use the
 [OpenWeatherMap weather forecast API](http://openweathermap.org/api) to retrieve
-the current 5 day weather forecast. Use this API key in your code:
+the current 5 day weather forecast. Use `fetch` with this API key in your code:
 `33fb7454eb75c6a062a86f7f0ee2695a`
+([more examples](http://openweathermap.org/current).)
 
 * Create context document as a `README.md` file which includes:
 
-  * **Brief**: The problem you are trying to solve
-  * **Core Functionality**: Functionality your app does
-  * **Research** you did for making the app
+  * **Brief** The problem you are trying to solve
+  * **Core Functionality** Functionality your app does
+  * **Research** you did for making the app - could be just links or
+    descriptions to any sites or apps that do tacke this problem already
   * **Target Audience** who will be using your app
   * Any other documentation relevant to running the app - details the
     contribution of each student - explains current functionality as well as any

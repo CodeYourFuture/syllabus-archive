@@ -34,6 +34,7 @@
   * [Week 21 - React-router & Recap](/react/week-21/lesson.md)
 * [Others](/others/index.md)
   * [AWS - DynamoDB](/others/aws-workshop-2.md)
+  * [Making a Pull Request](/others/making-a-pull-request.md)
 * [Coding 101](/others/coding-101.md)
 * [House Rules](house-rules.md)
 * [Coding Standards and Best Practices](PRACTICES.md)

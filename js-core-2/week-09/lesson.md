@@ -63,10 +63,6 @@ setTimeout(function() {
 
 ## Promises
 
-* [MDN docs](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-* [promisejs.org](https://www.promisejs.org/)
-* [Google Developer](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
-
 Promises are a new(ish) feature of JavaScript. They allow for
 writing easier to understand code when dealing with asynchronous functions.
 ![](http://exploringjs.com/es6/images/promises----promise_states_simple.jpg)
@@ -135,7 +131,7 @@ var myPromise = new Promise(function(resolve, reject) {
 
 > **Exercises**
 > 
-> Complete the exercises [this CodePen](https://codepen.io/fortythieves/pen/QOYgWb?editors=1010)
+> Complete the exercises in [this CodePen](https://codepen.io/fortythieves/pen/QOYgWb?editors=1010)
 
 ## AJAX
 
@@ -279,8 +275,11 @@ fetch('http://www.mocky.io/v2/5a22e20a2f0000c00d5ec665', {
 
 1. [Understand JavaScript Callback Functions and Use Them](http://javascriptissexy.com/understand-javascript-callback-functions-and-use-them/)
 2. [JavaScript Callbacks Explained Using Minions](https://medium.freecodecamp.com/javascript-callbacks-explained-using-minions-da272f4d9bcd#.83dht6ta8)
-3. [MDN AJAX docs](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
-4. [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
-5. [David Walsh blog post](https://davidwalsh.name/fetch)
+3. [MDN Promise docs](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+4. [promisejs.org](https://www.promisejs.org/)
+5. [Google Developer article on Promises](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
+6. [MDN AJAX docs](https://developer.mozilla.org/en-US/docs/AJAX/Getting_Started)
+7. [MDN fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)
+8. [David Walsh blog post](https://davidwalsh.name/fetch)
 
 {% include "./homework.md" %}

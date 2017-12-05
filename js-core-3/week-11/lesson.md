@@ -1,11 +1,12 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 
-# JavaScript Core 6
+# JavaScript Core 3
 
 ** What we will learn today?**
 
 * Intro to ES6
-* ![](https://img.shields.io/badge/status-draft-darkred.svg) Promises
+* Classes and Context
+* Inheritance
 
 ---
 
@@ -17,23 +18,137 @@ other features.
 
 ## const and let
 
-on JS Bin, let's write this simple code snippet ``js function sayGreeting(name,
-gender) { var greeting = 'Hello'; var nameWithTitle; if (gender === 'female') {
-nameWithTitle = 'Ms. ' + name; } else { nameWithTitle = 'Mr. ' + name; } return
-greeting + name; } // sayGreeting('Rares', 'male') should return 'Hello Mr.
-Rares' // sayGreeting('Irina', 'female') should return ' Hello Ms. Irina'
+You have already come across the `var` keyword as a way to create new variables. The `let` and `const` keywords are also used for variable creation,
+but the variables created using these keywords have different scope. Var has "function scope", whereas let and const have "block scope".
 
-````
+
+> Exercise: This **badly designed** function will throw the error `message is not defined`. What is the problem, and how could we fix it?
+
+```js
+function compareNumbers(m,n) {
+  if (m < n) {
+  	let message = m + " is smaller than " + n;
+  } else {
+  	let message = m + " is bigger than or equal to " + n;
+  }
+  
+  return message;
+}
+```
+
+The `const` keyword is similar to `let`, the only difference is that a variable declared using `const` can't be changed after it is assigned.
+
+> Exercise: What advantages might a block scope variable have over a function scope variable? In what situation might you want to use `const` instead of a variable that can be re-assigned?
+
 > Exercise: Let's update this code to use `let` and `const` instead of `var`
+
+```js
+function getCircleArea(radius) {
+  var pi = Math.PI;
+  var rSquared = Math.pow(radius,2);
+  
+  return pi * rSquared;
+}
+
+function getCircleAreas(radiusArr) {
+  var areasArr = [];
+  
+  for (var i = 0; i < radiusArr.length; i++) {
+  	var circleArea = getCircleArea(radiusArr[i]);
+  	areasArr.push(circleArea);
+  }
+  
+  return areasArr;
+}
+```
 
 ## Template literals
 
-> Exercise: We do a lot of string concatenation in JavaScript - ES6 introduces a more elegant way of accomplishing the same. Let's try it.
+We do a lot of string concatenation in JavaScript - ES6 introduces a more elegant way of accomplishing the same. 
+
+```js
+function greeting(name) {
+    return 'Hello ' + name + ', welcome to JS core 3!';
+}
+```
+
+Rewriting this function in ES6, we have
+
+```js
+function greeting(name) {
+    return `Hello ${name}, welcome to JS core 3!`;
+}
+```
 
 ## Arrow functions
 > Exercise: ES6 also has a new way of declaring functions. Let's see how it works.
 
 > Exercise: Refactor the previous code to have a separate function that checks if gender is 'female' or not, and use it in sayGreeting. Let's try and make the code as compact as possible together using ES6 features.
+
+# Classes and Context
+
+A class is an important concept in object-oriented programming. In general, a class can be described as a "blueprint" or a "plan" for creating objects. After a class
+is created, new objects with all of the features defined in that class can then be created. These objects are called *instances* of the class. 
+
+Secondly, It's hard to talk about objects without talking about context and the `this` keyword. When we execute a function in javascript, that function is associated with some enclosing object.
+That object could be one that we made ourselves, or it could be the global scope (the `Window` object). Understanding context allows us to understand when and where
+we can manipulate an object's properties.
+
+## A warning about javascript "classes"
+
+Speaking strictly, javascript does not have proper classes. However ES6 provides functionality that allows us to create things that usually look and act like proper classes.
+At this point in your learning, this difference might not seem important but it will be useful to remember when you are doing more complex work in the future. Part of the homework
+after this class is to read about these differences.
+
+# Creating a class
+I own a library and want to keep track of the books that people are borrowing and returning. Using the style that we previously learned, we could
+implement a system like this:
+
+```js
+let myBooks = ['Wild Swans', 'The Dharma Bums', 'Nausea', 'The Very Hungry Caterpillar'];
+let library = {
+    books: myBooks, 
+    availableBooks: myBooks,
+    checkoutBook: function (book) {
+        this.availableBooks = this.availableBooks.filter(b => b !== book);
+    }
+}
+```
+
+Now our book system has become popular in the library world, and we need to represent a lot of different libraries, each one requiring a copy
+of the object format we specified above. We might even need to extend our library object to suit specific cases. We can
+prepare for this scenario by creating a class called `Library`, provided a plan for our library objects.
+
+
+```js
+class Library {
+    constructor(books) {
+        this.books = books;
+        this.availableBooks = books;
+    }
+    
+   checkoutBook(book) {
+        this.availableBooks = this.availableBooks.filter(b => b !== book);
+   }
+}
+
+let myBooks = ['Wild Swans', 'The Dharma Bums', 'Nausea', 'The Very Hungry Caterpillar'];
+let myLibrary = new Library(myBooks);
+```
+
+> Exercise: Add a `returnBook` function which appends a book onto the `availableBooks` variable in our `myLibrary` object.
+
+> Exercise: check out "Nausea" and return it to the library.
+
+> Exercise: Alter the `checkoutBook` function to return `false` when a book isn't available, and true otherwise.
+
+## Using Inheritance to extend our library
+
+We want to store information about a new library which contains audiobooks as well as ordinary books. Audiobooks cannot be checked out,
+so they only need to be stored. This new library should have all the same functionality regarding ordinary books as our old `Library` object, 
+but the class should be extended to allow for the storage of an `audiobooks` array.
+
+## More on `this`
 
 ## More ES6
 There are so many features in ES6. They're mostly what we call `syntax sugar`. They don't provide new functionality, but new (more elegant) ways of accomplishing the same tasks.

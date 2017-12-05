@@ -150,6 +150,55 @@ but the class should be extended to allow for the storage of an `audiobooks` arr
 
 ## More on `this`
 
+> Exercise: what does `this` refer to in the following code snippet?
+
+```js
+console.log(this)
+```
+
+```js
+class MyClass {
+
+    getThis() {
+        return this;
+    }
+}
+
+let myClass = new MyClass();
+console.log(myClass.getThis());
+```
+
+```js
+class MyClass {
+    
+    getThis() {
+        let myObject = {
+            thisFunction: function() { 
+                return this; 
+            }
+        }
+        return myObject.thisFunction();
+    }
+}
+
+let myClass = new MyClass();
+console.log(myClass.getThis());
+```
+
+```js
+class MyClass {
+
+    getThis() {
+        let myObject = {thisFunction: () => this}
+        return myObject.thisFunction();
+    }
+}
+
+let myClass = new MyClass();
+console.log(myClass.getThis());
+```
+
+
 ## More ES6
 There are so many features in ES6. They're mostly what we call `syntax sugar`. They don't provide new functionality, but new (more elegant) ways of accomplishing the same tasks.
 

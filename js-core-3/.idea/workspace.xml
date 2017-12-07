@@ -11,12 +11,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lesson.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lesson.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week-11/lesson.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="234">
-                <caret line="173" column="15" lean-forward="true" selection-start-line="173" selection-start-column="15" selection-end-line="173" selection-end-column="15" />
+              <first_editor relative-caret-position="2615">
+                <caret line="186" column="0" lean-forward="true" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
                 <folding>
                   <marker date="1512490605000" expanded="true" signature="840:997" ph="{...}" />
                   <marker date="1512490605000" expanded="true" signature="855:906" ph="{...}" />
@@ -51,6 +51,28 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="lesson.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week-10/lesson.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="265">
+                <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+                <folding>
+                  <marker date="1512662925000" expanded="true" signature="1118:1241" ph="{...}" />
+                  <marker date="1512662925000" expanded="true" signature="1416:1573" ph="{...}" />
+                  <marker date="1512662925000" expanded="true" signature="1668:1771" ph="{...}" />
+                  <marker date="1512662925000" expanded="true" signature="3205:3862" ph="{...}" />
+                  <marker date="1512662925000" expanded="true" signature="3393:3435" ph="{...}" />
+                  <marker date="1512662925000" expanded="true" signature="3463:3507" ph="{...}" />
+                  <marker date="1512662925000" expanded="true" signature="3518:3560" ph="{...}" />
+                  <marker date="1512662925000" expanded="true" signature="11982:12008" ph="{...}" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="homework.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week-11/homework.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -75,6 +97,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/week-11/lesson.md" />
+        <option value="$PROJECT_DIR$/week-10/lesson.md" />
       </list>
     </option>
   </component>
@@ -125,7 +148,7 @@
             <path>
               <item name="js-core-3" type="b2602c69:ProjectViewProjectNode" />
               <item name="js-core-3" type="462c0819:PsiDirectoryNode" />
-              <item name="week-11" type="462c0819:PsiDirectoryNode" />
+              <item name="week-10" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -254,12 +277,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512469857087</updated>
-      <workItem from="1512469858630" duration="10574000" />
+      <workItem from="1512469858630" duration="14427000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10574000" />
+    <option name="totallyTimeSpent" value="14427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
@@ -319,8 +342,8 @@
     <entry file="file://$PROJECT_DIR$/week-11/lesson.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="234">
-            <caret line="173" column="15" lean-forward="true" selection-start-line="173" selection-start-column="15" selection-end-line="173" selection-end-column="15" />
+          <first_editor relative-caret-position="2615">
+            <caret line="186" column="0" lean-forward="true" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
             <folding>
               <marker date="1512490605000" expanded="true" signature="840:997" ph="{...}" />
               <marker date="1512490605000" expanded="true" signature="855:906" ph="{...}" />
@@ -348,6 +371,26 @@
               <marker date="1512490605000" expanded="true" signature="6142:6168" ph="{...}" />
               <marker date="1512490605000" expanded="true" signature="6162:6167" ph="{...}" />
               <marker date="1512490605000" expanded="true" signature="7727:7767" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week-10/lesson.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="265">
+            <caret line="102" column="37" lean-forward="false" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
+            <folding>
+              <marker date="1512662925000" expanded="true" signature="1118:1241" ph="{...}" />
+              <marker date="1512662925000" expanded="true" signature="1416:1573" ph="{...}" />
+              <marker date="1512662925000" expanded="true" signature="1668:1771" ph="{...}" />
+              <marker date="1512662925000" expanded="true" signature="3205:3862" ph="{...}" />
+              <marker date="1512662925000" expanded="true" signature="3393:3435" ph="{...}" />
+              <marker date="1512662925000" expanded="true" signature="3463:3507" ph="{...}" />
+              <marker date="1512662925000" expanded="true" signature="3518:3560" ph="{...}" />
+              <marker date="1512662925000" expanded="true" signature="11982:12008" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />

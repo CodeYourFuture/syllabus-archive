@@ -150,10 +150,12 @@ but the class should be extended to allow for the storage of an `audiobooks` arr
 
 ## More on `this`
 
-> Exercise: what does `this` refer to in the following code snippet?
+> Exercise: what does `this` refer to in the following code snippets?
 
 ```js
-console.log(this)
+function getThis() {
+    console.log(this);
+}
 ```
 
 ```js

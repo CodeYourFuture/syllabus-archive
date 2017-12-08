@@ -79,8 +79,6 @@ There are three main principles you need to know now: clarity, reusability and
 extensibility. There are also others, but they are deeply related to these
 three.
 
-To
-
 * Ease of Maintenance / Clarity
 
   * Naming
@@ -380,12 +378,10 @@ npm test -- --coverage
 
 # Homework
 
-1. Read the Wikipedia article about
-   [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
-2. Solve the exercises in this repo (using TDD)
-   https://github.com/CodeYourFuture/js-tdd-exercises
+1. Find examples in your own code where you violated the three principles of good code (Clarity, Reusability, Extensibility).
+   For each principle, find one example.
+2. Clone the repo of the [election project](https://github.com/Buroni/cyf-election) and finish all of the part 1 exercises.
 
-**TODO**
 
 ## Research
 

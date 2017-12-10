@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![](https://img.shields.io/badge/status-review-orange.svg)
 
 **What will we learn today?**
 
@@ -82,10 +82,10 @@ three.
 * Ease of Maintenance / Clarity
 
   * Naming
-  * Formatting
   * Commenting
   * Clear logic
   * Concise
+  * Formatting
   * Avoiding Redundancy
 
 * Reusability
@@ -98,13 +98,7 @@ three.
 * Extensibility
   * Avoiding being unnecessarily specific (e.g. magic numbers)
 
-> Exercise: Find all the design issues with this function.
-
-As an aside: if you try to run the code it won't work, but not because it's not
-correct. It's only because it is a fragment of a larger program and lacks some
-code such as the function updateCorpDatabase(), the initialisation of the global
-variables referenced (e.g. quarter, profit) and, of course, the HandlesStuff()
-function also hasn't been called.
+Now let's take a look at a bigger example of a badly written function
 
 ```js
 function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
@@ -166,7 +160,6 @@ It is tempting when you're starting to code a function to add more parameters th
 > Exercise: Write a function that will print out the number of vowels that are in mentors'
 names.
 
-> Exercise: Now, let's write it well together.
 
 ## Resources
 

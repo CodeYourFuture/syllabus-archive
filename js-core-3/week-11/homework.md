@@ -1,11 +1,8 @@
 # Homework
 
-1. First part of Homework - Easy
-
-2. Second part of Homework - Intermediate/Hard
-
-3. **[Bonus/Optional]** Third part/optional - Hardest
+1. Watch [Wes Bos ES6 videos](https://es6.io/)
 
 ## Prepare for the next class
 
-1. Read this [Some Tutorial or Video etc...](https://google.com)
+1. Tutorial about
+   [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/javascript/)

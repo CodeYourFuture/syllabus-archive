@@ -20,8 +20,7 @@ easily modify and extend code. It saves space and improves performance.
 At the most basic level, a function is a series of instructions that can take an
 input and produce an output. Parameters dictate how the function behaves.
 
-![Function Diagram](https://arthurleon.files.wordpress.com/2014/09/function_machine.png?w=240 "Function Diagram")
-![Function & Parameters Diagram](https://i2.kknews.cc/large/19f00001508ee348ee0c "Function & Parameters Diagram")
+![Function Diagram](../assets/function-diagram.png)
 
 We've used functions a bit, but now we need to know how to use them well.
 

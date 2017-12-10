@@ -2,14 +2,16 @@
 
 **What will we learn today?**
 
-* [Functions and Good Design](#functions)
-* [TDD](#tdd)
-
----
+* [Functions](#functions)
+* [Good Design](#good-design)
+* [Unit Testing](#unit-testing)
+* [Test-driven Development](#test-driven-development)
+* [Refactoring](#refactoring)
+* [Unit testing frameworks](#unit-testing-frameworks)
 
 ## Functions
 
-## Why Functions?
+### Why Functions?
 
 The function is considered one of the greatest inventions in computer science.
 It makes programs easier to read and to understand. It allows for us to more
@@ -18,8 +20,7 @@ easily modify and extend code. It saves space and improves performance.
 At the most basic level, a function is a series of instructions that can take an
 input and produce an output. Parameters dictate how the function behaves.
 
-![Function Diagram](https://arthurleon.files.wordpress.com/2014/09/function_machine.png?w=240 "Function Diagram")
-![Function & Parameters Diagram](https://i2.kknews.cc/large/19f00001508ee348ee0c "Function & Parameters Diagram")
+![Function Diagram](../assets/function-diagram.png)
 
 We've used functions a bit, but now we need to know how to use them well.
 
@@ -80,7 +81,6 @@ extensibility. There are also others, but they are deeply related to these
 three.
 
 * Ease of Maintenance / Clarity
-
   * Naming
   * Commenting
   * Clear logic
@@ -89,7 +89,6 @@ three.
   * Avoiding Redundancy
 
 * Reusability
-
   * DRY
   * Single Reponsibility
     * Avoiding global state (scope)
@@ -176,35 +175,16 @@ What is wrong with this function?
 > Exercise: Write a function that will print out the number of vowels that are
 > in mentors' names.
 
-## Resources
+## TDD
 
-1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
-1. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
-1. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
-
-# TDD
-
-** What we will learn today?**
-
-* Unit Testing
-* The _Jest_ testing framework
-  * The `test()` function
-  * `expect()` and `toBe()`
-  * `npm test`
-  * Test coverage
-* Test-driven development (TDD)
-  * Red, green, refactoring
-
----
-
-# Before we get started
+### Before we get started
 
 > **Fork** >
 > [this repository](https://github.com/CodeYourFuture/js-core-3-exercises) to
 > your own Github account, then **clone** it to your computer.\
 > Today's exercises will be based on this repository.
 
-# Unit Testing
+## Unit Testing
 
 Testing is a key skill for any software programmer. We need to make sure our
 software is thoroughly tested, otherwise bad things happen. Testing makes sure
@@ -380,6 +360,9 @@ npm test -- --coverage
 
 # Resources
 
+1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
+1. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+1. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
 1. [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
 1. [Jest](https://facebook.github.io/jest/)
 1. [Modules](https://nodejs.org/api/modules.html)

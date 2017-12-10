@@ -381,5 +381,7 @@ npm test -- --coverage
 # Resources
 
 1. [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
-2. [Jest](https://facebook.github.io/jest/)
-3. [Modules](https://nodejs.org/api/modules.html)
+1. [Jest](https://facebook.github.io/jest/)
+1. [Modules](https://nodejs.org/api/modules.html)
+
+{% include "./homework.md" %}

@@ -346,3 +346,5 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 
 * [ES6 features](http://es6-features.org/)
 * [Let and const](http://wesbos.com/let-vs-const/)
+
+{% include "./homework.md" %}

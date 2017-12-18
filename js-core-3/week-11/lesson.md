@@ -303,6 +303,8 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 * [ES6 features](http://es6-features.org/)
 * [Let and const](http://wesbos.com/let-vs-const/)
 
+{% include "./homework.md" %}
+
 # Homework
 
 1. Do part 2 of [cyf-election](https://github.com/CodeYourFuture/cyf-election).
@@ -311,7 +313,3 @@ someOtherCode.test.js # Tests for the "someOtherCode" module
 
 3. Read and understand examples #1 to #4 in [this blog post about context and `this`](https://blog.kevinchisholm.com/javascript/context-object-literals/).
 
-## Prepare for the next class
-
-1. Finish this tutorial about Chrome Dev
-   Tools(https://developers.google.com/web/tools/chrome-devtools/javascript/)

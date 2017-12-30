@@ -1,8 +1,9 @@
 # Summary
 
-* [Introduction](README.md)
-* Overview
-* [Week 0](/others/lesson0.md)
+### Course
+* Before you start
+  * [Week 0 - Introduction and basic setup](/others/lesson0.md)
+  * [House Rules](house-rules.md)
 * [HTML/CSS](/html-css/index.md)
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md)
   * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md)
@@ -32,11 +33,15 @@
   * [Week 19 - React 101](/react/week-19/lesson.md)
   * [Week 20 - State](/react/week-20/lesson.md)
   * [Week 21 - React-router & Recap](/react/week-21/lesson.md)
-* [Others](/others/index.md)
-  * [AWS - DynamoDB](/others/aws-workshop-2.md)
-  * [Making a Pull Request](/others/making-a-pull-request.md)
-* [Coding 101](/others/coding-101.md)
-* [House Rules](house-rules.md)
+
+### Useful informations
 * [Coding Standards and Best Practices](PRACTICES.md)
+* [Making a Pull Request](/others/making-a-pull-request.md)
+
+### Workshops and other resources
+* [Coding 101](/others/coding-101.md)
+* [AWS - DynamoDB](/others/aws-workshop-2.md)
+
+### For Mentors
 * [Contributing](CONTRIBUTING.md)
 * [Lesson Template](lesson-template.md)

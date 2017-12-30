@@ -14,7 +14,7 @@
 
 If you want to store a **bunch of things**, a **collection** or a **list** of
 things, identifiers like `name1`, `name2`, `name3` and so on quickly become
-tiresome. **Arrays** are to the rescue!
+tiresome. **Arrays** to the rescue!
 
 Imagine an array like a list or a collection of variables, but instead of each
 variable having its own name, only the array has a name. So how do you access a

@@ -5,8 +5,11 @@
 **What we will learn today?**
 
 * [Hello World](#hello-world)
+* [Node](#node)
+* [Comments](#comments)
 * [Data Types](#data-types)
 * [Variables](#variables)
+* [Semicolons](#semicolons)
 * [Conditionals: If/else](#conditionals)
 * [Loops](#loops)
 * [Functions](#functions)
@@ -18,18 +21,29 @@ This class is based on the
 
 ## Getting Started
 
-1. Download and install the latest Current version of NodeJS from
-   [here](https://nodejs.org/en/download/current/)
+1. Download and install the latest Current version of NodeJS.
+  * Windows and Max users: Download the *installer* (.msi or .pkg) from
+  [here](https://nodejs.org/en/download/)
+  * Linux (Ubuntu) users: you can run the following script in your terminal:
+```Shell
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+```
+  This will require you to enter your password and will configure your computer
+  automatically. You can find the full instructions, if necessary,
+  [here](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions).
+  A note on security: don't execute a script on your terminal if you don't
+  trust its source, especially if they use the `sudo` command to get admin
+  access to your machine.
+2. To test that it was installed and that it's running properly, go to your
+terminal and run the command: `node -v` You should get the node version printed
+on your terminal, for example, `v8.9.3`
 
-To test that it was installed and running properly, go to your terminal and run
-the command: `node -v` You should get the node version printed on your terminal,
-for example, `v7.3.0`
-
-1. Fork the
+3. Fork the
    [JS-Core-1-Exercises](https://github.com/CodeYourFuture/JS-Core-1-Exercises)
-   repositroy and **Clone** it locally.
+   repository and **Clone** it locally.
 
-1. Once you have the repo locally, go to the folder on your terminal and run
+4. Once you have the repo locally, go to the folder on your terminal and run
    `node main.js`
 
 You should get **Hello World** printed on your Terminal.
@@ -37,7 +51,7 @@ You should get **Hello World** printed on your Terminal.
 ## Hello World
 
 It is programming tradition that the first thing you do in any language is make
-it say "Hello world!". This is the first thing we'll do in JavaScript, using
+it output "Hello world!". This is the first thing we'll do in JavaScript, using
 something called a `console.log()`.
 
 ## `console.log()`
@@ -50,7 +64,7 @@ Let's open the file **main.js** and investigate its contents
 > **Exercises**
 >
 > * What do you notice about the code? Anything you don't understand? Notice the
->   semicolon, the dot, the parantheses - these are all elements of JavaScript
+>   semicolon, the dot, the parentheses - these are all elements of JavaScript
 >   **Syntax**
 >
 > * Try to `console.log()` something different, for example, `Hello World. I
@@ -60,11 +74,21 @@ Let's open the file **main.js** and investigate its contents
 > * What happens when you get rid of the quote marks?
 > * What happens when you `console.log()` just a number without quotes?
 
+## Node
+
+We ran our JavaScript using `Node` - Node is is an open-source, cross-platform
+JavaScript run-time environment for executing JavaScript code server-side.
+[Wikipedia](https://en.wikipedia.org/wiki/Node.js)
+
+> **Exercises** What are other "places" where we can **run** JavaScript code?
+
 ## Comments
 
-You can put comments to help you and others understand your code - use `//` to
-add a comment (or if it is a multi-line comment, then use `/*` and `*/` around
-your comment)
+You can add comments to help you and others understand your code - use `//` to
+add a comment and everything you write until the end of the line will be ignored
+by the program.
+If you need to comment more than one line, you can use `/*` and `*/` at the
+start and at the end of the commented block of text.
 
 ```js
 // This is a comment for myself and other developers to understand the next line of code
@@ -79,14 +103,6 @@ console.log("Hello World");
 ```
 
 > **Exercises** What are the comments in that `main.js` script.
-
-## Node
-
-We ran our JavaScript using `Node` - Node is is an open-source, cross-platform
-JavaScript run-time environment for executing JavaScript code server-side.
-[Wikipedia](https://en.wikipedia.org/wiki/Node.js)
-
-> **Exercises** What are other "places" where we can **run** JavaScript code?
 
 ## Data Types
 
@@ -104,7 +120,7 @@ paragraphs. A string is always written inside a pair of quotes (single or
 double).
 
 ```js
-"node girls";
+"node girls"
 ```
 
 ## Numbers
@@ -113,8 +129,8 @@ Numbers do not need to be wrapped in quotes like strings, and can just be
 written as is.
 
 ```js
-100; // an integer number
-100.89; // a decimal number (floating point)
+100 // an integer number
+100.89 // a decimal number (floating point)
 ```
 
 ## Booleans
@@ -123,7 +139,7 @@ There is a special data type in JavaScript known as a "boolean" value. A boolean
 is either `true` or `false`, and it should be written without quotes.
 
 ```js
-true;
+true
 ```
 
 You've seen what they look like, now make sure they are what you think they are.
@@ -168,6 +184,9 @@ variable, which can be anything you like, so long as it doesn't include spaces.
 Here's an example of creating a variable called "city", which is storing a
 string called "Glasgow".
 
+We use the equal sign, `=`, to _assign_ the string `"Glasgow"` as a value of our
+variable `city`. the Equal sign, in this case, is called an 'operator'.
+
 ```js
 var city = "Glasgow";
 console.log(city);
@@ -205,6 +224,22 @@ console.log(typeof false);
 >
 > Is your output the same?
 
+
+## Semicolons
+
+You might have noticed that we add a semicolon `;` at the end of each line.
+This is part of the Javascript language syntax, and it's used to **separate
+different commands.**
+
+Not ending the commands with a `;` might still work most of the time, as the
+Javascript language is quite permissive and will try to interpret the code
+anyway.
+
+That said, always remember to put the semicolon at the end of each
+command as it's considered *"best practice"* by the wider developer community,
+it allows to avoid some hard-to-spot problems and help to avoid confusion.
+
+
 ## Conditionals
 
 Now we're going to start adding in some **logic**. So far we have been logging
@@ -239,9 +274,10 @@ var isHappy = true;
 ```
 
 Then let's write our if/else statement. In our condition, we want to test if the
-variable `isHappy` is equal to `true`. Note that in JavaScript, to test if two
-things are equal you need to use a triple equals (`===`) rather than just one
-(`=`).
+variable `isHappy` is equal to `true`.
+
+This is a comparison operation, and we need a _comparison operator_ to do so.
+In Javascript, the operator we need is a triple equal sign, `===`.
 
 ```js
 if (isHappy === true) {
@@ -250,6 +286,10 @@ if (isHappy === true) {
   // do something else
 }
 ```
+> Note: Remember that (as we've seen in the [Variables](#variables) section) a
+single `=` is used to assign a value instead. A **common mistake** is to use `=`
+instead of `===` inside a `if` statement, so always remember to check.
+
 
 Now let's add in what will happen if the conditions are met. The comments are
 there to explain what is happening.
@@ -266,6 +306,9 @@ if (isHappy === true) {
 
 Now run this code and see what happens! Try changing the value of your variable
 from `true` to `false`.
+
+We now know the equal `===` comparison operator. Javascript give us a number of
+them to compare different variables. A list them can be found [here](https://www.w3schools.com/js/js_comparisons.asp) and in the [Resources](#resources) at the bottom of this page.
 
 > **Exercise**
 >
@@ -288,7 +331,8 @@ from `true` to `false`.
 > negative, as well as even or odd. For example, for `-5` it will print
 > `'negative odd'`, while for `4` it will print `'positive even'`.
 >
-> **Hint**: You can use the `>` or `<` signs.
+> **Hint**: You can use the `>` or `<` signs. Check the list of comparison
+> operators provided before the Exercise to learn what they do.
 >
 > If you finish early, think about how you would test your code works correctly?
 
@@ -356,7 +400,7 @@ there. And we are increasing the value of `i` by one each time.
 >
 > **Exercise**
 >
-> Write a for loop that prints out all the numbers between 1 and 100 divisble by
+> Write a for loop that prints out all the numbers between 1 and 100 divisible by
 > 5.
 >
 > See if you can think or more than one way to solve this.
@@ -372,7 +416,7 @@ to group code together to achieve a particular end. This is where functions come
 in.
 
 A function is a block of code designed to perform a particular task. A function
-is executed when it is "invoked".
+is executed when it is _"invoked"_.
 
 The syntax of a function looks like this:
 
@@ -406,7 +450,7 @@ function add(x, y) {
 add(2, 3);
 ```
 
-Notice I've invoked the function underneath, with the paremeters `2` and `3`.
+Notice we have invoked the function underneath, with the parameters `2` and `3`.
 Inside the function, try to `console.log()` your parameters and see what
 happens.
 

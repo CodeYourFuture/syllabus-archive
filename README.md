@@ -30,8 +30,8 @@ this readme.
 ## Contributing
 
 The current syllabus is thanks to the hard work by our amazing
-mentors who have
-dedicated many hours to discussing and contributing content and teaching.
+mentors who have dedicated many hours to discussing and contributing content
+and teaching.
 
 Please read our [Contributing](CONTRIBUTING.md) guide to get started with how
 you can contribute to the CYF syllabus, or the projects we have for our

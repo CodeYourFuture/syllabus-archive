@@ -34,15 +34,15 @@ git remote -v
 
 Firstly you need to click the "Fork" button:
 
-![Fork Button](./assets/fork-button.png)
+![Fork Button](./assets/making-a-pull-request/fork-button.png)
 
 Then you should be brought to your new fork (notice how the repo title changes):
 
-![Forked repo](./assets/forked.png)
+![Forked repo](./assets/making-a-pull-request/forked.png)
 
 Now you can clone from your fork by copying the URL here:
 
-![Clone from fork](./assets/clone-fork.png)
+![Clone from fork](./assets/making-a-pull-request/clone-fork.png)
 
 The command to clone is:
 
@@ -63,7 +63,7 @@ then you have cloned before forking. The key is that the `origin` remote is poin
 
 The first step is to fork the original repo. Follow the first 2 steps from [forking instructions](#how-to-fork-a-github-repo) above.
 
-Now, instead of cloning the fork (you have already cloned), you need to add it as a remote. 
+Now, instead of cloning the fork (you have already cloned), you need to add it as a remote.
 
 Run:
 
@@ -91,39 +91,39 @@ You will need to push to your fork. If you forked and then cloned (as in the [ho
 
 Next you need to go the original repo in your browser (probably starting with https://github.com/CodeYourFuture). Next click the Pull Requests tab:
 
-![PR tab](./assets/pr-tab.png)
+![PR tab](./assets/making-a-pull-request/making-a-pull-request/pr-tab.png)
 
 Then click the New pull request button:
 
-![New PR button](./assets/new-pr-button.png)
+![New PR button](./assets/making-a-pull-request/new-pr-button.png)
 
 Then click the "compare across forks" link:
 
-![Compare across forks](./assets/compare-across-forks.png)
+![Compare across forks](./assets/making-a-pull-request/compare-across-forks.png)
 
 Then click the "head fork" dropdown button:
 
-![Head fork dropdown button](./assets/head-fork-dropdown.png)
+![Head fork dropdown button](./assets/making-a-pull-request/head-fork-dropdown.png)
 
 Then find your fork in the list and click it:
 
-![Found head fork](./assets/found-head-fork.png)
+![Found head fork](./assets/making-a-pull-request/found-head-fork.png)
 
 Then click the Create pull request button:
 
-![Create PR](./assets/create-pull-request-1.png)
+![Create PR](./assets/making-a-pull-request/create-pull-request-1.png)
 
 Almost there! Now fill out the PR form. Give it a sensible title and an (optional) description:
 
-![PR form](./assets/pr-form.png)
+![PR form](./assets/making-a-pull-request/pr-form.png)
 
 And finally click the Create pull request button at the bottom of the form:
 
-![Create pull request](./assets/create-pull-request-2.png)
+![Create pull request](./assets/making-a-pull-request/create-pull-request-2.png)
 
 That's it! You created your PR!
 
-![Created PR](./assets/created-pr.png)
+![Created PR](./assets/making-a-pull-request/created-pr.png)
 
 ## Resources
 

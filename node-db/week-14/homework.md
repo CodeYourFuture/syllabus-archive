@@ -25,8 +25,7 @@
 
 # Resources
 
-* Callback hell - http://callbackhell.com/
-* Fetch - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-* StackOverFlow answer to What is REST - https://stackoverflow.com/a/671132
-* How I explained REST to my wife -
-  http://web.archive.org/web/20130116005443/http://tomayko.com/writings/rest-to-my-wife
+* Read: [Callback hell](http://callbackhell.com/)
+* Review: [MDN - Using fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+* Read: [StackOverFlow answers to What is REST](https://stackoverflow.com/a/671132)
+* Read: [How I explained REST to my wife](http://web.archive.org/web/20130116005443/http://tomayko.com/writings/rest-to-my-wife)

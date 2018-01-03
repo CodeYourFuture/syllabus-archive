@@ -18,11 +18,20 @@ The six-months course contains:
 We’ll complement the training with workshops on modern software methodologies
 and job interview practices, etc.
 
+## Students
+* If you're interested in joining the program, please
+[refer to the main code your future website](https://codeyourfuture.io/students).
+* If you're looking for the active course,
+[you can find it here](https://codeyourfuture.github.io/syllabus-master/),
+or click on the 'CYF Syllabus' link at the very top of
+this readme.
+* If you're looking for the summary file, [it's here](/SUMMARY.md).
+
 ## Contributing
 
 The current syllabus is thanks to the hard work by our amazing
-[mentors](https://github.com/orgs/CodeYourFuture/teams/mentors/members) who have
-dedicated many hours to discussing and contributing content and teaching.
+mentors who have dedicated many hours to discussing and contributing content
+and teaching.
 
 Please read our [Contributing](CONTRIBUTING.md) guide to get started with how
 you can contribute to the CYF syllabus, or the projects we have for our
@@ -38,4 +47,3 @@ Do you want to get involved? we are looking for:
 * Other volunteers
 
 Please [contact us](https://codeyourfuture.io/apply/mentor) to get involved!
-

@@ -64,4 +64,4 @@
 
 * Avoid committing commented-out code
   * If the code exists in a previous commit, then use GitHub or `git diff` to
-    view it 0Looking
+    view it

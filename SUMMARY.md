@@ -48,4 +48,4 @@
 ### For Mentors
 
 * [Contributing](CONTRIBUTING.md)
-* [Lesson Template](lesson-template.md)
+* [Lesson Template](/others/lesson-template.md)

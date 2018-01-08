@@ -154,11 +154,82 @@ Exercise:
 As an exercise: SELECT AND JOIN - rooms associated with reservations
 
 
-## Preparing the set up
-Install SQLite
-- make sure we have instructions to install it on Linux, MAC OS and Windows =/
+## LINKING UP JS CODE WITH SQL
 
-Connect to SQLite from node
+Hooking up our first endpoint:
+
+Install SQLite
+
+* Ubuntu: apt-get install sqlite3
+* Windows: blah
+* Mac: brew install sqlite
+
+Task 1: Add SQLITE dependency:
+
+npm install -s sqlite
+
+sqlite execute schema.sql
+
+const filename = './database/database.sqlite';
+const sqlite3    = require( 'sqlite3' ).verbose();
+
+// open the database
+let db = new sqlite3.Database(filename);
+
+
+Task 2: Find and read /customers API and figure out which SQL query to use there (select * from customers)
+
+Task 3: Read documentation carefully https://github.com/mapbox/node-sqlite3/wiki/API#databaseallsql-param--callback
+
+Task 4: Read code again.
+
+router.get('/customers', function(req, res) {
+   res.status(200).json({
+     customers: [{
+       id: 2,
+       title: 'Mr',
+       firstname: 'Laurie',
+       surname: 'Ainley',
+       email: 'laurie@ainley.com'
+     }
+   ]});
+})
+
+
+^ Q FOR STUDENTS: TURN THIS INTO DB
+
+Task 4: Implement!
+
+Task 5: Get all the reservations
+
+Task 6: Get all the rooms
+
+## USING PARAMETERS
+
+Add endpoint for look up reservations by room number
+
+Task 1: Figure out the SQL statement required to look up reservations by room number.
+
+Task 2: Read documentation again for #all 
+
+Task 3: Implement
+
+## USING PARAMETERS DO DATES
+
+## DOING INSERT (ADD NEW CUSTOMER)
+
+Task 1: Figure out which INSERT statement to do.
+
+Task 2: Read https://github.com/mapbox/node-sqlite3/wiki/API#databaserunsql-param--callback
+
+Task 3: Implement
+
+## DOING INSERT (RESERVE ROOM)
+
+## DELETE RESERVATION
+
+## UPDATE CUSTOMER
+
 
 SELECT inside code
 

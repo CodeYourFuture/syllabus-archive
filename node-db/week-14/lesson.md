@@ -4,19 +4,46 @@
 
 **What we will learn today?**
 
-* [Recap](#recap)
+* [Middlewares](#middlewares)
 * [Templating](#templating)
-* [Callbacks and Callback hell](#callbacks-and-callback-hell)
+* [Callbacks](#callbacks)
 * [APIs](#apis)
 * [Deploying to Heroku](#deploying-to-heroku)
 
 ---
 
-# Before we start
+## Middlewares
+
+One of the most powerful features of [Express](https://expressjs.com) compared to other node frameworks like [Hapi](https://hapijs.com/) is that it is middleware oriented.
+
+Middlewares in Express can be used to process all the requests that come through your application. For example, let's imagine that you wanted to log every request
+
+```js
+const express = require("express");
+const app = express();
+
+const myLogger = (req, res, next) => {
+  const visitTime = new Date();
+  console.log(`visited ${req.urll} at ${visitTime.toLocaleString()}`);
+  next();
+};
+
+app.use(myLogger);
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(3000, () => {
+  console.log("Server is listening on port 3000. Ready to accept requests!");
+});
+```
+
+As you can imagine it can be very useful to [write your own Middlewares](https://expressjs.com/en/guide/writing-middleware.html), but you can also find [many useful middlewares](https://github.com/rajikaimal/awesome-express#middleware) to add to your program for rapid development.
+
+## Templating
 
 Fork and Clone the [express-workshop-2](https://github.com/CodeYourFuture/express-workshop-2) repository
-
-# Recap
 
 Let's have a look at the repo we've just forked.
 
@@ -49,7 +76,7 @@ Let's run the server and check it in the browser. This is what you should see on
 > **Exercise**: Notice how the link to **Contact me** doesn't return a page -
 > Let's add an enpoint to return a simple string **this is a contact page**.
 
-# Templating
+## Using templates
 
 > **Exercise**: Let's change the text for the link, **Contact**, to **Contact
 > Information**.
@@ -63,25 +90,6 @@ At the moment, we're just serving static HTML files from the _public_ folder.
 > by an application server that processes server-side scripts. In server-side
 > scripting, parameters determine how the assembly of every new web page
 > proceeds, including the setting up of more client-side processing.
-
-## Websites - a small detour
-
-What is wrong with this
-[website?](http://cyf-template-1.s3-website-eu-west-1.amazonaws.com/)
-
-Is this one any
-[better?](http://cyf-template-2.s3-website-eu-west-1.amazonaws.com)
-
-The final view is
-[here](http://cyf-template-3.s3-website-eu-west-1.amazonaws.com/)
-
-What was missing in the first example?
-
-![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/data.json.png)
-
-So what is the point of all these?
-
-![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/html-data-template.png)
 
 ## Template Engines
 
@@ -121,7 +129,7 @@ app.set("view engine", "handlebars");
 Then add these routes:
 
 ```js
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   res.render("index");
 });
 ```
@@ -151,7 +159,7 @@ static files? **Express** and **Handlebars** allow you to pass data between the
 1. Let's modify the `/` route to pass the title of the page.
 
    ```js
-   app.get("/", function(req, res) {
+   app.get("/", (req, res) => {
      res.render("index", {
        title: "Etzali Profile" // insert your name instead
      });
@@ -222,9 +230,9 @@ For now, we will finish by using the **each** helper.
 In the `route`, let's load the file in `data/posts.json`:
 
 ```js
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   const filePath = __dirname + "/data/posts.json";
-  const callbackFunction = function(error, file) {
+  const callbackFunction = (error, file) => {
     // we call .toString() to turn the file buffer to a String
     const fileData = file.toString();
     // we use JSON.parse to get an object out the String

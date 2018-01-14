@@ -69,26 +69,44 @@ It's used for two things:
 
 ## Create a Database
 
-Students, first open up your browsers and visit [DB Fiddle](https://www.db-fiddle.com/).
+Students, first open up your browsers and visit [DB Fiddle](https://www.db-fiddle.com/)
+at www.db-fiddle.com.
 
 Then, select SQLite:
 
 ![Select SQLite 3.18](db-fiddle-select-sqlite.png)
+
+So, on the left hand side here is where we write the code that *creates* the data.
+
+On the right hand side is where we write the code that *retrieves* the data.
 
 ### How to create a table:
 
 First thing we want to store is customers, since without customers,
 you don't have a hotel.
 
-```
-CREATE TABLE customers (
-    title     VARCHAR,
-    firstname VARCHAR,
-    surname   VARCHAR,
-    email     VARCHAR,
+```sql
+create table customers (
+    title varchar,
+    firstname varchar,
+    surname varchar,
+    email varchar,
 );
 
+insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump', 'donald.trump@whitehouse.gov');
+
 ```
+
+First, run the above.
+
+What we have here:
+
+* Creating a table - this creates the *structure* which you can use to put data in.
+* Insert into - puts data *into* that structure.
+* Select * from - gets the entire contents of that table.
+* 'title varchar' - this means we're creating a column with the name 'title' which holds a 'variable number of characters'. This is pretty much the same thing as a string in javascript.
+
+* Create table creates 
 
 Exercises:
 - CREATE TABLE Rooms

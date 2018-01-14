@@ -71,6 +71,10 @@ It's used for two things:
 
 Students, first open up your browsers and visit [DB Fiddle](https://www.db-fiddle.com/).
 
+Then, select SQLite:
+
+![Select SQLite 3.18](db-fiddle-select-sqlite.png)
+
 ### How to create a table:
 
 First thing we want to store is customers, since without customers,

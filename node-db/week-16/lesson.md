@@ -107,13 +107,39 @@ What we have here:
 
 ## LESSON : Data types
 
-create table customers (
-    title varchar,
-    firstname varchar,
-    surname varchar,
+```sql
+create table invoices (
+    reservation_id      integer,
+    total               number,
+    invoice_date_time   datetime not null,
+    paid                boolean default false
 );
 
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 3444.50, '01/01/2017', 1);
+
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 3445.50, '02/01/2017');
+```
+
+```sql
+select * from invoices
+```
+
+* What we have here is an 'integer', a 'number', a 'datetime' and a boolean. These are all analogous to data types
+which you have learned about in javascript.
+
+* For "paid" which is either yes or no - we have a default of 'no', so you can insert data without it and it will just assume you mean 'no'.
+
+* For 'invoice_date_time' we have a 'not null' constraint which means that you *have* to give a datetime and you can't give 'null' because it is meaningless to have a non-null datetime.
+
+More reading : https://www.sqlite.org/datatype3.html
+
 ## EXERCISE : Data types
+
+1. Create a reservations table with columns for customer ID, room ID, check in date, check out date and price per night.
+
+2. [ TODO : 2nd exercise ]
+
+3. [ TODO : 3rd exercise ]
 
 ## LESSON : Filtering
 

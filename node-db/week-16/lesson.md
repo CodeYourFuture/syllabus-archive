@@ -103,7 +103,7 @@ What we have here:
 
 1. Add yourselves as *second* customers to Donald Trump.
 2. Collect email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen.
-3. Add me - "Colm O'Connor" - as your third customer. My email address is "colm.oconnor.github@gmail.com".
+3. Add me - "Colm O'Conner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
 
 ## LESSON : Data types
 
@@ -345,7 +345,11 @@ create table invoices (
 
 ## EXERCISE : Foreign keys
 
+Add foreign key relationship for 
+
 ## LESSON : Updating data
+
+Fix misspelled name of teacher OConner.
 
 ## EXERCISE : Updating data
 

@@ -8,64 +8,50 @@
 * Inserting data into a database using SQL.
 * Joins
 
-THE PROBLEM
------------
+# EXERCISE 1 : Breaking your code with nulls
 
-Start by checking out https://github.com/CodeYourFuture/cyf-hotel
+Start by checking out https://github.com/CodeYourFuture/cyf-hotel (branch - master?)
 
 Go to API end point for add reservation.
 
-* Take existing code that stores reservation as a JSON snippet with subkeys for customer and rooms.
+1. Take existing code that stores reservation as a JSON snippet with subkeys for customer and rooms.
 
-* Put in null for customer id and room id.
+2. Put in null for customer id and room id.
 
-* Ask what actually happend when the guests 1) make a reservation (nothing out of the ordinary) and 2) check in.
+3. Try it out.
 
-* [ FIND A PICTURE OR GIF OF A CHAOTIC HOTEL LOBBY ]
+# EXERCISE 2 : What happened?
 
-* Ask students how to solve this problem?
+1. What happened from the perspective of the *code*?
 
-- If you try to enter invalid data into your program what should your program do? [ ANSWER : FAIL ]
+2. What happened from the perspective of the *user*?
 
-* How do you make your program fail? [ Unit tests is an answer. Johnnny the junior programmer didn't actualyl write any. Tommy senior was too lazy. ]
+3. What *should* happen when you enter invalid data into your programs?
 
-* Explicit validation in one way to do it. Ideally this is a requirement that you embed.
+4. How should you make that happen?
 
-THE SOLUTION
-------------
 
-The database is a way to enter structured data in a way that cannot easily be violated.
+# LESSON 1 : What is the point of a database?
 
-The way we use a database is completely different to the way we store things in files.
-- Files just store the data, and the program needs to open, close, retrieve, store or modify everything itself. All the responsabilities are on the side of the program
-- A Database is stored under an Relational Database Management System (RSGBD), which enforces:
-    - data constraints (E.g. required fields, data types, uniqueness of identifiers)
-    - executes on a different process/machine, meaning that the queries can be parallelized, and work can be offloaded from the main program.
+The database is a way to store *valid* structured data in a way that *cannot easily be violated* and then retrieve it.
 
-This lesson will be about taking what you have stored in a file currently and changing it such that it is stored in a database instead. Everything will look like it works exactly the same as before. But your software will be safer.
+The way we use a database is completely different to the way we store things in files. In a file, you can put anything in and get it out. How you get it out is up to you. The program needs to open, close, retrieve, store or modify everything itself. All the responsibility for that belongs to the program.
 
-```
-{
-  "reservation id"
-  "date"
-  "customer": {
-      "name": "blah",
-      "last name": "blah",
-  "room": {
-      "thing"
+A Database is stored using a Relational Database Management system (RDBMS) which enfores:
 
-}
-```
+- Data constraints (e.g. each reservation *must* have a customer)
+- Data types (e.g. check in date *can only* be a date)
+- Uniqueness of certain pieces of data (e.g. there is *only one* person with the driver's license ID 941413).
+- Organizing how the data is retrieved and assembled (e.g. fetch me all reservations under customer "Donald Trump").
+- Executes on a different process/machine, meaning that the queries can be parallelized, and work can be offloaded from the main server.
 
-We're going to teach you a new programming language.
-It's called SQL. Pronounced "S - Q - L" or sequel,
-as in "the sequel to the original 3 stars films were
-awful."
+We're going to teach you a new programming language. It's called SQL. Pronounced "S - Q - L" or sequel,
+as in "the sequel to the original 3 stars films were awful."
 
-It's used for two things:
+The language is *just* used for two things:
 
-* Storing data in a database
-* Retrieving data from a database
+* Telling a big store of data (the database) to store data
+* Telling a big store of data (the database) to retrieve data
 
 ## Create a Database
 
@@ -80,32 +66,75 @@ So, on the left hand side here is where we write the code that *creates* the dat
 
 On the right hand side is where we write the code that *retrieves* the data.
 
-### How to create a table:
+### LESSON: How to create a table
 
 First thing we want to store is customers, since without customers,
 you don't have a hotel.
+
+Students. Type the following in:
+
+What to put in the *left* hand side (data definition):
 
 ```sql
 create table customers (
     title varchar,
     firstname varchar,
     surname varchar,
-    email varchar,
 );
 
-insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump', 'donald.trump@whitehouse.gov');
-
+insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump',);
 ```
 
-First, run the above.
+What to put on the *right* hand side (data retrieval):
+
+```sql
+select * from customers;
+```
 
 What we have here:
 
-* Creating a table - this creates the *structure* which you can use to put data in.
+* Creating a table - this creates the *structure* which you can use to put data in. The items are *columns*.
 * Insert into - puts data *into* that structure.
 * Select * from - gets the entire contents of that table.
+
 * 'title varchar' - this means we're creating a column with the name 'title' which holds a 'variable number of characters'. This is pretty much the same thing as a string in javascript.
 
+## EXERCISE: Create tables and insert data
+
+1. Add yourselves as *second* customers to Donald Trump.
+2. Collect email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen.
+3. Add me - "Colm O'Connor" - as your third customer. My email address is "colm.oconnor.github@gmail.com".
+
+## LESSON : Data types
+
+create table customers (
+    title varchar,
+    firstname varchar,
+    surname varchar,
+);
+
+## EXERCISE : Data types
+
+## LESSON : Filtering
+
+## EXERCISE : Filtering
+
+## LESSON : Uniqueness
+
+## EXERCISE : Uniqueness
+
+## LESSON : Foreign keys
+
+## EXERCISE : Foreign keys
+
+## LESSON : Updating data
+
+## EXERCISE : Updating data
+
+## LESSON : Joins
+
+TODO : 
+--------
 * Create table creates 
 
 Exercises:

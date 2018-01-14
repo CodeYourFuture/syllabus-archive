@@ -143,7 +143,52 @@ More reading : https://www.sqlite.org/datatype3.html
 
 ## LESSON : Filtering
 
+Currently we've just put data in to a table and gotten *all* of it out. What about if we only want *specific* data?
+
+For this we will introduce something called 'WHERE'.
+
+Lets go back to the invoices table:
+
+```sql
+create table invoices (
+    reservation_id      integer,
+    total               number,
+    invoice_date_time   datetime not null,
+    paid                boolean default false
+);
+
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017', 1);
+
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 250.50, '02/01/2017');
+
+insert into invoices (reservation_id, total, invoice_date_time) values (150, 431.50, '03/01/2017');
+
+insert into invoices (reservation_id, total, invoice_date_time) values (155, 300.50, '04/01/2017', 1);
+
+insert into invoices (reservation_id, total, invoice_date_time) values (156, 284.35, '04/01/2017', 1);
+```
+
+```sql
+select * from invoices
+```
+
+```sql
+select * from invoices where reservation_id = 123;
+```
+
+```sql
+select * from invoices where invoice_date_time < '03/01/2017';
+```
+
 ## EXERCISE : Filtering
+
+Write SQL for the following:
+
+1. Which invoices were paid?
+
+2. Which invoices paid after 3rd January 2017?
+
+3. Which invoices were for under 300 pounds?
 
 ## LESSON : Uniqueness
 

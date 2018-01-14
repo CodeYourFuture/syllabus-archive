@@ -190,9 +190,96 @@ Write SQL for the following:
 
 3. Which invoices were for under 300 pounds?
 
-## LESSON : Uniqueness
+## LESSON : Primary Keys
 
-## EXERCISE : Uniqueness
+Ok, now we're going to introduce a problem. We're going to pretend that a secretary did this.
+
+```sql
+create table invoices (
+    reservation_id      integer,
+    total               number,
+    invoice_date_time   datetime not null,
+    paid                boolean default false
+);
+
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017');
+
+insert into invoices (reservation_id, total, invoice_date_time) values (123, 250.50, '02/01/2017');
+```
+
+```sql
+select * from invoices;
+```
+
+QUESTION FOR PERSON IN CLASS WHO LOOKS THE MOST CONFUSED : What is the problem here?
+
+So, a business calls up and says that they need to pay invoice 123. What happens?
+
+We solve this problem with something called a "primary key" - what this does is make it so the database will absolutely refuse to accept a number if you enter in a duplicate.
+
+```sql
+create table invoices (
+    reservation_id      integer primary key,
+    total               number,
+    invoice_date_time   datetime not null,
+    paid                boolean default false
+);
+
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017');
+
+insert into invoices (reservation_id, total, invoice_date_time) values (123, 250.50, '02/01/2017');
+```
+
+```sql
+create table invoices (
+    reservation_id      integer primary key,
+    total               number,
+    invoice_date_time   datetime not null,
+    paid                boolean default false
+);
+
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017', 1);
+
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 250.50, '02/01/2017');
+
+insert into invoices (reservation_id, total, invoice_date_time) values (999, 250.50, '03/01/2017');
+```
+
+Quick fire question round:
+
+* Is first name a good candidate for a primary key?
+* Is first name and surname together a good candidate for a primary key?
+* Is a driver's license ID a good candidate for a primary key?
+* Is a passport ID a good candidate for a primary key?
+* Is just coming up with an arbitrary number that is unique a good candidate for a primary key?
+
+Now, this is great, but we have another problem. When the hotel staff check the guest in they don't really want to think up a random number that hasn't been used before. Why not just let the database figure out what a good number to use is?
+
+For this we use autoincrement:
+
+```sql
+create table invoices (
+    reservation_id      integer primary key autoincrement,
+    total               number,
+    invoice_date_time   datetime not null,
+    paid                boolean default false
+);
+
+insert into invoices (total, invoice_date_time, paid) values (143.50, '01/01/2017', 1);
+
+insert into invoices (total, invoice_date_time) values (250.50, '02/01/2017');
+```
+
+Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
+identifier which you know won't be repeated.
+
+
+
+## EXERCISE : Primary Keys
+
+1. Recreate customer table with a primary key. Bear in mind that you don't have a driver's license or passport ID.
+
+2. Recreate reservations table with a primary key.
 
 ## LESSON : Foreign keys
 

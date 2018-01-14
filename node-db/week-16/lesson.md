@@ -135,11 +135,7 @@ More reading : https://www.sqlite.org/datatype3.html
 
 ## EXERCISE : Data types
 
-1. Create a reservations table with columns for customer ID, room ID, check in date, check out date and price per night.
-
-2. [ TODO : 2nd exercise ]
-
-3. [ TODO : 3rd exercise ]
+Create a reservations table with columns for customer ID, room ID, check in date, check out date and price per night. Bear in mind that customers *do* have to give a check in date, but they don't have to give a check out date.
 
 ## LESSON : Filtering
 
@@ -186,9 +182,9 @@ Write SQL for the following:
 
 1. Which invoices were paid?
 
-2. Which invoices paid after 3rd January 2017?
+2. Which invoices were for under 300 pounds?
 
-3. Which invoices were for under 300 pounds?
+3. Which invoices paid on 3rd January 2017 or after?
 
 ## LESSON : Primary Keys
 
@@ -245,7 +241,7 @@ insert into invoices (reservation_id, total, invoice_date_time) values (124, 250
 insert into invoices (reservation_id, total, invoice_date_time) values (999, 250.50, '03/01/2017');
 ```
 
-Quick fire question round:
+Quick fire question round for students who look most confused / not paying attention:
 
 * Is first name a good candidate for a primary key?
 * Is first name and surname together a good candidate for a primary key?
@@ -271,9 +267,8 @@ insert into invoices (total, invoice_date_time) values (250.50, '02/01/2017');
 ```
 
 Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
-identifier which you know won't be repeated.
-
-
+identifier which you know can't be repeated. Usually arbitrary incrementing numbers are good,
+but they're not always ideal.
 
 ## EXERCISE : Primary Keys
 
@@ -283,6 +278,46 @@ identifier which you know won't be repeated.
 
 ## LESSON : Foreign keys
 
+
+```sql
+
+create table reservations (
+  `id`                    integer primary key autoincrement,
+  `customer_id`           integer,
+  `room_id`               integer,
+  `check_in_date`         datetime not null,
+  `checkout_out_date`,    datetime,
+  `room_price_per_night`  real,
+);
+
+create table invoices (
+    reservation_id      integer primary key autoincrement,
+    total               number,
+    invoice_date_time   datetime not null,
+    paid                boolean default false
+);
+
+insert into reservations (customer_id, room_id, check_in_date, check_out_date, room_price_per_night) values (123, 55, '01/01/2017', '02/01/2017', 100);
+
+insert into reservations (customer_id, room_id, check_in_date, check_out_date, room_price_per_night) values (124, 55, '03/01/2017', '05/01/2017', 100);
+
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 100, '03/01/2017', 1);
+
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 50, '06/01/2017', 0);
+
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 50, '06/01/2017', 1);
+```
+
+Point out that the reservation ID corresponds with the ID on the reservations table.
+
+```sql
+insert into invoices (reservation_id, total, invoice_date_time) values (125, 50, '06/01/2017);
+```
+
+Question for class: what is the problem?
+
+A: Invoice isn't going to get paid because we don't know who it's for.
+
 ## EXERCISE : Foreign keys
 
 ## LESSON : Updating data
@@ -290,6 +325,8 @@ identifier which you know won't be repeated.
 ## EXERCISE : Updating data
 
 ## LESSON : Joins
+
+## EXERCISE : Joins
 
 TODO : 
 --------

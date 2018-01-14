@@ -91,7 +91,7 @@ You will need to push to your fork. If you forked and then cloned (as in the [ho
 
 Next you need to go the original repo in your browser (probably starting with https://github.com/CodeYourFuture). Next click the Pull Requests tab:
 
-![PR tab](./assets/making-a-pull-request/making-a-pull-request/pr-tab.png)
+![PR tab](./assets/making-a-pull-request/pr-tab.png)
 
 Then click the New pull request button:
 

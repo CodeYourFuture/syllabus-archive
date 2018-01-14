@@ -1,4 +1,4 @@
-# LESSON 1 : BASIC SQL
+# WEEK 16 LESSON 1 : BASIC SQL
 
 **What we will learn today?**
 
@@ -57,15 +57,33 @@ This lesson will be about taking what you have stored in a file currently and ch
 }
 ```
 
-Everything piece of data in a database is stored in a table.
+We're going to teach you a new programming language.
+It's called SQL. Pronounced "S - Q - L" or sequel,
+as in "the sequel to the original 3 stars films were
+awful."
 
-We're going to teach you a new language called SQL.
+It's used for two things:
+
+* Storing data in a database
+* Retrieving data from a database
 
 ## Create a Database
 
-### How to create a table :
+Students, first open up your browsers and visit [DB Fiddle](https://www.db-fiddle.com/).
+
+### How to create a table:
+
+First thing we want to store is customers, since without customers,
+you don't have a hotel.
+
 ```
-CREATE TABLE Reservations
+CREATE TABLE customers (
+    title     VARCHAR,
+    firstname VARCHAR,
+    surname   VARCHAR,
+    email     VARCHAR,
+);
+
 ```
 
 Exercises:

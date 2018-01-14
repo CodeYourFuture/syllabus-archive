@@ -291,7 +291,8 @@ create table reservations (
 );
 
 create table invoices (
-    reservation_id      integer primary key autoincrement,
+    id                  integer primary key autoincrement,
+    reservation_id      integer,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
@@ -317,6 +318,30 @@ insert into invoices (reservation_id, total, invoice_date_time) values (125, 50,
 Question for class: what is the problem?
 
 A: Invoice isn't going to get paid because we don't know who it's for.
+
+To fix this problem we place an additional restriction on the data - you can only add IDs that exist.
+
+
+```sql
+
+create table reservations (
+  `id`                    integer primary key autoincrement,
+  `customer_id`           integer,
+  `room_id`               integer,
+  `check_in_date`         datetime not null,
+  `checkout_out_date`,    datetime,
+  `room_price_per_night`  real,
+);
+
+create table invoices (
+    id                           integer primary key autoincrement,
+    foreign key(reservation_id)  references reservations(reservation_id),
+    total                        number,
+    invoice_date_time            datetime not null,
+    paid                         boolean default false
+);
+
+```
 
 ## EXERCISE : Foreign keys
 

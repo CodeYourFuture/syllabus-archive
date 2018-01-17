@@ -230,7 +230,7 @@ function addFive(value) { value = value + 5; }
 
 var ten = 10; addFive(ten); console.log(ten);
 
-```
+```text
 We have a function that accepts a value as an argument. The function then adds five to the
 argument and logs the value.
 After invoking the function with the variable `ten`, the variable is logged.

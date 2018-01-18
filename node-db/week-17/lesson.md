@@ -9,6 +9,21 @@
 * Inserting data from an endpoint.
 * Updating data from an endpoint.
 
+This lesson will primarily be about taking what you have stored in a *flat file* currently and changing it such that it is stored in a database instead. Everything will look like it work exactly the same as before. But your software will be safer because errors like the one above that caused chaos in the hotel lobby will be *impossible*.
+
+```
+{
+  "reservation id"
+  "date"
+  "customer": {
+      "name": "blah",
+      "last name": "blah",
+  "room": {
+      "thing"
+
+}
+```
+
 ## Node server iteracting with the database
 ** Here we will have the node server querying the database to comply with the requests. Need base from previous classes.**
 

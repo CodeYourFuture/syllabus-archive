@@ -1,22 +1,49 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![](https://img.shields.io/badge/status-review-orange.svg)
 
 # Node 2
 
 **What we will learn today?**
 
-* Recap
-* Templating
-* Callbacks and Callback hell
-* APIs
-* Deploying to Heroku
+* [Middlewares](#middlewares)
+* [Templating](#templating)
+* [Callbacks](#callbacks)
+* [APIs](#apis)
+* [Deploying to Heroku](#deploying-to-heroku)
 
 ---
 
-# Before we start
+## Middlewares
 
-Fork and Clone the repo - https://github.com/CodeYourFuture/express-workshop-2
+One of the most powerful features of [Express](https://expressjs.com) compared to other node frameworks like [Hapi](https://hapijs.com/) is that it is middleware oriented.
 
-# Recap
+Middlewares in Express can be used to process all the requests that come through your application. For example, let's imagine that you wanted to log every request
+
+```js
+const express = require("express");
+const app = express();
+
+const myLogger = (req, res, next) => {
+  const visitTime = new Date();
+  console.log(`visited ${req.urll} at ${visitTime.toLocaleString()}`);
+  next();
+};
+
+app.use(myLogger);
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(3000, () => {
+  console.log("Server is listening on port 3000. Ready to accept requests!");
+});
+```
+
+As you can imagine it can be very useful to [write your own Middlewares](https://expressjs.com/en/guide/writing-middleware.html), but you can also find [many useful middlewares](https://github.com/rajikaimal/awesome-express#middleware) to add to your program for rapid development.
+
+## Templating
+
+Fork and Clone the [express-workshop-2](https://github.com/CodeYourFuture/express-workshop-2) repository
 
 Let's have a look at the repo we've just forked.
 
@@ -38,8 +65,9 @@ Let's have a look at the repo we've just forked.
   * What routes are defined?
   * What **Port** does the server run on?
 
-> Let's run the server and check it in the browser. This is what you should see
-> on your browser: ![](assets/blog-screenshot.png)
+Let's run the server and check it in the browser. This is what you should see on your browser:
+
+![](../assets/blog-screenshot.png)
 
 * The theme used for this website is based on Bootstrap. You can get more open
   source Bootsrap-based themes from
@@ -48,12 +76,12 @@ Let's have a look at the repo we've just forked.
 > **Exercise**: Notice how the link to **Contact me** doesn't return a page -
 > Let's add an enpoint to return a simple string **this is a contact page**.
 
-# Templating
+## Using templates
 
 > **Exercise**: Let's change the text for the link, **Contact**, to **Contact
 > Information**.
 
-    - How many files do you have to change? Wouldn't be nice if we could change one file and that reflects in all pages.
+> How many files do you have to change? Wouldn't be nice if we could change one file and that reflects in all pages.
 
 At the moment, we're just serving static HTML files from the _public_ folder.
 **NodeJS** and **ExpressJS** allows us to build dynamic web pages.
@@ -62,25 +90,6 @@ At the moment, we're just serving static HTML files from the _public_ folder.
 > by an application server that processes server-side scripts. In server-side
 > scripting, parameters determine how the assembly of every new web page
 > proceeds, including the setting up of more client-side processing.
-
-## Websites - a small detour
-
-What is wrong with this
-[website?](http://cyf-template-1.s3-website-eu-west-1.amazonaws.com/)
-
-Is this one any
-[better?](http://cyf-template-2.s3-website-eu-west-1.amazonaws.com)
-
-The final view is
-[here](http://cyf-template-3.s3-website-eu-west-1.amazonaws.com/)
-
-What was missing in the first example?
-
-![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/data.json.png)
-
-So what is the point of all these?
-
-![alt text](https://s3-eu-west-1.amazonaws.com/cyf-template-1/html-data-template.png)
 
 ## Template Engines
 
@@ -120,7 +129,7 @@ app.set("view engine", "handlebars");
 Then add these routes:
 
 ```js
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   res.render("index");
 });
 ```
@@ -150,7 +159,7 @@ static files? **Express** and **Handlebars** allow you to pass data between the
 1. Let's modify the `/` route to pass the title of the page.
 
    ```js
-   app.get("/", function(req, res) {
+   app.get("/", (req, res) => {
      res.render("index", {
        title: "Etzali Profile" // insert your name instead
      });
@@ -221,9 +230,9 @@ For now, we will finish by using the **each** helper.
 In the `route`, let's load the file in `data/posts.json`:
 
 ```js
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   const filePath = __dirname + "/data/posts.json";
-  const callbackFunction = function(error, file) {
+  const callbackFunction = (error, file) => {
     // we call .toString() to turn the file buffer to a String
     const fileData = file.toString();
     // we use JSON.parse to get an object out the String
@@ -245,16 +254,16 @@ a first class manner like any other object since they are objects themselves. We
 can pass them as arguments to functions which is common technique in JavaScript
 for dealing with **asynchronous** behaviour. We have in fact already encountered
 callbacks when we looked at array methods such as `.forEach()`, `.map()` and
-`.filter`.
+`.filter()`.
 
 ```js
 const evenNumbers = [2, 4, 6, 8];
-evenNumbers.forEach(function(num) {
+evenNumbers.forEach(num => {
   console.log(num);
 });
 ```
 
-Here we are passing the `function( num ) {console.log(num);}` function as an
+Here we are passing the `function (num) { console.log(num); }` function as an
 argument to `.forEach()` to execute with each item in the array `evenNumbers`.
 
 The above example is **synchronous** which means that code the callback is
@@ -317,13 +326,13 @@ oReq.addEventListener("load", function() {
     oReq2.addEventListener("load", function() {
       // 4. Now we finally have all the info we need and we can the info we retrieved from the three API calls.
     });
-    oReq3.open("GET", url); // 3. third url for branch info
+    oReq3.open("GET", BRANCH_INFO_URL); // 3. third url for branch info
     oReq3.send();
   });
-  oReq.open("GET", url); // 2. second url for branches
+  oReq.open("GET", BRANCH_URL); // 2. second url for branches
   oReq.send();
 });
-oReq.open("GET", url); // 1. first url for Repo
+oReq.open("GET", REPO_URL); // 1. first url for Repo
 oReq.send();
 ```
 
@@ -347,8 +356,7 @@ Mobile Application, or a TV setbox etc...
 
 ## REST API
 
-REST (REpresentational State Transfer) and RESTful APIs provide a way (an
-architecture) for building APIs that is simple and scalable.
+[REST](https://en.wikipedia.org/wiki/Representational_state_transfer) (REpresentational State Transfer) and RESTful APIs provide a convention and architecture for building APIs that is simple and scalable.
 
 There are many constraints and aspects to building a REST API, but one
 fundamental constraint is the use of a URL (Uniform Resource Locator) and HTTP
@@ -363,13 +371,13 @@ _Resource_. The Resource in this case is called **posts**.
 >
 > **What would the endpoint for creating posts be called?**
 
-> **Watch**: https://www.youtube.com/watch?v=7YcW25PHnAA - What is a REST API
+> **Watch**: [What is a REST API](https://www.youtube.com/watch?v=7YcW25PHnAA)
 > (up to 3 minutes)
 
 REST is a big topic that we will revisit again. The table below from Wikipedia
 shows how a typical RESTful API would look like.
 
-![](assets/REST.png)
+![](../assets/REST.png)
 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer#Uniform_interface)
 
 For now, remember when building APIs, to use **Resource** names to identify your
@@ -384,12 +392,11 @@ scale modern apps. Heroku is fully managed, giving developers the freedom to
 focus on their core product without the distraction of maintaining servers,
 hardware, or infrastructure.
 
-1. Go to https://signup.heroku.com/ and signup for an account
+1. [Signup for an account](https://signup.heroku.com/) on Heroku
    * It will send a verification to your email so make sure you've entered a
      valid email
-2. Download the Heroku CLI from
-   https://devcenter.heroku.com/articles/heroku-cli#download-and-install
-3. We need to do a small tweak to our app to be ready to be deployed on Heroku.
+1. Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+1. We need to do a small tweak to our app to be ready to be deployed on Heroku.
 
 On server.js, add the `process.env.PORT` bit of code
 
@@ -430,39 +437,10 @@ commands from Heroku, then you should see a url similar to
 `https://some-random-name-XXXX.herokuapp.com` - go to the URL and if all goes
 well, your app should be up and running.
 
-To read more about Heroku and deploying Node Apps to Heroku, check
-https://devcenter.heroku.com/articles/git and
-https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up
+To read more about Heroku and deploying Node Apps to Heroku, check:
 
-# Homework
+1. [Deploying with Git](https://devcenter.heroku.com/articles/git)
+1. [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 
-* Deploy to Heroku if you haven't yet
-* Add a route `posts/:postid` that displays a specific post - Read about route
-  parameters on
-  [Express documentation](https://expressjs.com/en/guide/routing.html#route-parameters)
-  * When the user clicks on a route in the home page, navigate them to your
-    route.
-  * Amend your JSON structure to have a **postId** that you can use it to
-    identify which post we want to display.
-* Implement the Admin page.
-  * Write a posts endpoint that you can hit and that should save to the JSON
-    file (use the helper functions we added under **helpers/savePost**)
-  * Make an AJAX call from the **front end** (the admin page) to your new
-    endpoint.
-  * You might need to use `formidable` or `body-parser` middleware to get the
-    data on the server.
-* Consume a posts API built by another colleague (and deployed to Heroku) to
-  display their latest blog posts. You can display the posts on any page that
-  you see suitable (or add a new page).
-* Secure the Admin page so that it's only visible if a certain query parameter
-  is provided
-  * Can you go a bit further with adding proper security? Research the internet
-    for solutions in **Express.js**
-
-# Resources
-
-* Callback hell - http://callbackhell.com/
-* Fetch - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-* StackOverFlow answer to What is REST - https://stackoverflow.com/a/671132
-* How I explained REST to my wife -
-  http://web.archive.org/web/20130116005443/http://tomayko.com/writings/rest-to-my-wife
+{% include "./homework.md" %}
+{% include "../../others/escalation-policy.md" %}

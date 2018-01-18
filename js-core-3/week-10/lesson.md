@@ -235,6 +235,13 @@ equals("Hello", "Hello"); // This should pass
 Now we can use this `equals()` function to test our own code by comparing a
 function result to an expected value.
 
+Remember that one function can be used as an argument when a second function is called. In this instance, the function we are testing would represent our first function, and our `equals()` function would represent the second, like so...
+
+```js
+equals(myNewFunction(arg1, arg2, etc), expectedOutput)
+```
+As you can see in this example, instead of using a number as the first argument to the `equals()` function, we have used a function instead; the one we wish to test.
+
 > _Together:_ Follow the instructions in `unit-testing/sum.js`!
 
 > _Exercise:_ Now you! Take the provided `unit-testing/findNeedle.js` and turn

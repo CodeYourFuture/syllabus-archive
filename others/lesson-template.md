@@ -43,3 +43,7 @@ High level explanation of Topic 1 - rely on the exercises
 ## Prepare for the next class
 
 1. Read this [Some Tutorial or Video etc...](https://google.com)
+
+# Escalation Policy
+
+{% include "./escalation-policy.md" %}

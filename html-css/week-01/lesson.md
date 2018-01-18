@@ -86,9 +86,9 @@ The example website you'll begin working with is available
 Fork the repository to your personal account and use the following terminal
 commands to download the files to your projects folder.
 
-* `cd ~`
-* `cd <your-project-directory>`
-* `git clone git@github.com:<your_username>/bikes-for-refugees.git`
+1 `cd ~`
+2 `cd <your-project-directory>`
+3 `git clone git@github.com:<your_username>/bikes-for-refugees.git`
 
 > **Exercise**: Spend a few minutes exploring the `.html` and `.css` files for
 > this page. Why don't we put everything in one file?

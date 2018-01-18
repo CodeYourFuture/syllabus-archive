@@ -265,12 +265,11 @@ our program where to look for that object in memory.
 Consider the example below.
 
 ```js
-
 function addFive(value) { value = value + 5; }
 
 var ten = 10; addFive(ten); console.log(ten);
-
 ```
+
 
 We have a function that accepts a value as an argument. The function then adds five to the
 argument and logs the value.

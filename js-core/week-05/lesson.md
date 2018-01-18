@@ -21,6 +21,7 @@ var name2 = 'Marta'
 var name3 = 'Andrew'
 ...
 ```
+
 **Arrays** to the rescue!
 
 An Array is a native javascript data type, like the integers, strings and
@@ -36,6 +37,7 @@ inside them can be changed, added and removed.
 
 The syntax for an array is a number of variables separated by commas, with
 square brackets and the start and end.
+
 ```js
 ['Bill', 'Marta', 'Andrew'] // an array of 3 strings
 
@@ -47,11 +49,13 @@ var myArrayOfFriends = ['Bill', 'Marta', 'Andrew'];  // assigning the array to a
 ```
 
 ### Interacting with the array
+
 An array data type is only useful if we can interact with the values stored
 within. Like other data type, arrays in Javascript have a number of methods
 already defined to make our life easier.
 
 Let's start by defining an array of animals!
+
 ```js
 var animals = ['tiger', 'puppy', 'snake', 'llama'];
 ```
@@ -61,6 +65,7 @@ define them separately. One of the useful methods that we get from arrays lets
 us check the number of values present in it by accessing the `length` attribute.
 
 We do that with a `.`, like so:
+
 ```js
 console.log(animals.length);  // 4
 ```
@@ -86,6 +91,7 @@ console.log(animals[1]); // Guess the output before running the command!
 Spoiler alert, it will print out `'puppy'`. That might seem weird, until you
 remember the paragraph just before the example: arrays in Javascript are
 0-indexed, which means that the first value is accessed with `animals[0]` :
+
 ```js
 console.log(animals[0]);  // 'tiger'
 console.log(animals[1]);  // 'puppy'
@@ -96,11 +102,11 @@ console.log(animals[4]);  // undefined! the array has 4 elements, animal[5] woul
 
 > **Exercise:**
 >
-> 1. Create an array that contains the countries of all the students in the
->    class (at least five nationalities)
-> 2. `console.log` the number of countries in the Array
-> 3. Now, `console.log()` each country in the list
-> 4. Update point 3 to work for arrays of any length (hint: use for loops and the length property)
+> 1 Create an array that contains the countries of all the students in the
+> class (at least five nationalities)
+> 2 `console.log` the number of countries in the Array
+> 3 Now, `console.log()` each country in the list
+> 4 Update point 3 to work for arrays of any length (hint: use for loops and the length property)
 >
 > Extra points: **Don't ask a mentor - Google it!** Try googling to find the answer if you're
 > stuck. Google skills are an essential part of being a developer.

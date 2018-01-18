@@ -1,21 +1,23 @@
 # Homework
 
+## Challenges
 
-### Challenges
 Go back to [the repo](https://github.com/Code-Your-Future/JS-Core-1-Exercises)
 that you have forked during the last class:
-* If you haven't attempted all the week 1 base challenges, go back and work on
-them!
-* If you're all done, challenge yourself with the week 1 advanced challenges,
-and the ones present in week 2.
 
+* If you haven't attempted all the week 1 base challenges, go back and work on 
+ them!
+* If you're all done, challenge yourself with the week 1 advanced challenges, 
+ and the ones present in week 2.
 
-### Code style and best practices
+## Code style and best practices
+
 As you might have noticed, there are often several _valid_ ways to write the
 same code.
 
 For example we can define a string with either single or double:
 quotes:
+
 ```js
 var singleQuotes = 'Hello';
 var doubleQuotes = "Hello";  // exactly the same as singleQuotes
@@ -25,6 +27,7 @@ singleQuotes == doubleQuotes  // true
 ```
 
 Another example, on spacing and newlines:
+
 ```js
 function sayHello() {
   return 'Hello world!';
@@ -57,26 +60,27 @@ or **style guide** on how to structure their code. While often one option is not
 working on a project write in the same style.
 
 To get some more insight on the argument, read these links:
-* https://www.smashingmagazine.com/2012/10/why-coding-style-matters/ dig a bit
-more on the *why* a style guide is a good thing. The publishing date is old and
-the resources are mostly outdated, but the article itself is still very good.
-* https://webdesign.tutsplus.com/articles/css-documentation-best-practices--cms-30139
-a recent article by a UX designer sharing tips on how she organise her css.
-* https://github.com/airbnb/javascript/tree/es5-deprecated/es5 and
-https://github.com/airbnb/css, the official airbnb styleguides for JavaScript
-and css. Two notes here: first, just skim these. Like a foreign language
-dictionary, a beginner can have the most benefit using it as a reference rather
-than memorising it in its entirety. Second: the 'es5' link is _deprecated_ as
-airbnb uses 'es6', which is a version of JavaScript with new syntax which you
-will learn in the future.
-* https://en.wiktionary.org/wiki/bikeshedding. This is sometime mentioned to
-refer to developer spending huge amount of time fighting on which style of code
-is 'better'
-* https://www.bbc.co.uk/cbbc/styleguide. Styleguides are not only about code,
-but they are used for book writing, communication, and design.
 
+* [https://www.smashingmagazine.com/2012/10/why-coding-style-matters/](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/) dig a bit 
+ more on the *why* a style guide is a good thing. The publishing date is old and 
+ the resources are mostly outdated, but the article itself is still very good.
+* [https://webdesign.tutsplus.com/articles/css-documentation-best-practices--cms-30139](https://webdesign.tutsplus.com/articles/css-documentation-best-practices--cms-30139) 
+ a recent article by a UX designer sharing tips on how she organise her css.
+* [https://github.com/airbnb/javascript/tree/es5-deprecated/es5](https://github.com/airbnb/javascript/tree/es5-deprecated/es5) and 
+ [https://github.com/airbnb/css](https://github.com/airbnb/css), the official airbnb styleguides for JavaScript 
+ and css. Two notes here: first, just skim these. Like a foreign language 
+ dictionary, a beginner can have the most benefit using it as a reference rather 
+ than memorising it in its entirety. Second: the 'es5' link is _deprecated_ as 
+ airbnb uses 'es6', which is a version of JavaScript with new syntax which you 
+ will learn in the future.
+* [https://en.wiktionary.org/wiki/bikeshedding](https://en.wiktionary.org/wiki/bikeshedding). This is sometime mentioned to 
+ refer to developer spending huge amount of time fighting on which style of code 
+ is 'better'
+* [bbc styleguide](https://www.bbc.co.uk/cbbc/styleguide). Styleguides are not only about code, 
+ but they are used for book writing, communication, and design.
 
-### Code Testing
+## Code Testing
+
 The styleguide section introduced us to the concept of 'maintainability' of our
 code, which is the ability of going back to it at a later date and change it,
 improve it of fix bugs.
@@ -94,8 +98,9 @@ actual program.
 This will be a subject in future lessons and there are several other good
 reasons to implement testing in software, but for now do some research on the
 topic. Here are some starting links:
-* https://www.youtube.com/watch?v=UZy1Dj9JIg4&feature=youtu.be&t=356 start at
-6 minute mark. A high-level overview on testing in general
-* https://www.codeproject.com/Tips/351122/What-is-software-testing-What-are-the-different-ty
-* Look up 'TDD' (Test Driven Development) and try to get a basic understanding
-of what it entails.
+
+* [youtube](https://www.youtube.com/watch?v=UZy1Dj9JIg4&feature=youtu.be&t=356) start at 
+ 6 minute mark. A high-level overview on testing in general
+* [codeproject.com](https://www.codeproject.com/Tips/351122/What-is-software-testing-What-are-the-different-ty)
+* Look up 'TDD' (Test Driven Development) and try to get a basic understanding 
+ of what it entails.

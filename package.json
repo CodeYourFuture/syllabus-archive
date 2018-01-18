@@ -15,7 +15,7 @@
     "gitbook-cli": "^2.3.0"
   },
   "scripts": {
-    "test": "markdownlint ./html-css"
+    "test": "markdownlint ./html-css ./js-core"
   },
   "repository": {
     "type": "git",

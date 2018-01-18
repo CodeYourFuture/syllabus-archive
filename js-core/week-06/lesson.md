@@ -56,7 +56,6 @@ for (var i=1; i < 20; i++)
 > **Exercise:** Play with Chrome dev tools  
 > Open the devToolsExample.html on your own computers, add a break point and check the variables.
 
-
 # Objects Again
 
 ## Objects vs Arrays
@@ -76,8 +75,8 @@ Array and when do you use an Object.
 
 Let's talk about the differences between Arrays and Objects - when can you use or the other. As a general rule of thumb:
 
-1. Does the order of data matter? Then use Arrays.
-2. Can the data be organised by a label? Then use Objects.
+1 Does the order of data matter? Then use Arrays.
+2 Can the data be organised by a label? Then use Objects.
 
 > Exercise: Let's say we're writing a program to model and display a Newspaper:
 > what data structure would you use to model the different sections of the
@@ -217,21 +216,21 @@ var wallets = [walletA, walletB];
 
 > Exercises
 >
-> 1. Write a function - `sumWallets` - that takes the array `wallets` and
->    returns the total amount of money for all of the wallets.
+> 1 Write a function - `sumWallets` - that takes the array `wallets` and
+> returns the total amount of money for all of the wallets.
 
-> 2. Write another function - `combineWallets` - that takes the array of wallets
->    and combines all of the notes in each of them, returning a single wallet
->    with all of the other wallets' notes.
+> 2 Write another function - `combineWallets` - that takes the array of wallets
+> and combines all of the notes in each of them, returning a single wallet
+> with all of the other wallets' notes.
 
-> 3. See if you can write a function - `sumDynamicWallet` - that will sum up and
->    return the total amount in a single wallet, but it could have any number of
->    different notes inside it (£7 note or a £13 or any other number).
+> 3 See if you can write a function - `sumDynamicWallet` - that will sum up and
+> return the total amount in a single wallet, but it could have any number of
+> different notes inside it (£7 note or a £13 or any other number).
 
-> 4. See if you can write a function that takes in any number of wallets, which
->    could contain any denomination/type of notes inside them (each being
->    different). Tip: have a think about if you could re-use a function from a
->    previous example...
+> 4 See if you can write a function that takes in any number of wallets, which
+> could contain any denomination/type of notes inside them (each being
+> different). Tip: have a think about if you could re-use a function from a
+> previous example...
 
 ## Value vs Reference Types
 
@@ -270,7 +269,6 @@ function addFive(value) { value = value + 5; }
 var ten = 10; addFive(ten); console.log(ten);
 ```
 
-
 We have a function that accepts a value as an argument. The function then adds five to the
 argument and logs the value.
 After invoking the function with the variable `ten`, the variable is logged.
@@ -308,9 +306,8 @@ console.log(primitive); // 10
 console.log(object.greeting); // "how are you?"
 ```
 
-> Let's look at the illustrations here:
-> http://www.javascripttutorial.net/javascript-primitive-vs-reference-values/ to
-> understand this behavior better
+> Let's look at the illustrations [here](http://www.javascripttutorial.net/javascript-primitive-vs-reference-values/)
+> to understand this behavior better
 
 > **Exercise**
 >
@@ -440,9 +437,7 @@ console.log(test); // output: I'm global
 
 # Resources
 
-1. Objects vs Arrays -
-   https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1
-2. JavaScript Arrays and Objects Are Just Like Books and Newspapers
-   https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746
+1 [Objects vs Arrays](https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1)
+2 [JavaScript Arrays and Objects Are Just Like Books and Newspapers](https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746)
 
 {% include "./homework.md" %}

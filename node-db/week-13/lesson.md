@@ -1,3 +1,5 @@
+![](https://img.shields.io/badge/status-review-orange.svg)
+
 # Node 1
 
 **What we will learn today?**
@@ -49,7 +51,7 @@ files it needs to display the website properly.
 
 ## A simple Node.js server
 
-### Simple server\**
+### Simple server\*\*
 
 ```js
 const http = require("http");
@@ -470,8 +472,7 @@ you see a Node Girls CMS, then your static assets have been successfully served.
 
 ### HTTP request methods
 
-All requests use one of the `HTTP methods`. The main ones are: `GET, POST, PUT,
-DELETE`.
+All requests use one of the `HTTP methods`. The main ones are: `GET, POST, PUT, DELETE`.
 
 `app.get` deals with requests that use the `GET` HTTP method.
 
@@ -544,8 +545,7 @@ app.get("/hello-world", function(req, res) {
 > request not a `GET`. What do you think you would need to do differently?
 > Experiment and see if you can define a route for the `/create-post` endpoint!
 >
-> For now, make your `/create-post` handler simply do this: `console.log('I am
-> /create-post endpoint')`.
+> For now, make your `/create-post` handler simply do this: `console.log('I am /create-post endpoint')`.
 
 ---
 
@@ -801,3 +801,4 @@ Heroku:
 * [Deploying Node Apps](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 
 {% include "./homework.md" %}
+{% include "../../others/escalation-policy.md" %}

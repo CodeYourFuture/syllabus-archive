@@ -93,6 +93,18 @@ to get familiar with it by following this tutorial:
 
 - [Learn the command line >](https://www.codecademy.com/learn/learn-the-command-line)
 
+### Commonly used commands
+
+There's a set of commands you should become comfortable with during the course to allow you to effectively move around the filesystem and write software on your laptop.
+
+* `cd` - change directory. To move up into the parent directory use: `cd ..`
+* `ls` - list the contents of a directory. Can also be used as `ls [directory_name]` to list the contents of a specific directory without actually moving (with `cd`) to it
+* `pwd` - print the full location of your current directory
+* `mkdir [name]` - create a new directory, with the given `name` after a space
+* `touch [file_name]` - create a new file, with the given name (don't forget to add the extension, like `.css` or `.html`)
+* `rm [file_name]` - remove a file
+* `rm -r [directory_name]` - remove a directory (**and all files inside that directory**)
+
 ### How do I use it on my computer?
 
 So now that you know what the terminal can do for you, how do you use it? Please find

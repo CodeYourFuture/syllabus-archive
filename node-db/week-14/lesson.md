@@ -4,7 +4,7 @@
 
 **What we will learn today?**
 
-* [Middlewares](#middlewares)
+* [Middleware](#middleware)
 * [Templating](#templating)
 * [Callbacks](#callbacks)
 * [APIs](#apis)
@@ -12,11 +12,11 @@
 
 ---
 
-## Middlewares
+## Middleware
 
 One of the most powerful features of [Express](https://expressjs.com) compared to other node frameworks like [Hapi](https://hapijs.com/) is that it is middleware oriented.
 
-Middlewares in Express can be used to process all the requests that come through your application. For example, let's imagine that you wanted to log every request
+Middleware in Express can be used to process all the requests that come through your application. For example, let's imagine that you wanted to log every request
 
 ```js
 const express = require("express");
@@ -39,7 +39,7 @@ app.listen(3000, () => {
 });
 ```
 
-As you can imagine it can be very useful to [write your own Middlewares](https://expressjs.com/en/guide/writing-middleware.html), but you can also find [many useful middlewares](https://github.com/rajikaimal/awesome-express#middleware) to add to your program for rapid development.
+As you can imagine it can be very useful to [write your own Middleware](https://expressjs.com/en/guide/writing-middleware.html), but you can also find [many useful middleware](https://github.com/rajikaimal/awesome-express#middleware) to add to your program for rapid development.
 
 ## Templating
 

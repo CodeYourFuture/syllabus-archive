@@ -2,50 +2,75 @@
 
 **What we will learn today?**
 
-* Adding invalid data.
-* How to fix invalid data with foreign keys.
-* Database Nulls
+* How to add invalid relational data to a database
+* How to prevent invalid relational data with foreign keys
+* Database nulls
+* Predicates
 * Combining SQL predicates with AND and OR
-* Order by
-* Count / Sum / Avg
-* Group by
-* HAVING
-* LIMIT
-* like
-* DISTINCT
-* 'IN'
-* !=
+* SQL - Order by
+* SQL - Count / Sum / Avg
+* SQL - Group by
+* SQL - HAVING
+* SQL - LIMIT
+* SQL - like
+* SQL - DISTINCT
+* SQL - 'IN'
 
-### Workon SQLite on the command line
+# LESSON : Installing SQLite on the command line
 
-- need to add snippets of sqllite commands
-- and on line quick reference
-
-
-### Recreate the same database as in the previous set of exercises
+* Windows: https://sqlite.org/download.html
+* Ubuntu: apt-get install sqlite
+* Mac OS: brew install sqlite
 
 
-### Add more entries
+>>> sqlite temp.sqlite
 
-Ask them to add relevat data to each of the tables `Costumer`, `Room` and `Reservation`.
+sqlite> create table rooms (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  type_name varchar(50),
+  original_price integer,
+  current_price int,
+);
 
-Then, ask them to add more data with incomplete relationships - reservation without a room.
+sqlite> insert into rooms (1, 'seaview', 50.0, 55.0);
 
-Highlight issue.
+>>> sqlite temp.sqlite < example.sql
 
-** Wait a minute! Wasn't this the issue that we were talking about? A reservation needs to have both a room and a costumer associated to. **
 
-Ask class how to deal with this problem?
+# EXERCISE 1: Recreate the hotel database and add some entries
+
+* Recreate customer, room and reservation tables
+* Insert some example data making sure that the IDs match
+
+
+# LESSON 2: Data integrity
+
+Try this in your database:
+
+INSERT INTO Invoices (reservation_id, total, surcharges, invoice_date_time, paid) values (9999, 35.0, 0, '01/01/2018', 0);
+
+# QUESTIONS FOR CLASS:
+
+* What's the problem with the above SQL statement?
+
+* What happens to the application and the end user if you accidentally do this?
+
+* How can you deal with a problem like this? There are 2/3 answers to this question - what are they?
 
 A1: Delete data
 
-A2: Make it impossible to add invalid data in the first place.
+A2: Make it impossible to add invalid data in the first place in the code.
 
-### How to delete records from a table
+A3: Make it impossible to add invalid data in the first place in the database.
 
-We can now delete the wrong records.
+# LESSON: Deleting records from a table
 
-We should probably highlicht the need to do a select before the delete so that we are only deleting what we want to delete - the `where` should be the same !!!
+To fix the invalid data we can first delete the data from the database. This is as
+good a time as any to tell you about deleting, so here goes:
+
+  DELETE FROM [ TABLE ] WHERE id = [ ID ];
+
+# EXERCISE: First find the row with select, then delete it
 
 Start with the `SELECT`:
 

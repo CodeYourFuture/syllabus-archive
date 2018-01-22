@@ -84,7 +84,36 @@ DELETE FROM customers WHERE <...>
 ```
 
 
-### How to make it impossible to add invalid data
+### LESSON : Foreign Keys
+
+Ex
+
+CREATE TABLE customers (
+    id        INTEGER       PRIMARY KEY AUTOINCREMENT,
+    title     VARCHAR(10),
+    firstname VARCHAR (50),
+    surname   VARCHAR (50),
+    email     VARCHAR (255) 
+);
+
+
+CREATE TABLE reservations (
+  ID INTEGER PRIMARY KEY AUTOINCREMENT,
+  customer_id INTEGER,
+  room_id INTEGER,
+  check_in_date DATETIME NOT NULL,
+  checkout_out_date DATETIME,
+  room_price_per_night REAL,
+  FOREIGN KEY (customer_id) REFERENCES customers(id)
+);
+
+Now, try running this again:
+
+INSERT INTO reservations (9999, 35, '01/01/2018', '01/01/2018', invoice_date_time, paid) values (9999, 35.0, 0, '01/01/2018', 0);
+
+A foreign key is a *constraint*.
+
+### EXERCISE: Add foreign key for invoices
 
 
 #### Deal with imcomplete data - foreign keys

@@ -15,12 +15,10 @@
 1. Read about
    [writing loops in SCSS >](http://clubmate.fi/for-while-and-each-loops-in-sass/)
    (Sass). Fork this CodePen into your account:
-   https://codepen.io/claudiamm/pen/xdjadV. You have three paragraphs, each with
+   [claudiamm/pen/xdjadV](https://codepen.io/claudiamm/pen/xdjadV). You have three paragraphs, each with
    a different `paragraph-size` class. First, write the common styles (`color`,
    etc) for all paragraphs. Use a SASS `for` loop and nesting in order to create
-   the `paragraph-size-1/2/3` styles. The final result should look like this:
-
-![](assets/loop-paragraph-example.jpg)
+   the `paragraph-size-1/2/3` styles. The final result should look like [this](assets/loop-paragraph-example.jpg):
 
 Note: the aim of this exercise is to do a for loop - so please **do NOT** do
 something like below, as it will not bring you anything new:

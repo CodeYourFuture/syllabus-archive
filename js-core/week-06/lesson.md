@@ -2,9 +2,8 @@
 
 # JavaScript Core 7
 
-** What we will learn today?**
+**What we will learn today?**
 
-* Debugging and Chrome Dev Tools (quick recap)
 * Objects Again
   * Value Vs reference types
 * Scope
@@ -13,7 +12,49 @@
 
 # Debugging
 
-> **Exercise**: Trace some code on paper
+> **Exercise**: Group exercise  
+> Going around the room what will the next log be
+
+```js
+for (var i = 10; i < 100; i = i + 10) {
+    if (i > 50) {
+        console.log("That's big")
+    } else if (i > 100) {
+        console.log("Winner winner chicken dinner")
+    } else {
+        console.log(i)
+    }
+}
+```
+
+> **Exercise**: Now try it yourself  
+> On your own computers or paper write down the output of the below code section.  
+> After 10 minutes going around the room give the next output
+
+e.g.  
+i=1 log 1  
+i=2 log 2  
+i=3 log Fizz  
+
+```js
+for (var i=1; i < 20; i++)
+{
+    if (i % 15 == 0)
+        console.log("FizzBuzz");
+    else if (i % 3 == 0)
+        console.log("Fizz");
+    else if (i % 5 == 0)
+        console.log("Buzz");
+    else
+        console.log(i);
+}
+```
+
+> **Demonstration:** Chrome dev tools  
+> Open the devToolsExample.html file in this weeks folder in chrome. Add a break point and show stepping over.
+
+> **Exercise:** Play with Chrome dev tools  
+> Open the devToolsExample.html on your own computers, add a break point and check the variables.
 
 # Objects Again
 
@@ -30,14 +71,12 @@ When we are you solving a problem, one of your main decisions as a developer is
 to choose the data structures you will use to solve it. So when do you use an
 Array and when do you use an Object.
 
-> "Bad programmers worry about the code. Good programmers worry about data
-> structures and their relationships." Linus Torvalds
+"Bad programmers worry about the code. Good programmers worry about data structures and their relationships." Linus Torvalds
 
-> Let's talk about the differences between Arrays and Objects - when can you use
-> or the other. As a general rule of thumb:
+Let's talk about the differences between Arrays and Objects - when can you use or the other. As a general rule of thumb:
 
-1. Does the order of data matter? Then use Arrays.
-2. Can the data be organised by a label? Then use Objects.
+1 Does the order of data matter? Then use Arrays.
+2 Can the data be organised by a label? Then use Objects.
 
 > Exercise: Let's say we're writing a program to model and display a Newspaper:
 > what data structure would you use to model the different sections of the
@@ -177,21 +216,21 @@ var wallets = [walletA, walletB];
 
 > Exercises
 >
-> 1. Write a function - `sumWallets` - that takes the array `wallets` and
->    returns the total amount of money for all of the wallets.
+> 1 Write a function - `sumWallets` - that takes the array `wallets` and
+> returns the total amount of money for all of the wallets.
 
-> 2. Write another function - `combineWallets` - that takes the array of wallets
->    and combines all of the notes in each of them, returning a single wallet
->    with all of the other wallets' notes.
+> 2 Write another function - `combineWallets` - that takes the array of wallets
+> and combines all of the notes in each of them, returning a single wallet
+> with all of the other wallets' notes.
 
-> 3. See if you can write a function - `sumDynamicWallet` - that will sum up and
->    return the total amount in a single wallet, but it could have any number of
->    different notes inside it (£7 note or a £13 or any other number).
+> 3 See if you can write a function - `sumDynamicWallet` - that will sum up and
+> return the total amount in a single wallet, but it could have any number of
+> different notes inside it (£7 note or a £13 or any other number).
 
-> 4. See if you can write a function that takes in any number of wallets, which
->    could contain any denomination/type of notes inside them (each being
->    different). Tip: have a think about if you could re-use a function from a
->    previous example...
+> 4 See if you can write a function that takes in any number of wallets, which
+> could contain any denomination/type of notes inside them (each being
+> different). Tip: have a think about if you could re-use a function from a
+> previous example...
 
 ## Value vs Reference Types
 
@@ -224,13 +263,12 @@ our program where to look for that object in memory.
 
 Consider the example below.
 
-``js
-
+```js
 function addFive(value) { value = value + 5; }
 
 var ten = 10; addFive(ten); console.log(ten);
-
 ```
+
 We have a function that accepts a value as an argument. The function then adds five to the
 argument and logs the value.
 After invoking the function with the variable `ten`, the variable is logged.
@@ -250,7 +288,7 @@ else we use a reference to that object.
 
 For example:
 
-``js
+```js
 
 function a(primitive, object) {
     primitive = primitive + 5;
@@ -268,9 +306,8 @@ console.log(primitive); // 10
 console.log(object.greeting); // "how are you?"
 ```
 
-> Let's look at the illustrations here:
-> http://www.javascripttutorial.net/javascript-primitive-vs-reference-values/ to
-> understand this behavior better
+> Let's look at the illustrations [here](http://www.javascripttutorial.net/javascript-primitive-vs-reference-values/)
+> to understand this behavior better
 
 > **Exercise**
 >
@@ -400,9 +437,7 @@ console.log(test); // output: I'm global
 
 # Resources
 
-1. Objects vs Arrays -
-   https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1
-2. JavaScript Arrays and Objects Are Just Like Books and Newspapers
-   https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746
+1 [Objects vs Arrays](https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1)
+2 [JavaScript Arrays and Objects Are Just Like Books and Newspapers](https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746)
 
 {% include "./homework.md" %}

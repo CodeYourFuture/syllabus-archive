@@ -7,14 +7,15 @@
     "doc": "docs"
   },
   "dependencies": {
-    "gitbook-plugin-prism": "^2.2.0"
+    "gitbook-plugin-prism": "^2.2.0",
+    "markdownlint-cli": "^0.6.0"
   },
   "devDependencies": {
     "gitbook": "^3.2.2",
     "gitbook-cli": "^2.3.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "markdownlint ./html-css ./js-core"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 # Summary
 
 ### Course
+
 * Before you start
   * [Week 0 - Introduction and basic setup](/others/lesson0.md)
   * [House Rules](house-rules.md)
@@ -20,28 +21,31 @@
 * [JavaScript III](/js-core-3/index.md)
   * [Week 10 - Good Code, TDD](/js-core-3/week-10/lesson.md) | [Homework](/js-core-3/week-10/homework.md)
   * [Week 11 - More TDD, ES6](/js-core-3/week-11/lesson.md) | [Homework](/js-core-3/week-11/homework.md)
-  * [Week 12 - Exam maybe](/js-core-3/week-12/lesson.md) | [Homework](/js-core-3/week-12/homework.md)
+  * [Week 12 - Recap](/js-core-3/week-12/lesson.md) | [Homework](/js-core-3/week-12/homework.md)
 * [Node/DB I](/node-db/index.md)
   * [Week 13 - Node and Express 101](/node-db/week-13/lesson.md) | [Homework](/node-db/week-13/homework.md)
-  * [Week 14 - Templating and APIs](/node-db/week-14/lesson.md) | [Homework](/node-db/week-14/homework.md)
-  * [Week 15 - Node and Mongo maybe](/node-db/week-15/lesson.md) | [Homework](/node-db/week-15/homework.md)
-* [Node/DB II](/node-db-2/index.md)
-  * [Week 16 - MongoDB](/node-db-2/week-16/lesson.md) | [Homework](/node-db-2/week-16/homework.md)
-  * [Week 17 - Mongoose](/node-db-2/week-17/lesson.md) | [Homework](/node-db-2/week-17/homework.md)
-  * [Week 18 - Node/DB Recap](/node-db-2/week-18/lesson.md) | [Homework](/node-db-2/week-18/homework.md)
+  * [Week 14 - Middleware, Templating and APIs](/node-db/week-14/lesson.md) | [Homework](/node-db/week-14/homework.md)
+  * [Week 15 - Advanced Node](/node-db/week-15/lesson.md) | [Homework](/node-db/week-15/homework.md)
+* [Node/DB II](/node-db/index.md)
+  * [Week 16 - Basic SQL](/node-db/week-16/lesson.md) | [Homework](/node-db/week-16/homework.md)
+  * [Week 17 - SQL with Node](/node-db/week-17/lesson.md) | [Homework](/node-db/week-17/homework.md)
+  * [Week 18 - Data Integrity & Analytics](/node-db/week-18/lesson.md) | [Homework](/node-db/week-18/homework.md)
 * [React](/react/index.md)
   * [Week 19 - React 101](/react/week-19/lesson.md) | [Homework](/react/week-19/homework.md)
   * [Week 20 - State](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)
   * [Week 21 - React-router & Recap](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
 
 ### Useful informations
+
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
 
 ### Workshops and other resources
+
 * [Coding 101](/others/coding-101.md)
 * [AWS - DynamoDB](/others/aws-workshop-2.md)
 
 ### For Mentors
+
 * [Contributing](CONTRIBUTING.md)
-* [Lesson Template](lesson-template.md)
+* [Lesson Template](/others/lesson-template.md)

@@ -5,8 +5,9 @@ before_install:
   - chmod +x publish-book.sh
   - openssl aes-256-cbc -K $encrypted_b59b36c11738_key -iv $encrypted_b59b36c11738_iv -in cyf-key.enc -out cyf-key -d
 install:
-  - npm install -g gitbook-cli
+  - npm install -g gitbook-cli markdownlint-cli
 script:
+  - npm test
   - gitbook install
   - gitbook build .
 after_success:

@@ -136,7 +136,10 @@ Let's look at the following example of Bootstrap's Card component:
 <div class="card card-inverted">
   <div class="card-block">
     <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">
+    Some quick example text to build on the card title
+    and make up the bulk of the card's content.
+    </p>
   </div>
 </div>
 ```
@@ -151,7 +154,8 @@ With Bootstrap's naming pattern, we know an object is a single word class name
 like `.card`, `.btn` or `.alert`. But our other two _types_ of class names share
 the same naming pattern: `.card-inverted` and `.card-block`.
 
-The [Block, Element, Modifier]() (BEM) naming pattern is an attempt to overcome
+The [Block, Element, Modifier](http://getbem.com/introduction/) (BEM) naming pattern
+is an attempt to overcome
 this. It introduces separate naming structures for all three _types_ of class
 names.
 
@@ -166,7 +170,10 @@ If we changed our Card example to use BEM syntax, it would look like this:
 <div class="card card--inverted">
   <div class="card__block">
     <h4 class="card__title">Card title</h4>
-    <p class="card__text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card__text">
+    Some quick example text to build on the card title
+    and make up the bulk of the card's content.
+    </p>
   </div>
 </div>
 ```

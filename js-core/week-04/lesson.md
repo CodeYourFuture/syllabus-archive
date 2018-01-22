@@ -22,29 +22,33 @@ This class is based on the
 ## Getting Started
 
 1. Download and install the latest Current version of NodeJS.
-  * Windows and Max users: Download the *installer* (.msi or .pkg) from
+
+* Windows and Max users: Download the _installer_ (.msi or .pkg) from
   [here](https://nodejs.org/en/download/)
-  * Linux (Ubuntu) users: you can run the following script in your terminal:
-```Shell
+* Linux (Ubuntu) users: you can run the following script in your terminal:
+
+```sh
   curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
   sudo apt-get install -y nodejs
 ```
-  This will require you to enter your password and will configure your computer
-  automatically. You can find the full instructions, if necessary,
-  [here](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions).
-  A note on security: don't execute a script on your terminal if you don't
-  trust its source, especially if they use the `sudo` command to get admin
-  access to your machine.
-2. To test that it was installed and that it's running properly, go to your
-terminal and run the command: `node -v` You should get the node version printed
-on your terminal, for example, `v8.9.3`
 
-3. Fork the
-   [JS-Core-1-Exercises](https://github.com/CodeYourFuture/JS-Core-1-Exercises)
-   repository and **Clone** it locally.
+This will require you to enter your password and will configure your computer
+automatically. You can find the full instructions, if necessary,
+[here](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions).
+A note on security: don't execute a script on your terminal if you don't
+trust its source, especially if they use the `sudo` command to get admin
+access to your machine.
 
-4. Once you have the repo locally, go to the folder on your terminal and run
-   `node main.js`
+2 To test that it was installed and that it's running properly, go to your 
+ terminal and run the command: `node -v` You should get the node version printed 
+ on your terminal, for example, `v8.9.3`
+
+3 Fork the 
+ [JS-Core-1-Exercises](https://github.com/CodeYourFuture/JS-Core-1-Exercises) 
+ repository and **Clone** it locally.
+
+4 Once you have the repo locally, go to the folder on your terminal and run 
+  `node main.js`
 
 You should get **Hello World** printed on your Terminal.
 
@@ -67,8 +71,7 @@ Let's open the file **main.js** and investigate its contents
 >   semicolon, the dot, the parentheses - these are all elements of JavaScript
 >   **Syntax**
 >
-> * Try to `console.log()` something different, for example, `Hello World. I
->   just started learning JavaScript!`. (run `node main.js` after each change
+> * Try to `console.log()` something different, for example, `Hello World. I just started learning JavaScript!`. (run `node main.js` after each change
 >   and look at the output in the console)
 > * Try to `console.log()` several things at once.
 > * What happens when you get rid of the quote marks?
@@ -120,7 +123,7 @@ paragraphs. A string is always written inside a pair of quotes (single or
 double).
 
 ```js
-"node girls"
+"node girls";
 ```
 
 ## Numbers
@@ -129,8 +132,8 @@ Numbers do not need to be wrapped in quotes like strings, and can just be
 written as is.
 
 ```js
-100 // an integer number
-100.89 // a decimal number (floating point)
+100; // an integer number
+100.89; // a decimal number (floating point)
 ```
 
 ## Booleans
@@ -139,7 +142,7 @@ There is a special data type in JavaScript known as a "boolean" value. A boolean
 is either `true` or `false`, and it should be written without quotes.
 
 ```js
-true
+true;
 ```
 
 You've seen what they look like, now make sure they are what you think they are.
@@ -215,15 +218,13 @@ console.log(typeof false);
 
 > **Exercise:** Now that you know how to create variables, rewrite this code.
 > This time, define these values as variables at the top of the file, create a
-> **variable** called `courseName` and **assign** it the value `Code Your
-> Future`. Then create a variable called courseDuration and assign it the value
+> **variable** called `courseName` and **assign** it the value `Code Your Future`. Then create a variable called courseDuration and assign it the value
 > 6, and a variable called isHard and assign it the value false.
 >
 > Refer to the three variables that you just created to get their types (i.e.
 > `console.log(typeof courseName)` etc...)
 >
 > Is your output the same?
-
 
 ## Semicolons
 
@@ -236,9 +237,8 @@ Javascript language is quite permissive and will try to interpret the code
 anyway.
 
 That said, always remember to put the semicolon at the end of each
-command as it's considered *"best practice"* by the wider developer community,
+command as it's considered _"best practice"_ by the wider developer community,
 it allows to avoid some hard-to-spot problems and help to avoid confusion.
-
 
 ## Conditionals
 
@@ -286,10 +286,10 @@ if (isHappy === true) {
   // do something else
 }
 ```
-> Note: Remember that (as we've seen in the [Variables](#variables) section) a
-single `=` is used to assign a value instead. A **common mistake** is to use `=`
-instead of `===` inside a `if` statement, so always remember to check.
 
+> Note: Remember that (as we've seen in the [Variables](#variables) section) a
+> single `=` is used to assign a value instead. A **common mistake** is to use `=`
+> instead of `===` inside a `if` statement, so always remember to check.
 
 Now let's add in what will happen if the conditions are met. The comments are
 there to explain what is happening.
@@ -400,8 +400,7 @@ there. And we are increasing the value of `i` by one each time.
 >
 > **Exercise**
 >
-> Write a for loop that prints out all the numbers between 1 and 100 divisible by
-> 5.
+> Write a for loop that prints out all the numbers between 1 and 100 divisible by 5.
 >
 > See if you can think or more than one way to solve this.
 >

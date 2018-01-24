@@ -92,20 +92,6 @@ During your application process, you became familiar with CSS selectors. We'll r
 
 > **Exercise (pair programming):** Work in pairs to make the blue buttons on the page red (`#ce5f31`). The white button, which says "Volunteer", should remain white but the text should change to red.
 
-## CSS Inheritance
-
-Some CSS styles applied to one element will be "inherited" by their child elements. These are usually styles which apply to the content of the elements, such as font family and color. Other properties, like margins, paddings and borders, don't get passed down to children.
-
-> In English, the word **inherit** refers to something, like the color of your eyes, which you can receive from your parent. We use this to describe how "child" HTML elements can inherit styles from "parent" HTML elements.
-
-We'll do two quick exercises to explore what gets inherited, what doesn't, and why.
-
-> **Exercise:** Work in pairs and use the [background properties](http://www.htmldog.com/references/css/properties/background/) to add a [assets/jumbotron-background.jpg](background image) to the jumbotron. Did these styles have "inheritance"? Why do you think they did or did not?
-
-Now that the background image is in place, the text is difficult to read. The text needs to be white.
-
-> **Exercise:** Work in pairs and use just one CSS rule to set all of the text in the jumbotron to white. To do this, you'll need to use inheritance. Why do you think some styles, like text color, get inherited?
-
 ## Pseudo Classes
 
 You can assign CSS rules to a class like this:
@@ -139,25 +125,6 @@ Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit
 
 > **Exercise:** Work in pairs and use the pseudo classes to make the background color of the red buttons change when in a "hover" or "focus" state. See if you can make the white "Volunteer" button change to a different background without effecting the red buttons.
 
-## The Cascade
-
-CSS stands for Cascading Style Sheets. The "cascade" is a set of rules which the browser uses to choose what to do when two CSS rules conflict. Take the following example:
-
-```css
-.btn {
-    color: red;
-}
-.btn {
-    color: blue;
-}
-```
-
-Should the `.btn` be red or blue? When identical selectors are next to each other like this, the browser lets the last one override the first one. But in a real-world scenario, you may have CSS scattered across different files. To solve this, we use the cascade.
-
-> **Exercise:** Read the section on [the cascade](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance#The_cascade). Then pair up. In the example, there are two paragraphs. Pick one paragraph and explain to your partner why it has a particular background color. Then ask your partner to explain the other paragraph.
-
-> **Exercise:** Work in pairs to give each one of the navigation menu items a red border (`#ce5f31`). This border should only appear when the mouse is hovering over it or the item has focus. Then use what you've learned about the cascade to give the first navigation menu item ("Home") a different color border.
-
 ## Box Model
 
 In CSS, everything is a box. An image is a box. A link is a box. The area around this box can be modified with properites that we call margins, borders and padding. Here's a diagram showing what the box looks like.
@@ -178,6 +145,102 @@ You can also set a transparent border, so that it takes up the space without sho
 
 > **Exercise:** Use a transparent border so that the width of each navigation menu item stays the same even when it is hovered or focused.
 
+## Git Conflicts
+
+As a professional, you'll usually need to work alongside other coders to build an app or website. We use version control to coordinate changes and manage any conflicts that arise. [Git](https://git-scm.com/) is a version control system which helps us merge code that we've been working on separately into one common codebase.
+
+To manage conflicts, we will need a common code base in which all changes are coordinated. When working on our own, we'll make our changes in `branches` to keep the code separate. Then we'll learn how to refresh your individual `branch` with the common code base, and prepare your changes to be merged.
+
+> Exercise: Get together in pairs and select a "leader". The leader should fork [this repository](https://github.com/CodeYourFuture/first-git-conflict) to their GitHub account. The other person should then fork the leader's repository. Both students should then clone their own personal forks locally.
+
+Now that you have the project set up on your computer, you need a place to safely make changes without effecting the common code base. To do this, we'll navigate to our project in the Terminal and create a new branch:
+
+```
+cd <your-project-directory>
+git checkout -b my-first-branch
+```
+
+When you commit changes on this branch, your changes will be saved separately from the common code base. This way both team members can make changes at the same time.
+
+> Exercise: Add your name and a sentence about yourself to the `index.html` file. Then `git add` and `git commit` to commit to your personal branch.
+
+Now you have two branches: `master` and `my-first-branch`. These branches have _diverged_, which means you have changes in one that don't appear in the other. You can check this by running `git checkout master`, then looking at your `index.html` file.
+
+When you're done, run `git checkout my-first-branch` to go back to the branch with your changes. Git saves your changes in both branches and lets you switch between them. That's why we call it "version control". It saves different versions so you can switch between them.
+
+Right now, your new branch only exists on your computer. Let's push it up to GitHub so you can see it in your profile.
+
+```
+git checkout my-first-branch
+git push -u origin my-first-branch
+```
+
+Now both students in each pair, the "leader" and the other student, should have branches with changes. Now let's try to merge these changes together into the "leader's" master branch.
+
+> Exercise: Browse to the "leader's" GitHub repository and open a new Pull Request. The Pull Request should ask to merge your `my-first-branch` branch into the "leader's" `master` branch. Ask a mentor for help if you have trouble figuring out how to issue a Pull Request. When both students have issued a Pull Request to the correct place, merge _one_ of them but not the other.
+
+Congrats, you've merged one student's changes with the common code base in the `master` branch. If you check the other Pull Request, you'll see you have a problem. It can't be merged automatically because there's a conflict. Why?
+
+Conflicts emerge whenever the same file has been edited, and git can't determine what changes should be kept and what changes should be discarded. A human -- that's you -- needs to step in and sort it out. To help us, git writes into our code so we can see where it is confused. Here's an example of a merge conflict in our code:
+
+```
+<<<<<<< HEAD
+		<h2>Mozafar</h2>
+		<p>I am a mentor at CodeYourFuture.</p>
+=======
+		<h2>Daniel</h2>
+		<p>I like to ride bikes</p>
+>>>>>>> my-first-branch
+```
+
+To resolve a conflict, we decide which lines to keep and which lines to remove. When we're done, we remove the extra lines that git added (`<<<<< HEAD`, `========` and `>>>>>>>`).
+
+Let's see how we can resolve this conflict with your branches. First we need to fetch the latest changes from the leader's `master` branch. If you're the **leader**, just do:
+
+```
+git checkout master
+git pull
+```
+
+If you're the **other student**, you need to set up the remote and pull from that master:
+
+```
+git checkout master
+git remote add upstream <your-leaders-git-repository-url>
+git pull upstream master
+```
+
+Now everyone's `master` branch should include the Pull Request that was merged. Whichever student still needs to get their Pull Request merged can bring those changes into their branch like this:
+
+```
+git checkout my-first-branch
+git merge master
+```
+
+You probably received a **merge conflict**.
+
+> Exercise: Follow the steps we discussed before about how to resolve a merge conflict by editing the file. Make sure both students changes are included in the final version. When you're done, use `git add`, `git commit` and `git push` to share your changes with GitHub. If everything has gone correctly, you can now merge the Pull Request.
+
+Now everyone can sync their changes. If you're the **leader**, just do:
+
+```
+git checkout master
+git pull
+```
+
+If you're the **other student**, do this:
+
+```
+git checkout master
+git pull upstream master
+```
+
+> Exercise: As a group, discuss why the `git pull` command is different for the **leader** and the **other student**.
+
+> Exercise: Try to do the pull requests again, but this time switch the pull requests so that the other student must manage the merge conflict.
+
+If you're feeling confused, don't worry. Version control is one of the most difficult things you'll learn and we'll be going over it again and again and again.
+
 # Resources
 1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
 2. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
@@ -192,6 +255,8 @@ You can also set a transparent border, so that it takes up the space without sho
 1. (Est. 2 hours) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 
 2. Fork this repo and follow the instructions on the README - https://github.com/Code-Your-Future/html-css-project
+
+3. You'll be put in groups of three. Over the next three weeks, you'll be asked to complete one of the [Starter Projects](https://github.com/CodeYourFuture/group-projects#starter-projects) as a group.
 
 (If you need help with Forking - then refer back to [this tutorial](https://help.github.com/articles/fork-a-repo/))
 

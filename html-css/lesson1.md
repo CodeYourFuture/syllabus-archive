@@ -153,14 +153,14 @@ To manage conflicts, we will need a common code base in which all changes are co
 
 > Exercise: Get together in pairs and select a "leader". The leader should fork [this repository](https://github.com/CodeYourFuture/first-git-conflict) to their GitHub account. The other person should then fork the leader's repository. Both students should then clone their own personal forks locally.
 
-Now that you have the project set up on your computer, you need a place to safely make changes without effecting the common code base. To do this, we'll navigation to our project in the Terminal and create a new branch:
+Now that you have the project set up on your computer, you need a place to safely make changes without effecting the common code base. To do this, we'll navigate to our project in the Terminal and create a new branch:
 
 ```
 cd <your-project-directory>
 git checkout -b my-first-branch
 ```
 
-Now when you commit changes on this branch, your changes will be saved separately from the common code base. This way both team members can make changes at the same time.
+When you commit changes on this branch, your changes will be saved separately from the common code base. This way both team members can make changes at the same time.
 
 > Exercise: Add your name and a sentence about yourself to the `index.html` file. Then `git add` and `git commit` to commit to your personal branch.
 
@@ -177,7 +177,7 @@ git push -u origin my-first-branch
 
 Now both students in each pair, the "leader" and the other student, should have branches with changes. Now let's try to merge these changes together into the "leader's" master branch.
 
-> Exercise: Browse to the "leader's" GitHub repository and open a new Pull Request. The Pull Request should ask to merge your `my-first-branch` branch into the "leader's" `master` branch. Ask a mentor for help if you have trouble figuring out how to issue a Pull Request. When both students have issued a Pull Request to the correct place, merge _one_ of them.
+> Exercise: Browse to the "leader's" GitHub repository and open a new Pull Request. The Pull Request should ask to merge your `my-first-branch` branch into the "leader's" `master` branch. Ask a mentor for help if you have trouble figuring out how to issue a Pull Request. When both students have issued a Pull Request to the correct place, merge _one_ of them but not the other.
 
 Congrats, you've merged one student's changes with the common code base in the `master` branch. If you check the other Pull Request, you'll see you have a problem. It can't be merged automatically because there's a conflict. Why?
 
@@ -193,7 +193,7 @@ Conflicts emerge whenever the same file has been edited, and git can't determine
 >>>>>>> my-first-branch
 ```
 
-To resolve a conflict, we decide which lines to keep and which lines to remove. When we're done, we remove the extra lines that git added (`,<<<<< HEAD`, `========` and `>>>>>>>`).
+To resolve a conflict, we decide which lines to keep and which lines to remove. When we're done, we remove the extra lines that git added (`<<<<< HEAD`, `========` and `>>>>>>>`).
 
 Let's see how we can resolve this conflict with your branches. First we need to fetch the latest changes from the leader's `master` branch. If you're the **leader**, just do:
 

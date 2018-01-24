@@ -106,7 +106,7 @@ Let's create a new array with only numbers greater than 5:
 ```js
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var newArr = arr.filter(function(num) {
-  return arr > 5;
+  return num > 5;
 });
 console.log(newArr); // [5,6,7,8,9]
 ```

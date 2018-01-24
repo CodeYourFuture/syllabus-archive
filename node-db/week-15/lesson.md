@@ -31,11 +31,12 @@ REST is a convention of how to design your API, whether it is for your own front
 
 > * Read: [REST](http://www.restapitutorial.com/lessons/restfulresourcenaming.html)
 
-### Middlewares
+### Middleware
 
-Middlewares allow us to process requests for example [body-parser](https://www.youtube.com/watch?v=vKlybue_yMQ) which makes it easier to work with POST requests and forms.
+Middleware allow us to process requests to add functionalities that are not built in to Express, for example logging, authentication, etc.
 
 > * Express Documentation: [Using Middleawre](https://expressjs.com/en/guide/using-middleware.html)
+> * Video: [body-parser](https://www.youtube.com/watch?v=vKlybue_yMQ) which makes it easier to work with POST requests and forms.
 
 ## Advanced Topics
 

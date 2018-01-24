@@ -4,54 +4,75 @@
 
 ** What we will learn today?**
 
-* Express Review
-* Authentication
-* Workshop
+* [Node Recap](#node-recap)
+* [Advanced Topics](#advanced-topics)
+* [Hotel Workshop](#hotel-workshop)
 
 ---
 
-## Express Recap
+## Node Recap
 
+Javascript has evolved from the browser to be used in the backend. It does not need a framework as we saw in [week-13](../week-13/lesson.md), however a framework like Express allows us to develop faster.
 
-1. Middlewares
+### Documentation
 
-1. Routing
+When you are working with frameworks it is always helpful to use their documentation.
 
+* [Express Documentation](https://expressjs.com)
+* [Node.js Documentation](https://nodejs.org/api/http.html)
 
-1. Process Managers
+### Routing
 
-[pm2 Process Manager](https://expressjs.com/en/advanced/pm.html#pm2)
+> * Express Documentation: [Routing](https://expressjs.com/en/guide/routing.html)
 
-1. Performance
+### REST
 
-Express have their own recommended [best practices page](https://expressjs.com/en/advanced/best-practice-performance.html) which includes:
+REST is a convention of how to design your API, whether it is for your own frontend, or other frontends and clients.
 
-Code / DEV
-Use gzip compression
-Dont use synchronous functions
-Do logging correctly
-Handle exceptions properly
+> * Read: [REST](http://www.restapitutorial.com/lessons/restfulresourcenaming.html)
 
-Config / Ops
-Set NODE_ENV to "production"
-Ensure your app automatically restarts
-Run your app in a cluster
-Cache request results
-Use a load balancer
-Use a reverse proxy
+### Middlewares
 
-## Authentication
+Middlewares allow us to process requests for example [body-parser](https://www.youtube.com/watch?v=vKlybue_yMQ) which makes it easier to work with POST requests and forms.
 
-https://news.ycombinator.com/item?id=16157002
+> * Express Documentation: [Using Middleawre](https://expressjs.com/en/guide/using-middleware.html)
 
-> **Exercise**: Always have exercises
+## Advanced Topics
 
-# Resources
+### Performance
 
-1. [Resource 1 to learn more about Topic 1](https://google.com)
+Express have their own recommended [best practices page](https://expressjs.com/en/advanced/best-practice-performance.html)
+
+### Node Process Managers
+
+These process managers monitor for any changes in your node.js application and automatically restart the server, perfect for development and production.
+
+> Popular PMs include:
+>
+> * [nodemon](http://nodemon.io/)
+> * [pm2](https://expressjs.com/en/advanced/pm.html#pm2)
+
+### Security
+
+When you take your website to production there is a whole range of things to consider.
+
+![Server flow](../assets/http-vs-https.png)
+
+### Authentication
+
+Sometimes you need to add user functionality for your website. To do this you can make use of external libraries like [passport](www.passportjs.org) to add authentication to your website.
+
+> For more information read:
+>
+> * [OAuth 2.0 Authorization Framework: Bearer Token Usage](https://tools.ietf.org/html/rfc6750)
+> * [Bearer Strategy](https://github.com/jaredhanson/passport-http-bearer)
+
+## Hotel Workshop
+
+Get in to groups of 3/4 and checkout the [brief](./brief.md).
+
+> **Exercise**: Please fork and clone [CYF-Hotel](https://github.com/CodeYourFuture/cyf-hotel) repository and follow the exercises in the `README.MD`.
 
 {% include "./homework.md" %}
-
-# Escalation Policy
 
 {% include "../../others/escalation-policy.md" %}

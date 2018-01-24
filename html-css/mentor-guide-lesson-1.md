@@ -40,33 +40,6 @@ Students may need more or less review depending on how much they remember from t
 
 Students should set the button background color using the `.btn-primary` selector, and adjust the white button using the `.btn-secondary` selector. If they use the `.btn` selector, they'll effect both buttons. When they do that, use it as a lesson in how Object-Oriented CSS works and how to choose the right selector.
 
-## CSS Inheritance
-
-MDN just [says](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance#Inheritance), "Which properties are inherited by default and which aren't is largely down to common sense." That's kind of true and it's not easy to set out a clear rule.
-
-Use any questions or discussion to reinforce the parent-child relationship. A child element will sit "within" a parent element, so text in a child element will appear on the background of a parent element. That kind of gets at why backgrounds don't inherit but text color does.
-
-## Psuedo Classes
-
-If the students use `.btn:hover` they'll effect the red and white buttons. Make sure they're using the `.btn-primary` and `.btn-secondary` selectors to prevent conflicts.
-
-## The Cascade
-
-See if the students can figure out the first exercise for themselves. But it's likely that some will need help. If there are enough mentors, do this one-on-one. Otherwise, bring it to the group and have one of the students who understands explain to the others.
-
-In the second exercise, students should use the `.active` class that's assigned to that `.nav-item` element. Like this:
-
-```css
-.active .nav-link:hover,
-.active .nav-link:focus {
-	border-color: blue;
-}
-.nav-link:hover,
-.nav-link:focus {
-	border: 1px solid #ce5f31;
-}
-```
-
 ## Box Model
 
 For the second exercise, the answer will look something like this:
@@ -80,6 +53,10 @@ For the second exercise, the answer will look something like this:
 	border-color: #ce5f31;
 }
 ```
+
+## Git
+
+This will be the most challenging for students. Let them fail and try again until they get it.
 
 ## Homework
 

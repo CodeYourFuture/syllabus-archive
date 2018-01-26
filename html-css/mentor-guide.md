@@ -218,33 +218,33 @@ documentation and picking up on minor details.
 A mentor should act as a `remote` repository and have a large sheet of paper.
 All students should have 4-5 sheets of paper.
 
-1 The teacher should write the word `master` at the top of the sheet, and write
+1. The teacher should write the word `master` at the top of the sheet, and write
    their name below that.
-2 All students should clone the main sheet on one of their sheets (`git
+1. All students should clone the main sheet on one of their sheets (`git
    clone`).
-3 All students should add their name to their `master` sheet. Then show it to
+1. All students should add their name to their `master` sheet. Then show it to
    the mentor (`git commit` and pull request).
-4 Take a moment to indicate how their sheets have diverged from the main sheet.
-5 All students should copy the mentor's `master` sheet (`git pull`).
-6 Ask two students to add a line to their sheet with any word they want. Then
+1. Take a moment to indicate how their sheets have diverged from the main sheet.
+1. All students should copy the mentor's `master` sheet (`git pull`).
+1. Ask two students to add a line to their sheet with any word they want. Then
    show it to the mentor (`git commit` and pull request). The mentor should
    refuse to merge one pull request.
-7 All students should copy the mentor's `master` sheet (`git pull`).
-8 The student who's pull request wasn't merged is now out-of-sync. Take a
+1. All students should copy the mentor's `master` sheet (`git pull`).
+1. The student who's pull request wasn't merged is now out-of-sync. Take a
    moment to describe the problem and introduce branching.
-9 Ask the students to take another sheet, and copy the `master` sheet,
+1. Ask the students to take another sheet, and copy the `master` sheet,
    replacing `master` with `feature-branch` (`git checkout -b feature-branch`).
-10 Replay 3-5, this time rejecting some of the pull requests. Then have them
+1. Replay 3-5, this time rejecting some of the pull requests. Then have them
     copy the additions to the mentor's `master` sheet (`git pull`).
-11 Have them destroy their `feature-branch` sheets (`git branch -D
+1. Have them destroy their `feature-branch` sheets (`git branch -D
     feature-branch`).
-12 Ask the students to take a new sheet of paper, and copy the `master` sheet,
+1. Ask the students to take a new sheet of paper, and copy the `master` sheet,
     replacing `master` with `update-branch` (`git checkout -b feature-branch`).
-13 Ask the students to add three names to their `update-branch` sheet.
-14 Ask the students to take a new sheet of paper, and copy only two of the
+1. Ask the students to add three names to their `update-branch` sheet.
+1. Ask the students to take a new sheet of paper, and copy only two of the
     three names they added to their `update-branch` sheet (`git add name1
     name2`).
-15 Take a moment to discuss the difference between the workspace and index.
+1. Take a moment to discuss the difference between the workspace and index.
     Then ask them to pass their commit sheet in.
 
 ## HTML Forms

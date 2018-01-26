@@ -75,8 +75,8 @@ Array and when do you use an Object.
 
 Let's talk about the differences between Arrays and Objects - when can you use or the other. As a general rule of thumb:
 
-1 Does the order of data matter? Then use Arrays.
-2 Can the data be organised by a label? Then use Objects.
+1. Does the order of data matter? Then use Arrays.
+1. Can the data be organised by a label? Then use Objects.
 
 > Exercise: Let's say we're writing a program to model and display a Newspaper:
 > what data structure would you use to model the different sections of the
@@ -437,7 +437,7 @@ console.log(test); // output: I'm global
 
 # Resources
 
-1 [Objects vs Arrays](https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1)
-2 [JavaScript Arrays and Objects Are Just Like Books and Newspapers](https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746)
+1. [Objects vs Arrays](https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1)
+1. [JavaScript Arrays and Objects Are Just Like Books and Newspapers](https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746)
 
 {% include "./homework.md" %}

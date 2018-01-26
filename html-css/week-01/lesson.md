@@ -86,9 +86,9 @@ The example website you'll begin working with is available
 Fork the repository to your personal account and use the following terminal
 commands to download the files to your projects folder.
 
-1 `cd ~`
-2 `cd <your-project-directory>`
-3 `git clone git@github.com:<your_username>/bikes-for-refugees.git`
+1. `cd ~`
+1. `cd <your-project-directory>`
+1. `git clone git@github.com:<your_username>/bikes-for-refugees.git`
 
 > **Exercise**: Spend a few minutes exploring the `.html` and `.css` files for
 > this page. Why don't we put everything in one file?
@@ -264,12 +264,12 @@ showing a visible border.
 
 # Resources
 
-1 [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
-2 [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-3 [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
-4 [Box Model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model)
-5 [Box Model, box-sizing: border-box - CSS Tricks](https://css-tricks.com/international-box-sizing-awareness-day/)
-6 [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
-7 [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
+1. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
+1. [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
+1. [Box Model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model)
+1. [Box Model, box-sizing: border-box - CSS Tricks](https://css-tricks.com/international-box-sizing-awareness-day/)
+1. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
+1. [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
 {% include "./homework.md" %}

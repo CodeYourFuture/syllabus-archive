@@ -21,22 +21,39 @@ When you are working with frameworks it is always helpful to use their documenta
 * [Express Documentation](https://expressjs.com)
 * [Node.js Documentation](https://nodejs.org/api/http.html)
 
-### Routing
-
-> * Express Documentation: [Routing](https://expressjs.com/en/guide/routing.html)
-
-### REST
-
-REST is a convention of how to design your API, whether it is for your own frontend, or other frontends and clients.
-
-> * Read: [REST](http://www.restapitutorial.com/lessons/restfulresourcenaming.html)
-
 ### Middleware
 
 Middleware allow us to process requests to add functionalities that are not built in to Express, for example logging, authentication, etc.
 
-> * Express Documentation: [Using Middleawre](https://expressjs.com/en/guide/using-middleware.html)
+> * Express Documentation: [Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
 > * Video: [body-parser](https://www.youtube.com/watch?v=vKlybue_yMQ) which makes it easier to work with POST requests and forms.
+
+### Routing
+
+Routing refers to how an application’s endpoints (URIs) respond to the client requests. These are configured differently for each framework, and can range from basic configuration to very extensive for more complex use cases.
+
+Simple example
+
+```js
+app.get("/", function(req, res) {
+  res.send("hello world");
+});
+```
+
+More complicated example using `Passport.js` middleware for authentication
+
+```js
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  else res.redirect("/login");
+}
+
+app.get("/account", ensureAuthenticated, function(req, res) {
+  res.send("welcome user!");
+});
+```
+
+> * Express Documentation: [Routing](https://expressjs.com/en/guide/routing.html)
 
 ## Advanced Topics
 
@@ -52,6 +69,12 @@ These process managers monitor for any changes in your node.js application and a
 >
 > * [nodemon](http://nodemon.io/)
 > * [pm2](https://expressjs.com/en/advanced/pm.html#pm2)
+
+### REST
+
+REST is a convention of how to design your API, whether it is for your own frontend, or other frontends and clients.
+
+> * Read: Resource naming in [REST](http://www.restapitutorial.com/lessons/restfulresourcenaming.html) convention
 
 ### Security
 

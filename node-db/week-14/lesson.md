@@ -24,7 +24,7 @@ const app = express();
 
 const myLogger = (req, res, next) => {
   const visitTime = new Date();
-  console.log(`visited ${req.urll} at ${visitTime.toLocaleString()}`);
+  console.log(`visited ${req.url} at ${visitTime.toLocaleString()}`);
   next();
 };
 

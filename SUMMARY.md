@@ -25,7 +25,7 @@
 * [Node/DB I](/node-db/index.md)
   * [Week 13 - Node and Express 101](/node-db/week-13/lesson.md) | [Homework](/node-db/week-13/homework.md)
   * [Week 14 - Middleware, Templating and APIs](/node-db/week-14/lesson.md) | [Homework](/node-db/week-14/homework.md)
-  * [Week 15 - Advanced Node](/node-db/week-15/lesson.md) | [Homework](/node-db/week-15/homework.md)
+  * [Week 15 - Advanced Node](/node-db/week-15/lesson.md) | [Homework](/node-db/week-15/homework.md) | [Workshop](/node-db/week-15/workshop.md)
 * [Node/DB II](/node-db/index.md)
   * [Week 16 - Basic SQL](/node-db/week-16/lesson.md) | [Homework](/node-db/week-16/homework.md)
   * [Week 17 - SQL with Node](/node-db/week-17/lesson.md) | [Homework](/node-db/week-17/homework.md)

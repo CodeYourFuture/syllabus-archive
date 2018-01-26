@@ -57,7 +57,7 @@ These process managers monitor for any changes in your node.js application and a
 
 When you take your website to production there is a whole range of things to consider.
 
-![Server flow](../assets/http-vs-https.png)
+![HTTP vs HTTPS](../assets/http-vs-https.png)
 
 ### Authentication
 
@@ -70,7 +70,7 @@ Sometimes you need to add user functionality for your website. To do this you ca
 
 ## Hotel Workshop
 
-Get in to groups of 3/4 and checkout the [brief](./brief.md).
+Get in to groups of 3/4 and checkout the [workshop brief](./workshop.md).
 
 > **Exercise**: Please fork and clone [CYF-Hotel](https://github.com/CodeYourFuture/cyf-hotel) repository and follow the exercises in the `README.MD`.
 

@@ -108,7 +108,7 @@ var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var newArr = arr.filter(function(num) {
   return num > 5;
 });
-console.log(newArr); // [5,6,7,8,9]
+console.log(newArr); // [6,7,8,9]
 ```
 
 > Remember: Most array methods do not change the current array, they return a

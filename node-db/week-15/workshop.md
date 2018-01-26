@@ -26,9 +26,9 @@ In keeping with times, we are using the [Lean model](https://en.wikipedia.org/wi
 
 ## Problem Statement
 
-Currently hotel website is a little empty. Although some raw data is available from recording things on a computer, Hotel Managers and Receptionist do not have ways to view them in a useful way.
+Currently hotel website is a little empty. Although some raw data is available from recording things on a computer, **Hotel Manager** and **Receptionists** do not have ways to view them in a useful way.
 
-Similarly customers cannnot get a link to their invoices online to view or pint them, so they are also unhappy.
+Similarly the hotel **Customers** cannnot get a link to their invoices online to view or pint them, so they are also unhappy.
 
 ## User Journeys
 

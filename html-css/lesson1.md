@@ -158,7 +158,7 @@ To manage conflicts, we will need a common code base in which all changes are co
 
 Now that you have the project set up on your computer, you need a place to safely make changes without effecting the common code base. To do this, we'll navigate to our project in the Terminal and create a new branch:
 
-```
+```bash
 cd <your-project-directory>
 git checkout -b my-first-branch
 ```
@@ -173,7 +173,7 @@ When you're done, run `git checkout my-first-branch` to go back to the branch wi
 
 Right now, your new branch only exists on your computer. Let's push it up to GitHub so you can see it in your profile.
 
-```
+```bash
 git checkout my-first-branch
 git push -u origin my-first-branch
 ```
@@ -249,4 +249,16 @@ If you're feeling confused, don't worry. Version control is one of the most diff
 1. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
 1. [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
-{% include "./homework.md" %}
+## Homework
+
+1. (Est. 2 hours) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
+
+1. Fork [the html-css-project repo](https://github.com/Code-Your-Future/html-css-project) and follow the instructions on the README -
+
+1. You'll be put in groups of three. Over the next three weeks, you'll be asked to complete one of the [Starter Projects](https://github.com/CodeYourFuture/group-projects#starter-projects) as a group.
+
+(If you need help with Forking - then refer back to [this tutorial](https://help.github.com/articles/fork-a-repo/))
+
+## Prepare for the next class
+
+* (Est. 4-5 hours) Complete the first three lessons in this course on [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893). You should complete **Why Responsive?**, **Starting Small** and **Building Up**. _Don't worry if you don't have a phone you can use for Remote Debugging. You can use the browser's Device Emulation instead._

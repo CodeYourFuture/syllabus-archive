@@ -158,7 +158,7 @@ To manage conflicts, we will need a common code base in which all changes are co
 
 Now that you have the project set up on your computer, you need a place to safely make changes without effecting the common code base. To do this, we'll navigate to our project in the Terminal and create a new branch:
 
-```
+```bash
 cd <your-project-directory>
 git checkout -b my-first-branch
 ```
@@ -173,7 +173,7 @@ When you're done, run `git checkout my-first-branch` to go back to the branch wi
 
 Right now, your new branch only exists on your computer. Let's push it up to GitHub so you can see it in your profile.
 
-```
+```bash
 git checkout my-first-branch
 git push -u origin my-first-branch
 ```

@@ -4,5 +4,5 @@
 
 ## Prepare for the next class
 
-1. Read: [Concept of Persistence](<https://en.wikipedia.org/wiki/Persistence_(computer_science)>) in computer science.
+1. Read: [Concept of Persistence](https://en.wikipedia.org/wiki/Persistence_(computer_science)) in computer science.
 1. Learn basic SQL with [khanacademy](https://www.khanacademy.org/computing/computer-programming/sql) or [codecademy](https://www.codecademy.com/learn/learn-sql) and ask any questions in the channel

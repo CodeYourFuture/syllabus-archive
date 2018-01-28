@@ -2,11 +2,21 @@
 
 **What we will learn today?**
 
-* Why we need databases.
-* Creating a database with SQL, storing data in it.
-* Retrieving data from a database using SQL.
+* Why we need databases
+* Installing SQLite
+* Creating a database with SQL and storing data in it.
 * Inserting data into a database using SQL.
+* Retrieving data from a database using SQL.
 * Joins
+
+# LESSON 1.A: Why we need databases
+
+So, in your previous lessons you have been taught how to store and retrieve data
+using files. This is fine and works well for some data - particularly simple data -
+but it can quickly cause issues with your data.
+
+For our first lesson we're going to break the code you did last week in a subtle
+way.
 
 # EXERCISE 1 : Breaking your code with nulls
 
@@ -31,13 +41,23 @@ Go to API end point for add reservation.
 4. How should you make that happen?
 
 
-# LESSON 1 : What is the point of a database?
+# LESSON 1B : What is the point of an SQL database?
 
-The database is a way to store *valid* structured data in a way that *cannot easily be violated* and then retrieve it.
+We're going to teach you a new programming language. It's called SQL. Pronounced "S - Q - L" or sequel, either is fine.
 
-The way we use a database is completely different to the way we store things in files. In a file, you can put anything in and get it out. How you get it out is up to you. The program needs to open, close, retrieve, store or modify everything itself. All the responsibility for that belongs to the program.
+Databases are simply programs that take data and stuff it in files just like you were doing in the previous lesson.
 
-A Database is stored using a Relational Database Management system (RDBMS) which enfores:
+However, the way we use a database is different to the way we store things in files. In a file, you can put any random jumble of data in and get it out again. How you put it in and get it out is up to you. Your code needs to open the file, close the file, retrieve, store or modify and validate everything itself. Offloading some of that responsibility to another program means that your code can achieve all the same things but be simpler.
+
+You interact with almost all of them using the same programming language which is called "SQL". It's been around for 31 years and is still completely dominant. Computing moves fast, but SQL doesn't change. This kind of lesson will probably still be taught in 50 years. Probably 4 out of 5 software jobs involve SQL In some way.
+
+SQL is a different, and usually simpler kind of programming language that you use *with* a database (sometimes called an RDBMS) to:
+
+* Store data in a way such that its structure cannot be violated.
+
+* Retrieve data (get me all the reservations under the name "Trump") and answer questions about data ("what was the sum total of all of the invoices in february?").
+
+An RDBMS (relational database management system) will do this by, for example:
 
 - Data constraints (e.g. each reservation *must* have a customer)
 - Data types (e.g. check in date *can only* be a date)
@@ -45,35 +65,31 @@ A Database is stored using a Relational Database Management system (RDBMS) which
 - Organizing how the data is retrieved and assembled (e.g. fetch me all reservations under customer "Donald Trump").
 - Executes on a different process/machine, meaning that the queries can be parallelized, and work can be offloaded from the main server.
 
-We're going to teach you a new programming language. It's called SQL. Pronounced "S - Q - L" or sequel,
-as in "the sequel to the original 3 stars films were awful."
+## EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE
 
-The language is *just* used for two things:
+The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fit in one file - quite a common task.
 
-* Telling a big store of data (the database) to store data
-* Telling a big store of data (the database) to retrieve data
+* Windows: https://sqlite.org/download.html
+* Ubuntu: apt-get install sqlite
+* Mac OS: brew install sqlite
 
-## Create a Database
+To run SQLite, open a command prompt and run "sqlite mydatabase.sqlite".
 
-Students, first open up your browsers and visit [DB Fiddle](https://www.db-fiddle.com/)
-at www.db-fiddle.com.
+This should give you a prompt like this:
 
-Then, select SQLite:
+```sql
+SQLite version 2.8.17
+Enter ".help" for instructions
+sqlite> 
+```
 
-![Select SQLite 3.18](db-fiddle-select-sqlite.png)
+This is a command prompt where you can run snippets of SQL and load files containing SQL.
 
-So, on the left hand side here is where we write the code that *creates* the data.
+### LESSON 1C: CREATING A TABLE
 
-On the right hand side is where we write the code that *retrieves* the data.
+The first thing we want to store is customers, since without customers, you don't have a hotel.
 
-### LESSON: How to create a table
-
-First thing we want to store is customers, since without customers,
-you don't have a hotel.
-
-Students. Type the following in:
-
-What to put in the *left* hand side (data definition):
+First, open a file in any text editor and put the following in a file called 'hotel.sql':
 
 ```sql
 create table customers (
@@ -85,12 +101,6 @@ create table customers (
 insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump',);
 ```
 
-What to put on the *right* hand side (data retrieval):
-
-```sql
-select * from customers;
-```
-
 What we have here:
 
 * Creating a table - this creates the *structure* which you can use to put data in. The items are *columns*.
@@ -99,13 +109,30 @@ What we have here:
 
 * 'title varchar' - this means we're creating a column with the name 'title' which holds a 'variable number of characters'. This is pretty much the same thing as a string in javascript.
 
-## EXERCISE: Create tables and insert data
+Now, in the command prompt run the following:
 
-1. Add yourselves as *second* customers to Donald Trump.
+```sql
+sqlite> .read hotel.sql
+```
+
+Now that the file has been loaded with one table containing one row of data, you can read it back
+out again like this:
+
+What to put on the *right* hand side (data retrieval):
+
+```sql
+sqlite> select * from customers;
+```
+
+Now that you've done all that, delete the mydatabase.sqlite file.
+
+## EXERCISE 1C: Create tables and insert data
+
+1. Create the database again and add yourselves as *second* customer - so you're staying in a hotel with Donald Trump.
 2. Collect email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen.
 3. Add me - "Colm O'Conner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
 
-## LESSON : Data types
+## LESSON 1D: Data types
 
 ```sql
 create table invoices (

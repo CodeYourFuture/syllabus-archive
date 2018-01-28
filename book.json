@@ -1,9 +1,14 @@
 {
-  "plugins": ["prism", "-highlight"],
+  "plugins": ["prism", "-highlight","todo","scripts"],
   "pluginsConfig": {
     "prism": {
       "css": [
         "prismjs/themes/prism-tomorrow.css"
+      ]
+    },
+      "scripts": {
+      "files": [
+        "./checkboxRemember.js"
       ]
     }
   }

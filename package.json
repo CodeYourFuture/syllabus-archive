@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "gitbook-plugin-prism": "^2.2.0",
+    "gitbook-plugin-scripts": "^1.0.2",
+    "gitbook-plugin-todo": "^0.1.3",
     "markdownlint-cli": "^0.6.0"
   },
   "devDependencies": {
@@ -15,7 +17,8 @@
     "gitbook-cli": "^2.3.0"
   },
   "scripts": {
-    "test": "markdownlint ./html-css ./js-core"
+    "test": "markdownlint ./html-css ./js-core",
+    "build": "gitbook install && gitbook build"
   },
   "repository": {
     "type": "git",

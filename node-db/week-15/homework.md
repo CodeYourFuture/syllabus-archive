@@ -1,6 +1,6 @@
 # Homework
 
-1. Finish the [hotel workshop](https://github.com/CodeYourFuture/cyf-hotel-db) with your team, assigning trello tickets in your team trello page
+1. Finish the [hotel workshop](https://github.com/CodeYourFuture/cyf-hotel) with your team, assigning trello tickets in your team trello page
 
 ## Prepare for the next class
 

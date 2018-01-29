@@ -23,7 +23,7 @@
   * [Week 11 - More TDD, ES6](/js-core-3/week-11/lesson.md) | [Homework](/js-core-3/week-11/homework.md)
   * [Week 12 - Recap](/js-core-3/week-12/lesson.md) | [Homework](/js-core-3/week-12/homework.md)
 * [Node/DB I](/node-db/index.md)
-  * [Week 13 - Node and Express 101](/node-db/week-13/lesson.md) | [Homework](/node-db/week-13/homework.md)
+  * [Week 13 - Node and Express 101](/node-db/week-13/lesson.md) | [Homework](/node-db/week-13/homework.md) | [Workshop](/node-db/week-13/workshop.md)
   * [Week 14 - Middleware, Templating and APIs](/node-db/week-14/lesson.md) | [Homework](/node-db/week-14/homework.md)
   * [Week 15 - Advanced Node](/node-db/week-15/lesson.md) | [Homework](/node-db/week-15/homework.md) | [Workshop](/node-db/week-15/workshop.md)
 * [Node/DB II](/node-db/index.md)
@@ -43,8 +43,9 @@
 ### Workshops and other resources
 
 * [Coding 101](/others/coding-101.md)
-* [AWS - DynamoDB](/others/aws-workshop-2.md)
+* [Express Workshop](/node-db/week-13/workshop.md)
 * [Hotel Workshop](/node-db/week-15/workshop.md)
+* [AWS - DynamoDB](/others/aws-workshop-2.md)
 
 ### For Mentors
 

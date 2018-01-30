@@ -6,6 +6,7 @@
 
 * [Middleware](#middleware)
 * [Templating](#templating)
+* [Workshop](#workshop)
 * [Callbacks](#callbacks)
 * [APIs](#apis)
 * [Deploying to Heroku](#deploying-to-heroku)
@@ -41,7 +42,7 @@ app.listen(3000, () => {
 
 As you can imagine it can be very useful to [write your own Middleware](https://expressjs.com/en/guide/writing-middleware.html), but you can also find [many useful middleware](https://github.com/rajikaimal/awesome-express#middleware) to add to your program for rapid development.
 
-## Templating
+## Workshop
 
 Fork and Clone the [express-workshop-2](https://github.com/CodeYourFuture/express-workshop-2) repository
 
@@ -76,7 +77,9 @@ Let's run the server and check it in the browser. This is what you should see on
 > **Exercise**: Notice how the link to **Contact me** doesn't return a page -
 > Let's add an enpoint to return a simple string **this is a contact page**.
 
-## Using templates
+## Templating
+
+Once you have forked the repository, let's take a look at using templates
 
 > **Exercise**: Let's change the text for the link, **Contact**, to **Contact
 > Information**.

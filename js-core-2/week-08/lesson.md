@@ -73,10 +73,10 @@ will be automatically updated with all changes since the query.
 
 > **Exercise**:
 >
-> * Clone the repo from HTML and CSS class into new `bikes` directory. `git
+> * [ ] Clone the repo from HTML and CSS class into new `bikes` directory. `git
 >   clone git@github.com:dmitrigrabov/bikes-for-refugees.git bikes`
-> * Once cloned run `npm install` to download the dependencies:
-> * Implement `getTitle`, `getNumberOfBikes`, `getAllButtonText`,
+> * [ ] Once cloned run `npm install` to download the dependencies:
+> * [ ] Implement `getTitle`, `getNumberOfBikes`, `getAllButtonText`,
 >   `getNavLinksText` in `src/functions.js` using above methods to get all tests
 >   passing using `npm test`:
 
@@ -100,7 +100,7 @@ updates to the elements.
 
 > **Exercise**:
 >
-> * Rewrite solutions to previous exercise using `querySelector` and
+> * [ ] Rewrite solutions to previous exercise using `querySelector` and
 >   `querySelectorAll`. You may need to look up documentation for `NodeList`.
 
 ### DOM manipulation
@@ -153,11 +153,11 @@ What will above code do?
 
 > **Exercise**:
 >
-> * Use above functions to
-> * ... place `-` around the text in the navbar links
-> * ... convert links in 'Upcoming Events' section to italic using `<i>` tag
-> * ... make `Learn more` links green
-> * Ensure all tests for above pass
+> Use above functions to
+> * [ ] place `-` around the text in the navbar links
+> * [ ] convert links in 'Upcoming Events' section to italic using `<i>` tag
+> * [ ] make `Learn more` links green
+> * [ ] Ensure all tests for above pass
 
 ### Creating and inserting elements
 
@@ -198,12 +198,12 @@ to be inserted and `referenceNode` is the node before which newNode is inserted.
 
 > **Exercise**:
 >
-> * Use the inspector to examine the navbar
-> * Using `createElement` etc. create a new navbar item link 'Code Your Future'
+> * [ ] Use the inspector to examine the navbar
+> * [ ] Using `createElement` etc. create a new navbar item link 'Code Your Future'
 >   which links to `https://codeyourfuture.io/`. It should have same structure
 >   as the other links
-> * Insert it at the end of the navbar
-> * Ensure all tests for above pass
+> * [ ] Insert it at the end of the navbar
+> * [ ] Ensure all tests for above pass
 
 ## Resources
 
@@ -252,7 +252,7 @@ events and call the event handler `alertSomething` when the click is detected.
 
 > **Exercise**:
 >
-> * Set a click listener on the donate buttons and increment the donated bikes
+> * [ ] Set a click listener on the donate buttons and increment the donated bikes
 >   counter with each click ( no tests )
 
 ### Event object
@@ -279,7 +279,7 @@ property.
 
 > **Exercise**:
 >
-> * Prevent clicks on links from triggering a url change in the browser and
+> * [ ] Prevent clicks on links from triggering a url change in the browser and
 >   instead `console.log` the coordinates of the click as well as the text
 >   inside the link
 

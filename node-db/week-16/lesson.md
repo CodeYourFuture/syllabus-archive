@@ -7,6 +7,11 @@
 * Creating a database with SQL and storing data in it.
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
+* Escaping
+* Connecting SQL to your application.
+
+
+
 * Joins
 
 # LESSON 1.A: Why we need databases
@@ -95,7 +100,7 @@ First, open a file in any text editor and put the following in a file called 'ho
 create table customers (
     title varchar,
     firstname varchar,
-    surname varchar,
+    surname varchar
 );
 
 insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump',);
@@ -147,30 +152,41 @@ insert into invoices (reservation_id, total, invoice_date_time, paid) values (12
 insert into invoices (reservation_id, total, invoice_date_time) values (124, 3445.50, '02/01/2017');
 ```
 
+And in the command box:
+
 ```sql
-select * from invoices
+sqlite>  select * from invoices
 ```
 
-* What we have here is an 'integer', a 'number', a 'datetime' and a boolean. These are all analogous to data types
-which you have learned about in javascript.
+What we have here:
 
-* For "paid" which is either yes or no - we have a default of 'no', so you can insert data without it and it will just assume you mean 'no'.
+* An 'integer', a 'number', a 'datetime' and a boolean. These are all analogous to data types which you have learned about in javascript but there are sometimes subtle differences that you need to be wary of.
 
-* For 'invoice_date_time' we have a 'not null' constraint which means that you *have* to give a datetime and you can't give 'null' because it is meaningless to have a non-null datetime.
+* For "paid" which is either yes or no - we have a default of 'no' - it's saying that if you insert data and don't specify 'paid' as a column when you INSERT data, it will assume you meant 'no'.
 
-More reading : https://www.sqlite.org/datatype3.html
+* For 'invoice_date_time' you must store the data in the form of a combination of date and time. It has a 'not null' constraint which means that you *have* to give a datetime when you insert data, it will refuse to let you insert an invoice without specifying invoice_date_time and refuse to let you explicitly give your invoice_date_time as null.
 
-## EXERCISE : Data types
+```sql
+Further reading : https://www.sqlite.org/datatype3.html
+```
 
-Create a reservations table with columns for customer ID, room ID, check in date, check out date and price per night. Bear in mind that customers *do* have to give a check in date, but they don't have to give a check out date.
+## EXERCISE 1D : Data types
 
-## LESSON : Filtering
+In your "hotel.sql" create a reservations table with columns for customer ID, room ID, check in date, check out date and price per night and insert a bunch of example data - maybe you and 10 friends or celebrities.
+
+The hotel manager has told you:
+
+- Customers *do* have to give a check in date, but they don't have to give a check out date.
+- Reservations need a customer ID and a room ID
+- Reservations have a check in date, a check out date and a price per night.
+
+## LESSON 1E : Filtering
 
 Currently we've just put data in to a table and gotten *all* of it out. What about if we only want *specific* data?
 
-For this we will introduce something called 'WHERE'.
+For this we will introduce a SQL key word called 'WHERE'.
 
-Lets go back to the invoices table:
+Lets go back to the invoices table. Make your SQL files have a create table for invoices in like this:
 
 ```sql
 create table invoices (
@@ -179,7 +195,11 @@ create table invoices (
     invoice_date_time   datetime not null,
     paid                boolean default false
 );
+```
 
+And put in a bunch of data like this:
+
+```sql
 insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017', 1);
 
 insert into invoices (reservation_id, total, invoice_date_time) values (124, 250.50, '02/01/2017');
@@ -191,9 +211,13 @@ insert into invoices (reservation_id, total, invoice_date_time) values (155, 300
 insert into invoices (reservation_id, total, invoice_date_time) values (156, 284.35, '04/01/2017', 1);
 ```
 
+So, if you do a regular query you just get all of the data:
+
 ```sql
 select * from invoices
 ```
+
+If you do 
 
 ```sql
 select * from invoices where reservation_id = 123;

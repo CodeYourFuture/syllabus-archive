@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![Draft lesson](https://img.shields.io/badge/status-draft-darkred.svg)
 
 # JavaScript Core 7
 

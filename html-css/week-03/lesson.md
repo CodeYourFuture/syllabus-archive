@@ -1,8 +1,6 @@
+![Lesson in review](https://img.shields.io/badge/status-review-orange.svg)
+
 # HTML/CSS 3
-
-To Be Agreed
-
-![](https://img.shields.io/badge/status-draft-darkred.svg)
 
 ** What we will learn today?**
 
@@ -189,7 +187,8 @@ Forms provide tools for visitors to your webpage to interact by entering
 details, making selections or performing other actions. When you write an update
 on Facebook, you're entering a message into a form field, and "posting" that
 message to Facebook.
-![](http://files.www.gethifi.com/posts/html-forms/campaignmonitor.jpg)
+
+![An example web form](../assets/example_form.png)
 
 > **Exercise:** Read this guide on
 > [HTML forms](http://marksheet.io/html-forms.html). Then add a form to your new
@@ -203,8 +202,7 @@ message to Facebook.
 
 ## CSS processors
 
-Two of the most important principles of web development are to `avoid
-repetition` and aim for `reusability`. CSS is a fairly simple language, which is
+Two of the most important principles of web development are to `avoid repetition` and aim for `reusability`. CSS is a fairly simple language, which is
 perfect for small websites, but when left to its own devices ends up creating
 too much repetition.
 

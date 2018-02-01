@@ -401,7 +401,7 @@ error. What's going on?
 What we're seeing here is the effect of **scope**. Take a look at the following
 diagram:
 
-![Scope](./assets/scope_bubbles.png)
+![Scope](../assets/scope_bubbles.png)
 
 We can see from this picture that each function is like a 'bubble', and it has
 access to the variable assigned within it, and the variables assigned 'above'

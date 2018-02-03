@@ -48,10 +48,20 @@ https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 > **Exercise:** Continue editing the "Bike for refugees" website by adding 3 boxes below Jumbotron, and using Flexbox, make sure they are arranged like in the sketch below:
 <img src="assets/flexbox_practice.png">
-If you finish early, you can add some text in each box and position it in the middle of the box.
 
-> **Exercise:** Working independently, try to position the articles and images side-by-side under the "Upcoming Events" section. Use [this screenshot](assets/screenshot-complete.png) to guide you. If you get stuck, go ahead and ask your partner. Never be afraid to ask!
-Hint: you might need to create a container for the text pieces!
+You can start with something like the below, by just adding a container, and the 3 text pieces within it. Try to use flexbox to position the text elements within the container to match the picture:
+
+```html
+<div>  <!-- CONTAINER START -->
+   <div> Check availability </div>
+   <div> Donate bikes </div>
+   <div> Volunteer with us </div>
+</div> <!-- CONTAINER END -->
+```
+
+Once that's done you can move on to creating boxes for each individual text piece, and again, using flexbox to position the text piece in the middle of its box.
+
+--------
 
 Let's take a break from flexbox for a minute. Do you remember the `:first-child` psuedo class? There's a `:last-child` psuedo class as well.
 

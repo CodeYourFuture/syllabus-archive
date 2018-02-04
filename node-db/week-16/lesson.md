@@ -8,42 +8,38 @@
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
 * Escaping
-* Connecting SQL to your application.
 
-
-
-* Joins
-
-# LESSON 1.A: Why we need databases
+# LESSON 1A: Why we need databases
 
 So, in your previous lessons you have been taught how to store and retrieve data
 using files. This is fine and works well for some data - particularly simple data -
 but it can quickly cause issues with your data.
 
-For our first lesson we're going to break the code you did last week in a subtle
-way.
+TEACHER STORY:
 
-# EXERCISE 1 : Breaking your code with nulls
+Back in 2013 I used to work for a company that ran hotel wifi systems for five star hotels.
+We did Intercontinentals, Sheratons, Marriotts and a whole bunch of others. This company had been
+going for a long time and hails back to the times when wifi used to be very expensive.
 
-Start by checking out https://github.com/CodeYourFuture/cyf-hotel (branch - master?)
+The code for this system had the notion of "invoices", "wifi enrollments" and "guests" and
+stored data on each. We would store data on each and we would run reports on each and send them
+to the hotels who would use them to bill guests.
 
-Go to API end point for add reservation.
+All fine so far. Except we would sometimes send reports with invoices which didn't have enrollments,
+enrollments which didn't have guests. Sometimes the amounts on those invoices would rack up to
+tens even hundreds of thousands of dollars. Of invoices *without* customers.
 
-1. Take existing code that stores reservation as a JSON snippet with subkeys for customer and rooms.
+This was what the hotel managers looked like. [ GRUMPY CAT SLIDE ]
 
-2. Put in null for customer id and room id.
+This was a very, very serious problem. We were >.< this close to losing Marriott as a customer - and
+a large part of it was because of this.
 
-3. Try it out.
+This was a problem because our system was buggy, so we had what are generally called "data integrity"
+issues. Data integrity issues are like normal bugs except much, much worse. You can almost always fix
+a normal bug. For bad data the chances are you will *never* fix it.
 
-# EXERCISE 2 : What happened?
-
-1. What happened from the perspective of the *code*?
-
-2. What happened from the perspective of the *user*?
-
-3. What *should* happen when you enter invalid data into your programs?
-
-4. How should you make that happen?
+These lessons are about storing and retrieving data safely such that you won't have the same problems
+I did.
 
 
 # LESSON 1B : What is the point of an SQL database?
@@ -103,7 +99,7 @@ create table customers (
     surname varchar
 );
 
-insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump',);
+insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump');
 ```
 
 What we have here:
@@ -116,7 +112,9 @@ What we have here:
 
 Now, in the command prompt run the following:
 
-```sql
+```
+$ sqlite mydatabase.sqlite
+
 sqlite> .read hotel.sql
 ```
 
@@ -129,13 +127,15 @@ What to put on the *right* hand side (data retrieval):
 sqlite> select * from customers;
 ```
 
-Now that you've done all that, delete the mydatabase.sqlite file.
+Now that you've done all that, DELETE the mydatabase.sqlite file, run it again and make sure you get the same result again.
 
 ## EXERCISE 1C: Create tables and insert data
 
-1. Create the database again and add yourselves as *second* customer - so you're staying in a hotel with Donald Trump.
-2. Collect email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen.
-3. Add me - "Colm O'Conner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
+1. Create the database again with an amended hotel.sql and add yourselves as *second* customer using INSERT - so you're staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests. Then delete mydatabase.sqlite again.
+
+2. Change hotel.sql again to store email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen. Run select * and ensure you are both guests. Then delete mydatabase.sqlite again.
+
+3. Change hotel.sql again. Add teacher - "Colm OConner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
 
 ## LESSON 1D: Data types
 
@@ -180,7 +180,7 @@ The hotel manager has told you:
 - Reservations need a customer ID and a room ID
 - Reservations have a check in date, a check out date and a price per night.
 
-## LESSON 1E : Filtering
+## LESSON 1E : SELECT
 
 Currently we've just put data in to a table and gotten *all* of it out. What about if we only want *specific* data?
 
@@ -227,7 +227,7 @@ select * from invoices where reservation_id = 123;
 select * from invoices where invoice_date_time < '03/01/2017';
 ```
 
-## EXERCISE : Filtering
+## EXERCISE 1F : SELECT
 
 Write SQL for the following:
 
@@ -237,9 +237,9 @@ Write SQL for the following:
 
 3. Which invoices paid on 3rd January 2017 or after?
 
-## LESSON : Primary Keys
+## LESSON 1G : Primary Keys
 
-Ok, now we're going to introduce a problem. We're going to pretend that a secretary did this.
+Ok, now we're going to introduce a problem. Let's say a secretary types in a bunch of invoice IDs and values:
 
 ```sql
 create table invoices (
@@ -258,9 +258,7 @@ insert into invoices (reservation_id, total, invoice_date_time) values (123, 250
 select * from invoices;
 ```
 
-QUESTION FOR PERSON IN CLASS WHO LOOKS THE MOST CONFUSED : What is the problem here?
-
-So, a business calls up and says that they need to pay invoice 123. What happens?
+QUESTION FOR CLASS : What is the problem here? [ A business calls up and says they need to pay invoice 123 ]
 
 We solve this problem with something called a "primary key" - what this does is make it so the database will absolutely refuse to accept a number if you enter in a duplicate.
 
@@ -273,9 +271,13 @@ create table invoices (
 );
 
 insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017');
-
-insert into invoices (reservation_id, total, invoice_date_time) values (123, 250.50, '02/01/2017');
 ```
+
+Try entering an invoice with ID 123 now:
+
+sqlite> insert into invoices (reservation_id, total, invoice_date_time) values (123, 250.50, '02/01/2017');
+
+
 
 ```sql
 create table invoices (
@@ -292,17 +294,27 @@ insert into invoices (reservation_id, total, invoice_date_time) values (124, 250
 insert into invoices (reservation_id, total, invoice_date_time) values (999, 250.50, '03/01/2017');
 ```
 
-Quick fire question round for students who look most confused / not paying attention:
+Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
+identifier which you know can't be repeated. Usually arbitrary incrementing numbers are good,
+but they're not always ideal.
+
+
+QUESTION FOR CLASS:
 
 * Is first name a good candidate for a primary key?
 * Is first name and surname together a good candidate for a primary key?
-* Is a driver's license ID a good candidate for a primary key?
-* Is a passport ID a good candidate for a primary key?
+* Is a driver's license ID a good candidate for a primary key? [ if and only if everybody is from the same country ]
+* Is a passport ID a good candidate for a primary key? [ if and only if everybody is from europe ]
 * Is just coming up with an arbitrary number that is unique a good candidate for a primary key?
 
-Now, this is great, but we have another problem. When the hotel staff check the guest in they don't really want to think up a random number that hasn't been used before. Why not just let the database figure out what a good number to use is?
+## LESSON 1H: AUTOINCREMENTING PRIMARY KEYS
 
-For this we use autoincrement:
+We still have a problem here. Joe the office manager who is entering invoices doesn't really want to 
+keep coming up with random numbers every time he enters an invoice. Why not just get the database to give
+us an ID?
+
+We can do that with a magic feature called autoincrementing numbers. You don't specify the ID and the
+database will just give your row a new ID. What ID will it give it? The ID of the last row plus one.
 
 ```sql
 create table invoices (
@@ -317,28 +329,28 @@ insert into invoices (total, invoice_date_time, paid) values (143.50, '01/01/201
 insert into invoices (total, invoice_date_time) values (250.50, '02/01/2017');
 ```
 
-Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
-identifier which you know can't be repeated. Usually arbitrary incrementing numbers are good,
-but they're not always ideal.
+NOTE: the word 'autoincrement' and the lack of ID specified in the insert statement.
 
-## EXERCISE : Primary Keys
+## EXERCISE 1H : Primary Keys
 
 1. Recreate customer table with a primary key. Bear in mind that you don't have a driver's license or passport ID.
 
 2. Recreate reservations table with a primary key.
 
-## LESSON : Foreign keys
+## LESSON 1I : Foreign keys
+
+Now, as we've seen two tables that have an intrinsic relationship to one another. Every invoice has
+a reservation ID.
 
 
 ```sql
-
 create table reservations (
   `id`                    integer primary key autoincrement,
   `customer_id`           integer,
   `room_id`               integer,
   `check_in_date`         datetime not null,
   `checkout_out_date`,    datetime,
-  `room_price_per_night`  real,
+  `room_price_per_night`  real
 );
 
 create table invoices (
@@ -363,14 +375,14 @@ insert into invoices (reservation_id, total, invoice_date_time) values (124, 50,
 Point out that the reservation ID corresponds with the ID on the reservations table.
 
 ```sql
-insert into invoices (reservation_id, total, invoice_date_time) values (125, 50, '06/01/2017);
+sqlite> insert into invoices (reservation_id, total, invoice_date_time) values (125, 50, '06/01/2017);
 ```
 
-Question for class: what is the problem?
+QUESTION FOR CLASS: What's the problem with the last statement? 
 
 A: Invoice isn't going to get paid because we don't know who it's for.
 
-To fix this problem we place an additional restriction on the data - you can only add IDs that exist.
+To fix this problem we place an additional restriction on the data - you can only add IDs that *exist* to columns referencing other tables.
 
 
 ```sql
@@ -381,7 +393,7 @@ create table reservations (
   `room_id`               integer,
   `check_in_date`         datetime not null,
   `checkout_out_date`,    datetime,
-  `room_price_per_night`  real,
+  `room_price_per_night`  real
 );
 
 create table invoices (
@@ -394,112 +406,29 @@ create table invoices (
 
 ```
 
-## EXERCISE : Foreign keys
+## EXERCISE 1I : Foreign keys
 
-Add foreign key relationship for 
+1. Change the file to insert the data from above without IDs.
 
-## LESSON : Updating data
+2. Change the file to add foreign key relationship for reservations table and customers table.
 
-Fix misspelled name of teacher OConner.
+## LESSON 1J : Updating data
 
-## EXERCISE : Updating data
+Let's say that we made a mistake with one of the invoices created above.
 
-## LESSON : Joins
+First get the ID of an invoice entered earlier:
 
-## EXERCISE : Joins
-
-TODO : 
---------
-* Create table creates 
-
-Exercises:
-- CREATE TABLE Rooms
-- CREATE TABLE Customers
-
-### How to insert into a table
-```
-INSERT INTO Customer
+```sql
+sqlite> select * from invoices where invoice_date_time = '01/01/2017';
 ```
 
-Exercises:
-- INSERT INTO Room (with ID of 6)
-- INSERT INTO Reservation
+If you want to change this invoice to be £300, you need to use 'UPDATE'.
 
-** Add a couple of customers, some of which with the same name/other columns
-** Add Colm >> OConner << as one of the users
-
-### How to extract data
-
-Start with select from single table
-
-```
-SELECT * FROM Customer
+```sql
+sqlite> update invoices where id = [ ID FROM ABOVE ] set room_price_per_night = 300.0;
 ```
 
-Exercise:
-- SELECT on Reservation
-- SELECT on Room
+## EXERCISE 1J : Updating data
 
-
-#### Add the filtering
-
-```
-SELECT * FROM Customer WHERE something
-```
-
-Exercise:
-- SELECT AND WHERE ROOM price > 50
-- SELECT WHERE checkout date is between next thursday and sunday
-
-*** Filter by name so that we can highlight the name ambiguity ***
-
-*** Highlight the issue with multiple customers with the same name that cannot be distinguished properly when querying. ***
-
-
-#### Deal with name ambiguity
-
-- Remove existing table `DROP table`
-
-Q: how could we deal with this issue?
-
-A: Primary key to eliminate ambiguity
-
-E.g. Passports and Driver's lisences have unique ids, because people can have same names and even be born on the same day.
-
-We could in principle use one of these real unique identifiers, but they are not always available.
-
-- Add autoincrementing ids to solve the problem and recreate table.
-- Re-insert the same users
-
-
-Q: What makes a good primary key?
-
-A: passport, driver's lisence, auto generated identifiers
-
-### Update data
-
-We need to chane the data to fix misspelled name of Teacher. Colm. whose name is set originall in the databse to be be 'Oconner'
-
-```
-UPDATE Client set surname = 'O\'Connor' Client WHERE id = 1;
-```
-
-
-### Joining tables in SELECT
-
-
-// DIAGRAM WHEN WE EXPLAIN IT
-
-```
-SELECT * from Reservation JOIN Customer - reservations associated with customers
-```
-
-Exercise:
-- SELECT AND JOIN - reservations for a particular room
-- SELECT AND JOIN - mix join AND where
-
-As an exercise: SELECT AND JOIN - rooms associated with reservations
-
-
-
+1. Run SQL from lesson 1C where my surname was entered as OConner. My name is actually O'Connor. Fix it using 'UPDATE'.
 

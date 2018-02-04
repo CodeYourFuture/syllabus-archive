@@ -99,7 +99,7 @@ create table customers (
     surname varchar
 );
 
-insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump',);
+insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump');
 ```
 
 What we have here:
@@ -112,7 +112,9 @@ What we have here:
 
 Now, in the command prompt run the following:
 
-```sql
+```
+$ sqlite mydatabase.sqlite
+
 sqlite> .read hotel.sql
 ```
 
@@ -125,13 +127,15 @@ What to put on the *right* hand side (data retrieval):
 sqlite> select * from customers;
 ```
 
-Now that you've done all that, delete the mydatabase.sqlite file, run it again and make sure you get the same result again.
+Now that you've done all that, DELETE the mydatabase.sqlite file, run it again and make sure you get the same result again.
 
 ## EXERCISE 1C: Create tables and insert data
 
-1. Create the database again and add yourselves as *second* customer - so you're staying in a hotel with Donald Trump.
-2. Collect email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen.
-3. Add me - "Colm OConner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
+1. Create the database again with an amended hotel.sql and add yourselves as *second* customer using INSERT - so you're staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests. Then delete mydatabase.sqlite again.
+
+2. Change hotel.sql again to store email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen. Run select * and ensure you are both guests. Then delete mydatabase.sqlite again.
+
+3. Change hotel.sql again. Add teacher - "Colm OConner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
 
 ## LESSON 1D: Data types
 

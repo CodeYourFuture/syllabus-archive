@@ -8,8 +8,6 @@
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
 * Escaping
-* Connecting SQL to your application.
-* Joins
 
 # LESSON 1A: Why we need databases
 
@@ -31,7 +29,7 @@ All fine so far. Except we would sometimes send reports with invoices which didn
 enrollments which didn't have guests. Sometimes the amounts on those invoices would rack up to
 tens even hundreds of thousands of dollars. Of invoices *without* customers.
 
-This was what the hotel managers looked like.
+This was what the hotel managers looked like. [ GRUMPY CAT SLIDE ]
 
 This was a very, very serious problem. We were >.< this close to losing Marriott as a customer - and
 a large part of it was because of this.
@@ -127,13 +125,13 @@ What to put on the *right* hand side (data retrieval):
 sqlite> select * from customers;
 ```
 
-Now that you've done all that, delete the mydatabase.sqlite file.
+Now that you've done all that, delete the mydatabase.sqlite file, run it again and make sure you get the same result again.
 
 ## EXERCISE 1C: Create tables and insert data
 
 1. Create the database again and add yourselves as *second* customer - so you're staying in a hotel with Donald Trump.
 2. Collect email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen.
-3. Add me - "Colm O'Conner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
+3. Add me - "Colm OConner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
 
 ## LESSON 1D: Data types
 
@@ -178,7 +176,7 @@ The hotel manager has told you:
 - Reservations need a customer ID and a room ID
 - Reservations have a check in date, a check out date and a price per night.
 
-## LESSON 1E : Filtering
+## LESSON 1E : SELECT
 
 Currently we've just put data in to a table and gotten *all* of it out. What about if we only want *specific* data?
 
@@ -225,7 +223,7 @@ select * from invoices where reservation_id = 123;
 select * from invoices where invoice_date_time < '03/01/2017';
 ```
 
-## EXERCISE 1F : Filtering
+## EXERCISE 1F : SELECT
 
 Write SQL for the following:
 
@@ -406,7 +404,9 @@ create table invoices (
 
 ## EXERCISE 1I : Foreign keys
 
-Add foreign key relationship for reservations table and customers table.
+1. Change the file to insert the data from above without IDs.
+
+2. Change the file to add foreign key relationship for reservations table and customers table.
 
 ## LESSON 1J : Updating data
 
@@ -426,108 +426,5 @@ sqlite> update invoices where id = [ ID FROM ABOVE ] set room_price_per_night = 
 
 ## EXERCISE 1J : Updating data
 
-Run SQL from lesson 1C where my surname was entered as OConner. My name is actually O'Connor.
-
-Fix it using 'UPDATE'. 
-
-## LESSON 1K : Joins
-
-The lesson above shows 
-
-## EXERCISE 1K : Joins
-
-TODO : 
---------
-* Create table creates 
-
-Exercises:
-- CREATE TABLE Rooms
-- CREATE TABLE Customers
-
-### How to insert into a table
-```
-INSERT INTO Customer
-```
-
-Exercises:
-- INSERT INTO Room (with ID of 6)
-- INSERT INTO Reservation
-
-** Add a couple of customers, some of which with the same name/other columns
-** Add Colm >> OConner << as one of the users
-
-### How to extract data
-
-Start with select from single table
-
-```
-SELECT * FROM Customer
-```
-
-Exercise:
-- SELECT on Reservation
-- SELECT on Room
-
-
-#### Add the filtering
-
-```
-SELECT * FROM Customer WHERE something
-```
-
-Exercise:
-- SELECT AND WHERE ROOM price > 50
-- SELECT WHERE checkout date is between next thursday and sunday
-
-*** Filter by name so that we can highlight the name ambiguity ***
-
-*** Highlight the issue with multiple customers with the same name that cannot be distinguished properly when querying. ***
-
-
-## Deal with name ambiguity
-
-- Remove existing table `DROP table`
-
-Q: how could we deal with this issue?
-
-A: Primary key to eliminate ambiguity
-
-E.g. Passports and Driver's licenses have unique ids, because people can have same names and even be born on the same day.
-
-We could in principle use one of these real unique identifiers, but they are not always available.
-
-- Add autoincrementing ids to solve the problem and recreate table.
-- Re-insert the same users
-
-
-Q: What makes a good primary key?
-
-A: passport, driver's lisence, auto generated identifiers
-
-### Update data
-
-We need to chane the data to fix misspelled name of Teacher. Colm. whose name is set originall in the databse to be be 'Oconner'
-
-```
-UPDATE Client set surname = 'O\'Connor' Client WHERE id = 1;
-```
-
-
-### Joining tables in SELECT
-
-
-// DIAGRAM WHEN WE EXPLAIN IT
-
-```
-SELECT * from Reservation JOIN Customer - reservations associated with customers
-```
-
-Exercise:
-- SELECT AND JOIN - reservations for a particular room
-- SELECT AND JOIN - mix join AND where
-
-As an exercise: SELECT AND JOIN - rooms associated with reservations
-
-
-
+1. Run SQL from lesson 1C where my surname was entered as OConner. My name is actually O'Connor. Fix it using 'UPDATE'.
 

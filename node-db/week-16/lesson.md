@@ -29,7 +29,9 @@ All fine so far. Except we would sometimes send reports with invoices which didn
 enrollments which didn't have guests. Sometimes the amounts on those invoices would rack up to
 tens even hundreds of thousands of dollars. Of invoices *without* customers.
 
-This was what the hotel managers looked like. [ GRUMPY CAT SLIDE ]
+This was how the face of the hotel manager looked:
+
+![Hotel manager](grumpy-cat.jpg "Hotel manager's face")
 
 This was a very, very serious problem. We were >.< this close to losing Marriott as a customer - and
 a large part of it was because of this.

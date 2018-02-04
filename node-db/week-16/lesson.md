@@ -11,27 +11,16 @@
 * Connecting SQL to your application.
 * Joins
 
-# LESSON 1.A: Why we need databases
+# LESSON 1A: Why we need databases
 
 So, in your previous lessons you have been taught how to store and retrieve data
 using files. This is fine and works well for some data - particularly simple data -
 but it can quickly cause issues with your data.
 
-For our first lesson we're going to break the code you did last week in a subtle
-way.
-
-# EXERCISE 1 : Breaking your code with inconsistent data
-
-ASK STUDENTS : Who has implemented a working POST request on reservations or invoices and has made a POST request?
-
-Get student to check out cyf-hotel branch and make a post request to create one of them.
-
-Get student to post with a random customer ID on either reservation or invoice.
-
 TEACHER STORY:
 
 Back in 2013 I used to work for a company that ran hotel wifi systems for five star hotels.
-We did Marriotts, Intercontinentals, Sheratons and a whole bunch of others. This company had been
+We did Intercontinentals, Sheratons, Marriotts and a whole bunch of others. This company had been
 going for a long time and hails back to the times when wifi used to be very expensive.
 
 The code for this system had the notion of "invoices", "wifi enrollments" and "guests" and

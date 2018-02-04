@@ -8,5 +8,5 @@
 # Research
 
 1. [Closures](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)
-1. [*.call*, *.apply* and *.bind*](https://alexperry.io/personal/2016/04/03/How-to-use-apply-bind-and-call.html)
+1. [_.call_, _.apply_ and _.bind_](https://github.com/pezza3434/PersonalSite/blob/master/_posts/2016-04-03-How-to-use-apply-bind-and-call.markdown)
 1. [Higher-order functions](https://medium.com/functional-javascript/higher-order-functions-78084829fff4)

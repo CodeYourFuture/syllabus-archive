@@ -1,3 +1,5 @@
+![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
+
 # HTML/CSS 1
 
 **What will we learn today?**
@@ -11,7 +13,7 @@
 
 ## What makes a web page?
 
-![What makes a web page](assets/webpage-parts.png)
+![What makes a web page](../assets/webpage-parts.png)
 
 **Separation of Concerns:** In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)
 

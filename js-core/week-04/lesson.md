@@ -1,6 +1,6 @@
-# JavaScript Core 1
+![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
 
-![](https://img.shields.io/badge/status-ready-green.svg)
+# JavaScript Core 1
 
 **What we will learn today?**
 
@@ -39,16 +39,16 @@ A note on security: don't execute a script on your terminal if you don't
 trust its source, especially if they use the `sudo` command to get admin
 access to your machine.
 
-1. To test that it was installed and that it's running properly, go to your 
- terminal and run the command: `node -v` You should get the node version printed 
- on your terminal, for example, `v8.9.3`
+1. To test that it was installed and that it's running properly, go to your
+   terminal and run the command: `node -v` You should get the node version printed
+   on your terminal, for example, `v8.9.3`
 
-1. Fork the 
- [JS-Core-1-Exercises](https://github.com/CodeYourFuture/JS-Core-1-Exercises) 
- repository and **Clone** it locally.
+1. Fork the
+   [JS-Core-1-Exercises](https://github.com/CodeYourFuture/JS-Core-1-Exercises)
+   repository and **Clone** it locally.
 
-1. Once you have the repo locally, go to the folder on your terminal and run 
-  `node main.js`
+1. Once you have the repo locally, go to the folder on your terminal and run
+   `node main.js`
 
 You should get **Hello World** printed on your Terminal.
 

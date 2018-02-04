@@ -1,12 +1,13 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![Draft lesson](https://img.shields.io/badge/status-draft-darkred.svg)
 
 # JavaScript Core 7
 
 **What we will learn today?**
 
-* Objects Again
-  * Value Vs reference types
-* Scope
+* [Debugging](#debugging)
+* [Objects vs Arrays](#objects-vs-arrays)
+* [Value vs Reference Types](#value-vs-reference-types)
+* [Scope](#scope)
 
 ---
 
@@ -17,13 +18,13 @@
 
 ```js
 for (var i = 10; i < 100; i = i + 10) {
-    if (i > 50) {
-        console.log("That's big")
-    } else if (i > 100) {
-        console.log("Winner winner chicken dinner")
-    } else {
-        console.log(i)
-    }
+  if (i > 50) {
+    console.log("That's big");
+  } else if (i > 100) {
+    console.log("Winner winner chicken dinner");
+  } else {
+    console.log(i);
+  }
 }
 ```
 
@@ -34,19 +35,14 @@ for (var i = 10; i < 100; i = i + 10) {
 e.g.  
 i=1 log 1  
 i=2 log 2  
-i=3 log Fizz  
+i=3 log Fizz
 
 ```js
-for (var i=1; i < 20; i++)
-{
-    if (i % 15 == 0)
-        console.log("FizzBuzz");
-    else if (i % 3 == 0)
-        console.log("Fizz");
-    else if (i % 5 == 0)
-        console.log("Buzz");
-    else
-        console.log(i);
+for (var i = 1; i < 20; i++) {
+  if (i % 15 == 0) console.log("FizzBuzz");
+  else if (i % 3 == 0) console.log("Fizz");
+  else if (i % 5 == 0) console.log("Buzz");
+  else console.log(i);
 }
 ```
 
@@ -56,7 +52,7 @@ for (var i=1; i < 20; i++)
 > **Exercise:** Play with Chrome dev tools  
 > Open the devToolsExample.html on your own computers, add a break point and check the variables.
 
-# Objects Again
+# Objects Revisited
 
 ## Objects vs Arrays
 
@@ -257,16 +253,20 @@ practically infinite sizes, so when you assign a reference type to a variable,
 that variable will hold a reference to it only: an identifier which will tell
 our program where to look for that object in memory.
 
-![Memory assignment](assets/stack_heap.png)
+![Memory assignment](../assets/stack_heap.png)
 
 ## Pass by value / reference
 
 Consider the example below.
 
 ```js
-function addFive(value) { value = value + 5; }
+function addFive(value) {
+  value = value + 5;
+}
 
-var ten = 10; addFive(ten); console.log(ten);
+var ten = 10;
+addFive(ten);
+console.log(ten);
 ```
 
 We have a function that accepts a value as an argument. The function then adds five to the
@@ -289,17 +289,16 @@ else we use a reference to that object.
 For example:
 
 ```js
-
 function a(primitive, object) {
-    primitive = primitive + 5;
-    object.greeting = "how are you?";
-    object = {
-      greeting: "holla!"
-    };
+  primitive = primitive + 5;
+  object.greeting = "how are you?";
+  object = {
+    greeting: "holla!"
+  };
 }
 var primitive = 10;
 var object = {
-  greeting: 'hello'
+  greeting: "hello"
 };
 a(primitive, object);
 console.log(primitive); // 10
@@ -402,7 +401,7 @@ error. What's going on?
 What we're seeing here is the effect of **scope**. Take a look at the following
 diagram:
 
-![Scope](./assets/scope_bubbles.png)
+![Scope](../assets/scope_bubbles.png)
 
 We can see from this picture that each function is like a 'bubble', and it has
 access to the variable assigned within it, and the variables assigned 'above'

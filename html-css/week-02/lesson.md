@@ -1,6 +1,6 @@
-# HTML/CSS 2
+![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
 
-![](https://img.shields.io/badge/status-ready-green.svg)
+# HTML/CSS 2
 
 **What will we learn today?**
 
@@ -76,7 +76,7 @@ children [here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 > boxes below Jumbotron, and using Flexbox, make sure they are arranged like in
 > the sketch below:
 
-![](../assets/flexbox_practice.png)
+![Bikes for Refugees page sketch](../assets/flexbox_practice.png)
 
 If you finish early, you can add some text in each box and position it in the
 middle of the box.

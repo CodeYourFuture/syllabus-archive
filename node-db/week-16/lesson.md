@@ -29,7 +29,9 @@ All fine so far. Except we would sometimes send reports with invoices which didn
 enrollments which didn't have guests. Sometimes the amounts on those invoices would rack up to
 tens even hundreds of thousands of dollars. Of invoices *without* customers.
 
-This was what the hotel managers looked like. [ GRUMPY CAT SLIDE ]
+This was how the face of the hotel manager looked:
+
+![Hotel manager](grumpy-cat.jpg "Hotel manager's face")
 
 This was a very, very serious problem. We were >.< this close to losing Marriott as a customer - and
 a large part of it was because of this.
@@ -131,7 +133,7 @@ Now that you've done all that, DELETE the mydatabase.sqlite file, run it again a
 
 ## EXERCISE 1C: Create tables and insert data
 
-1. Create the database again with an amended hotel.sql and add yourselves as *second* customer using INSERT - so you're staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests. Then delete mydatabase.sqlite again.
+1. Amend hotel.sql create the database again and add yourselves as *second* customer using INSERT - so you're now staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests. Then delete mydatabase.sqlite again.
 
 2. Change hotel.sql again to store email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen. Run select * and ensure you are both guests. Then delete mydatabase.sqlite again.
 
@@ -160,7 +162,7 @@ sqlite>  select * from invoices
 
 What we have here:
 
-* An 'integer', a 'number', a 'datetime' and a boolean. These are all analogous to data types which you have learned about in javascript but there are sometimes subtle differences that you need to be wary of.
+* An 'integer', a 'number', a 'datetime' and a boolean. These are all analogous to data types which you have learned about in javascript but there are sometimes subtle differences that you will eventually run in to.
 
 * For "paid" which is either yes or no - we have a default of 'no' - it's saying that if you insert data and don't specify 'paid' as a column when you INSERT data, it will assume you meant 'no'.
 
@@ -295,8 +297,7 @@ insert into invoices (reservation_id, total, invoice_date_time) values (999, 250
 ```
 
 Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
-identifier which you know can't be repeated. Usually arbitrary incrementing numbers are good,
-but they're not always ideal.
+identifier which you know will always be *unique*.
 
 
 QUESTION FOR CLASS:

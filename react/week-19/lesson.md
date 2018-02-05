@@ -188,7 +188,7 @@ class HelloWorld extends React.Component {
 }
 ```
 
-Like Handlebars, you can insert variables into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as regular JavaScript. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example:
+Like Handlebars, you can insert variables into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as regular JavaScript. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
 
 ```js
 class Mentor extends React.Component {
@@ -227,7 +227,7 @@ function formatName(user) {
 > 3. Replace the `header` with a usage of the new `Logo` component
 > 4. Replace the `p` with a message saying that there are bookings available for today's date (hint `new Date().toLocaleDateString()`)
 > 5. Create a new component `SpecialDeals` and render an empty `div`
-> 6. Within the `SpecialDeals` components, use an array containing some special deal strings and render each one as a `<p>`
+> 6. Within the `SpecialDeals` components, use an array containing some special deal strings and render each one as a `<p>` within the `div`
 
 ## Importing/Exporting Components
 
@@ -249,3 +249,11 @@ class HelloWorld extends React.Component {
     }
 }
 ```
+
+> **Exercise**:
+> Using the `my-hotel` app, edit `src/App.js` to extract the `Logo` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
+> Hint: you may need to import React
+
+# Homework
+
+{% include "./homework.md" %}

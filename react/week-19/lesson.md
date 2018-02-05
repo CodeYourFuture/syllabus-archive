@@ -258,6 +258,10 @@ class HelloWorld extends React.Component {
 > Using the `my-hotel` app, edit `src/App.js` to extract the `Logo` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
 > Hint: you may need to import React
 
+#### Credits
+
+Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course on Egghead.io.
+
 # Homework
 
 {% include "./homework.md" %}

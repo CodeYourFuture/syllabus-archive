@@ -6,6 +6,10 @@
 
 - [What is React?](#what-is-react)
 - [What is a component?](#what-is-a-component)
+- [Rendering with React](#rendering-with-react)
+- [JSX](#jsx)
+- [Let's Create a React App](#lets-create-a-react-app)
+- [React Components](#react-components)
 
 ## What is React?
 

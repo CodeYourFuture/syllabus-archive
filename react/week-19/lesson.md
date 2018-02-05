@@ -205,6 +205,21 @@ Now we have modified the `Mentor` component to use the `Array.join` method so th
 <span>{1 + 2 + 3}</span>
 ```
 
+```js
+const weather = {
+    temperature: 5,
+    location: 'London'
+}
+<p>The temperature in {weather.location} is {weather.temperature}</p>
+```
+
+```js
+function formatName(user) {
+    return user.firstName + ' ' + user.lastName
+}
+<span>{formatName(user)}</span>
+```
+
 > **Exercise**:
 > Using the `my-hotel` React app that you created earlier, edit `src/App.js` to create a hotel welcome page.
 > 1. Change the title to say "Welcome to CYF Hotel" and change the `img` to have `src="https://codeyourfuture.io/static/media/cyf_brand.fbcea877.png"`

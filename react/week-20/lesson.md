@@ -1,6 +1,16 @@
+# React 2
+
+![](https://img.shields.io/badge/status-draft-darkred.svg)
+
+**What will we learn today?**
+
+- Props
+- Reacting to Changes
+- State
+
 ## Reacting to Changes
 
-MOVE THIS TO STATE LESSON?
+DO WE WANT TO MOVE THIS TO FIRST LESSON?
 WANTED TO INCLUDE IT EARLY IF POSSIBLE BECAUSE IT DEMOS VIRTUAL DOM
 
 Now let's write a more interesting app that responds to some user input. We'll see how React will take care of updating the DOM for you.

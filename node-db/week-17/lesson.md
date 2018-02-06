@@ -1,22 +1,40 @@
 # LESSON 2: LINKING JAVASCRIPT AND SQL
 
+**Review of last lesson**
+
+What we did last lesson:
+
+* Why we need databases
+* Installing SQLite
+* Creating a database with SQL and storing data in it.
+* Inserting data into a database using SQL.
+* Retrieving data from a database using SQL.
+* Escaping
+
+Homework:
+
+![Hotel ER diagram](hotel-er-diagram.png "Hotel ER diagram")
+
+- Did everybody finish hotel.sql so that it looks like the above diagram?
+- 
+- About those foreign key constraints that weren't being enforced on SQLite
+- review the concept of Foreign keys
+- review the schema for everybody
+- review if they have enough interesting data
+
 **What we will learn today?**
 
-* How to install and run SQLite in node on your machine - setting up an environment.
+- Checking out a project and adding hotel.sql to the repo
+* How to install and run SQLite in node on your machine - setting up a development environment.
 * How to read documentation (specifically: node-sqlite's documentation)
 * How to run a database query that retrieves tabular data in node express to an endpoint.
 * Inserting data from an endpoint.
 * Updating data from an endpoint.
+* Handling unclear specifications.
 
-This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. But with all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now.
+This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Marriott hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
 
 Use `/server/class2.js` for the exercises of this class.
-
-### Reviewing the last class and the homework
-- review the concept of Foreign keys
-- review the schema for everybody
-- review if they have enough interesting data
-- add file
 
 
 ### Setting up the environment
@@ -25,7 +43,9 @@ Use `/server/class2.js` for the exercises of this class.
 
 You have already worked with back end servers using Express. This is just another yet another one, that we will be connecting to a database.
 
-In order for us to interact with the server, we are going to use [Postman](https://www.getpostman.com/), as an alternative to the browser. This will make things easier when we need to execute POST, PUT or DELETE requests. We will also be able to save the requests in order to execute them again, making things are still working when we change change the server.
+In order for us to interact with the server, we are going to use [Postman](https://www.getpostman.com/), which will accurately mimic API calls made from react. In the last three lessons you're going to make react do to this back end what postman is going to do today.
+
+We're going to use it for debugging. Can anybody tell me what debugging is?
 
 ![postman-get-1](client-postman-server.jpg)
 
@@ -38,14 +58,43 @@ Now let us all try Postman by GETting from `http://localhost:8080/api/customers`
 
 ### Revisiting SQL
 
-How to get data from the database?
+How did we get data from the database?
 
-### Exercise 0
+### LESSON 1A
+
 **User Story:** As a staff member, I want to be able to view a list of customers so that I can see who has visited our hotel.
 
 Remove the code that is returning a JSON object on end point `/customers`, and use what you have learned about to SQL to fill in the query that fetches all the customers from the database.
 
 - select everything
+
+```javascript
+router.get('/customers', function(req, res) {
+  res.status(200).json({
+    customers: [{
+      id: 2,
+      title: 'Mr',
+      firstname: 'Laurie',
+      surname: 'Ainley',
+      email: 'laurie@ainley.com'
+    }
+  ]});
+})
+```
+
+Who can tell me what this is currently doing?
+
+```javascript
+router.get('/customers', function(req, res) {
+  res.status(200).json({
+ var sql = 'select * from customers';
+
+ db.all(sql, [], (err, rows ) => {
+   res.status(200).json({
+     customers: rows
+   });
+ });
+});
 
 
 ### Exercise 1
@@ -172,18 +221,6 @@ Task 2: Find and read /customers API and figure out which SQL query to use there
 Task 3: Read documentation carefully https://github.com/mapbox/node-sqlite3/wiki/API#databaseallsql-param--callback
 
 Task 4: Read code again.
-
-router.get('/customers', function(req, res) {
-   res.status(200).json({
-     customers: [{
-       id: 2,
-       title: 'Mr',
-       firstname: 'Laurie',
-       surname: 'Ainley',
-       email: 'laurie@ainley.com'
-     }
-   ]});
-})
 
 
 ^ Q FOR STUDENTS: TURN THIS INTO DB

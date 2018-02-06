@@ -47,6 +47,8 @@ In order for us to interact with the server, we are going to use [Postman](https
 
 We're going to use it for debugging. Can anybody tell me what debugging is?
 
+![Debugging](debugging.jpg "Debugging")
+
 ![postman-get-1](client-postman-server.jpg)
 
 **Task** Download and install [Postman](https://www.getpostman.com/).
@@ -82,43 +84,45 @@ router.get('/customers', function(req, res) {
 })
 ```
 
-Who can tell me what this is currently doing?
+Who can tell me what this is currently doing? What do we need to make it do?
+
+So, the answer is here:
 
 ```javascript
 router.get('/customers', function(req, res) {
   res.status(200).json({
- var sql = 'select * from customers';
-
- db.all(sql, [], (err, rows ) => {
-   res.status(200).json({
-     customers: rows
-   });
- });
+    db.all(sql, [], (err, 'select * from customers' ) => {
+      res.status(200).json({
+        customers: rows
+      });
+    });
+  });
 });
-
+```
 
 ### Exercise 1
+
 **User Story:** As a staff member I need to check the details of a given customer given its id.
 
-Complete the end-point `/customers/:id`, so that it extracts that customer information from the database, and replies back with that information as JSON.
+**User Acceptance test**: Complete the end-point `/customers/:id`, so that it extracts that customer information from the database, and replies back with that information as JSON.
 
 - select and filter by id
+- hint: simple select and filter by ID
 
 
 ### Exercise 2
 **User Story:** As a staff member I want to search for a customer through its `surname`, but we don't know that it might be misspelled.
 
-Complete the end-point `/customers/:surname`, so that it extracts that customer information from the database, and replies back with that information as JSON. Consider using `like` instead of `=` to filter the customers.
+**User Acceptance test**: Complete the end-point `/customers/:surname`, so that it extracts that customer information from the database, and replies back with that information as JSON.
 
 - select and filter through like
+- hint: google for select and the "like" keyword
 
 
 ### Exercise 3
 **User Story:** As a guest, I want to register my details in the system so that I can check availability for my stay.
 
-Take the data being POSTed to the `/customers` endpoint and insert it into the database.
-
-- insert into
+**User Acceptance test**: Take the data being POSTed to the `/customers` endpoint and insert it into the database.
 
 
 ### Exercise 4
@@ -129,6 +133,8 @@ Take the data being PUTed to the `/customers/:id` endpoint and update the corres
 Note that the end-point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
 
 - update table
+- remember your previous lesson
+- hint: in the javascript code, instead of .all() you will need ... what? 
 
 
 
@@ -137,8 +143,7 @@ Note that the end-point should properly detect which customer properties are bei
 
 Create an end-point to get from `/reservations` all existing reservations.
 
-- simple select
-- create the enpoint from scratch
+- create the endpoint from scratch
 
 
 ### Exercise 5.b

@@ -16,7 +16,7 @@ Homework:
 ![Hotel ER diagram](hotel-er-diagram.png "Hotel ER diagram")
 
 - Did everybody finish hotel.sql so that it looks like the above diagram?
-- 
+-
 - About those foreign key constraints that weren't being enforced on SQLite
 - review the concept of Foreign keys
 - review the schema for everybody
@@ -134,7 +134,7 @@ Note that the end-point should properly detect which customer properties are bei
 
 - update table
 - remember your previous lesson
-- hint: in the javascript code, instead of .all() you will need ... what? 
+- hint: in the javascript code, instead of .all() you will need ... what?
 
 
 
@@ -211,6 +211,13 @@ Create and endpoint `/detailed-invoices` from where we can get the list of invoi
 Update the exercies 5.* to retreieve the information of the rooms and customers as well.
 
 
+### Exercise 8.b
+**User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
+
+Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
+
+
+///////////////////////////////////////////
 Task 1: Add SQLITE dependency:
 
 

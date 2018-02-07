@@ -137,7 +137,6 @@ Note that the end-point should properly detect which customer properties are bei
 - hint: in the javascript code, instead of .all() you will need ... what?
 
 
-
 ### Exercise 5.a
 **User Story:** As a staff member, I want to get a list of all the existing reservations.
 
@@ -171,7 +170,6 @@ Create and end-point to get from `/reservations/active-on/:date` all the reserva
 
 - multiple filtering.
 - create the enpoint from scratch
-
 
 
 ### Exercise 6
@@ -268,14 +266,3 @@ Task 3: Implement
 ## DELETE RESERVATION
 
 ## UPDATE CUSTOMER
-
-
-SELECT inside code
-
-INSERT inside code
-
-
-HOMEWORK
---------
-
-Add tons of data using the web front end.

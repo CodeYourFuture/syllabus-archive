@@ -59,11 +59,7 @@ Now let us all try Postman by GETting from `http://localhost:8080/api/customers`
 ![postman-get-1](postman-get-1.png)
 
 
-### Revisiting SQL
-
-How did we get data from the database?
-
-### LESSON 1A
+### LESSON 1: SELECT ALL THE THINGS!
 
 **User Story:** As a staff member, I want to be able to view a list of customers so that I can see who has visited our hotel.
 
@@ -115,34 +111,67 @@ router.get('/customers', function(req, res) {
 - hint: simple select and filter by ID
 
 
-### Exercise 2
+### LESSON 2 : LIKE, WHATEVER
+
+So, now we're going to deal with one of the most common issues with hotel databases: the guest's name being misspelled.
+
+So, "Hilary Clinten" is added to the database. She calls up on the phone asking about her reservation and spells her name correctly on the phone. The hotel staff knows what *some of her name* sounds like but not all of it and they want to find her as a customer on the system.
+
+For this problem where we want to search in *part* of a string we use the LIKE command:
+
+```sql
+select * from customers where surname like '%lint%';
+```
+
+This returns all of the customers who have the name 'lint' in their names.
+
+```sql
+select * from customers where surname like '%clint%';
+```
+
+This won't return anything at all. Why not?
+
+```sql
+select * from customers where surname ilike '%clint%';
+```
+
+This will. Why?
+
+### EXERCISE 2
+
 **User Story:** As a staff member I want to search for a customer through its `surname`, but we don't know that it might be misspelled.
 
 **User Acceptance test**: Complete the end-point `/customers/:surname`, so that it extracts that customer information from the database, and replies back with that information as JSON.
 
 - select and filter through like
-- hint: google for select and the "like" keyword
 
+### EXERCISE 3
 
-### Exercise 3
 **User Story:** As a guest, I want to register my details in the system so that I can check availability for my stay.
 
-**User Acceptance test**: Take the data being POSTed to the `/customers` endpoint and insert it into the database.
+**User Acceptance test**: Take the data being POSTed to the `/customers` endpoint check it is inserted into the database.
 
 
-### Exercise 4
+### EXERCISE 4
+
 **User Story:** As a guest, I noticed that there is a typo on my details and wish to correct it.
+
+**Use Case**: I go to '/customers/:id' endpoint and send updated data for each customer parameter: title, firstname, surname.
+
+**User acceptance test**: PUT title=mr, firstname=donald, surname=trump on /customers/:id
 
 Take the data being PUTed to the `/customers/:id` endpoint and update the corresponding entry on the database.
 
-Note that the end-point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
 
 - update table
 - remember your previous lesson
 - hint: in the javascript code, instead of .all() you will need ... what?
 
 
+### EXERCISE 4 : STRETCH GOAL
 
+
+Note that the end-point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
 
 
 ### Exercise 6
@@ -193,7 +222,7 @@ Create and endpoint to get from `/reservations/details-between/:from_day/:to_day
 
 
 
-### Homework 5.a
+### HOMEWORK 1A
 **User Story:** As a staff member, I want to get a list of all the existing reservations.
 
 Create an end-point to get from `/reservations` all existing reservations.
@@ -201,7 +230,7 @@ Create an end-point to get from `/reservations` all existing reservations.
 - create the endpoint from scratch
 
 
-### Homework 5.b
+### HOMEWORK 1B
 **User Story:** As a customer, I want to check the details of a reservation.
 
 Create and end-point to get from `/reservations/:id` the details of a resrevation through its `id`.
@@ -210,7 +239,7 @@ Create and end-point to get from `/reservations/:id` the details of a resrevatio
 - create the enpoint from scratch
 
 
-### Homework 5.c
+### HOMEWORK 1C
 **User Story:** As a staff member, I want to get a list of all the reservations that start at a given date.
 
 Create and end-point to get from `/reservations/starting-on/:startDate` all the reservations that start at a given date.
@@ -219,7 +248,7 @@ Create and end-point to get from `/reservations/starting-on/:startDate` all the 
 - create the enpoint from scratch
 
 
-### Homework 5.d
+### HOMEWORK 1D
 **User Story:** As a staff member, i want to get a list of all the reservations that are active at a given date.
 
 Create and end-point to get from `/reservations/active-on/:date` all the reservations that are active on a given date - some customer has a room reserved on that day.

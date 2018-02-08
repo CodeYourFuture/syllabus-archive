@@ -15,6 +15,7 @@ Homework:
 
 ![Hotel ER diagram](hotel-er-diagram.png "Hotel ER diagram")
 
+- did you do update?
 - Did everybody finish hotel.sql so that it looks like the above diagram?
 -
 - About those foreign key constraints that weren't being enforced on SQLite
@@ -71,6 +72,10 @@ Remove the code that is returning a JSON object on end point `/customers`, and u
 - select everything
 
 ```javascript
+const filename = './database/database.sqlite';
+const sqlite3    = require('sqlite3').verbose();
+let db = new sqlite3.Database(filename);
+
 router.get('/customers', function(req, res) {
   res.status(200).json({
     customers: [{
@@ -137,39 +142,7 @@ Note that the end-point should properly detect which customer properties are bei
 - hint: in the javascript code, instead of .all() you will need ... what?
 
 
-### Exercise 5.a
-**User Story:** As a staff member, I want to get a list of all the existing reservations.
 
-Create an end-point to get from `/reservations` all existing reservations.
-
-- create the endpoint from scratch
-
-
-### Exercise 5.b
-**User Story:** As a customer, I want to check the details of a reservation.
-
-Create and end-point to get from `/reservations/:id` the details of a resrevation through its `id`.
-
-- simple filtering
-- create the enpoint from scratch
-
-
-### Exercise 5.c
-**User Story:** As a staff member, I want to get a list of all the reservations that start at a given date.
-
-Create and end-point to get from `/reservations/starting-on/:startDate` all the reservations that start at a given date.
-
-- simple filtering
-- create the enpoint from scratch
-
-
-### Exercise 5.d
-**User Story:** As a staff member, i want to get a list of all the reservations that are active at a given date.
-
-Create and end-point to get from `/reservations/active-on/:date` all the reservations that are active on a given date - some customer has a room reserved on that day.
-
-- multiple filtering.
-- create the enpoint from scratch
 
 
 ### Exercise 6
@@ -215,54 +188,41 @@ Update the exercies 5.* to retreieve the information of the rooms and customers 
 Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
 
 
-///////////////////////////////////////////
-Task 1: Add SQLITE dependency:
 
 
-const filename = './database/database.sqlite';
-const sqlite3    = require( 'sqlite3' ).verbose();
-
-// open the database
-let db = new sqlite3.Database(filename);
 
 
-Task 2: Find and read /customers API and figure out which SQL query to use there (select * from customers)
 
-Task 3: Read documentation carefully https://github.com/mapbox/node-sqlite3/wiki/API#databaseallsql-param--callback
+### Homework 5.a
+**User Story:** As a staff member, I want to get a list of all the existing reservations.
 
-Task 4: Read code again.
+Create an end-point to get from `/reservations` all existing reservations.
+
+- create the endpoint from scratch
 
 
-^ Q FOR STUDENTS: TURN THIS INTO DB
+### Homework 5.b
+**User Story:** As a customer, I want to check the details of a reservation.
 
-Task 4: Implement!
+Create and end-point to get from `/reservations/:id` the details of a resrevation through its `id`.
 
-Task 5: Get all the reservations
+- simple filtering
+- create the enpoint from scratch
 
-Task 6: Get all the rooms
 
-## USING PARAMETERS
+### Homework 5.c
+**User Story:** As a staff member, I want to get a list of all the reservations that start at a given date.
 
-Add endpoint for look up reservations by room number
+Create and end-point to get from `/reservations/starting-on/:startDate` all the reservations that start at a given date.
 
-Task 1: Figure out the SQL statement required to look up reservations by room number.
+- simple filtering
+- create the enpoint from scratch
 
-Task 2: Read documentation again for #all
 
-Task 3: Implement
+### Homework 5.d
+**User Story:** As a staff member, i want to get a list of all the reservations that are active at a given date.
 
-## USING PARAMETERS DO DATES
+Create and end-point to get from `/reservations/active-on/:date` all the reservations that are active on a given date - some customer has a room reserved on that day.
 
-## DOING INSERT (ADD NEW CUSTOMER)
-
-Task 1: Figure out which INSERT statement to do.
-
-Task 2: Read https://github.com/mapbox/node-sqlite3/wiki/API#databaserunsql-param--callback
-
-Task 3: Implement
-
-## DOING INSERT (RESERVE ROOM)
-
-## DELETE RESERVATION
-
-## UPDATE CUSTOMER
+- multiple filtering.
+- create the enpoint from scratch

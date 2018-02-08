@@ -129,9 +129,18 @@ router.get('/customers', function(req, res) {
 
 **User Acceptance test**: Take the data being POSTed to the `/customers` endpoint and insert it into the database.
 
+**Notes on Postman**
+
+In the next image you an exaple of a Postman screenshot for a POST request. Highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
+![postman-get-1](postman-post-1.png)
+
 
 ### Exercise 4
 **User Story:** As a guest, I noticed that there is a typo on my details and wish to correct it.
+
+**Notes on Postman**
+The set up for a PUT request is virtually the same as the previous one. Only the type of request is PUT instead of POST. See example bellow.
+![postman-get-1](postman-put-1.png)
 
 Take the data being PUTed to the `/customers/:id` endpoint and update the corresponding entry on the database.
 
@@ -142,9 +151,6 @@ Note that the end-point should properly detect which customer properties are bei
 - hint: in the javascript code, instead of .all() you will need ... what?
 
 
-
-
-
 ### Exercise 6
 **User Story:** As a staff member, I want to create a new reservation.
 
@@ -152,6 +158,19 @@ Create and end-point to post a new reservation to `/reservations/`.
 
 - insert into
 - create the enpoint from scratch
+
+
+### Exercise
+**User Story:** As a staff member, I want to delete a canceled reservation from the database.
+
+
+**Notes on Postman**
+The delete request is actually pretty straight forward. We only need to select the type and provide the url:
+![postman-get-1](postman-delete-1.png)
+
+Create an end-point to delete a given reservation from `/reservation/:id/`.
+
+- delete
 
 
 ### Joining 2 tables

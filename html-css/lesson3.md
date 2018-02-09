@@ -28,7 +28,7 @@ Did you know there are other open-source HTML/CSS frameworks you can try? Two po
 
 ## Personal Websites
 
-Over the last two weeks, you've been building personal websites as part of your homework. Now we want you to take those websites and apply the knowledge you've learned to make them as good as you can. You can:
+Over the last two weeks, you've been building personal websites as part of your homework. Now we want you to take those websites and apply the knowledge you've learned to make them as good as you can. Some ideas:
 
 - Add [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) to your site and use some of the components.
 - Use re-usable class names to reduce your CSS code.

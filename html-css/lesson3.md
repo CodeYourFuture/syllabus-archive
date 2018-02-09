@@ -1,12 +1,12 @@
 # HTML/CSS 3
-- Design frameworks
-- Bootstrap 4 and HTML/CSS frameworks
-- HTML forms
+- HTML/CSS frameworks
+- Bootstrap 4
 - Git branching and pull requests
-- Naming patterns (OOCSS, BEM)
+- Personal Websites
+- Retrospective
 ---
 
-## Design Frameworks
+## HTML/CSS Frameworks
 
 A design framework is a collection of re-usable code snippets which you can use to build a website. It is sometimes called a "design system", "style guide", or "pattern library", and will usually consist of three things:
 
@@ -16,113 +16,43 @@ A design framework is a collection of re-usable code snippets which you can use 
 
 The main goals of a design framework are to ensure design consistency and avoid writing the same code twice.
 
-The BBC's Global Experience Language is a design framework. It calls it's components [design patterns](http://www.bbc.co.uk/gel/guidelines/category/design-patterns) and in the [foundations](http://www.bbc.co.uk/gel/guidelines/category/foundations) section you'll find discussion of layouts and typography.
+## Bootstrap 4
 
-> **Exercise:** Look at the [Promos](http://www.bbc.co.uk/gel/guidelines/promos) design pattern. As a group, let's try to name all the parts of a Promo that we'll need to consider when designing the component? Now do the same with the [Carousel](http://www.bbc.co.uk/gel/guidelines/carousel) pattern.
-
-## Open-source HTML/CSS/JS Frameworks
-
-[Bootstrap](https://v4-alpha.getbootstrap.com/) and [Foundation](http://foundation.zurb.com/) are popular examples of open-source HTML/CSS/JS frameworks. They help you construct your own design framework by providing a number of re-usable components that are common for web applications.
-
-Bootstrap is CSS and JavaScript code that we [load in our HTML pages](https://v4-alpha.getbootstrap.com/getting-started/introduction/). Bootstrap's documentation describes how to write HTML code that fits the Bootstrap components, including a [grid layout](https://v4-alpha.getbootstrap.com/layout/grid/) as well as several [components](https://v4-alpha.getbootstrap.com/components/alerts/).
+[Bootstrap](https://getbootstrap.com/) is CSS and JavaScript code that we [load in our HTML pages](https://getbootstrap.com/docs/4.0/getting-started/introduction/). Bootstrap's documentation describes how to write HTML code that fits the Bootstrap components, including a [grid layout](https://getbootstrap.com/docs/4.0/layout/grid/) as well as several [components](https://getbootstrap.com/docs/4.0/components/alerts/).
 
 > **Exercise:** Fork [this repository](https://github.com/NateWr/groupstrap) and follow the instructions in the [readme](https://github.com/NateWr/groupstrap) to create a new page and add a card component to it.
 
-> **Exercise:** Perform a group exercise illustrating git branching and pull requests. Then create a branch, commit your new page, and issue a pull request. Once all the pull requests are merged, switch back to the `master` branch and update your copy.
+> **Exercise:** Perform a group exercise exploring the [git workspace](https://ndpsoftware.com/git-cheatsheet.html). Then create a branch, commit your new page, and issue a pull request. Once all the pull requests are merged, switch back to the `master` branch and update your copy.
 
-## HTML Forms
+Did you know there are other open-source HTML/CSS frameworks you can try? Two popular ones are [Bulma](https://bulma.io/) and [Foundation](https://foundation.zurb.com/).
 
-Forms provide tools for visitors to your webpage to interact by entering details, making selections or performing other actions. When you write an update on Facebook, you're entering a message into a form field, and "posting" that message to Facebook.
+## Personal Websites
 
-> **Exercise:** Read this guide on [HTML forms](http://marksheet.io/html-forms.html). Then add a form to your new page. The form should include fields for the user to write their name, email address and a message. It should also include a button.
+Over the last two weeks, you've been building personal websites as part of your homework. Now we want you to take those websites and apply the knowledge you've learned to make them as good as you can. You can:
 
-> **Exercise:** Look at the documentation for [Bootstrap's form components](https://v4-alpha.getbootstrap.com/components/forms/). Update your form to use Bootstrap's form groups, form controls and buttons. When you're done, create a new branch, commit, and issue a pull request.
+- Add [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) to your site and use some of the components.
+- Use re-usable class names to reduce your CSS code.
+- [Validate your HTML code](https://validator.w3.org/#validate_by_input) to find and fix problems.
+- Add a second page and link to it from your first page.
+- Try to style the first article differently so that it stands out from the rest.
 
-## Naming Patterns (OOCSS/BEM)
+By the end, you should have created a repository for your site on GitHub with all the commits you've made.
 
-We use naming patterns to organise our code so that it is easier for colleagues to work with our code -- and easier for us to work with our colleagues' code. In a team of developers, you will need to understand, read and make use of a naming pattern.
+## Retrospective
 
-Bootstrap uses a naming pattern called **Object-Oriented CSS** (OOCSS). The goal is to define an _object_, which is another word for a _component_, and come up with a set of re-usable class names appropriate for that object.
-
-```
-<div class="alert alert-success">
-	You have successfully completed your task.
-</div>
-<div class="alert alert-danger">
-	You did not complete your task.
-</div>
-
-.alert {
-	padding: .75rem 1.25rem;
-	border-radius: 0.25em;
-}
-.alert-success {
-	background-color: green;
-}
-.alert-error {
-	background-color: red;
-}
-```
-
-> **Exercise:** As a group, let's explore the naming patterns in Bootstrap's [Card component](https://v4-alpha.getbootstrap.com/components/card/#example). How is the object-oriented naming pattern used here?
-
-> **Exercise:** Read the documentation on Bootstrap's [Card styles](https://v4-alpha.getbootstrap.com/components/card/#card-styles). Apply style adjustments to the cards in your project example.
-
-One of the goals in a naming pattern is to communicate purpose. Let's look at the following example of Bootstrap's Card component:
-
-```
-<div class="card card-inverted">
-	<div class="card-block">
-		<h4 class="card-title">Card title</h4>
-		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	</div>
-</div>
-```
-
-We have three _types_ of class names here:
-
-- `.card` is the **object**.
-- `.card-block`, `.card-title`, and `.card-text` are **sub-objects**.
-- `.card-inverted` is a **modifier**.
-
-With Bootstrap's naming pattern, we know an object is a single word class name like `.card`, `.btn` or `.alert`. But our other two _types_ of class names share the same naming pattern: `.card-inverted` and `.card-block`.
-
-The [Block, Element, Modifier]() (BEM) naming pattern is an attempt to overcome this. It introduces separate naming structures for all three _types_ of class names.
-
-- The **object** is called a "Block": `.card`.
-- The **sub-objects** are called "Elements" and are written with __2 underscores__: `.card__block`, `.card__title` and `.card__text`.
-- The **modifier** is written with __2 dashes__ as: `.card--inverted`.
-
-If we changed our Card example to use BEM syntax, it would look like this:
-
-```
-<div class="card card--inverted">
-	<div class="card__block">
-		<h4 class="card__title">Card title</h4>
-		<p class="card__text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	</div>
-</div>
-```
-
-> "There are only two hard things in Computer Science: cache invalidation and naming things" - Phil Karlton
-
-## Homework
-
-- Look at as much of the [Bootstrap 4 Documentation](https://v4-alpha.getbootstrap.com/) as you can.
-- Add Bootstrap to the website you've been building for your homework.
-- Add a new HTML page to the website you've been building for your homework. Use Bootstrap's form components to a contact form to this page.
-- Modify the articles in the website you've been building for your homework. Modify their markup to use the BEM naming pattern so that they all look the same.
+At the end of each module, we'll try to have a retrospective. What went right? What went wrong? What can we do better to help you learn? Let's discuss the HTML/CSS module.
 
 ## Resources
 
 - [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
 - [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
-- [Bootstrap 4 Documentation](https://v4-alpha.getbootstrap.com/)
+- [Bootstrap 4 Documentation](https://getbootstrap.com/)
+- [Introduction](http://getbem.com/introduction/) and [Naming](http://getbem.com/naming/) with BEM Syntax for Reusable CSS
 
-## Prepare for next class
+## Homework
 
-Next week, we will begin learning and programming JavaScript. To prepare for the next lesson:
+- Revise what you've learned during the HTML/CSS module. Next week we'll have a short quiz for you. (Hint: use your Progress Tracker to identify what you need to study.)
 
-Watch this 2 minutes video:
+## Prepare for the next class
 
-1. ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU)
+Next week, we will begin learning and programming JavaScript. To prepare for the next lesson, what a two minute video, ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU).

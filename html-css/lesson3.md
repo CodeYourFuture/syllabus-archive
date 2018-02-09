@@ -51,7 +51,7 @@ At the end of each module, we'll try to have a retrospective. What went right? W
 
 ## Homework
 
-- Revise what you've learned during the HTML/CSS module. Next week we'll have a short quiz for you. (Hint: use your Progress Tracker to identify what you need to study.)
+Revise what you've learned during the HTML/CSS module. Next week we'll have a short quiz for you. (Hint: use your Progress Tracker to identify what you need to study.)
 
 ## Prepare for the next class
 

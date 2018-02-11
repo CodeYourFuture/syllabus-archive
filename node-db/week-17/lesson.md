@@ -124,7 +124,7 @@ router.get('/customers', function(req, res) {
 - select and filter by id
 - hint: simple select and filter by ID
 
-STRETCH GOAL : If you get a request of /customers/notanumber (anything that isn't a number) it should return an HTTP 400 bad request.
+STRETCH GOAL (OPTIONAL) : If you get a request of /customers/notanumber (anything that isn't a number) it should return an HTTP 400 bad request.
 
 
 ### LESSON 2 : LIKE, WHATEVER
@@ -167,10 +167,10 @@ This will. Why?
 
 **User Acceptance test**: Take the data being POSTed to the `/customers` endpoint check it is inserted into the database.
 
-STRETCH GOAL : If a bad request is made to customers - first name is missing, for instance, return an HTTP 400 Bad reqest.
+STRETCH GOAL (OPTIONAL): If a bad request is made to customers - first name is missing, for instance, return an HTTP 400 Bad reqest.
 
 
-### EXERCISE 4
+### HOMEWORK 4
 **Notes on Postman**
 
 In the next image you can see Postman doing a POST request. Highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
@@ -189,12 +189,12 @@ In the next image you can see Postman doing a POST request. Highlighed areas ind
 - hint: in the javascript code, instead of db.all() you will need ... what?
 
 
-### EXERCISE 4 : STRETCH GOAL
+### HOMEWORK 4 : STRETCH GOAL (OPTIONAL)
 
 The end point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
 
 
-### EXERCISE 5
+### HOMEWORK 5
 
 **User Story:** As a staff member, I want to create a new reservation.
 
@@ -204,7 +204,7 @@ Create and end-point to post a new reservation to `/reservations/`.
 - create the endpoint from scratch
 - which HTTP method should you use?
 
-STRETCH GOAL : Return {"status": "error": "reason": "reason..."} if *anything* was wrong with the request.
+STRETCH GOAL (OPTIONAL) : Return {"status": "error": "reason": "reason..."} if *anything* was wrong with the request.
 
 
 ### LESSON 6 : I WISH I COULD DELETE HIM IN REAL LIFE
@@ -229,7 +229,7 @@ There are several things you need to worry about when you delete data and what y
 
 - Often it's a good idea to give data the 'status' deleted instead of actually deleting it.
 
-### EXERCISE 6
+### HOMEWORK 6
 **User Story:** As a staff member, I want to delete a canceled reservation from the database.
 
 
@@ -242,49 +242,7 @@ Create an end-point to delete a given reservation from `/reservation/:id/`.
 - delete
 
 
-### LESSON 7 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
-
-Now let's say we want to get the *names* of customers who have a reservation *today*.
-
-From what we know now, we *could* do it like this:
-
-- select customer_id from reservations where date_started = '01/01/2018'
-- write down the list of customer ids on paper (e.g. 3, 5, 7)
-- select * from customers where id = 3 or id = 5 or id = 7
-
-However, that's stupid. We want the computer to figure that out. That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
-
-Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018';
-```
-
-### EXERCISE 7
-**User Story:** As a staff member, I want to get the list of all the invoices, and the details of the referring reservations.
-
-Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
-
-- join
-
-
-### EXERCISE 8
-**User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
-
-Update the exercies 5.* to retreieve the information of the rooms and customers as well.
-
-
-### EXERCISE 8: STRETCH GOAL
-
-**User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
-
-Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
-
-
-
-### HOMEWORK 1A
+### HOMEWORK 7
 **User Story:** As a staff member, I want to get a list of all the existing reservations.
 
 Create an end-point to get from `/reservations` all existing reservations.
@@ -292,7 +250,7 @@ Create an end-point to get from `/reservations` all existing reservations.
 - create the endpoint from scratch
 
 
-### HOMEWORK 1B
+### HOMEWORK 8
 **User Story:** As a customer, I want to check the details of a reservation.
 
 Create and end-point to get from `/reservations/:id` the details of a resrevation through its `id`.
@@ -301,7 +259,7 @@ Create and end-point to get from `/reservations/:id` the details of a resrevatio
 - create the enpoint from scratch
 
 
-### HOMEWORK 1C
+### HOMEWORK 9
 **User Story:** As a staff member, I want to get a list of all the reservations that start at a given date.
 
 Create and end-point to get from `/reservations/starting-on/:startDate` all the reservations that start at a given date.
@@ -310,7 +268,7 @@ Create and end-point to get from `/reservations/starting-on/:startDate` all the 
 - create the enpoint from scratch
 
 
-### HOMEWORK 1D
+### HOMEWORK 10
 **User Story:** As a staff member, i want to get a list of all the reservations that are active at a given date.
 
 Create and end-point to get from `/reservations/active-on/:date` all the reservations that are active on a given date - some customer has a room reserved on that day.

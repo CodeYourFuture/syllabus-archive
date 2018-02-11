@@ -40,9 +40,9 @@ Short answer: if in doubt, you should just use SQL. Always.
 
 Long answer: There are two forms of NoSQL.
 
-1) Extremely high scale -- Cassandra
+1) Extremely high scale -- Cassandra --- constraints are not enforced due to high load and high levels of data.
 
-2) For beginner programmers - Mongo
+2) For beginner programmers - Mongo --- constraints (among other features) are not there to simplify things for beginners.
 
 
 This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Marriott hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
@@ -122,6 +122,8 @@ router.get('/customers', function(req, res) {
 - select and filter by id
 - hint: simple select and filter by ID
 
+STRETCH GOAL : If you get a request of /customers/notanumber (anything that isn't a number) it should return an HTTP 400 bad request.
+
 
 ### LESSON 2 : LIKE, WHATEVER
 
@@ -163,6 +165,8 @@ This will. Why?
 
 **User Acceptance test**: Take the data being POSTed to the `/customers` endpoint check it is inserted into the database.
 
+STRETCH GOAL : If a bad request is made to customers - first name is missing, for instance, return an HTTP 400 Bad reqest.
+
 
 ### EXERCISE 4
 **Notes on Postman**
@@ -174,31 +178,56 @@ In the next image you can see Postman doing a POST request. Highlighed areas ind
 
 **Use Case**: I go to '/customers/:id' endpoint and send updated data for each customer parameter: title, firstname, surname.
 
-**User acceptance test**: PUT title=mr, firstname=donald, surname=trump on /customers/:id
+**User acceptance test**: PUT title=mr, firstname=donald, surname=trump on /customers/:id and check that the database was updated.
 
 
 
 - update table
 - remember your previous lesson
-- hint: in the javascript code, instead of .all() you will need ... what?
+- hint: in the javascript code, instead of db.all() you will need ... what?
 
 
 ### EXERCISE 4 : STRETCH GOAL
 
+The end point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
 
-Note that the end-point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
 
+### EXERCISE 5
 
-### Exercise 6
 **User Story:** As a staff member, I want to create a new reservation.
 
 Create and end-point to post a new reservation to `/reservations/`.
 
 - insert into
 - create the endpoint from scratch
+- which HTTP method should you use?
+
+STRETCH GOAL : Return {"status": "error": "reason": "reason..."} if *anything* was wrong with the request.
 
 
-### Exercise
+### LESSON 6 : I WISH I COULD DELETE HIM IN REAL LIFE
+
+We've currently done inserting data and updating data, but sometimes inserting data was just a mistake
+and it needs to go.
+
+It's a fairly simple command that looks like select, you just specify the table and a predicate and it wipes:
+
+```sql
+delete from customers where surname ilike '%trump%';
+```
+
+There are several things you need to worry about when you delete data and what you do about them will depend entirely upon what it is you are trying to do:
+
+- What happens to the data that depends upon the data you deleted?
+-- What if Trump had a reservation? Either a) delete the reservation as well? or b) raise an error and force the user to delete the data manually if they really want him gone.
+
+- What if you want to undo the deletion?
+
+- What if you want to mark some data as deleted but you might still want to refer to it?
+
+- Often it's a good idea to give data the 'status' deleted instead of actually deleting it.
+
+### EXERCISE 6
 **User Story:** As a staff member, I want to delete a canceled reservation from the database.
 
 
@@ -211,24 +240,30 @@ Create an end-point to delete a given reservation from `/reservation/:id/`.
 - delete
 
 
-### Joining 2 tables
+### LESSON 7 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
 
-Joining 2 tables in sql enables us to get data from two tables, that are related. Say we wanted to get the list of rooms, but get the information about an invoice, but include the data for the reservation that that invoice reffers to.
+Now let's say we want to get the *names* of customers who have a reservation *today*.
 
-We would have to get the list of invoices, and at the same time the list of reservations. But this needs to be done in a way that the invoice matches the reservation. Does anybody know what piece of information we can use to make this possible?
+From what we know now, we *could* do it like this:
 
-A: `reservation_id` in invoices, matches `id` in reservations.
+- select customer_id from reservations where date_started = '01/01/2018'
+- write down the list of customer ids on paper (e.g. 3, 5, 7)
+- select * from customers where id = 3 or id = 5 or id = 7
 
-The syntax to join, and get the columns from two tables is the following:
+However, that's stupid. We want the computer to figure that out. That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
+
+Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
 
 ```
-SELECT invoices.*, reservations.* from invoices join reservations on invoices.reservation_id = reservations.id;
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '01/01/2018';
 ```
 
-### Exercise 7
+### EXERCISE 7
 **User Story:** As a staff member, I want to get the list of all the invoices, and the details of the referring reservations.
 
-Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they reffer to.
+Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
 
 - join
 

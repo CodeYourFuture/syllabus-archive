@@ -16,11 +16,47 @@
 * SQL - DISTINCT
 * SQL - 'IN'
 
-# LESSON : Installing SQLite on the command line
 
-* Windows: https://sqlite.org/download.html
-* Ubuntu: apt-get install sqlite
-* Mac OS: brew install sqlite
+### LESSON 7 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
+
+Now let's say we want to get the *names* of customers who have a reservation *today*.
+
+From what we know now, we *could* do it like this:
+
+- select customer_id from reservations where date_started = '01/01/2018'
+- write down the list of customer ids on paper (e.g. 3, 5, 7)
+- select * from customers where id = 3 or id = 5 or id = 7
+
+However, that's stupid. We want the computer to figure that out. That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
+
+Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '01/01/2018';
+```
+
+### EXERCISE 7
+**User Story:** As a staff member, I want to get the list of all the invoices, and the details of the referring reservations.
+
+Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
+
+- join
+
+
+### EXERCISE 8
+**User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
+
+Update the exercies 5.* to retreieve the information of the rooms and customers as well.
+
+
+### EXERCISE 8: STRETCH GOAL
+
+**User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
+
+Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
+
 
 
 >>> sqlite temp.sqlite

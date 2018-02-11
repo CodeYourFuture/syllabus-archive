@@ -9,30 +9,28 @@ What we did last lesson:
 * Creating a database with SQL and storing data in it.
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
-* Escaping
+* Escaping (who figured out how to insert my real name into the database?)
 
-Homework:
+Homework from last lesson:
 
 ![Hotel ER diagram](hotel-er-diagram.png "Hotel ER diagram")
 
-- did you do update?
+- Did you do update?
 - Did everybody finish hotel.sql so that it looks like the above diagram?
--
-- About those foreign key constraints that weren't being enforced on SQLite
-- review the concept of Foreign keys
-- review the schema for everybody
-- review if they have enough interesting data
+- About those foreign key constraints that weren't being enforced on SQLite -- enforce PRAGMA and version
+- Did we understand foreign keys?
+- Does everybody have enough data in their database? Between 5 and 10 rows per table.
 
 **What we will learn today?**
 
 - Why NoSQL why SQL?
 - Checking out a project and adding hotel.sql to the repo
-* How to install and run SQLite in node on your machine - setting up a development environment.
-* How to read documentation (specifically: node-sqlite's documentation)
-* How to run a database query that retrieves tabular data in node express to an endpoint.
-* Inserting data from an endpoint.
-* Updating data from an endpoint.
-* Handling unclear specifications.
+- How to run SQLite *with node* on your machine - setting up a development environment.
+- How to run a database query that retrieves tabular data in node express to an endpoint.
+- Inserting data from an endpoint.
+- Updating data from an endpoint.
+- Dealing with unclear user stories. There is a TRAP in one of these user stories we will be giving you today.
+- What is the difference between user story, use case and user acceptance test. 
 
 ### SHOULD I USE SQL OR SHOULD I USE NOSQL?
 
@@ -74,6 +72,10 @@ Now let us all try Postman by GETting from `http://localhost:8080/api/customers`
 ### LESSON 1: SELECT ALL THE THINGS!
 
 **User Story:** As a staff member, I want to be able to view a list of customers so that I can see who has visited our hotel.
+
+**Use case** When a user does a GET request to /customers it should return customer titles, first names, surnames.
+
+**User acceptance test**: Do a GET request and get back [{"title": "mr", "firstname": "Donald", "surname": "Trump"}, {"title": "Mrs", "firstname": "Hillary", "surname": "Clinton"}]
 
 Remove the code that is returning a JSON object on end point `/customers`, and use what you have learned about to SQL to fill in the query that fetches all the customers from the database.
 
@@ -268,20 +270,17 @@ Create and endpoint `/detailed-invoices` from where we can get the list of invoi
 - join
 
 
-### Exercise 8
+### EXERCISE 8
 **User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
 
 Update the exercies 5.* to retreieve the information of the rooms and customers as well.
 
 
-### Exercise 8.b
+### EXERCISE 8: STRETCH GOAL
+
 **User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
 
 Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
-
-
-
-
 
 
 

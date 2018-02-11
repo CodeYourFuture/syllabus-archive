@@ -25,6 +25,7 @@ Homework:
 
 **What we will learn today?**
 
+- Why NoSQL why SQL?
 - Checking out a project and adding hotel.sql to the repo
 * How to install and run SQLite in node on your machine - setting up a development environment.
 * How to read documentation (specifically: node-sqlite's documentation)
@@ -32,6 +33,17 @@ Homework:
 * Inserting data from an endpoint.
 * Updating data from an endpoint.
 * Handling unclear specifications.
+
+### SHOULD I USE SQL OR SHOULD I USE NOSQL?
+
+Short answer: if in doubt, you should just use SQL. Always.
+
+Long answer: There are two forms of NoSQL.
+
+1) Extremely high scale -- Cassandra
+
+2) For beginner programmers - Mongo
+
 
 This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Marriott hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
 
@@ -155,7 +167,7 @@ This will. Why?
 ### EXERCISE 4
 **Notes on Postman**
 
-In the next image you an exaple of a Postman screenshot for a POST request. Highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
+In the next image you can see Postman doing a POST request. Highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
 ![postman-get-1](postman-post-1.png)
 
 **User Story:** As a guest, I noticed that there is a typo on my details and wish to correct it.
@@ -183,7 +195,7 @@ Note that the end-point should properly detect which customer properties are bei
 Create and end-point to post a new reservation to `/reservations/`.
 
 - insert into
-- create the enpoint from scratch
+- create the endpoint from scratch
 
 
 ### Exercise

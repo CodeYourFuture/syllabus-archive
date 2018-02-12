@@ -1,23 +1,31 @@
 # LESSON 3: DATA INTEGRITY AND ANALYTICS
 
+**Review of last lesson**
+
+- Why NoSQL why SQL?
+- Checking out a project and adding hotel.sql to the repo
+- How to run SQLite *with node* on your machine - setting up a development environment.
+- How to run a database query that retrieves tabular data in node express to an endpoint.
+- Inserting data from an endpoint.
+- Updating data from an endpoint.
+- Dealing with unclear user stories. There was a TRAP in one of these user stories.
+- What is the difference between user story, use case and user acceptance test. 
+
+
 **What we will learn today?**
 
-* How to add invalid relational data to a database
-* How to prevent invalid relational data with foreign keys
-* Database nulls
-* Predicates
-* Combining SQL predicates with AND and OR
+* Joins
+* SQL Injection
 * SQL - Order by
-* SQL - Count / Sum / Avg
+* SQL - LIMIT
+* SQL - 'IN'
+* SQL - DISTINCT
+* SQL - Sum / Avg / Count
 * SQL - Group by
 * SQL - HAVING
-* SQL - LIMIT
-* SQL - like
-* SQL - DISTINCT
-* SQL - 'IN'
 
 
-### LESSON 7 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
+### LESSON 1 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
 
 Now let's say we want to get the *names* of customers who have a reservation *today*.
 
@@ -37,144 +45,108 @@ from reservations join customers on reservations.customer_id = customer.id
 where reservation.date_started = '01/01/2018';
 ```
 
-### EXERCISE 7
-**User Story:** As a staff member, I want to get the list of all the invoices, and the details of the referring reservations.
-
-Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
-
-- join
 
 
-### EXERCISE 8
+
+### EXERCISE 1A
+
 **User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
 
 Update the exercies 5.* to retreieve the information of the rooms and customers as well.
 
 
-### EXERCISE 8: STRETCH GOAL
+### LESSON 2: ORDER BY SURNAME
 
-**User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
+Can anybody tell me what the difference is between random and arbitrary?
 
-Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
+Up until now we've not been returning results in a *random* order, but we have been returning
+them in an *arbitrary* order.
 
-
-
->>> sqlite temp.sqlite
-
-sqlite> create table rooms (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  type_name varchar(50),
-  original_price integer,
-  current_price int,
-);
-
-sqlite> insert into rooms (1, 'seaview', 50.0, 55.0);
-
->>> sqlite temp.sqlite < example.sql
-
-
-# EXERCISE 1: Recreate the hotel database and add some entries
-
-* Recreate customer, room and reservation tables
-* Insert some example data making sure that the IDs match
-
-
-# LESSON 2: Data integrity
-
-Try this in your database:
-
-INSERT INTO Invoices (reservation_id, total, surcharges, invoice_date_time, paid) values (9999, 35.0, 0, '01/01/2018', 0);
-
-# QUESTIONS FOR CLASS:
-
-* What's the problem with the above SQL statement?
-
-* What happens to the application and the end user if you accidentally do this?
-
-* How can you deal with a problem like this? There are 2/3 answers to this question - what are they?
-
-A1: Delete data
-
-A2: Make it impossible to add invalid data in the first place in the code.
-
-A3: Make it impossible to add invalid data in the first place in the database.
-
-# LESSON: Deleting records from a table
-
-To fix the invalid data we can first delete the data from the database. This is as
-good a time as any to tell you about deleting, so here goes:
-
-  DELETE FROM [ TABLE ] WHERE id = [ ID ];
-
-# EXERCISE: First find the row with select, then delete it
-
-Start with the `SELECT`:
+Using 'order by' we can get records back in a specified order:
 
 ```
-SELECT * FROM customers WHERE <...>
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '01/01/2018' order by customers.surname
 ```
 
-Then the delete.
+We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
+
+If we want to get *explicit* the three of them in ascending order:
+
 ```
-DELETE FROM customers WHERE <...>
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '01/01/2018' order by customers.surname asc
+```
+
+Now, if we want them in descending order:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '01/01/2018' order by customers.surname desc
 ```
 
 
-### LESSON : Foreign Keys
+### LESSON 3: SQL INJECTION
 
-Ex
+So, the hotel has a new guest:
 
-CREATE TABLE customers (
-    id        INTEGER       PRIMARY KEY AUTOINCREMENT,
-    title     VARCHAR(10),
-    firstname VARCHAR (50),
-    surname   VARCHAR (50),
-    email     VARCHAR (255) 
-);
+![Hackerman](hackerman.jpg "Hackerman")
 
+Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the delete reservations endpoint.
 
-CREATE TABLE reservations (
-  ID INTEGER PRIMARY KEY AUTOINCREMENT,
-  customer_id INTEGER,
-  room_id INTEGER,
-  check_in_date DATETIME NOT NULL,
-  checkout_out_date DATETIME,
-  room_price_per_night REAL,
-  FOREIGN KEY (customer_id) REFERENCES customers(id)
-);
+However, he's decided that he wants to stay
 
-Now, try running this again:
+So you should all have a delete reservations endpoint. 
 
-INSERT INTO reservations (9999, 35, '01/01/2018', '01/01/2018', invoice_date_time, paid) values (9999, 35.0, 0, '01/01/2018', 0);
+So, try calling the end point in postman with: 
 
-A foreign key is a *constraint*.
+DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
 
-### EXERCISE: Add foreign key for invoices
-
-
-#### Deal with imcomplete data - foreign keys
-
-- Add reservations without either costumer or room
-- Try to get the information for given reservation
-  - things should break because there is missing data on the reservation
-- Fix the table with the foreign keys
-
-Alter the table to have contrains on the room and customer ids..
+Now, enter your database in sqlite and run the command:
 
 ```
-ALTER TABLE Reservation (for room)
+sqlite> select * from reservations;
 ```
 
-#### Deal with incomplete data - not null
-Use checkin date as an example
+You have 5 minutes to work out in a team what happened. The first team gets a prize.
 
-- Add reservations with no check-in date
-- Bring up the scenario where the client comes up to the hotel and the reservation is missing the checking date, so the room is being used, because another customer extended the stay.
-- Fix table with NOT NULL on all the required columns
+
+### LESSON 4: LIMIT YOUR QUERIES
+
+Now, the database you're working with right now is essentially just a toy. However,
+when you work with a real database you're often going to have a number of problems
+
+1) select * from table is going to return thousands of rows. This take ages
+to load and display and if you just want to see a representative sample it's overkill.
+
+2) You want to return the top 10 of something.
+
+3) You want to show results 1-10 on page 1, results 2-20 on page 2, etc.
+
+SQL has a keyword called "LIMIT" which you can put at the end of a query to cut down
+on the number of returned rows:
 
 ```
-ALTER TABLE Reservation (for room)
+select * from customers order by surname asc limit 2;
 ```
+
+
+
+### LESSON 5: QUERIES IN QUERIES
+
+### LESSON 6: DISTINCTIVE QUERIES
+
+### LESSON 7: SUM, AVERAGE AND COUNT
+
+### LESSON 8: GROUPING
+
+### LESSON 9: HAVING YOUR TABLE AND EATING IT
+
+
+
 
 ### Go over analysis through querying
 
@@ -224,3 +196,23 @@ ALTER TABLE Reservation (for room)
 - sub-selects
 - `!=`
 - `IS NULL`
+
+
+
+### HOMEWORK 1B
+
+**User Story:** As a staff member, I want to get the list of all the invoices, and the details of the related reservations.
+
+Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
+
+- join
+
+
+### HOMEWORK 1C: STRETCH GOAL
+
+**User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
+
+Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
+
+
+

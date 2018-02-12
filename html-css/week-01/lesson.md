@@ -10,7 +10,7 @@
 
 ## What makes a web page?
 
-![What makes a web page](assets/webpage-parts.png)
+![What makes a web page](../assets/webpage-parts.png)
 
 **Separation of Concerns:** In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)
 
@@ -34,7 +34,7 @@ All together, let's review the basic syntax in the following example:
 
 HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags or creating an HTML "tree". Between the opening `<article>` tag and the closing `</article>` tag there are three other tags. We call these "child" tags, because they have a parent-child relationship.
 
-![HTML Hierarchy](assets/html-hierarchy.png)
+![HTML Hierarchy](../assets/html-hierarchy.png)
 
 > **Exercise** As a group, let's try to name all of the parent and child tags in the following example.
 

@@ -79,10 +79,21 @@ where reservation.date_started = '01/01/2018';
 
 ### EXERCISE 2A
 
-**User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
+Write and run the SQL to get invoice IDs and 'paid' status for reservation starting after Janurary 1st this year.
 
-Update the exercies 5.* to retreieve the information of the rooms and customers as well.
+### EXERCISE 2B
 
+**User Story** As a staff member, I want see a list of all the rooms and their details.
+
+**Use Case** Call /all-rooms/ and return the room ids, their types, their original and current prices.
+
+**User acceptance test** / **Acceptance criteria** Call /all-rooms/ and return:
+
+[
+  {"id": 1, "room_type": "suite", "original_price": 150.55, "current_price": 165.55, "sea_view": true},
+  ...
+  ...
+]
 
 
 ### LESSON 2: ORDER BY SURNAME
@@ -126,6 +137,10 @@ SELECT reservations.date_started, customers.firstname, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
 where reservation.date_started = '01/01/2018' order by customers.surname desc, customers.firstname desc
 ```
+
+### EXERCISE 2: ORDER BY
+
+Write and run the SQL to get all of the reservations, ordered by check in date primarily, and check out date secondarily.
 
 
 ### LESSON 3: SQL INJECTION
@@ -175,6 +190,10 @@ on the number of returned rows:
 ```sql
 select * from customers order by surname asc limit 2;
 ```
+
+### EXERCISE 4: LIMIT
+
+Using the order by query from earlier, just get the top 5 rows.
 
 ### LESSON 6: DISTINCT
 

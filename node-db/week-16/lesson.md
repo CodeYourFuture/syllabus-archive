@@ -319,7 +319,7 @@ database will just give your row a new ID. What ID will it give it? The ID of th
 
 ```sql
 create table invoices (
-    reservation_id      integer primary key autoincrement,
+    reservation_id      integer primary key,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
@@ -330,15 +330,13 @@ insert into invoices (total, invoice_date_time, paid) values (143.50, '01/01/201
 insert into invoices (total, invoice_date_time) values (250.50, '02/01/2017');
 ```
 
-NOTE: the word 'autoincrement' and the lack of ID specified in the insert statement.
-
-## EXERCISE 1H : Primary Keys
+## EXERCISE 1H : PRIMARY KEYS
 
 1. Recreate customer table with a primary key. Bear in mind that you don't have a driver's license or passport ID.
 
 2. Recreate reservations table with a primary key.
 
-## LESSON 1I : Foreign keys
+## LESSON 1I : FOREIGN KEYS
 
 Now, as we've seen two tables that have an intrinsic relationship to one another. Every invoice has
 a reservation ID.
@@ -346,7 +344,7 @@ a reservation ID.
 
 ```sql
 create table reservations (
-  `id`                    integer primary key autoincrement,
+  `id`                    integer primary key,
   `customer_id`           integer,
   `room_id`               integer,
   `check_in_date`         datetime not null,
@@ -355,7 +353,7 @@ create table reservations (
 );
 
 create table invoices (
-    id                  integer primary key autoincrement,
+    id                  integer primary key,
     reservation_id      integer,
     total               number,
     invoice_date_time   datetime not null,
@@ -389,7 +387,7 @@ To fix this problem we place an additional restriction on the data - you can onl
 ```sql
 
 create table reservations (
-  `id`                    integer primary key autoincrement,
+  `id`                    integer primary key,
   `customer_id`           integer,
   `room_id`               integer,
   `check_in_date`         datetime not null,
@@ -398,14 +396,28 @@ create table reservations (
 );
 
 create table invoices (
-    id                           integer primary key autoincrement,
-    foreign key(reservation_id)  references reservations(reservation_id),
+    id                           integer primary key,
+    reservation_id               integer not null,
     total                        number,
     invoice_date_time            datetime not null,
     paid                         boolean default false
+    foreign key(reservation_id)  references reservations(id),
 );
 
 ```
+
+Note that:
+
+- 'foreign key(reservation_id)' means that we're putting a foreign key relationship on the *reservation_id* column.
+- 'references reservations(id)' means that it's referring to the 'id' column in the reservations table.
+- reservation_id is a row on invoices. It is a number, like 3 - referring to the 'id' of a row in reservations.
+- reservation_id can *not* be null because it must *always* reference an existing row.
+
+Remember:
+
+- If you removed "foreign key(reservation_id)  references reservations(id)" it will let you insert invalid data without giving you an error - you will be able to create an invoice with a reservation_id of 9435454 without a corresponding reservation with id 9435454 in the reservations table.
+
+- We WANT errors like this, which is why we put the foreign key there.
 
 ## EXERCISE 1I : Foreign keys
 

@@ -84,6 +84,7 @@ where reservation.date_started = '01/01/2018';
 Update the exercies 5.* to retreieve the information of the rooms and customers as well.
 
 
+
 ### LESSON 2: ORDER BY SURNAME
 
 Can anybody tell me what the difference is between random and arbitrary?
@@ -290,7 +291,7 @@ Here the idea is that we could group the columns by the surname and get a list o
 For this we can user `GROUP BY` as follows:
 
 ```
-select <column_to_aggregate> from <table> group by <column_to_aggregate>;
+select <column_to_aggregate_1>, <column_to_aggregate_2> from <table> group by <column_to_aggregate_1>, <column_to_aggregate_2>;
 ```
 
 For instance, if we have the following entries on the customers:
@@ -313,8 +314,27 @@ select surname, count(*) from customers group by surname;
 
 This will enable us to count the number of occurrencies of each surname on the database.
 
-##### EXERCISE 7.c
+##### EXERCISE 8.a
 
+Count the occurrencies of the differnet titles on the database.
+
+
+##### EXERCISE 8.b
+
+Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
+
+##### EXERCISE 8.c
+
+Get the number of reservations for each customer id and include the customer details.
+
+
+##### EXERCISE 8.d
+
+**User Story:** As a staff member, I want to check the reservations for each room, and
+
+**User Case:**
+
+**User Acceptance Test:**
 
 
 ### LESSON 9: HAVING YOUR TABLE AND EATING IT

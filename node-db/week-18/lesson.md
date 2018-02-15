@@ -49,7 +49,7 @@ This is might seem like a minor difference but:
 - You can put other select statements in there. Your homework will require this.
 
 
-### EXERCISE 1: IN IT
+##### EXERCISE 1: IN IT
 
 Get all of the customers with the first name "Colm" or "Hillary".
 
@@ -77,7 +77,7 @@ where reservation.date_started = '01/01/2018';
 
 
 
-### EXERCISE 2A
+##### EXERCISE 2A
 
 **User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
 
@@ -152,7 +152,7 @@ Now, enter your database in sqlite and run the command:
 sqlite> select * from reservations;
 ```
 
-### EXERCISE 3: SQL INJECTION
+##### EXERCISE 3: SQL INJECTION
 
 You have five minutes. Work in teams. Figure out what happened between you and *why*.
 
@@ -227,19 +227,6 @@ Donald     Trump
 
 Problem solved.
 
-### EXERCISE 6: DISTINCT
-
-Sometimes you just want to get a list of the different values present on a column.
-
-For instance, say that you want to get the rooms reserved under a period of time. How could we do that?
-
-One way to do that would be to select everything and check the different values that show up, but being careful not to double count a room that is reserver more than once in that period of time.
-
-However, by specifying that we want the distinct room_id:
-
-```
-select distinct room_id from reservations where check_in_date <= '2018-05-31' and check_out_date >= '2018-05-01';
-```
 
 ##### EXERCISE 6.a
 
@@ -270,13 +257,16 @@ This will return the number of customers on a database.
 
 Wel call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
 
+
 ##### EXERCISE 7.a
 
 Count the number of reservations for a given customer id.
 
+
 ##### EXERCISE 7.b
 
 Calculate the average paid ammount across all invoices.
+
 
 ##### EXERCISE 7.c
 
@@ -314,6 +304,7 @@ select surname, count(*) from customers group by surname;
 
 This will enable us to count the number of occurrencies of each surname on the database.
 
+
 ##### EXERCISE 8.a
 
 Count the occurrencies of the differnet titles on the database.
@@ -336,12 +327,38 @@ Adapt the previous query to include the details for the type of room
 
 **User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
 
-**Use Case:** Get the list of reservations for a given customer, including the details for both the reservation and the customer.
+Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
 
-**User Acceptance Test:** Get 
+##### EXERCISE 8.d.b (STRETCH GOAL)
+
+Adapt the endpoint, to include the details about the room and the room type on the query.
 
 
 ### LESSON 9: HAVING YOUR TABLE AND EATING IT
+
+Suppose that we want to filter the result of what we got on the previous exemple - count of customers each surname - to select only the surnames for which there are 3 or more customers?
+
+To accomplish that we can use `HAVING` as follows:
+```
+select surname, count(*) from customers group by surname haiving count >= 3;
+```
+
+Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.
+
+
+##### EXERCISE 9.a
+
+Get the list of custumers that have 5 or more reservations on our hotel.
+
+
+##### EXERCISE 9.b
+
+Get the list of rooms that have had more than 3 reservations last year.
+
+
+##### EXERCISE 9.c
+
+Get the list of rooms with sea view that were reserved more than 5 times.
 
 
 

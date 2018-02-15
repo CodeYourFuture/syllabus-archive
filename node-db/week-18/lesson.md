@@ -26,19 +26,35 @@
 
 
 
-### LESSON 1: QUERIES WITHIN QUERIES
+### LESSON 1: IN IT
 
-Now let's say that you have a group of customers that you want to
+Now let's say that you want to see all of the customers who have the surname O'Connor or Trump.
+
+The way we've learned so far:
 
 ```sql
-select * from customers where suname = in ("O'Connor", 'Trump')
+select * from customers where surname = "O'Connor" or surname = 'Trump'
 ```
 
+You can also do it like so:
 
-### EXERCISE 1: QUERIES WITHIN QUERIES
+```sql
+select * from customers where surname in ("O'Connor", 'Trump')
+```
+
+This is might seem like a minor difference but:
+
+- It is useful when you want your code to pass a list of things to the database and get a query which matches one or more of them.
+
+- You can put other select statements in there. Your homework will require this.
 
 
-### LESSON 1 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
+### EXERCISE 1: IN IT
+
+Get all of the customers with the first name "Colm" or "Hillary".
+
+
+### LESSON 2 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
 
 Now let's say we want to get the *names* of customers who have a reservation *today*.
 
@@ -61,7 +77,7 @@ where reservation.date_started = '01/01/2018';
 
 
 
-### EXERCISE 1A
+### EXERCISE 2A
 
 **User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
 
@@ -137,7 +153,7 @@ sqlite> select * from reservations;
 
 ### EXERCISE 3: SQL INJECTION
 
-You have five minutes. Work in teams. Figure out what happened between you.
+You have five minutes. Work in teams. Figure out what happened between you and *why*.
 
 
 ### LESSON 4: LIMIT YOUR QUERIES

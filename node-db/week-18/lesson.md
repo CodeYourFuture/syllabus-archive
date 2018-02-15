@@ -14,15 +14,28 @@
 
 **What we will learn today?**
 
+* SQL - 'IN'
 * Joins
 * SQL Injection
-* SQL - Order by
-* SQL - LIMIT
-* SQL - 'IN'
-* SQL - DISTINCT
-* SQL - Sum / Avg / Count
-* SQL - Group by
-* SQL - HAVING
+* Order by
+* LIMIT
+* DISTINCT
+* Sum / Avg / Count
+* Group by
+* HAVING
+
+
+
+### LESSON 1: QUERIES WITHIN QUERIES
+
+Now let's say that you have a group of customers that you want to
+
+```sql
+select * from customers where suname = in ("O'Connor", 'Trump')
+```
+
+
+### EXERCISE 1: QUERIES WITHIN QUERIES
 
 
 ### LESSON 1 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
@@ -33,7 +46,7 @@ From what we know now, we *could* do it like this:
 
 - select customer_id from reservations where date_started = '01/01/2018'
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
-- select * from customers where id = 3 or id = 5 or id = 7
+- select * from customers where id = in (3, 5, 7)
 
 However, that's stupid. We want the computer to figure that out. That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
 
@@ -88,6 +101,15 @@ from reservations join customers on reservations.customer_id = customer.id
 where reservation.date_started = '01/01/2018' order by customers.surname desc
 ```
 
+And, if we want to order by surname first and first name second, we can do this:
+
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '01/01/2018' order by customers.surname desc, customers.firstname desc
+```
+
 
 ### LESSON 3: SQL INJECTION
 
@@ -95,7 +117,7 @@ So, the hotel has a new guest:
 
 ![Hackerman](hackerman.jpg "Hackerman")
 
-Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the delete reservations endpoint.
+Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the DELETE reservations endpoint you created.
 
 However, he's decided that he wants to stay
 
@@ -103,7 +125,9 @@ So you should all have a delete reservations endpoint.
 
 So, try calling the end point in postman with:
 
+```
 DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
+```
 
 Now, enter your database in sqlite and run the command:
 
@@ -111,7 +135,9 @@ Now, enter your database in sqlite and run the command:
 sqlite> select * from reservations;
 ```
 
-You have 5 minutes to work out in a team what happened. The first team gets a prize.
+### EXERCISE 3: SQL INJECTION
+
+You have five minutes. Work in teams. Figure out what happened between you.
 
 
 ### LESSON 4: LIMIT YOUR QUERIES
@@ -129,15 +155,62 @@ to load and display and if you just want to see a representative sample it's ove
 SQL has a keyword called "LIMIT" which you can put at the end of a query to cut down
 on the number of returned rows:
 
-```
+```sql
 select * from customers order by surname asc limit 2;
 ```
 
+### LESSON 6: DISTINCT
 
+Remember the JOIN query from above? We're going to do another similar one.
 
-### LESSON 5: QUERIES IN QUERIES
+```sql
+select customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started > '01/01/2018' and order by customers.surname desc
+```
 
-### LESSON 6: DISTINCTIVE QUERIES
+QUESTION FOR CLASS : What does this do?
+
+ANS : Get a list of all customers who have a reservation that begins this year
+
+Now, this is going to work with one exception. The list in my database
+is going to look a bit like this:
+
+```
+Firstname  Surname
+-------------------
+Hillary    Clinton
+Colm       O'Connor
+Colm       O'Connor
+Colm       O'Connor
+Donald     Trump
+```
+
+QUESTION FOR CLASS : Why?
+
+ANS : Because I love this hotel more than Hillary and Donald and I've arranged to stay there a few times.
+
+Of course, we only want to know *IF* I've stayed there once, not that I'm their most popular guest.
+
+```sql
+select DISTINCT customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started > '01/01/2018' and order by customers.surname desc
+```
+
+Will output:
+
+```
+Firstname  Surname
+-------------------
+Hillary    Clinton
+Colm       O'Connor
+Donald     Trump
+```
+
+Problem solved.
+
+### EXERCISE 6: DISTINCT
 
 Sometimes you just want to get a list of the different values present on a column.
 
@@ -198,7 +271,6 @@ What would you do if you needed to get the list of different surnames on our lis
 Here we introduce the concept of grouping by a given column. So, we ass
 
 ### LESSON 9: HAVING YOUR TABLE AND EATING IT
-
 
 
 

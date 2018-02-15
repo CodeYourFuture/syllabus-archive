@@ -85,9 +85,9 @@ Write and run the SQL to get invoice IDs and 'paid' status for reservation start
 
 **User Story** As a staff member, I want see a list of all the rooms and their details.
 
-**Use Case** Call /all-rooms/ and return the rooms, their types, their original and current prices.
+**Use Case** Call /all-rooms/ and return the room ids, their types, their original and current prices.
 
-**User acceptance test** Call /all-rooms/ and return:
+**User acceptance test** / **Acceptance criteria** Call /all-rooms/ and return:
 
 [
   {"id": 1, "room_type": "suite", "original_price": 150.55, "current_price": 165.55, "sea_view": true},
@@ -136,6 +136,10 @@ SELECT reservations.date_started, customers.firstname, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
 where reservation.date_started = '01/01/2018' order by customers.surname desc, customers.firstname desc
 ```
+
+### EXERCISE 2: ORDER BY
+
+Write and run the SQL to get all of the reservations, ordered by check in date primarily, and check out date secondarily.
 
 
 ### LESSON 3: SQL INJECTION

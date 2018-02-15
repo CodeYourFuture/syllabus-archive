@@ -153,7 +153,7 @@ sqlite> select * from reservations;
 
 ### EXERCISE 3: SQL INJECTION
 
-You have five minutes. Work in teams. Figure out what happened between you.
+You have five minutes. Work in teams. Figure out what happened between you and *why*.
 
 
 ### LESSON 4: LIMIT YOUR QUERIES

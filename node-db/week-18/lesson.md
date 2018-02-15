@@ -190,6 +190,10 @@ on the number of returned rows:
 select * from customers order by surname asc limit 2;
 ```
 
+### EXERCISE 4: LIMIT
+
+Using the order by query from earlier, just get the top 5 rows.
+
 ### LESSON 6: DISTINCT
 
 Remember the JOIN query from above? We're going to do another similar one.

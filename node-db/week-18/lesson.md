@@ -26,7 +26,7 @@
 
 
 
-### LESSON 1: QUERIES WITHIN QUERIES
+### LESSON 1: IN IT
 
 Now let's say that you want to see all of the customers who have the surname O'Connor or Trump.
 
@@ -49,7 +49,7 @@ This is might seem like a minor difference but:
 - You can put other select statements in there. Your homework will require this.
 
 
-### EXERCISE 1: QUERIES WITHIN QUERIES
+### EXERCISE 1: IN IT
 
 Get all of the customers with the first name "Colm" or "Hillary".
 

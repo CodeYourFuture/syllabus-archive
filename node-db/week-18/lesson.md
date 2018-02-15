@@ -249,7 +249,9 @@ Let's check an example for `COUNT`:
 
 `select count(*) from customers;`
 
-This will return the numebr of customers on a database.
+This will return the number of customers on a database.
+
+Wel call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
 
 ##### EXERCISE 7.a
 
@@ -265,10 +267,39 @@ Calculate the total ammount paid on invoices for the summer of 2017.
 
 
 ### LESSON 8: GROUPING
+Lets us say that we need to get the list of different surnames on our list of customers, and how many times each surname shows up on our database?
 
-What would you do if you needed to get the list of different surnames on our list of customers, and how many have a shared surname?
+Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to the rest.
 
-Here we introduce the concept of grouping by a given column. So, we ass
+For this we can user `GROUP BY` as follows:
+
+```
+select <column_to_aggregate> from <table> group by <column_to_aggregate>;
+```
+
+For instance, if we have the following entries on the customers:
+
+| id | title | firsname | surname | email |
+| --- | --- | --- | --- | --- |
+|1|Doc.|Tom|Jones|tom.jones@sub-domain.domain|
+|2|Mr.|Jorge|Silva|jorge-silva@sub-domain.com|
+|3|Mr.|Jorge|Silva|jorge2-silva@sub-domain.com|
+|16|Doc.|Pedro|Silva|pedro.silva@sub-domain.domain|
+|17|Doc.|Colm|O'Conner|colm.oconner@sub-domain.domain|
+|18|Doc.|James|Lennon|john.lennon@sub-domain.domain|
+|19|Sir.|John|O'Conner|John.oconner@sub-domain.domain|
+
+If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrencies so we can simply do:
+
+```
+select surname, count(*) from customers group by surname;
+```
+
+This will enable us to count the number of occurrencies of each surname on the database.
+
+##### EXERCISE 7.c
+
+
 
 ### LESSON 9: HAVING YOUR TABLE AND EATING IT
 

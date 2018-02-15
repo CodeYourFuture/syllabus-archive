@@ -9,7 +9,7 @@
 - Inserting data from an endpoint.
 - Updating data from an endpoint.
 - Dealing with unclear user stories. There was a TRAP in one of these user stories.
-- What is the difference between user story, use case and user acceptance test. 
+- What is the difference between user story, use case and user acceptance test.
 
 
 **What we will learn today?**
@@ -99,9 +99,9 @@ Now, Mr Hackerman has a problem with our hotel. He booked a room and then decide
 
 However, he's decided that he wants to stay
 
-So you should all have a delete reservations endpoint. 
+So you should all have a delete reservations endpoint.
 
-So, try calling the end point in postman with: 
+So, try calling the end point in postman with:
 
 DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
 
@@ -139,9 +139,63 @@ select * from customers order by surname asc limit 2;
 
 ### LESSON 6: DISTINCTIVE QUERIES
 
+Sometimes you just want to get a list of the different values present on a column.
+
+For instance, say that you want to get the rooms reserved under a period of time. How could we do that?
+
+One way to do that would be to select everything and check the different values that show up, but being careful not to double count a room that is reserver more than once in that period of time.
+
+However, by specifying that we want the distinct room_id:
+
+```
+select distinct room_id from reservations where check_in_date <= '2018-05-31' and check_out_date >= '2018-05-01';
+```
+
+##### EXERCISE 6.a
+
+Get the list of customers that made a reservation in the last year, including their details.
+
+
+##### EXERCISE 6.b
+
+Get the list of check in dates in the summer 2017.
+
+
 ### LESSON 7: SUM, AVERAGE AND COUNT
 
+Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and irrealistic in real life cases, where databases can have several milions of entries. So, for that purpose we have aggregation functions:
+
+```
+COUNT, SUM or AVERAGE,
+```
+
+The usages of each are pretty obvious.
+So, this means that we can count, sum and calculate the average of a set of values.
+
+Let's check an example for `COUNT`:
+
+`select count(*) from customers;`
+
+This will return the numebr of customers on a database.
+
+##### EXERCISE 7.a
+
+Count the number of reservations for a given customer id.
+
+##### EXERCISE 7.b
+
+Calculate the average paid ammount across all invoices.
+
+##### EXERCISE 7.c
+
+Calculate the total ammount paid on invoices for the summer of 2017.
+
+
 ### LESSON 8: GROUPING
+
+What would you do if you needed to get the list of different surnames on our list of customers, and how many have a shared surname?
+
+Here we introduce the concept of grouping by a given column. So, we ass
 
 ### LESSON 9: HAVING YOUR TABLE AND EATING IT
 
@@ -213,6 +267,3 @@ Create and endpoint `/detailed-invoices` from where we can get the list of invoi
 **User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
 
 Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.
-
-
-

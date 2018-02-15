@@ -135,6 +135,8 @@ Now, enter your database in sqlite and run the command:
 sqlite> select * from reservations;
 ```
 
+### EXERCISE 3: SQL INJECTION
+
 You have five minutes. Work in teams. Figure out what happened between you.
 
 
@@ -157,7 +159,58 @@ on the number of returned rows:
 select * from customers order by surname asc limit 2;
 ```
 
-### LESSON 6: DISTINCTIVE QUERIES
+### LESSON 6: DISTINCT
+
+Remember the JOIN query from above? We're going to do another similar one.
+
+```sql
+select customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started > '01/01/2018' and order by customers.surname desc
+```
+
+QUESTION FOR CLASS : What does this do?
+
+ANS : Get a list of all customers who have a reservation that begins this year
+
+Now, this is going to work with one exception. The list in my database
+is going to look a bit like this:
+
+```
+Firstname  Surname
+-------------------
+Hillary    Clinton
+Colm       O'Connor
+Colm       O'Connor
+Colm       O'Connor
+Donald     Trump
+```
+
+QUESTION FOR CLASS : Why?
+
+ANS : Because I love this hotel more than Hillary and Donald and I've arranged to stay there a few times.
+
+Of course, we only want to know *IF* I've stayed there once, not that I'm their most popular guest.
+
+```sql
+select DISTINCT customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started > '01/01/2018' and order by customers.surname desc
+```
+
+Will output:
+
+```
+Firstname  Surname
+-------------------
+Hillary    Clinton
+Colm       O'Connor
+Donald     Trump
+```
+
+Problem solved.
+
+### EXERCISE 6: DISTINCT
 
 ### LESSON 7: SUM, AVERAGE AND COUNT
 

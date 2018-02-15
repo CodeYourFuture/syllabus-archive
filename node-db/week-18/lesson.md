@@ -14,15 +14,28 @@
 
 **What we will learn today?**
 
+* SQL - 'IN'
 * Joins
 * SQL Injection
-* SQL - Order by
-* SQL - LIMIT
-* SQL - 'IN'
-* SQL - DISTINCT
-* SQL - Sum / Avg / Count
-* SQL - Group by
-* SQL - HAVING
+* Order by
+* LIMIT
+* DISTINCT
+* Sum / Avg / Count
+* Group by
+* HAVING
+
+
+
+### LESSON 1: QUERIES WITHIN QUERIES
+
+Now let's say that you have a group of customers that you want to
+
+```sql
+select * from customers where suname = in ("O'Connor", 'Trump')
+```
+
+
+### EXERCISE 1: QUERIES WITHIN QUERIES
 
 
 ### LESSON 1 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
@@ -33,7 +46,7 @@ From what we know now, we *could* do it like this:
 
 - select customer_id from reservations where date_started = '01/01/2018'
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
-- select * from customers where id = 3 or id = 5 or id = 7
+- select * from customers where id = in (3, 5, 7)
 
 However, that's stupid. We want the computer to figure that out. That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
 
@@ -88,6 +101,15 @@ from reservations join customers on reservations.customer_id = customer.id
 where reservation.date_started = '01/01/2018' order by customers.surname desc
 ```
 
+And, if we want to order by surname first and first name second, we can do this:
+
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '01/01/2018' order by customers.surname desc, customers.firstname desc
+```
+
 
 ### LESSON 3: SQL INJECTION
 
@@ -95,15 +117,17 @@ So, the hotel has a new guest:
 
 ![Hackerman](hackerman.jpg "Hackerman")
 
-Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the delete reservations endpoint.
+Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the DELETE reservations endpoint you created.
 
-However, he's decided that he wants to stay
+```
+DELETE http://localhost:8080/api/reservation/6
+```
 
-So you should all have a delete reservations endpoint. 
+However, he's decided that he wants to stay when the hotel is booked out. So, he grabs postman and he does this:
 
-So, try calling the end point in postman with: 
-
+```
 DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
+```
 
 Now, enter your database in sqlite and run the command:
 
@@ -111,7 +135,7 @@ Now, enter your database in sqlite and run the command:
 sqlite> select * from reservations;
 ```
 
-You have 5 minutes to work out in a team what happened. The first team gets a prize.
+You have five minutes. Work in teams. Figure out what happened between you.
 
 
 ### LESSON 4: LIMIT YOUR QUERIES
@@ -129,13 +153,9 @@ to load and display and if you just want to see a representative sample it's ove
 SQL has a keyword called "LIMIT" which you can put at the end of a query to cut down
 on the number of returned rows:
 
-```
+```sql
 select * from customers order by surname asc limit 2;
 ```
-
-
-
-### LESSON 5: QUERIES IN QUERIES
 
 ### LESSON 6: DISTINCTIVE QUERIES
 
@@ -143,7 +163,7 @@ select * from customers order by surname asc limit 2;
 
 ### LESSON 8: GROUPING
 
-### LESSON 9: HAVING YOUR TABLE AND EATING IT
+### LESSON 9: HAVING
 
 
 

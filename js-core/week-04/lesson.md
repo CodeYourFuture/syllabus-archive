@@ -44,13 +44,8 @@ access to your machine.
    on your terminal, for example, `v8.9.3`
 
 1. Fork the
-   [JS-Core-1-Exercises](https://github.com/CodeYourFuture/JS-Core-1-Exercises)
+   [js-exercises](https://github.com/CodeYourFuture/js-exercises)
    repository and **Clone** it locally.
-
-1. Once you have the repo locally, go to the folder on your terminal and run
-   `node main.js`
-
-You should get **Hello World** printed on your Terminal.
 
 ## Hello World
 

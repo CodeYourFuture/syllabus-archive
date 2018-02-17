@@ -49,9 +49,15 @@ This is might seem like a minor difference but:
 - You can put other select statements in there. Your homework will require this.
 
 
-##### EXERCISE 1: IN IT
+##### EXERCISE 1.a
 
 Get all of the customers with the first name "Colm" or "Hillary".
+
+
+##### EXERCISE 1.b
+
+Get all the reservations whose checkin date is in `2017-06-01` or `2017-07-01`, or the checkout date is `2017-06-30` or `2017-07-01`.
+
 
 
 ### LESSON 2 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
@@ -76,16 +82,20 @@ where reservation.date_started = '01/01/2018';
 
 
 
+##### EXERCISE 2.a
 
-##### EXERCISE 2A
-
-**User Story:** As a staff member, I want to consult reservations, but including the room and customer information.
-
-Update the exercies 5.* to retreieve the information of the rooms and customers as well.
+Select the list of rooms together with the information for their room types.
 
 
+##### EXERCISE 2.b
 
-### LESSON 2: ORDER BY SURNAME
+**User Story:** As a staff member, I want to consult reservations, but including the customer information.
+
+Create an endpoint to get from `` the list of reservations, but including customer information.
+
+
+
+### LESSON 3: ORDER BY SURNAME
 
 Can anybody tell me what the difference is between random and arbitrary?
 
@@ -128,7 +138,17 @@ where reservation.date_started = '01/01/2018' order by customers.surname desc, c
 ```
 
 
-### LESSON 3: SQL INJECTION
+##### EXERCISE 3.a
+
+Select the list of reservations from the most recent to the oldest one.
+
+
+##### Exercise 3.b
+
+Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
+
+
+### LESSON 4: SQL INJECTION
 
 So, the hotel has a new guest:
 
@@ -152,12 +172,12 @@ Now, enter your database in sqlite and run the command:
 sqlite> select * from reservations;
 ```
 
-##### EXERCISE 3: SQL INJECTION
+##### EXERCISE 4
 
 You have five minutes. Work in teams. Figure out what happened between you and *why*.
 
 
-### LESSON 4: LIMIT YOUR QUERIES
+### LESSON 5: LIMIT YOUR QUERIES
 
 Now, the database you're working with right now is essentially just a toy. However,
 when you work with a real database you're often going to have a number of problems
@@ -175,6 +195,16 @@ on the number of returned rows:
 ```sql
 select * from customers order by surname asc limit 2;
 ```
+
+##### EXERCISE 5.a
+
+Select two rooms only.
+
+
+##### Exercise 5.b
+
+Select the latest 5 reservations on the database.
+
 
 ### LESSON 6: DISTINCT
 
@@ -361,69 +391,8 @@ Get the list of rooms that have had more than 3 reservations last year.
 Get the list of rooms with sea view that were reserved more than 5 times.
 
 
+### 10 - HOMEWORK - STRET GOALS
 
-### Go over analysis through querying
-
-- get all the reservations we have
-
-- get all the reservations we have for room with number 3 - `where`
-
-- get all the reservations we have by date - `order by`
-
-- number of reservations for room number 3 - `count`
-
-- number of reservations per room number - `group by`
-
-- rooms that have more than 10 reservations - `having`
-
-- 3 most reserver rooms on the database - `limit`
-
-- search for onn wich is probably misspelled - `like` '%onn%'
-
-- list dates we have check-ins on - `distinct`
-
-- clients with surnames in [`O\'Connor`, `Silva`] - `in`
-
-- list reservations for clients with surnames in [`O\'Connor`, `Silva`] - joining in addition to what we already have
-
-- list all reservations for non deluxe rooms - `!= 2`
-
-- number of reservations for room number 3 on the summer of 2017 - `date >= '21-06-2017' and date < '21-09-2017'`
-
-- list reservations for clients with surnames not like [`O\'Connor`, `Silva`] - `NOT in`
-
-- number of reservations for room number 3 on the summer and winter of 2017 - `date >= '21-06-2017' and date < '21-09-2017' or date >= '21-12-2017' and date < '21-04-2018'`
-
-# Notes for next steps
-- `<`, `>`, `>=`, `<=` ---- what are all the reservations after tomorrow?
-
-- combining predicates (`AND`, `OR`, `NOT`)
-- `ORDER BY`
-- `LIMIT`
-- add `LIKE`
-- include `DISTINCT`
-- `GROUP BY`, `HAVING`
-- `COUNT(*)`, `SUM`, `AVG`, `MIN`, `MAX`
-- `IN`
+##### EXERCISE 10.a
 
 
-- sub-selects
-- `!=`
-- `IS NULL`
-
-
-
-### HOMEWORK 1B
-
-**User Story:** As a staff member, I want to get the list of all the invoices, and the details of the related reservations.
-
-Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
-
-- join
-
-
-### HOMEWORK 1C: STRETCH GOAL
-
-**User story:** As a staff member, I want ot retrieve the reservations and details for rooms and customers, that happened between a given date range.
-
-Create and endpoint to get from `/reservations/details-between/:from_day/:to_day` all the reservations and details about customer and room, between a given date range.

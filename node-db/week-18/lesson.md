@@ -399,11 +399,17 @@ Get the list of rooms with sea view that were reserved more than 5 times.
 
 ### 10 - HOMEWORK
 
+##### EXERCISE 10
+
+Create an endpoint for each previous exercise that doesn't have an endpoint yet. You will have to think about what is the context of the query, what parameters you need to receive in the enpoint and what makes sense to return as a result and in which format.
+
+
 ##### EXERCISE 10.a
 
 **User Story** As a staff memer, I want to get the list of reservations within a time period, including the room and customer details.
 
 Create an endpoint to get from `/reservations/details-between/:from_day/:to_day` the list of reservations between a specified time period. this should include the customer and room details.
+
 
 ##### EXERCISE 10.b
 

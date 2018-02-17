@@ -89,9 +89,14 @@ Select the list of rooms together with the information for their room types.
 
 ##### EXERCISE 2.b
 
-**User Story:** As a staff member, I want to consult reservations, but including the customer information.
+Select the list of reservations together with the details for the customer it is associated to.
 
-Create an endpoint to get from `` the list of reservations, but including customer information.
+
+##### EXERCISE 2.c
+
+**User Story:** As a staff member, I want to consult reservations and the respective invoices
+
+Create an endpoint to get from `/reservations-and-invoices/` the list of reservations and respective invoices.
 
 
 
@@ -260,12 +265,12 @@ Problem solved.
 
 ##### EXERCISE 6.a
 
-Get the list of customers that made a reservation in the last year, including their details.
+Get the list of check in dates in the summer 2017.
 
 
 ##### EXERCISE 6.b
 
-Get the list of check in dates in the summer 2017.
+Get the list of customers that made a reservation in the last year, including their details.
 
 
 ### LESSON 7: SUM, AVERAGE AND COUNT
@@ -359,6 +364,7 @@ Adapt the previous query to include the details for the type of room
 
 Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
 
+
 ##### EXERCISE 8.d.b (STRETCH GOAL)
 
 Adapt the endpoint, to include the details about the room and the room type on the query.
@@ -391,8 +397,30 @@ Get the list of rooms that have had more than 3 reservations last year.
 Get the list of rooms with sea view that were reserved more than 5 times.
 
 
-### 10 - HOMEWORK - STRET GOALS
+### 10 - HOMEWORK
 
 ##### EXERCISE 10.a
 
+**User Story** As a staff memer, I want to get the list of reservations within a time period, including the room and customer details.
 
+Create an endpoint to get from `/reservations/details-between/:from_day/:to_day` the list of reservations between a specified time period. this should include the customer and room details.
+
+##### EXERCISE 10.b
+
+**User Story** As a staff member, I want to get the number of reservations per customer.
+
+Create an endpoint to get from `/reservations-per-customer/` the number of reservations each client has.
+
+
+###### EXERCISE 10.c
+
+**User Story** As a staff member I want to analyse the rentability of each room, getting the total amount earned for each room, the average per reservations, and the number of reservations it has had in the past.
+
+Create an endpoint to get from `/stats-price-room/` the list of rooms, together with the ammount the hotel has earned with each, the average value earned per stay, and the number of complete stays it has had in the past.
+
+
+##### EXERCISE 10.d
+
+**User Story** As a client or staff member, I want to check the availability of a room within a given date range.
+
+Create an endpoint to get from `/rooms/available-in/:from_day/:to_day` the list of available rooms.

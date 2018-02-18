@@ -50,12 +50,18 @@ This is might seem like a minor difference but:
 
 ##### EXERCISE 1.a
 
-Write a query to get all of the customers with the first name "Colm" or "Hillary".
+Write a query to get all of the customers with the first name "Colm" or "Hillary" using *IN*.
 
 
 ##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
 
-Get all the reservations whose checkin date is in `2017-06-01` or `2017-07-01`, or the checkout date is `2017-06-30` or `2017-07-01`.
+We're trying to locate a reservation for a customer. We know that:
+
+- Their checkin date may have been June 1st, 2017 OR July 1st 2017
+- Their checkout date may have been June 30th, 2017 OR July 30th 2017
+
+Write a query using *IN* that is guaranteed to return their reservation.
+
 
 
 
@@ -69,15 +75,23 @@ From what we know now, we *could* do it like this:
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
 - select * from customers where id = in (3, 5, 7)
 
-However, that's stupid. We want the computer to figure that out. That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
+However, that's stupid. We want the computer to figure out 3, 5, 7 by itself.
+
+That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
 
 Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018';
+select reservations.date_started, customers.firstname, customers.surname
+from reservations JOIN customers ON reservations.customer_id = customer.id
+WHERE reservation.date_started = '01/01/2018';
 ```
+
+Note that:
+
+- Because we are selecting columns from two tables and need to distinguish them, we use "table.column" syntax.
+- We explicitly link reservations.customer_id and customer.id *even if they have a foreign key relationship*.
+- reservations.customer_id and customer.id don't actually *have* to have a foreign key relationship, but they should.
 
 
 
@@ -375,7 +389,7 @@ Suppose that we want to filter the result of what we got on the previous exemple
 
 To accomplish that we can use `HAVING` as follows:
 ```
-select surname, count(*) from customers group by surname haiving count >= 3;
+select surname, count(*) from customers group by surname having count >= 3;
 ```
 
 Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.

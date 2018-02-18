@@ -77,7 +77,6 @@ From what we know now, we *could* do it like this:
 
 However, that's stupid. We want the computer to figure out 3, 5, 7 by itself.
 
-
 That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
 
 Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
@@ -95,11 +94,9 @@ Note that:
 - reservations.customer_id and customer.id don't actually *have* to have a foreign key relationship, but they should.
 
 
-
 ##### EXERCISE 2.a
 
 Get the list of rooms together with their room types.
-
 
 ##### EXERCISE 2.b: OPTIONAL STRETCH GOAL
 
@@ -361,14 +358,8 @@ where reservation.date_started = '01/01/2018' order by customers.surname desc
 And, if we want to order by surname first and first name second, we can do this:
 
 
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname desc, customers.firstname desc
-```
+Select the list of reservations from the most recent to the oldest one.
 
-
-This will enable us to count the number of occurrencies of each surname on the database.
 
 
 ##### EXERCISE 8.a
@@ -376,16 +367,18 @@ This will enable us to count the number of occurrencies of each surname on the d
 Count the occurrencies of the DIFFERENT titles on the database.
 
 
-##### EXERCISE 8.b: OPTIONAL STRETCH GOAL
-
-Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
-
-
-##### EXERCISE 8.c
+##### EXERCISE 8.b
 
 **User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
 
 Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
+
+
+##### EXERCISE 8.c: OPTIONAL STRETCH GOAL
+
+Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
+
+
 
 
 

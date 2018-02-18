@@ -345,32 +345,21 @@ This will enable us to count the number of occurrencies of each surname on the d
 
 ##### EXERCISE 8.a
 
-Count the occurrencies of the differnet titles on the database.
+Count the occurrencies of the DIFFERENT titles on the database.
 
 
-##### EXERCISE 8.b
+##### EXERCISE 8.b: OPTIONAL STRETCH GOAL
 
 Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
 
-##### EXERCISE 8.c
 
-Get the number of reservations for each room id and include the details for the room details.
-
-##### EXERCISE 8.c.b (STRETCH GOAL)
-
-Adapt the previous query to include the details for the type of room
-
-
-##### EXERCISE 8.d
+##### EXERCISE 8.e
 
 **User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
 
 Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
 
 
-##### EXERCISE 8.d.b (STRETCH GOAL)
-
-Adapt the endpoint, to include the details about the room and the room type on the query.
 
 
 ### LESSON 9: HAVING YOUR TABLE AND EATING IT

@@ -9,6 +9,20 @@ Calculate the total ammount paid on invoices for the summer of 2017.
 
 
 
+##### EXERCISE 8.c
+
+Get the number of reservations for each room id and include the details for the room details.
+
+##### EXERCISE 8.d (STRETCH GOAL)
+
+Adapt the previous query to include the details for the type of room
+
+
+##### EXERCISE 8.f (STRETCH GOAL)
+
+Adapt the endpoint, to include the details about the room and the room type on the query.
+
+
 ##### EXERCISE 9.c
 
 Get the list of rooms with sea view that were reserved more than 5 times.

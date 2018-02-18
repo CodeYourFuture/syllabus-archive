@@ -242,7 +242,7 @@ To help organise your code, components can be imported and exported just like an
 import Greeting from './Greeting'
 import Mentor from './Mentor'
 
-class HelloWorld extends React.Component {
+class HelloMentor extends React.Component {
     render() {
         return (
             <div>
@@ -256,7 +256,7 @@ class HelloWorld extends React.Component {
 
 > **Exercise**:
 > Using the `my-hotel` app, edit `src/App.js` to extract the `Logo` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
-> Hint: you may need to import React
+> Hint: you will need to import React
 
 #### Credits
 

@@ -8,7 +8,6 @@
 - How to run a database query that retrieves tabular data in node express to an endpoint.
 - Inserting data from an endpoint.
 - Updating data from an endpoint.
-- Dealing with unclear user stories. There was a TRAP in one of these user stories.
 - What is the difference between user story, use case and user acceptance test.
 
 
@@ -30,7 +29,7 @@
 
 Now let's say that you want to see all of the customers who have the surname O'Connor or Trump.
 
-The way we've learned so far:
+The way we've learned so far (note the quotation marks):
 
 ```sql
 select * from customers where surname = "O'Connor" or surname = 'Trump'
@@ -46,21 +45,21 @@ This is might seem like a minor difference but:
 
 - It is useful when you want your code to pass a list of things to the database and get a query which matches one or more of them.
 
-- You can put other select statements in there. Your homework will require this.
+- You can put *a whole select statement* in there if it returns one column. Your homework will require this.
 
 
 ##### EXERCISE 1.a
 
-Get all of the customers with the first name "Colm" or "Hillary".
+Write a query to get all of the customers with the first name "Colm" or "Hillary".
 
 
-##### EXERCISE 1.b
+##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
 
 Get all the reservations whose checkin date is in `2017-06-01` or `2017-07-01`, or the checkout date is `2017-06-30` or `2017-07-01`.
 
 
 
-### LESSON 2 : JOIN ME, AND TOGETHER WE CAN RULE THE INTERNET AS FATHER AND SON!
+### LESSON 2 : JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
 
 Now let's say we want to get the *names* of customers who have a reservation *today*.
 

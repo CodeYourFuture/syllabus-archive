@@ -153,7 +153,7 @@ select * from customers where surname ilike '%clint%';
 
 This will. Why?
 
-### EXERCISE 2
+### EXERCISE 2A
 
 **User Story:** As a staff member I want to search for a customer through its `surname`, but we don't know that it might be misspelled.
 

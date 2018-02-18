@@ -178,6 +178,8 @@ sqlite> select * from reservations;
 
 You have five minutes. Work in teams. Figure out what happened between you and *why*.
 
+Clue : You might want to use this https://meyerweb.com/eric/tools/dencoder/
+
 
 ### LESSON 5: LIMIT YOUR QUERIES
 

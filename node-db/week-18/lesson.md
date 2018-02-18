@@ -76,7 +76,6 @@ From what we know now, we *could* do it like this:
 - select * from customers where id = in (3, 5, 7)
 
 However, that's stupid. We want the computer to figure out 3, 5, 7 by itself.
->>>>>>> master
 
 That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
 
@@ -95,11 +94,9 @@ Note that:
 - reservations.customer_id and customer.id don't actually *have* to have a foreign key relationship, but they should.
 
 
-
 ##### EXERCISE 2.a
 
 Get the list of rooms together with their room types.
-
 
 ##### EXERCISE 2.b: OPTIONAL STRETCH GOAL
 
@@ -361,125 +358,8 @@ where reservation.date_started = '01/01/2018' order by customers.surname desc
 And, if we want to order by surname first and first name second, we can do this:
 
 
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname desc, customers.firstname desc
-```
+Select the list of reservations from the most recent to the oldest one.
 
-
-### LESSON 3: SQL INJECTION
-
-So, the hotel has a new guest:
-
-![Hackerman](hackerman.jpg "Hackerman")
-
-Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the DELETE reservations endpoint you created.
-
-```
-DELETE http://localhost:8080/api/reservation/6
-```
-
-However, he's decided that he wants to stay when the hotel is booked out. So, he grabs postman and he does this:
-
-```
-DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
-```
-
-Now, enter your database in sqlite and run the command:
-
-```
-sqlite> select * from reservations;
-```
-
-### EXERCISE 3: SQL INJECTION
-
-You have five minutes. Work in teams. Figure out what happened between you.
-
-
-### LESSON 4: LIMIT YOUR QUERIES
-
-Now, the database you're working with right now is essentially just a toy. However,
-when you work with a real database you're often going to have a number of problems
-
-1) select * from table is going to return thousands of rows. This take ages
-to load and display and if you just want to see a representative sample it's overkill.
-
-2) You want to return the top 10 of something.
-
-3) You want to show results 1-10 on page 1, results 2-20 on page 2, etc.
-
-SQL has a keyword called "LIMIT" which you can put at the end of a query to cut down
-on the number of returned rows:
-
-```sql
-select * from customers order by surname asc limit 2;
-```
-
-### LESSON 6: DISTINCT
-
-Remember the JOIN query from above? We're going to do another similar one.
-
-```sql
-select customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started > '01/01/2018' and order by customers.surname desc
-```
-
-QUESTION FOR CLASS : What does this do?
-
-ANS : Get a list of all customers who have a reservation that begins this year
-
-Now, this is going to work with one exception. The list in my database
-is going to look a bit like this:
-
-```
-Firstname  Surname
--------------------
-Hillary    Clinton
-Colm       O'Connor
-Colm       O'Connor
-Colm       O'Connor
-Donald     Trump
-```
-
-QUESTION FOR CLASS : Why?
-
-ANS : Because I love this hotel more than Hillary and Donald and I've arranged to stay there a few times.
-
-Of course, we only want to know *IF* I've stayed there once, not that I'm their most popular guest.
-
-```sql
-select DISTINCT customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started > '01/01/2018' and order by customers.surname desc
-```
-
-Will output:
-
-```
-Firstname  Surname
--------------------
-Hillary    Clinton
-Colm       O'Connor
-Donald     Trump
-```
-
-Problem solved.
-
-### EXERCISE 6: DISTINCT
-
-### LESSON 7: SUM, AVERAGE AND COUNT
-
-### LESSON 8: GROUPING
-
-### LESSON 9: HAVING
-
-
-
->>>>>>> master
-
-This will enable us to count the number of occurrencies of each surname on the database.
 
 
 ##### EXERCISE 8.a
@@ -487,16 +367,18 @@ This will enable us to count the number of occurrencies of each surname on the d
 Count the occurrencies of the DIFFERENT titles on the database.
 
 
-##### EXERCISE 8.b: OPTIONAL STRETCH GOAL
-
-Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
-
-
-##### EXERCISE 8.e
+##### EXERCISE 8.b
 
 **User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
 
 Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
+
+
+##### EXERCISE 8.c: OPTIONAL STRETCH GOAL
+
+Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
+
+
 
 
 

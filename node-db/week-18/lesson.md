@@ -402,42 +402,39 @@ Note that `WHERE` would not work, because it enables us to filter data that will
 Get the list of custumers that have 5 or more reservations on our hotel.
 
 
-##### EXERCISE 9.b: OPTIONAL STRETCH GOAL
-
-Get the list of rooms that have had more than 3 reservations last year.
-Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
-
-
-
 # HOMEWORK
 
-##### EXERCISE 7.c
+##### EXERCISE (7.c)
 
 Calculate the total ammount paid on invoices for the summer of 2017.
 
 
-
-##### EXERCISE 8.c
+##### EXERCISE (8.c)
 
 Get the number of reservations for each room id and include the details for the room details.
 
-##### EXERCISE 8.d (STRETCH GOAL)
+##### EXERCISE (8.d)
 
 Adapt the previous query to include the details for the type of room
 
 
-##### EXERCISE 8.f (STRETCH GOAL)
+##### EXERCISE (8.f)
 
 Adapt the endpoint, to include the details about the room and the room type on the query.
 
 
-##### EXERCISE 9.c
+##### EXERCISE (9.b)
+
+Get the list of rooms that have had more than 3 reservations last year.
+Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
+
+##### EXERCISE (9.c)
 
 Get the list of rooms with sea view that were reserved more than 5 times.
 
 
 
-##### EXERCISE 2.c
+##### EXERCISE (2.c)
 
 **User Story:** As a staff member, I want to see reservations and their respective invoices
 

@@ -333,55 +333,14 @@ select surname, count(*) from customers group by surname;
 ```
 
 
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname
-```
-
-We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
-
-If we want to get *explicit* the three of them in ascending order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname asc
-```
-
-Now, if we want them in descending order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname desc
-```
-
-And, if we want to order by surname first and first name second, we can do this:
-
-
-Select the list of reservations from the most recent to the oldest one.
-
-
-
 ##### EXERCISE 8.a
 
 Count the occurrencies of the DIFFERENT titles on the database.
 
 
-##### EXERCISE 8.b
-
-**User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
-
-Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
-
-
 ##### EXERCISE 8.c: OPTIONAL STRETCH GOAL
 
 Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
-
-
-
 
 
 
@@ -404,10 +363,23 @@ Get the list of custumers that have 5 or more reservations on our hotel.
 
 # HOMEWORK
 
+##### EXERCISE (2.c)
+
+**User Story:** As a staff member, I want to see reservations and their respective invoices
+
+Create an endpoint to get from `/reservations-and-invoices/` the list of reservations and respective invoices.
+
+
 ##### EXERCISE (7.c)
 
 Calculate the total ammount paid on invoices for the summer of 2017.
 
+
+##### EXERCISE 8.b
+
+**User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
+
+Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
 
 ##### EXERCISE (8.c)
 
@@ -415,30 +387,12 @@ Get the number of reservations for each room id and include the details for the 
 
 ##### EXERCISE (8.d)
 
-Adapt the previous query to include the details for the type of room
-
-
-##### EXERCISE (8.f)
-
-Adapt the endpoint, to include the details about the room and the room type on the query.
+Adapt the previous query (8.c) to include the details for the type of room.
 
 
 ##### EXERCISE (9.b)
 
-Get the list of rooms that have had more than 3 reservations last year.
-Create and endpoint `/detailed-invoices` from where we can get the list of invoices, together with the details for the reservation that they refer to.
-
-##### EXERCISE (9.c)
-
 Get the list of rooms with sea view that were reserved more than 5 times.
-
-
-
-##### EXERCISE (2.c)
-
-**User Story:** As a staff member, I want to see reservations and their respective invoices
-
-Create an endpoint to get from `/reservations-and-invoices/` the list of reservations and respective invoices.
 
 
 ##### EXERCISE 10

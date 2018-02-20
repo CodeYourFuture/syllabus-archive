@@ -21,7 +21,7 @@
     [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay
     particular attention to the technologies we'll be teaching you (JavaScript,
     React, NodeJS)
-* [House Rules](house-rules.md)
+* [House Rules](../house-rules.md)
   * How we work?
   * How we treat each other?
 * Standup

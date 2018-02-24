@@ -45,7 +45,7 @@ class HelloMentor extends React.Component {
 
 What's the problem with this component? Hint: imagine what a user story might look like for this small application. How might changes to the user story affect changes to the code?
 
-Our components are very inflexible. They cannot say hello to other mentors, and they can only say hello. If our user stories change, for example if we wanted to say hello to s different mentor, we would have to to change the code too. This is easy in our tiny application but for "real" applications this might be more difficult.
+Our components are very inflexible. They cannot say hello to other mentors, and they can only say "hello", not "hi" or "greetings". If our user stories change, for example if we wanted to say hello to a different mentor, we would have to to change the code too. This is easy in our tiny application but for "real" applications this might be more difficult.
 
 Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what "props" are for.
 
@@ -62,7 +62,7 @@ First let's look at passing props to your components ([interactive example](http
 As you can see props are key-value pairs, in this example the key is `mentor` and the value is the string `'Kash'`. We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
 
 ```js
-<HotelRoomPrice price={123}>
+<HotelRoom price={123}>
 ```
 
 Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=Mentor.js)):
@@ -154,10 +154,10 @@ What other approaches can we take?
 
 The solution that React provides for us is called "state". It allows a component to "remember" some variables. Let's take a look at how we could rewrite the counter with React state.
 
-First we'll get rid of the global variables. Generally having global variables is a bad idea, since it is very easy to create a bug which affects the whole application. We can also get rid of the `renderCounter` function and just call `ReactDOM.render` directly:
+First we'll get rid of the global variables. **Generally having global variables is a bad idea**, since it is very easy to create a bug which affects the whole application. We can also get rid of the `renderCounter` function and just call `ReactDOM.render` directly:
 
 ```js
-ReactDOM.render(<Counter count={count} />, document.getElementById('root'))
+ReactDOM.render(<Counter count={0} />, document.getElementById('root'))
 ```
 
 Next we'll change the component to use the count from `this.state` instead of `this.props`:
@@ -193,7 +193,7 @@ class Counter extends Component {
 
 This is a common pattern in React. Props often act like "initial configuration" for a component which are copied to state. If state doesn't need to be configured through props, you can set it's initial value here too.
 
-Now the counter component is "remembering" that it's count, however it is stuck at 0. Next we'll look at how we change what the component is remembering:
+Now the counter component is "remembering" that it's count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://stackblitz.com/edit/react-znvcmk)):
 
 ```js
 class Counter extends Component {
@@ -222,6 +222,22 @@ class Counter extends Component {
 There's a couple of things happening here. We've added an click handler to the button, which will call the `increment` function when the button gets clicked. When the `increment` function is called, it gets the current value of the count from `this.state`. Then it calls `this.setState` function with an incremented count.
 
 `this.setState` is a special function provided by React, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
+
+Now that we have refactored to use React state, we can easily add multiple counters ([interactive example](https://stackblitz.com/edit/react-678rgd)):
+
+```js
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <Counter count={0} />
+                <Counter count={0} />
+                <Counter count={0} />
+            </div>
+        )
+    }
+}
+```
 
 > **Exercise:**
 > Open the `my-hotel` React application that your created last week
@@ -256,7 +272,7 @@ If we use some destructuring, we can make it shorter again!
 const Greeting = ({ name }) => <div>Hello {name}</div>
 ```
 
-So why don't we always use functional components? They can only return some JSX (with injected props if there are some). They cannot hold state or have lifecycle methods (which we'll look at next week).
+So why don't we always use functional components? Because they can only return JSX (and inject props if there are some). Additionally they cannot hold state or have lifecycle methods (which we'll look at next week).
 
 In real world applications, the things we want to remember in state follow the "business logic" required by our users. So for example the number of bookings in the exercise above increases when you add a booking. To help us cleanly split up code that performs business logic from code that shows the user interface we split components into "presentational" and "connected" or "logical" components.
 
@@ -264,14 +280,14 @@ In real world applications, the things we want to remember in state follow the "
 
 > **Exercise:**
 > Open the `my-hotel` React application once again
-> 1. Look at the components we have created so far, which should be converted to functional ("presentational") components
-> 2. Convert those components to functional components
+> 1. Look at the components we have created so far, and decide which should be converted to functional ("presentational") components
+> 2. Convert these components to functional components
 
 ## Passing Functions as Props
 
 Usually we want to change the application state when users interact with our "presentational" components. But as discussed above, we don't want our presentational components to have state, so how do we change state from a presentational component?
 
-Remember that functions in JavaScript are "first class" objects - that means we can pass a function as a variable and call it elsewhere. This includes React props ([interactive example](https://stackblitz.com/edit/react-bjljxh)):
+Remember that functions in JavaScript are "first class" - that means we can pass a function as a variable and call it elsewhere. This includes React props ([interactive example](https://stackblitz.com/edit/react-bjljxh)):
 
 ```js
 class Counter extends Component {

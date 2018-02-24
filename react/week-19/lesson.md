@@ -10,15 +10,18 @@
 - [JSX](#jsx)
 - [Let's Create a React App](#lets-create-a-react-app)
 - [React Components](#react-components)
+- [Embedding JS into JSX](#embedding-js-into-jsx)
+- [Importing/Exporting Components](#importingexporting-components)
 
 ## What is React?
 
 React is a JavaScript library created by Facebook. It is used for making complex, interactive user interfaces. It has become very popular in the last 5 years.
 
 Why has it become so popular?
-    - It is fast and efficient
-    - It is easy to understand & less verbose than "vanilla" JS api
-    - It helps separate functionality into small, understandable pieces
+
+- It is fast and efficient
+- It is easy to understand & less verbose than "vanilla" JS api
+- It helps separate functionality into small, understandable pieces
 
 ## What is a component?
 
@@ -47,9 +50,9 @@ There are no hard & fast rules for making components. UIs can be split up into c
 
 ## Rendering with React
 
-Remember how annoying it was to manage the DOM yourself in [week 8](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript apis for updating the DOM are quite long and difficult to remember. React makes this easier by instead of manipulating each DOM element itself, you give React a "description" of the DOM that you want and it will  for you. React "abstracts" away the management of the DOM.
+Remember how annoying it was to manage the DOM yourself in [week 8](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript apis for updating the DOM are quite long and difficult to remember. React makes this easier by instead of manipulating each DOM element itself. You give React a "description" of the DOM that you want and it will  update the DOM for you. React "abstracts" away the management of the DOM.
 
-Let's take a look at an example. We are going to walk through how to render a `<div>` and the text "Hello World" within it.
+Let's take a look at an example. We are going to walk through how to render a `<div>` with the text "Hello World" within it.
 
 First, lets recap how we could do this using "vanilla" JS ([interactive version](http://jsbin.com/motorexehu/edit?html,output)):
 
@@ -192,7 +195,9 @@ class HelloWorld extends React.Component {
 }
 ```
 
-Like Handlebars, you can insert variables into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as regular JavaScript. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
+## Embedding JS into JSX
+
+Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript "expression". That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
 
 ```js
 class Mentor extends React.Component {
@@ -224,6 +229,34 @@ function formatName(user) {
 <span>{formatName(user)}</span>
 ```
 
+A common pattern in React is to use `Array.map` to loop through a list of items and render a component for each one ([interactive example](https://stackblitz.com/edit/react-z51fpz)):
+
+```js
+const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
+
+class Item extends Component {
+  render() {
+    return (
+      <li>{this.props.name}</li>
+    )
+  }
+}
+
+class List extends Component {
+  render() {
+    return (
+      <ul>
+        {this.props.items.map((item) => (
+          <Item name={item}/>
+        ))}
+      </ul>
+    );
+  }
+}
+```
+
+Here we are using `Array.map` to turn an array of strings into an array of components. We are using a "real" map function, not just special syntax like `{{> each}}` from Handlebars.
+
 > **Exercise**:
 > Using the `my-hotel` React app that you created earlier, edit `src/App.js` to create a hotel welcome page.
 > 1. Change the title to say "Welcome to CYF Hotel" and change the `img` to have `src="https://codeyourfuture.io/static/media/cyf_brand.fbcea877.png"`
@@ -237,7 +270,6 @@ function formatName(user) {
 ## Importing/Exporting Components
 
 To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://stackblitz.com/edit/react-jnkuqk)):
-
 
 ```js
 import Greeting from './Greeting'
@@ -261,7 +293,7 @@ class HelloMentor extends React.Component {
 
 #### Credits
 
-Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course on Egghead.io.
+Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course on Egghead.io. It's a free course, so check it out :)
 
 # Homework
 

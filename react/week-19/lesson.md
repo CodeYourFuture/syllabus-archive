@@ -195,6 +195,8 @@ class HelloWorld extends React.Component {
 }
 ```
 
+Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `camelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
+
 ## Embedding JS into JSX
 
 Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript "expression". That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):

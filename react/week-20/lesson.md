@@ -202,7 +202,7 @@ class Counter extends Component {
     increment = () => {
         let currentCount = this.state.count
         this.setState({
-            count: currentCount++
+            count: ++currentCount
         })
     }
 
@@ -224,11 +224,86 @@ There's a couple of things happening here. We've added an click handler to the b
 > **Exercise:**
 > Open the `my-hotel` React application that your created last week
 > 1. Set the initial state of the `BookingsMessage` component to have 0 bookings
-> 2. Add an "Add Booking" button to the `BookingsMessage` component
-> 3. Create a `addBooking` function on the `BookingsMessage` component
-> 4. Add a click handler to the button which calls the `addBooking` function
-> 5. Use `this.setState` to increment the number of bookings in state
+> 2. Show the number of bookings from state in `BookingsMessage`
+> 3. Add an "Add Booking" button to the `BookingsMessage` component
+> 4. Create an `addBooking` function on the `BookingsMessage` component
+> 5. Add a click handler to the button which calls the `addBooking` function
+> 6. Use `this.setState` to increment the number of bookings in state
 
 ## Functional Components
 
+So far we have been using the `class` keyword to create React components. There is another way of creating components that is shorter, which are called "functional" components:
 
+```js
+function Greeting(props) {
+    return (
+        <div>Hello {props.name}</div>
+    )
+}
+```
+
+Because it is just a function we can make this even shorter:
+
+```js
+const Greeting = (props) => <div>Hello {props.name}</div>
+```
+
+If we use some destructuring, we can make it shorter again!
+
+```js
+const Greeting = ({ name }) => <div>Hello {name}</div>
+```
+
+So why don't we always use functional components? They can only return some JSX (with injected props if there are some). They cannot hold state or have lifecycle methods (which we'll look at next week).
+
+In real world applications, the things we want to remember in state follow the "business logic" required by our users. So for example the number of bookings in the exercise above increases when you add a booking. To help us cleanly split up code that performs business logic from code that shows the user interface we split components into "presentational" and "connected" or "logical" components.
+
+"Connected" or "logical" components usually have some state and handler methods. Because of this they must use the `class` syntax that we have been using so far. "Presentational" components on the other hand don't require the more verbose syntax. Instead they can use the functional syntax.
+
+> **Exercise:**
+> Open the `my-hotel` React application once again
+> 1. Look at the components we have created so far, which should be converted to functional ("presentational") components
+> 2. Convert those components to functional components
+
+## Passing Functions as Props
+
+Usually we want to change the application state when users interact with our "presentational" components. But as discussed above, we don't want our presentational components to have state, so how do we change state from a presentational component?
+
+Remember that functions in JavaScript are "first class" objects - that means we can pass a function as a variable and call it elsewhere. This includes React props ([interactive example](https://stackblitz.com/edit/react-bjljxh)):
+
+```js
+class Counter extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { count: 0 }
+    }
+
+    increment = () => {
+        this.setState({ count: ++this.state.count })
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.count}
+                <FancyButton whenClicked={this.increment} />
+            </div>
+        )
+    }
+}
+
+const FancyButton = ({ whenClicked }) => {
+    return (
+        <button
+            className="fancy-button"
+            onClick={whenClicked}
+        >
+            Click Me!
+        </button>
+    )
+}
+```
+
+# Homework
+
+{% include "./homework.md" %}

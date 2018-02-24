@@ -230,8 +230,9 @@ function formatName(user) {
 > 2. Copy the content of the `header` to a new component called `Logo`
 > 3. Replace the `header` with a usage of the new `Logo` component
 > 4. Replace the `p` with a message saying that there are bookings available for today's date (hint `new Date().toLocaleDateString()`)
-> 5. Create a new component `SpecialDeals` and render an empty `div`
-> 6. Within the `SpecialDeals` components, use an array containing some special deal strings and render each one as a `<p>` within the `div`
+> 5. Extract the `p` to a component named `BookingsMessage`
+> 6. Create a new component `SpecialDeals` and render an empty `div`
+> 7. Within the `SpecialDeals` components, use an array containing some special deal strings and render each one as a `<p>` within the `div`
 
 ## Importing/Exporting Components
 
@@ -255,7 +256,7 @@ class HelloMentor extends React.Component {
 ```
 
 > **Exercise**:
-> Using the `my-hotel` app, edit `src/App.js` to extract the `Logo` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
+> Using the `my-hotel` app, edit `src/App.js` to extract the `Logo`, `BookingsMessage` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
 > Hint: you will need to import React
 
 #### Credits

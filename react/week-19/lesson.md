@@ -259,6 +259,8 @@ class List extends Component {
 
 Here we are using `Array.map` to turn an array of strings into an array of components. We are using a "real" map function, not just special syntax like `{{> each}}` from Handlebars.
 
+An ([interactive example](https://stackblitz.com/edit/react-cwryrk)) of separating the 2 components in the example above in 2 files.
+
 > **Exercise**:
 > Using the `my-hotel` React app that you created earlier, edit `src/App.js` to create a hotel welcome page.
 > 1. Change the title to say "Welcome to CYF Hotel" and change the `img` to have `src="https://codeyourfuture.io/static/media/cyf_brand.fbcea877.png"`

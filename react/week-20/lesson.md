@@ -6,9 +6,11 @@
 
 - [Recap](#recap)
 - [Making an Argument for Props](#making-an-argument-for-props)
-- [What Are Props](#what-are-props)
+- [What Are Props?](#what-are-props)
 - [Reacting to Changes](#reacting-to-changes)
 - [State](#state)
+- [Functional Components](#functional-components)
+- [Passing Functions as Props](#passing-functions-as-props)
 
 ## Recap
 
@@ -303,6 +305,17 @@ const FancyButton = ({ whenClicked }) => {
     )
 }
 ```
+
+What is happening here?
+
+- The `Counter` component initialises state and an `increment` method
+- Then the `Counter` component passes the `increment` function as a prop to `FancyButton`
+- Next the `whenClicked` prop (which is the `increment` function) is attached as a click handler in `FancyButton`
+- When the button is clicked, React calls the click handler attached via `onClick`. Because we passed the `increment` function as the `whenClicked` prop, the `increment` function will be called
+- The state in `Counter` will be set to an incremented value
+
+This pattern is extremely useful in separating business logic code from user interface code. It is also crucial to the concept of [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html).
+
 
 # Homework
 

@@ -32,8 +32,8 @@
   * [Week 18 - Data Integrity & Analytics](/node-db/week-18/lesson.md) | [Homework](/node-db/week-18/homework.md)
 * [React](/react/index.md)
   * [Week 19 - React 101](/react/week-19/lesson.md) | [Homework](/react/week-19/homework.md)
-  * [Week 20 - State](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)
-  * [Week 21 - React-router & Recap](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
+  * [Week 20 - Props & State](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)
+  * [Week 21 - Lifecycle](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
 
 ### Useful informations
 

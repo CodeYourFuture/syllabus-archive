@@ -6,9 +6,9 @@
 
 - [Recap](#recap)
 - [Making an Argument for Props](#making-an-argument-for-props)
-- [What are props](#what-are-props)
-- Reacting to Changes
-- State
+- [What Are Props](#what-are-props)
+- [Reacting to Changes](#reacting-to-changes)
+- [State](#state)
 
 ## Recap
 
@@ -47,7 +47,7 @@ Our components are very inflexible. They cannot say hello to other mentors, and 
 
 Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what "props" are for.
 
-## What are props?
+## What Are Props?
 
 Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props in a component.
 
@@ -77,7 +77,7 @@ React gives you access to props via the `this.props` object. We can then inject 
 
 > **Exercise:**
 > Open the `my-hotel` React application that your created last week
-> 1. Edit the `Header` component so that the hotel name in the welcome message is passed as a prop
+> 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
 > 2. Edit the `SpecialDeals` component so that the array is passed as a prop
 
 ## Reacting to Changes
@@ -128,12 +128,9 @@ document.getElementById('click-me').addEventListener('click', () => {
 })
 ```
 
-As you can see, the DOM automatically updates when you render. This is an incredibly powerful feature of React. Even better, React will figure out exactly the right bits of the DOM that need to be changed. This makes it extremely efficient and fast. This is concept is called the "virtual DOM".
+As you can see, the DOM automatically updates when you render. This is an incredibly powerful feature of React. Even better, React will figure out exactly the right bits of the DOM that need to be changed. This makes it extremely efficient and fast. This is concept is called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html).
 
-> **Exercise:**
-> 1. 
-
-### State
+## State
 
 Let's take another look at the the counter example. A new user story has been created to show multiple counters. How would you add another counter?
 
@@ -152,3 +149,86 @@ What might be the problem here?
 - It's stuck at 3 counters - to add more, a new user story would have to be created
 
 What other approaches can we take?
+
+The solution that React provides for us is called "state". It allows a component to "remember" some variables. Let's take a look at how we could rewrite the counter with React state.
+
+First we'll get rid of the global variables. Generally having global variables is a bad idea, since it is very easy to create a bug which affects the whole application. We can also get rid of the `renderCounter` function and just call `ReactDOM.render` directly:
+
+```js
+ReactDOM.render(<Counter count={count} />, document.getElementById('root'))
+```
+
+Next we'll change the component to use the count from `this.state` instead of `this.props`:
+
+```js
+class Counter extends Component {
+    render() {
+        return (
+            <div>
+                Count: {this.state.count}
+                <button id="click-me">Click me!</button>
+            </div>
+        )
+    }
+}
+```
+
+This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it from props. We can do this in the class constructor:
+
+```js
+class Counter extends Component {
+    constructor(props) {
+        this.state = {
+            count: props.count
+        }
+    }
+
+    render() {
+        // ...
+    }
+}
+```
+
+This is a common pattern in React. Props often act like "initial configuration" for a component which are copied to state. If state doesn't need to be configured through props, you can set it's initial value here too.
+
+Now the counter component is "remembering" that it's count, however it is stuck at 0. Next we'll look at how we change what the component is remembering:
+
+```js
+class Counter extends Component {
+    constructor(props) {
+        // ...
+    }
+
+    increment = () => {
+        let currentCount = this.state.count
+        this.setState({
+            count: currentCount++
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                Count: {this.state.count}
+                <button onClick={this.increment}>Click me!</button>
+            </div>
+        )
+    }
+}
+```
+
+There's a couple of things happening here. We've added an click handler to the button, which will call the `increment` function when the button gets clicked. When the `increment` function is called, it gets the current value of the count from `this.state`. Then it calls `this.setState` function with an incremented count.
+
+`this.setState` is a special function provided by React, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
+
+> **Exercise:**
+> Open the `my-hotel` React application that your created last week
+> 1. Set the initial state of the `BookingsMessage` component to have 0 bookings
+> 2. Add an "Add Booking" button to the `BookingsMessage` component
+> 3. Create a `addBooking` function on the `BookingsMessage` component
+> 4. Add a click handler to the button which calls the `addBooking` function
+> 5. Use `this.setState` to increment the number of bookings in state
+
+## Functional Components
+
+

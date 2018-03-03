@@ -1,0 +1,1 @@
+Complete user stories 8, 9 and 10 from [cyf-hotel-react](https://github.com/CodeYourFuture/cyf-hotel-react) project

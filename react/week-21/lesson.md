@@ -5,9 +5,11 @@
 **What will we learn today?**
 
 - [Recap](#recap)
-
-- Refs
-- defaultProps
+- [Unmounting](#unmounting)
+- [The Circle of Life](#the-circle-of-life)
+- [Fetching Data in React](#fetching-data-in-react)
+- [Refs](#refs)
+- [Default Props](#default-props)
 
 ## Recap
 

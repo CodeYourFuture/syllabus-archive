@@ -8,8 +8,8 @@
 - [Unmounting](#unmounting)
 - [The Circle of Life](#the-circle-of-life)
 - [Fetching Data in React](#fetching-data-in-react)
-- [Refs](#refs)
 - [Default Props](#default-props)
+- [Refs](#refs)
 
 ## Recap
 
@@ -272,35 +272,6 @@ render() {
 > Convert the `SpecialDeals` component to fetch data from http://www.mocky.io/v2/5a9ad31d3400002c00a39a3c.
 > Make sure that you include a loading state and error handling.
 
-## Refs
-
-As we have seen, React manages the DOM for us. That means we generally don't have to worry about keeping track of DOM nodes, or manipulating them directly. However sometimes you need to be able to access a DOM node that React is managing. Some common use cases are managing browser focus and integrating with third party libraries like a jQuery plugin.
-
-We can do this with a *ref*. Let's look at an example that will change browser focus to an input when a button is clicked ([interactive example](https://stackblitz.com/edit/react-nbezfm)):
-
-```js
-class InputFocuser extends Component {
-  setInputRef = (input) => {
-    this.input = input
-  }
-
-  focusInput = () => {
-    this.input.focus()
-  }
-
-  render() {
-    return (
-      <div>
-        <input type="text" ref={this.setInputRef} />
-        <button onClick={this.focusInput}>Focus</button>
-      </div>
-    )
-  }
-}
-```
-
-The key method here is `setInputRef`. It is called by React when rendering the `<input>`, and passes a reference to the real DOM node as an argument. We remember the reference by assigning it to `this.input`. Then when the button is clicked we can call the `focus` method (a vanilla method, not part of React) on the input DOM node.
-
 ## Default Props
 
 Last week we looked at how we can pass props to our components, but so far we've had to pass a value for every prop. But React has a way of giving a "default" value for a prop, so that you don't always have to pass it. This makes props more useful as "initial configuration" for our component.
@@ -341,6 +312,35 @@ class Greeting extends Component {
   }
 }
 ```
+
+## Refs
+
+As we have seen, React manages the DOM for us. That means we generally don't have to worry about keeping track of DOM nodes, or manipulating them directly. However sometimes you need to be able to access a DOM node that React is managing. Some common use cases are managing browser focus and integrating with third party libraries like a jQuery plugin.
+
+We can do this with a *ref*. Let's look at an example that will change browser focus to an input when a button is clicked ([interactive example](https://stackblitz.com/edit/react-nbezfm)):
+
+```js
+class InputFocuser extends Component {
+  setInputRef = (input) => {
+    this.input = input
+  }
+
+  focusInput = () => {
+    this.input.focus()
+  }
+
+  render() {
+    return (
+      <div>
+        <input type="text" ref={this.setInputRef} />
+        <button onClick={this.focusInput}>Focus</button>
+      </div>
+    )
+  }
+}
+```
+
+The key method here is `setInputRef`. It is called by React when rendering the `<input>`, and passes a reference to the real DOM node as an argument. We remember the reference by assigning it to `this.input`. Then when the button is clicked we can call the `focus` method (a vanilla method, not part of React) on the input DOM node.
 
 # Homework
 

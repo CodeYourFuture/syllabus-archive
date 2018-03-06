@@ -44,6 +44,9 @@ This has led to a new breed of databases, the NoSQL ones.
 In this class we will examine Document databases and its most popular one, MongoDB.
 
 First of all, how does MongoDB compare with traditional SQL queries that we have learned in the past?
+
+[MongoDB to SQL Mapping](assets/mongodb-101/sql_to_mongo_mapping.pdf) 
+
 http://s3.amazonaws.com/info-mongodb-com/sql_to_mongo.pdf
 
 # Lesson 2 - Why MongoDB?
@@ -186,35 +189,116 @@ The second one will evaluate our javascript and attempt to run it with Mongo she
 
 All of these are important for every database system but even more important in MongoDB as...
 
-THERE IS NO ROLLBACK! There are no transactions. Once you delete something, it's gone.
+__THERE IS NO ROLLBACK!__ There are no transactions. Once you delete something, it's gone.
 
 
-
-=======OPTIONAL==============
 
 ## Aggregation
 
-SQL
-Aggregation framework
-WHERE / HAVING $match
-GROUP BY $group
-SELECT $project
-ORDER BY $sort
-LIMIT $limit
-sum() / count() $sum
-join $lookup
+Why aggregation framework?
 
-- showcase a simple aggregation pipeline
-- NO EXERCISE
+Aggregation framework in MongoDB is modelled after the familiar concept of data processing pipelines. 
+Documents enter the pipeline with the MongoDB structure and exit the other end transformed into BSON documents with calculated fields.
+Commands in a pipeline are executed sequentially and in the order that they appear in the array [].
+
+
+|SQL |Aggregation framework|
+|----|----|
+|WHERE / HAVING |$match|
+|GROUP BY |$group|
+|SELECT |$project|
+|ORDER BY |$sort|
+|LIMIT |$limit|
+|sum() / count() |$sum|
+|average()| $avg|
+|join |$lookup|
+
+```
+db.students.aggregate([
+                   1.  { $match: { name: {$regex: /^aA/} } },
+                   2.  { $group: { _id: "$name", average: { $avg: "$scores.final" } } },
+                   3.  { $sort: { average: -1 } },
+                   4.  { $project: { name: 1, average: 1 } }
+                   ])
+```
+
+What does the pipeline above do?
+
+1. matches all documents with a name starting from aA
+2. groups them by average final score
+3. sorts them by average score
+4. projects(selects) name and average score in the output
+ 
+What's the output like?
+
+```
+{_id: .., name: .., average: ..}
+```
+
+More information: https://docs.mongodb.com/manual/aggregation/
+
 
 ## Replication
-- why do we need replication?
-- diagram with setup of 3 servers
+
+Replication in MongoDB is used to increase redundancy and data availability. 
+In its essence it's a way for 3 or more (or even 2 with some caveats..) servers to keep the same copy of data.
+
+![replication diagram](./assets/mongodb-101/replica-set-read-write-operations-primary.bakedsvg.svg)
+
+Writes always go to the primary and get propagated *asynchronously* to the secondaries.
+
+Reads can go to the primary or any of the secondaries.
+
+Election process:
+
+Replica sets implement by default automatic failover. If a primary server fails, the remaining secondaries will elect the new primary. 
+This will by default be the secondary that is most "up to date" with the primary but we can affect (rig) the election process by assigning different votes to each server.
+ 
+More information: 
+https://docs.mongodb.com/manual/core/replica-set-elections/
+
+Using replication we can perform a few interesting tasks:
+
+- delayed replica for backup. Delay backups by an hour, enabling us to recover from dropping a database in production
+- hidden replicas for reporting. These replicas will never become primaries so we can safely apply read load to them for reporting purposes
+- replicas in different location for disaster recovery
+- replicas in different location to be closer to our users
  
 ## Sharding
-- what is sharding for?
-- horizontal scaling examples
-- diagram for scaling
+
+Sharding is a method for horizontal scaling that MongoDB uses. It essentially partitions data across the shard key in different servers thereby distributing the read and write load.
+
+What is horizontal scaling?
+
+When our data exceeds the disk space, I/O capacity and/or memory available in a single server we have two options:
+
+1. Buy/Rent a bigger server. This is vertical scaling. It's of course the easiest way to scale but does not scale linearly in terms of cost and capacity.
+2. Distribute our data across different servers of the same initial capacity. This is called horizontal scaling, is more difficult to achieve but theoretically if we achieve linear scaling then our system can be **infinitely scaleable**.
+
+With MongoDB it's important to understand that we will start with #1 for as long as it makes financial sense. 
+If we are on AWS it will probably be easier to tweak our replica set from S to M to L sized servers rether than implement sharding.
+At some point though, we should start planning for sharding, definitely sooner rather than later.
+
+![sharded architecture](assets/mongodb-101/sharded-cluster-production-architecture.bakedsvg.svg)
+
+Sharding as we can see from the diagram above is not a trivial task. We need router(s) config servers and shards.
+
+Router:
+
+The router is essentially our query server. Queries no longer go to individual servers but must go to the router which will decide which server(s) hold our data.
+
+Config Servers:
+
+Config servers are holding configuration information for the whole cluster. They must be deployed as a replica set in order to achieve high availability.
+
+Shards:
+
+Each shard is essentially a replica set. Each shard holds a cut of our data and all the shards together hold the total of our data.
+
+
+More information: 
+https://docs.mongodb.com/manual/sharding/
+
 
 # What's next?
 
@@ -228,6 +312,6 @@ https://university.mongodb.com/courses/M101P/about
 
 _Shameless plug_
 
-I am also the author of the Mastering MongoDB 3.x book by Packt publishing, available [here](https://www.packtpub.com/big-data-and-business-intelligence/mastering-mongodb-3x). 
+I am also the author of the Mastering MongoDB 3.X book by Packt publishing, available [here](https://www.packtpub.com/big-data-and-business-intelligence/mastering-mongodb-3x). 
 
 Please use code XXXX for XX% off.

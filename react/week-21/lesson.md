@@ -42,6 +42,13 @@ class Counter extends Component {
 So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://stackblitz.com/edit/react-ldakkv)):
 
 ```js
+const IsShown = () => (
+  <p>I'm shown when true ✅</p>
+)
+const IsNotShwon = () => (
+  <p>I'm shown when false ☑️</p>
+)
+
 class Toggle extends Component {
   constructor(props) {
     super(props)
@@ -53,14 +60,9 @@ class Toggle extends Component {
   }
 
   render() {
-    if (this.state.isShown) {
-      const message = <p>I'm shown when true ✅</p>
-    } else {
-      const message = <p>I'm shown when false ☑️</p>
-    }
     return (
       <div>
-        {message}
+        {this.state.isShown ? <IsShown /> : <IsNotShown />}
         <button onClick={this.toggle}>Toggle</button>
       </div>
     )
@@ -68,11 +70,11 @@ class Toggle extends Component {
 }
 ```
 
-If you open up dev tools, you will see that the `message` element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is important in larger applications as it can free up resources (CPU & memory) that aren't being used any more.
+If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is important in larger applications as it can free up resources (CPU & memory) that aren't being used any more.
 
 ## The Circle of Life
 
-When a component is within the DOM, we call it *mounted*. When a component is removed from the DOM, we call it *unmounted*. When we change state like in the example, we can switch between these statuses. This gives us a clue that components go through a *lifecycle* of different statuses. We have seen 2 of the statuses: mounting and unmounting, there is also a third called *updating*.
+When a component is within the DOM, we call it *mounted*. When a component is removed from the DOM, we call it *unmounted*. When we change state like in the unmounting example above, we can switch between these statuses. This gives us a clue that components go through a *lifecycle* of different statuses. We have seen 2 of the statuses: mounting and unmounting, there is also a third called *updating*.
 
 We can hook into this lifecycle through special component methods that are added by React's `Component` class. They are run at different points of the lifecycle, often before and after they change to a different status. The method names are contain `will` or `did` based on whether they run before or after a status change.
 
@@ -80,12 +82,27 @@ This diagram shows the React component lifecycle:
 
 ![React component lifecycle](../assets/lifecycle.jpg)
 
-We'll now focus on a few of the lifecycle hooks and see how they are used.
+Let's look at how we can use one of the lifecycle methods ([interactive example](https://stackblitz.com/edit/react-sf6spn)):
+
+```js
+class Lifecycle extends Component {
+  componentDidMount() {
+    console.log('componentDidMount')
+  }
+
+  render() {
+    return <div>Hello World</div>
+  }
+}
+```
 
 > **Exercise:**
+> Open the `my-hotel` application from the last 2 weeks
 > 1. Implement the lifecycle hook methods in the `BookingsMessage` component and add a `console.log` to each of them. Try interacting with the component and see what order the logs appear
 > 2. The `componentWillUnmount` method will never be called. Can you explain why?
 > 3. Return `false` from `shouldComponentUpdate` in `BookingsMessage`. Try incrementing the number of bookings and explain what happens (change it back to return `true` after you are done!)
+
+We'll now focus on a few of the lifecycle hooks and see how they are used.
 
 ### `shouldComponentUpdate`
 
@@ -95,9 +112,9 @@ Why would we want to prevent a component from re-rendering? In some circumstance
 
 ### `componentDidMount` and `componentWillUnmount`
 
-This method runs after a component has finished rendering to the DOM. The component is now waiting for a props change or input from the user. It is called only once. We use this lifecycle hook to make changes outside of the component (sometimes these are called *side effects*).
+The `componentDidMount` method runs after a component has finished rendering to the DOM. The component is now waiting for a props change or input from the user. It is called only once. We use this lifecycle hook to make changes outside of the component (sometimes these are called *side effects*).
 
-This method runs when a component has been unmounted from the DOM. It is used to "clean up" the component as it is no longer being shown. Often we need to close down or cancel the changes we made in `componentDidMount`.
+The `componentWillUnmount` method runs when a component has been unmounted from the DOM. It is used to "clean up" the component as it is no longer being shown. Often we need to close down or cancel the changes we made in `componentDidMount`.
 
 To look at these in more detail, we'll create a Clock component in an exercise.
 
@@ -137,10 +154,10 @@ class Clock extends Component {
 > 2. Render the `Clock` component in the `App` component
 > 4. Add a `componentDidMount` method to the `Time` component and use `setInterval` to call `this.tick` every second (1000 milliseconds)
 > 5. Implement the `tick` method, and set the `date` state to the current date (hint: `new Date()`)
-> 6. Add a `console.log` to the `tick` method and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it?
+> 6. Add a `console.log` to the `tick` method. Try clicking the "Toggle time" button and look at what happens in the console. What do you think the problem is here? How can we fix it?
 > 7. Assign the return value of `setInterval` to `this.timer`
 > 8. In `componentWillUnmount`, remove the timer by calling `clearInterval(this.timer)`
-> 9. Try playing around with the toggle again. How have we solved the problem above?
+> 9. Try playing around with the toggle, like in step 6. How have we solved the problem?
 
 ## Fetching Data in React
 
@@ -269,6 +286,7 @@ render() {
 
 > **Exercise:**
 > Open your `my-hotel` application again
+
 > Convert the `SpecialDeals` component to fetch data from http://www.mocky.io/v2/5a9ad31d3400002c00a39a3c.
 > Make sure that you include a loading state and error handling.
 

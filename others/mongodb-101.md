@@ -23,7 +23,9 @@ In the second instance, first download the sample data script:
 ```curl https://gist.githubusercontent.com/agiamas/35b2b954cc942f95709273d3cb9d2cf3/raw/1a0b732594c5f5ae23f638c03519a98364f8b0ff/mongodb_data.js > mongo_data.js```
 
 then import the data we just downloaded using 
-```mongo < mongo_data.js```
+```
+mongo < mongo_data.js
+```
 
 Finally, run `mongo` in the second terminal instance.
 
@@ -194,7 +196,7 @@ Update the grades of all students to be 90
 # Deleting documents
 
 Deleting a single or more documents is as simple as:
-```mongodb
+```
 > db.Student.remove({"_id":ObjectId("5a99e1209056c9e237d071d9")})
 WriteResult({ "nRemoved" : 1 })
 ```

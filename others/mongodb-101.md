@@ -13,7 +13,7 @@
 
 # Before we start
 
-Download and install MongoDb from
+Download and install MongoDB from
 https://www.mongodb.com/download-center#community . Follow the instructions for
 your platform (Windows, Linux or OS X).
 
@@ -23,7 +23,9 @@ In the second instance, first download the sample data script:
 ```curl https://gist.githubusercontent.com/agiamas/35b2b954cc942f95709273d3cb9d2cf3/raw/1a0b732594c5f5ae23f638c03519a98364f8b0ff/mongodb_data.js > mongo_data.js```
 
 then import the data we just downloaded using 
-```mongo < mongo_data.js```
+```
+mongo < mongo_data.js
+```
 
 Finally, run `mongo` in the second terminal instance.
 
@@ -66,7 +68,7 @@ Open the terminal that you ran `mongo`.
 First type `show dbs`
 
 You should see something similar to:
-```mongodb
+```
 admin          0.000GB
 local          0.000GB
 ```
@@ -74,13 +76,13 @@ local          0.000GB
 Then type `use cyf`
 
 You should now get:
-```mongodb
+```
 switched to db cyf
 ```
 That's it! You have created a new database.
 
 Now type again `show dbs`
-```mongodb
+```
 admin          0.000GB
 local          0.000GB
 ```
@@ -99,6 +101,27 @@ Collections are like tables in SQL databases. Initialising a collection is also 
 
 now if we run again `show dbs` after we create a collection with a document we will see that the database appears in the list.
  This is because at the moment that we inserted this document, the document was created, which in turn created the collection which in turn created the database.
+
+### Exercise 1:
+
+Insert a new student with name: Mary
+
+### Exercise 2:
+
+Insert a new student with name: Madeline and id=2 (integer)
+
+### Exercise 3:
+
+Insert a new student with name: Steve, midterm score of 80 and final score of 100
+
+Scores should be embedded in a sub-document like this:
+```
+    scores: 
+    { 
+      midterm: 0,
+      final: 0
+    }
+```
  
 ### Finding Documents
  
@@ -117,6 +140,15 @@ AND / OR queries:
 ```
 > db.Student.find({"$or": [{"scores.midterm": {$gt: 60}}, {"scores.final": {$lte: 75}}]} )
 ```
+
+### Exercise 3:
+
+Find the user Maria that you inserted in exercise 1
+
+### Exercise 4:
+
+Search for students that have scored between [50,80) in midterm AND [80,100] in final exam
+
 
 In these two examples above we can see the operators GreaterThanEquals >= , GreaterThan > and LessThanEquals <= in action.
 
@@ -151,10 +183,20 @@ multi:true
 
 (!) We can get update to update or *create* the document by using upsert:true
 
+### Exercise 5:
+
+Update the student madeline that you created back in exercise 2 to have midterm score of 50 and final score of 100 respectively
+
+### Exercise 6:
+
+Update the grades of all students to be 90
+
+(!) How could we boost the grades of all students by 10%? (!) 
+
 # Deleting documents
 
 Deleting a single or more documents is as simple as:
-```mongodb
+```
 > db.Student.remove({"_id":ObjectId("5a99e1209056c9e237d071d9")})
 WriteResult({ "nRemoved" : 1 })
 ```
@@ -164,6 +206,14 @@ Deleting a whole collection:
 
 Deleting a database:
 ```db.dropDatabase()``` to delete the current database
+
+### Exercise 7:
+
+Delete user steve that you created back in exercise 3
+
+### Exercise 8:
+
+Delete all users with midterm score less than 80
 
 
 # Lesson 4 - Administration
@@ -191,6 +241,10 @@ All of these are important for every database system but even more important in 
 
 __THERE IS NO ROLLBACK!__ There are no transactions. Once you delete something, it's gone.
 
+
+### Exercise 9:
+
+Using MongoDB shell, create a script to output in a new collection named BoostedStudents one document for every document in Student collection with their final grade being boosted by 10%
 
 
 ## Aggregation
@@ -237,6 +291,10 @@ What's the output like?
 
 More information: https://docs.mongodb.com/manual/aggregation/
 
+
+### Exercise 10:
+
+Now let's redo Exercise 9 using the aggregation framework.
 
 ## Replication
 
@@ -302,7 +360,6 @@ https://docs.mongodb.com/manual/sharding/
 
 # What's next?
 
-Thanks to our sponsor MongoDB, we have this swag here. 
 If you have time and interest, please register to either of these classes or any other class in MongoDB university. 
 
 All classes are **free** and on average require 6-10 hours of time per week.
@@ -314,4 +371,3 @@ _Shameless plug_
 
 I am also the author of the Mastering MongoDB 3.X book by Packt publishing, available [here](https://www.packtpub.com/big-data-and-business-intelligence/mastering-mongodb-3x). 
 
-Please use code XXXX for XX% off.

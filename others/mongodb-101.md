@@ -135,7 +135,7 @@ Scores should be embedded in a sub-document like this:
 Finding a document by a single attribute:
 
 ```
-> db.Student.find({name: 'alex')
+> db.Student.find({name: 'alex'})
 ```
 
 Querying embedded attributes:

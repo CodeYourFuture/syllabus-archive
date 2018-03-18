@@ -20,7 +20,7 @@ your platform (Windows, Linux or OS X).
 Open two instances of terminal. Run `mongod` in the first instance - this will start MongoDB.
 
 In the second instance, first download the sample data script:
-`curl https://gist.githubusercontent.com/agiamas/35b2b954cc942f95709273d3cb9d2cf3/raw/1a0b732594c5f5ae23f638c03519a98364f8b0ff/mongodb_data.js > mongo_data.js`
+`curl https://gist.githubusercontent.com/agiamas/35b2b954cc942f95709273d3cb9d2cf3/raw/b1bb399942dab287832d41b3b75f6b54c6f00bb1/mongodb_data.js > mongo_data.js`
 
 then import the data we just downloaded using
 

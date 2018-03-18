@@ -305,6 +305,18 @@ const HelloMentor = () => (
 )
 ```
 
+We also need to export our components if we want to use them in other files:
+
+```js
+const Greeting = () => (
+  <div>Hello</div>
+)
+
+export default Greeting
+```
+
+The convention is to name component files the exactly same as the component (including the capital letter).
+
 > **Exercise**:
 > Using the `my-hotel` app, edit `src/App.js` to extract the `Logo`, `BookingsMessage` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
 > Hint: you will need to import React

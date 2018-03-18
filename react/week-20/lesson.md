@@ -274,9 +274,9 @@ const Greeting = ({ name }) => <div>Hello {name}</div>
 
 So why don't we always use functional components? Because they can only return JSX (and inject props if there are some). Additionally they cannot hold state or have lifecycle methods (which we'll look at next week).
 
-In real world applications, the things we want to remember in state follow the "business logic" required by our users. So for example the number of bookings in the exercise above increases when you add a booking. To help us cleanly split up code that performs business logic from code that shows the user interface we split components into "presentational" and "connected" or "logical" components.
+In real world applications, the things we want to remember in state follow the "business logic" required by our users. So for example the number of bookings in the exercise above increases when you add a booking. To help us cleanly split up code that performs business logic from code that shows the user interface we split components into "presentational" and "connected" or "connected" components. Often I have components that don't do anything except manage state according to the business rules and render the right "presentational" components.
 
-"Connected" or "logical" components usually have some state and handler methods. Because of this they must use the `class` syntax that we have been using so far. "Presentational" components on the other hand don't require the more verbose syntax. Instead they can use the functional syntax.
+"Connected" or "connected" components usually have some state and handler methods. Because of this they must use the `class` syntax that we have been using so far. "Presentational" components on the other hand don't require the more verbose syntax. Instead they can use the functional syntax.
 
 > **Exercise:**
 > Open the `my-hotel` React application once again

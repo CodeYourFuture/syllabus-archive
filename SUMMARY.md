@@ -45,6 +45,7 @@
 * [Coding 101](/others/coding-101.md)
 * [Express Workshop](/node-db/week-13/workshop.md)
 * [Hotel Workshop](/node-db/week-15/workshop.md)
+* [MongoDB 101](/others/mongodb-101.md)
 * [AWS - DynamoDB](/others/aws-workshop-2.md)
 
 ### For Mentors

@@ -160,53 +160,85 @@ We looked at the beginning of the lesson at the concept of components. Now let's
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class HelloWorld extends React.Component {
-  render() {
-    return <div>Hello World</div>
-  }
+function HelloWorld() {
+  return (
+    <div>Hello World</div>
+  )
 }
 
 ReactDOM.render(<HelloWorld />, document.getElementById('root'))
 ```
 
-Components get more powerful when you combine (or "compose") several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
+There are 3 important parts in this code:
+
+1. First we import `React`. This is important because JSX is converted to `React.createElement` calls. If the `React` variable is undefined then this will fail
+2. We create a React component called `HelloWorld`
+3. We *render* the `HelloWorld` component into a `div` with the id of `root`
+
+#### Arrow Functions for shorter syntax
+
+Because a React component is just a function, we can also use the arrow function syntax:
 
 ```js
-class Greeting extends React.Component {
-  render() {
-    return <span>Hello</span>
-  }
-}
-class Mentor extends React.Component {
-  render() {
-    return <span>Ali</span>
-  }
-}
-
-class HelloWorld extends React.Component {
-  render() {
-    return (
-      <div>
-        <Greeting />
-        <Mentor />
-      </div>
-    )
-  }
+const HelloWorld = () => {
+  return (
+    <div>Hello World</div>
+  )
 }
 ```
 
-Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `camelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
+This can be even shorter again if we use parentheses and implicit return:
+
+```js
+const HelloWorld = () => (
+  <div>Hello World</div>
+)
+```
+
+Although this is shorter, it is less flexible as we cannot insert code that is **not** JSX. Like for example, a `console.log`:
+
+```js
+// This DOES NOT work!
+const HelloWorld = () => (
+  console.log('Hello!')
+  <div>Hello world</div>
+)
+```
+
+If we want to do this, we can still use arrow functions but we can't use the implicit return.
+
+#### Component Composition
+
+Components get more powerful when you combine (or "compose") several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
+
+```js
+const Greeting = () => (
+  <span>Hello</span>
+)
+const Mentor = () => (
+  <span>Ali</span>
+)
+
+const HelloWorld = () => (
+  <div>
+    <Greeting />
+    <Mentor />
+  </div>
+)
+```
+
+Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `CamelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
 
 ## Embedding JS into JSX
 
 Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript "expression". That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
 
 ```js
-class Mentor extends React.Component {
-  render() {
-    const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
-    return <span>{mentors.join(', ')}</span>
-  }
+const Mentor = () => {
+  const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
+  return (
+    <span>{mentors.join(', ')}</span>
+  )
 }
 ```
 
@@ -236,30 +268,16 @@ A common pattern in React is to use `Array.map` to loop through a list of items 
 ```js
 const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
 
-class Item extends Component {
-  render() {
-    return (
-      <li>{this.props.name}</li>
-    )
-  }
-}
-
-class List extends Component {
-  render() {
-    return (
-      <ul>
-        {this.props.items.map((item) => (
-          <Item name={item}/>
-        ))}
-      </ul>
-    );
-  }
-}
+const List => (
+  <ul>
+    {mentors.map((name) => (
+      <li>{name}</li>
+    ))}
+  </ul>
+)
 ```
 
 Here we are using `Array.map` to turn an array of strings into an array of components. We are using a "real" map function, not just special syntax like `{{> each}}` from Handlebars.
-
-An ([interactive example](https://stackblitz.com/edit/react-cwryrk)) of separating the 2 components in the example above in 2 files.
 
 > **Exercise**:
 > Using the `my-hotel` React app that you created earlier, edit `src/App.js` to create a hotel welcome page.
@@ -279,16 +297,12 @@ To help organise your code, components can be imported and exported just like an
 import Greeting from './Greeting'
 import Mentor from './Mentor'
 
-class HelloMentor extends React.Component {
-  render() {
-    return (
-      <div>
-        <Greeting />
-        <Mentor />
-      </div>
-    )
-  }
-}
+const HelloMentor = () => (
+  <div>
+    <Greeting />
+    <Mentor />
+  </div>
+)
 ```
 
 > **Exercise**:

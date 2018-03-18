@@ -152,7 +152,7 @@ AND / OR queries:
 
 ### Exercise 4a:
 
-Find the user Maria that you inserted in exercise 1
+Find the user Mary that you inserted in exercise 1
 
 ### Exercise 4b:
 

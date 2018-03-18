@@ -20,9 +20,9 @@ Last week we looked at how to write a `HelloMentor` React component ([interactiv
 ```js
 // Mentor.js
 class Mentor extends React.Component {
-    render() {
-        return <span>Ali</span>
-    }
+  render() {
+    return <span>Ali</span>
+  }
 }
 
 // index.js
@@ -30,14 +30,14 @@ import Greeting from './Greeting'
 import Mentor from './Mentor'
 
 class HelloMentor extends React.Component {
-    render() {
-        return (
-            <div>
-                <Greeting />
-                <Mentor />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Greeting />
+        <Mentor />
+      </div>
+    )
+  }
 }
 ```
 
@@ -92,17 +92,17 @@ A counter is a common React example, showing the number of times a button has be
 let count = 0
 
 class Counter extends React.Component {
-    render() {
-        return (
-            <div>
-                Count: {this.props.count}
-                <button id="click-me">Click me!</button>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        Count: {this.props.count}
+        <button id="click-me">Click me!</button>
+      </div>
+    )
+  }
 }
 function renderCounter() {
-    ReactDOM.render(<Counter count={count} />, document.getElementById('root'))
+  ReactDOM.render(<Counter count={count} />, document.getElementById('root'))
 }
 
 renderCounter(count)
@@ -116,17 +116,17 @@ This example isn't very useful yet as it doesn't do anything when clicking the b
 let count = 0
 
 class Counter extends React.Component {
-    // ...
+  // ...
 }
 function renderCounter(count) {
-    // ...
+  // ...
 }
 
 renderCounter(count)
 
 document.getElementById('click-me').addEventListener('click', () => {
-    count = count + 1
-    renderCounter(count)
+  count = count + 1
+  renderCounter(count)
 })
 ```
 
@@ -164,14 +164,14 @@ Next we'll change the component to use the count from `this.state` instead of `t
 
 ```js
 class Counter extends Component {
-    render() {
-        return (
-            <div>
-                Count: {this.state.count}
-                <button id="click-me">Click me!</button>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        Count: {this.state.count}
+        <button id="click-me">Click me!</button>
+      </div>
+    )
+  }
 }
 ```
 
@@ -179,15 +179,15 @@ This code has a bug! `this.state` is initialised as an empty object, and so `thi
 
 ```js
 class Counter extends Component {
-    constructor(props) {
-        this.state = {
-            count: props.count
-        }
+  constructor(props) {
+    this.state = {
+      count: props.count
     }
+  }
 
-    render() {
-        // ...
-    }
+  render() {
+    // ...
+  }
 }
 ```
 
@@ -197,25 +197,25 @@ Now the counter component is "remembering" that it's count, however it is stuck 
 
 ```js
 class Counter extends Component {
-    constructor(props) {
-        // ...
-    }
+  constructor(props) {
+    // ...
+  }
 
-    increment = () => {
-        let currentCount = this.state.count
-        this.setState({
-            count: ++currentCount
-        })
-    }
+  increment = () => {
+    let currentCount = this.state.count
+    this.setState({
+      count: ++currentCount
+    })
+  }
 
-    render() {
-        return (
-            <div>
-                Count: {this.state.count}
-                <button onClick={this.increment}>Click me!</button>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        Count: {this.state.count}
+        <button onClick={this.increment}>Click me!</button>
+      </div>
+    )
+  }
 }
 ```
 
@@ -227,15 +227,15 @@ Now that we have refactored to use React state, we can easily add multiple count
 
 ```js
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Counter count={0} />
-                <Counter count={0} />
-                <Counter count={0} />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Counter count={0} />
+        <Counter count={0} />
+        <Counter count={0} />
+      </div>
+    )
+  }
 }
 ```
 
@@ -254,9 +254,9 @@ So far we have been using the `class` keyword to create React components. There 
 
 ```js
 function Greeting(props) {
-    return (
-        <div>Hello {props.name}</div>
-    )
+  return (
+    <div>Hello {props.name}</div>
+  )
 }
 ```
 
@@ -291,34 +291,34 @@ Remember that functions in JavaScript are "first class" - that means we can pass
 
 ```js
 class Counter extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { count: 0 }
-    }
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
 
-    increment = () => {
-        this.setState({ count: ++this.state.count })
-    }
+  increment = () => {
+    this.setState({ count: ++this.state.count })
+  }
 
-    render() {
-        return (
-            <div>
-                {this.state.count}
-                <FancyButton whenClicked={this.increment} />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        {this.state.count}
+        <FancyButton whenClicked={this.increment} />
+      </div>
+    )
+  }
 }
 
 const FancyButton = ({ whenClicked }) => {
-    return (
-        <button
-            className="fancy-button"
-            onClick={whenClicked}
-        >
-            Click Me!
-        </button>
-    )
+  return (
+    <button
+      className="fancy-button"
+      onClick={whenClicked}
+    >
+      Click Me!
+    </button>
+  )
 }
 ```
 
@@ -331,7 +331,6 @@ What is happening here?
 - The state in `Counter` will be set to an incremented value
 
 This pattern is extremely useful in separating business logic code from user interface code. It is also crucial to the concept of [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html).
-
 
 # Homework
 

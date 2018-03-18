@@ -40,10 +40,10 @@ Here we've highlighted some elements that could be components:
 There are no hard & fast rules for making components. UIs can be split up into components in many different ways, requiring judgement based on your context.
 
 - Components should follow the Single Responsibility Principle
-    + Each component should only have 1 "responsibility"
-    + Should only do 1 thing
+  + Each component should only have 1 "responsibility"
+  + Should only do 1 thing
 - Components should have good, explicit names
-    + This helps you to remember what the component's job is
+  + This helps you to remember what the component's job is
 
 > **Exercise**:
 > Look at the example online shopping user interface in the [Thinking in React article](https://reactjs.org/docs/thinking-in-react.html) (the image at the top). Draw boxes around the components and give them names. Compare with the example components shown in the second image.
@@ -63,12 +63,12 @@ First, lets recap how we could do this using "vanilla" JS ([interactive version]
 <div id="root"></div>
 
 <script type="text/javascript">
-    var divNode = document.createElement('div');
-    var textNode = document.createTextNode('Hello World');
-    divNode.appendChild(textNode);
+  var divNode = document.createElement('div');
+  var textNode = document.createTextNode('Hello World');
+  divNode.appendChild(textNode);
 
-    var rootElement = document.getElementById('root');
-    rootElement.appendChild(divNode);
+  var rootElement = document.getElementById('root');
+  rootElement.appendChild(divNode);
 </script>
 </body>
 </html>
@@ -89,12 +89,12 @@ Now let's convert to using React ([interactive version](http://jsbin.com/recegad
 <div id="root"></div>
 
 <script type="text/javascript">
-    const element = React.createElement('div', {
-        children: 'Hello World'
-    })
+  const element = React.createElement('div', {
+    children: 'Hello World'
+  })
 
-    const rootElement = document.getElementById('root')
-    ReactDOM.render(element, rootElement)
+  const rootElement = document.getElementById('root')
+  ReactDOM.render(element, rootElement)
 </script>
 </body>
 </html>
@@ -120,10 +120,10 @@ Using JSX ([interactive version](http://jsbin.com/gekahexige/edit?html,output)):
 <div id="root"></div>
 
 <script type="text/babel">
-    const element = <div>Hello World</div>
+  const element = <div>Hello World</div>
 
-    const rootElement = document.getElementById('root')
-    ReactDOM.render(element, rootElement)
+  const rootElement = document.getElementById('root')
+  ReactDOM.render(element, rootElement)
 </script>
 
 </body>
@@ -161,9 +161,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 class HelloWorld extends React.Component {
-    render() {
-        return <div>Hello World</div>
-    }
+  render() {
+    return <div>Hello World</div>
+  }
 }
 
 ReactDOM.render(<HelloWorld />, document.getElementById('root'))
@@ -173,25 +173,25 @@ Components get more powerful when you combine (or "compose") several components 
 
 ```js
 class Greeting extends React.Component {
-    render() {
-        return <span>Hello</span>
-    }
+  render() {
+    return <span>Hello</span>
+  }
 }
 class Mentor extends React.Component {
-    render() {
-        return <span>Ali</span>
-    }
+  render() {
+    return <span>Ali</span>
+  }
 }
 
 class HelloWorld extends React.Component {
-    render() {
-        return (
-            <div>
-                <Greeting />
-                <Mentor />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Greeting />
+        <Mentor />
+      </div>
+    )
+  }
 }
 ```
 
@@ -203,10 +203,10 @@ Like Handlebars, you can insert variables (and some other things) into React com
 
 ```js
 class Mentor extends React.Component {
-    render() {
-        const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
-        return <span>{mentors.join(', ')}</span>
-    }
+  render() {
+    const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
+    return <span>{mentors.join(', ')}</span>
+  }
 }
 ```
 
@@ -218,15 +218,15 @@ Now we have modified the `Mentor` component to use the `Array.join` method so th
 
 ```js
 const weather = {
-    temperature: 5,
-    location: 'London'
+  temperature: 5,
+  location: 'London'
 }
 <p>The temperature in {weather.location} is {weather.temperature}</p>
 ```
 
 ```js
 function formatName(user) {
-    return user.firstName + ' ' + user.lastName
+  return user.firstName + ' ' + user.lastName
 }
 <span>{formatName(user)}</span>
 ```
@@ -280,14 +280,14 @@ import Greeting from './Greeting'
 import Mentor from './Mentor'
 
 class HelloMentor extends React.Component {
-    render() {
-        return (
-            <div>
-                <Greeting />
-                <Mentor />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Greeting />
+        <Mentor />
+      </div>
+    )
+  }
 }
 ```
 

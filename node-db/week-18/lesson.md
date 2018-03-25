@@ -71,9 +71,9 @@ Now let's say we want to get the *names* of customers who have a reservation *to
 
 From what we know now, we *could* do it like this:
 
-- select customer_id from reservations where date_started = '01/01/2018'
+- select customer_id from reservations where date_started = '2018/01/01'
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
-- select * from customers where id = in (3, 5, 7)
+- select * from customers where id in (3, 5, 7)
 
 However, that's stupid. We want the computer to figure out 3, 5, 7 by itself.
 
@@ -107,7 +107,7 @@ Get the list of reservations together with the details of the title, first name 
 
 ### LESSON 3: ORDER BY SURNAME
 
-Can anybody tell me what the difference is between random and arbitrary?
+QUESTION FOR CLASS : What the difference is between *random* and *arbitrary*?
 
 Up until now we've not been returning results in a *random* order, but we have been returning
 them in an *arbitrary* order.
@@ -117,7 +117,7 @@ Using 'order by' we can get records back in a specified order:
 ```
 SELECT reservations.date_started, customers.firstname, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname
+where reservation.date_started = '2018/01/01' order by customers.surname
 ```
 
 We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
@@ -127,7 +127,7 @@ If we want to get *explicit* the three of them in ascending order:
 ```
 SELECT reservations.date_started, customers.firstname, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname asc
+where reservation.date_started = '2018/01/01' order by customers.surname asc
 ```
 
 Now, if we want them in descending order:
@@ -135,10 +135,21 @@ Now, if we want them in descending order:
 ```
 SELECT reservations.date_started, customers.firstname, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '01/01/2018' order by customers.surname desc
+where reservation.date_started = '2018/01/01' order by customers.surname desc
 ```
 
+[ GIVE EXAMPLE DATA ]
+
 And, if we want to order by surname first and first name second, we can do this:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/01/01' order by customers.surname desc, customers.firstname desc
+```
+
+[ GIVE EXAMPLE DATA ]
+
 
 ##### EXERCISE 3.a
 

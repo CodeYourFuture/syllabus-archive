@@ -100,10 +100,6 @@ Who can tell me what this is currently doing? What do we need to make it do?
 So, the answer is here:
 
 ```javascript
-const filename = 'database/database.sqlite';
-const sqlite3 = require('sqlite3').verbose();
-let db = new sqlite3.Database(filename);
-
 router.get('/customers', function(req, res) {
   res.status(200).json({
     db.all(sql, [], (err, 'select * from customers' ) => {

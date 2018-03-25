@@ -138,7 +138,31 @@ from reservations join customers on reservations.customer_id = customer.id
 where reservation.date_started = '2018/01/01' order by customers.surname desc
 ```
 
-[ GIVE EXAMPLE DATA ]
+```
+Date Started  Firstname  Surname 
+---------------------------------
+2018/01/02    Melania    Trump
+2018/01/02    Donald     Trump
+2018/01/01    Bill       Clinton
+2018/01/01    Hillary    Clinton
+2018/01/03    Colm       O'Connor
+```
+
+This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
+
+```
+Date Started  Firstname  Surname 
+---------------------------------
+2018/01/02    Donald     Trump
+2018/01/02    Melania    Trump
+2018/01/01    Hillary    Clinton
+2018/01/01    Bill       Clinton
+2018/01/03    Colm       O'Connor
+```
+
+Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
+
+So, if we want to make it more deterministic (opposite of arbitrary), we can make it sort by surname *first* and then
 
 And, if we want to order by surname first and first name second, we can do this:
 
@@ -148,8 +172,17 @@ from reservations join customers on reservations.customer_id = customer.id
 where reservation.date_started = '2018/01/01' order by customers.surname desc, customers.firstname desc
 ```
 
-[ GIVE EXAMPLE DATA ]
+```
+Date Started  Firstname  Surname 
+---------------------------------
+2018/01/02    Donald     Trump
+2018/01/02    Melania    Trump
+2018/01/01    Bill       Clinton
+2018/01/01    Hillary    Clinton
+2018/01/03    Colm       O'Connor
+```
 
+In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
 
 ##### EXERCISE 3.a
 

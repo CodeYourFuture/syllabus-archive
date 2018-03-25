@@ -122,7 +122,7 @@ router.get('/customers', function(req, res) {
 });
 ```
 
-### Exercise 1
+### EXERCISE 1
 
 **User Story:** As a staff member I need to check the details of a given customer given its id.
 
@@ -150,7 +150,7 @@ It will search the `surname` string on each row for the substring `lint`, and re
 The `%` sign before and after `lint` indicates that we could have any character, and any number of characters before and after that substring.
 
 
-### EXERCISE 2A
+### EXERCISE 2
 
 **User Story:** As a staff member I want to search for a customer through its `surname`, but we don't know that it might be misspelled.
 
@@ -160,6 +160,12 @@ The `%` sign before and after `lint` indicates that we could have any character,
 
 ### EXERCISE 3
 
+**Notes on Postman**
+
+In the next image you can see Postman doing a POST request. Highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
+![postman-post-1](postman-post-1.png)
+
+
 **User Story:** As a guest, I want to register my details in the system so that I can check availability for my stay.
 
 **User Acceptance test**: Take the data being POSTed to the `/customers` endpoint check it is inserted into the database.
@@ -167,11 +173,13 @@ The `%` sign before and after `lint` indicates that we could have any character,
 STRETCH GOAL (OPTIONAL): If a bad request is made to customers - first name is missing, for instance, return an HTTP 400 Bad reqest.
 
 
-### HOMEWORK 4
+### EXERCISE 4
+
 **Notes on Postman**
 
-In the next image you can see Postman doing a POST request. Highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
-![postman-get-1](postman-post-1.png)
+In this case we sant Postman to do a PUT request. Agina, highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
+![postman-put-1](postman-put-1.png)
+
 
 **User Story:** As a guest, I noticed that there is a typo on my details and wish to correct it.
 
@@ -179,32 +187,11 @@ In the next image you can see Postman doing a POST request. Highlighed areas ind
 
 **User acceptance test**: PUT title=mr, firstname=donald, surname=trump on /customers/:id and check that the database was updated.
 
-
-
 - update table
 - remember your previous lesson
 - hint: in the javascript code, instead of db.all() you will need ... what?
 
-
-### HOMEWORK 4 : STRETCH GOAL (OPTIONAL)
-
-The end point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
-
-
-### HOMEWORK 5
-
-**User Story:** As a staff member, I want to create a new reservation.
-
-Create and end-point to post a new reservation to `/reservations/`.
-
-- insert into
-- create the endpoint from scratch
-- which HTTP method should you use?
-
-STRETCH GOAL (OPTIONAL) : Return {"status": "error": "reason": "reason..."} if *anything* was wrong with the request.
-
-
-### LESSON 6 : I WISH I COULD DELETE HIM IN REAL LIFE
+### LESSON 3 : I WISH I COULD DELETE HIM IN REAL LIFE
 
 We've currently done inserting data and updating data, but sometimes inserting data was just a mistake
 and it needs to go.
@@ -226,9 +213,8 @@ There are several things you need to worry about when you delete data and what y
 
 - Often it's a good idea to give data the 'status' deleted instead of actually deleting it.
 
-### HOMEWORK 6
+### Exercise 5
 **User Story:** As a staff member, I want to delete a canceled reservation from the database.
-
 
 **Notes on Postman**
 The delete request is actually pretty straight forward. We only need to select the type and provide the url:
@@ -236,10 +222,28 @@ The delete request is actually pretty straight forward. We only need to select t
 
 Create an end-point to delete a given reservation from `/reservation/:id/`.
 
-- delete
+
+## Homework
+
+### HOMEWORK 1
+
+The end point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
 
 
-### HOMEWORK 7
+### HOMEWORK 2
+
+**User Story:** As a staff member, I want to create a new reservation.
+
+Create and end-point to post a new reservation to `/reservations/`.
+
+- insert into
+- create the endpoint from scratch
+- which HTTP method should you use?
+
+STRETCH GOAL (OPTIONAL) : Return {"status": "error": "reason": "reason..."} if *anything* was wrong with the request.
+
+
+### HOMEWORK 3
 **User Story:** As a staff member, I want to get a list of all the existing reservations.
 
 Create an end-point to get from `/reservations` all existing reservations.
@@ -247,7 +251,7 @@ Create an end-point to get from `/reservations` all existing reservations.
 - create the endpoint from scratch
 
 
-### HOMEWORK 8
+### HOMEWORK 4
 **User Story:** As a customer, I want to check the details of a reservation.
 
 Create and end-point to get from `/reservations/:id` the details of a resrevation through its `id`.
@@ -256,7 +260,7 @@ Create and end-point to get from `/reservations/:id` the details of a resrevatio
 - create the enpoint from scratch
 
 
-### HOMEWORK 9
+### HOMEWORK 5
 **User Story:** As a staff member, I want to get a list of all the reservations that start at a given date.
 
 Create and end-point to get from `/reservations/starting-on/:startDate` all the reservations that start at a given date.
@@ -265,7 +269,7 @@ Create and end-point to get from `/reservations/starting-on/:startDate` all the 
 - create the enpoint from scratch
 
 
-### HOMEWORK 10
+### HOMEWORK 6
 **User Story:** As a staff member, i want to get a list of all the reservations that are active at a given date.
 
 Create and end-point to get from `/reservations/active-on/:date` all the reservations that are active on a given date - some customer has a room reserved on that day.

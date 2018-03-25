@@ -50,7 +50,7 @@ Use `/server/class2.js` for the exercises of this class.
 
 ### Setting up the environment
 
-**Task** Clone the [repo](ADD THE LINK !!!), and follow the instructions to set the environment up.
+**Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db/tree/class2), and follow the instructions to set the environment up.
 
 You have already worked with back end servers using Express. This is just another yet another one, that we will be connecting to a database.
 
@@ -82,10 +82,6 @@ Remove the code that is returning a JSON object on end point `/customers`, and u
 - select everything
 
 ```javascript
-const filename = './database/database.sqlite';
-const sqlite3    = require('sqlite3').verbose();
-let db = new sqlite3.Database(filename);
-
 router.get('/customers', function(req, res) {
   res.status(200).json({
     customers: [{
@@ -139,19 +135,9 @@ For this problem where we want to search in *part* of a string we use the LIKE c
 select * from customers where surname like '%lint%';
 ```
 
-This returns all of the customers who have the name 'lint' in their names.
+It will search the `surname` string on each row for the substring `lint`, and return true for the ones where it is part of the string. The substring is matched insensitively with the actual data - meaning that it makes no difference if the stored value is upper case and the provided substring is lower case.
+The `%` sign before and after `lint` indicates that we could have any character, and any number of characters before and after that substring.
 
-```sql
-select * from customers where surname like '%clint%';
-```
-
-This won't return anything at all. Why not?
-
-```sql
-select * from customers where surname like '%clint%';
-```
-
-This will. Why?
 
 ### EXERCISE 2A
 

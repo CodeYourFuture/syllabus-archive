@@ -30,7 +30,7 @@ Homework from last lesson:
 - Inserting data from an endpoint.
 - Updating data from an endpoint.
 - Dealing with unclear user stories. There is a TRAP in one of these user stories we will be giving you today.
-- What is the difference between user story, use case and user acceptance test. 
+- What is the difference between user story, use case and user acceptance test.
 
 ### SHOULD I USE SQL OR SHOULD I USE NOSQL?
 
@@ -148,7 +148,7 @@ select * from customers where surname like '%clint%';
 This won't return anything at all. Why not?
 
 ```sql
-select * from customers where surname ilike '%clint%';
+select * from customers where surname like '%clint%';
 ```
 
 This will. Why?
@@ -215,7 +215,7 @@ and it needs to go.
 It's a fairly simple command that looks like select, you just specify the table and a predicate and it wipes:
 
 ```sql
-delete from customers where surname ilike '%trump%';
+delete from customers where surname like '%trump%';
 ```
 
 There are several things you need to worry about when you delete data and what you do about them will depend entirely upon what it is you are trying to do:

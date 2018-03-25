@@ -51,7 +51,7 @@ Use `/server/class2.js` for the exercises of this class.
 
 ### Setting up the environment
 
-**Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db/tree/class2), and follow the instructions to set the environment up.
+**TODO** Maybe set this up as an exercise for class1. If we have a good set of resources, we can probably gain some time in this class.
 
 You have already worked with back end servers using Express. This is just another yet another one, that we will be connecting to a database.
 
@@ -59,20 +59,22 @@ In order for us to interact with the server, we are going to use [Postman](https
 
 ![postman-get-1](client-postman-server.jpg)
 
-
-
 We're going to use this set up for debugging and testing our back-end. Can anybody tell me what debugging is?
 
 ![Debugging](debugging.jpg "Debugging")
 
 
-**Task** Download and install [Postman](https://www.getpostman.com/).
+**Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db/tree/class2), and follow the instructions to set the environment up.
 
-Now let us all try Postman by GETting from `http://localhost:8080/api/customers`, as is shown next.
 
 ![postman-get-1](postman-get-1.png)
 
 ##### Installing Postman
+
+**Task** Download and install [Postman](https://www.getpostman.com/).
+
+Now let us all try Postman by GETting from `http://localhost:8080/api/customers`, as is shown next.
+
 **Ubuntu guide** [here](https://blog.bluematador.com/posts/postman-how-to-install-on-ubuntu-1604/).
 
 **For Windows and mac** should be just install and run.

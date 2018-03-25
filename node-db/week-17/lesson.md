@@ -33,6 +33,7 @@ Homework from last lesson:
 - What is the difference between user story, use case and user acceptance test.
 
 ### SHOULD I USE SQL OR SHOULD I USE NOSQL?
+**TODO** Maybe move to class1?
 
 Short answer: if in doubt, you should just use SQL. Always.
 
@@ -56,17 +57,27 @@ You have already worked with back end servers using Express. This is just anothe
 
 In order for us to interact with the server, we are going to use [Postman](https://www.getpostman.com/), which will accurately mimic API calls made from react. In the last three lessons you're going to make react do to this back end what postman is going to do today.
 
-We're going to use it for debugging. Can anybody tell me what debugging is?
+![postman-get-1](client-postman-server.jpg)
+
+
+
+We're going to use this set up for debugging and testing our back-end. Can anybody tell me what debugging is?
 
 ![Debugging](debugging.jpg "Debugging")
 
-![postman-get-1](client-postman-server.jpg)
 
 **Task** Download and install [Postman](https://www.getpostman.com/).
 
 Now let us all try Postman by GETting from `http://localhost:8080/api/customers`, as is shown next.
 
 ![postman-get-1](postman-get-1.png)
+
+##### Installing Postman
+**Ubuntu guide** [here](https://blog.bluematador.com/posts/postman-how-to-install-on-ubuntu-1604/).
+
+**For Windows and mac** should be just install and run.
+
+**TODO** Maybe replace this with [chrome extension](https://chrome.google.com/webstore/detail/tabbed-postman-rest-clien/coohjcphdfgbiolnekdpbcijmhambjff?hl=en-GB) which seems to be much simpler.
 
 
 ### LESSON 1: SELECT ALL THE THINGS!

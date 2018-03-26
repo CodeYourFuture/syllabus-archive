@@ -556,7 +556,7 @@ fs.readFile("path/to/file", function(error, file) {
 });
 ```
 
-* Argument 1: the location of the file you want to write to
+* Argument 1: the location of the file you want to read from
 * Argument 2: the callback function
 
 You'll notice that `fs.readFile`'s callback function takes a second argument.

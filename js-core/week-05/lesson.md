@@ -88,9 +88,10 @@ $
 * Assign some expressions to variables
 * Check the value of the variables
 
-Further reading on using the node console: https://hackernoon.com/know-node-repl-better-dbd15bca0af6
+Further reading on using the node console: [https://hackernoon.com/know-node-repl-better-dbd15bca0af6](https://hackernoon.com/know-node-repl-better-dbd15bca0af6)
 
 ## Boolean Filters
+
 There is a special data type in JavaScript known as a **boolean** value. A boolean is either `true` or `false`, and it should be written without quotes.
 
 ```js
@@ -107,7 +108,7 @@ We can also write **expressions** that return boolean values.
 
 Here's an expression that evaulates to a boolean.
 
-```
+```sh
 1 > 2
 ```
 
@@ -117,9 +118,9 @@ The `>` symbol in the expression is a **comparison operator**. Comparison operat
 
 `1` is not bigger than `2` so this expression returns `false`.
 
-**More comparison operators**
+## More comparison operators
 
-```
+```sh
 >   greater than
 <   less than
 <=  less than or equal
@@ -153,6 +154,7 @@ JavaScript programmers often give predicate functions a name that starts with a 
 Calling a predicate function is like asking a question: "is this value a number". The return value is the answer to your question.
 
 ## Conditionals
+
 Like humans, computer programs make decisions based on information given to them. **Conditionals** are a way of representing these decisions in code.
 
 For example:
@@ -258,6 +260,7 @@ false
 ```
 
 ## More Conditionals
+
 A common use of if statements is inside of functions.
 
 ```js
@@ -284,6 +287,7 @@ function getGrade(score) {
 ```
 
 ## Array Literals
+
 If you ever find yourself writing code like this...
 
 ```js
@@ -309,6 +313,7 @@ var greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 ```
 
 ## Array properties
+
 Arrays, like strings, have a `length` property.
 
 You can check this by starting a node console in your terminal.
@@ -324,6 +329,7 @@ undefined
 ```
 
 ## Array Getters and Setters
+
 You can **get** a single value out of an array using **bracket notation**.
 
 ```sh
@@ -352,6 +358,7 @@ scores[3] = 51; // Add a new score
 ```
 
 ## Array methods
+
 Do you remember how strings have special functions called methods? Don't worry if not! Here's an example to jog your memory:
 
 ```sh
@@ -401,7 +408,9 @@ var newArr = arr.concat(4);
 
 console.log(newArr); // logs [1, 2, 3, 4]
 ```
+
 ## More Array methods
+
 Let's explore some more array methods.
 
 ### `.slice()`
@@ -448,6 +457,7 @@ $ node
 There is a string method `.split()`. In an interactive console try using the string `.split()` method and the array `.join()`. How could they work together?
 
 ## Array map
+
 Imagine you have an array of names...
 
 ```js

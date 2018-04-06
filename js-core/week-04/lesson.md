@@ -22,13 +22,13 @@
 
 ## Install Node
 
-**Windows and Mac users**
+### Windows and Mac users
 
-Download the _installer_ (.msi or .pkg) from https://nodejs.org/en/download
+Download the _installer_ (.msi or .pkg) from [https://nodejs.org/en/download](https://nodejs.org/en/download)
 
 ---
 
-**Linux (Ubuntu) users**
+### inux (Ubuntu) users
 
 Run the following commands in your terminal:
 
@@ -37,7 +37,7 @@ Run the following commands in your terminal:
   sudo apt-get install -y nodejs
 ```
 
-Source: https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+Source: [https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 
 > A note on security: This will require you to enter a password. Don't execute a script on your terminal if you don't trust its source, especially if they use the `sudo` command to get admin access to your machine.
 
@@ -53,13 +53,13 @@ There are some tools that will help you to write code. One of these, [Prettier](
 
 ### 1. Install prettier
 
-* In Visual Studio open the extensions panel (see https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions)
+* In Visual Studio open the extensions panel (see [https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions](https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions))
 * Search for `Prettier - Code formatter`
 * Click install on the top result
 
 ### 2. Enable formatting on save
 
-* In Visual Studio open the settings file (see https://code.visualstudio.com/docs/getstarted/settings#_creating-user-and-workspace-settings)
+* In Visual Studio open the settings file (see [https://code.visualstudio.com/docs/getstarted/settings#_creating-user-and-workspace-settings](https://code.visualstudio.com/docs/getstarted/settings#_creating-user-and-workspace-settings))
 * Search for `editor format`
 * Set `editor.formatOnSave` and `editor.formatOnPaste` to true
 
@@ -85,6 +85,7 @@ Inside of `exercise.js` there's a line of code that will print "Hello world!".
 * What happens when you console.log() just a number without quotes?
 
 ## Variables
+
 It is programming tradition that the first thing you do in any language is make it output 'Hello world!'.
 
 We'll do this in JavaScript, using something called `console.log()`.
@@ -105,6 +106,7 @@ Inside of `exercise.js` there's a line of code that will print "Hello world!".
 * What happens when you console.log() just a number without quotes?
 
 ## Variables
+
 When you write code, you'll want to create shortcuts to data values so you can don't have to write out the same value every time.
 
 We can use _variable_ to create a reference to a value.
@@ -126,13 +128,14 @@ The program above will print "Hello world" to the console. Notice how it uses th
 
 ### Expected result
 
-```
+```sh
 Hello world
 Hello world
 Hello world
 ```
 
 ## Strings
+
 In programming there are different _types of_ data. You've used one data type already: **string**.
 
 Computers recognise strings as a sequence of characters but to humans, strings are simply lines of text.
@@ -158,12 +161,13 @@ console.log(messageType); // logs 'string'
 
 ### Expected result
 
-```
+```sh
 This is a string
 string
 ```
 
 ## String concatenation
+
 You can add two strings together using the plus operator (`+`):
 
 ```js
@@ -181,11 +185,12 @@ console.log(greeting); // Logs "Hello, my name is Daniel"
 
 ### Expected result
 
-```
+```sh
 Hello, my name is Daniel
 ```
 
 ## Numbers
+
 The next data type we will learn is **number**.
 
 Unlike strings, numbers do not need to be wrapped in quotes.
@@ -210,13 +215,14 @@ var difference = 10 - 2; // 8
 
 ### Expected result
 
-```
+```sh
 Number of students: 15
 Number of mentors: 8
 Total numnber of students and mentors: 23
 ```
 
 ## Floats
+
 Numbers can be integers (whole numbers) or floats (numbers with a decimal).
 
 ```js
@@ -236,12 +242,13 @@ var roughAge = Math.round(preciseAge); // 30
 
 ### Expected result
 
-```
+```sh
 Percentage students: 65%
 Percentage mentors: 35%
 ```
 
 ## Functions
+
 Functions are blocks of code that can do a task as many times as you ask it to. They take an input and return an output.
 
 Here's a function that doubles a number:
@@ -271,7 +278,7 @@ console.log(result); // 4
 
 ### Expected result
 
-```
+```sh
 6
 ```
 
@@ -281,11 +288,12 @@ console.log(result); // 4
 
 ### Expected result
 
-```
+```sh
 24
 ```
 
 ## Function Parameters
+
 The input given to a function is called a **parameter**.
 
 A function can take more than one parameter:
@@ -312,7 +320,7 @@ function add(num1, num2) {
 
 ### Expected result
 
-```
+```sh
 12
 ```
 
@@ -322,7 +330,7 @@ function add(num1, num2) {
 
 ### Expected result
 
-```
+```sh
 0.75
 ```
 
@@ -332,7 +340,7 @@ function add(num1, num2) {
 
 ### Expected result
 
-```
+```sh
 Hello, my name is Daniel
 ```
 
@@ -343,7 +351,7 @@ Hello, my name is Daniel
 
 ### Expected result
 
-```
+```js
 137
 ```
 
@@ -353,7 +361,7 @@ Hello, my name is Daniel
 
 ### Expected result
 
-```
+```sh
 Hello, my name is Daniel and I'm 30 years old
 ```
 
@@ -388,7 +396,7 @@ function createCreeting(name, age) {
 
 ## Expected result
 
-```
+```sh
 Percentage students: 65%
 Percentage mentors: 35%
 ```
@@ -401,7 +409,7 @@ Percentage mentors: 35%
 
 ## Expected result
 
-```
+```sh
 HELLO DANIEL
 HELLO IRINA
 HELLO MIMI

@@ -1,6 +1,6 @@
 ![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
 
-# JavaScript Core 1
+# JavaScript Core I - 1
 
 **What we will learn today?**
 
@@ -28,7 +28,11 @@ Download the _installer_ (.msi or .pkg) from [https://nodejs.org/en/download](ht
 
 ---
 
+<<<<<<< HEAD
 ### Linux (Ubuntu) users
+=======
+### inux (Ubuntu) users
+>>>>>>> fix md lint errors
 
 Run the following commands in your terminal:
 
@@ -85,7 +89,32 @@ Inside of `exercise.js` there's a line of code that will print "Hello world!".
 * What happens when you console.log() just a number without quotes?
 
 ## Variables
+<<<<<<< HEAD
 
+=======
+
+It is programming tradition that the first thing you do in any language is make it output 'Hello world!'.
+
+We'll do this in JavaScript, using something called `console.log()`.
+
+Inside of `exercise.js` there's a line of code that will print "Hello world!".
+
+### 1. Run the program
+
+* Open a terminal window
+* Change directory to this folder (`cd week-1/C-hello-world`)
+* Run the program using node (`node exercise.js`)
+
+### 2. Experiment
+
+* Try to `console.log()` something different. For example, 'Hello World. I just started learning JavaScript!'.
+* Try to console.log() several things at once.
+* What happens when you get rid of the quote marks?
+* What happens when you console.log() just a number without quotes?
+
+## Variables
+
+>>>>>>> fix md lint errors
 When you write code, you'll want to create shortcuts to data values so you can don't have to write out the same value every time.
 
 We can use _variable_ to create a reference to a value.

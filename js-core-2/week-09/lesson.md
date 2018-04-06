@@ -1,11 +1,6 @@
-# JavaScript Core 5
+# JavaScript Core II - 3
 
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
-
-**What will we learn today?**
-
-* [More JS in the Browser](#more-js-in-the-browser)
----
 
 ## More JS in the Browser
 

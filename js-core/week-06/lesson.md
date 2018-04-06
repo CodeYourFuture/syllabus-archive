@@ -16,6 +16,7 @@
 > Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 3** during this class.
 
 ## Array find
+
 Imagine you have an array of names:
 
 ```js
@@ -103,7 +104,9 @@ var studentNameLength = students.every(isAboveThreshold);
 
 console.log(studentNameLength); // logs true
 ```
+
 ## Array Filter
+
 Imagine you have an array of students' test scores:
 
 ```js
@@ -194,6 +197,7 @@ var numbersDoubled = numbers.map(number => number * 2);
 In the example above, the expression `number * 2` is automatically returned because it comes directly after the `=>` arrow (instead of coming after curly braces). This is called an `implicit return`.
 
 ## Array Foreach
+
 The `.forEach()` method is similar to `.map()` except it does not return a new array. Therefore `.forEach()` is only useful if you want to perform _side effects_.
 
 ### Side effects

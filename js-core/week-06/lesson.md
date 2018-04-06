@@ -1,442 +1,270 @@
 ![Draft lesson](https://img.shields.io/badge/status-draft-darkred.svg)
 
-# JavaScript Core 7
+# JavaScript Core 6
 
 **What we will learn today?**
 
-* [Debugging](#debugging)
-* [Objects vs Arrays](#objects-vs-arrays)
-* [Value vs Reference Types](#value-vs-reference-types)
-* [Scope](#scope)
+* [Array Find](#array-find)
+* [Array Some](#array-some)
+* [Array Every](#array-every)
+* [Array Filter](#array-every)
+* [Array Map](#array-map)
+* [Array ForEach](#array-foreach)
 
 ---
 
-# Debugging
+> Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 3** during this class.
 
-> **Exercise**: Group exercise  
-> Going around the room what will the next log be
+## Array find
+Imagine you have an array of names:
 
 ```js
-for (var i = 10; i < 100; i = i + 10) {
-  if (i > 50) {
-    console.log("That's big");
-  } else if (i > 100) {
-    console.log("Winner winner chicken dinner");
-  } else {
-    console.log(i);
-  }
+var names = ["Daniel", "James", "Irina", "Mozafar", "Ashleigh"];
+```
+
+How would you find the first name that's longer than 6 characters?
+
+You can write a predicate function that checks if a string is longer than 6 characters:
+
+```js
+function isLongName(name) {
+  return name.length > 6;
 }
 ```
 
-> **Exercise**: Now try it yourself  
-> On your own computers or paper write down the output of the below code section.  
-> After 10 minutes going around the room give the next output
+To find the first item that satisfies the predicate you would have to go through each array item, and pass it into `isLongName`. Once it returns true, we can stop going through the array and grab the item that passed the predicate's test. Sounds complicated! Thankfully there is an array method that does just this!
 
-e.g.  
-i=1 log 1  
-i=2 log 2  
-i=3 log Fizz
+### `.find()`
+
+_Searches through the array and returns the value of the first item that satisfies a predicate function._
 
 ```js
-for (var i = 1; i < 20; i++) {
-  if (i % 15 == 0) console.log("FizzBuzz");
-  else if (i % 3 == 0) console.log("Fizz");
-  else if (i % 5 == 0) console.log("Buzz");
-  else console.log(i);
+var longName = names.find(isLongName);
+
+console.log(longName); // logs Mozafar
+```
+
+## Array some
+
+Imagine you have an array of numbers:
+
+```js
+var numbers = [1, 3, -1, 5, 9];
+```
+
+You know that the array is supposed to contain positive numbers, but you want to check if it also contains any negative numbers.
+
+We can write a function that checks this:
+
+```js
+function isNegative(number) {
+  return number < 0;
 }
 ```
 
-> **Demonstration:** Chrome dev tools  
-> Open the devToolsExample.html file in this weeks folder in chrome. Add a break point and show stepping over.
+To check your array of numbers, you'd have to run this function against every number in the array. Thankfully there is an array method that does just this!
 
-> **Exercise:** Play with Chrome dev tools  
-> Open the devToolsExample.html on your own computers, add a break point and check the variables.
+### `.some()`
 
-# Objects Revisited
-
-## Objects vs Arrays
-
-A data structure is a specialized format for organizing and storing data.
-General data structure types include the array, the file, the record, the table,
-the tree, and so on.
-
-We have been dealing mainly with two types of data structures so far - _Arrays_
-and _Objects_.
-
-When we are you solving a problem, one of your main decisions as a developer is
-to choose the data structures you will use to solve it. So when do you use an
-Array and when do you use an Object.
-
-"Bad programmers worry about the code. Good programmers worry about data structures and their relationships." Linus Torvalds
-
-Let's talk about the differences between Arrays and Objects - when can you use or the other. As a general rule of thumb:
-
-1. Does the order of data matter? Then use Arrays.
-1. Can the data be organised by a label? Then use Objects.
-
-> Exercise: Let's say we're writing a program to model and display a Newspaper:
-> what data structure would you use to model the different sections of the
-> newspaper (sports, politics etc..)? Write a data structure in JavaScript to
-> represent your newspaper
-
-> Exercise: Now if we're going to model a Book with different chapters - what
-> data strucuture would we use?
-
-> Exercise: Think of a scenario where we might need to combine both?
-
-## Object Exercises
-
-> Exercise Write a function "printProperties" that takes an object and prints
-> its properties
+_Searches through an array and returns true if at least one array item satisifies the predicate function you provided._
 
 ```js
-var student = {
-  name: "Simon",
-  age: "21",
-  interests: ["javascript", "react"]
-};
+var containsNegative = ages.some(isNegative);
 
-printProperties(student);
-// Output in this case should be name, age, interests
+console.log(containsNegative); // logs true
 ```
 
-> Exercise Write a function called hasProperty that takes an object and a
-> property. The function should return true if the property exists, false if it
-> doesn't
+## Array every
+
+Imagine you have an array of people's names:
 
 ```js
-var student = {
-  name: "Simon",
-  age: "21",
-  interests: ["javascript", "react"]
-};
-
-hasProperty(student, "age"); // should return true
-hasProperty(student, "job"); // should return false
+var students = ["Omar", "Austine", "Dany", "Swathi", "Lesley"];
 ```
 
-> Exercise: compare that to how you find an element in array?
+You want to check that every student in the array has a name longer than 3 characters. How do you do that for every value in the array?
 
-> Exercise Write a function called ownProperty that takes an object which has a
-> prototype, and a field. The function should return true only if the property
-> exists on the object (and _not_ it's prototype)
+We can write a function that returns true or false:
 
 ```js
-var person = {
-  name: "Simon"
-};
-
-var student = {
-  interests: ["javascript", "react"]
-};
-
-student.__proto__ = person; // this is setting the prototype of student to be person
-
-ownProperty(student, "name"); // should return false
-ownProperty(student, "interests"); // should return true
-```
-
-> Exercise Write a function called printObject that takes an object and iterates
-> through all its properties and prints a string formatted property: value Bonus
-> points if you can format the list of interests properly
-
-```js
-var student = {
-  name: "Simon",
-  age: "21",
-  interests: ["javascript", "react"]
-};
-
-printObject(student); //output: "name is Simon, age is 21, interests are ["javascript", "react"]
-```
-
-> Exercise Write a function called "printArray" that use the previous function
-> "printObject". It should loop through the array of students and print each
-> item
-
-```js
-var students = [
-  {
-    name: "Etza",
-    age: "21",
-    interests: ["javascript", "css"]
-  },
-  {
-    name: "Mohamed",
-    age: 22,
-    interests: ["javascript", "c#"]
-  }
-];
-
-printArray(student);
-// output:
-// "name is Simon, age is 21, interests are ["javascript", "react"]"
-// "name is Mohamed, age is 22, interests are ["javascript", "c#"]"
-```
-
-## More advanced working with objects
-
-Let's say you have the following object in javascript, where each key/property
-is the type of note (£5, £10 and £20 note), and the value is the number of notes
-in the wallet.
-
-```js
-var wallet = {
-  5: 3,
-  10: 7,
-  20: 2
-};
-```
-
-> Exercise Write a function that takes in the wallet as an argument, and returns
-> the total money in the wallet.
-
-Next you're given another wallet, and it's put in an array with the first:
-
-```js
-var walletA = {
-  // our original wallet
-  5: 3,
-  10: 7,
-  20: 2
-};
-
-var walletB = {
-  5: 6,
-  10: 0,
-  20: 1
-};
-
-var wallets = [walletA, walletB];
-```
-
-> Exercises
->
-> 1 Write a function - `sumWallets` - that takes the array `wallets` and
-> returns the total amount of money for all of the wallets.
-
-> 2 Write another function - `combineWallets` - that takes the array of wallets
-> and combines all of the notes in each of them, returning a single wallet
-> with all of the other wallets' notes.
-
-> 3 See if you can write a function - `sumDynamicWallet` - that will sum up and
-> return the total amount in a single wallet, but it could have any number of
-> different notes inside it (£7 note or a £13 or any other number).
-
-> 4 See if you can write a function that takes in any number of wallets, which
-> could contain any denomination/type of notes inside them (each being
-> different). Tip: have a think about if you could re-use a function from a
-> previous example...
-
-## Value vs Reference Types
-
-A variable can hold two types of values: primitives (value types) and reference
-types. The distinction between them is very important and will be a fundamental
-addition to your JavaScript arsenal.
-
-Primitives are:
-
-* string (example: `John Doe`)
-* number (example: `100`)
-* boolean (example: `true` or `false`)
-
-Reference types are:
-
-* Objects (example: `{greeting: "hello"}`)
-* Arrays (example: `[1,2,3]`)
-* Functions (example: `function doNothing() { }`)
-
-Variables can only hold a few bytes of data. Because primitives have fixed
-sizes, when you assign a primitive to a variable, it will hold the actual value
-of the primitive (hence the name "value type"). But reference types can have
-practically infinite sizes, so when you assign a reference type to a variable,
-that variable will hold a reference to it only: an identifier which will tell
-our program where to look for that object in memory.
-
-![Memory assignment](../assets/stack_heap.png)
-
-## Pass by value / reference
-
-Consider the example below.
-
-```js
-function addFive(value) {
-  value = value + 5;
-}
-
-var ten = 10;
-addFive(ten);
-console.log(ten);
-```
-
-We have a function that accepts a value as an argument. The function then adds five to the
-argument and logs the value.
-After invoking the function with the variable `ten`, the variable is logged.
-
-What will be the values logged?
-Answer: 10 (not 15)
-
-Explanation:
-In JavaScript, variables are always passed to function by value. That means only the value
-the variables was holding is passed to the function, and not a reference to the variable's
-location in memory. That means that inside a function call, any changes we make to its
-arguments will only apply inside the function (as seen in the previous example).
-
-**Be careful though**, as the value of an argument might be a reference to a JavaScript
-object, in which case, changing a property on that object will also reflect everywhere
-else we use a reference to that object.
-
-For example:
-
-```js
-function a(primitive, object) {
-  primitive = primitive + 5;
-  object.greeting = "how are you?";
-  object = {
-    greeting: "holla!"
-  };
-}
-var primitive = 10;
-var object = {
-  greeting: "hello"
-};
-a(primitive, object);
-console.log(primitive); // 10
-console.log(object.greeting); // "how are you?"
-```
-
-> Let's look at the illustrations [here](http://www.javascripttutorial.net/javascript-primitive-vs-reference-values/)
-> to understand this behavior better
-
-> **Exercise**
->
-> * Open up the
->   [CodePen here](https://codepen.io/rarmatei/pen/EXraWG?editors=0012)
-> * Create a new `index.html` and `main.js` file
-> * Link the `main.js` from the `index.html` so that it runs in the browser
-> * Copy the exercises from the CodePen above into `main.js` and follow the
->   instructions in the comments
-
-# Scope
-
-Before we get into what scope is, let's try a little exercise.
-
-Open up jsbin and write the following:
-
-```js
-function () {
-    var name = "hello";
-}
-console.log(name);
-```
-
-> What do you think the first console.log will print?
-
-```js
-var hello = "outer";
-function() {
-    var hello = "inner";
-    console.log(hello);
+function isAboveThreshold(name) {
+  return name.length > 3;
 }
 ```
 
-> What do you think calling the function will print?
+To check that each name is longer than 3 characters, you'd have to run this function against every name in the array and return false if someone's name is 3 or fewer characters. Thankfully there is an array method that does just this!
 
-Let's see another example
+### `.every()`
+
+_Searches through an array and returns true if every item satisifies the predicate function you provided. Otherwise, it returns false_.
 
 ```js
-var firstFunction = function() {
-  var a = 10;
+var studentNameLength = students.every(isAboveThreshold);
 
-  var secondFunction = function() {
-    console.log(a);
-  };
+console.log(studentNameLength); // logs true
+```
+## Array Filter
+Imagine you have an array of students' test scores:
 
-  secondFunction();
-};
-
-firstFunction();
+```js
+var testScores = [90, 50, 100, 66, 25, 80, 81];
 ```
 
-This should work fine, and the console should print `10`. But what if we swap
-the positions of `var a` and the `console.log()`?
+You want to show only the test scores that are higher than 80. How do you do that for every value in the array?
+
+We can write a function that checks if one score is greater than 80:
 
 ```js
-var firstFunction = function() {
-  console.log(a);
-
-  var secondFunction = function() {
-    var a = 10;
-  };
-
-  secondFunction();
-};
-
-firstFunction();
+function isHighScore(score) {
+  return score > 80;
+}
 ```
 
-This returns an error: `ReferenceError: a is not defined`. You might think that
-the problem is that we're trying to console log `a` before it's declared in the
-code order. So let's try putting the `console.log(a)` after `secondFunction`,
-where `a` is assigned:
+To find out which scores were greater than 80, you'd have to run this function against every score in the array, and push the 80+ scores into a new array. Thankfully there is an array method that does just this!
+
+### `.filter()`
+
+_Runs every item in the array through a condition that we set, and returns a new array with the values that match the condition_.
 
 ```js
-var firstFunction = function() {
-  var secondFunction = function() {
-    var a = 10;
-  };
+var highTestScores = testScores.filter(isHighScore);
 
-  console.log(a);
-
-  secondFunction();
-};
-
-firstFunction();
+console.log(highTestScores); // logs [90, 100, 81]
 ```
 
-Wait, we're still getting the `ReferenceError`! Even if we move the
-`console.log(a)` underneath where `secondFunction` is called, we _still_ get the
-error. What's going on?
+## Array Map
 
-What we're seeing here is the effect of **scope**. Take a look at the following
-diagram:
+We learnt about the `.map()` method in the previous week. This week we'll study how it works in more depth.
 
-![Scope](../assets/scope_bubbles.png)
-
-We can see from this picture that each function is like a 'bubble', and it has
-access to the variable assigned within it, and the variables assigned 'above'
-it, in it's surrounding function. But note that the 'global' scope doesn't have
-access to `var o`, and `function outer()` doesn't have access to `var i`. So
-each function can access the variables in its **parent scope**, and in it's
-**own, immediate scope**, but it cannot see the variables in its **child
-scope**.
-
-If a variable is declared outside of a function, in the 'window', it has
-_'global' scope_. The scope within a function is _'local' scope_:
+You might remember this example:
 
 ```js
-var test = "I'm global";
-
-function testScope() {
-  var test = "I'm local";
-  console.log(test);
+function double(number) {
+  return number * 2;
 }
 
-testScope(); // output: I'm local
-
-console.log(test); // output: I'm global
+var numbers = [1, 2, 3];
+var numbersDoubled = numbers.map(double);
 ```
 
-> **Exercise**
->
-> * Continue working on your `main.js` from your previous exercises
-> * Copy the exercises from this
->   [CodePen](https://codepen.io/rarmatei/pen/OgqZaR?editors=0011)
-> * Remember to comment/uncomment each set once you're done with them
+The `map()` method runs the function we provided (`double`) on each item in the array and uses the return values to create a new array. In the example `numbersDoubled` is a new array containing `[2, 4, 6]`.
 
-# Resources
+### Callback functions
 
-1. [Objects vs Arrays](https://www.metaltoad.com/blog/javascript-understanding-objects-vs-arrays-and-when-use-them-part-1)
-1. [JavaScript Arrays and Objects Are Just Like Books and Newspapers](https://medium.freecodecamp.org/javascript-arrays-and-objects-are-just-like-books-and-newspapers-6e1cbd8a1746)
+A function that we provide to a method is commonly called a _callback_ function. The term highlights that although we _provide_ the `double` function, the `.map()` method _calls_ it. (Notice how we never write `double()` to call the function).
+
+We'll see callback functions used a lot more in the coming weeks. 
+
+Often, when a function is only needed for a map operation, developers will declare the callback function inside of the method call. Let's try copying and pasting the function declaration inside of the `.map()` method call.
+
+```js
+var numbers = [1, 2, 3];
+var numbersDoubled = numbers.map(function double(number) {
+  return number * 2;
+});
+```
+
+We can make this shorter by removing the function name. We can do this because we are not using the function anywhere else in the code, so we do not need the function name to reference it.
+
+```js
+var numbers = [1, 2, 3];
+var numbersDoubled = numbers.map(function (number) {
+  return number * 2;
+});
+```
+
+We can make this code even shorter still. In the latest versions of JavaScript a way of declaring functions was introduced called _arrow functions_. 
+
+```js
+var numbers = [1, 2, 3];
+var numbersDoubled = numbers.map(number => {
+  return number * 2
+});
+```
+
+The arrow function syntax lets you declare a function without the `function` keyword. (There are some other subtle differences between arrow functions and regular functions that you will learn about at a much later stage).
+
+There is one last thing you can do to make your code shorter. If you remove the braces (`{}`) from an arrow function, the body of the function will be returned without needing to write the `return` keyword.
+
+```js
+var numbers = [1, 2, 3];
+var numbersDoubled = numbers.map(number => number * 2);
+```
+
+In the example above, the expression `number * 2` is automatically returned because it comes directly after the `=>` arrow (instead of coming after curly braces). This is called an `implicit return`.
+
+## Array Foreach
+The `.forEach()` method is similar to `.map()` except it does not return a new array. Therefore `.forEach()` is only useful if you want to perform _side effects_.
+
+### Side effects
+
+Generally, functions should take an input and return an output (based on that input), and not do anything else.
+
+When functions meet this criteria they can be called _pure functions_.
+
+A pure function does not:
+
+* access any data unless it was passed in as a parameter
+* change data declared outside the function
+* interacts with anything outside of the function (e.g. logs a message to the console, shows a message on a website, saves data to disk)
+
+These are all example of _side effects_. Of course, from time to time, we will need to perform side effects, but we should try to avoid side effects inside of functions and only have them when absolutely necessary.
+
+### Example
+
+Say we want to log to the console a list of names.
+
+```js
+var names = ["Daniel", "mozafar", "irina"];
+```
+
+We can use `.forEach()` to go through the array, item by item, and call a function we provide.
+
+```js
+names.forEach(function(name, index) {
+  console.log(index + ": " + name);
+});
+```
+
+This logs each name to the console as hoped, but we notice that the names are not formatted correctly. You might be tempted to format the name inside of the `forEach` function.
+
+However, it is good practise to write small functions with a single responsibility. So instead, we can write a `formatName` function (which we can re-use in other places) and pass it to `.map()` before calling `.forEach()`.
+
+```js
+function formatName(name) {
+  return name.split("")[0].toUpperCase() + name.slice(1);
+}
+
+names.map(formatName).forEach(function(name, index) {
+  console.log(index + ": " + name);
+});
+```
+
+### Chaining
+
+Notice how we were able to write one method after another e.g. `names.map(formatName).forEach(log)`? This is called _method chaining_.
+
+You can call `.forEach()` after `.map()` because `.map()` returns a new array.
+
+Consider this code:
+
+```js
+var namesFormatted = names.map(format);
+namesFormatted.forEach(log);
+```
+
+It can be written more simply (without assigning the array returned from `.map()` to a variable):
+
+```js
+names.map(format).forEach(log);
+```
+
+Be careful though! You can not call `.map()` after `.forEach`.
+
+```js
+names.forEach(log).map(formatName); // ERROR
+```
+
+This code does not work because `forEach()` does not return a new array (it returns `undefined`). The code is therefore attempting to call `.map()` on `undefined`, and `undefined` does not have a `.map()` method.
 
 {% include "./homework.md" %}

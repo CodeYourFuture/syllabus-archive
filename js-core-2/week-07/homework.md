@@ -1,13 +1,3 @@
-1. Submit a PR and pass all the functions for the
-   [unit-testing-london](https://github.com/CodeYourFuture/unit-testing-london)
-   repository
+# Homework
 
-2. Look at each other's Pull Requests and leave feedback
-
-## Prepare for the next class
-
-1. Read:
-   [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
-
-2. Read:
-   [Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+1. [The repo](https://github.com/CodeYourFuture/js-exercises) contains few challenges - solve all the pending exercises in `week-4` and `week-4-practise`.

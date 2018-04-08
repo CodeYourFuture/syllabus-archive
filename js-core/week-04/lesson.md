@@ -14,7 +14,7 @@
 * [Floats](#floats)
 * [Functions](#functions)
 * [Function Parameters](#function-parameters)
-* [Function Nested](#functions-nested)
+* [Nested Functions](#functions-nested)
 
 ---
 
@@ -28,7 +28,7 @@ Download the _installer_ (.msi or .pkg) from [https://nodejs.org/en/download](ht
 
 ---
 
-### inux (Ubuntu) users
+### Linux (Ubuntu) users
 
 Run the following commands in your terminal:
 
@@ -67,28 +67,7 @@ There are some tools that will help you to write code. One of these, [Prettier](
 
 It is programming tradition that the first thing you do in any language is make it output 'Hello world!'.
 
-We'll do this in JavaScript, using something called `console.log()`.
-
-Inside of `exercise.js` there's a line of code that will print "Hello world!".
-
-### 1. Run the program
-
-* Open a terminal window
-* Change directory to this folder (`cd week-1/C-hello-world`)
-* Run the program using node (`node exercise.js`)
-
-### 2. Experiment
-
-* Try to `console.log()` something different. For example, 'Hello World. I just started learning JavaScript!'.
-* Try to console.log() several things at once.
-* What happens when you get rid of the quote marks?
-* What happens when you console.log() just a number without quotes?
-
-## Variables
-
-It is programming tradition that the first thing you do in any language is make it output 'Hello world!'.
-
-We'll do this in JavaScript, using something called `console.log()`.
+We'll do this in JavaScript, using a command called `console.log()`.
 
 Inside of `exercise.js` there's a line of code that will print "Hello world!".
 
@@ -126,7 +105,7 @@ The program above will print "Hello world" to the console. Notice how it uses th
 
 > Remember: to run this exercise you must change directory to the `D-variables`. If you already have a terminal window open for the previous exercise you can do this by running the command `cd ../D-variables`.
 
-### Expected result
+#### Expected result
 
 ```sh
 Hello world
@@ -159,7 +138,7 @@ console.log(messageType); // logs 'string'
 
 * Write a program that logs a message and its type
 
-### Expected result
+#### Expected result
 
 ```sh
 This is a string
@@ -183,7 +162,7 @@ console.log(greeting); // Logs "Hello, my name is Daniel"
 
 * Write a program that logs a message with a greeting and your name
 
-### Expected result
+#### Expected result
 
 ```sh
 Hello, my name is Daniel
@@ -213,7 +192,7 @@ var difference = 10 - 2; // 8
 * Create two variables `numberOfStudents` and `numberOfMentors`
 * Log a message that displays the total number of students and mentors
 
-### Expected result
+#### Expected result
 
 ```sh
 Number of students: 15
@@ -240,7 +219,7 @@ var roughAge = Math.round(preciseAge); // 30
 
 * Using the variables provided in the exercise calculate the percentage of mentors and students in the group
 
-### Expected result
+#### Expected result
 
 ```sh
 Percentage students: 65%
@@ -269,14 +248,14 @@ var result = double(2);
 console.log(result); // 4
 ```
 
-### Exercise
+### Exercise 1
 
 * Complete the function in exercise.js so that it halves the input
 * Try calling the function more than once with some different numbers
 
 > Remember to use the return keyword to get a value out of the function
 
-### Expected result
+#### Expected result
 
 ```sh
 6
@@ -286,7 +265,7 @@ console.log(result); // 4
 
 * Complete the function in exercise2.js so that it triples the input
 
-### Expected result
+#### Expected result
 
 ```sh
 24
@@ -314,11 +293,11 @@ function add(num1, num2) {
 }
 ```
 
-### Exercise
+### Exercise 1
 
 * Write a function that multiplies two numbers together
 
-### Expected result
+#### Expected result
 
 ```sh
 12
@@ -328,7 +307,7 @@ function add(num1, num2) {
 
 * From scratch, write a function that divides two numbers
 
-### Expected result
+#### Expected result
 
 ```sh
 0.75
@@ -338,7 +317,7 @@ function add(num1, num2) {
 
 * Write a function that takes a name (a string) and returns a greeting
 
-### Expected result
+#### Expected result
 
 ```sh
 Hello, my name is Daniel
@@ -349,7 +328,7 @@ Hello, my name is Daniel
 * Write a function that adds two numbers together
 * Call the function, passing `13` and `124` as parameters, and assigning the returned value to a variable `sum`
 
-### Expected result
+#### Expected result
 
 ```js
 137
@@ -359,13 +338,13 @@ Hello, my name is Daniel
 
 * Write a function that takes a name (a string) and an age (a number) and returns a greeting (a string)
 
-### Expected result
+#### Expected result
 
 ```sh
 Hello, my name is Daniel and I'm 30 years old
 ```
 
-## Functions nested
+## Nested Functions
 
 Functions are very powerful.
 
@@ -394,7 +373,7 @@ function createCreeting(name, age) {
 
 > Consider: should your percentage function do the rounding, or should it be done when the greeting is created?
 
-## Expected result
+### Expected result
 
 ```sh
 Percentage students: 65%
@@ -407,7 +386,7 @@ Percentage mentors: 35%
 * Your program should include a function that spells their name in uppercase, and a function that creates a shouty greeting.
 * Log each greeting to the console.
 
-## Expected result
+### Expected result
 
 ```sh
 HELLO DANIEL

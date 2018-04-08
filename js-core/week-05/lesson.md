@@ -19,7 +19,7 @@
 * [Array map](#array-map)
 
 ---
-> Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 2** during this class.
+> Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 2** folder during this class.
 
 ## Expressions
 
@@ -106,7 +106,7 @@ Head over to `exercise.js` and follow the instructions in the comments.
 
 We can also write **expressions** that return boolean values.
 
-Here's an expression that evaulates to a boolean.
+Here's an expression that evaluates to a boolean.
 
 ```sh
 1 > 2
@@ -164,7 +164,7 @@ For example:
 
 The most common type of conditional is the **if statement**.
 
-An if statment runs some code if a condition is met. If the condition is not met, then the code will skipped.
+An if statment runs some code if a condition is met. If the condition is not met, then the code will be skipped.
 
 ```js
 var isHappy = true;

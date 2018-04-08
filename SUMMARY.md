@@ -35,7 +35,7 @@
   * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
 
 ### Useful informations
-
+* [Useful links](useful-links.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
 

@@ -1,6 +1,6 @@
 ![Draft lesson](https://img.shields.io/badge/status-draft-darkred.svg)
 
-# JavaScript Core 8
+# JavaScript Core II - 2
 
 **What we will learn today?**
 

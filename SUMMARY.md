@@ -18,7 +18,7 @@
   * [Week 8 - JS in the Browser](/js-core-2/week-08/lesson.md) | [Homework](/js-core-2/week-08/homework.md)
   * [Week 9 - More JS in the Browser](/js-core-2/week-09/lesson.md) | [Homework](/js-core-2/week-09/homework.md)
 * [JavaScript III](/js-core-3/index.md)
-  * [Week 10 - Good Code, TDD](/js-core-3/week-10/lesson.md) | [Homework](/js-core-3/week-10/homework.md)
+  * [Week 10 - Unit Tests and TDD](/js-core-3/week-10/lesson.md) | [Homework](/js-core-3/week-10/homework.md)
   * [Week 11 - More TDD, ES6](/js-core-3/week-11/lesson.md) | [Homework](/js-core-3/week-11/homework.md)
   * [Week 12 - Recap](/js-core-3/week-12/lesson.md) | [Homework](/js-core-3/week-12/homework.md)
 * [Node/DB I](/node-db/index.md)

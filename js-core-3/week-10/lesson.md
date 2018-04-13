@@ -1,188 +1,98 @@
 ![](https://img.shields.io/badge/status-review-orange.svg)
 
+# JS Core III - 1
+
 **What will we learn today?**
 
-* [Functions](#functions)
-* [Good Design](#good-design)
+* [Tracing Code](#tracing-code)
+* [Testing](#testing-our-code)
 * [Unit Testing](#unit-testing)
-* [Test-driven Development](#test-driven-development-tdd)
-* [Refactoring](#refactoring)
-* [Unit testing frameworks](#unit-testing-frameworks)
+* [Unit Testing Frameworks - JEST](#jest)
+* [Test-driven Development](#test-driven-development)
+* More on Testing
+  * [Test coverage](#test-coverage)
+  * [Refactoring](#refactoring)
+  * [Modules](#modules)
 
-## Functions
+> Fork and Clone the [js-exercises-tdd repo](https://github.com/CodeYourFuture/js-exercises-tdd)
 
-### Why Functions?
+## Tracing Code
 
-The function is considered one of the greatest inventions in computer science.
-It makes programs easier to read and to understand. It allows for us to more
-easily modify and extend code. It saves space and improves performance.
+What is Code? Computer code is a **set of rules or instructions**. It is made up of words and numbers and when you put them in the **right order** it will tell your computer what you want it to do. 
 
-At the most basic level, a function is a series of instructions that can take an
-input and produce an output. Parameters dictate how the function behaves.
+Let's trace these code samples together:
 
-![Function Diagram](../assets/function-diagram.png)
+- [Sample 1](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/week-1/I.write-tests/01-greet-people/greet-people.js) 
 
-We've used functions a bit, but now we need to know how to use them well.
+- [Sample 2](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/week-1/I.write-tests/02-remove-vowels/remove-vowel.js) 
 
-There are many ways to write code that does the same thing. But are they all
-equal?
+- [Sample 3](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/week-1/I.write-tests/03-remove-vowels-for-words/remove-vowels-in-array.js) 
 
-> Exercise: Let's look at a really obvious example of a function with redundant
-> code. What could we do to improve it?
+## Testing our code
 
-```js
-function printHelloFiveTimes() {
-  console.log("Hello");
-  console.log("Hello");
-  console.log("Hello");
-  console.log("Hello");
-  console.log("Hello");
-}
-```
+We have just traced the output of some code on paper, but how do ensure that the code actually does what it is supposed to do when we run it.
 
-> Exercise: write an improved version of this function
+> Discussion: How have we been testing our code so far? How do ensure it is *correct*. What is "*correct*" anyhow?
 
-Now, let's look at a different example. Let's say we wanted to welcome mentors:
+In many organisations, there are full teams dedicated to **testing** and ensuring that the code written behaves correctly, to report **bugs** and make sure that they are fixed on time. In general, **Quality Assurance** is a responsibility of everyone in a team starting from Project Manager, Scrum Masters, Developers and Testers.
 
-```js
-function welcomeMentors() {
-  console.log("Hello Mozafar");
-  console.log("Hello Rares");
-  console.log("Hello Tim");
-  console.log("Hello Ashleigh");
-  console.log("Hello Gordon");
-}
-```
+There are typically several levels of testing when working on a project:
 
-We could be lazy and change how we welcome the mentors.
+- Unit testing
+- Integration testing
+- Functional, End to End testing and User Acceptance Testing (UAT)
+
+[This answer from Stack OverFlow](https://stackoverflow.com/a/4904533) has a good explanation of types of testing. The defintions for Functional, e2e and UAT are often mean different things in different teams, the responisibility for them also falls on different individuals depending on the team.
+
+*Unit testing* though is always the responsibility of the Developer, and it is a very important skill for any professional developer to be able to write tests, and also write code that is testable.
+
+> Discussion: What is testable code?
 
 ```js
-function welcomeMentors() {
-  var mentorNames = "Mozafar, Rares, Tim, Ashleigh, Gordon";
-  console.log("Hello " + mentorNames);
-}
-```
+var result;
 
-But it's not quite the output we wanted. And we can be smarter about it. Why not
-a loop?
+function getMentorInfo(mentors, name) {
+    var greeting = 'Hello ';
 
-> Exercise: write an improved version of this function
+    result = mentors.find(function (person) {
+        return person.name === name;
+    });
 
-So functions help us to organise and enhance our code. But what makes good
-design? Is it just "shorter is always better"?
+    var mentorTitle = 'Junior Developer';
 
-## Good Design
+    if (result.yearsOfExp > 10) {
+        mentorTitle = 'Senior Developer';
+    } else if (result.yearsOfExp > 20) {
+        mentorTitle = 'Very Senior Developer';
+    }
 
-Design is important if we want our code to be understandable (both to other
-humans, but also to us in the future), to be easy to use and easy to expand.
+    result.jobTitle = mentorTitle;
+    result.fullName = result.title + ' ' + result.name;
 
-There are three main principles you need to know now: clarity, reusability and
-extensibility. There are also others, but they are deeply related to these
-three.
-
-* Ease of Maintenance / Clarity
-  * Naming
-  * Commenting
-  * Clear logic
-  * Concise
-  * Formatting
-  * Avoiding Redundancy
-
-* Reusability
-  * DRY
-  * Single Reponsibility
-    * Avoiding global state (scope)
-    * Predictability and Ease of testing
-
-* Extensibility
-  * Avoiding being unnecessarily specific (e.g. magic numbers)
-
-Now let's take a look at a bigger example of a badly written function
-
-```js
-function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
-  var totalIncomeTax = incomeTax1 + incomeTax2;
-  var studentLoan = (salary - 17775) * 0.09;
-  var originalSalary = salary;
-  var nationalInsurance = null;
-
-  if (taxCode === "1150L") {
-    nationalInsurance = salary * 0.1;
-  } else if (taxCode === "ST") {
-    nationalInsurance = salary * 0.05;
-  } else {
-    nationalInsurance = salary * 0.08;
-  }
-
-  var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
-
-  salary = salary - deductions[0];
-  salary = salary - deductions[1];
-  salary = salary - deductions[2];
-
-  return (
-    "Your gross income is £" +
-    originalSalary.toString() +
-    " and your net income is £" +
-    salary.toString() +
-    "."
-  );
+    return result;
 }
 
-console.log(myFunction(28000, "1150L", 1000, 580, false));
+/*
+  var mentors = [
+      {
+          name: 'Irina',
+          title: 'Dr.',
+          yearsOfExperience: 10
+      }, {
+          name: 'Ashleigh',
+          title: 'Dame',
+          yearsOfExperience: 20
+      }, {
+          name: 'Etza',
+          title: 'Professor',
+          yearsOfExperience: 30
+      }
+  ];
+  
+  var result = getMentorInfo(mentors, 'Etza')
+  Trace the value of "result"
+*/
 ```
-
-What is wrong with this function?
-
-1. Naming: the function has a bad name, myFunction() tells you nothing about
-   what the function does. It's also considered bad practice to name variables
-   vaguely by separating them through numbers (incomeTax1, incomeTax2, etc). If
-   you find yourself doing this then you should either use an array (such as
-   incomeTax[]).
-
-2. Commenting: the function isn't documented at all. It's very difficult to
-   understand what the function's purpose is and how each part of the code
-   contributes to it. By writing comments, the coder communicates their
-   reasoning and helps the function be human readable.
-
-3. Layout/formatting: unnecessary spacing between the if and else statement.
-
-4. Single responsibility: the function doesn't have a single purpose. It
-   calculates national insurance and salary deductions. Maybe the national
-   insurance calculation could be moved to a separate function.
-
-5. Input variable being overwritten: the function requires gross salary (before
-   deductions) and net salary (after deductions) the `salary` input variable is
-   therefore copied into an `originalSalary` variable so that it can be changed.
-   It would be much clearer to create a new `netSalary` variable and leave
-   `salary` unmodified.
-
-6. DRY principle: the function validates the DRY (Don't Repeat Yourself) rule.
-   The line where a deduction is taken from the salary is repeated 3 times with
-   different indices. This can be replaced with a `for` loop.
-
-7. Magic numbers. The code contains a lot of magic numbers, including `17775`,
-   `0.09` and `0.1`.
-
-8. Useless parameters: the code contains a variable which isn't used. They
-   should be removed because they are confusing. It is tempting when you're
-   starting to code a function to add more parameters thinking that you might
-   need them, but it's important to remove them if you don't end up using them.
-
-> Exercise: Working in pairs, go through all of these issues and make
-> appropriate improvements to the code.
-
-> Exercise: Write a function that will print out the number of vowels that are
-> in mentors' names.
-
-## TDD
-
-### Before we get started
-
-> **Fork** >
-> [this repository](https://github.com/CodeYourFuture/js-core-3-exercises) to
-> your own Github account, then **clone** it to your computer.\
-> Today's exercises will be based on this repository.
 
 ## Unit Testing
 
@@ -242,47 +152,9 @@ equals(myNewFunction(arg1, arg2, etc), expectedOutput)
 ```
 As you can see in this example, instead of using a number as the first argument to the `equals()` function, we have used a function instead; the one we wish to test.
 
-> _Together:_ Follow the instructions in `unit-testing/sum.js`!
+> Exercise: Write tests for the the exercises under `I.write-tests`
 
-> _Exercise:_ Now you! Take the provided `unit-testing/findNeedle.js` and turn
-> it into a function that returns a result instead of printing it. Then run it
-> using multiple inputs and make sure it returns the correct results each time!
-
-## Test-driven development (TDD)
-
-> Test-driven development (TDD) is a software development process that relies on
-> the repetition of a very short development cycle: requirements are turned into
-> very specific test cases, then the software is improved to pass the new tests,
-> only. ([Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development))
-
-A key principle in TDD is that we write think about our requirements before we
-dive into code: What should our program be able to do? What are our edge cases?
-
-We formalise those requirements by writing tests - _even before our program is
-written_! At this time, all our tests will fail, because we haven't written any
-code yet. Our tests are now **RED** (the colour represents a failing test).
-
-Now we want to turn this **RED** into **GREEN**. We do this by implementing our
-function in a way that covers all our test cases.
-
-> _Exercise:_ Follow the instructions in `tdd/findNeedle.js`!
-
-## Refactoring
-
-There are times when we want to make our code better without changing any
-functionality, for example because we just learnt about a better way to solve a
-certain problem (like, finding needles in haystacks). This is called
-_refactoring_.
-
-When previously **GREEN** code - working code! - suddenly does not work anymore,
-we call this a _regression_. Our existing tests can make sure that when we
-refactor, the functionality of our code actually stays the same, and does not
-regress.
-
-> _Together:_ Refactor the `findNeedle` function we just wrote to be implemented
-> using `.map()` and `.filter()`.
-
-## Unit testing frameworks
+### Unit testing frameworks
 
 There are lots of other things you might want to test for than two things being
 equal. You might want to test if a number is smaller or greater than another, if
@@ -344,6 +216,27 @@ file. It is important that you give all your test cases meaningful descriptions.
 > be used with Jest, similar to `sum.test.js`. Make sure you cover multiple
 > inputs and give all tests meaningful descriptions! Run the tests using Jest.
 
+## Test Driven Development
+
+Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements. [Wikipedia]
+
+When developing following TDD, you normally follow this sequence:
+
+1. Add a test
+2. Run all tests and see if the new test fails (Red)
+3. Write the simplest code to make the test pass (Green)
+4. Refactor
+5. Repeat
+
+
+Read more on the [Wikipedia article](https://en.wikipedia.org/wiki/Test-driven_development) and the resources at the end.
+
+[Red Green Refactor](https://www.codecademy.com/articles/tdd-red-green-refactor)
+
+> Exercise: Two mentors pair on a problem doing "ping pong" TDD. One writing the test, the other writing the implementation.
+
+## More on Testing
+
 ### Test coverage
 
 Test coverage describes the extent to which a code base is tested. When Jest
@@ -365,13 +258,129 @@ npm test -- --coverage
 > _Exercise:_ Check your code coverage for the tests you wrote. Is any of the
 > numbers below 100%? If so, try and bring it up to 100%!
 
+### Refactoring
+
+There are times when we want to make our code better without changing any
+functionality, for example because we just learnt about a better way to solve a
+certain problem (like, finding needles in haystacks). This is called
+_refactoring_.
+
+When previously **GREEN** code - working code! - suddenly does not work anymore,
+we call this a _regression_. Our existing tests can make sure that when we
+refactor, the functionality of our code actually stays the same, and does not
+regress.
+
+> Exercise: Refactor some of the exercise we've written tests for.
+
+## Modules
+
+So far, all our programs have been in their own single files. But Node programs
+can become really large, and having all our code in only one file will not be
+maintainable.
+
+We can therefore split our code into so-called _modules_. A module is basically
+a JavaScript file that makes its functionality available to other modules and
+programs.
+
+### Creating modules, exporting code
+
+It is really simple to take existing JavaScript code and turn it into a module
+by exporting its functionality:
+
+```js
+function printName(name) {
+  console.log("My name is " + name);
+}
+
+module.exports = printName;
+```
+
+The key here is the line containing `module.exports`. As you see, this is an
+assignment, and whatever is assigned to `module.exports` will be made available
+to other modules and program when this file is imported.
+
+### Using modules, importing code
+
+But how do we make use of another module in our program? We need to _import_ it,
+and this is done using a function called `require()`.
+
+> There are different module formats for JavaScript. The one we are using here,
+> which is natively supported by Node, is called **CommonJS**.
+
+```js
+var printName = require("./printName.js");
+```
+
+> The string passed to the `require()` function is a _path_ to the file you are
+> importing. `./` signifies the current directory, so the above command will
+> import a file called "printName.js" that is in the same directory as our
+> program.
+
+Assuming our program is in the same folder as `printName.js`, we can use the
+above code to import the functionality provided by that module and store it in
+the `printName` variable.
+
+We can then continue to use the `printName` function as if it we defined it in
+our own program!
+
+```
+var printName = require('./printName.js');
+
+printName();
+```
+
+> Modules can not only export functions, but all variable types you already
+> learned about. Most commonly, they export a function or an object containing
+> multiple functions.
+
+> _Together:_ Edit the file `modules/main.js` and follow the instructions.
+
+### Separating code and tests
+
+Exporting and importing modules is really useful for testing, too.
+
+As a rule of thumb, we never want to mix our actual code with our tests. It is
+therefore common to put them in separate files. We are going to call the file
+containing the tests after the file containing the code to be tested, just
+appending `.test` at the end of the filename. Like so:
+
+```
+main.js               # Our main program
+main.test.js          # Tests for our main program
+someOtherCode.js      # A module called "someOtherCode"
+someOtherCode.test.js # Tests for the "someOtherCode" module
+```
+
+> The naming is really up to convention - you can even put your tests in a
+> different folder! However, for Jest it is important to call test files
+> "\*.test.js".
+
+# Glossary
+
+You should know these terms by the end of this class: Testing, Quality Assurance, Unit Tests, Integration Tests, Refactoring, Regression Tests .. any more?
+
 # Resources
 
 1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
-1. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
-1. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
-1. [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
-1. [Jest](https://facebook.github.io/jest/)
-1. [Modules](https://nodejs.org/api/modules.html)
+2. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
+3. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
+4. [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
+5. [Jest](https://facebook.github.io/jest/)
+6. [Modules](https://nodejs.org/api/modules.html)
+7. [Setup VS Code for Debugging](https://medium.com/software-developer/debugging-facebooks-jest-for-react-in-visual-studio-code-9059223e1e71)
+
+## Tracing code resources
+
+Check out these videos. They contain code that is not JavaScript being traced on paper.
+
+[Hand Tracing - Intro to Java Programming](https://www.youtube.com/watch?v=TZss5ukwN8s)
+
+[Tracing code by hand](https://www.youtube.com/watch?v=tJGrie7k97c)
+
+[Tracing a flowchart](https://www.youtube.com/watch?v=SEtNBShckCg)
+
+[Java Tracing Arrays Worksheet 1](https://www.youtube.com/watch?v=niwBxBUzDu4)
+
+[Nested loops](https://www.youtube.com/watch?v=5mxT9x5rgCg)
 
 {% include "./homework.md" %}

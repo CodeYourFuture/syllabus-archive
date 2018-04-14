@@ -75,14 +75,13 @@ Let's run the server and check it in the browser. This is what you should see on
   [StartBootstrap](https://startbootstrap.com/template-categories/all/)
 
 > **Exercise**: Notice how the link to **Contact me** doesn't return a page -
-> Let's add an enpoint to return a simple string **this is a contact page**.
+> Let's add an endpoint to return a simple string **this is a contact page**.
 
 ## Templating
 
 Once you have forked the repository, let's take a look at using templates
 
-> **Exercise**: Let's change the text for the link, **Contact**, to **Contact
-> Information**.
+> **Exercise**: Let's change the text displayed in the browser for the link, **Contact me**, to **Contact Information**.
 
 > How many files do you have to change? Wouldn't be nice if we could change one file and that reflects in all pages.
 

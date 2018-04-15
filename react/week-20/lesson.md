@@ -381,6 +381,10 @@ In real world applications, the things we want to remember in state follow the "
 
 Container components usually have some state and handler methods. Because of this they must use the `class` syntax. presentational components on the other hand don't require the more verbose syntax. Instead they can use the functional syntax.
 
+## Further Reading
+
+Fed up of having to provide a prop for every component? Do you want to make your component use a value most of the time, but it can be overriden with a prop? This is a good time to use `defaultProps`. [This page on the React documentation](https://reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values) describes in more detail.
+
 # Homework
 
 {% include "./homework.md" %}

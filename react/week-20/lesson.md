@@ -375,7 +375,7 @@ class App extends Component {
 > 5. Add a click handler to the button which calls the `addBooking` function
 > 6. Use `this.setState` to increment the number of bookings in state
 
-### When Do You Use State and Props?
+### When do you use Props or State?
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
 

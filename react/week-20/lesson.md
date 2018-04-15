@@ -21,8 +21,8 @@ const Greeting = () => (
 )
 
 // Mentor.js
-const Mentor = () => (
-  <span>Ali</span>
+const Mentor = (props) => (
+  <span>{props.name}</span>
 )
 
 // index.js
@@ -32,7 +32,7 @@ import Mentor from './Mentor'
 const HelloMentor = () => (
   <div>
     <Greeting />
-    <Mentor />
+    <Mentor name="Ali" />
   </div>
 )
 ```
@@ -65,7 +65,7 @@ class Mentor extends Component {
 }
 ```
 
-So when do we use the `class` keyword and when do we use function components? Class components have special super powers called state and lifecycle (which we will look later). The rule of thumb is to use functional components, unless you need to use the special super powers of state or lifecycle.
+So when do we use the `class` keyword and when do we use function components? Class components have special super powers called state and lifecycle (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of state or lifecycle.
 
 ### Class Methods
 
@@ -88,8 +88,7 @@ class Hello extends Component {
 ```
 
 > **Exercise:**
-> Open the `my-hotel` React application that your created last week
-> Convert the `BookingsMessage` component to a class component
+> Open the `my-hotel` React application that your created last week and convert the `BookingsMessage` component to a class component
 
 ## Passing Functions as Props
 

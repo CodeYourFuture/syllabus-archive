@@ -325,7 +325,7 @@ The convention is to name component files the exactly same as the component (inc
 
 ## Making an Argument for Props
 
-What's the problem with this component? Hint: imagine what our boss might ask for with this small application. What could our boss ask for which would mean we would have to make changes to the code?
+What's the problem with our `HelloMentor` component above? Hint: imagine what our boss might ask for with this small application. What could our boss ask for which would mean we would have to make changes to the code?
 
 Our components are very inflexible. They cannot say hello to other mentors, and they can only say "hello", not "hi" or "greetings". If our boss changes their mind, for example if they wanted to say hello to a different mentor, we would have to to change the code too. This is easy in our tiny application but for "real" applications this might be more difficult.
 

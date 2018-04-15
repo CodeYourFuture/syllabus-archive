@@ -372,7 +372,7 @@ const Mentor = ({ name }) => (
 ```
 
 > **Exercise:**
-> Open the `my-hotel` React application that your created last week
+> Open the `my-hotel` React application once again
 > 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
 > 2. Edit the `SpecialDeals` component so that the array is passed as a prop
 

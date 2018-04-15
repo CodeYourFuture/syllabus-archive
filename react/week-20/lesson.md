@@ -88,7 +88,8 @@ class Hello extends Component {
 ```
 
 > **Exercise:**
-> Open the `my-hotel` React application once again and convert the `BookingsMessage` component to a class component
+> Open the `my-hotel` React application that your created last week
+> Convert the `BookingsMessage` component to a class component
 
 ## Passing Functions as Props
 

@@ -375,11 +375,35 @@ class App extends Component {
 > 5. Add a click handler to the button which calls the `addBooking` function
 > 6. Use `this.setState` to increment the number of bookings in state
 
+### When Do You Use State and Props?
+
+We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
+
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://stackblitz.com/edit/react-c9dw8g)):
+
+```js
+class Hello extends Component {
+  render() {
+    this.props.name = 'Mona'
+
+    return (
+      <p>Hello {this.props.name}</p>
+    );
+  }
+}
+```
+
+You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
+
+From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
+
 ### Container components
 
-In real world applications, the things we want to remember in state follow the "business logic" required by our users. So for example the number of bookings in the exercise above increases when you add a booking. To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components.
+In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of bookings in the exercise above increases when you add a booking. Most of the time, business logic is about figuring out when and how to change state.
 
-Container components usually have some state and handler methods. Because of this they must use the `class` syntax. presentational components on the other hand don't require the more verbose syntax. Instead they can use the functional syntax.
+To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
+
+Container components usually have some state and handler methods. Because of this they must use the `class` syntax. presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
 
 ## Further Reading
 

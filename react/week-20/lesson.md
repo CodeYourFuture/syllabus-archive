@@ -7,15 +7,14 @@
 - [Recap](#recap)
 - [Making an Argument for Props](#making-an-argument-for-props)
 - [What Are Props?](#what-are-props)
+- [Class Components](#class-components)
+- [Passing Functions as Props](#passing-functions-as-props)
 - [Reacting to Changes](#reacting-to-changes)
 - [State](#state)
-- [Functional Components](#functional-components)
-- [Passing Functions as Props](#passing-functions-as-props)
 
 ## Recap
 
 Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://stackblitz.com/edit/react-jnkuqk)):
-
 
 ```js
 // Greeting.js
@@ -123,9 +122,80 @@ class Mentor extends Component {
 
 So when do we use the `class` keyword and when do we use function components? Class components have special super powers called state and lifecycle (which we will look later). The rule of thumb is to use functional components, unless you need to use the special super powers of state or lifecycle.
 
+### Class Methods
+
+One of the super powers that class components have is how we can add more functions within the class scope. These are sometimes called *methods*:
+
+```js
+import React, { Component } from 'react'
+
+class Hello extends Component {
+  sayHello = () => {
+    console.log('Hello from Hello component!')
+  }
+
+  render() {
+    return (
+      <button onClick={this.sayHello}>Say hello</button>
+    )
+  }
+}
+```
+
+> **Exercise:**
+> Open the `my-hotel` React application once again and convert the `BookingsMessage` component to a class component
+
+## Passing Functions as Props
+
+Remember that functions in JavaScript are "first class" - that means we can pass a *reference* to a function (as a variable) and then call it elsewhere.
+
+```js
+function hello() {
+  return 'Hello!'
+}
+```
+
+In the example above `hello` is a *reference* to a function. The functions are not called until we use parentheses:
+
+```js
+// Logs: "ƒ hello() {}"
+console.log(hello)
+// Logs: "Hello!"
+console.log(hello())
+```
+
+This is important in React as we can pass the reference to the function as a prop, and then call the function from the child component ([interactive example](https://stackblitz.com/edit/react-zdeki8)):
+
+```js
+class App extends Component {
+  logWhenClicked = () => {
+    console.log('Button was clicked!')
+  }
+
+  render() {
+    return (
+      <div>
+        <FancyButton handleClick={this.logWhenClicked} />
+      </div>
+    )
+  }
+}
+
+const FancyButton = (props) => (
+  <button
+    className="my-fancy-classname"
+    onClick={props.handleClick}
+  >
+    Click Me!
+  </button>
+)
+```
+
 > **Exercise:**
 > Open the `my-hotel` React application once again
-> 1. Convert the `BookingsMessage` component to a class component
+> 1. Add a `logWhenClicked` method to the `App` class component
+> 2. Pass the `logWhenClicked` method as a prop to the `Logo` component
+> 3. Call the function when the `<img>` is clicked (Hint: `onClick`)
 
 ## Reacting to Changes
 
@@ -310,55 +380,6 @@ class App extends Component {
 In real world applications, the things we want to remember in state follow the "business logic" required by our users. So for example the number of bookings in the exercise above increases when you add a booking. To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components.
 
 Container components usually have some state and handler methods. Because of this they must use the `class` syntax. presentational components on the other hand don't require the more verbose syntax. Instead they can use the functional syntax.
-
-## Passing Functions as Props
-
-Usually we want to change the application state when users interact with our presentational components. But as discussed above, we don't want our presentational components to have state, so how do we change state from a presentational component?
-
-Remember that functions in JavaScript are "first class" - that means we can pass a function as a variable and call it elsewhere. This includes React props ([interactive example](https://stackblitz.com/edit/react-bjljxh)):
-
-```js
-class Counter extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-  }
-
-  increment = () => {
-    this.setState({ count: ++this.state.count })
-  }
-
-  render() {
-    return (
-      <div>
-        {this.state.count}
-        <FancyButton whenClicked={this.increment} />
-      </div>
-    )
-  }
-}
-
-const FancyButton = (props) => {
-  return (
-    <button
-      className="fancy-button"
-      onClick={props.whenClicked}
-    >
-      Click Me!
-    </button>
-  )
-}
-```
-
-What is happening here?
-
-- The `Counter` component initialises state and an `increment` method
-- Then the `Counter` component passes the `increment` function as a prop to `FancyButton`
-- Next the `whenClicked` prop (which is the `increment` function) is attached as a click handler in `FancyButton`
-- When the button is clicked, React calls the click handler attached via `onClick`. Because we passed the `increment` function as the `whenClicked` prop, the `increment` function will be called
-- The state in `Counter` will be set to an incremented value
-
-This pattern is extremely useful in separating business logic code from user interface code. It is also crucial to the concept of [Lifting State Up](https://reactjs.org/docs/lifting-state-up.html).
 
 # Homework
 

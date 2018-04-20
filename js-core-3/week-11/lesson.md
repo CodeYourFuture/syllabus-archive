@@ -3,12 +3,28 @@
 # JS Core III - 2
 
 ** What we will learn today?**
+* [Debugging](#good-design)
 * [Good Design](#good-design)
 * [Async and Sync revisited](#async-vs-sync)
 * [Intro to ES6](#intro-to-es6)
 
 ---
 
+# Debugging
+
+Debugging is the process of finding and resolving defects or problems within a computer program that prevent correct operation of computer software or a system.
+
+## Syntax bugs
+A syntax bug is an error caused by something the programmer has typed – it could be a spelling mistake or a command that the computer doesn’t understand.
+
+## Logical bugs
+A logical bug is an error which means that even though the computer is able to carry out its instructions, it doesn’t act as the programmer intended or the user expects.
+
+> Exercise: This website ([https://kabaros.github.io/dom-ajax-repo-solution](https://kabaros.github.io/dom-ajax-repo-solution)) has *bugs*. Use Chrome Developer Tools to find out what is causing these issues.
+
+> Follow this tutorial about [Debugging with Chrome](https://developers.google.com/web/tools/chrome-devtools/javascript/)
+
+> The terms "bug" and "debugging" are popularly attributed to Admiral Grace Hopper in the 1940s.[1] While she was working on a Mark II computer at Harvard University, her associates discovered a moth stuck in a relay and thereby impeding operation, whereupon she remarked that they were "debugging" the system
 
 # Good Design
 

@@ -120,8 +120,7 @@ ToDO: Trace async code on paper
 # Intro to ES6
 
 ECMAScript 2015 (or ES6) is a significant update to JavaScript that introduces
-new syntax for writing complex applications including classes and modules and
-other features.
+new syntax for writing complex applications. 
 
 ## const and let
 
@@ -195,12 +194,91 @@ function greeting(name) {
 
 ## Arrow functions
 
-> Exercise: ES6 also has a new way of declaring functions. Let's see how it
-> works.
+ES6 also has a new way of declaring functions. Let's see how it works.
+
+```js
+// before 
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+// ES6
+const sum = (a, b, c) => {
+  return a + b + c;
+}
+```
+
+If the function only contains one expression, the curly braces and the `return` 
+are optional and we can write the whole function in one line. 
+
+```js
+const sum = (a, b, c) => a + b + c;
+```
 
 > Exercise: Refactor the previous code to have a separate function that checks
 > if gender is 'female' or not, and use it in sayGreeting. Let's try and make
 > the code as compact as possible together using ES6 features.
+
+
+## Default parameters 
+
+ES6 allows us to declare defaults for function arguments. The default value is 
+used when the argument/parameter is either missing or `undefined`. 
+
+This function returns the sum of three numbers. Let's assume we want to use the 
+same function with only two arguments: 
+
+```js
+// without default parameter
+const sum = (a, b, c) => {
+  c = c || 0;
+  return a + b + c;
+}
+
+console.log(sum(1, 3, 4)) // 8
+console.log(sum(2, 5)) // NaN
+
+// with default parameter 
+const sum = (a, b, c = 0) => {
+  return a + b + c;
+}
+console.log(sum(2, 5)) // 7
+```
+
+
+## Destructuring
+
+In ES6 we can extract data from objects or arrays using destructuring. 
+
+```js
+// before 
+var chicken = {
+  name: 'Maggie', 
+  age: 2
+}
+
+var name = chicken.name;
+var age = chicken.age;
+
+var numbers = [1, 2];
+
+var firstNumber = numbers[0];
+var secondNumber = numbers[1];
+
+
+// in ES6
+const chicken = {
+  name: 'Maggie', 
+  age: 2
+}
+
+const { name, age } = chicken;
+
+const numbers = [1, 2];
+
+const [firstNumber, secondNumber] = numbers;
+
+```
 
 
 # Resources

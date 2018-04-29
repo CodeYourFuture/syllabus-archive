@@ -290,47 +290,6 @@ render() {
 > Convert the `SpecialDeals` component to fetch data from http://www.mocky.io/v2/5a9ad31d3400002c00a39a3c.
 > Make sure that you include a loading state and error handling.
 
-## Default Props
-
-Last week we looked at how we can pass props to our components, but so far we've had to pass a value for every prop. But React has a way of giving a "default" value for a prop, so that you don't always have to pass it. This makes props more useful as "initial configuration" for our component.
-
-Let's revisit an example from React week 1 with an application that says a greeting to a mentor. We could improve the app by allowing the greeting and the mentor's name to be passed as props:
-
-```js
-const Greeting = (props) => <span>{props.greeting}</span>
-const Mentor = (props) => <span>{props.name}</span>
-
-const App = () => (
-  <div>
-    <Greeting greeting="Hello" />
-    <Mentor name="Lucy" />
-  </div>
-)
-```
-
-Passing a prop every time we want to use `Greeting` is a bit annoying. We want to always use "Hello" as our greeting, unless we explicitly override it with a prop. We can do this with `defaultProps` ([interactive example](https://stackblitz.com/edit/react-bbwbnv)):
-
-```js
-const Greeting = (props) => <span>{props.greeting}</span>
-Greeting.defaultProps = {
-  greeting: 'Hello'
-}
-```
-
-Or we can use the class/static properties syntax ([interactive example](https://stackblitz.com/edit/react-72dj65)):
-
-```js
-class Greeting extends Component {
-  static defaultProps = {
-    greeting: 'Hello'
-  }
-
-  render() {
-    return <span>{this.props.greeting}</span>
-  }
-}
-```
-
 ## Refs
 
 As we have seen, React manages the DOM for us. That means we generally don't have to worry about keeping track of DOM nodes, or manipulating them directly. However sometimes you need to be able to access a DOM node that React is managing. Some common use cases are managing browser focus and integrating with third party libraries like a jQuery plugin.

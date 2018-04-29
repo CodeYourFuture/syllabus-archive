@@ -12,6 +12,8 @@
 - [React Components](#react-components)
 - [Embedding JS into JSX](#embedding-js-into-jsx)
 - [Importing/Exporting Components](#importingexporting-components)
+- [Making an Argument for Props](#making-an-argument-for-props)
+- [What Are Props?](#what-are-props)
 
 ## What is React?
 
@@ -40,10 +42,10 @@ Here we've highlighted some elements that could be components:
 There are no hard & fast rules for making components. UIs can be split up into components in many different ways, requiring judgement based on your context.
 
 - Components should follow the Single Responsibility Principle
-    + Each component should only have 1 "responsibility"
-    + Should only do 1 thing
+  + Each component should only have 1 "responsibility"
+  + Should only do 1 thing
 - Components should have good, explicit names
-    + This helps you to remember what the component's job is
+  + This helps you to remember what the component's job is
 
 > **Exercise**:
 > Look at the example online shopping user interface in the [Thinking in React article](https://reactjs.org/docs/thinking-in-react.html) (the image at the top). Draw boxes around the components and give them names. Compare with the example components shown in the second image.
@@ -63,12 +65,12 @@ First, lets recap how we could do this using "vanilla" JS ([interactive version]
 <div id="root"></div>
 
 <script type="text/javascript">
-    var divNode = document.createElement('div');
-    var textNode = document.createTextNode('Hello World');
-    divNode.appendChild(textNode);
+  var divNode = document.createElement('div');
+  var textNode = document.createTextNode('Hello World');
+  divNode.appendChild(textNode);
 
-    var rootElement = document.getElementById('root');
-    rootElement.appendChild(divNode);
+  var rootElement = document.getElementById('root');
+  rootElement.appendChild(divNode);
 </script>
 </body>
 </html>
@@ -89,12 +91,12 @@ Now let's convert to using React ([interactive version](http://jsbin.com/recegad
 <div id="root"></div>
 
 <script type="text/javascript">
-    const element = React.createElement('div', {
-        children: 'Hello World'
-    })
+  const element = React.createElement('div', {
+    children: 'Hello World'
+  })
 
-    const rootElement = document.getElementById('root')
-    ReactDOM.render(element, rootElement)
+  const rootElement = document.getElementById('root')
+  ReactDOM.render(element, rootElement)
 </script>
 </body>
 </html>
@@ -120,10 +122,10 @@ Using JSX ([interactive version](http://jsbin.com/gekahexige/edit?html,output)):
 <div id="root"></div>
 
 <script type="text/babel">
-    const element = <div>Hello World</div>
+  const element = <div>Hello World</div>
 
-    const rootElement = document.getElementById('root')
-    ReactDOM.render(element, rootElement)
+  const rootElement = document.getElementById('root')
+  ReactDOM.render(element, rootElement)
 </script>
 
 </body>
@@ -160,53 +162,85 @@ We looked at the beginning of the lesson at the concept of components. Now let's
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class HelloWorld extends React.Component {
-    render() {
-        return <div>Hello World</div>
-    }
+function HelloWorld() {
+  return (
+    <div>Hello World</div>
+  )
 }
 
 ReactDOM.render(<HelloWorld />, document.getElementById('root'))
 ```
 
-Components get more powerful when you combine (or "compose") several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
+There are 3 important parts in this code:
+
+1. First we import `React`. This is important because JSX is converted to `React.createElement` calls. If the `React` variable is undefined then this will fail
+2. We create a React component called `HelloWorld`
+3. We *render* the `HelloWorld` component into a `div` with the id of `root`
+
+#### Arrow Functions for shorter syntax
+
+Because a React component is just a function, we can also use the arrow function syntax:
 
 ```js
-class Greeting extends React.Component {
-    render() {
-        return <span>Hello</span>
-    }
-}
-class Mentor extends React.Component {
-    render() {
-        return <span>Ali</span>
-    }
-}
-
-class HelloWorld extends React.Component {
-    render() {
-        return (
-            <div>
-                <Greeting />
-                <Mentor />
-            </div>
-        )
-    }
+const HelloWorld = () => {
+  return (
+    <div>Hello World</div>
+  )
 }
 ```
 
-Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `camelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
+This can be even shorter again if we use parentheses and implicit return:
+
+```js
+const HelloWorld = () => (
+  <div>Hello World</div>
+)
+```
+
+Although this is shorter, it is less flexible as we cannot insert code that is **not** JSX. Like for example, a `console.log`:
+
+```js
+// This DOES NOT work!
+const HelloWorld = () => (
+  console.log('Hello!')
+  <div>Hello world</div>
+)
+```
+
+If we want to do this, we can still use arrow functions but we can't use the implicit return.
+
+#### Component Composition
+
+Components get more powerful when you combine (or "compose") several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
+
+```js
+const Greeting = () => (
+  <span>Hello</span>
+)
+const Mentor = () => (
+  <span>Ali</span>
+)
+
+const HelloWorld = () => (
+  <div>
+    <Greeting />
+    <Mentor />
+  </div>
+)
+```
+
+Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `CamelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
 
 ## Embedding JS into JSX
 
 Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript "expression". That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
 
 ```js
-class Mentor extends React.Component {
-    render() {
-        const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
-        return <span>{mentors.join(', ')}</span>
-    }
+const Mentor = () => {
+  const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
+  return (
+    <span>{mentors.join(', ')}</span>
+  )
 }
 ```
 
@@ -218,15 +252,15 @@ Now we have modified the `Mentor` component to use the `Array.join` method so th
 
 ```js
 const weather = {
-    temperature: 5,
-    location: 'London'
+  temperature: 5,
+  location: 'London'
 }
 <p>The temperature in {weather.location} is {weather.temperature}</p>
 ```
 
 ```js
 function formatName(user) {
-    return user.firstName + ' ' + user.lastName
+  return user.firstName + ' ' + user.lastName
 }
 <span>{formatName(user)}</span>
 ```
@@ -236,30 +270,16 @@ A common pattern in React is to use `Array.map` to loop through a list of items 
 ```js
 const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
 
-class Item extends Component {
-  render() {
-    return (
-      <li>{this.props.name}</li>
-    )
-  }
-}
-
-class List extends Component {
-  render() {
-    return (
-      <ul>
-        {this.props.items.map((item) => (
-          <Item name={item}/>
-        ))}
-      </ul>
-    );
-  }
-}
+const List => (
+  <ul>
+    {mentors.map((name) => (
+      <li>{name}</li>
+    ))}
+  </ul>
+)
 ```
 
 Here we are using `Array.map` to turn an array of strings into an array of components. We are using a "real" map function, not just special syntax like `{{> each}}` from Handlebars.
-
-An ([interactive example](https://stackblitz.com/edit/react-cwryrk)) of separating the 2 components in the example above in 2 files.
 
 > **Exercise**:
 > Using the `my-hotel` React app that you created earlier, edit `src/App.js` to create a hotel welcome page.
@@ -279,21 +299,82 @@ To help organise your code, components can be imported and exported just like an
 import Greeting from './Greeting'
 import Mentor from './Mentor'
 
-class HelloMentor extends React.Component {
-    render() {
-        return (
-            <div>
-                <Greeting />
-                <Mentor />
-            </div>
-        )
-    }
-}
+const HelloMentor = () => (
+  <div>
+    <Greeting />
+    <Mentor />
+  </div>
+)
 ```
+
+We also need to export our components if we want to use them in other files:
+
+```js
+const Greeting = () => (
+  <div>Hello</div>
+)
+
+export default Greeting
+```
+
+The convention is to name component files the exactly same as the component (including the capital letter).
 
 > **Exercise**:
 > Using the `my-hotel` app, edit `src/App.js` to extract the `Logo`, `BookingsMessage` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
 > Hint: you will need to import React
+
+## Making an Argument for Props
+
+What's the problem with our `HelloMentor` component above? Hint: imagine what our boss might ask for with this small application. What could our boss ask for which would mean we would have to make changes to the code?
+
+Our components are very inflexible. They cannot say hello to other mentors, and they can only say "hello", not "hi" or "greetings". If our boss changes their mind, for example if they wanted to say hello to a different mentor, we would have to to change the code too. This is easy in our tiny application but for "real" applications this might be more difficult.
+
+Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what "props" are for.
+
+## What Are Props?
+
+Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props in a component.
+
+First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=index.js)):
+
+```js
+<Mentor mentor="Kash" />
+```
+
+As you can see props are key-value pairs, in this example the key is `mentor` and the value is the string `'Kash'`. We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
+
+```js
+<HotelRoom price={123}>
+```
+
+This is identical to the [Embedding JS into JSX section](../week-19/lesson.md#embedding-js-into-jsx) we looked at earlier.
+
+Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=Mentor.js)):
+
+```js
+const Mentor = (props) => (
+  <span>{props.mentor}</span>
+)
+```
+
+React gives you access to props in the first argument to the component function. We can then inject into our component using curly braces. Because `props` is just a regular object, you can also inject into DOM attributes:
+
+```js
+<div id={'my-id-' + props.id}>{props.content}</div>
+```
+
+Components are just regular functions, so we can use destructuring to pull variables out of props. This can make our components even shorter:
+
+```js
+const Mentor = ({ name }) => (
+  <div>{name}</div>
+)
+```
+
+> **Exercise:**
+> Open the `my-hotel` React application once again
+> 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
+> 2. Edit the `SpecialDeals` component so that the array is passed as a prop
 
 #### Credits
 

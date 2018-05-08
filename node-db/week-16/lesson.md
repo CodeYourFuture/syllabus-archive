@@ -417,7 +417,7 @@ Remember:
 
 - If you removed "foreign key(reservation_id)  references reservations(id)" it will let you insert invalid data without giving you an error - you will be able to create an invoice with a reservation_id of 9435454 without a corresponding reservation with id 9435454 in the reservations table.
 
-- We WANT errors like this, which is why we put the foreign key there.
+- We DON'T WANT errors like this, which is why we put the foreign key there.
 
 ## EXERCISE 1I : Foreign keys
 

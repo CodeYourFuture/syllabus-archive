@@ -251,7 +251,7 @@ create table invoices (
     paid                boolean default false
 );
 
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017',1);
 
 insert into invoices (reservation_id, total, invoice_date_time) values (123, 250.50, '02/01/2017');
 ```
@@ -272,7 +272,7 @@ create table invoices (
     paid                boolean default false
 );
 
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017',1);
 ```
 
 Try entering an invoice with ID 123 now:

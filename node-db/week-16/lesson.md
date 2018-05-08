@@ -101,7 +101,7 @@ create table customers (
     surname varchar
 );
 
-insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump');
+insert into customers (title, firstname, surname) values ('Mr', 'Donald', 'Trump');
 ```
 
 What we have here:

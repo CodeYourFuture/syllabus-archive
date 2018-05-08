@@ -98,10 +98,11 @@ First, open a file in any text editor and put the following in a file called 'ho
 create table customers (
     title varchar,
     firstname varchar,
-    surname varchar
+    surname varchar,
+    email varchar
 );
 
-insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump');
+insert into customers (title, firstname, surname, email) values ('Mr', 'Donald', 'Trump','dtrump@whitehouse.gov');
 ```
 
 What we have here:

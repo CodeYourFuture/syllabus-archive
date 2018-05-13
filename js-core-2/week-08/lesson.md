@@ -13,14 +13,14 @@
 
 Your webpages are made up of a bunch of HTML elements, nested within each other
 (parents and children). In JavaScript we have access to this "DOM" object
-(Document Object Model) which is actually a representation of our webpage that
+(Document Object Model), which is actually a representation of our webpage that
 JavaScript can work with.
 
 In the browser the DOM is represented by the `window.document` object, which can
 also be accessed directly using `document`. We can use it to get information
 about the page loaded into the browser, query the content of the page and edit
-it. You can see full details of the functionality
-[here](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+it. You can see full details of the functionality at:
+[https://developer.mozilla.org/en-US/docs/Web/API/Document](https://developer.mozilla.org/en-US/docs/Web/API/Document).
 
 ### Querying
 

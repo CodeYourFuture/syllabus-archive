@@ -2,9 +2,15 @@
 
 DATE=$(date +%Y%m%d_%H%M%s)
 TRAVIS_BRANCH="$1"
+IS_TRAVIS_PR="$2"
 
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
 	echo "Please provide a branch (master, london, scotland)"
+	exit 1
+fi
+
+if [[ $IS_TRAVIS_PR -ne "false" ]]; then
+	echo "Pushed PR. Stopping"
 	exit 1
 fi
 

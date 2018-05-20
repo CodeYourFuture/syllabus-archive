@@ -8,8 +8,12 @@ if [ "$#" -ne 1 ]; then
 	exit 1
 fi
 
-REPO_NAME="syllabus-$TRAVIS_BRANCH"
+if [[ ! $TRAVIS_BRANCH =~ ^(master|london|scotland)$ ]]; then
+	echo "Pushed to non-deployable branch. Stopping"
+	exit 1
+fi
 
+REPO_NAME="syllabus-$TRAVIS_BRANCH"
 
 git clone git@github.com:codeyourfuture/$REPO_NAME.git
 cp -a _book/* ./$REPO_NAME

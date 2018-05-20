@@ -14,4 +14,4 @@ after_success:
   - eval "$(ssh-agent)"
   - chmod 600 ./cyf-key
   - ssh-add ./cyf-key
-  - ./publish-book.sh $TRAVIS_BRANCH
+  - ./publish-book.sh $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST

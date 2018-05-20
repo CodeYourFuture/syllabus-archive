@@ -39,6 +39,7 @@
 
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
+* [Installing different Node versions](/others/installing-different-node-versions.md)
 
 ### Workshops and other resources
 

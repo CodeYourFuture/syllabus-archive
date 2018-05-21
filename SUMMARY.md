@@ -34,10 +34,11 @@
   * [Week 20 - Reacting to Changes](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)
   * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
 
-### Useful informations
+### Useful information
 * [Useful links](useful-links.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
+* [Useful Tools](/others/useful-tools.md)
 
 ### Workshops and other resources
 * [Coding 101](/others/coding-101.md)

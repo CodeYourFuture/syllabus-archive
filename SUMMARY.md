@@ -9,17 +9,16 @@
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md) | [Homework](/html-css/week-01/homework.md)
   * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md) | [Homework](/html-css/week-02/homework.md)
   * [Week 3 - Design frameworks, Naming patterns and Forms](/html-css/week-03/lesson.md) | [Homework](/html-css/week-03/homework.md)
-  * Instructions: [Compiling SCSS](/html-css/compile-scss-instructions.md)
 * [JavaScript I](/js-core/index.md)
   * [Week 4 - Hello JavaScript](/js-core/week-04/lesson.md) | [Homework](/js-core/week-04/homework.md)
-  * [Week 5 - Arrays and Objects](/js-core/week-05/lesson.md) | [Homework](/js-core/week-05/homework.md)
-  * [Week 6 - Debugging and more Data Structures](/js-core/week-06/lesson.md) | [Homework](/js-core/week-06/homework.md)
+  * [Week 5 - Arrays](/js-core/week-05/lesson.md) | [Homework](/js-core/week-05/homework.md)
+  * [Week 6 - More Arrays](/js-core/week-06/lesson.md) | [Homework](/js-core/week-06/homework.md)
 * [JavaScript II](/js-core-2/index.md)
-  * [Week 7 - In-depth Functions and Intro to DOM](/js-core-2/week-07/lesson.md) | [Homework](/js-core-2/week-07/homework.md)
-  * [Week 8 - DOM, Events](/js-core-2/week-08/lesson.md) | [Homework](/js-core-2/week-08/homework.md)
-  * [Week 9 - AJAX, Async, Promises](/js-core-2/week-09/lesson.md) | [Homework](/js-core-2/week-09/homework.md)
+  * [Week 7 - Objects](/js-core-2/week-07/lesson.md) | [Homework](/js-core-2/week-07/homework.md)
+  * [Week 8 - JS in the Browser](/js-core-2/week-08/lesson.md) | [Homework](/js-core-2/week-08/homework.md)
+  * [Week 9 - More JS in the Browser](/js-core-2/week-09/lesson.md) | [Homework](/js-core-2/week-09/homework.md)
 * [JavaScript III](/js-core-3/index.md)
-  * [Week 10 - Good Code, TDD](/js-core-3/week-10/lesson.md) | [Homework](/js-core-3/week-10/homework.md)
+  * [Week 10 - Unit Tests and TDD](/js-core-3/week-10/lesson.md) | [Homework](/js-core-3/week-10/homework.md)
   * [Week 11 - More TDD, ES6](/js-core-3/week-11/lesson.md) | [Homework](/js-core-3/week-11/homework.md)
   * [Week 12 - Recap](/js-core-3/week-12/lesson.md) | [Homework](/js-core-3/week-12/homework.md)
 * [Node/DB I](/node-db/index.md)
@@ -36,20 +35,22 @@
   * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
 
 ### Useful information
-
+* [Useful links](useful-links.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
 * [Useful Tools](/others/useful-tools.md)
 
 ### Workshops and other resources
-
 * [Coding 101](/others/coding-101.md)
+* Instructions: [Compiling SCSS](/html-css/compile-scss-instructions.md)
 * [Express Workshop](/node-db/week-13/workshop.md)
 * [Hotel Workshop](/node-db/week-15/workshop.md)
 * [MongoDB 101](/others/mongodb-101.md)
 * [AWS - DynamoDB](/others/aws-workshop-2.md)
+* [Java module](https://github.com/Thomas-Stewart/syllabus/tree/master/java)
 
 ### For Mentors
 
 * [Contributing](CONTRIBUTING.md)
 * [Lesson Template](/others/lesson-template.md)
+* [HTML/CSS Mentors guide](/html-css/mentor-guide.md)

@@ -113,14 +113,9 @@ Node.js. It simplifies base features of Node.js, making it easier and faster to
 build your application's backend. Learning Express gives you a great foundation
 for becoming a Node.js developer.
 
-In the next steps, we will building a **CMS (Content Management System)** - a
-system to write, publish and save blog posts. Even though we could use core
-libraries like `http` to build this system, this becomes very complicated and
-non-maintainable very quickly. That is why we use frameworks like `Express`.
-
 ## Workshop
 
-Buckle up and start the [express workshop](./workshop.html).
+Buckle up and start the [API workshop](./api-workshop.html).
 
 ## Group Research Topics
 
@@ -158,5 +153,4 @@ Heroku:
 * [Deploying from Git](https://devcenter.heroku.com/articles/git)
 * [Deploying Node Apps](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 
-{% include "./homework.md" %}
 {% include "../../others/escalation-policy.md" %}

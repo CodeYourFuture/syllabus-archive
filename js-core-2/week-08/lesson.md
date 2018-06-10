@@ -176,11 +176,29 @@ setTimeout(function() {
 }, 500);
 ```
 
+Now let's use a timeout and a callback function together:
+
+```js
+function finished(result) {
+    console.log('Finished! The result is: ' + result)
+}
+
+function startWork(stuff, callback) {
+    console.log('Starting! The stuff is: ', stuff)
+    setTimeout(function() {
+        callback(stuff + 50)
+    }, 1000)
+}
+
+startWork(50, finished)
+```
+
 >**Exercises**
 >
 > * Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds).
 > * Update your code to make the colour change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
 > ![](http://g.recordit.co/g2EqBccNzh.gif)
+> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/LrxgMN?editors=1010)
 
 ## Promises
 

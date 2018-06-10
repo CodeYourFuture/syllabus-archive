@@ -6,44 +6,52 @@ So far, we've been writing JavaScript in the _client_. For the _front-end_.
 Remember in our React applications, when we write code like this:
 
 ```js
-// part of a React Component that gets Beyonce albums data
-componentDidMount() {
-  fetch('https://rawgit.com/rarmatei/f5ae92ac93d9716affab822a3f54f95b/raw/e62641b3f5ddd12c4fe34aa0912488224594e5a7/beyonce-albums.json')
-    .then(function(response) {
+// Part of React Component that gets Beyonce albums data
+class BeyonceApp extends React.Component {
+  componentDidMount() {
+    fetch(
+      "https://rawgit.com/rarmatei/f5ae92ac93d9716affab822a3f54f95b/raw/e62641b3f5ddd12c4fe34aa0912488224594e5a7/beyonce-albums.json"
+    )
+      .then(function(response) {
         return response.json();
-    })
-    .then(function(data) {
-        this.setState({ songs: data })
-    })
+      })
+      .then(function(data) {
+        this.setState({ songs: data });
+      });
+  }
+}
 ```
 
-or when we called the Github _API_ to get the number of Repos associated to a user
+Or when we called the Github _API_ to get the number of Repos associated to a user:
 
 ```js
-var url = 'https://api.github.com/users/CodeYourFuture/repos'
+var url = "https://api.github.com/users/CodeYourFuture/repos";
+
 fetch(url)
-    .then(function (data) {
-        return data.json()
-    })
-    .then(function (repos) {
-        var reposList = document.querySelector('#repos-list')
-        reposList.innerText = repos.length;
-    })
+  .then(function(data) {
+    return data.json();
+  })
+  .then(function(repos) {
+    var reposList = document.querySelector("#repos-list");
+    reposList.innerText = repos.length;
+  });
 ```
 
-What happens in all these scenarios? What is the url `https://api.github.com/users/CodeYourFuture/repos` and where does it "live"? Is it on your computer "the client", or on a remote "server"?
+What happens in all these scenarios? What is the URL `https://api.github.com/users/CodeYourFuture/repos`? And where does it "live"? Is it on your computer the _client_, or on a remote _server_?
 
-What we were building up to this point was *Client* code (client-side, frontend). The client in our case is the browser and it talks to a *Server* (server-side, backend). Someone else wrote code to handle to handle server _requests_ and provide a _response_.
+Until now, we have been writing _client_ code (also called _client-side_ or _frontend_). The client in our case is the web browser (e.g. Firefox, Chrome etc.) and it talks to a _server_ (also called _server-side_ or _backend_). In the examples we have completed someone else wrote code to handle server _requests_ and provide a _response_.
 
-We are now taking the next step in our journey, to write *server-side* code. JavaScript is the only language that the browser understands so you do not have options if you want to write code for the browser (for things like interacting with the DOM and what we have been doing so far). For the server, there are a lot of options: Php, Python, Ruby etc... JavaScript on the server is relatively new and only started with the introduction of *Node.js* around 2009. Node.js is what we will use to write server-side code.
+We are now taking the next step in our journey: to write _server-side_ code. JavaScript is the only language that the browser understands so you do not have options if you want to write code for the browser (for things like interacting with the DOM and what we have been doing so far).
+
+For the server there are a lot of programming languages you can use: PHP, Python, Java, Ruby, and many more. You'll be pleased to hear that you can also write JavaScript on the server so you don't have to learn another programming language if you don't want to! JavaScript on ther server is relatively new and only started with the introduction of _Node.js_ around 2009. Node.js is what we will use to write server-side code.
 
 > Checkpoint: Do you understand all these terms?
 
-- [ ] Client  
-- [ ] Server
-- [ ] Front-end
-- [ ] Back-end
-- [ ] Full stack developer
+* [ ] Client
+* [ ] Server
+* [ ] Front-end
+* [ ] Back-end
+* [ ] Full stack developer
 
 ## Get Started
 
@@ -61,29 +69,23 @@ Postman is a tool that helps us test and develop APIs.
 
 # Step 1 - Setting up your project
 
-When creating a Node.js project, you will be installing a lot of different
-things along the way. These "things" are called **packages**. Packages are code built by someone else that we can use out of the box. They provide a service for us - for example, we can install a package to talk to a database, send emails, draw graphics, anything.
+When creating a Node.js project, you will be installing a lot of different _packages_ along the way. Packages contain code written by someone else that we can use out of the box. They provide a service for us. For example, we can install a package to talk to a database, send emails, draw graphics... anything!
 
-When you want to share your project with others, you need to
-have a list of the things/packages you installed, so that other people know what to
-install in order to run the project.
+When you want to share your project with others, you need to have a list of the packages you installed, so that other people can install the same packages.
 
-In Node.js, this 'list' lives in `package.json`. The packages you've
-installed are referred to as **dependencies**. Creating this file is the first
-step in setting up your Node.js project.
+In Node.js, this 'list' lives in a file named `package.json`. The packages you've installed are referred to as **dependencies**. Creating this file is the first step in setting up your Node.js project.
 
 ## 1. Make a `package.json` file
 
-Let's start by creating the `package.json` file. We can add things to it as the
-project grows. The `package.json` file is easy to create from the command line.
+Let's start by creating the `package.json` file. We can add things to it as the project grows. The `package.json` file is easy to create from the command line.
+
 Type the following command into your terminal to get started:
 
 ```sh
 $ npm init
 ```
 
-This command will initialise a step-by-step process for creating the
-`package.json`. You should see something like this:
+This command will initialise a step-by-step process for creating a `package.json` file. You should see something like this:
 
 ![starting npm init](https://raw.githubusercontent.com/node-girls/workshop-cms/master/readme-images/step1-npm-init01.png)
 
@@ -104,10 +106,10 @@ Here is an example `package.json` file for a project called
 
 ### What is JSON?
 
-JSON is a type of file for structuring data in a readable way. It is also a
-really popular format for sending data across the web. JSON is a string
-representation of a Javascript object. JSON objects convert really easily to
-Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`.
+* JSON is a file format for saving data in a readable way
+* It is a really popular format for sending data across the web
+* JSON is a string representation of a Javascript object
+* JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`
 
 # Step 2 - Installing Express
 
@@ -117,10 +119,10 @@ download it using the **`npm install`** command.
 
 NPM is the place to go to download other Node code written by other people.
 There are thousands of open-source, 3rd-party Node modules (also known as
-"packages") by other people that you can download and use in your own projects.
+_packages_) written by other people that you can download and use in your own projects.
 
 As we install Express, we'll need to update the `package.json` to add Express as
-a dependency. We do this so that other people working on the project will know
+a dependency. We do this so that other people working on the project will be able
 to install Express before running any of the code. This can be done by adding
 **`--save`** to the end of your command.
 
@@ -139,7 +141,7 @@ has been added as a dependency. It will look like this:
 
 The first thing we need to do is build our server. You will always need to build
 a server when writing back-end code. A server can be built in pure Node.js, but
-Express gives us simpler syntax to work with.
+Express is simpler to work with.
 
 ## 1. Create a `server.js` file
 
@@ -149,11 +151,10 @@ Let's build our server! Before we do anything, let's create a new file called
 ## 2. `require` the `express` library
 
 We already installed Express in Step 2, but we need to make sure it is included
-in this file specifically so we can make use of its methods. In Node.js, when
-you want to access the functionality of a library or module in another file, you
-`require` it.
+in this file specifically so we can use its methods. In Node.js, when
+you want to use a package in another file, you must `require` it.
 
-To import Express, write the following inside `server.js`:
+To require Express, write the following inside `server.js`:
 
 ```js
 const express = require("express");
@@ -164,7 +165,7 @@ const express = require("express");
 
 ## 3. Initialise the server
 
-To initialise our server, we just need to call the `express()` function. This
+To initialise our server, we need to call the `express()` function. This
 will create an Express application for us to work with.
 
 Add the second line of code to your `server.js` file:
@@ -182,12 +183,11 @@ that door. Setting a port will allow us to find where our server is running.
 
 We use the **`app.listen`** method to do this. This method takes two arguments:
 a **port** and a **callback function** telling it what to do once the server is
-running. Need clarification? Read more about the `app.listen` method in the
-[Express documentation](http://expressjs.com/en/4x/api.html#app.listen).
+running.
 
-We're going to run our server on port `3000`, and run a simple `console.log` as
-our callback function. Update your `server.js` file, calling the `app.listen`
-method:
+> Need clarification? Read more about the `app.listen` method in the [Express documentation](http://expressjs.com/en/4x/api.html#app.listen).
+
+We're going to run our server on port `3000`, and add a simple `console.log` in the callback function. Update your `server.js` file, calling the `app.listen` method:
 
 ```js
 const express = require("express");
@@ -220,7 +220,7 @@ If you see this, congratulations! You have built yourself a server!
 
 To exit the running the server, type `crtl + c`. Instead of running the server with `node server.js` everytime, we can create an alias for it in `package.json`.
 
-Under `scripts`, add `start: node server.js`. We can now run our server using `npm start` which will be an alias (a shortcut) to `node server.js`.
+Under the `scripts` property, add `start: node server.js`. We can now run our server using `npm start` which will be an alias (a shortcut) to `node server.js`.
 
 ![npm start](../assets/package-npm-start.png)
 
@@ -237,9 +237,7 @@ When a request reaches the server, we need a way of responding to it. In comes
 the handler function. The handler function is just a function which receives
 requests and handles them, hence the name.
 
-The handler function always takes a `request` and `response` object, and sends
-the response back to the client along with some information. You can decide what
-to send back in your response.
+The handler function is always called with a `request` and `response` object. The response object is what gets sent back to the client. It contains the information that gets displayed in the web page. You can decide what to send back in your response.
 
 ### What does a handler function look like in Express?
 
@@ -297,16 +295,16 @@ congratulations! You just sent your first response from the server.
 
 > Checkpoint: Do you understand all these terms?
 
-- [ ] Client  
-- [ ] Server
-- [ ] Front-end
-- [ ] Back-end
-- [ ] Full stack developer
-- [ ] Request
-- [ ] Response
-- [ ] HTTP
-- [ ] HTTP Response Codes
-- [ ] HTTP Request Methods (or Verbs)
+* [ ] Client
+* [ ] Server
+* [ ] Front-end
+* [ ] Back-end
+* [ ] Full stack developer
+* [ ] Request
+* [ ] Response
+* [ ] HTTP
+* [ ] HTTP Response Codes
+* [ ] HTTP Request Methods (or Verbs)
 
 > Exercise: Try to `console.log` the `request` object inside the handler
 > function. Restart your server, send the request again with Postman, then go to your terminal
@@ -353,12 +351,11 @@ app.get("/chocolate", function(req, res) {
 > **Exercise:** Add some code so that your server sends one message when the
 > endpoint is `/node` and another one when it's `/girls`.
 
-
 # Step 6 - Let us build an API
 
 **API** stands for Application Programming Interface.
 
-Read this description of what an API from [How To Geek](https://www.howtogeek.com/343877/what-is-an-api/). 
+Read this description of what an API from [How To Geek](https://www.howtogeek.com/343877/what-is-an-api/).
 
 > Think of an API like a menu in a restaurant. The menu provides a list of dishes you can order, along with a description of each dish. When you specify what menu items you want, the restaurant’s kitchen does the work and provides you with some finished dishes. You don’t know exactly how the restaurant prepares that food, and you don’t really need to.
 > Similarly, an API lists a bunch of operations that developers can use, along with a description of what they do. The developer doesn’t necessarily need to know how, for example, an operating system builds and presents a “Save As” dialog box. They just need to know that it’s available for use in their app.
@@ -385,25 +382,31 @@ We will build an API to manage Beyone albums. We will build these endpoints:
 
 ## GET /Albums
 
-1. In `server.js` Add the endpoint for `GET /albums`.
+1.  In `server.js` Add the endpoint for `GET /albums`.
 
 ```js
 const albumsData = [
   {
-    "albumId": "10",
-    "artistName":"Beyoncé",
-    "collectionName":"Lemonade", "artworkUrl100":"http://is1.mzstatic.com/image/thumb/Music20/v4/23/c1/9e/23c19e53-783f-ae47-7212-03cc9998bd84/source/100x100bb.jpg",
-    "releaseDate":"2016-04-25T07:00:00Z",
-    "primaryGenreName":"Pop",
-    "url": "https://www.youtube.com/embed/PeonBmeFR8o?rel=0&amp;controls=0&amp;showinfo=0"
-  }, 
+    albumId: "10",
+    artistName: "Beyoncé",
+    collectionName: "Lemonade",
+    artworkUrl100:
+      "http://is1.mzstatic.com/image/thumb/Music20/v4/23/c1/9e/23c19e53-783f-ae47-7212-03cc9998bd84/source/100x100bb.jpg",
+    releaseDate: "2016-04-25T07:00:00Z",
+    primaryGenreName: "Pop",
+    url:
+      "https://www.youtube.com/embed/PeonBmeFR8o?rel=0&amp;controls=0&amp;showinfo=0"
+  },
   {
-    "albumId": "11",
-    "artistName":"Beyoncé",
-    "collectionName":"Dangerously In Love", "artworkUrl100":"http://is1.mzstatic.com/image/thumb/Music/v4/18/93/6d/18936d85-8f6b-7597-87ef-62c4c5211298/source/100x100bb.jpg",
-    "releaseDate":"2003-06-24T07:00:00Z",
-    "primaryGenreName":"Pop",
-    "url": "https://www.youtube.com/embed/ViwtNLUqkMY?rel=0&amp;controls=0&amp;showinfo=0"
+    albumId: "11",
+    artistName: "Beyoncé",
+    collectionName: "Dangerously In Love",
+    artworkUrl100:
+      "http://is1.mzstatic.com/image/thumb/Music/v4/18/93/6d/18936d85-8f6b-7597-87ef-62c4c5211298/source/100x100bb.jpg",
+    releaseDate: "2003-06-24T07:00:00Z",
+    primaryGenreName: "Pop",
+    url:
+      "https://www.youtube.com/embed/ViwtNLUqkMY?rel=0&amp;controls=0&amp;showinfo=0"
   }
 ];
 
@@ -412,9 +415,9 @@ app.get("/albums", function(req, res) {
 });
 ```
 
-2. Test the endpoint with Postman. `GET /songs` should return a JSON reply with the array we specified.
+2.  Test the endpoint with Postman. `GET /songs` should return a JSON reply with the array we specified.
 
-3. Add another item to the array and test that the `GET /songs` returns three items. (Remember you need to close the server `ctrl+c` and run it again `node server.js`)
+3.  Add another item to the array and test that the `GET /songs` returns three items. (Remember you need to close the server `ctrl+c` and run it again `node server.js`)
 
 # Step 7: GET /albums/:albumId
 
@@ -424,12 +427,12 @@ Let us add a new endpoint to return only a single album `GET /albums/:albumId`. 
 
 This endpoint has something different. The endpoint `/albums/:albumId` has a _dynamic_ part, the _albumId_ will vary depending on what the client send. If we call `/albums/12` then albumId is 12, if we call `/albums/10` then we will return the album with albumId 10 and so on.
 
-How can we achieve that using `express` - `req.params` will have the value of 
+How can we achieve that using `express` - `req.params` will have the value of
 
 ```js
 app.get("/albums/:albumId", function(req, res) {
   // req.params.albumId will match the value in the url after /albums/
-  console.log(req.params.albumId)
+  console.log(req.params.albumId);
   // now we can use the value for req.params.albumId to find the album requested
   // how do we "find" something in an array
 
@@ -463,14 +466,13 @@ now from your terminal, use the command `npm run dev` and that will run the _ser
 ```js
 // notice .post (not .get)
 app.post("/albums", function(req, res) {
-  console.log('POST /albums route')
+  console.log("POST /albums route");
 });
 ```
 
 Let's start by testing using Postman. Do a `POST` request to the endpoint and make sure it prints the console.log message we have added.
 
-> In Postman, change the request `method` to `POST` instead of `GET` and test our endpoint. It should log the message to the terminal but the request will hang because we did not end it, i.e. we did not say `res.send(something)`
-![](../assets/postman-post-method.png)
+> In Postman, change the request `method` to `POST` instead of `GET` and test our endpoint. It should log the message to the terminal but the request will hang because we did not end it, i.e. we did not say `res.send(something)` > ![](../assets/postman-post-method.png)
 
 So what format does the client send the data with? It is up to us, but since we already are familiar with `json`, let us use it.
 
@@ -483,34 +485,35 @@ In order for our _server-side_ to receive and use the data sent by the client. W
 First install the package: `npm install body-parser --save`
 
 ```js
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 
-app.use(bodyParser.json()) // before our routes definition
+app.use(bodyParser.json()); // before our routes definition
 ```
 
 Now we will receive the data as `req.body`.
 
 ```js
 app.post("/albums", function(req, res) {
-  console.log('POST /albums route')
-  console.log(req.body)
-})
+  console.log("POST /albums route");
+  console.log(req.body);
+});
 ```
 
 > Exercise: Use Postman to `POST` this data to `/albums` endpoint.
-
 
 ![](../assets/postman-post.png)
 
 ```json
 {
-	"albumId": "13",
-	"artistName": "Beyoncé",
-	"collectionName": "B'Day (Deluxe Edition)",
-	"artworkUrl100": "http://is5.mzstatic.com/image/thumb/Music/v4/6c/fc/6a/6cfc6a13-0633-f96b-9d72-cf56774beb4b/source/100x100bb.jpg",
-	"releaseDate": "2007-05-29T07:00:00Z",
-	"primaryGenreName": "Pop",
-	"url": "https://www.youtube.com/embed/RQ9BWndKEgs?rel=0&amp;controls=0&amp;showinfo=0"
+  "albumId": "13",
+  "artistName": "Beyoncé",
+  "collectionName": "B'Day (Deluxe Edition)",
+  "artworkUrl100":
+    "http://is5.mzstatic.com/image/thumb/Music/v4/6c/fc/6a/6cfc6a13-0633-f96b-9d72-cf56774beb4b/source/100x100bb.jpg",
+  "releaseDate": "2007-05-29T07:00:00Z",
+  "primaryGenreName": "Pop",
+  "url":
+    "https://www.youtube.com/embed/RQ9BWndKEgs?rel=0&amp;controls=0&amp;showinfo=0"
 }
 ```
 
@@ -519,6 +522,7 @@ app.post("/albums", function(req, res) {
 # Homework: Next Steps
 
 ## Delete Album
+
 Add the route `DELETE /albums/:albumId` to delete the album (that matches the passed albumId)
 
 > **Hint:** We used `app.get` to handle GET requests and `app.post` to handle POST requests. How do you think we can handle PUT and DELETE requests?
@@ -532,7 +536,6 @@ Add the route `PUT /albums/:albumId` should update the album (that matches the p
 Change the route `GET /albums` to filter based on Genre (add more _mock_ data to the Albums Data with different Genre types)
 
 The endpoint should be `GET /albums?genre=pop` or `GET /albums?genre=rock` for example. The part of the url after the `?` is called query string parameter. Here is the documentation to show how you can retrieve and use it [http://expressjs.com/en/4x/api.html#req.query](http://expressjs.com/en/4x/api.html#req.query)
-
 
 ## Back to React: Add a Song
 
@@ -550,8 +553,8 @@ In order to enable a client (a React app for example) that lives on a different 
 Then in `server.js`, add:
 
 ```js
-const cors = require('cors')
+const cors = require("cors");
 
 // before routes definition
-app.use(cors())
+app.use(cors());
 ```

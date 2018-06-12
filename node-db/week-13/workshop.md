@@ -647,3 +647,5 @@ Express has a handy method called `res.sendFile()` that makes it easy to send
 files back to the client. Feel free to use this with your JSON.
 
 If all goes well, you should have a fully functional CMS!
+
+{% include "./homework.md" %}

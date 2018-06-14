@@ -126,12 +126,6 @@ Buckle up and start the [API workshop](./api-workshop.html).
 * Node internals: Node event loop, Node core modules, async/sync (non-blocking
   operations)
 
-The research will be on a Github repo. One member of the group will be
-responsible of creating a repo, the others will fork it and create Pull Requests
-for it (that the main repo's owner will have to review and merge).
-
-**We expect each repo to have commits from each member of the group**
-
 ## Resources
 
 Take a look at the following links to learn more about Node.js.

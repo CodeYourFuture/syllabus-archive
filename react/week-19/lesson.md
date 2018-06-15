@@ -270,7 +270,7 @@ A common pattern in React is to use `Array.map` to loop through a list of items 
 ```js
 const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
 
-const List => (
+const List = () => (
   <ul>
     {mentors.map((name) => (
       <li>{name}</li>

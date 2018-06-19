@@ -115,7 +115,7 @@ for becoming a Node.js developer.
 
 ## Workshop
 
-Buckle up and start the [API workshop](./api-workshop.html).
+Buckle up and start the [API workshop](./api-workshop.md).
 
 ## Group Research Topics
 

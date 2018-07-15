@@ -1,12 +1,31 @@
 # Homework
 
-1. Create an account on [CodeWars](http://www.codewars.com/) and do at least 15
-   challenges.
-1. Sign up for the [JavaScript 30](https://javascript30.com/) course and do at
-   least 2 project. You can find the starter files for the project [here](https://github.com/wesbos/JavaScript30)
+1. Make sure you finish all the pending exercies in [The repo](https://github.com/CodeYourFuture/js-exercises).
 
-# Research
+2. Signup to [CodeWars](https://codewars.com) and work on these challenges
 
-1. [Closures](https://developer.mozilla.org/en/docs/Web/JavaScript/Closures)
-1. [_.call_, _.apply_ and _.bind_](https://github.com/pezza3434/PersonalSite/blob/master/_posts/2016-04-03-How-to-use-apply-bind-and-call.markdown)
-1. [Higher-order functions](https://medium.com/functional-javascript/higher-order-functions-78084829fff4)
+*functions, types, conditionals etc...*
+
+- [even or odd](https://www.codewars.com/kata/even-or-odd/train/javascript)
+- [code under pressure](https://www.codewars.com/kata/you-cant-code-under-pressure-number-1/train/javascript)
+- [secret message](https://www.codewars.com/kata/jennys-secret-message/train/javascript)
+- [convert boolean](https://www.codewars.com/kata/convert-boolean-values-to-strings-yes-or-no/train/javascript)
+- [opposite number](https://www.codewars.com/kata/opposite-number/train/javascript)
+- [return negative](https://www.codewars.com/kata/return-negative/train/javascript)
+- [hydrated](https://www.codewars.com/kata/keep-hydrated-1/train/javascript)
+- [bonus](https://www.codewars.com/kata/do-i-get-a-bonus/train/javascript)
+- [remove string spaces](https://www.codewars.com/kata/remove-string-spaces/train/javascript)
+- [remove first and last character](https://www.codewars.com/kata/remove-first-and-last-character/train/javascript)
+- [string repeat](https://www.codewars.com/kata/string-repeat/train/javascript)
+- [mathematical operations](https://www.codewars.com/kata/basic-mathematical-operations/train/javascript)
+
+Arrays (optional)
+
+- [invert values](https://www.codewars.com/kata/invert-values/train/javascript)
+- [needle in haystack](https://www.codewars.com/kata/a-needle-in-the-haystack/train/javascript)
+- [counting sheep](https://www.codewars.com/kata/counting-sheep-dot-dot-dot/train/javascript)
+- [sum of positive](https://www.codewars.com/kata/sum-of-positive/train/javascript)
+- [people in bus](https://www.codewars.com/kata/number-of-people-in-the-bus/train/javascript)
+- [sum without highest and lowest](https://www.codewars.com/kata/sum-without-highest-and-lowest-number/train/javascript)
+- [reveersed array of digits](https://www.codewars.com/kata/convert-number-to-reversed-array-of-digits/train/javascript)
+- [slash sum of negatives](https://www.codewars.com/kata/count-of-positives-slash-sum-of-negatives/train/javascript)

@@ -1,13 +1,10 @@
-![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
-
 # HTML/CSS 1
 
 **What will we learn today?**
 
-* Semantic HTML tags
-* CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`
-* Box model: `margin`/`padding`/`border` etc...
-* CSS specificity
+- [Semantic HTML tags](#html-syntax)
+- [CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`](#css-selectors)
+- [Box model: `margin`/`padding`/`border` etc...](#box-model)
 
 ---
 
@@ -67,8 +64,8 @@ In today's class, we will begin adapting styles on this example website. We'll r
 The example website you'll begin working with is available [on this GitHub repository](https://github.com/Code-Your-Future/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.
 
 1. `cd ~`
-1. `cd <your-project-directory>`
-1. `git clone git@github.com:<your_username>/bikes-for-refugees.git`
+2. `cd <your-project-directory>`
+3. `git clone git@github.com:<your_username>/bikes-for-refugees.git`
 
 > **Exercise**: Spend a few minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
 
@@ -80,12 +77,12 @@ When writing HTML code, you can use different tags to describe the content. Is i
 
 We'll cover the following semantic tags:
 
-* `<header>`
-* `<footer>`
-* The `role="main"` attribute
-* `<nav>`
-* `<article>`
-* `<aside role="complementary">`
+- `<header>`
+- `<footer>`
+- The `role="main"` attribute
+- `<nav>`
+- `<article>`
+- `<aside role="complementary">`
 
 > **Exercise (pair programming):** Work in pairs to determine where to place these new Tags and Attributes in the index.html file. Who benefits when we write "semantic" HTML?
 
@@ -103,7 +100,7 @@ You can assign CSS rules to a class like this:
 
 ```css
 .btn {
-  background: #ce5f31;
+    background: #ce5f31;
 }
 ```
 
@@ -115,7 +112,7 @@ Here's an example of a pseudo class which changes the color of a link when the m
 
 ```css
 .btn:hover {
-  background: #ef7f52;
+    background: #ef7f52;
 }
 ```
 
@@ -124,7 +121,7 @@ Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit
 ```css
 .btn:hover,
 .btn:focus {
-  background: #ef7f52;
+    background: #ef7f52;
 }
 ```
 
@@ -144,7 +141,7 @@ You can also set a transparent border, so that it takes up the space without sho
 
 ```css
 .navlink {
-  border: 1px solid transparent;
+    border: 1px solid transparent;
 }
 ```
 
@@ -188,9 +185,14 @@ Congrats, you've merged one student's changes with the common code base in the `
 
 Conflicts emerge whenever the same file has been edited, and git can't determine what changes should be kept and what changes should be discarded. A human -- that's you -- needs to step in and sort it out. To help us, git writes into our code so we can see where it is confused. Here's an example of a merge conflict in our code:
 
-```html
-<h2>Daniel</h2>
-<p>I like to ride bikes</p>
+```diff
+<<<<<<<  HEAD
++   <h2>Mozafar</h2>
++   <p>I am a mentor at CodeYourFuture.</p>
+=======
+-   <h2>Daniel</h2>
+-   <p>I like to ride bikes</p>
+>>>>>>> my-first-branch
 ```
 
 To resolve a conflict, we decide which lines to keep and which lines to remove. When we're done, we remove the extra lines that git added (`<<<<< HEAD`, `========` and `>>>>>>>`).
@@ -244,11 +246,11 @@ If you're feeling confused, don't worry. Version control is one of the most diff
 # Resources
 
 1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
-1. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-1. [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
-1. [Box Model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model)
-1. [Box Model, box-sizing: border-box - CSS Tricks](https://css-tricks.com/international-box-sizing-awareness-day/)
-1. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
-1. [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+2. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
+3. [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
+4. [Box Model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model)
+5. [Box Model, box-sizing: border-box - CSS Tricks](https://css-tricks.com/international-box-sizing-awareness-day/)
+6. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
+7. [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
 {% include "./homework.md" %}

@@ -10,6 +10,9 @@ What we did last lesson:
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
 * Escaping (who figured out how to insert my real name into the database?)
+* Why NoSQL why SQL?
+* Checking out a project and adding hotel.sql to the repo
+* How to run SQLite *with node* on your machine - setting up a development environment.
 
 Homework from last lesson:
 

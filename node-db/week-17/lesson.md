@@ -50,7 +50,7 @@ Use `/server/class2.js` for the exercises of this class.
 
 ### Setting up the environment
 
-**Task** Clone the [repo](ADD THE LINK !!!), and follow the instructions to set the environment up.
+**Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db), and follow the instructions to set the environment up.
 
 You have already worked with back end servers using Express. This is just another yet another one, that we will be connecting to a database.
 

@@ -2,9 +2,6 @@
 
 **Review of last lesson**
 
-- Why NoSQL why SQL?
-- Checking out a project and adding hotel.sql to the repo
-- How to run SQLite *with node* on your machine - setting up a development environment.
 - How to run a database query that retrieves tabular data in node express to an endpoint.
 - Inserting data from an endpoint.
 - Updating data from an endpoint.

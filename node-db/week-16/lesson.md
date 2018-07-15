@@ -76,13 +76,16 @@ An RDBMS (relational database management system) will do this by, for example:
 
 ### SHOULD I USE SQL OR SHOULD I USE NOSQL?
 
-Short answer: if in doubt, you should just use SQL. Always.
+A lot 
+
+My short answer: if in doubt, you should just use SQL. Always.
 
 Long answer: There are two forms of NoSQL.
 
 1) Extremely high scale -- Cassandra --- constraints are not enforced due to high load and high levels of data.
 
-2) For beginner programmers - Mongo --- constraints (among other features) are not there to simplify things for beginners.
+2) For beginner programmers - Mongo --- constraints (among other features) are not there to simplify things for beginners. This means it will be quicker to build your project but you face a higher risk of data integrity issues
+once you do.
 
 
 ## EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE

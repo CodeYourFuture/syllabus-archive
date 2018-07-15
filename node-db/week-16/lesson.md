@@ -13,35 +13,40 @@
 
 So, in your previous lessons you have been taught how to store and retrieve data
 using files. This is fine and works well for some data - particularly simple data -
-but it can quickly cause issues with your data.
+but it can quickly cause issues when you have a *lot* of data and *complicated* data.
 
 TEACHER STORY:
 
-Back in 2013 I used to work for a company that ran hotel wifi systems for five star hotels.
-We did Intercontinentals, Sheratons, Marriotts and a whole bunch of others. This company had been
-going for a long time and hails back to the times when wifi used to be very expensive.
+Back in 2013 I used to work for a company that ran hotel wifi for big hotel chain.
+We did at least 4 big brands that you've probably heard of and a whole bunch of others.
+This company had been going for a long time and used to make $8 when, back in the dark ages,
+you paid $12 for a day of wifi.
 
 The code for this system had the notion of "invoices", "wifi enrollments" and "guests" and
-stored data on each. We would store data on each and we would run reports on each and send them
-to the hotels who would use them to bill guests.
+stored data on each of them as well as the links between them. We would store data about
+these things and we would run reports on each and send them to the hotels who would use them to
+bill guests.
 
-All fine so far. Except we would sometimes send reports with invoices which didn't have enrollments,
-enrollments which didn't have guests. Sometimes the amounts on those invoices would rack up to
-tens even hundreds of thousands of dollars. Of invoices *without* customers.
+All normal so far. Except we would sometimes send reports with invoices which didn't have enrollments,
+and enrollments which didn't have guests.
 
-This was how the face of the hotel manager looked:
+Sometimes the amounts on those invoices would rack up to tens even hundreds of thousands of dollars
+of invoices *without* customers, and the hotel managers were rarely happy:
 
 ![Hotel manager](grumpy-cat.jpg "Hotel manager's face")
 
-This was a very, very serious problem. We were >.< this close to losing Marriott as a customer - and
-a large part of it was because of this.
+This was a very, very serious problem. We were >.< this close to losing a big hotel chain as a
+customer - and a large part of it was because of this.
 
 This was a problem because our system was buggy, so we had what are generally called "data integrity"
-issues. Data integrity issues are like normal bugs except much, much worse. You can almost always fix
-a normal bug. For bad data the chances are you will *never* fix it.
+issues. You've encountered bugs before on this course - data integrity issues bugs too - bugs with
+your data.
 
-These lessons are about storing and retrieving data safely such that you won't have the same problems
-I did.
+The difference between a bug in your code and a bug in your data caused by a bug in your code
+is that bugs in your code can always be fixed. Bugs in your data - sometimes they can never be fixed.
+
+These lessons are about using SQL and storing and retrieving data in your code in such a way
+that your data is kept clean.
 
 
 # LESSON 1B : What is the point of an SQL database?

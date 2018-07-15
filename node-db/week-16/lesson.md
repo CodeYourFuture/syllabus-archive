@@ -76,21 +76,21 @@ An RDBMS (relational database management system) will do this by, for example:
 
 ### SHOULD I USE SQL OR SHOULD I USE NOSQL?
 
-A lot 
-
-My short answer: if in doubt, you should just use SQL. Always.
+My short answer: if in doubt, I would just use SQL. Always.
 
 Long answer: There are two forms of NoSQL.
 
-1) Extremely high scale -- Cassandra --- constraints are not enforced due to high load and high levels of data.
+1) Extremely high scale -- terabytes upon terabytes of data and tens of people working just on handling the database -- the canonical example is Cassandra --- constraints are not enforced *due to extremley high loads and high levels of data*. Some companies like Netflix, Google do this. 99% of tech companies do not.
 
-2) For beginner programmers - Mongo --- constraints (among other features) are not there to simplify things for beginners. This means it will be quicker to build your project but you face a higher risk of data integrity issues
-once you do.
+2) For beginner programmers - Mongo --- constraints (among other features) are not there *to simplify things for beginners*. This means it will be quicker to build your project but you face a higher risk of data integrity issues
+once you do and shifting from mongo to an SQL database once you're deep into a project is tricky.
 
 
 ## EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE
 
-The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fit in one file - quite a common task.
+The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fits in one file or runs a small website (where small means under 100,000 hits per day). There is more (here)[https://www.sqlite.org/whentouse.html] on when it is and is not a good database to use.
+
+To set up, we do the following:
 
 * Windows: https://sqlite.org/download.html
 * Ubuntu: apt-get install sqlite

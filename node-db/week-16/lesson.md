@@ -68,6 +68,18 @@ An RDBMS (relational database management system) will do this by, for example:
 - Organizing how the data is retrieved and assembled (e.g. fetch me all reservations under customer "Donald Trump").
 - Executes on a different process/machine, meaning that the queries can be parallelized, and work can be offloaded from the main server.
 
+
+### SHOULD I USE SQL OR SHOULD I USE NOSQL?
+
+Short answer: if in doubt, you should just use SQL. Always.
+
+Long answer: There are two forms of NoSQL.
+
+1) Extremely high scale -- Cassandra --- constraints are not enforced due to high load and high levels of data.
+
+2) For beginner programmers - Mongo --- constraints (among other features) are not there to simplify things for beginners.
+
+
 ## EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE
 
 The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fit in one file - quite a common task.
@@ -83,7 +95,7 @@ This should give you a prompt like this:
 ```sql
 SQLite version 2.8.17
 Enter ".help" for instructions
-sqlite> 
+sqlite>
 ```
 
 This is a command prompt where you can run snippets of SQL and load files containing SQL.
@@ -219,7 +231,7 @@ So, if you do a regular query you just get all of the data:
 select * from invoices
 ```
 
-If you do 
+If you do
 
 ```sql
 select * from invoices where reservation_id = 123;
@@ -310,7 +322,7 @@ QUESTION FOR CLASS:
 
 ## LESSON 1H: AUTOINCREMENTING PRIMARY KEYS
 
-We still have a problem here. Joe the office manager who is entering invoices doesn't really want to 
+We still have a problem here. Joe the office manager who is entering invoices doesn't really want to
 keep coming up with random numbers every time he enters an invoice. Why not just get the database to give
 us an ID?
 
@@ -377,7 +389,7 @@ Point out that the reservation ID corresponds with the ID on the reservations ta
 sqlite> insert into invoices (reservation_id, total, invoice_date_time) values (125, 50, '06/01/2017);
 ```
 
-QUESTION FOR CLASS: What's the problem with the last statement? 
+QUESTION FOR CLASS: What's the problem with the last statement?
 
 A: Invoice isn't going to get paid because we don't know who it's for.
 
@@ -445,3 +457,31 @@ sqlite> update invoices where id = [ ID FROM ABOVE ] set room_price_per_night = 
 
 1. Run SQL from lesson 1C where my surname was entered as OConner. My name is actually O'Connor. Fix it using 'UPDATE'.
 
+# HOMEWORK
+
+
+
+### Setting up the environment for next class
+
+
+You have already worked with back end servers using Express. This is just another yet another one, that we will be connecting to a database.
+
+In order for us to interact with the server, we are going to use [Postman](https://www.getpostman.com/), which will accurately mimic API calls made from react. In the last three lessons you're going to make react do to this back end what postman is going to do today.
+
+![postman-get-1](client-postman-server.jpg)
+
+We're going to use this set up for debugging and testing our back-end. Can anybody tell me what debugging is?
+
+![Debugging](debugging.jpg "Debugging")
+
+
+**Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db/tree/class2), and follow the instructions to set the environment up.
+
+
+![postman-get-1](postman-get-1.png)
+
+##### Installing Postman
+
+**Task** Install chrome extention for [Postman](https://chrome.google.com/webstore/detail/tabbed-postman-rest-clien/coohjcphdfgbiolnekdpbcijmhambjff?hl=en-GB).
+
+Now let us all try Postman by GETting from `http://localhost:8080/api/customers`, as is shown next.

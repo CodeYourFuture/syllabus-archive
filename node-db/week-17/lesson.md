@@ -23,7 +23,6 @@ Homework from last lesson:
 
 **What we will learn today?**
 
-- Why NoSQL why SQL?
 - Checking out a project and adding hotel.sql to the repo
 - How to run SQLite *with node* on your machine - setting up a development environment.
 - How to run a database query that retrieves tabular data in node express to an endpoint.
@@ -32,25 +31,9 @@ Homework from last lesson:
 - Dealing with unclear user stories. There is a TRAP in one of these user stories we will be giving you today.
 - What is the difference between user story, use case and user acceptance test. 
 
-### SHOULD I USE SQL OR SHOULD I USE NOSQL?
-
-Short answer: if in doubt, you should just use SQL. Always.
-
-Long answer: There are two forms of NoSQL.
-
-1) Extremely high scale -- Cassandra --- constraints are not enforced due to high load and high levels of data.
-
-2) For beginner programmers - Mongo --- constraints (among other features) are not there to simplify things for beginners.
-
-
-This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Marriott hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
-
-Use `/server/class2.js` for the exercises of this class.
-
-
 ### Setting up the environment
 
-**Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db), and follow the instructions to set the environment up.
+**Task** Clone the [repo](ADD THE LINK !!!), and follow the instructions to set the environment up.
 
 You have already worked with back end servers using Express. This is just another yet another one, that we will be connecting to a database.
 
@@ -79,13 +62,24 @@ Now let us all try Postman by GETting from `http://localhost:8080/api/customers`
 
 Remove the code that is returning a JSON object on end point `/customers`, and use what you have learned about to SQL to fill in the query that fetches all the customers from the database.
 
+You will need to install a package to deal with sqlite `npm install --save sqlite3` then add this code before the routes in `class2.js`
+
+```javascript
+// Add these lines before the routes definition
+const filename = './database/database.sqlite'
+const knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename
+  }
+})
+```
+
 - select everything
 
 ```javascript
-const filename = './database/database.sqlite';
-const sqlite3    = require('sqlite3').verbose();
-let db = new sqlite3.Database(filename);
 
+// This is the route we will need to update
 router.get('/customers', function(req, res) {
   res.status(200).json({
     customers: [{
@@ -104,16 +98,13 @@ Who can tell me what this is currently doing? What do we need to make it do?
 So, the answer is here:
 
 ```javascript
-router.get('/customers', function(req, res) {
-  res.status(200).json({
-    db.all(sql, [], (err, 'select * from customers' ) => {
-      res.status(200).json({
-        customers: rows
-      });
-    });
-  });
+const sqlStatement = 'select * from customers';
+knex.raw().then(function (data) {
+  res.json(data);
 });
 ```
+
+This is [the library](https://knexjs.org/) we will use for building queries. `Knex` provides helpers for creating queries so we normally won't use `knex.raw` in real applications, but we will use it today to practice SQL more, and write "raw" SQL statements.
 
 ### Exercise 1
 
@@ -153,7 +144,7 @@ select * from customers where surname ilike '%clint%';
 
 This will. Why?
 
-### EXERCISE 2
+### EXERCISE 2A
 
 **User Story:** As a staff member I want to search for a customer through its `surname`, but we don't know that it might be misspelled.
 

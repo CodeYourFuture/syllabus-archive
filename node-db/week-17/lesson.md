@@ -99,7 +99,7 @@ So, the answer is here:
 
 ```javascript
 const sqlStatement = 'select * from customers';
-knex.raw().then(function (data) {
+knex.raw(sqlStatement).then(function (data) {
   res.json(data);
 });
 ```

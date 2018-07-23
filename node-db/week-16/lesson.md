@@ -92,17 +92,18 @@ The RDBMS we are going to teach you first is called "sqlite". It's pretty much t
 
 To set up, we do the following:
 
-* Windows: https://sqlite.org/download.html
-* Ubuntu: apt-get install sqlite
-* Mac OS: brew install sqlite
+* Windows: https://sqlite.org/download.html#win32
+* Ubuntu: apt-get install sqlite3
+* Mac OS: brew install sqlite3
 
 To run SQLite, open a command prompt and run "sqlite mydatabase.sqlite".
 
 This should give you a prompt like this:
 
-```sql
-SQLite version 2.8.17
-Enter ".help" for instructions
+```
+sqlite3
+SQLite version 3.11.0 2016-02-15 17:29:24
+Enter ".help" for usage hints.
 sqlite>
 ```
 
@@ -128,14 +129,12 @@ What we have here:
 
 * Creating a table - this creates the *structure* which you can use to put data in. The items are *columns*.
 * Insert into - puts data *into* that structure.
-* Select * from - gets the entire contents of that table.
-
 * 'title varchar' - this means we're creating a column with the name 'title' which holds a 'variable number of characters'. This is pretty much the same thing as a string in javascript.
 
 Now, in the command prompt run the following:
 
 ```
-$ sqlite mydatabase.sqlite
+$ sqlite
 
 sqlite> .read hotel.sql
 ```
@@ -143,56 +142,62 @@ sqlite> .read hotel.sql
 Now that the file has been loaded with one table containing one row of data, you can read it back
 out again like this:
 
-What to put on the *right* hand side (data retrieval):
-
 ```sql
-sqlite> select * from customers;
+select * from customers;
 ```
 
-Now that you've done all that, DELETE the mydatabase.sqlite file, run it again and make sure you get the same result again.
+This should display:
+
+```
+sqlite> select * from customers;
+Mr|Donald|Trump
+```
+
+**Note**: We are using a in memory database. This means that for each exercise we will be adding sql statements to our `hote.sql` and then read this file into sqlite3 to create our database, because everytime we close `sqlite3` the database will be deleted.
+
 
 ## EXERCISE 1C: Create tables and insert data
 
-1. Amend hotel.sql create the database again and add yourselves as *second* customer using INSERT - so you're now staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests. Then delete mydatabase.sqlite again.
+1. Amend hotel.sql create the database again and add yourselves as *second* customer using INSERT - so you're now staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests.
 
-2. Change hotel.sql again to store email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen. Run select * and ensure you are both guests. Then delete mydatabase.sqlite again.
+2. Change hotel.sql again to store email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen. Run select * and ensure you are both guests.
 
 3. Change hotel.sql again. Add teacher - "Colm OConner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
 
-## LESSON 1D: Data types
+## LESSON 1D: Data types and directives
 
 ```sql
 create table invoices (
-    reservation_id      integer,
+    invoice_id      integer,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
 );
 
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 3444.50, '01/01/2017', 1);
+insert into invoices (invoice_id, total, invoice_date_time, paid) values (123, 3444.50, '01/01/2017', 1);
 
-insert into invoices (reservation_id, total, invoice_date_time) values (124, 3445.50, '02/01/2017');
+insert into invoices (invoice_id, total, invoice_date_time) values (124, 3445.50, '02/01/2017');
 ```
 
 And in the command box:
 
 ```sql
-sqlite>  select * from invoices
+select * from invoices;
 ```
 
 What we have here:
 
-* An 'integer', a 'number', a 'datetime' and a boolean. These are all analogous to data types which you have learned about in javascript but there are sometimes subtle differences that you will eventually run in to.
+* An 'integer', a 'number', a 'datetime' and a boolean. These are all analogous to data types which you have learned about in javascript.
 
 * For "paid" which is either yes or no - we have a default of 'no' - it's saying that if you insert data and don't specify 'paid' as a column when you INSERT data, it will assume you meant 'no'.
 
-* For 'invoice_date_time' you must store the data in the form of a combination of date and time. It has a 'not null' constraint which means that you *have* to give a datetime when you insert data, it will refuse to let you insert an invoice without specifying invoice_date_time and refuse to let you explicitly give your invoice_date_time as null.
+* For 'invoice_date_time' you must store the data in the form of a combination of date and time. It has a 'not null' constraint which means that you *have* to give a datetime when you insert data, it will refuse to let you insert an invoice without specifying invoice_date_time and refuse to let you explicitly give your invoice_date_time as null. For the sake of simplicity we will be using the `YYYY-MM-DD` date format.
 
 ```sql
 Further reading : https://www.sqlite.org/datatype3.html
 ```
 
-## EXERCISE 1D : Data types
+## EXERCISE 1D : Data types and directives
 
 In your "hotel.sql" create a reservations table with columns for customer ID, room ID, check in date, check out date and price per night and insert a bunch of example data - maybe you and 10 friends or celebrities.
 
@@ -208,29 +213,18 @@ Currently we've just put data in to a table and gotten *all* of it out. What abo
 
 For this we will introduce a SQL key word called 'WHERE'.
 
-Lets go back to the invoices table. Make your SQL files have a create table for invoices in like this:
+Lets go back to the invoices table and add a bunch of data like this::
 
 ```sql
-create table invoices (
-    reservation_id      integer,
-    total               number,
-    invoice_date_time   datetime not null,
-    paid                boolean default false
-);
-```
+insert into invoices (invoice_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017', 1);
 
-And put in a bunch of data like this:
+insert into invoices (invoice_id, total, invoice_date_time) values (124, 250.50, '02/01/2017');
 
-```sql
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017', 1);
+insert into invoices (invoice_id, total, invoice_date_time) values (150, 431.50, '03/01/2017');
 
-insert into invoices (reservation_id, total, invoice_date_time) values (124, 250.50, '02/01/2017');
+insert into invoices (invoice_id, total, invoice_date_time) values (155, 300.50, '04/01/2017', 1);
 
-insert into invoices (reservation_id, total, invoice_date_time) values (150, 431.50, '03/01/2017');
-
-insert into invoices (reservation_id, total, invoice_date_time) values (155, 300.50, '04/01/2017', 1);
-
-insert into invoices (reservation_id, total, invoice_date_time) values (156, 284.35, '04/01/2017', 1);
+insert into invoices (invoice_id, total, invoice_date_time) values (156, 284.35, '04/01/2017', 1);
 ```
 
 So, if you do a regular query you just get all of the data:
@@ -242,7 +236,7 @@ select * from invoices
 If you do
 
 ```sql
-select * from invoices where reservation_id = 123;
+select * from invoices where invoice_id = 123;
 ```
 
 ```sql
@@ -264,56 +258,32 @@ Write SQL for the following:
 Ok, now we're going to introduce a problem. Let's say a secretary types in a bunch of invoice IDs and values:
 
 ```sql
+insert into invoices (invoice_id, total, invoice_date_time, paid) values (323, 143.50, '01/01/2017',1);
+
+insert into invoices (invoice_id, total, invoice_date_time) values (323, 250.50, '02/01/2017');
+```
+
+QUESTION FOR CLASS : What is the problem here? [ A business calls up and says they need to pay invoice 323 ]
+
+We solve this problem with something called a "primary key" - what this does is make it so the database will absolutely refuse to accept a number if you enter in a duplicate. We can define a primary key for the invoice_id adding `primary key` after the type for `invoice_id` as follows:
+
+```sql
 create table invoices (
-    reservation_id      integer,
+    invoice_id      integer primary key,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
 );
 
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017',1);
-
-insert into invoices (reservation_id, total, invoice_date_time) values (123, 250.50, '02/01/2017');
+insert into invoices (invoice_id, total, invoice_date_time, paid) values (323, 143.50, '01/01/2017',1);
 ```
 
-```sql
-select * from invoices;
-```
+Update your hotel.sql file to have the invoices table defined as above.
 
-QUESTION FOR CLASS : What is the problem here? [ A business calls up and says they need to pay invoice 123 ]
-
-We solve this problem with something called a "primary key" - what this does is make it so the database will absolutely refuse to accept a number if you enter in a duplicate.
+Try entering an invoice with ID 323 now, what do you get?
 
 ```sql
-create table invoices (
-    reservation_id      integer primary key,
-    total               number,
-    invoice_date_time   datetime not null,
-    paid                boolean default false
-);
-
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017',1);
-```
-
-Try entering an invoice with ID 123 now:
-
-sqlite> insert into invoices (reservation_id, total, invoice_date_time) values (123, 250.50, '02/01/2017');
-
-
-
-```sql
-create table invoices (
-    reservation_id      integer primary key,
-    total               number,
-    invoice_date_time   datetime not null,
-    paid                boolean default false
-);
-
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017', 1);
-
-insert into invoices (reservation_id, total, invoice_date_time) values (124, 250.50, '02/01/2017');
-
-insert into invoices (reservation_id, total, invoice_date_time) values (999, 250.50, '03/01/2017');
+insert into invoices (invoice_id, total, invoice_date_time) values (323, 250.50, '02/01/2017');
 ```
 
 Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
@@ -339,7 +309,7 @@ database will just give your row a new ID. What ID will it give it? The ID of th
 
 ```sql
 create table invoices (
-    reservation_id      integer primary key,
+    invoice_id      integer primary key,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
@@ -374,7 +344,7 @@ create table reservations (
 
 create table invoices (
     id                  integer primary key,
-    reservation_id      integer,
+    invoice_id      integer,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
@@ -384,17 +354,17 @@ insert into reservations (customer_id, room_id, check_in_date, check_out_date, r
 
 insert into reservations (customer_id, room_id, check_in_date, check_out_date, room_price_per_night) values (124, 55, '03/01/2017', '05/01/2017', 100);
 
-insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 100, '03/01/2017', 1);
+insert into invoices (invoice_id, total, invoice_date_time, paid) values (123, 100, '03/01/2017', 1);
 
-insert into invoices (reservation_id, total, invoice_date_time) values (124, 50, '06/01/2017', 0);
+insert into invoices (invoice_id, total, invoice_date_time) values (124, 50, '06/01/2017', 0);
 
-insert into invoices (reservation_id, total, invoice_date_time) values (124, 50, '06/01/2017', 1);
+insert into invoices (invoice_id, total, invoice_date_time) values (124, 50, '06/01/2017', 1);
 ```
 
 Point out that the reservation ID corresponds with the ID on the reservations table.
 
 ```sql
-sqlite> insert into invoices (reservation_id, total, invoice_date_time) values (125, 50, '06/01/2017);
+sqlite> insert into invoices (invoice_id, total, invoice_date_time) values (125, 50, '06/01/2017');
 ```
 
 QUESTION FOR CLASS: What's the problem with the last statement?
@@ -417,25 +387,25 @@ create table reservations (
 
 create table invoices (
     id                           integer primary key,
-    reservation_id               integer not null,
+    invoice_id               integer not null,
     total                        number,
     invoice_date_time            datetime not null,
     paid                         boolean default false
-    foreign key(reservation_id)  references reservations(id),
+    foreign key(invoice_id)  references reservations(id),
 );
 
 ```
 
 Note that:
 
-- 'foreign key(reservation_id)' means that we're putting a foreign key relationship on the *reservation_id* column.
+- 'foreign key(invoice_id)' means that we're putting a foreign key relationship on the *invoice_id* column.
 - 'references reservations(id)' means that it's referring to the 'id' column in the reservations table.
-- reservation_id is a row on invoices. It is a number, like 3 - referring to the 'id' of a row in reservations.
-- reservation_id can *not* be null because it must *always* reference an existing row.
+- invoice_id is a row on invoices. It is a number, like 3 - referring to the 'id' of a row in reservations.
+- invoice_id can *not* be null because it must *always* reference an existing row.
 
 Remember:
 
-- If you removed "foreign key(reservation_id)  references reservations(id)" it will let you insert invalid data without giving you an error - you will be able to create an invoice with a reservation_id of 9435454 without a corresponding reservation with id 9435454 in the reservations table.
+- If you removed "foreign key(invoice_id)  references reservations(id)" it will let you insert invalid data without giving you an error - you will be able to create an invoice with a invoice_id of 9435454 without a corresponding reservation with id 9435454 in the reservations table.
 
 - We WANT errors like this, which is why we put the foreign key there.
 

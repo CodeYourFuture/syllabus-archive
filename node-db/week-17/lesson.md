@@ -36,7 +36,7 @@ Homework from last lesson:
 - What is the difference between user story, use case and user acceptance test.
 
 
-This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Marriott hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
+This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Big chain hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
 
 Use `/server/class2.js` for the exercises of this class.
 
@@ -48,6 +48,20 @@ Use `/server/class2.js` for the exercises of this class.
 **Use case** When a user does a GET request to /customers it should return customer titles, first names, surnames.
 
 **User acceptance test**: Do a GET request and get back [{"title": "mr", "firstname": "Donald", "surname": "Trump"}, {"title": "Mrs", "firstname": "Hillary", "surname": "Clinton"}]
+
+1) Grab the cyf-hotel-db.
+
+2) Change the branch to class2.
+
+3) Run "npm i" and then "npm start".
+
+4) Use your browser to look at http://localhost:8080/api/customers/.
+
+You should get back:
+
+```javascript
+{"customers":[{"ID":1,"title":"Mr","first_name":"John","surname":"Dove","email":"john.doe@domain.com"}]}
+```
 
 Remove the code that is returning a JSON object on end point `/customers`, and use what you have learned about to SQL to fill in the query that fetches all the customers from the database.
 

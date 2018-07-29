@@ -9,7 +9,7 @@
 * Retrieving data from a database using SQL.
 * Escaping
 
-# LESSON 1A: Why we need databases
+## LESSON 1A: Why we need databases
 
 So, in your previous lessons you have been taught how to store and retrieve data
 using files. This is fine and works well for some data - particularly simple data -
@@ -33,7 +33,10 @@ and enrollments which didn't have guests.
 Sometimes the amounts on those invoices would rack up to tens even hundreds of thousands of dollars
 of invoices *without* customers, and the hotel managers were rarely happy:
 
-![Hotel manager](grumpy-cat.jpg "Hotel manager's face")
+<!-- ![Hotel manager](grumpy-cat.jpg "Hotel manager's face") -->
+<p align="center">
+  <img src="grumpy-cat.jpg" display="block" width="75%"/>
+</p>
 
 This was a very, very serious problem. We were >.< this close to losing a big hotel chain as a
 customer - and a large part of it was because of this.
@@ -49,7 +52,7 @@ These lessons are about using SQL and storing and retrieving data in your code i
 that your data is kept clean.
 
 
-# LESSON 1B : What is the point of an SQL database?
+## LESSON 1B : What is the point of an SQL database?
 
 We're going to teach you a new programming language. It's called SQL. Pronounced "S - Q - L" or sequel, either is fine.
 
@@ -86,9 +89,9 @@ Long answer: There are two forms of NoSQL.
 once you do and shifting from mongo to an SQL database once you're deep into a project is tricky.
 
 
-## EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE
+#### EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE
 
-The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fits in one file or runs a small website (where small means under 100,000 hits per day). There is more (here)[https://www.sqlite.org/whentouse.html] on when it is and is not a good database to use.
+The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fits in one file or runs a small website (where small means under 100,000 hits per day). There is more [here](https://www.sqlite.org/whentouse.html) on when it is and is not a good database to use.
 
 To set up, we do the following:
 
@@ -109,7 +112,7 @@ sqlite>
 
 This is a command prompt where you can run snippets of SQL and load files containing SQL.
 
-### LESSON 1C: CREATING A TABLE
+## LESSON 1C: CREATING A TABLE
 
 The first thing we want to store is customers, since without customers, you don't have a hotel.
 
@@ -158,7 +161,7 @@ Mr|Donald|Trump
 **Note**: We are using a in memory database. This means that for each exercise we will be adding sql statements to our `hote.sql` and then read this file into sqlite3 to create our database, because everytime we close `sqlite3` the database will be deleted.
 
 
-## EXERCISE 1C: Create tables and insert data
+#### EXERCISE 1C: Create tables and insert data
 
 1. Amend hotel.sql create the database again and add yourselves as *second* customer using INSERT - so you're now staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests.
 
@@ -195,11 +198,10 @@ What we have here:
 
 * For 'invoice_date_time' you must store the data in the form of a combination of date and time. It has a 'not null' constraint which means that you *have* to give a datetime when you insert data, it will refuse to let you insert an invoice without specifying invoice_date_time and refuse to let you explicitly give your invoice_date_time as null. For the sake of simplicity we will be using the `YYYY-MM-DD` date format.
 
-```sql
-Further reading : https://www.sqlite.org/datatype3.html
-```
+Further reading [here](https://www.sqlite.org/datatype3.html).
 
-## EXERCISE 1D : Data types and directives
+
+#### EXERCISE 1D : Data types and directives
 
 In your "hotel.sql" create a reservations table with columns for customer ID, room ID, check in date, check out date and price per night and insert a bunch of example data - maybe you and 10 friends or celebrities.
 
@@ -245,7 +247,7 @@ select * from invoices where reservation_id = 123;
 select * from invoices where invoice_date_time < '2017-01-03';
 ```
 
-## EXERCISE 1F : SELECT
+#### EXERCISE 1F : SELECT
 
 Write SQL for the following:
 
@@ -322,7 +324,7 @@ insert into invoices (total, invoice_date_time, paid) values (143.50, '2017-01-0
 insert into invoices (total, invoice_date_time) values (250.50, '2017-01-02');
 ```
 
-## EXERCISE 1H : PRIMARY KEYS
+#### EXERCISE 1H : PRIMARY KEYS
 
 1. Recreate customer table with a primary key. Bear in mind that you don't have a driver's license or passport ID.
 
@@ -408,7 +410,7 @@ Remember:
 
 - We WANT errors like this, which is why we put the foreign key there.
 
-## EXERCISE 1I : Foreign keys
+#### EXERCISE 1I : Foreign keys
 
 1. Change the file to insert the data from above without IDs.
 
@@ -431,7 +433,7 @@ If you want to change this invoice to be £300, you need to use 'UPDATE'.
 update invoices where id = [ ID FROM ABOVE ] set room_price_per_night = 300.0;
 ```
 
-## EXERCISE 1J : Updating data
+#### EXERCISE 1J : Updating data
 
 1. Run SQL from lesson 1C where my surname was entered as OConner. My name is actually O'Connor. Fix it using 'UPDATE'.
 
@@ -446,17 +448,25 @@ You have already worked with back end servers using Express. This is just anothe
 
 In order for us to interact with the server, we are going to use [Postman](https://www.getpostman.com/), which will accurately mimic API calls made from react. In the last three lessons you're going to make react do to this back end what postman is going to do today.
 
-![postman-get-1](client-postman-server.jpg)
+<!-- ![postman-get-1](client-postman-server.jpg) -->
+<p align="center">
+  <img src="client-postman-server.jpg" display="block" width="60%"/>
+</p>
 
 We're going to use this set up for debugging and testing our back-end. Can anybody tell me what debugging is?
 
-![Debugging](debugging.jpg "Debugging")
+<!-- ![Debugging](debugging.jpg "Debugging") -->
+<p align="center">
+  <img src="debugging.jpg" display="block" width="60%"/>
+</p>
 
 
 **Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db/tree/class2), and follow the instructions to set the environment up.
 
-
-![postman-get-1](postman-get-1.png)
+<!-- ![postman-get-1](postman-get-1.png) -->
+<p align="center">
+  <img src="postman-get-1.png" display="block" width="85%"/>
+</p>
 
 ##### Installing Postman
 

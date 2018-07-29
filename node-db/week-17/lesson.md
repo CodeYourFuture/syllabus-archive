@@ -60,7 +60,7 @@ Use `/server/class2.js` for the exercises of this class.
 You should get back:
 
 ```javascript
-{"customers":[{"ID":1,"title":"Mr","first_name":"John","surname":"Dove","email":"john.doe@domain.com"}]}
+{"customers":[{"ID":1,"title":"Mr","first_name":"Laurie","surname":"Ainley","email":"laurie@ainley.com"}]}
 ```
 
 Remove the code that is returning a JSON object on end point `/customers`, and use what you have learned about to SQL to fill in the query that fetches all the customers from the database.
@@ -106,22 +106,23 @@ router.get('/customers', function(req, res) {
 - select and filter by id
 - hint: simple select and filter by ID
 
-STRETCH GOAL (OPTIONAL) : If you get a request of /customers/notanumber (anything that isn't a number) it should return an HTTP 400 bad request.
+OPTIONAL STRETCH GOAL : If you get a request of /customers/notanumber (anything that isn't a number) it should return an HTTP 400 bad request.
 
 
 ### LESSON 2 : LIKE, WHATEVER
 
 So, now we're going to deal with one of the most common issues with hotel databases: the guest's name being misspelled.
 
-So, "Hilary Clinten" is added to the database. She calls up on the phone asking about her reservation and spells her name correctly on the phone. The hotel staff knows what *some of her name* sounds like but not all of it and they want to find her as a customer on the system.
+So, "Hilary Clinten" is added to the database by booking agent #1. She calls up on the phone asking about her reservation and booking agent #2 spells her name correctly on the phone. The hotel staff knows what *some of her name* sounds like but not all of it and they want to find her as a customer on the system.
 
-For this problem where we want to search in *part* of a string we use the LIKE command:
+For this problem where we want to search for rows where a column matches *part* of a string we use the LIKE command:
 
 ```sql
 select * from customers where surname like '%lint%';
 ```
 
-It will search the `surname` string on each row for the substring `lint`, and return true for the ones where it is part of the string. The substring is matched insensitively with the actual data - meaning that it makes no difference if the stored value is upper case and the provided substring is lower case.
+It will search the `surname` string on each row for the substring `lint`, and return true for the ones where it is part of the string. The substring is matched *case insensitively* with the actual data - meaning that it makes no difference if the stored value is upper case and the provided substring is lower case.
+
 The `%` sign before and after `lint` indicates that we could have any character, and any number of characters before and after that substring.
 
 

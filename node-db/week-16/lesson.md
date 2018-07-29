@@ -116,6 +116,8 @@ The first thing we want to store is customers, since without customers, you don'
 First, open a file in any text editor and put the following in a file called 'hotel.sql':
 
 ```sql
+PRAGMA foreign_keys = ON;
+
 create table customers (
     title varchar,
     firstname varchar,
@@ -168,15 +170,15 @@ Mr|Donald|Trump
 
 ```sql
 create table invoices (
-    invoice_id      integer,
+    id          integer,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
 );
 
-insert into invoices (invoice_id, total, invoice_date_time, paid) values (123, 3444.50, '01/01/2017', 1);
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 3444.50, '2017-01-01', 1);
 
-insert into invoices (invoice_id, total, invoice_date_time) values (124, 3445.50, '02/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 3445.50, '2017-01-02');
 ```
 
 And in the command box:
@@ -216,15 +218,15 @@ For this we will introduce a SQL key word called 'WHERE'.
 Lets go back to the invoices table and add a bunch of data like this::
 
 ```sql
-insert into invoices (invoice_id, total, invoice_date_time, paid) values (123, 143.50, '01/01/2017', 1);
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 143.50, '2017-01-01', 1);
 
-insert into invoices (invoice_id, total, invoice_date_time) values (124, 250.50, '02/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 250.50, '2017-01-02');
 
-insert into invoices (invoice_id, total, invoice_date_time) values (150, 431.50, '03/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time) values (150, 431.50, '2017-01-03');
 
-insert into invoices (invoice_id, total, invoice_date_time) values (155, 300.50, '04/01/2017', 1);
+insert into invoices (reservation_id, total, invoice_date_time) values (155, 300.50, '2017-01-04', 1);
 
-insert into invoices (invoice_id, total, invoice_date_time) values (156, 284.35, '04/01/2017', 1);
+insert into invoices (reservation_id, total, invoice_date_time) values (156, 284.35, '2017-01-04', 1);
 ```
 
 So, if you do a regular query you just get all of the data:
@@ -236,11 +238,11 @@ select * from invoices
 If you do
 
 ```sql
-select * from invoices where invoice_id = 123;
+select * from invoices where reservation_id = 123;
 ```
 
 ```sql
-select * from invoices where invoice_date_time < '03/01/2017';
+select * from invoices where invoice_date_time < '2017-01-03';
 ```
 
 ## EXERCISE 1F : SELECT
@@ -258,24 +260,24 @@ Write SQL for the following:
 Ok, now we're going to introduce a problem. Let's say a secretary types in a bunch of invoice IDs and values:
 
 ```sql
-insert into invoices (invoice_id, total, invoice_date_time, paid) values (323, 143.50, '01/01/2017',1);
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (323, 143.50, '2017-01-01',1);
 
-insert into invoices (invoice_id, total, invoice_date_time) values (323, 250.50, '02/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time) values (323, 250.50, '2017-01-02');
 ```
 
 QUESTION FOR CLASS : What is the problem here? [ A business calls up and says they need to pay invoice 323 ]
 
-We solve this problem with something called a "primary key" - what this does is make it so the database will absolutely refuse to accept a number if you enter in a duplicate. We can define a primary key for the invoice_id adding `primary key` after the type for `invoice_id` as follows:
+We solve this problem with something called a "primary key" - what this does is make it so the database will absolutely refuse to accept a number if you enter in a duplicate. We can define a primary key for the reservation_id adding `primary key` after the type for `reservation_id` as follows:
 
 ```sql
 create table invoices (
-    invoice_id      integer primary key,
+    id                  integer primary key,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
 );
 
-insert into invoices (invoice_id, total, invoice_date_time, paid) values (323, 143.50, '01/01/2017',1);
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (323, 143.50, '2017-01-01',1);
 ```
 
 Update your hotel.sql file to have the invoices table defined as above.
@@ -283,7 +285,7 @@ Update your hotel.sql file to have the invoices table defined as above.
 Try entering an invoice with ID 323 now, what do you get?
 
 ```sql
-insert into invoices (invoice_id, total, invoice_date_time) values (323, 250.50, '02/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time) values (323, 250.50, '2017-01-02');
 ```
 
 Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
@@ -309,15 +311,15 @@ database will just give your row a new ID. What ID will it give it? The ID of th
 
 ```sql
 create table invoices (
-    invoice_id      integer primary key,
+    id                  integer primary key autoincrement,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default false
 );
 
-insert into invoices (total, invoice_date_time, paid) values (143.50, '01/01/2017', 1);
+insert into invoices (total, invoice_date_time, paid) values (143.50, '2017-01-01', 1);
 
-insert into invoices (total, invoice_date_time) values (250.50, '02/01/2017');
+insert into invoices (total, invoice_date_time) values (250.50, '2017-01-02');
 ```
 
 ## EXERCISE 1H : PRIMARY KEYS
@@ -333,38 +335,38 @@ a reservation ID.
 
 
 ```sql
-create table reservations (
-  `id`                    integer primary key,
-  `customer_id`           integer,
-  `room_id`               integer,
-  `check_in_date`         datetime not null,
-  `checkout_out_date`,    datetime,
-  `room_price_per_night`  real
-);
-
 create table invoices (
-    id                  integer primary key,
-    invoice_id      integer,
-    total               number,
-    invoice_date_time   datetime not null,
-    paid                boolean default false
+    `id`                  integer primary key autoincrement,
+    `reservation_id`      integer,
+    `total`               number,
+    `invoice_date_time`   datetime not null,
+    `paid`                boolean default false,
 );
 
-insert into reservations (customer_id, room_id, check_in_date, check_out_date, room_price_per_night) values (123, 55, '01/01/2017', '02/01/2017', 100);
+create table reservations (
+    `id`                    integer primary key,
+    `customer_id`           integer,
+    `room_id`               integer,
+    `check_in_date`         datetime not null,
+    `checkout_out_date`,    datetime,
+    `room_price_per_night`  real,
+);
 
-insert into reservations (customer_id, room_id, check_in_date, check_out_date, room_price_per_night) values (124, 55, '03/01/2017', '05/01/2017', 100);
+insert into reservations (customer_id, room_id, check_in_date, check_out_date, room_price_per_night) values (123, 55, '2017-01-01', '2017-01-02', 100);
 
-insert into invoices (invoice_id, total, invoice_date_time, paid) values (123, 100, '03/01/2017', 1);
+insert into reservations (customer_id, room_id, check_in_date, check_out_date, room_price_per_night) values (124, 55, '2017-01-03', '2017-01-05', 100);
 
-insert into invoices (invoice_id, total, invoice_date_time) values (124, 50, '06/01/2017', 0);
+insert into invoices (reservation_id, total, invoice_date_time, paid) values (123, 100, '2017-01-03', 1);
 
-insert into invoices (invoice_id, total, invoice_date_time) values (124, 50, '06/01/2017', 1);
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 50, '2017-01-06', 0);
+
+insert into invoices (reservation_id, total, invoice_date_time) values (124, 50, '2017-01-06', 1);
 ```
 
 Point out that the reservation ID corresponds with the ID on the reservations table.
 
 ```sql
-sqlite> insert into invoices (invoice_id, total, invoice_date_time) values (125, 50, '06/01/2017');
+insert into invoices (reservation_id, total, invoice_date_time) values (125, 50, '2017-01-06');
 ```
 
 QUESTION FOR CLASS: What's the problem with the last statement?
@@ -375,37 +377,34 @@ To fix this problem we place an additional restriction on the data - you can onl
 
 
 ```sql
-
-create table reservations (
-  `id`                    integer primary key,
-  `customer_id`           integer,
-  `room_id`               integer,
-  `check_in_date`         datetime not null,
-  `checkout_out_date`,    datetime,
-  `room_price_per_night`  real
+create table invoices (
+    `id`                  integer primary key autoincrement,
+    `reservation_id`      integer,
+    `total`               number,
+    `invoice_date_time`   datetime not null,
+    `paid`                boolean default false,
 );
 
 create table invoices (
-    id                           integer primary key,
-    invoice_id               integer not null,
-    total                        number,
-    invoice_date_time            datetime not null,
-    paid                         boolean default false
-    foreign key(invoice_id)  references reservations(id),
+    `id`                           integer primary key,
+    `reservation_id`               integer not null,
+    `total`                        number,
+    `invoice_date_time`            datetime not null,
+    `paid`                         boolean default false,
+    foreign key(reservation_id)    references reservations(id),
 );
-
 ```
 
 Note that:
 
-- 'foreign key(invoice_id)' means that we're putting a foreign key relationship on the *invoice_id* column.
+- 'foreign key(reservation_id)' means that we're putting a foreign key relationship on the *reservation_id* column.
 - 'references reservations(id)' means that it's referring to the 'id' column in the reservations table.
-- invoice_id is a row on invoices. It is a number, like 3 - referring to the 'id' of a row in reservations.
-- invoice_id can *not* be null because it must *always* reference an existing row.
+- reservation_id is a column on invoices. It is a number, like 3 - referring to the 'id' of a row in reservations.
+- reservation_id can *not* be null because it must *always* reference an existing row.
 
 Remember:
 
-- If you removed "foreign key(invoice_id)  references reservations(id)" it will let you insert invalid data without giving you an error - you will be able to create an invoice with a invoice_id of 9435454 without a corresponding reservation with id 9435454 in the reservations table.
+- If you removed "foreign key(reservation_id) references reservations(id)" it will let you insert invalid data without giving you an error - you won't be able to create an invoice with a reservation_id of 9435454 without a corresponding reservation with id 9435454 in the reservations table.
 
 - We WANT errors like this, which is why we put the foreign key there.
 
@@ -415,6 +414,7 @@ Remember:
 
 2. Change the file to add foreign key relationship for reservations table and customers table.
 
+
 ## LESSON 1J : Updating data
 
 Let's say that we made a mistake with one of the invoices created above.
@@ -422,13 +422,13 @@ Let's say that we made a mistake with one of the invoices created above.
 First get the ID of an invoice entered earlier:
 
 ```sql
-sqlite> select * from invoices where invoice_date_time = '01/01/2017';
+select * from invoices where invoice_date_time = '2017-01-01';
 ```
 
 If you want to change this invoice to be £300, you need to use 'UPDATE'.
 
 ```sql
-sqlite> update invoices where id = [ ID FROM ABOVE ] set room_price_per_night = 300.0;
+update invoices where id = [ ID FROM ABOVE ] set room_price_per_night = 300.0;
 ```
 
 ## EXERCISE 1J : Updating data

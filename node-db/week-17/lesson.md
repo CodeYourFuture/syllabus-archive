@@ -136,15 +136,27 @@ The `%` sign before and after `lint` indicates that we could have any character,
 
 ### EXERCISE 3
 
-**Notes on Postman**
+For this exercise, we will need to use postman, which you should already have installed:
 
-In the next image you can see Postman doing a POST request. Highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
 ![postman-post-1](postman-post-1.png)
+
+In the next image you can see Postman doing a POST request.
+
+* Click on "headers" you will need to add the header `Content-Type` to `application/json`.
+
+* You will also need to change GET to POST - we are no longer GETting data we are POSTing data.
 
 
 **User Story:** As a guest, I want to register my details in the system so that I can check availability for my stay.
 
-**User Acceptance test**: Take the data being POSTed to the `/customers` endpoint check it is inserted into the database.
+**User Acceptance test**: Take this data being POSTed to the `/customers` endpoint check it is inserted into the database:
+
+  {
+    title: 'Mr',
+    firstname: 'Laurie',
+    surname: 'Ainley',
+    email: 'laurie@ainley.com'
+  }
 
 STRETCH GOAL (OPTIONAL): If a bad request is made to customers - first name is missing, for instance, return an HTTP 400 Bad reqest.
 
@@ -153,7 +165,7 @@ STRETCH GOAL (OPTIONAL): If a bad request is made to customers - first name is m
 
 **Notes on Postman**
 
-In this case we sant Postman to do a PUT request. Agina, highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
+In this case we sant Postman to do a PUT request. Again, highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
 ![postman-put-1](postman-put-1.png)
 
 

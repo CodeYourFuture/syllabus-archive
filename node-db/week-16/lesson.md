@@ -451,36 +451,68 @@ update invoices set room_price_per_night = 300.0 where id = <I-FROM-ABOVE>;
 # HOMEWORK
 
 
+### Homework part 1: Setting up the environment for next class
 
-### Setting up the environment for next class
-
-
-You have already worked with back end servers using Express. This is just another yet another one, that we will be connecting to a database.
+You have already worked with back end servers using Express. This is just another yet another one that we will be connecting to a database.
 
 In order for us to interact with the server, we are going to use [Postman](https://www.getpostman.com/), which will accurately mimic API calls made from react. In the last three lessons you're going to make react do to this back end what postman is going to do today.
+
+
+**Task** Fork and then clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db), and follow the instructions to set up and environment.
+
+**Task** Install chrome extention for [Postman](https://chrome.google.com/webstore/detail/tabbed-postman-rest-clien/coohjcphdfgbiolnekdpbcijmhambjff?hl=en-GB).
 
 <!-- ![postman-get-1](client-postman-server.jpg) -->
 <p align="center">
   <img src="client-postman-server.jpg" display="block" width="60%"/>
 </p>
 
-We're going to use this set up for debugging and testing our back-end. Can anybody tell me what debugging is?
 
-<!-- ![Debugging](debugging.jpg "Debugging") -->
-<p align="center">
-  <img src="debugging.jpg" display="block" width="60%"/>
-</p>
-
-
-**Task** Clone the [repo](https://github.com/CodeYourFuture/cyf-hotel-db/tree/class2), and follow the instructions to set the environment up.
 
 <!-- ![postman-get-1](postman-get-1.png) -->
 <p align="center">
   <img src="postman-get-1.png" display="block" width="85%"/>
 </p>
 
-##### Installing Postman
+Run "npm start" and use postman to GET from `http://localhost:8080/api/customers` and email a screenshot
+to ams.pedro@gmail.com and crdoconnor@gmail.com.
 
-**Task** Install chrome extention for [Postman](https://chrome.google.com/webstore/detail/tabbed-postman-rest-clien/coohjcphdfgbiolnekdpbcijmhambjff?hl=en-GB).
+If you have any issues (and you might), please contact one of us or the mentors for help.
 
-Now let us all try Postman by GETting from `http://localhost:8080/api/customers`, as is shown next.
+### Homework part 2: Add tables and data to the hotel database
+
+Using what you have learned in today's lesson, extend database/schema.sql in the cyf-hotel-db repo you
+just set up.
+
+It currently contains a customers table with one customer in it:
+
+    CREATE TABLE IF NOT EXISTS customers (
+      ID INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT(16),
+      first_name TEXT(64) NOT NULL,
+      surname TEXT (64) NOT NULL,
+      email TEXT (64)
+    );
+
+
+    INSERT INTO customers (
+      title, first_name, surname, email
+    ) VALUES (
+      'Mr',
+      'John',
+      'Dove',
+      'john.doe@domain.com'
+    );
+
+
+Extend it so that it has a structure like so (each line is a foreign key):
+
+<!-- ![postman-get-1](postman-get-1.png) -->
+<p align="center">
+  <img src="hotel-er-diagram.png" display="block" width="85%"/>
+</p>
+
+As well as creating the database tables that create that structure, add insert statements for
+5-10 rows of example data for each table as well.
+
+Email your amended schema.sql to to ams.pedro@gmail.com and crdoconnor@gmail.com.

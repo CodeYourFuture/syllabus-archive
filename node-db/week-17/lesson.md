@@ -138,7 +138,10 @@ The `%` sign before and after `lint` indicates that we could have any character,
 
 For this exercise, we will need to use postman, which you should already have installed:
 
-![postman-post-1](postman-post-1.png)
+<p align="center">
+  <img src="postman-post-1.png" display="block" width="85%"/>
+</p>
+
 
 In the next image you can see Postman doing a POST request.
 

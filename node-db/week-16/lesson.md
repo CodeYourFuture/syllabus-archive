@@ -19,37 +19,28 @@ TEACHER STORY:
 
 Back in 2013 I used to work for a company that ran hotel wifi for big hotel chain.
 We did at least 4 big brands that you've probably heard of and a whole bunch of others.
-This company had been going for a long time and used to make $8 when, back in the dark ages,
-you paid $12 for a day of wifi.
+This company had been going for a long time and used to make $8 when, back in the dark ages, you paid $12 for a day of wifi.
 
 The code for this system had the notion of "invoices", "wifi enrollments" and "guests" and
 stored data on each of them as well as the links between them. We would store data about
-these things and we would run reports on each and send them to the hotels who would use them to
-bill guests.
+these things and we would run reports on each and send them to the hotels who would use them to bill guests.
 
-All normal so far. Except we would sometimes send reports with invoices which didn't have enrollments,
-and enrollments which didn't have guests.
+All normal so far. Except we would sometimes send reports with invoices which didn't have enrollments, and enrollments which didn't have guests.
 
-Sometimes the amounts on those invoices would rack up to tens even hundreds of thousands of dollars
-of invoices *without* customers, and the hotel managers were rarely happy:
+Sometimes the amounts on those invoices would rack up to tens even hundreds of thousands of dollars of invoices *without* customers, and the hotel managers were rarely happy:
 
 <!-- ![Hotel manager](grumpy-cat.jpg "Hotel manager's face") -->
 <p align="center">
   <img src="grumpy-cat.jpg" display="block" width="75%"/>
 </p>
 
-This was a very, very serious problem. We were >.< this close to losing a big hotel chain as a
-customer - and a large part of it was because of this.
+This was a very, very serious problem. We were >.< this close to losing a big hotel chain as a customer - and a large part of it was because of this.
 
-This was a problem because our system was buggy, so we had what are generally called "data integrity"
-issues. You've encountered bugs before on this course - data integrity issues bugs too - bugs with
-your data.
+This was a problem because our system was buggy, so we had what are generally called "data integrity" issues. You've encountered bugs before on this course - data integrity issues bugs too - bugs with your data.
 
-The difference between a bug in your code and a bug in your data caused by a bug in your code
-is that bugs in your code can always be fixed. Bugs in your data - sometimes they can never be fixed.
+The difference between a bug in your code and a bug in your data, caused by a bug in your code, is that bugs in your code can always be fixed. Bugs in your data - sometimes they can never be fixed.
 
-These lessons are about using SQL and storing and retrieving data in your code in such a way
-that your data is kept clean.
+These lessons are about using SQL and storing and retrieving data in your code in such a way that your data is kept clean.
 
 
 ## LESSON 1B : What is the point of an SQL database?
@@ -64,9 +55,8 @@ You interact with almost all of them using the same programming language which i
 
 SQL is a different, and usually simpler kind of programming language that you use *with* a database (sometimes called an RDBMS) to:
 
-* Store data in a way such that its structure cannot be violated.
-
-* Retrieve data (get me all the reservations under the name "Trump") and answer questions about data ("what was the sum total of all of the invoices in february?").
+- Store data in a way such that its structure cannot be violated.
+- Retrieve data (get me all the reservations under the name "Trump") and answer questions about data ("what was the sum total of all of the invoices in february?").
 
 An RDBMS (relational database management system) will do this by, for example:
 
@@ -132,7 +122,7 @@ insert into customers (title, firstname, surname) values ('Mr', 'Donald', 'Trump
 
 What we have here:
 
-* PRAGMA statement is to set up some relevant settings that we don't need to worry about just yet. Please, don't worry about that for now.
+* PRAGMA statement is to set up some relevant settings that we don't need to worry about just yet.
 * Creating a table - this creates the *structure* which you can use to put data in. The items are *columns*.
 * Insert into - puts data *into* that structure.
 * 'title varchar' - this means we're creating a column with the name 'title' which holds a 'variable number of characters'. This is pretty much the same thing as a string in javascript.
@@ -140,9 +130,7 @@ What we have here:
 Now, in the command prompt run the following:
 
 ```
-$ sqlite
-
-sqlite> .read hotel.sql
+$ sqlite3 -init hotel.sql
 ```
 
 Now that the file has been loaded with one table containing one row of data, you can read it back
@@ -159,14 +147,14 @@ sqlite> select * from customers;
 Mr|Donald|Trump
 ```
 
-**Note**: We are using a in memory database. This means that for each exercise we will be adding sql statements to our `hotel.sql` and then read this file into sqlite3 to create our database, because everytime we close `sqlite3` the database will be deleted.
+**Note**: We are using a in memory database. This means that for each exercise we will be adding sql statements to our `hotel.sql` and then read this file into sqlite3 to create our database, because everytime we close `sqlite3` the database will be deleted and the data will be lost.
 
 
 #### EXERCISE 1C: Create tables and insert data
 
-1. Amend hotel.sql create the database again and add yourselves as *second* customer using INSERT - so you're now staying in a hotel with Donald Trump. Run select * and ensure that you see yourself both as guests.
+1. Amend hotel.sql create the database again and add yourselves as *second* customer using INSERT - so you're now staying in a hotel with Donald Trump. Run `select * from customers;` and ensure that you see yourself both as guests.
 
-2. Change hotel.sql again to store email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen. Run select * and ensure you are both guests.
+2. Change hotel.sql again to store email addresses from yourself and Donald (donald.trump@whitehouse.gov) and have them displayed on screen. Select everythin agian, and ensure you are both guests.
 
 3. Change hotel.sql again. Add teacher - "Colm OConner" - as your third customer. My email address is "colm.oconner.github@gmail.com".
 
@@ -174,7 +162,7 @@ Mr|Donald|Trump
 
 ```sql
 create table invoices (
-    id          integer,
+    id                  integer,
     total               number,
     invoice_date_time   datetime not null,
     paid                boolean default 0
@@ -197,9 +185,11 @@ What we have here:
 
 * For "paid" which is either yes (`1`) or no (`0`) - we have a default of no (`0`)- it's saying that if you insert data and don't specify 'paid' as a column when you INSERT data, it will assume you meant 'no'.
 
-* For 'invoice_date_time' you must store the data in the form of a combination of date and time. It has a 'not null' constraint which means that you *have* to give a datetime when you insert data, it will refuse to let you insert an invoice without specifying invoice_date_time and refuse to let you explicitly give your invoice_date_time as null. For the sake of simplicity we will be using the `YYYY-MM-DD` date format.
+* For 'invoice_date_time' you must store the data in the form of a combination of date and time. It has a 'not null' constraint which means that you *have* to give a datetime when you insert data, it will refuse to let you insert an invoice without specifying invoice_date_time and refuse to let you explicitly give your invoice_date_time as null.
 
-Further reading [here](https://www.sqlite.org/datatype3.html).
+**Note:** For the sake of simplicity we will be using the `YYYY-MM-DD` date format.
+
+Further reading on sqlite3 types  [here](https://www.sqlite.org/datatype3.html).
 
 
 #### EXERCISE 1D : Data types and directives
@@ -236,15 +226,16 @@ insert into invoices (id, total, invoice_date_time, paid) values (156, 284.35, '
 So, if you do a regular query you just get all of the data:
 
 ```sql
-select * from invoices
+select * from invoices;
 ```
 
-If you do
+But you can filter the data through logical expressions like:
 
 ```sql
 select * from invoices where id = 123;
 ```
 
+or:
 ```sql
 select * from invoices where invoice_date_time < '2017-01-03';
 ```
@@ -272,7 +263,7 @@ insert into invoices (id, total, invoice_date_time) values (323, 250.50, '2017-0
 
 QUESTION FOR CLASS : What is the problem here? [ A business calls up and says they need to pay invoice 323 ]
 
-We solve this problem with something called a "primary key" - what this does is make it so the database will absolutely refuse to accept a number if you enter in a duplicate. We can define a primary key for the `id` adding `primary key` after the type for `id` as follows:
+We solve this problem with something called a "primary key" - what this does is make it so the database will refuse to accept a value that is already in the database, it will not accept duplicates. We can define a primary key for the `id` adding `primary key` after the type for `id` as follows:
 
 ```sql
 create table invoices (
@@ -294,11 +285,10 @@ sqlite> insert into invoices (id, total, invoice_date_time) values (323, 250.50,
 Error: UNIQUE constraint failed: invoices.id
 ```
 
-Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of
-identifier which you know will always be *unique*.
+Now, picking primary keys is a tricky problem. You need to make sure that you pick some kind of identifier which you know will always be *unique*.
 
 
-QUESTION FOR CLASS:
+QUESTIONS FOR CLASS:
 
 * Is first name a good candidate for a primary key?
 * Is first name and surname together a good candidate for a primary key?
@@ -308,12 +298,9 @@ QUESTION FOR CLASS:
 
 ## LESSON 1H: AUTOINCREMENTING PRIMARY KEYS
 
-We still have a problem here. Joe the office manager who is entering invoices doesn't really want to
-keep coming up with random numbers every time he enters an invoice. Why not just get the database to give
-us an ID?
+We still have a problem here. Joe the office manager who is entering invoices doesn't really want to keep coming up with random numbers every time he enters an invoice. Why not just get the database to give us an ID?
 
-We can do that with a magic feature called autoincrementing numbers. You don't specify the ID and the
-database will just give your row a new ID. What ID will it give it? The ID of the last row plus one.
+We can do that with a magic feature called autoincrementing numbers. You don't specify the ID and the database will just give your row a new ID. What ID will it give it? The ID of the last row plus one.
 
 ```sql
 create table invoices (
@@ -337,8 +324,7 @@ insert into invoices (total, invoice_date_time) values (250.50, '2017-01-02');
 
 ## LESSON 1I : FOREIGN KEYS
 
-Now, as we've seen two tables that have an intrinsic relationship to one another. Every invoice has
-a reservation ID.
+Now, as we've seen two tables that have an intrinsic relationship to one another. Every invoice has a reservation ID.
 
 
 ```sql
@@ -380,7 +366,7 @@ QUESTION FOR CLASS: What's the problem with the last statement?
 
 A: Invoice isn't going to get paid because we don't know who it's for.
 
-To fix this problem we place an additional restriction on the data 
+To fix this problem we place an additional restriction on the data
 - you can only add IDs that *exist* to columns referencing other tables
 - and you really need to specify the `reservation_id` when you are inserting on the invoices.
 
@@ -405,6 +391,21 @@ create table invoices (
     foreign key(reservation_id)     references reservations(id),
 );
 
+```
+
+Now, if you try to add invoices without a `reservation_id` that really references a reservation entry on the reservations table you'll get this:
+
+```sql
+insert into invoices (reservation_id, total, invoice_date_time) values (125, 50, '2017-01-06');
+
+Error: FOREIGN KEY constraint failed
+```
+
+Or, if you try to add an invoice without specifying the `reservation_id` at all:
+
+```sql
+insert into invoices (total, invoice_date_time) values (50, '2017-01-06');
+Error: NOT NULL constraint failed:
 ```
 
 Note that:

@@ -89,7 +89,88 @@ You have five minutes. Work in teams. Figure out what happened between you and *
 Clue : You might want to use this https://meyerweb.com/eric/tools/dencoder/
 
 
-### LESSON 3: LIMIT YOUR QUERIES
+### LESSON 3: ORDER BY SOMETHING
+
+QUESTION FOR CLASS : What the difference is between *random* and *arbitrary*?
+
+Up until now we've not been returning results in a *random* order, but we have been returning
+them in an *arbitrary* order. The database has chosen what order to return records in. It's
+generally the order you put them in but there is *no* guarantee it will be in that order.
+
+Using 'order by' we can get records back in a specified order:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname
+```
+
+We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
+
+If we want to get *explicit* the three of them in ascending order:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname asc
+```
+
+Now, if we want them in descending order:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname desc
+```
+
+```
+Date Started  Firstname  Surname
+---------------------------------
+2018/12/31    Melania    Trump
+2018/12/31    Donald     Trump
+2018/12/31    Bill       Clinton
+2018/12/31    Hillary    Clinton
+2018/12/31    Colm       O'Connor
+```
+
+This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
+
+```
+Date Started  Firstname  Surname
+---------------------------------
+2018/12/31    Donald     Trump
+2018/12/31    Melania    Trump
+2018/12/31    Hillary    Clinton
+2018/12/31    Bill       Clinton
+2018/12/31    Colm       O'Connor
+```
+
+Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
+
+So, if we want to make it more *deterministic* (opposite of arbitrary), we can make it sort by surname *first* and first name *second*.
+
+And, if we want to order by surname first and first name second, we can do this:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname desc, customers.firstname desc
+```
+
+```
+Date Started  Firstname  Surname
+---------------------------------
+2018/12/31    Donald     Trump
+2018/12/31    Melania    Trump
+2018/12/31    Bill       Clinton
+2018/12/31    Hillary    Clinton
+2018/12/31    Colm       O'Connor
+```
+
+In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
+
+
+### LESSON 4: LIMIT YOUR QUERIES
 
 Now, the database you're working with right now is essentially just a toy. However,
 when you work with a real database you're often going to have a number of problems
@@ -108,17 +189,17 @@ on the number of returned rows:
 select * from customers order by surname asc limit 2;
 ```
 
-##### EXERCISE 3.a
+##### EXERCISE 4.a
 
 Select two rooms only.
 
 
-##### Exercise 3.b: OPTIONAL STRETCH GOAL
+##### Exercise 4.b: OPTIONAL STRETCH GOAL
 
 Select the latest 5 reservations on the database.
 
 
-### LESSON 4: DISTINCT
+### LESSON 5: DISTINCT
 
 Remember the JOIN query from above? We're going to do another similar one.
 
@@ -170,17 +251,17 @@ Donald     Trump
 Problem solved.
 
 
-##### EXERCISE 4.a
+##### EXERCISE 5.a
 
 Get the list of check in dates in the summer 2017.
 
 
-##### EXERCISE 4.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 5.b: OPTIONAL STRETCH GOAL
 
 Get the list of customers that made a reservation in the last year, including their details.
 
 
-### LESSON 5: SUM, AVERAGE AND COUNT
+### LESSON 6: SUM, AVERAGE AND COUNT
 
 Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and irrealistic in real life cases, where databases can have several milions of entries. So, for that purpose we have aggregation functions:
 
@@ -200,18 +281,18 @@ This will return the number of customers on a database.
 Well call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
 
 
-##### EXERCISE 5.a
+##### EXERCISE 6.a
 
 Count the number of reservations for a given customer id.
 
 
-##### EXERCISE 5.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 6.b: OPTIONAL STRETCH GOAL
 
 Calculate the average paid amount across all invoices.
 
 
 
-### LESSON 6: GROUPING
+### LESSON 7: GROUPING
 Lets us say that we need to get the list of different surnames on our list of customers, and how many times each surname shows up on our database?
 
 Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to the rest.
@@ -241,18 +322,18 @@ select surname, count(*) from customers group by surname;
 ```
 
 
-##### EXERCISE 6.a
+##### EXERCISE 7.a
 
 Count the occurrences of the DIFFERENT titles on the database.
 
 
-##### EXERCISE 6.c: OPTIONAL STRETCH GOAL
+##### EXERCISE 7.b: OPTIONAL STRETCH GOAL
 
 Count the occurrences of a combination of first-name and surname to get a list of customers with the same name.
 
 
 
-### LESSON 7: HAVING YOUR TABLE AND EATING IT
+### LESSON 8: HAVING YOUR TABLE AND EATING IT
 
 Suppose that we want to filter the result of what we got on the previous example - count of customers each surname - to select only the surnames for which there are 3 or more customers?
 
@@ -264,7 +345,7 @@ select surname, count(*) from customers group by surname having count >= 3;
 Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.
 
 
-##### EXERCISE 7.a
+##### EXERCISE 8.a
 
 Get the list of customers that have 5 or more reservations on our hotel.
 

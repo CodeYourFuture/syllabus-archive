@@ -121,7 +121,7 @@ For this problem where we want to search for rows where a column matches *part* 
 select * from customers where surname like '%lint%';
 ```
 
-It will search the `surname` string on each row for the substring `lint`, and return true for the ones where it is part of the string. The substring is matched *case insensitively* with the actual data - meaning that it makes no difference if the stored value is upper case and the provided substring is lower case.
+It will search the `surname` string on each row for the substring `lint`, and return true for the ones where it is part of the string. The substring is matched *case insensitively* with the actual data - meaning that it makes no difference if the stored value is upper case and the provided substring is lower case (note that other databases like MySQL / Postgres are not case insensitive with LIKE).
 
 The `%` sign before and after `lint` indicates that we could have any character, and any number of characters before and after that substring.
 
@@ -171,7 +171,7 @@ STRETCH GOAL (OPTIONAL): If a bad request is made to customers - first name is m
 
 **Notes on Postman**
 
-In this case we sant Postman to do a PUT request. Again, highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
+In this case we want Postman to do a PUT request. Again, highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
 ![postman-put-1](postman-put-1.png)
 
 
@@ -181,7 +181,9 @@ In this case we sant Postman to do a PUT request. Again, highlighed areas indica
 
 **User acceptance test**: PUT title=mr, firstname=donald, surname=trump on /customers/:id and check that the database was updated.
 
-- update table
+Hints:
+
+- UPDATE table
 - remember your previous lesson
 - hint: in the javascript code, instead of db.all() you will need ... what?
 
@@ -224,85 +226,8 @@ We're trying to locate a reservation for a customer. We know that:
 
 Write a query using *IN* that is guaranteed to return their reservation.
 
+N.B. Remember 01/01/2017? Remember to put the date in an *unambiguous format*.
 
-### LESSON 4: ORDER BY SOMETHING
-
-QUESTION FOR CLASS : What the difference is between *random* and *arbitrary*?
-
-Up until now we've not been returning results in a *random* order, but we have been returning
-them in an *arbitrary* order.
-
-Using 'order by' we can get records back in a specified order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname
-```
-
-We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
-
-If we want to get *explicit* the three of them in ascending order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname asc
-```
-
-Now, if we want them in descending order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc
-```
-
-```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Melania    Trump
-2018/12/31    Donald     Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
-```
-
-This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
-
-```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Hillary    Clinton
-2018/12/31    Bill       Clinton
-2018/12/31    Colm       O'Connor
-```
-
-Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
-
-So, if we want to make it more deterministic (opposite of arbitrary), we can make it sort by surname *first* and then
-
-And, if we want to order by surname first and first name second, we can do this:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc, customers.firstname desc
-```
-
-```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
-```
-
-In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
 
 ##### EXERCISE 4.a
 

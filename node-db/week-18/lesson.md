@@ -10,56 +10,13 @@
 
 **What we will learn today?**
 
-* SQL - 'IN'
 * Joins
 * SQL Injection
-* Order by
 * LIMIT
 * DISTINCT
 * Sum / Avg / Count
 * Group by
 * HAVING
-
-
-
-### LESSON 1: IN IT
-
-Now let's say that you want to see all of the customers who have the surname O'Connor or Trump.
-
-The way we've learned so far (note the quotation marks):
-
-```sql
-select * from customers where surname = "O'Connor" or surname = 'Trump'
-```
-
-You can also do it like so:
-
-```sql
-select * from customers where surname in ("O'Connor", 'Trump')
-```
-
-This is might seem like a minor difference but:
-
-- It is useful when you want your code to pass a list of things to the database and get a query which matches one or more of them.
-
-- You can put *a whole select statement* in there if it returns one column. Your homework will require this.
-
-
-##### EXERCISE 1.a
-
-Write a query to get all of the customers with the first name "Colm" or "Hillary" using *IN*.
-
-
-##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
-
-We're trying to locate a reservation for a customer. We know that:
-
-- Their checkin date may have been June 1st, 2017 OR July 1st 2017
-- Their checkout date may have been June 30th, 2017 OR July 30th 2017
-
-Write a query using *IN* that is guaranteed to return their reservation.
-
-
 
 
 ### LESSON 2 : JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
@@ -102,93 +59,6 @@ Get the list of reservations together with the details of the title, first name 
 
 
 
-### LESSON 3: ORDER BY SURNAME
-
-QUESTION FOR CLASS : What the difference is between *random* and *arbitrary*?
-
-Up until now we've not been returning results in a *random* order, but we have been returning
-them in an *arbitrary* order.
-
-Using 'order by' we can get records back in a specified order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname
-```
-
-We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
-
-If we want to get *explicit* the three of them in ascending order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname asc
-```
-
-Now, if we want them in descending order:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc
-```
-
-```
-Date Started  Firstname  Surname 
----------------------------------
-2018/12/31    Melania    Trump
-2018/12/31    Donald     Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
-```
-
-This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
-
-```
-Date Started  Firstname  Surname 
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Hillary    Clinton
-2018/12/31    Bill       Clinton
-2018/12/31    Colm       O'Connor
-```
-
-Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
-
-So, if we want to make it more deterministic (opposite of arbitrary), we can make it sort by surname *first* and then
-
-And, if we want to order by surname first and first name second, we can do this:
-
-```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc, customers.firstname desc
-```
-
-```
-Date Started  Firstname  Surname 
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
-```
-
-In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
-
-##### EXERCISE 3.a
-
-Select the list of reservations from the most recent to the oldest one.
-
-
-##### Exercise 3.b: OPTIONAL STRETCH GOAL
-
-Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
 
 
 ### LESSON 4: SQL INJECTION

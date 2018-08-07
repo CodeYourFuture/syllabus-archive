@@ -185,7 +185,47 @@ In this case we sant Postman to do a PUT request. Again, highlighed areas indica
 - remember your previous lesson
 - hint: in the javascript code, instead of db.all() you will need ... what?
 
-### LESSON 3 : I WISH I COULD DELETE HIM IN REAL LIFE
+
+
+### LESSON 3: IN IT
+
+Now let's say that you want to see all of the customers who have the surname O'Connor or Trump.
+
+The way we've learned so far (note the quotation marks):
+
+```sql
+select * from customers where surname = "O'Connor" or surname = 'Trump'
+```
+
+You can also do it like so:
+
+```sql
+select * from customers where surname in ("O'Connor", 'Trump')
+```
+
+This is might seem like a minor difference but:
+
+- It is useful when you want your code to pass a list of things to the database and get a query which matches one or more of them.
+
+- You can put *a whole select statement* in there if it returns one column. Your homework will require this.
+
+
+##### EXERCISE 3.a
+
+Write a query to get all of the customers with the first name "Colm" or "Hillary" using *IN*.
+
+
+##### EXERCISE 3.b: OPTIONAL STRETCH GOAL
+
+We're trying to locate a reservation for a customer. We know that:
+
+- Their checkin date may have been June 1st, 2017 OR July 1st 2017
+- Their checkout date may have been June 30th, 2017 OR July 30th 2017
+
+Write a query using *IN* that is guaranteed to return their reservation.
+
+
+### LESSON 4 : I WISH I COULD DELETE HIM IN REAL LIFE
 
 We've currently done inserting data and updating data, but sometimes inserting data was just a mistake
 and it needs to go.
@@ -207,7 +247,7 @@ There are several things you need to worry about when you delete data and what y
 
 - Often it's a good idea to give data the 'status' deleted instead of actually deleting it.
 
-### Exercise 5
+### Exercise 4.a
 **User Story:** As a staff member, I want to delete a canceled reservation from the database.
 
 **Notes on Postman**

@@ -5,38 +5,33 @@
 What we did last lesson:
 
 * Why we need databases
+* Why NoSQL why SQL?
 * Installing SQLite
 * Creating a database with SQL and storing data in it.
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
-* Escaping (who figured out how to insert my real name into the database?)
-* Why NoSQL why SQL?
-* Checking out a project and adding hotel.sql to the repo
+* Primary keys
+* Escaping (dealing with awkward people with the surname O'Connor)
 * How to run SQLite *with node* on your machine - setting up a development environment.
 
 Homework from last lesson:
 
 ![Hotel ER diagram](hotel-er-diagram.png "Hotel ER diagram")
 
-- Did you do update?
 - Did everybody finish hotel.sql so that it looks like the above diagram?
-- About those foreign key constraints that weren't being enforced on SQLite -- enforce PRAGMA and version
 - Did we understand foreign keys?
 - Does everybody have enough data in their database? Between 5 and 10 rows per table.
 
 **What we will learn today?**
 
-- Why NoSQL why SQL?
-- Checking out a project and adding hotel.sql to the repo
-- How to run SQLite *with node* on your machine - setting up a development environment.
-- How to run a database query that retrieves tabular data in node express to an endpoint.
-- Inserting data from an endpoint.
-- Updating data from an endpoint.
-- Dealing with unclear user stories. There is a TRAP in one of these user stories we will be giving you today.
+- How to run a database query that retrieves tabular data in node express and returns it to an endpoint.
+- Inserting data into a database from an endpoint.
+- Updating data in a database from an endpoint.
+- Dealing with unclear user stories. There is a trap in one of these user stories we will be giving you today.
 - What is the difference between user story, use case and user acceptance test.
 
 
-This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Big chain hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
+This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Big chain hotel manager grumpy cat - e.g. so that all invoices come attached to reservations. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start screwing up your valuable data.
 
 Use `/server/class2.js` for the exercises of this class.
 
@@ -87,13 +82,18 @@ So, the answer is here:
 
 ```javascript
 router.get('/customers', function(req, res) {
-  res.status(200).json({
-    db.all(sql, [], (err, 'select * from customers' ) => {
-      res.status(200).json({
-        customers: rows
-      });
-    });
-  });
+ var sql = 'select * from customers';
+
+ db.all(sql, [], (err, rows) => {
+   if (err) {
+       console.log('ERROR fetching from the database:', err);
+       return;
+   }
+   console.log('Request succeeded, new data fetched', rows);
+   res.status(200).json({
+     customers: rows
+   });
+ });
 });
 ```
 
@@ -111,7 +111,7 @@ OPTIONAL STRETCH GOAL : If you get a request of /customers/notanumber (anything 
 
 ### LESSON 2 : LIKE, WHATEVER
 
-So, now we're going to deal with one of the most common issues with hotel databases: the guest's name being misspelled.
+We're going to deal with one of the most common issues with hotel databases: the guest's name being misspelled.
 
 So, "Hilary Clinten" is added to the database by booking agent #1. She calls up on the phone asking about her reservation and booking agent #2 spells her name correctly on the phone. The hotel staff knows what *some of her name* sounds like but not all of it and they want to find her as a customer on the system.
 
@@ -128,7 +128,7 @@ The `%` sign before and after `lint` indicates that we could have any character,
 
 ### EXERCISE 2
 
-**User Story:** As a staff member I want to search for a customer through its `surname`, but we don't know that it might be misspelled.
+**User Story:** As a staff member I want to search for a customer through their `surname`, but we don't know that it might be misspelled.
 
 **User Acceptance test**: Complete the end-point `/customers/:surname`, so that it extracts that customer information from the database, and replies back with that information as JSON.
 
@@ -136,18 +136,21 @@ The `%` sign before and after `lint` indicates that we could have any character,
 
 ### EXERCISE 3
 
-For this exercise, we will need to use postman, which you should already have installed:
+For this exercise, we will need to use postman to do an HTTP POST and send some JSON:
+
+* Can somebody tell me what an HTTP POST is? How is it different from an HTTP GET?
+
+* Can somebody tell me what JSON is?
 
 <p align="center">
   <img src="postman-post-1.png" display="block" width="85%"/>
 </p>
 
+To do this, we must:
 
-In the next image you can see Postman doing a POST request.
+* Click on "headers" you will need to add the header `Content-Type` to `application/json` - this is telling the server that we're going to send some JSON.
 
-* Click on "headers" you will need to add the header `Content-Type` to `application/json`.
-
-* You will also need to change GET to POST - we are no longer GETting data we are POSTing data.
+* You will also need to click the drop down and change GET to POST - we are no longer GETting data we are POSTing data.
 
 
 **User Story:** As a guest, I want to register my details in the system so that I can check availability for my stay.

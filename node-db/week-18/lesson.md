@@ -19,7 +19,7 @@
 * HAVING
 
 
-### LESSON 2 : JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
+### LESSON 1 : JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
 
 Now let's say we want to get the *names* of customers who have a reservation *today*.
 
@@ -48,20 +48,17 @@ Note that:
 - reservations.customer_id and customer.id don't actually *have* to have a foreign key relationship, but they should.
 
 
-##### EXERCISE 2.a
+##### EXERCISE 1.a
 
 Get the list of rooms together with their room types.
 
-##### EXERCISE 2.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
 
 Get the list of reservations together with the details of the title, first name and surname customer who made it.
 
 
 
-
-
-
-### LESSON 4: SQL INJECTION
+### LESSON 2: SQL INJECTION
 
 So, the hotel has a new guest:
 
@@ -85,14 +82,14 @@ Now, enter your database in sqlite and run the command:
 sqlite> select * from reservations;
 ```
 
-##### EXERCISE 4
+##### EXERCISE 2.a
 
 You have five minutes. Work in teams. Figure out what happened between you and *why*.
 
 Clue : You might want to use this https://meyerweb.com/eric/tools/dencoder/
 
 
-### LESSON 5: LIMIT YOUR QUERIES
+### LESSON 3: LIMIT YOUR QUERIES
 
 Now, the database you're working with right now is essentially just a toy. However,
 when you work with a real database you're often going to have a number of problems
@@ -111,17 +108,17 @@ on the number of returned rows:
 select * from customers order by surname asc limit 2;
 ```
 
-##### EXERCISE 5.a
+##### EXERCISE 3.a
 
 Select two rooms only.
 
 
-##### Exercise 5.b: OPTIONAL STRETCH GOAL
+##### Exercise 3.b: OPTIONAL STRETCH GOAL
 
 Select the latest 5 reservations on the database.
 
 
-### LESSON 6: DISTINCT
+### LESSON 4: DISTINCT
 
 Remember the JOIN query from above? We're going to do another similar one.
 
@@ -173,17 +170,17 @@ Donald     Trump
 Problem solved.
 
 
-##### EXERCISE 6.a
+##### EXERCISE 4.a
 
 Get the list of check in dates in the summer 2017.
 
 
-##### EXERCISE 6.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 4.b: OPTIONAL STRETCH GOAL
 
 Get the list of customers that made a reservation in the last year, including their details.
 
 
-### LESSON 7: SUM, AVERAGE AND COUNT
+### LESSON 5: SUM, AVERAGE AND COUNT
 
 Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and irrealistic in real life cases, where databases can have several milions of entries. So, for that purpose we have aggregation functions:
 
@@ -200,21 +197,21 @@ Let's check an example for `COUNT`:
 
 This will return the number of customers on a database.
 
-Wel call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
+Well call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
 
 
-##### EXERCISE 7.a
+##### EXERCISE 5.a
 
 Count the number of reservations for a given customer id.
 
 
-##### EXERCISE 7.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 5.b: OPTIONAL STRETCH GOAL
 
-Calculate the average paid ammount across all invoices.
+Calculate the average paid amount across all invoices.
 
 
 
-### LESSON 8: GROUPING
+### LESSON 6: GROUPING
 Lets us say that we need to get the list of different surnames on our list of customers, and how many times each surname shows up on our database?
 
 Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to the rest.
@@ -237,27 +234,27 @@ For instance, if we have the following entries on the customers:
 |18|Doc.|James|Lennon|john.lennon@sub-domain.domain|
 |19|Sir.|John|O'Conner|John.oconner@sub-domain.domain|
 
-If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrencies so we can simply do:
+If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
 
 ```
 select surname, count(*) from customers group by surname;
 ```
 
 
-##### EXERCISE 8.a
+##### EXERCISE 6.a
 
-Count the occurrencies of the DIFFERENT titles on the database.
-
-
-##### EXERCISE 8.c: OPTIONAL STRETCH GOAL
-
-Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
+Count the occurrences of the DIFFERENT titles on the database.
 
 
+##### EXERCISE 6.c: OPTIONAL STRETCH GOAL
 
-### LESSON 9: HAVING YOUR TABLE AND EATING IT
+Count the occurrences of a combination of first-name and surname to get a list of customers with the same name.
 
-Suppose that we want to filter the result of what we got on the previous exemple - count of customers each surname - to select only the surnames for which there are 3 or more customers?
+
+
+### LESSON 7: HAVING YOUR TABLE AND EATING IT
+
+Suppose that we want to filter the result of what we got on the previous example - count of customers each surname - to select only the surnames for which there are 3 or more customers?
 
 To accomplish that we can use `HAVING` as follows:
 ```
@@ -267,72 +264,72 @@ select surname, count(*) from customers group by surname having count >= 3;
 Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.
 
 
-##### EXERCISE 9.a
+##### EXERCISE 7.a
 
-Get the list of custumers that have 5 or more reservations on our hotel.
+Get the list of customers that have 5 or more reservations on our hotel.
 
 
 # HOMEWORK
 
-##### EXERCISE (2.c)
+##### HOMEWORK 1
 
 **User Story:** As a staff member, I want to see reservations and their respective invoices
 
 Create an endpoint to get from `/reservations-and-invoices/` the list of reservations and respective invoices.
 
 
-##### EXERCISE (7.c)
+##### HOMEWORK 2
 
-Calculate the total ammount paid on invoices for the summer of 2017.
+Calculate the total amount paid on invoices for the summer of 2017.
 
 
-##### EXERCISE 8.b
+##### HOMEWORK 3
 
 **User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
 
 Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
 
-##### EXERCISE (8.c)
+##### HOMEWORK 4
 
 Get the number of reservations for each room id and include the details for the room details.
 
-##### EXERCISE (8.d)
+##### HOMEWORK 5
 
 Adapt the previous query (8.c) to include the details for the type of room.
 
 
-##### EXERCISE (9.b)
+##### HOMEWORK 6
 
 Get the list of rooms with sea view that were reserved more than 5 times.
 
 
-##### EXERCISE 10
+##### HOMEWORK 7
 
-Create an endpoint for each previous exercise that doesn't have an endpoint yet. You will have to think about what is the context of the query, what parameters you need to receive in the enpoint and what makes sense to return as a result and in which format.
+Create an endpoint for each previous exercise that doesn't have an endpoint yet. You will have to think about what is the context of the query, what parameters you need to receive in the end-point and what makes sense to return as a result and in which format.
 
 
-##### EXERCISE 10.a
+##### HOMEWORK 8
 
-**User Story** As a staff memer, I want to get the list of reservations within a time period, including the room and customer details.
+**User Story** As a staff member, I want to get the list of reservations within a time period, including the room and customer details.
 
 Create an endpoint to get from `/reservations/details-between/:from_day/:to_day` the list of reservations between a specified time period. this should include the customer and room details.
 
 
-##### EXERCISE 10.b
+##### HOMEWORK 9
 
 **User Story** As a staff member, I want to get the number of reservations per customer.
 
 Create an endpoint to get from `/reservations-per-customer/` the number of reservations each client has.
 
 
-###### EXERCISE 10.c
+###### HOMEWORK 10
 
 **User Story** As a staff member I want to analyse the rentability of each room, getting the total amount earned for each room, the average per reservations, and the number of reservations it has had in the past.
 
-Create an endpoint to get from `/stats-price-room/` the list of rooms, together with the ammount the hotel has earned with each, the average value earned per stay, and the number of complete stays it has had in the past.
+Create an endpoint to get from `/stats-price-room/` the list of rooms, together with the amount the hotel has earned with each, the average value earned per stay, and the number of complete stays it has had in the past.
 
 
-##### EXERCISE 10.d
+##### HOMEWORK 11
 
 **User Story** As a client or staff member, I want to check the availability of a room within a given date range.
 

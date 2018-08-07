@@ -275,7 +275,9 @@ Create an end-point to delete a given reservation from `/reservation/:id/`.
 
 ### HOMEWORK 1
 
-The end point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
+Consider again the scenario of exercise 4.
+
+Change the code so that the end point detects which customer properties are being updated, and generate the appropriate SQL update statement - so that only those properties are updated, as opposed to the whole row.
 
 
 ### HOMEWORK 2
@@ -305,7 +307,7 @@ Create an end-point to get from `/reservations` all existing reservations.
 Create and end-point to get from `/reservations/:id` the details of a resrevation through its `id`.
 
 - simple filtering
-- create the enpoint from scratch
+- create the endpoint from scratch
 
 
 ### HOMEWORK 5
@@ -314,7 +316,7 @@ Create and end-point to get from `/reservations/:id` the details of a resrevatio
 Create and end-point to get from `/reservations/starting-on/:startDate` all the reservations that start at a given date.
 
 - simple filtering
-- create the enpoint from scratch
+- create the endpoint from scratch
 
 
 ### HOMEWORK 6
@@ -323,4 +325,4 @@ Create and end-point to get from `/reservations/starting-on/:startDate` all the 
 Create and end-point to get from `/reservations/active-on/:date` all the reservations that are active on a given date - some customer has a room reserved on that day.
 
 - multiple filtering.
-- create the enpoint from scratch
+- create the endpoint from scratch

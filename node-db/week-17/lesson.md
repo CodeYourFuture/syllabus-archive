@@ -225,7 +225,96 @@ We're trying to locate a reservation for a customer. We know that:
 Write a query using *IN* that is guaranteed to return their reservation.
 
 
-### LESSON 4 : I WISH I COULD DELETE HIM IN REAL LIFE
+### LESSON 4: ORDER BY SOMETHING
+
+QUESTION FOR CLASS : What the difference is between *random* and *arbitrary*?
+
+Up until now we've not been returning results in a *random* order, but we have been returning
+them in an *arbitrary* order.
+
+Using 'order by' we can get records back in a specified order:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname
+```
+
+We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
+
+If we want to get *explicit* the three of them in ascending order:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname asc
+```
+
+Now, if we want them in descending order:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname desc
+```
+
+```
+Date Started  Firstname  Surname
+---------------------------------
+2018/12/31    Melania    Trump
+2018/12/31    Donald     Trump
+2018/12/31    Bill       Clinton
+2018/12/31    Hillary    Clinton
+2018/12/31    Colm       O'Connor
+```
+
+This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
+
+```
+Date Started  Firstname  Surname
+---------------------------------
+2018/12/31    Donald     Trump
+2018/12/31    Melania    Trump
+2018/12/31    Hillary    Clinton
+2018/12/31    Bill       Clinton
+2018/12/31    Colm       O'Connor
+```
+
+Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
+
+So, if we want to make it more deterministic (opposite of arbitrary), we can make it sort by surname *first* and then
+
+And, if we want to order by surname first and first name second, we can do this:
+
+```
+SELECT reservations.date_started, customers.firstname, customers.surname
+from reservations join customers on reservations.customer_id = customer.id
+where reservation.date_started = '2018/12/31' order by customers.surname desc, customers.firstname desc
+```
+
+```
+Date Started  Firstname  Surname
+---------------------------------
+2018/12/31    Donald     Trump
+2018/12/31    Melania    Trump
+2018/12/31    Bill       Clinton
+2018/12/31    Hillary    Clinton
+2018/12/31    Colm       O'Connor
+```
+
+In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
+
+##### EXERCISE 4.a
+
+Select the list of reservations from the most recent to the oldest one.
+
+
+##### Exercise 4.b: OPTIONAL STRETCH GOAL
+
+Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
+
+
+### LESSON 5 : I WISH I COULD DELETE HIM IN REAL LIFE
 
 We've currently done inserting data and updating data, but sometimes inserting data was just a mistake
 and it needs to go.
@@ -247,7 +336,7 @@ There are several things you need to worry about when you delete data and what y
 
 - Often it's a good idea to give data the 'status' deleted instead of actually deleting it.
 
-### Exercise 4.a
+### Exercise 5.a
 **User Story:** As a staff member, I want to delete a canceled reservation from the database.
 
 **Notes on Postman**

@@ -5,38 +5,33 @@
 What we did last lesson:
 
 * Why we need databases
+* Why NoSQL why SQL?
 * Installing SQLite
 * Creating a database with SQL and storing data in it.
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
-* Escaping (who figured out how to insert my real name into the database?)
-* Why NoSQL why SQL?
-* Checking out a project and adding hotel.sql to the repo
+* Primary keys
+* Escaping (dealing with awkward people with the surname O'Connor)
 * How to run SQLite *with node* on your machine - setting up a development environment.
 
 Homework from last lesson:
 
 ![Hotel ER diagram](hotel-er-diagram.png "Hotel ER diagram")
 
-- Did you do update?
 - Did everybody finish hotel.sql so that it looks like the above diagram?
-- About those foreign key constraints that weren't being enforced on SQLite -- enforce PRAGMA and version
 - Did we understand foreign keys?
 - Does everybody have enough data in their database? Between 5 and 10 rows per table.
 
 **What we will learn today?**
 
-- Why NoSQL why SQL?
-- Checking out a project and adding hotel.sql to the repo
-- How to run SQLite *with node* on your machine - setting up a development environment.
-- How to run a database query that retrieves tabular data in node express to an endpoint.
-- Inserting data from an endpoint.
-- Updating data from an endpoint.
-- Dealing with unclear user stories. There is a TRAP in one of these user stories we will be giving you today.
+- How to run a database query that retrieves tabular data in node express and returns it to an endpoint.
+- Inserting data into a database from an endpoint.
+- Updating data in a database from an endpoint.
+- Dealing with unclear user stories. There is a trap in one of these user stories we will be giving you today.
 - What is the difference between user story, use case and user acceptance test.
 
 
-This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Big chain hotel manager grumpy cat. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start affecting guests.
+This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Big chain hotel manager grumpy cat - e.g. so that all invoices come attached to reservations. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start screwing up your valuable data.
 
 Use `/server/class2.js` for the exercises of this class.
 
@@ -87,13 +82,18 @@ So, the answer is here:
 
 ```javascript
 router.get('/customers', function(req, res) {
-  res.status(200).json({
-    db.all(sql, [], (err, 'select * from customers' ) => {
-      res.status(200).json({
-        customers: rows
-      });
-    });
-  });
+ var sql = 'select * from customers';
+
+ db.all(sql, [], (err, rows) => {
+   if (err) {
+       console.log('ERROR fetching from the database:', err);
+       return;
+   }
+   console.log('Request succeeded, new data fetched', rows);
+   res.status(200).json({
+     customers: rows
+   });
+ });
 });
 ```
 
@@ -111,7 +111,7 @@ OPTIONAL STRETCH GOAL : If you get a request of /customers/notanumber (anything 
 
 ### LESSON 2 : LIKE, WHATEVER
 
-So, now we're going to deal with one of the most common issues with hotel databases: the guest's name being misspelled.
+We're going to deal with one of the most common issues with hotel databases: the guest's name being misspelled.
 
 So, "Hilary Clinten" is added to the database by booking agent #1. She calls up on the phone asking about her reservation and booking agent #2 spells her name correctly on the phone. The hotel staff knows what *some of her name* sounds like but not all of it and they want to find her as a customer on the system.
 
@@ -121,14 +121,14 @@ For this problem where we want to search for rows where a column matches *part* 
 select * from customers where surname like '%lint%';
 ```
 
-It will search the `surname` string on each row for the substring `lint`, and return true for the ones where it is part of the string. The substring is matched *case insensitively* with the actual data - meaning that it makes no difference if the stored value is upper case and the provided substring is lower case.
+It will search the `surname` string on each row for the substring `lint`, and return true for the ones where it is part of the string. The substring is matched *case insensitively* with the actual data - meaning that it makes no difference if the stored value is upper case and the provided substring is lower case (note that other databases like MySQL / Postgres are not case insensitive with LIKE).
 
 The `%` sign before and after `lint` indicates that we could have any character, and any number of characters before and after that substring.
 
 
 ### EXERCISE 2
 
-**User Story:** As a staff member I want to search for a customer through its `surname`, but we don't know that it might be misspelled.
+**User Story:** As a staff member I want to search for a customer through their `surname`, but we don't know that it might be misspelled.
 
 **User Acceptance test**: Complete the end-point `/customers/:surname`, so that it extracts that customer information from the database, and replies back with that information as JSON.
 
@@ -136,18 +136,21 @@ The `%` sign before and after `lint` indicates that we could have any character,
 
 ### EXERCISE 3
 
-For this exercise, we will need to use postman, which you should already have installed:
+For this exercise, we will need to use postman to do an HTTP POST and send some JSON:
+
+* Can somebody tell me what an HTTP POST is? How is it different from an HTTP GET?
+
+* Can somebody tell me what JSON is?
 
 <p align="center">
   <img src="postman-post-1.png" display="block" width="85%"/>
 </p>
 
+To do this, we must:
 
-In the next image you can see Postman doing a POST request.
+* Click on "headers" you will need to add the header `Content-Type` to `application/json` - this is telling the server that we're going to send some JSON.
 
-* Click on "headers" you will need to add the header `Content-Type` to `application/json`.
-
-* You will also need to change GET to POST - we are no longer GETting data we are POSTing data.
+* You will also need to click the drop down and change GET to POST - we are no longer GETting data we are POSTing data.
 
 
 **User Story:** As a guest, I want to register my details in the system so that I can check availability for my stay.
@@ -168,7 +171,7 @@ STRETCH GOAL (OPTIONAL): If a bad request is made to customers - first name is m
 
 **Notes on Postman**
 
-In this case we sant Postman to do a PUT request. Again, highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
+In this case we want Postman to do a PUT request. Again, highlighed areas indicate the fields that need to be changed and/or information that needs to be added. The arrow points to a tab where you will need to set the type of content of this request. As denoted by the arrow legend, you will need to set `Content-Type` to `application/json`.
 ![postman-put-1](postman-put-1.png)
 
 
@@ -178,11 +181,65 @@ In this case we sant Postman to do a PUT request. Again, highlighed areas indica
 
 **User acceptance test**: PUT title=mr, firstname=donald, surname=trump on /customers/:id and check that the database was updated.
 
-- update table
+Hints:
+
+- UPDATE table
 - remember your previous lesson
 - hint: in the javascript code, instead of db.all() you will need ... what?
 
-### LESSON 3 : I WISH I COULD DELETE HIM IN REAL LIFE
+
+
+### LESSON 3: IN IT
+
+Now let's say that you want to see all of the customers who have the surname O'Connor or Trump.
+
+The way we've learned so far (note the quotation marks):
+
+```sql
+select * from customers where surname = "O'Connor" or surname = 'Trump'
+```
+
+You can also do it like so:
+
+```sql
+select * from customers where surname in ("O'Connor", 'Trump')
+```
+
+This is might seem like a minor difference but:
+
+- It is useful when you want your code to pass a list of things to the database and get a query which matches one or more of them.
+
+- You can put *a whole select statement* in there if it returns one column. Your homework will require this.
+
+
+##### EXERCISE 3.a
+
+Write a query to get all of the customers with the first name "Colm" or "Hillary" using *IN*.
+
+
+##### EXERCISE 3.b: OPTIONAL STRETCH GOAL
+
+We're trying to locate a reservation for a customer. We know that:
+
+- Their checkin date may have been June 1st, 2017 OR July 1st 2017
+- Their checkout date may have been June 30th, 2017 OR July 30th 2017
+
+Write a query using *IN* that is guaranteed to return their reservation.
+
+N.B. Remember 01/01/2017? Remember to put the date in an *unambiguous format*.
+
+
+##### EXERCISE 4.a
+
+Select the list of reservations from the most recent to the oldest one.
+
+
+##### Exercise 4.b: OPTIONAL STRETCH GOAL
+
+Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
+
+
+### LESSON 5 : I WISH I COULD DELETE HIM IN REAL LIFE
 
 We've currently done inserting data and updating data, but sometimes inserting data was just a mistake
 and it needs to go.
@@ -204,7 +261,7 @@ There are several things you need to worry about when you delete data and what y
 
 - Often it's a good idea to give data the 'status' deleted instead of actually deleting it.
 
-### Exercise 5
+### Exercise 5.a
 **User Story:** As a staff member, I want to delete a canceled reservation from the database.
 
 **Notes on Postman**
@@ -218,7 +275,9 @@ Create an end-point to delete a given reservation from `/reservation/:id/`.
 
 ### HOMEWORK 1
 
-The end point should properly detect which customer properties are being updated, and generate the appropriate SQL update statement.
+Consider again the scenario of exercise 4.
+
+Change the code so that the end point detects which customer properties are being updated, and generate the appropriate SQL update statement - so that only those properties are updated, as opposed to the whole row.
 
 
 ### HOMEWORK 2
@@ -248,7 +307,7 @@ Create an end-point to get from `/reservations` all existing reservations.
 Create and end-point to get from `/reservations/:id` the details of a resrevation through its `id`.
 
 - simple filtering
-- create the enpoint from scratch
+- create the endpoint from scratch
 
 
 ### HOMEWORK 5
@@ -257,7 +316,7 @@ Create and end-point to get from `/reservations/:id` the details of a resrevatio
 Create and end-point to get from `/reservations/starting-on/:startDate` all the reservations that start at a given date.
 
 - simple filtering
-- create the enpoint from scratch
+- create the endpoint from scratch
 
 
 ### HOMEWORK 6
@@ -266,4 +325,4 @@ Create and end-point to get from `/reservations/starting-on/:startDate` all the 
 Create and end-point to get from `/reservations/active-on/:date` all the reservations that are active on a given date - some customer has a room reserved on that day.
 
 - multiple filtering.
-- create the enpoint from scratch
+- create the endpoint from scratch

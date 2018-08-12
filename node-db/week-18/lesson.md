@@ -10,10 +10,8 @@
 
 **What we will learn today?**
 
-* SQL - 'IN'
 * Joins
 * SQL Injection
-* Order by
 * LIMIT
 * DISTINCT
 * Sum / Avg / Count
@@ -21,48 +19,7 @@
 * HAVING
 
 
-
-### LESSON 1: IN IT
-
-Now let's say that you want to see all of the customers who have the surname O'Connor or Trump.
-
-The way we've learned so far (note the quotation marks):
-
-```sql
-select * from customers where surname = "O'Connor" or surname = 'Trump'
-```
-
-You can also do it like so:
-
-```sql
-select * from customers where surname in ("O'Connor", 'Trump')
-```
-
-This is might seem like a minor difference but:
-
-- It is useful when you want your code to pass a list of things to the database and get a query which matches one or more of them.
-
-- You can put *a whole select statement* in there if it returns one column. Your homework will require this.
-
-
-##### EXERCISE 1.a
-
-Write a query to get all of the customers with the first name "Colm" or "Hillary" using *IN*.
-
-
-##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
-
-We're trying to locate a reservation for a customer. We know that:
-
-- Their checkin date may have been June 1st, 2017 OR July 1st 2017
-- Their checkout date may have been June 30th, 2017 OR July 30th 2017
-
-Write a query using *IN* that is guaranteed to return their reservation.
-
-
-
-
-### LESSON 2 : JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
+### LESSON 1 : JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
 
 Now let's say we want to get the *names* of customers who have a reservation *today*.
 
@@ -91,23 +48,54 @@ Note that:
 - reservations.customer_id and customer.id don't actually *have* to have a foreign key relationship, but they should.
 
 
-##### EXERCISE 2.a
+##### EXERCISE 1.a
 
 Get the list of rooms together with their room types.
 
-##### EXERCISE 2.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
 
 Get the list of reservations together with the details of the title, first name and surname customer who made it.
 
 
 
+### LESSON 2: SQL INJECTION
 
-### LESSON 3: ORDER BY SURNAME
+So, the hotel has a new guest:
+
+![Hackerman](hackerman.jpg "Hackerman")
+
+Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the DELETE reservations endpoint you created.
+
+However, he's decided that he wants to stay
+
+So you should all have a delete reservations endpoint.
+
+So, try calling the end point in postman with:
+
+```
+DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
+```
+
+Now, enter your database in sqlite and run the command:
+
+```
+sqlite> select * from reservations;
+```
+
+##### EXERCISE 2.a
+
+You have five minutes. Work in teams. Figure out what happened between you and *why*.
+
+Clue : You might want to use this https://meyerweb.com/eric/tools/dencoder/
+
+
+### LESSON 3: ORDER BY SOMETHING
 
 QUESTION FOR CLASS : What the difference is between *random* and *arbitrary*?
 
 Up until now we've not been returning results in a *random* order, but we have been returning
-them in an *arbitrary* order.
+them in an *arbitrary* order. The database has chosen what order to return records in. It's
+generally the order you put them in but there is *no* guarantee it will be in that order.
 
 Using 'order by' we can get records back in a specified order:
 
@@ -136,7 +124,7 @@ where reservation.date_started = '2018/12/31' order by customers.surname desc
 ```
 
 ```
-Date Started  Firstname  Surname 
+Date Started  Firstname  Surname
 ---------------------------------
 2018/12/31    Melania    Trump
 2018/12/31    Donald     Trump
@@ -148,7 +136,7 @@ Date Started  Firstname  Surname
 This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
 
 ```
-Date Started  Firstname  Surname 
+Date Started  Firstname  Surname
 ---------------------------------
 2018/12/31    Donald     Trump
 2018/12/31    Melania    Trump
@@ -159,7 +147,7 @@ Date Started  Firstname  Surname
 
 Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
 
-So, if we want to make it more deterministic (opposite of arbitrary), we can make it sort by surname *first* and then
+So, if we want to make it more *deterministic* (opposite of arbitrary), we can make it sort by surname *first* and first name *second*.
 
 And, if we want to order by surname first and first name second, we can do this:
 
@@ -170,7 +158,7 @@ where reservation.date_started = '2018/12/31' order by customers.surname desc, c
 ```
 
 ```
-Date Started  Firstname  Surname 
+Date Started  Firstname  Surname
 ---------------------------------
 2018/12/31    Donald     Trump
 2018/12/31    Melania    Trump
@@ -181,48 +169,8 @@ Date Started  Firstname  Surname
 
 In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
 
-##### EXERCISE 3.a
 
-Select the list of reservations from the most recent to the oldest one.
-
-
-##### Exercise 3.b: OPTIONAL STRETCH GOAL
-
-Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
-
-
-### LESSON 4: SQL INJECTION
-
-So, the hotel has a new guest:
-
-![Hackerman](hackerman.jpg "Hackerman")
-
-Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the DELETE reservations endpoint you created.
-
-However, he's decided that he wants to stay
-
-So you should all have a delete reservations endpoint.
-
-So, try calling the end point in postman with:
-
-```
-DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
-```
-
-Now, enter your database in sqlite and run the command:
-
-```
-sqlite> select * from reservations;
-```
-
-##### EXERCISE 4
-
-You have five minutes. Work in teams. Figure out what happened between you and *why*.
-
-Clue : You might want to use this https://meyerweb.com/eric/tools/dencoder/
-
-
-### LESSON 5: LIMIT YOUR QUERIES
+### LESSON 4: LIMIT YOUR QUERIES
 
 Now, the database you're working with right now is essentially just a toy. However,
 when you work with a real database you're often going to have a number of problems
@@ -241,17 +189,17 @@ on the number of returned rows:
 select * from customers order by surname asc limit 2;
 ```
 
-##### EXERCISE 5.a
+##### EXERCISE 4.a
 
 Select two rooms only.
 
 
-##### Exercise 5.b: OPTIONAL STRETCH GOAL
+##### Exercise 4.b: OPTIONAL STRETCH GOAL
 
 Select the latest 5 reservations on the database.
 
 
-### LESSON 6: DISTINCT
+### LESSON 5: DISTINCT
 
 Remember the JOIN query from above? We're going to do another similar one.
 
@@ -303,17 +251,17 @@ Donald     Trump
 Problem solved.
 
 
-##### EXERCISE 6.a
+##### EXERCISE 5.a
 
 Get the list of check in dates in the summer 2017.
 
 
-##### EXERCISE 6.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 5.b: OPTIONAL STRETCH GOAL
 
 Get the list of customers that made a reservation in the last year, including their details.
 
 
-### LESSON 7: SUM, AVERAGE AND COUNT
+### LESSON 6: SUM, AVERAGE AND COUNT
 
 Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and irrealistic in real life cases, where databases can have several milions of entries. So, for that purpose we have aggregation functions:
 
@@ -330,21 +278,21 @@ Let's check an example for `COUNT`:
 
 This will return the number of customers on a database.
 
-Wel call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
+Well call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
 
 
-##### EXERCISE 7.a
+##### EXERCISE 6.a
 
 Count the number of reservations for a given customer id.
 
 
-##### EXERCISE 7.b: OPTIONAL STRETCH GOAL
+##### EXERCISE 6.b: OPTIONAL STRETCH GOAL
 
-Calculate the average paid ammount across all invoices.
+Calculate the average paid amount across all invoices.
 
 
 
-### LESSON 8: GROUPING
+### LESSON 7: GROUPING
 Lets us say that we need to get the list of different surnames on our list of customers, and how many times each surname shows up on our database?
 
 Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to the rest.
@@ -367,27 +315,27 @@ For instance, if we have the following entries on the customers:
 |18|Doc.|James|Lennon|john.lennon@sub-domain.domain|
 |19|Sir.|John|O'Conner|John.oconner@sub-domain.domain|
 
-If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrencies so we can simply do:
+If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
 
 ```
 select surname, count(*) from customers group by surname;
 ```
 
 
-##### EXERCISE 8.a
+##### EXERCISE 7.a
 
-Count the occurrencies of the DIFFERENT titles on the database.
-
-
-##### EXERCISE 8.c: OPTIONAL STRETCH GOAL
-
-Count the occurrencies of a combination of firstname and surname to get a list of customers with the same name.
+Count the occurrences of the DIFFERENT titles on the database.
 
 
+##### EXERCISE 7.b: OPTIONAL STRETCH GOAL
 
-### LESSON 9: HAVING YOUR TABLE AND EATING IT
+Count the occurrences of a combination of first-name and surname to get a list of customers with the same name.
 
-Suppose that we want to filter the result of what we got on the previous exemple - count of customers each surname - to select only the surnames for which there are 3 or more customers?
+
+
+### LESSON 8: HAVING YOUR TABLE AND EATING IT
+
+Suppose that we want to filter the result of what we got on the previous example - count of customers each surname - to select only the surnames for which there are 3 or more customers?
 
 To accomplish that we can use `HAVING` as follows:
 ```
@@ -397,72 +345,72 @@ select surname, count(*) from customers group by surname having count >= 3;
 Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.
 
 
-##### EXERCISE 9.a
+##### EXERCISE 8.a
 
-Get the list of custumers that have 5 or more reservations on our hotel.
+Get the list of customers that have 5 or more reservations on our hotel.
 
 
 # HOMEWORK
 
-##### EXERCISE (2.c)
+##### HOMEWORK 1
 
 **User Story:** As a staff member, I want to see reservations and their respective invoices
 
 Create an endpoint to get from `/reservations-and-invoices/` the list of reservations and respective invoices.
 
 
-##### EXERCISE (7.c)
+##### HOMEWORK 2
 
-Calculate the total ammount paid on invoices for the summer of 2017.
+Calculate the total amount paid on invoices for the summer of 2017.
 
 
-##### EXERCISE 8.b
+##### HOMEWORK 3
 
 **User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
 
 Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
 
-##### EXERCISE (8.c)
+##### HOMEWORK 4
 
 Get the number of reservations for each room id and include the details for the room details.
 
-##### EXERCISE (8.d)
+##### HOMEWORK 5
 
 Adapt the previous query (8.c) to include the details for the type of room.
 
 
-##### EXERCISE (9.b)
+##### HOMEWORK 6
 
 Get the list of rooms with sea view that were reserved more than 5 times.
 
 
-##### EXERCISE 10
+##### HOMEWORK 7
 
-Create an endpoint for each previous exercise that doesn't have an endpoint yet. You will have to think about what is the context of the query, what parameters you need to receive in the enpoint and what makes sense to return as a result and in which format.
+Create an endpoint for each previous exercise that doesn't have an endpoint yet. You will have to think about what is the context of the query, what parameters you need to receive in the end-point and what makes sense to return as a result and in which format.
 
 
-##### EXERCISE 10.a
+##### HOMEWORK 8
 
-**User Story** As a staff memer, I want to get the list of reservations within a time period, including the room and customer details.
+**User Story** As a staff member, I want to get the list of reservations within a time period, including the room and customer details.
 
 Create an endpoint to get from `/reservations/details-between/:from_day/:to_day` the list of reservations between a specified time period. this should include the customer and room details.
 
 
-##### EXERCISE 10.b
+##### HOMEWORK 9
 
 **User Story** As a staff member, I want to get the number of reservations per customer.
 
 Create an endpoint to get from `/reservations-per-customer/` the number of reservations each client has.
 
 
-###### EXERCISE 10.c
+###### HOMEWORK 10
 
 **User Story** As a staff member I want to analyse the rentability of each room, getting the total amount earned for each room, the average per reservations, and the number of reservations it has had in the past.
 
-Create an endpoint to get from `/stats-price-room/` the list of rooms, together with the ammount the hotel has earned with each, the average value earned per stay, and the number of complete stays it has had in the past.
+Create an endpoint to get from `/stats-price-room/` the list of rooms, together with the amount the hotel has earned with each, the average value earned per stay, and the number of complete stays it has had in the past.
 
 
-##### EXERCISE 10.d
+##### HOMEWORK 11
 
 **User Story** As a client or staff member, I want to check the availability of a room within a given date range.
 

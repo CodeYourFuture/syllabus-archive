@@ -148,9 +148,9 @@ Check In Date  First Name  Surname
 -----------------------------------
 2018/12/31     Melania     Trump
 2018/12/31     Donald      Trump
+2018/12/31     Colm        O'Connor
 2018/12/31     Bill        Clinton
 2018/12/31     Hillary     Clinton
-2018/12/31     Colm        O'Connor
 ```
 
 This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
@@ -160,9 +160,9 @@ Check In Date  First Name  Surname
 -----------------------------------
 2018/12/31     Donald      Trump
 2018/12/31     Melania     Trump
+2018/12/31     Colm        O'Connor
 2018/12/31     Hillary     Clinton
 2018/12/31     Bill        Clinton
-2018/12/31     Colm        O'Connor
 ```
 
 Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
@@ -182,9 +182,9 @@ Check In Date  First Name  Surname
 -----------------------------------
 2018/12/31     Donald      Trump
 2018/12/31     Melania     Trump
+2018/12/31     Colm        O'Connor
 2018/12/31     Bill        Clinton
 2018/12/31     Hillary     Clinton
-2018/12/31     Colm        O'Connor
 ```
 
 In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).

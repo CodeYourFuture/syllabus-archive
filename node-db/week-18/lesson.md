@@ -199,24 +199,7 @@ Select two rooms only.
 Select the latest 5 reservations on the database.
 
 
-##### EXERCISE 3.b: OPTIONAL STRETCH GOAL
-
-We're trying to locate a reservation for a customer. We know that:
-
-- Their checkin date may have been June 1st, 2017 OR July 1st 2017
-- Their checkout date may have been June 30th, 2017 OR July 30th 2017
-
-Write a query using *IN* that is guaranteed to return their reservation.
-
-N.B. Remember 01/01/2017? Remember to put the date in an *unambiguous format*.
-
-
-##### EXERCISE 4.a
-
-Select the list of reservations from the most recent to the oldest one.
-
-
-##### Exercise 4.b: OPTIONAL STRETCH GOAL
+##### Exercise 4.c: OPTIONAL STRETCH GOAL
 
 Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
 

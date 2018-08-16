@@ -1,11 +1,13 @@
 # LESSON 3: DATA INTEGRITY AND ANALYTICS
 
-**Review of last lesson**
+**Recap of last lesson**
 
-- How to run a database query that retrieves tabular data in node express to an endpoint.
-- Inserting data from an endpoint.
-- Updating data from an endpoint.
 - What is the difference between user story, use case and user acceptance test.
+- How to run a database query that retrieves tabular data in node express to an endpoint.
+- Inserting data from an endpoint using postman.
+- Updating data from an endpoint using postman.
+- Using 'IN'
+- Deleting data
 
 
 **What we will learn today?**

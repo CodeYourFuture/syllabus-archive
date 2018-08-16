@@ -38,7 +38,7 @@ From what we know now, we *could* do it like this:
 
 However, we want the computer to figure out that we want ids 3, 5 and 7 by itself.
 
-That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
+This is what a database "join" is. In real life, if you work with databases, you will be using this thing *all* of the time - relationships between data are vitally important.
 
 Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
 
@@ -67,27 +67,40 @@ Get the list of reservations together with the details of the title, first name 
 
 ### LESSON 2: SQL INJECTION
 
-So, the hotel has a new guest:
+So, our hotel has a shady new guest. Let's say that we have a react API on top which uses the
+APIs we're building - users won't use the APIs directly but they can just fire up postman and use them
+if they want.
 
-![Hackerman](hackerman.jpg "Hackerman")
+This is very common - lots of websites have a react frontend that uses an API underneath just like the one
+they're building.
 
-Now, Mr Hackerman has a problem with our hotel. He booked a room and then decided he didn't want it. That's fine, no problem, he can cancel using the DELETE reservations endpoint you created.
+Now, this guest does a little poking around and he realizes that he can delete his reservation.
 
-However, he's decided that he wants to stay
+```
+DELETE http://localhost:8080/api/reservation/6
+```
 
-So you should all have a delete reservations endpoint.
+Now, open a new terminal window and run "sqlite3 databases/database.sqlite":
 
-So, try calling the end point in postman with:
+```
+sqlite> select * from reservations;
+```
+
+This is fine, but not very interesting. However, let's experiment - try doing *this* with your reservation API:
 
 ```
 DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
 ```
 
-Now, enter your database in sqlite and run the command:
+And run this again:
 
 ```
 sqlite> select * from reservations;
 ```
+
+And voila, he's just emptied out the entire hotel. Nobody has a reservation any more!
+
+![Hackerman](hackerman.jpg "Hackerman")
 
 ##### EXERCISE 2.a
 

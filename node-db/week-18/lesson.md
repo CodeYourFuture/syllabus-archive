@@ -17,7 +17,7 @@
 * LIMIT
 * DISTINCT
 * Sum / Avg / Count
-* Group by
+* GROUP BY
 * HAVING
 
 
@@ -32,20 +32,20 @@ Now let's say we want to get the *names* of customers who have a reservation *to
 
 From what we know now, we *could* do it like this:
 
-- select customer_id from reservations where date_started = '2018/12/31'
+- SELECT customer_id FROM reservations WHERE check_in_date = '2018/12/31'
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
-- select * from customers where id in (3, 5, 7)
+- SELECT * FROM customers WHERE id IN (3, 5, 7)
 
 However, we want the computer to figure out that we want ids 3, 5 and 7 by itself.
 
-This is what a database "join" is. In real life, if you work with databases, you will be using this thing *all* of the time - relationships between data are vitally important.
+This is what a database "JOIN" is. In real life, if you work with databases, you will be using this thing *all* of the time - relationships between data are vitally important.
 
 Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
 
 ```
-select reservations.date_started, customers.firstname, customers.surname
-from reservations JOIN customers ON reservations.customer_id = customer.id
-WHERE reservation.date_started = '2018/12/31';
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date = '2018/12/31';
 ```
 
 Note that:
@@ -95,7 +95,7 @@ DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
 And run this again:
 
 ```
-sqlite> select * from reservations;
+sqlite> SELECT * FROM reservations;
 ```
 
 And voila, he's just emptied out the entire hotel. Nobody has a reservation any more!
@@ -120,9 +120,9 @@ generally the order you put them in but there is *no* guarantee it will be in th
 Using 'order by' we can get records back in a specified order:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customer.id
+WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname;
 ```
 
 We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
@@ -130,39 +130,39 @@ We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will 
 If we want to get *explicit* the three of them in ascending order:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname asc
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname ASC;
 ```
 
 Now, if we want them in descending order:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname DESC;
 ```
 
 ```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Melania    Trump
-2018/12/31    Donald     Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
+Check In Date  First Name  Surname
+-----------------------------------
+2018/12/31     Melania     Trump
+2018/12/31     Donald      Trump
+2018/12/31     Bill        Clinton
+2018/12/31     Hillary     Clinton
+2018/12/31     Colm        O'Connor
 ```
 
 This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
 
 ```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Hillary    Clinton
-2018/12/31    Bill       Clinton
-2018/12/31    Colm       O'Connor
+Check In Date  First Name  Surname
+-----------------------------------
+2018/12/31     Donald      Trump
+2018/12/31     Melania     Trump
+2018/12/31     Hillary     Clinton
+2018/12/31     Bill        Clinton
+2018/12/31     Colm        O'Connor
 ```
 
 Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
@@ -172,19 +172,19 @@ So, if we want to make it more *deterministic* (opposite of arbitrary), we can m
 And, if we want to order by surname first and first name second, we can do this:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc, customers.firstname desc
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname DESC, customers.first_name DESC;
 ```
 
 ```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
+Check In Date  First Name  Surname
+-----------------------------------
+2018/12/31     Donald      Trump
+2018/12/31     Melania     Trump
+2018/12/31     Bill        Clinton
+2018/12/31     Hillary     Clinton
+2018/12/31     Colm        O'Connor
 ```
 
 In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
@@ -195,7 +195,7 @@ In this case, Donald always comes before Melania (D comes before M in the alphab
 Now, the database you're working with right now is essentially just a toy. However,
 when you work with a real database you're often going to have a number of problems
 
-1) select * from table is going to return thousands of rows. This take ages
+1) SELECT * FROM table is going to return thousands of rows. This take ages
 to load and display and if you just want to see a representative sample it's overkill.
 
 2) You want to return the top 10 of something.
@@ -206,7 +206,7 @@ SQL has a keyword called "LIMIT" which you can put at the end of a query to cut 
 on the number of returned rows:
 
 ```sql
-select * from customers order by surname asc limit 2;
+SELECT * FROM customers ORDER BY surname ASC LIMIT 2;
 ```
 
 ##### EXERCISE 4.a
@@ -229,9 +229,9 @@ Select the list reservations, primarily selecting the most recent ones, and seco
 Remember the JOIN query from above? We're going to do another similar one.
 
 ```sql
-select customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started > '2018/12/31' and order by customers.surname desc
+SELECT customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date > '2018/12/31' ORDER BY customers.surname DESC;
 ```
 
 QUESTION FOR CLASS : What does this do?
@@ -242,13 +242,13 @@ Now, this is going to work with one exception. The list in my database
 is going to look a bit like this:
 
 ```
-Firstname  Surname
--------------------
-Hillary    Clinton
-Colm       O'Connor
-Colm       O'Connor
-Colm       O'Connor
-Donald     Trump
+First Name  Surname
+--------------------
+Hillary     Clinton
+Colm        O'Connor
+Colm        O'Connor
+Colm        O'Connor
+Donald      Trump
 ```
 
 QUESTION FOR CLASS : Why?
@@ -258,19 +258,19 @@ ANS : Because I love this hotel more than Hillary and Donald and I've arranged t
 Of course, we only want to know *IF* I've stayed there once, not that I'm their most popular guest.
 
 ```sql
-select DISTINCT customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started > '2018/12/31' and order by customers.surname desc
+SELECT DISTINCT customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date > '2018/12/31' ORDER BY customers.surname DESC;
 ```
 
 Will output:
 
 ```
-Firstname  Surname
--------------------
-Hillary    Clinton
-Colm       O'Connor
-Donald     Trump
+First Name  Surname
+--------------------
+Hillary     Clinton
+Colm        O'Connor
+Donald      Trump
 ```
 
 Problem solved.
@@ -288,7 +288,7 @@ Get the list of customers that made a reservation in the last year, including th
 
 ### LESSON 6: SUM, AVERAGE AND COUNT
 
-Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and irrealistic in real life cases, where databases can have several milions of entries. So, for that purpose we have aggregation functions:
+Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and unrealistic in real life cases, where databases can have several millions of entries. So, for that purpose we have aggregation functions:
 
 ```
 COUNT, SUM or AVERAGE,
@@ -299,7 +299,7 @@ So, this means that we can count, sum and calculate the average of a set of valu
 
 Let's check an example for `COUNT`:
 
-`select count(*) from customers;`
+`SELECT Count(*) FROM customers;`
 
 This will return the number of customers on a database.
 
@@ -325,12 +325,12 @@ Here the idea is that we could group the columns by the surname and get a list o
 For this we can user `GROUP BY` as follows:
 
 ```
-select <column_to_aggregate_1>, <column_to_aggregate_2> from <table> group by <column_to_aggregate_1>, <column_to_aggregate_2>;
+SELECT <column_to_aggregate_1>, <column_to_aggregate_2> FROM <table> GROUP BY <column_to_aggregate_1>, <column_to_aggregate_2>;
 ```
 
 For instance, if we have the following entries on the customers:
 
-| id | title | firsname | surname | email |
+| id | title | first_name | surname | email |
 | --- | --- | --- | --- | --- |
 |1|Doc.|Tom|Jones|tom.jones@sub-domain.domain|
 |2|Mr.|Jorge|Silva|jorge-silva@sub-domain.com|
@@ -343,7 +343,7 @@ For instance, if we have the following entries on the customers:
 If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
 
 ```
-select surname, count(*) from customers group by surname;
+SELECT surname, Count(*) FROM customers GROUP BY surname;
 ```
 
 
@@ -364,7 +364,7 @@ Suppose that we want to filter the result of what we got on the previous example
 
 To accomplish that we can use `HAVING` as follows:
 ```
-select surname, count(*) from customers group by surname having count >= 3;
+SELECT surname, Count(*) AS count FROM customers GROUP BY surname HAVING count >= 3;
 ```
 
 Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.

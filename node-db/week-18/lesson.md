@@ -17,7 +17,7 @@
 * LIMIT
 * DISTINCT
 * Sum / Avg / Count
-* Group by
+* GROUP BY
 * HAVING
 
 
@@ -27,20 +27,20 @@ Now let's say we want to get the *names* of customers who have a reservation *to
 
 From what we know now, we *could* do it like this:
 
-- select customer_id from reservations where date_started = '2018/12/31'
+- SELECT customer_id FROM reservations WHERE check_in_date = '2018/12/31'
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
-- select * from customers where id in (3, 5, 7)
+- SELECT * FROM customers WHERE id IN (3, 5, 7)
 
 However, we want the computer to figure out that we want ids 3, 5 and 7 by itself.
 
-That's where a database "join" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
+That's where a database "JOIN" comes in handy. In real life, if you work with databases, you will be using this thing *all* of the time.
 
 Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
 
 ```
-select reservations.date_started, customers.firstname, customers.surname
-from reservations JOIN customers ON reservations.customer_id = customer.id
-WHERE reservation.date_started = '2018/12/31';
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date = '2018/12/31';
 ```
 
 Note that:
@@ -81,7 +81,7 @@ DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
 Now, enter your database in sqlite and run the command:
 
 ```
-sqlite> select * from reservations;
+sqlite> SELECT * FROM reservations;
 ```
 
 ##### EXERCISE 2.a
@@ -102,9 +102,9 @@ generally the order you put them in but there is *no* guarantee it will be in th
 Using 'order by' we can get records back in a specified order:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customer.id
+WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname;
 ```
 
 We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
@@ -112,39 +112,39 @@ We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will 
 If we want to get *explicit* the three of them in ascending order:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname asc
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname ASC;
 ```
 
 Now, if we want them in descending order:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
-from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc
+SELECT reservations.check_in_date, customers.first_name, customers.surname
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
+WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname DESC;
 ```
 
 ```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Melania    Trump
-2018/12/31    Donald     Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
+Check In Date  First Name  Surname
+-----------------------------------
+2018/12/31     Melania     Trump
+2018/12/31     Donald      Trump
+2018/12/31     Bill        Clinton
+2018/12/31     Hillary     Clinton
+2018/12/31     Colm        O'Connor
 ```
 
 This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
 
 ```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Hillary    Clinton
-2018/12/31    Bill       Clinton
-2018/12/31    Colm       O'Connor
+Check In Date  First Name  Surname
+-----------------------------------
+2018/12/31     Donald      Trump
+2018/12/31     Melania     Trump
+2018/12/31     Hillary     Clinton
+2018/12/31     Bill        Clinton
+2018/12/31     Colm        O'Connor
 ```
 
 Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
@@ -154,19 +154,19 @@ So, if we want to make it more *deterministic* (opposite of arbitrary), we can m
 And, if we want to order by surname first and first name second, we can do this:
 
 ```
-SELECT reservations.date_started, customers.firstname, customers.surname
+SELECT reservations.check_in_date, customers.first_name, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started = '2018/12/31' order by customers.surname desc, customers.firstname desc
+where reservations.check_in_date = '2018/12/31' order by customers.surname desc, customers.first_name desc
 ```
 
 ```
-Date Started  Firstname  Surname
----------------------------------
-2018/12/31    Donald     Trump
-2018/12/31    Melania    Trump
-2018/12/31    Bill       Clinton
-2018/12/31    Hillary    Clinton
-2018/12/31    Colm       O'Connor
+Check In Date  First Name  Surname
+-----------------------------------
+2018/12/31     Donald      Trump
+2018/12/31     Melania     Trump
+2018/12/31     Bill        Clinton
+2018/12/31     Hillary     Clinton
+2018/12/31     Colm        O'Connor
 ```
 
 In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
@@ -211,9 +211,9 @@ Select the list reservations, primarily selecting the most recent ones, and seco
 Remember the JOIN query from above? We're going to do another similar one.
 
 ```sql
-select customers.firstname, customers.surname
+select customers.first_name, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started > '2018/12/31' and order by customers.surname desc
+where reservations.check_in_date > '2018/12/31' and order by customers.surname desc
 ```
 
 QUESTION FOR CLASS : What does this do?
@@ -224,13 +224,13 @@ Now, this is going to work with one exception. The list in my database
 is going to look a bit like this:
 
 ```
-Firstname  Surname
--------------------
-Hillary    Clinton
-Colm       O'Connor
-Colm       O'Connor
-Colm       O'Connor
-Donald     Trump
+First Name  Surname
+--------------------
+Hillary     Clinton
+Colm        O'Connor
+Colm        O'Connor
+Colm        O'Connor
+Donald      Trump
 ```
 
 QUESTION FOR CLASS : Why?
@@ -240,19 +240,19 @@ ANS : Because I love this hotel more than Hillary and Donald and I've arranged t
 Of course, we only want to know *IF* I've stayed there once, not that I'm their most popular guest.
 
 ```sql
-select DISTINCT customers.firstname, customers.surname
+select DISTINCT customers.first_name, customers.surname
 from reservations join customers on reservations.customer_id = customer.id
-where reservation.date_started > '2018/12/31' and order by customers.surname desc
+where reservations.check_in_date > '2018/12/31' and order by customers.surname desc
 ```
 
 Will output:
 
 ```
-Firstname  Surname
--------------------
-Hillary    Clinton
-Colm       O'Connor
-Donald     Trump
+First Name  Surname
+--------------------
+Hillary     Clinton
+Colm        O'Connor
+Donald      Trump
 ```
 
 Problem solved.

@@ -180,11 +180,11 @@ WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname DESC,
 ```
 Check In Date  First Name  Surname
 -----------------------------------
-2018/12/31     Donald      Trump
 2018/12/31     Melania     Trump
+2018/12/31     Donald      Trump
 2018/12/31     Colm        O'Connor
-2018/12/31     Bill        Clinton
 2018/12/31     Hillary     Clinton
+2018/12/31     Bill        Clinton
 ```
 
 In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).

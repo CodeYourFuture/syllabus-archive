@@ -3,6 +3,8 @@ Feedback
 
 List of amendments for the next time this is taught:
 
+--- Add note to make sure that the students all use the same schema.
+
 --- /api/customers/ -- give example in notes /api/customers/1
 
 --- Talk to Kash abobut deleting non-API endpoints on cyf-hotel-db (confusing)

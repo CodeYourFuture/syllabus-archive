@@ -217,6 +217,16 @@ This is might seem like a minor difference but:
 Write a query to get all of the customers with the first name "Colm" or "Hillary" using *IN*.
 
 
+##### EXERCISE 3.b: OPTIONAL STRETCH GOAL
+
+We're trying to locate a reservation for a customer. We know that:
+
+- Their checkin date may have been June 1st, 2017 OR July 1st 2017
+- Their checkout date may have been June 30th, 2017 OR July 30th 2017
+
+Write a query using *IN* that is guaranteed to return their reservation.
+
+N.B. Remember 01/01/2017? Remember to put the date in an *unambiguous format*.
 
 ### LESSON 5 : I WISH I COULD DELETE HIM IN REAL LIFE
 

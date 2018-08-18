@@ -51,8 +51,8 @@ WHERE reservations.check_in_date = '2018/08/19';
 Note that:
 
 - Because we are selecting columns from two tables and need to distinguish them, we use "table.column" syntax.
-- We explicitly link reservations.customer_id and customer.id *even if they have a foreign key relationship*.
-- reservations.customer_id and customer.id don't actually *have* to have a foreign key relationship, but they should.
+- We explicitly link reservations.customer_id and customers.id *even if they have a foreign key relationship*.
+- reservations.customer_id and customers.id don't actually *have* to have a foreign key relationship, but they should.
 
 
 ##### EXERCISE 1.a
@@ -121,7 +121,7 @@ Using 'order by' we can get records back in a specified order:
 
 ```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customer.id
+FROM reservations JOIN customers ON reservations.customer_id = customers.id
 WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname;
 ```
 

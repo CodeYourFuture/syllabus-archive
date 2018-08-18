@@ -231,7 +231,7 @@ Remember the JOIN query from above? We're going to do another similar one.
 ```sql
 SELECT customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date > '2018/08/19' ORDER BY customers.surname DESC;
+WHERE reservations.check_in_date > '2017/12/31' ORDER BY customers.surname ASC;
 ```
 
 QUESTION FOR CLASS : What does this do?
@@ -260,7 +260,7 @@ Of course, we only want to know *IF* Hackerman has stayed there once, not that h
 ```sql
 SELECT DISTINCT customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date > '2018/08/19' ORDER BY customers.surname DESC;
+WHERE reservations.check_in_date > '2017/12/31' ORDER BY customers.surname ASC;
 ```
 
 Will output:

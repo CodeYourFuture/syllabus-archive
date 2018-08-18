@@ -174,17 +174,17 @@ And, if we want to order by surname first and first name second, we can do this:
 ```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC, customers.first_name DESC;
+WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC, customers.first_name ASC;
 ```
 
 ```
 Check In Date  First Name  Surname
 ------------------------------------
-2018/08/19     Melania     Trump
 2018/08/19     Donald      Trump
+2018/08/19     Melania     Trump
 2018/08/19     Colm        Hackerman
-2018/08/19     Hillary     Clinton
 2018/08/19     Bill        Clinton
+2018/08/19     Hillary     Clinton
 ```
 
 In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).

@@ -16,7 +16,7 @@
 * SQL Injection
 * LIMIT
 * DISTINCT
-* Sum / Avg / Count
+* SUM / AVG / COUNT
 * GROUP BY
 * HAVING
 
@@ -299,7 +299,7 @@ So, this means that we can count, sum and calculate the average of a set of valu
 
 Let's check an example for `COUNT`:
 
-`SELECT Count(*) FROM customers;`
+`SELECT COUNT(*) FROM customers;`
 
 This will return the number of customers on a database.
 
@@ -308,7 +308,7 @@ Well call these aggregation functions, and we use them to modify the results whi
 
 ##### EXERCISE 6.a
 
-Count the number of reservations for a given customer ID.
+COUNT the number of reservations for a given customer ID.
 
 
 ##### EXERCISE 6.b: OPTIONAL STRETCH GOAL
@@ -343,18 +343,18 @@ For instance, if we have the following entries on the customers:
 If we group by surname we have 4 different surnames: `O'Conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
 
 ```sql
-SELECT surname, Count(*) FROM customers GROUP BY surname;
+SELECT surname, COUNT(*) FROM customers GROUP BY surname;
 ```
 
 
 ##### EXERCISE 7.a
 
-Count the occurrences of the DIFFERENT titles on the database.
+COUNT the occurrences of the DIFFERENT titles on the database.
 
 
 ##### EXERCISE 7.b: OPTIONAL STRETCH GOAL
 
-Count the occurrences of a combination of first-name and surname to get a list of customers with the same name.
+COUNT the occurrences of a combination of first-name and surname to get a list of customers with the same name.
 
 
 
@@ -364,7 +364,7 @@ Suppose that we want to filter the result of what we got on the previous example
 
 To accomplish that we can use `HAVING` as follows:
 ```sql
-SELECT surname, Count(*) AS count FROM customers GROUP BY surname HAVING count >= 3;
+SELECT surname, COUNT(*) AS count FROM customers GROUP BY surname HAVING count >= 3;
 ```
 
 Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.

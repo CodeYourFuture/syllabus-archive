@@ -340,7 +340,7 @@ For instance, if we have the following entries on the customers:
 |18|Doc.|James|Lennon|john.lennon@sub-domain.domain|
 |19|Sir.|John|O'Conner|John.oconner@sub-domain.domain|
 
-If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
+If we group by surname we have 4 different surnames: `O'Conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
 
 ```sql
 SELECT surname, Count(*) FROM customers GROUP BY surname;

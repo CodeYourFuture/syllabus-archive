@@ -253,9 +253,9 @@ Donald      Trump
 
 QUESTION FOR CLASS : Why?
 
-ANS : Because I love this hotel more than Hillary and Donald and I've arranged to stay there a few times.
+ANS : Because Mr Hackerman loves this hotel more than Hillary and Donald and has arranged to stay there a few times.
 
-Of course, we only want to know *IF* I've stayed there once, not that I'm their most popular guest.
+Of course, we only want to know *IF* Hackerman has stayed there once, not that he's their most popular guest.
 
 ```sql
 SELECT DISTINCT customers.first_name, customers.surname

@@ -303,7 +303,7 @@ Let's check an example for `COUNT`:
 
 This will return the number of customers on a database.
 
-Well call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
+We call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
 
 
 ##### EXERCISE 6.a
@@ -318,11 +318,11 @@ Calculate the average paid amount across all invoices.
 
 
 ### LESSON 7: GROUPING
-Lets us say that we need to get the list of different surnames on our list of customers, and how many times each surname shows up on our database?
+Let us say that we need to get the list of different surnames from our list of customers, and how many times each surname shows up on our database.
 
 Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to the rest.
 
-For this we can user `GROUP BY` as follows:
+For this we can use `GROUP BY` as follows:
 
 ```sql
 SELECT <column_to_aggregate_1>, <column_to_aggregate_2> FROM <table> GROUP BY <column_to_aggregate_1>, <column_to_aggregate_2>;

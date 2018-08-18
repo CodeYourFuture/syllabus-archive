@@ -332,13 +332,13 @@ For instance, if we have the following entries on the customers:
 
 | id | title | first_name | surname | email |
 | --- | --- | --- | --- | --- |
-|1|Doc.|Tom|Jones|tom.jones@sub-domain.domain|
-|2|Mr.|Jorge|Silva|jorge-silva@sub-domain.com|
-|3|Mr.|Jorge|Silva|jorge2-silva@sub-domain.com|
-|16|Doc.|Pedro|Silva|pedro.silva@sub-domain.domain|
-|17|Doc.|Colm|O'Conner|colm.oconner@sub-domain.domain|
-|18|Doc.|James|Lennon|john.lennon@sub-domain.domain|
-|19|Sir.|John|O'Conner|John.oconner@sub-domain.domain|
+|1|Doc.|Tom|Jones|tom.jones@domain.com|
+|2|Mr.|Jorge|Silva|jorge-silva@domain.com|
+|3|Mr.|Jorge|Silva|jorge2-silva@domain.com|
+|16|Doc.|Pedro|Silva|pedro.silva@domain.com|
+|17|Doc.|Colm|O'Conner|colm.oconner@domain.com|
+|18|Doc.|James|Lennon|john.lennon@domain.com|
+|19|Sir.|John|O'Conner|John.oconner@domain.com|
 
 If we group by surname we have 4 different surnames: `O'Conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
 

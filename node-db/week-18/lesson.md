@@ -221,7 +221,7 @@ Select the latest 5 reservations on the database.
 
 ##### Exercise 4.c: OPTIONAL STRETCH GOAL
 
-Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
+Select the reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
 
 
 ### LESSON 5: DISTINCT

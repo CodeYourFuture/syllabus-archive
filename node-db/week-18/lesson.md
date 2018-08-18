@@ -125,7 +125,7 @@ FROM reservations JOIN customers ON reservations.customer_id = customer.id
 WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname;
 ```
 
-We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
+We have Mrs Clinton, Mr Trump and Mr Hackerman staying at the hotel. What order will will the reservations be displayed in?
 
 If we want to get *explicit* the three of them in ascending order:
 
@@ -145,10 +145,10 @@ WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC;
 
 ```
 Check In Date  First Name  Surname
------------------------------------
+------------------------------------
 2018/08/19     Melania     Trump
 2018/08/19     Donald      Trump
-2018/08/19     Colm        O'Connor
+2018/08/19     Colm        Hackerman
 2018/08/19     Bill        Clinton
 2018/08/19     Hillary     Clinton
 ```
@@ -157,10 +157,10 @@ This is just one way the results could come out. They could also come out (e.g. 
 
 ```
 Check In Date  First Name  Surname
------------------------------------
+------------------------------------
 2018/08/19     Donald      Trump
 2018/08/19     Melania     Trump
-2018/08/19     Colm        O'Connor
+2018/08/19     Colm        Hackerman
 2018/08/19     Hillary     Clinton
 2018/08/19     Bill        Clinton
 ```
@@ -179,10 +179,10 @@ WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC,
 
 ```
 Check In Date  First Name  Surname
------------------------------------
+------------------------------------
 2018/08/19     Melania     Trump
 2018/08/19     Donald      Trump
-2018/08/19     Colm        O'Connor
+2018/08/19     Colm        Hackerman
 2018/08/19     Hillary     Clinton
 2018/08/19     Bill        Clinton
 ```
@@ -243,11 +243,11 @@ is going to look a bit like this:
 
 ```
 First Name  Surname
---------------------
+---------------------
 Hillary     Clinton
-Colm        O'Connor
-Colm        O'Connor
-Colm        O'Connor
+Colm        Hackerman
+Colm        Hackerman
+Colm        Hackerman
 Donald      Trump
 ```
 
@@ -267,9 +267,9 @@ Will output:
 
 ```
 First Name  Surname
---------------------
+---------------------
 Hillary     Clinton
-Colm        O'Connor
+Colm        Hackerman
 Donald      Trump
 ```
 

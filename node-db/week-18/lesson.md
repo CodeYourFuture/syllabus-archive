@@ -57,11 +57,11 @@ Note that:
 
 ##### EXERCISE 1.a
 
-Get the list of rooms together with their room types.
+Get the list of all room IDs together with their room type names.
 
 ##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
 
-Get the list of reservations together with the details of the title, first name and surname customer who made it.
+Get the list of reservations (all columns) together with the the title, first name and surname customer who made it.
 
 
 

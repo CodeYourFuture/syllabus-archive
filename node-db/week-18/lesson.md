@@ -32,7 +32,7 @@ Now let's say we want to get the *names* of customers who have a reservation *to
 
 From what we know now, we *could* do it like this:
 
-- SELECT customer_id FROM reservations WHERE check_in_date = '2018/12/31'
+- SELECT customer_id FROM reservations WHERE check_in_date = '2018/08/19'
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
 - SELECT * FROM customers WHERE id IN (3, 5, 7)
 
@@ -45,7 +45,7 @@ Now, we have data that spans two tables - we have reservations with a "customer_
 ```
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/12/31';
+WHERE reservations.check_in_date = '2018/08/19';
 ```
 
 Note that:
@@ -122,7 +122,7 @@ Using 'order by' we can get records back in a specified order:
 ```
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customer.id
-WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname;
+WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname;
 ```
 
 We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will the reservations be displayed in?
@@ -132,7 +132,7 @@ If we want to get *explicit* the three of them in ascending order:
 ```
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname ASC;
+WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname ASC;
 ```
 
 Now, if we want them in descending order:
@@ -140,17 +140,17 @@ Now, if we want them in descending order:
 ```
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname DESC;
+WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC;
 ```
 
 ```
 Check In Date  First Name  Surname
 -----------------------------------
-2018/12/31     Melania     Trump
-2018/12/31     Donald      Trump
-2018/12/31     Colm        O'Connor
-2018/12/31     Bill        Clinton
-2018/12/31     Hillary     Clinton
+2018/08/19     Melania     Trump
+2018/08/19     Donald      Trump
+2018/08/19     Colm        O'Connor
+2018/08/19     Bill        Clinton
+2018/08/19     Hillary     Clinton
 ```
 
 This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
@@ -158,11 +158,11 @@ This is just one way the results could come out. They could also come out (e.g. 
 ```
 Check In Date  First Name  Surname
 -----------------------------------
-2018/12/31     Donald      Trump
-2018/12/31     Melania     Trump
-2018/12/31     Colm        O'Connor
-2018/12/31     Hillary     Clinton
-2018/12/31     Bill        Clinton
+2018/08/19     Donald      Trump
+2018/08/19     Melania     Trump
+2018/08/19     Colm        O'Connor
+2018/08/19     Hillary     Clinton
+2018/08/19     Bill        Clinton
 ```
 
 Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
@@ -174,17 +174,17 @@ And, if we want to order by surname first and first name second, we can do this:
 ```
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/12/31' ORDER BY customers.surname DESC, customers.first_name DESC;
+WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC, customers.first_name DESC;
 ```
 
 ```
 Check In Date  First Name  Surname
 -----------------------------------
-2018/12/31     Melania     Trump
-2018/12/31     Donald      Trump
-2018/12/31     Colm        O'Connor
-2018/12/31     Hillary     Clinton
-2018/12/31     Bill        Clinton
+2018/08/19     Melania     Trump
+2018/08/19     Donald      Trump
+2018/08/19     Colm        O'Connor
+2018/08/19     Hillary     Clinton
+2018/08/19     Bill        Clinton
 ```
 
 In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
@@ -231,7 +231,7 @@ Remember the JOIN query from above? We're going to do another similar one.
 ```sql
 SELECT customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date > '2018/12/31' ORDER BY customers.surname DESC;
+WHERE reservations.check_in_date > '2018/08/19' ORDER BY customers.surname DESC;
 ```
 
 QUESTION FOR CLASS : What does this do?
@@ -260,7 +260,7 @@ Of course, we only want to know *IF* I've stayed there once, not that I'm their 
 ```sql
 SELECT DISTINCT customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date > '2018/12/31' ORDER BY customers.surname DESC;
+WHERE reservations.check_in_date > '2018/08/19' ORDER BY customers.surname DESC;
 ```
 
 Will output:

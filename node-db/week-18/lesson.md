@@ -67,7 +67,7 @@ Get the list of reservations (all columns) together with the the title, first na
 
 ### LESSON 2: SQL INJECTION
 
-So, our hotel has a shady new guest. Let's say that we have a react API on top which uses the
+So, our hotel has a shady new guest. Let's say that we have a react frontend on top which uses the
 APIs we're building - users won't use the APIs directly but they can just fire up postman and use them
 if they want.
 

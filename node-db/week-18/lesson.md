@@ -32,9 +32,9 @@ Now let's say we want to get the *names* of customers who have a reservation *to
 
 From what we know now, we *could* do it like this:
 
-- SELECT customer_id FROM reservations WHERE check_in_date = '2018/08/19'
+- `SELECT customer_id FROM reservations WHERE check_in_date = '2018/08/19';`
 - write down the list of customer ids on paper (e.g. 3, 5, 7)
-- SELECT * FROM customers WHERE id IN (3, 5, 7)
+- `SELECT * FROM customers WHERE id IN (3, 5, 7);`
 
 However, we want the computer to figure out that we want ids 3, 5 and 7 by itself.
 
@@ -42,7 +42,7 @@ This is what a database "JOIN" is. In real life, if you work with databases, you
 
 Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
 
-```
+```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
 WHERE reservations.check_in_date = '2018/08/19';
@@ -83,7 +83,7 @@ DELETE http://localhost:8080/api/reservation/6
 Now, open a new terminal window and run "sqlite3 databases/database.sqlite":
 
 ```
-sqlite> select * from reservations;
+sqlite> SELECT * FROM reservations;
 ```
 
 This is fine, but not very interesting. However, let's experiment - try doing *this* with your reservation API:
@@ -119,7 +119,7 @@ generally the order you put them in but there is *no* guarantee it will be in th
 
 Using 'order by' we can get records back in a specified order:
 
-```
+```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customer.id
 WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname;
@@ -129,7 +129,7 @@ We have Mrs Clinton, Mr Trump and me staying at the hotel? What order will will 
 
 If we want to get *explicit* the three of them in ascending order:
 
-```
+```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
 WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname ASC;
@@ -137,7 +137,7 @@ WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname ASC;
 
 Now, if we want them in descending order:
 
-```
+```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
 WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC;
@@ -171,7 +171,7 @@ So, if we want to make it more *deterministic* (opposite of arbitrary), we can m
 
 And, if we want to order by surname first and first name second, we can do this:
 
-```
+```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
 FROM reservations JOIN customers ON reservations.customer_id = customers.id
 WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC, customers.first_name DESC;
@@ -291,7 +291,7 @@ Get the list of customers that made a reservation in the last year, including th
 Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and unrealistic in real life cases, where databases can have several millions of entries. So, for that purpose we have aggregation functions:
 
 ```
-COUNT, SUM or AVERAGE,
+COUNT, SUM or AVERAGE
 ```
 
 The usages of each are pretty obvious.
@@ -324,7 +324,7 @@ Here the idea is that we could group the columns by the surname and get a list o
 
 For this we can user `GROUP BY` as follows:
 
-```
+```sql
 SELECT <column_to_aggregate_1>, <column_to_aggregate_2> FROM <table> GROUP BY <column_to_aggregate_1>, <column_to_aggregate_2>;
 ```
 
@@ -342,7 +342,7 @@ For instance, if we have the following entries on the customers:
 
 If we group by surname we have 4 different surnames: `O'conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
 
-```
+```sql
 SELECT surname, Count(*) FROM customers GROUP BY surname;
 ```
 
@@ -363,7 +363,7 @@ Count the occurrences of a combination of first-name and surname to get a list o
 Suppose that we want to filter the result of what we got on the previous example - count of customers each surname - to select only the surnames for which there are 3 or more customers?
 
 To accomplish that we can use `HAVING` as follows:
-```
+```sql
 SELECT surname, Count(*) AS count FROM customers GROUP BY surname HAVING count >= 3;
 ```
 

@@ -21,9 +21,9 @@
 * HAVING
 
 
-### LESSON 1 : JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
+### LESSON 1: JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
 
-So far, we've put data in tables and kept references to each of them using IDs but
+So far, we've put data in tables and kept references to each of them using IDs, but
 we've not yet learned how to link them automatically.
 
 We don't know how to get the *name* of a customer from a reservation - only their ID.

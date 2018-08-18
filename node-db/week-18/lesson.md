@@ -33,14 +33,14 @@ Now let's say we want to get the *names* of customers who have a reservation *to
 From what we know now, we *could* do it like this:
 
 - `SELECT customer_id FROM reservations WHERE check_in_date = '2018/08/19';`
-- write down the list of customer ids on paper (e.g. 3, 5, 7)
+- write down the list of customer IDs on paper (e.g. 3, 5, 7)
 - `SELECT * FROM customers WHERE id IN (3, 5, 7);`
 
-However, we want the computer to figure out that we want ids 3, 5 and 7 by itself.
+However, we want the computer to figure out that we want IDs 3, 5 and 7 by itself.
 
 This is what a database "JOIN" is. In real life, if you work with databases, you will be using this thing *all* of the time - relationships between data are vitally important.
 
-Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the id column in the "customers" table.
+Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the ID column in the "customers" table.
 
 ```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
@@ -308,7 +308,7 @@ Well call these aggregation functions, and we use them to modify the results whi
 
 ##### EXERCISE 6.a
 
-Count the number of reservations for a given customer id.
+Count the number of reservations for a given customer ID.
 
 
 ##### EXERCISE 6.b: OPTIONAL STRETCH GOAL
@@ -397,7 +397,7 @@ Complete the endpoint to get from `/reservations-per-customer/` the number of re
 
 ##### HOMEWORK 4
 
-Get the number of reservations for each room id and include the details for the room details.
+Get the number of reservations for each room ID and include the details for the room details.
 
 ##### HOMEWORK 5
 

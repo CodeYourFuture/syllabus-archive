@@ -9,7 +9,7 @@
 * [More complex objects](#more-complex-objects)
 * [Object methods](#object-methods)
 * [Arrays of Objects](#arrays-of-objects)
-* [Object.Keys()](#object-keys)
+* [Object.Keys()](#objectkeys)
 ---
 
 > Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 4** during this class.

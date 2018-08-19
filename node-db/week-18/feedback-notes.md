@@ -1,0 +1,1 @@
+- Dealing with updated cyf-hotel-db is an issue -- the students were confused about forks/remotes and what to do if their fork hadn't been updated by the origin had.

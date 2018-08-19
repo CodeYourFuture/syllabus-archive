@@ -16,3 +16,5 @@
 
 
 -- Add stretch goals to this lesson.
+
+-- Add "what is your perfect date / YYYY-MM-DD, other formats can be confusing" meme

@@ -9,7 +9,7 @@
 * [Comparison operators](#comparison-operators)
 * [Predicates](#predicates)
 * [Conditionals](#conditionals)
-* [Logical Operators](#logical operators)
+* [Logical Operators](#logical-operators)
 * [More Conditionals](#more-conditionals)
 * [Array literals](#array-literals)
 * [Array properties](#array-properties)

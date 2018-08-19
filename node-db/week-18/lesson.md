@@ -54,6 +54,17 @@ Note that:
 - We explicitly link reservations.customer_id and customers.id *even if they have a foreign key relationship*.
 - reservations.customer_id and customers.id don't actually *have* to have a foreign key relationship, but they should.
 
+Let's try the query.
+
+First, go to the `cyf-hotel-db` repo in your terminal and switch to the `class3` branch. Next, run `npm i` and `npm start` to start the server. Then, open a new terminal tab in the `cyf-hotel-db` directory and run `sqlite3 database/database.sqlite` to open SQLite.
+
+Now, copy and paste the above `SELECT` query into SQLite. You should get this:
+
+```
+2018/08/19|Marie|Niki
+2018/08/19|Anna|Kolen
+```
+
 
 ##### EXERCISE 1.a
 
@@ -72,12 +83,12 @@ APIs we're building - users won't use the APIs directly but they can just fire u
 if they want.
 
 This is very common - lots of websites have a single page application that uses an API underneath just like the one
-they're building.
+we're building.
 
 Now, this guest does a little poking around and he realizes that he can delete his reservation.
 
 ```
-DELETE http://localhost:8080/api/reservation/6
+DELETE http://localhost:8080/api/reservations/6
 ```
 
 Now, open a new terminal window and run "sqlite3 databases/database.sqlite":
@@ -91,7 +102,7 @@ The reservation with ID 6 should be deleted - as you coded it to work.
 This is fine, but not very interesting. However, let's experiment - try doing *this* with your reservation API:
 
 ```
-DELETE http://localhost:8080/api/reservation/6%20or%201%3D1
+DELETE http://localhost:8080/api/reservations/6%20or%201%3D1
 ```
 
 And run this again:
@@ -127,9 +138,16 @@ FROM reservations JOIN customers ON reservations.customer_id = customers.id
 WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname;
 ```
 
-We have Mrs Clinton, Mr Trump and Mr Hackerman staying at the hotel. What order will will the reservations be displayed in?
+This will give the output in a new order:
 
-If we want to get *explicit* the three of them in ascending order:
+```
+2018/08/19|Anna|Kolen
+2018/08/19|Marie|Niki
+```
+
+We have Mrs Clinton, Mr Trump and Mr Hackerman staying at the hotel. What order will the reservations be displayed in?
+
+If we want to get *explicitly* the three of them in ascending order:
 
 ```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
@@ -169,9 +187,7 @@ Check In Date  First Name  Surname
 
 Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
 
-So, if we want to make it more *deterministic* (opposite of arbitrary), we can make it sort by surname *first* and first name *second*.
-
-And, if we want to order by surname first and first name second, we can do this:
+So, if we want to make it more *deterministic* (opposite of arbitrary), we can make it sort by surname *first* and first name *second*:
 
 ```sql
 SELECT reservations.check_in_date, customers.first_name, customers.surname
@@ -189,7 +205,7 @@ Check In Date  First Name  Surname
 2018/08/19     Hillary     Clinton
 ```
 
-In this case, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
+In this case, since we're ordering by first name ascending, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
 
 
 ### LESSON 4: LIMIT YOUR QUERIES
@@ -293,7 +309,7 @@ Get the list of customers that made a reservation in the last year, including th
 Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and unrealistic in real life cases, where databases can have several millions of entries. So, for that purpose we have aggregation functions:
 
 ```
-COUNT, SUM or AVERAGE
+COUNT, SUM or AVG
 ```
 
 The usages of each are pretty obvious.
@@ -322,7 +338,7 @@ Calculate the average paid amount across all invoices.
 ### LESSON 7: GROUPING
 Let us say that we need to get the list of different surnames from our list of customers, and how many times each surname shows up on our database.
 
-Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to the rest.
+Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to them.
 
 For this we can use `GROUP BY` as follows:
 
@@ -342,10 +358,19 @@ For instance, if we have the following entries on the customers:
 |18|Doc.|James|Lennon|john.lennon@domain.com|
 |19|Sir.|John|O'Conner|John.oconner@domain.com|
 
-If we group by surname we have 4 different surnames: `O'Conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate the rest of the columns. In this case, we want to count the occurrences so we can simply do:
+If we group by surname we have 4 different surnames: `O'Conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate them. In this case, we want to count the occurrences so we can simply do:
 
 ```sql
 SELECT surname, COUNT(*) FROM customers GROUP BY surname;
+```
+
+This should give this output:
+
+```
+Jones|1
+Silva|3
+O'Conner|2
+Lennon|1
 ```
 
 
@@ -362,7 +387,7 @@ COUNT the occurrences of a combination of first-name and surname to get a list o
 
 ### LESSON 8: HAVING YOUR TABLE AND EATING IT
 
-Suppose that we want to filter the result of what we got on the previous example - count of customers each surname - to select only the surnames for which there are 3 or more customers?
+Suppose that we want to filter the result of what we got on the previous example - count of each customer's surname - to select only the surnames for which there are 3 or more customers?
 
 To accomplish that we can use `HAVING` as follows:
 ```sql

@@ -82,7 +82,7 @@ So, our hotel has a shady new guest. Let's say that we have a react frontend on 
 APIs we're building - users won't use the APIs directly but they can just fire up postman and use them
 if they want.
 
-This is very common - lots of websites have a react frontend that uses an API underneath just like the one
+This is very common - lots of websites have a single page application that uses an API underneath just like the one
 we're building.
 
 Now, this guest does a little poking around and he realizes that he can delete his reservation.
@@ -96,6 +96,8 @@ Now, open a new terminal window and run "sqlite3 databases/database.sqlite":
 ```
 sqlite> SELECT * FROM reservations;
 ```
+
+The reservation with ID 6 should be deleted - as you coded it to work.
 
 This is fine, but not very interesting. However, let's experiment - try doing *this* with your reservation API:
 

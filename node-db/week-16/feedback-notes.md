@@ -13,3 +13,6 @@
 [] - Add brief review and check of the PRAGMA for forreing keys setting, before we start foreign keys exercises.
 
 [] - Change the `<replace with actual id>` with an actual id, even if its mocked.
+
+
+-- Add stretch goals to this lesson.

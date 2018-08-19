@@ -228,17 +228,6 @@ Write a query using *IN* that is guaranteed to return their reservation.
 
 N.B. Remember 01/01/2017? Remember to put the date in an *unambiguous format*.
 
-
-##### EXERCISE 4.a
-
-Select the list of reservations from the most recent to the oldest one.
-
-
-##### Exercise 4.b: OPTIONAL STRETCH GOAL
-
-Select the list reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
-
-
 ### LESSON 5 : I WISH I COULD DELETE HIM IN REAL LIFE
 
 We've currently done inserting data and updating data, but sometimes inserting data was just a mistake

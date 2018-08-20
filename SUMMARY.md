@@ -10,7 +10,7 @@
   * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md) | [Homework](/html-css/week-02/homework.md)
   * [Week 3 - Design frameworks, Naming patterns and Forms](/html-css/week-03/lesson.md) | [Homework](/html-css/week-03/homework.md)
 * [JavaScript I](/js-core/index.md)
-  * [Week 4 - Hello JavaScript](/js-core/week-04/lesson.md) | [Homework](/js-core/week-04/homework.md)
+  * [Week 4 - Hello JavaScript](/js-core/week-04/intro.md) | [Homework](/js-core/week-04/homework.md)
   * [Week 5 - Arrays](/js-core/week-05/lesson.md) | [Homework](/js-core/week-05/homework.md)
   * [Week 6 - More Arrays](/js-core/week-06/lesson.md) | [Homework](/js-core/week-06/homework.md)
 * [JavaScript II](/js-core-2/index.md)

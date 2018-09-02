@@ -335,13 +335,15 @@ Instead wouldn't it be good if we could change which mentor we are saying hello 
 
 Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props in a component.
 
-First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=index.js)):
+First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=index.js)):
 
 ```js
-<Mentor mentor="Kash" />
+<Greeting greeting="Hi" />
 ```
 
-As you can see props are key-value pairs, in this example the key is `mentor` and the value is the string `'Kash'`. We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
+As you can see props are key-value pairs, in this example the key is `greeting` and the value is the string `'Hi'`. We can pass as many props as we like to a component.
+
+We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
 
 ```js
 <HotelRoom price={123}>
@@ -349,25 +351,36 @@ As you can see props are key-value pairs, in this example the key is `mentor` an
 
 This is identical to the [Embedding JS into JSX section](../week-19/lesson.md#embedding-js-into-jsx) we looked at earlier.
 
-Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=Mentor.js)):
+Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=Greeting.js)):
 
 ```js
-const Mentor = (props) => (
-  <span>{props.mentor}</span>
-)
+const Greeting = (props) => {
+  console.log(props)
+  return (
+    <span>{props.greeting}</span>
+  )
+}
 ```
 
-React gives you access to props in the first argument to the component function. We can then inject into our component using curly braces. Because `props` is just a regular object, you can also inject into DOM attributes:
+React gives you access to props in the **first argument** to the component function. We can then inject props into our component using curly braces.
+
+The `props` variable is an just a normal object with key-value pairs that match what was passed to the component. Because it is just a variable, it can be used like any other variable. That includes injecting props into attributes:
 
 ```js
 <div id={'my-id-' + props.id}>{props.content}</div>
 ```
 
-Components are just regular functions, so we can use destructuring to pull variables out of props. This can make our components even shorter:
+Or calculate new values:
 
 ```js
-const Mentor = ({ name }) => (
-  <div>{name}</div>
+<div>{props.counter + 1}</div>
+```
+
+Components are just regular functions and props are just regular variables, so we can use destructuring to pull variables out of props. This can make our components even shorter:
+
+```js
+const Greeting = ({ greeting }) => (
+  <span>{greeting}</span>
 )
 ```
 

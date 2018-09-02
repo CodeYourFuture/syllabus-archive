@@ -329,13 +329,15 @@ Remember that props are like "arguments" to a component. It's good practice to m
 ```js
 class Hello extends Component {
   render() {
-    this.props.name = 'Mona'
+    this.props.name = 'Ali'
 
     return (
       <p>Hello {this.props.name}</p>
     );
   }
 }
+
+render(<Hello name="Mona" />, document.getElementById('root'))
 ```
 
 You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.

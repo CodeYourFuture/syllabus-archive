@@ -14,6 +14,7 @@
 - [Importing/Exporting Components](#importingexporting-components)
 - [Making an Argument for Props](#making-an-argument-for-props)
 - [What Are Props?](#what-are-props)
+- [Prop Types](#prop-types)
 
 ## What is React?
 

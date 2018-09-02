@@ -45,7 +45,7 @@ So far we've looked at components that are always rendered in the browser. Howev
 const IsShown = () => (
   <p>I'm shown when true ✅</p>
 )
-const IsNotShwon = () => (
+const IsNotShown = () => (
   <p>I'm shown when false ☑️</p>
 )
 
@@ -98,9 +98,10 @@ class Lifecycle extends Component {
 
 > **Exercise:**
 > Open the `my-hotel` application from the last 2 weeks
-> 1. Implement the lifecycle hook methods in the `BookingsMessage` component and add a `console.log` to each of them. Try interacting with the component and see what order the logs appear
-> 2. The `componentWillUnmount` method will never be called. Can you explain why?
-> 3. Return `false` from `shouldComponentUpdate` in `BookingsMessage`. Try incrementing the number of bookings and explain what happens (change it back to return `true` after you are done!)
+> 1. Add `constructor`, `shouldComponentUpdate`, `componentDidMount`, `componentDidUpdate` and `componentWillUnmount` methods in the `BookingsMessage` component and add a `console.log` that logs out the name of the method (e.g. `console.log('componentDidMount')`. Also add `console.log('render')` in the `render` method.
+> 2. Try interacting with the component and see what order the logs appear
+> 3. The `componentWillUnmount` method will never be called. Can you explain why?
+> 4. Return `false` from `shouldComponentUpdate` in `BookingsMessage`. Try incrementing the number of bookings and explain what happens (change it back to return `true` after you are done!)
 
 We'll now focus on a few of the lifecycle hooks and see how they are used.
 
@@ -153,9 +154,9 @@ class Clock extends Component {
 
 > 2. Render the `Clock` component in the `App` component
 > 4. Add a `componentDidMount` method to the `Time` component and use `setInterval` to call `this.tick` every second (1000 milliseconds)
-> 5. Implement the `tick` method, and set the `date` state to the current date (hint: `new Date()`)
-> 6. Add a `console.log` to the `tick` method. Try clicking the "Toggle time" button and look at what happens in the console. What do you think the problem is here? How can we fix it?
-> 7. Assign the return value of `setInterval` to `this.timer`
+> 5. Implement the `tick` method, and use `this.setState` to set the `date` to the current date (hint: `new Date()`). Your clock should now start working
+> 6. Add `console.log('tick')` to the `tick` method. Try clicking the "Toggle time" button and look at what happens in the console. What do you think the problem is here? How can we fix it?
+> 7. Assign the return value of `setInterval` to `this.timer` (**not** `this.state.timer`)
 > 8. In `componentWillUnmount`, remove the timer by calling `clearInterval(this.timer)`
 > 9. Try playing around with the toggle, like in step 6. How have we solved the problem?
 
@@ -163,7 +164,7 @@ class Clock extends Component {
 
 Most web applications will load data from the server. How do we do this in React? The component lifecycle is very important - we don't want to be calling our API at the wrong time, or multiple times with the same data!
 
-If we tried to fetch data in our `render` method, it would make a request every time props or state changed. This would create lots of unnecessary requests. As we saw above, `componentDidMount` is called only once when the component is first rendered and so it is an ideal place for making requests. Let's look at an example:
+If we tried to fetch data in our `render` method, it would make a request every time props or state changed. This would create lots of unnecessary requests. As we saw above, `componentDidMount` is called only once when the component is first rendered and so it is an ideal place for making requests. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-dyupps?file=index.js)):
 
 ```js
 class PokemonFetcher extends Component {

@@ -370,7 +370,7 @@ The `props` variable is an just a normal object with key-value pairs that match 
 <div id={'my-id-' + props.id}>{props.content}</div>
 ```
 
-Or calculate new values:
+Or calculating new values:
 
 ```js
 <div>{props.counter + 1}</div>

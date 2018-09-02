@@ -1,6 +1,6 @@
 # React 2
 
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
 
 **What will we learn today?**
 

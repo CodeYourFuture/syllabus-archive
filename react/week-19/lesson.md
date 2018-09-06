@@ -1,6 +1,6 @@
 # React 1
 
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
 
 **What will we learn today?**
 
@@ -14,6 +14,7 @@
 - [Importing/Exporting Components](#importingexporting-components)
 - [Making an Argument for Props](#making-an-argument-for-props)
 - [What Are Props?](#what-are-props)
+- [Prop Types](#prop-types)
 
 ## What is React?
 
@@ -52,7 +53,7 @@ There are no hard & fast rules for making components. UIs can be split up into c
 
 ## Rendering with React
 
-Remember how annoying it was to manage the DOM yourself in [week 8](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript apis for updating the DOM are quite long and difficult to remember. React makes this easier by instead of manipulating each DOM element itself. You give React a "description" of the DOM that you want and it will  update the DOM for you. React "abstracts" away the management of the DOM.
+Remember how annoying it was to manage the DOM yourself in [week 8](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript apis for updating the DOM are quite long and difficult to remember. React makes this easier by manipulating each DOM element itself, instead of you doing it manually. You give React a "description" of the DOM that you want and it will update the DOM for you. React "abstracts" away the management of the DOM.
 
 Let's take a look at an example. We are going to walk through how to render a `<div>` with the text "Hello World" within it.
 
@@ -233,7 +234,7 @@ Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are
 
 ## Embedding JS into JSX
 
-Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript "expression". That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
+Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
 
 ```js
 const Mentor = () => {
@@ -335,13 +336,15 @@ Instead wouldn't it be good if we could change which mentor we are saying hello 
 
 Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props in a component.
 
-First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=index.js)):
+First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=index.js)):
 
 ```js
-<Mentor mentor="Kash" />
+<Greeting greeting="Hi" />
 ```
 
-As you can see props are key-value pairs, in this example the key is `mentor` and the value is the string `'Kash'`. We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
+As you can see props are key-value pairs, in this example the key is `greeting` and the value is the string `'Hi'`. We can pass as many props as we like to a component.
+
+We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
 
 ```js
 <HotelRoom price={123}>
@@ -349,25 +352,36 @@ As you can see props are key-value pairs, in this example the key is `mentor` an
 
 This is identical to the [Embedding JS into JSX section](../week-19/lesson.md#embedding-js-into-jsx) we looked at earlier.
 
-Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=Mentor.js)):
+Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=Greeting.js)):
 
 ```js
-const Mentor = (props) => (
-  <span>{props.mentor}</span>
-)
+const Greeting = (props) => {
+  console.log(props)
+  return (
+    <span>{props.greeting}</span>
+  )
+}
 ```
 
-React gives you access to props in the first argument to the component function. We can then inject into our component using curly braces. Because `props` is just a regular object, you can also inject into DOM attributes:
+React gives you access to props in the **first argument** to the component function. We can then inject props into our component using curly braces.
+
+The `props` variable is an just a normal object with key-value pairs that match what was passed to the component. Because it is just a variable, it can be used like any other variable. That includes injecting props into attributes:
 
 ```js
 <div id={'my-id-' + props.id}>{props.content}</div>
 ```
 
-Components are just regular functions, so we can use destructuring to pull variables out of props. This can make our components even shorter:
+Or calculating new values:
 
 ```js
-const Mentor = ({ name }) => (
-  <div>{name}</div>
+<div>{props.counter + 1}</div>
+```
+
+Components are just regular functions and props are just regular variables, so we can use destructuring to pull variables out of props. This can make our components even shorter:
+
+```js
+const Greeting = ({ greeting }) => (
+  <span>{greeting}</span>
 )
 ```
 
@@ -375,6 +389,43 @@ const Mentor = ({ name }) => (
 > Open the `my-hotel` React application once again
 > 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
 > 2. Edit the `SpecialDeals` component so that the array is passed as a prop
+
+## Prop Types
+
+Previously we looked at how our `Mentor` component is showing the mentors names from a prop. It takes an array as a `mentors` prop and uses a `map` function to convert those names into React elements.
+
+What happens if we change the code that uses `Mentor` to pass something that is not an array? ([interactive example](https://stackblitz.com/edit/react-rpsejy?file=index.js))
+
+```js
+const HelloMentor = () => (
+  <div>
+    <Greeting />
+    <Mentor mentors="Kash" />
+  </div>
+)
+```
+
+Now we're just passing a string as the `mentors` prop. Can you explain why we get an error running this code? (Hint: read the error message carefully)
+
+We're passing the wrong *type* to the `Mentor` component. The component is expecting an array, but we're passing a string, which does not have a `map` method. PropTypes are a way to prevent this problem ([interactive example](https://stackblitz.com/edit/react-eqcedt?file=Mentor.js), open the console):
+
+```js
+Mentor.propTypes = {
+  mentors: PropTypes.array
+}
+```
+
+Now we are declaring that our `Mentor` component takes a `mentors` prop and it must be an array. If we try to pass a `mentors` props with a different type (e.g. string, number, object), then you will see an error in the console. This gives you a hint where you are using the wrong type.
+
+### Installing PropTypes
+
+PropTypes used to be included in React itself, but was split out into a separate package. If you want to use PropTypes you must first run `npm install prop-types` from the command line. Then at the top of every file that you want to use PropTypes you need to import it:
+
+```js
+import PropTypes from 'prop-types'
+```
+
+The official documentation has more information on how to use PropTypes [here](https://reactjs.org/docs/typechecking-with-proptypes.html).
 
 #### Credits
 

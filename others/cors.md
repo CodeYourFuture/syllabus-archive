@@ -14,7 +14,7 @@ If you are creating a website (let's call it awesome-cyf-website.com). This webs
 
 If I am a hacker creating a website (let's call it evil.com), and I make a request to your website - from evil.com to awesome-cyf-website.com - then you can't trust that request. You do not know or control what my website is doing. I could be stealing data, hacking your users or many other evil things.
 
-To prevent this, browsers follow a rule called the Same-Origin policy. This means that JavaScript running on a website can only make a request to the same *origin* as the current page.
+To prevent this, browsers follow a rule called the Same-Origin policy. This means that JavaScript running on a website can only make a request to the exactly the same *origin* as the current page.
 
 ### What is an origin?
 

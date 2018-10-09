@@ -38,6 +38,7 @@
 * [Useful links](useful-links.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
+* [CORS](/others/cors.md)
 * [Useful Tools](/others/useful-tools.md)
 
 ### Workshops and other resources

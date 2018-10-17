@@ -43,7 +43,7 @@ HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags o
     <h1>Learning HTML</h1>
     <p>
         <span class="author">Author:</span>
-        <a href="http://codeyourfuture.co">Code Your Future</a>
+        <a href="http://codeyourfuture.io">Code Your Future</a>
     </p>
     <p>Get to know the HTML basics.</p>
     <a href="http://html5rocks.com">Read Article</a>
@@ -54,11 +54,11 @@ HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags o
 
 In today's class, we will begin adapting styles on this example website. We'll review some of the HTML/CSS basics you already encountered during your application process and learn some new techniques. By the end of the third lesson, we will have worked together to improve the example site on the left so that it looks like the screenshot on the right.
 
-<a href="assets/screenshot-start.png" target="blank">
-  <img src="assets/screenshot-start.png" style="border: 1px solid #bababa; width: 48%; max-height: 293px">
+<a href="../assets/screenshot-start.png" target="blank">
+  <img src="../assets/screenshot-start.png" style="border: 1px solid #bababa; width: 48%; max-height: 293px">
 </a>
-<a href="assets/screenshot-complete.png" target="blank">
-  <img src="assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
+<a href="../assets/screenshot-complete.png" target="blank">
+  <img src="../assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
 </a>
 
 The example website you'll begin working with is available [on this GitHub repository](https://github.com/Code-Your-Future/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.

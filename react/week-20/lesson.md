@@ -274,10 +274,9 @@ class Counter extends Component {
   }
 
   increment = () => {
-    let currentCount = this.state.count
-    this.setState({
-      count: ++currentCount
-    })
+    this.setState(prevState => ({
+      count: prevState.count + 1
+    }));
   }
 
   render() {
@@ -291,7 +290,9 @@ class Counter extends Component {
 }
 ```
 
-There's a couple of things happening here. We've added an click handler to the button, which will call the `increment` function when the button gets clicked. When the `increment` function is called, it gets the current value of the count from `this.state`. Then it calls `this.setState` function with an incremented count.
+There's a couple of things happening here. We've added an click handler to the button, which will call the `increment` function when the button gets clicked. When the `increment` function is called, it calls `this.setState` function and passes in a reference to the current state (prevState), which it then increases by one.
+
+When we are calculating the next value for any state item based off it's existing value, we must always pass another function into `this.setState` before returning an object. Because React can delay the execution of `this.setState`, we use `prevState` to take a copy of the current state, ensuring that we are updating the current value and not an outdated one.
 
 `this.setState` is a special function provided by React's `Component`, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
 

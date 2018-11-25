@@ -296,7 +296,7 @@ When we are calculating the next value for any state item based off it's existin
 
 `this.setState` is a special function provided by React's `Component`, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
 
-Resetting the counter back to 0 is slightly easier. Because we are not calculating the new state value based off of an existing value, we do not need to pass a reference to the "previous" state. As a result the syntax looks a little cleaner and is simpler to understand, you are much more likely to use this syntax when updating state moving forward. Take a look at the `reset` function to see how this is done ((interactive example] (https://stackblitz.com/edit/react-q9jdxb)):
+Resetting the counter back to 0 is slightly easier. Because we are not calculating the new state value based off of an existing value, we do not need to pass a reference to the "previous" state. As a result the syntax looks a little cleaner and is simpler to understand, you are much more likely to use this syntax when updating state moving forward. Take a look at the `reset` function to see how this is done ([interactive example] (https://stackblitz.com/edit/react-q9jdxb)):
 
 ```js
 class Counter extends Component {
@@ -328,7 +328,7 @@ class Counter extends Component {
 }
 ```
 
-Now that we have refactored to use React state, we can easily add multiple counters ([interactive example](https://stackblitz.com/edit/react-678rgd)):
+Now that we have refactored to use React state, we can easily add multiple counters (interactive example]https://stackblitz.com/edit/react-678rgd):
 
 ```js
 class App extends Component {

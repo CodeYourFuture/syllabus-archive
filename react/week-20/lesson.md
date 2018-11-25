@@ -321,6 +321,7 @@ class Counter extends Component {
       <div>
         Count: {this.state.count}
         <button onClick={this.increment}>Click me!</button>
+        <button onClick={this.reset}>Reset me!</button>
       </div>
     )
   }

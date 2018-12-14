@@ -54,4 +54,7 @@
 
 * [Contributing](CONTRIBUTING.md)
 * [Lesson Template](/others/lesson-template.md)
-* [HTML/CSS Mentors guide](/html-css/mentor-guide.md)
+* HTML/CSS
+  * [Mentors guide](/html-css/mentor-guide.md)
+* JavaScript I
+  * [Week 4 - Hello JavaScript](/js-core/week-04/mentors.md)

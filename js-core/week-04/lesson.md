@@ -2,6 +2,8 @@
 
 # JavaScript Core I - 1
 
+[Mentor Notes](./mentors.md)
+
 **What we will learn today?**
 
 * [Install Node](#install-node)

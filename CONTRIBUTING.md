@@ -34,7 +34,7 @@ on the individual class. Also Point them to the version on your branch.
 
 A Gitbook for each branch is published automatically on each push:
 
-* [Master Syllabus](https://code-your-future.github.io/syllabus-master/)
+* [Master Syllabus](https://codeyourfuture.github.io/syllabus-master/)
 
 For your convenience, you can run Gitbook locally
 

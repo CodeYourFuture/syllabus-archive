@@ -70,7 +70,7 @@ bullets under the main README.
 
 ## A Lesson template
 
-Please check the [lesson template](lesson-template.md) and use it as a starting
+Please check the [lesson template](https://codeyourfuture.github.io/syllabus-london/others/lesson-template.html) and use it as a starting
 point for your new lessons.
 
 Each lesson should follow that format - starting with **what we will learn

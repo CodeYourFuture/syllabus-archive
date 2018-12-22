@@ -27,8 +27,8 @@ Mentors should point the students to the individual classes on Github (not the
 gitbook links) to allow them to get familiar with Git and Github, and to focus
 on the individual class. Also Point them to the version on your branch.
 
-* [London](https://code-your-future.github.io/syllabus-london/)
-* [Scotland](https://code-your-future.github.io/syllabus-scotland/)
+* [London](https://codeyourfuture.github.io/syllabus-london/)
+* [Scotland](https://codeyourfuture.github.io/syllabus-scotland/)
 
 ## Publish the Gitbook
 

@@ -376,14 +376,6 @@ Or calculating new values:
 <div>{props.counter + 1}</div>
 ```
 
-Components are just regular functions and props are just regular variables, so we can use destructuring to pull variables out of props. This can make our components even shorter:
-
-```js
-const Greeting = ({ greeting }) => (
-  <span>{greeting}</span>
-)
-```
-
 > **Exercise:**
 > Open the `my-hotel` React application once again
 > 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop

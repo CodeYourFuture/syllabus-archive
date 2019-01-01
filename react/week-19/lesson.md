@@ -30,7 +30,7 @@ Why has it become so popular?
 
 React heavily relies on a concept called "components". Components are like small Lego blocks for designing and developing user interfaces. They can be stuck together in different ways to create new UI.
 
-Let's have a look at an example: the GitHub header. What are logical "pieces" of UI? What could be a component?
+Let's have a look at an example: the GitHub header. What are the logical "pieces" of UI? What could be a component?
 
 ![GitHub header](../assets/components.png)
 
@@ -53,7 +53,7 @@ There are no hard & fast rules for making components. UIs can be split up into c
 
 ## Rendering with React
 
-Remember how annoying it was to manage the DOM yourself in [week 8](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript apis for updating the DOM are quite long and difficult to remember. React makes this easier by manipulating each DOM element itself, instead of you doing it manually. You give React a "description" of the DOM that you want and it will update the DOM for you. React "abstracts" away the management of the DOM.
+Remember how annoying it was to manage the DOM yourself in [our previous lesson](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript APIs for updating the DOM are quite long and difficult to remember. React makes this easier by manipulating each DOM element itself, instead of you doing it manually. You give React a "description" of the DOM that you want and it will update the DOM for you. React *abstracts* away the management of the DOM.
 
 Let's take a look at an example. We are going to walk through how to render a `<div>` with the text "Hello World" within it.
 
@@ -107,7 +107,7 @@ Now let's convert to using React ([interactive version](http://jsbin.com/recegad
 
 As you can see, React is already helping us a bit by cleaning up some of the verbose vanilla JS APIs. However in a typical React application you would still use a *lot* of the `React.createElement` function. To improve the developer experience the React team developed **JSX**.
 
-JSX is a simple syntax "sugar" that *looks* like HTML, but is actually converted to the `React.createElement` function when you run it.
+JSX is a simple syntax *sugar* that looks like HTML, but is actually converted to the `React.createElement` function when you run it.
 
 Using JSX ([interactive version](http://jsbin.com/gekahexige/edit?html,output)):
 
@@ -212,7 +212,7 @@ If we want to do this, we can still use arrow functions but we can't use the imp
 
 #### Component Composition
 
-Components get more powerful when you combine (or "compose") several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
+Components get more powerful when you combine (or *compose*) several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
 
 ```js
 const Greeting = () => (

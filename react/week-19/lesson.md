@@ -14,7 +14,6 @@
 - [Importing/Exporting Components](#importingexporting-components)
 - [Making an Argument for Props](#making-an-argument-for-props)
 - [What Are Props?](#what-are-props)
-- [Prop Types](#prop-types)
 
 ## What is React?
 
@@ -389,43 +388,6 @@ const Greeting = ({ greeting }) => (
 > Open the `my-hotel` React application once again
 > 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
 > 2. Edit the `SpecialDeals` component so that the array is passed as a prop
-
-## Prop Types
-
-Previously we looked at how our `Mentor` component is showing the mentors names from a prop. It takes an array as a `mentors` prop and uses a `map` function to convert those names into React elements.
-
-What happens if we change the code that uses `Mentor` to pass something that is not an array? ([interactive example](https://stackblitz.com/edit/react-rpsejy?file=index.js))
-
-```js
-const HelloMentor = () => (
-  <div>
-    <Greeting />
-    <Mentor mentors="Kash" />
-  </div>
-)
-```
-
-Now we're just passing a string as the `mentors` prop. Can you explain why we get an error running this code? (Hint: read the error message carefully)
-
-We're passing the wrong *type* to the `Mentor` component. The component is expecting an array, but we're passing a string, which does not have a `map` method. PropTypes are a way to prevent this problem ([interactive example](https://stackblitz.com/edit/react-eqcedt?file=Mentor.js), open the console):
-
-```js
-Mentor.propTypes = {
-  mentors: PropTypes.array
-}
-```
-
-Now we are declaring that our `Mentor` component takes a `mentors` prop and it must be an array. If we try to pass a `mentors` props with a different type (e.g. string, number, object), then you will see an error in the console. This gives you a hint where you are using the wrong type.
-
-### Installing PropTypes
-
-PropTypes used to be included in React itself, but was split out into a separate package. If you want to use PropTypes you must first run `npm install prop-types` from the command line. Then at the top of every file that you want to use PropTypes you need to import it:
-
-```js
-import PropTypes from 'prop-types'
-```
-
-The official documentation has more information on how to use PropTypes [here](https://reactjs.org/docs/typechecking-with-proptypes.html).
 
 #### Credits
 

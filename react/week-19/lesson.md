@@ -140,19 +140,19 @@ As you can see, this is much easier to read than both the straight `React.create
 
 ## Let's Create A React App
 
-The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). We will use it for the rest of the module.
+The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). It sets up files like we saw in the previous example, so that you don't have to.
 
 > **Exercise**: Install & set up a Create React App by following the steps below
 
 ```
 npm install -g create-react-app
 
-create-react-app my-hotel
-cd my-hotel/
+create-react-app pokedex
+cd pokedex
 npm start
 ```
 
-Notice that create-react-app has created a bunch of folders for you in the `my-hotel` directory.
+The last command should open a web browser for you. This shows the application that we are going to be working on. Open the `pokedex` directory in your editor. Notice that create-react-app has created a bunch of folders for you. We will be working with the `pokedex` application for the rest of the module.
 
 ## React Components
 
@@ -176,6 +176,57 @@ There are 3 important parts in this code:
 1. First we import `React`. This is important because JSX is converted to `React.createElement` calls. If the `React` variable is undefined then this will fail
 2. We create a React component called `HelloWorld`
 3. We *render* the `HelloWorld` component into a `div` with the id of `root`
+
+> **Exercise**:
+> Using the `pokedex` React app that you just created and open the `src/App.js` file
+> 1. Delete everything in the file except the line containing `export default App`. You should see an error in your terminal and in your web browser - don't panic! We're going to remake the `App` component ourselves
+> 2. Import React variable from the React package
+> 3. Create a function named `App`, which will be our component
+> 4. Within the `App` function, return a `<h1>` element with the text "Welcome to the Pokedex". What do you see in your web browser?
+> 5. Create a `<div>` element that *wraps around* the `<h1>` you just created
+> 6. Below the `<h1>` element (but within the `<div>`), create an `<img>` element. Then make it's `src` attribute equal to `https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png`. What do you expect to see in your web browser?
+> 5. Now create a `<header>` element to wrap both the `<h1>` element **and** the `<img>` element
+
+#### Component Composition
+
+A component can be combined with another component so that both are rendered. This is sometimes called *composition* ([interactive example](https://codesandbox.io/s/0x4wonqn00)):
+
+```js
+function Greeting() {
+  return (
+    <span>Hello</span>
+  )
+}
+
+function Mentor() {
+  return (
+    <span>Ali</span>
+  )
+}
+
+function HelloWorld() {
+  return (
+    <div>
+      <Greeting />
+      <Mentor />
+    </div>
+  )
+}
+```
+
+In the `HelloWorld` component we are using a reference to the `Greeting` and `Mentor` components. React reads these references when rendering `HelloWorld` and so it renders the `Greeting` and `Mentor` *child* components.
+
+We are also using some shorter syntax within the `HelloWorld` component. `<Greeting />` is just a shorter way of writing `<Greeting></Greeting>`, which is useful if we don't need to put anything inside the `Greeting` component.
+
+Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `CamelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
+
+> **Exercise**:
+> Using the `pokedex` React app that you created earlier and open the `src/App.js` file
+> 1. Create a new function named `Logo`
+> 2. Copy `<header>` element and it's contents and paste into the `Logo` component
+> 3. Replace the `<header>` element in the `App` component with `Heading`
+> 4. Create a new component function named `BestPokemon` and return a `<p>` element with some text saying which is your favourite Pokemon (e.g. "My favourite Pokemon is Squirtle")
+> 5. *Render* your new `BestPokemon` component below the `Logo` component within the `App` component
 
 #### Arrow Functions for shorter syntax
 
@@ -209,31 +260,25 @@ const HelloWorld = () => (
 
 If we want to do this, we can still use arrow functions but we can't use the implicit return.
 
-#### Component Composition
-
-Components get more powerful when you combine (or *compose*) several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
-
-```js
-const Greeting = () => (
-  <span>Hello</span>
-)
-const Mentor = () => (
-  <span>Ali</span>
-)
-
-const HelloWorld = () => (
-  <div>
-    <Greeting />
-    <Mentor />
-  </div>
-)
-```
-
-Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `CamelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
+> **Exercise**:
+> Using the `pokedex` React app that you created earlier and open the `src/App.js` file
+> Convert the `Logo` and `BestPokemon` functions into an arrow functions
 
 ## Embedding JS into JSX
 
-Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
+So far all of the components we have looked at haven't been able to change - they are *hard-coded*. But this doesn't make very interesting websites, we want to be able to use variables with different data. We can insert variables (and some other things) into our React components.
+
+Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://codesandbox.io/s/l910pqnjql)):
+
+```js
+const Greeting = () => {
+  const greetingWord = 'Hello'
+  return (
+    <span>{greetingWord}</span>
+  )
+}
+```
+Now instead of hard-coding the greeting in the `Greeting` component, we are using a variable. Remember that everything between the curly braces is just regular JavaScript. So we can use more than just variables ([interactive example](https://stackblitz.com/edit/react-byupse)):
 
 ```js
 const Mentor = () => {
@@ -279,17 +324,18 @@ const List = () => (
 )
 ```
 
-Here we are using `Array.map` to turn an array of strings into an array of components. We are using a "real" map function, not just special syntax like `{{> each}}` from Handlebars.
+Here we are using `Array.map` to turn an array of strings into an array of components.
 
 > **Exercise**:
-> Using the `my-hotel` React app that you created earlier, edit `src/App.js` to create a hotel welcome page.
-> 1. Change the title to say "Welcome to CYF Hotel" and change the `img` to have `src="https://codeyourfuture.io/static/media/cyf_brand.fbcea877.png"`
-> 2. Copy the content of the `header` to a new component called `Logo`
-> 3. Replace the `header` with a usage of the new `Logo` component
-> 4. Replace the `p` with a message saying that there are bookings available for today's date (hint `new Date().toLocaleDateString()`)
-> 5. Extract the `p` to a component named `BookingsMessage`
-> 6. Create a new component `SpecialDeals` and render an empty `div`
-> 7. Within the `SpecialDeals` components, use an array containing some special deal strings and render each one as a `<p>` within the `div`
+> Using the `pokedex` React app that you created earlier and open the `src/App.js` file
+> 1. Inside the `Logo` component create a new variable called `appName` and assign it to `"Pokedex"`
+> 2. Now replace the hard-coded app name with `{appName}`. What do you see in your web browser? What would you do if you wanted to change the app name?
+> 3. Create a new component named `TodaysDate`. Within this component return a `<p>` with the text "Today's date is:" (we're going to fill in the date in the next step)
+> 4. Create a variable named `date` within the `TodaysDate` component, and assign it today's date (hint: `new Date().toLocaleDateString()`). Finally render the `date` variable after the text
+> 5. Render the `TodaysDate` component within the `App` component (below `BestPokemon`)
+> 6. Within the `BestPokemon` component, create a variable named `pokemonNames` and assign it to an array with some Pokemon names (e.g. `['Squirtle', 'Bulbasaur', 'Charmander']`)
+> 7. Change the `BestPokemon` component to return a `<ul>` element instead of a `<p>` element
+> 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name can return a `<li>` element (hint: look at the mentors list example above)
 
 ## Importing/Exporting Components
 
@@ -320,8 +366,14 @@ export default Greeting
 The convention is to name component files the exactly same as the component (including the capital letter).
 
 > **Exercise**:
-> Using the `my-hotel` app, edit `src/App.js` to extract the `Logo`, `BookingsMessage` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
-> Hint: you will need to import React
+> Using the `pokedex` React app that you created earlier
+> 1. Create a new file within the `src` directory named `Logo.js`
+> 2. Copy and paste the `Logo` component from `App.js` into `Logo.js`
+> 3. Remember to add `import React from 'react'` at the top of `Logo.js`
+> 4. Export the `Logo` component from `Logo.js` (hint: look at the `Greeting` example above)
+> 5. Delete the old `Logo` component from `App.js`
+> 6. Import the `Logo` component into `App.js` (hint: look at the `HelloMentor` example above)
+> 7. Repeat this process with the `BestPokemon` component. What do you think the file should be called?
 
 ## Making an Argument for Props
 
@@ -377,7 +429,7 @@ Or calculating new values:
 ```
 
 > **Exercise:**
-> Open the `my-hotel` React application once again
+> Open the `pokedex` React application once again
 > 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
 > 2. Edit the `SpecialDeals` component so that the array is passed as a prop
 

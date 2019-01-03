@@ -39,17 +39,25 @@ const HelloMentor = () => (
 
 ## Class Components
 
-So far we have looked at components which are just functions (which are sometimes called *stateless functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-esgmuh?file=Greeting.js)):
+So far we have looked at components which are just functions (which are sometimes called *functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-esgmuh?file=Greeting.js)):
 
 ```js
 import React, { Component } from 'react'
 
-export default class Greeting extends Component {
+// Class component
+class Greeting extends Component {
   render() {
     return (
       <div>Hello</div>
     )
   }
+}
+
+// Functional component
+const Greeting = () => {
+  return (
+    <div>Hello</div>
+  )
 }
 ```
 
@@ -66,6 +74,21 @@ class Mentor extends Component {
 ```
 
 So when do we use the `class` keyword and when do we use function components? Class components have special super powers called state and lifecycle (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of state or lifecycle.
+
+Here are the steps to follow to convert from a functional component into a class component:
+
+1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react'`
+2. Create a new `class` that extends the component: `class MyComponentName extends Component {}`
+3. Inside the class, create a render method: `render() {}`
+4. Copy and paste the contents of the functional component into the `render` method
+5. Replace any references to `props` with `this.props`
+6. Delete the old functional component
+
+> **Exercise:**
+> Open the `pokedex` React application that you created last week
+> 1. Convert the `Logo` component from a functional component into a class component
+> 2. Convert the `TodaysDate` component into a class component
+> 3. Convert the `BestPokemon` component into a class component
 
 ### Class Methods
 
@@ -87,8 +110,21 @@ class Hello extends Component {
 }
 ```
 
+Notice how we use a slightly different syntax for the `sayHello` method than the `render` method? There is a reason for this, but it is quite complicated and mostly irrelevant. The rule of thumb is to always use this syntax:
+
+```js
+methodName = () => {
+  // ...
+}
+```
+**Except** for the `render` method (and a handful of others which we'll talk about later).
+
 > **Exercise:**
-> Open the `my-hotel` React application that your created last week and convert the `BookingsMessage` component to a class component
+> Open the `pokedex` React application and open the `Logo.js` file
+> 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
+> 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
+> 3. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above)
+> 4. In your web browser, try clicking on the image. What do you see in the JavaScript console?
 
 ## Passing Functions as Props
 
@@ -137,10 +173,12 @@ const FancyButton = (props) => (
 ```
 
 > **Exercise:**
-> Open the `my-hotel` React application once again
-> 1. Add a `logWhenClicked` method to the `App` class component
-> 2. Pass the `logWhenClicked` method as a prop to the `Logo` component
-> 3. Call the function when the `<img>` is clicked (Hint: `onClick`)
+> Open the `pokedex` React application
+> 1. Open the `Logo.js` component and copy the `logWhenClicked` method. Then delete it
+> 2. Then change the `onClick` handler to `this.props.handleClick`
+> 3. Paste the `logWhenClicked` method into the component in `App.js`
+> 4. Then pass the `logWhenClicked` method as a prop to the `Logo` component (hint: look at the `App` example above)
+> 5. Try clicking the image in your web browser again. Does it still work? Can you explain why to the person sitting next to you?
 
 ## Reacting to Changes
 

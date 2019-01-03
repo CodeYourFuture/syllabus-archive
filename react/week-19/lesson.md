@@ -317,9 +317,11 @@ const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
 
 const List = () => (
   <ul>
-    {mentors.map((name) => (
-      <li>{name}</li>
-    ))}
+    {mentors.map((name) => {
+      return (
+        <li>{name}</li>
+      )
+    })}
   </ul>
 )
 ```
@@ -373,7 +375,7 @@ The convention is to name component files the exactly same as the component (inc
 > 4. Export the `Logo` component from `Logo.js` (hint: look at the `Greeting` example above)
 > 5. Delete the old `Logo` component from `App.js`
 > 6. Import the `Logo` component into `App.js` (hint: look at the `HelloMentor` example above)
-> 7. Repeat this process with the `BestPokemon` component. What do you think the file should be called?
+> 7. Repeat this process with the `BestPokemon` and `TodaysDates` components. What do you think the files should be called?
 
 ## Making an Argument for Props
 
@@ -381,11 +383,11 @@ What's the problem with our `HelloMentor` component above? Hint: imagine what ou
 
 Our components are very inflexible. They cannot say hello to other mentors, and they can only say "hello", not "hi" or "greetings". If our boss changes their mind, for example if they wanted to say hello to a different mentor, we would have to to change the code too. This is easy in our tiny application but for "real" applications this might be more difficult.
 
-Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what "props" are for.
+Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what *props* are for.
 
 ## What Are Props?
 
-Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props in a component.
+Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props within a component.
 
 First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=index.js)):
 
@@ -429,13 +431,23 @@ Or calculating new values:
 ```
 
 > **Exercise:**
-> Open the `pokedex` React application once again
-> 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
-> 2. Edit the `SpecialDeals` component so that the array is passed as a prop
+> Using the `pokedex` React app that you created earlier
+> 1. Open the `App.js` file
+> 2. Pass a prop `appName="Pokedex"` to the `Logo` component
+> 3. Now open the `Logo.js` file
+> 4. Delete the `appName` variable. What do you see in your web browser? Why?
+> 5. Change the `Logo` function to access the first argument and call it `props`. Use `console.log` to inspect the `props` variable
+> 6. Change the usage of `appName` in the `<h1>` to be `props.appName` instead. Does this fix the problem? Why?
+> 7. Now open the `BestPokemon.js` file
+> 8. Copy the `pokemonNames` variable and then delete it
+> 9. Paste the `pokemonNames` variable into `App.js`
+> 10. Pass the `pokemonNames` variable as a prop to `BestPokemon`
+> 11. In the `BestPokemon.js` file replace the existing usage of `pokemonNames` with the `pokemonNames` prop. You should still see the Pokemon names in your web browser
+> 12. **(STRETCH GOAL)** Repeat the process with the `date` variable in the `TodaysDate.js` file
 
 #### Credits
 
-Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course on Egghead.io. It's a free course, so check it out :)
+Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course.
 
 # Homework
 

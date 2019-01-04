@@ -332,9 +332,9 @@ Here we are using `Array.map` to turn an array of strings into an array of compo
 > Using the `pokedex` React app that you created earlier and open the `src/App.js` file
 > 1. Inside the `Logo` component create a new variable called `appName` and assign it to `"Pokedex"`
 > 2. Now replace the hard-coded app name with `{appName}`. What do you see in your web browser? What would you do if you wanted to change the app name?
-> 3. Create a new component named `TodaysDate`. Within this component return a `<p>` with the text "Today's date is:" (we're going to fill in the date in the next step)
-> 4. Create a variable named `date` within the `TodaysDate` component, and assign it today's date (hint: `new Date().toLocaleDateString()`). Finally render the `date` variable after the text
-> 5. Render the `TodaysDate` component within the `App` component (below `BestPokemon`)
+> 3. Create a new component named `CaughtPokemon`. Within this component return a `<p>` with the text "Caught 0 Pokemon on" (we're going to fill in today's date in the next step)
+> 4. Create a variable named `date` within the `CaughtPokemon` component, and assign it today's date (hint: `new Date().toLocaleDateString()`). Finally, render the `date` variable after the text
+> 5. Render the `CaughtPokemon` component within the `App` component (below `BestPokemon`)
 > 6. Within the `BestPokemon` component, create a variable named `pokemonNames` and assign it to an array with some Pokemon names (e.g. `['Squirtle', 'Bulbasaur', 'Charmander']`)
 > 7. Change the `BestPokemon` component to return a `<ul>` element instead of a `<p>` element
 > 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name can return a `<li>` element (hint: look at the mentors list example above)
@@ -375,7 +375,7 @@ The convention is to name component files the exactly same as the component (inc
 > 4. Export the `Logo` component from `Logo.js` (hint: look at the `Greeting` example above)
 > 5. Delete the old `Logo` component from `App.js`
 > 6. Import the `Logo` component into `App.js` (hint: look at the `HelloMentor` example above)
-> 7. Repeat this process with the `BestPokemon` and `TodaysDates` components. What do you think the files should be called?
+> 7. Repeat this process with the `BestPokemon` and `CaughtPokemon` components. What do you think the files should be called?
 
 ## Making an Argument for Props
 
@@ -443,7 +443,7 @@ Or calculating new values:
 > 9. Paste the `pokemonNames` variable into `App.js`
 > 10. Pass the `pokemonNames` variable as a prop to `BestPokemon`
 > 11. In the `BestPokemon.js` file replace the existing usage of `pokemonNames` with the `pokemonNames` prop. You should still see the Pokemon names in your web browser
-> 12. **(STRETCH GOAL)** Repeat the process with the `date` variable in the `TodaysDate.js` file
+> 12. **(STRETCH GOAL)** Repeat the process with the `date` variable in the `CaughtPokemon.js` file
 
 #### Credits
 

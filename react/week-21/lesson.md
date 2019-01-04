@@ -99,20 +99,12 @@ class Lifecycle extends Component {
 > **Exercise:**
 > Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file
 > 1. Add a `constructor` method to the `CaughtPokemon` component. Within this method add a `console.log('constructor')`
-> 2. Add a `shouldComponentUpdate` method to the `CaughtPokemon` component. Within this method add a `console.log('shouldComponentUpdate')`. Then return `true` from this method
-> 3. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
-> 4. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
-> 5. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
-> 6. The `componentWillUnmount` method will never be called. Can you explain why?
-> 7. Change the `shouldComponentUpdate` method to return `false` instead. Now try clicking the button in your web browser. Can you explain what happens now? (change it back to return `true` after you are done!)
+> 2. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
+> 3. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
+> 4. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
+> 5. The `componentWillUnmount` method will never be called. Can you explain why?
 
 We'll now focus on a few of the lifecycle hooks and see how they are used.
-
-### `shouldComponentUpdate`
-
-This method runs when a component's props have changed, which would normally trigger a re-render. I say normally because this lifecycle hook lets us control whether the component should update (or re-render). If you want the component to render, then the method should return `true`. If not, then it should return `false`.
-
-Why would we want to prevent a component from re-rendering? In some circumstances, it can be used to improve performance. If you have a component that is re-rendering *a lot* and it doesn't really need to, then returning false from `shouldComponentUpdate` is a good way to improve performance.
 
 ### `componentDidMount` and `componentWillUnmount`
 

@@ -8,7 +8,6 @@
 - [Unmounting](#unmounting)
 - [The Circle of Life](#the-circle-of-life)
 - [Fetching Data in React](#fetching-data-in-react)
-- [Default Props](#default-props)
 - [Refs](#refs)
 
 ## Recap

@@ -80,7 +80,7 @@ We can hook into this lifecycle through special component methods that are added
 
 This diagram shows the React component lifecycle:
 
-![React component lifecycle](../assets/lifecycle.jpg)
+![React component lifecycle](../assets/lifecycle.png)
 
 Let's look at how we can use one of the lifecycle methods ([interactive example](https://stackblitz.com/edit/react-sf6spn)):
 

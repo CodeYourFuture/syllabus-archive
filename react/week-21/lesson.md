@@ -174,75 +174,76 @@ export default Clock
 
 Most web applications will load data from the server. How do we do this in React? The component lifecycle is very important - we don't want to be calling our API at the wrong time, or multiple times with the same data!
 
-If we tried to fetch data in our `render` method, it would make a request every time props or state changed. This would create lots of unnecessary requests. As we saw above, `componentDidMount` is called only once when the component is first rendered and so it is an ideal place for making requests. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-dyupps?file=index.js)):
+If we tried to fetch data in our `render` method, it would make a request every time props or state changed. This would create lots of unnecessary requests. As we saw above, `componentDidMount` is called only once when the component is first rendered and so it is an ideal place for making requests. Let's look at an example ([interactive example](https://codesandbox.io/s/4rkovwq0kw)):
 
 ```js
-class PokemonFetcher extends Component {
+class MartianPhotoFetcher extends Component {
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.id}`)
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`)
   }
+
   render() {
-    // const name = ???
-    return <div>Pokemon name: {name}</div>
+    // We don't don't what the img src is when we render :(
+    return <img src={src} />
   }
 }
 ```
 
-This example isn't very useful! We can't use the data returned from the server in `render` because the request is asynchronous :( We need React to re-render once the request is resolved - a perfect use for state! Let's look at an example ([interactive example](https://stackblitz.com/edit/react-e6rvtz))
+This example isn't very useful! We can't use the data returned from the server in `render` because the request is asynchronous :( We need React to re-render once the request is resolved - a perfect use for state! Let's look at an example ([interactive example](https://codesandbox.io/s/5kk53yx6ll))
 
 ```js
-class PokemonFetcher extends Component {
+class MartianPhotoFetcher extends Component {
   constructor(props) {
     super(props)
-    this.state = { name: null }
+    this.state = {
+      imgSrc: null
+    }
   }
-
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ name: data.name })
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          imgSrc: data.photos[0].img_src
+        })
       })
   }
-
   render() {
-    return <div>Pokemon name: {this.state.name}</div>
+    return <img src={this.state.imgSrc} />
   }
 }
 ```
 
-Now we can see the name of the Pokemon that we fetched from the server!
+Now we can see the Martian photo that we fetched from the server!
 
-However we have a bit of a problem - when we first render the component, we don't have the Pokemon's name yet. We first have to initialise it to `null` in the constructor. This shows us that we're missing something from our UI - a *loading status*.
+However we have a bit of a problem - when we first render the component, we don't have the photo `src` yet. We first have to initialise it to `null` in the constructor. This shows us that we're missing something from our UI - a *loading status*.
 
 Let's look at showing a different UI when the request is loading ([interactive example](https://stackblitz.com/edit/react-j86faz)):
 
 ```js
-class PokemonFetcher extends Component {
+class MartianPhotoFetcher extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isLoading: true,
-      name: null
+      imgSrc: null
     }
   }
-
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.id}`)
-      .then((res) => res.json())
-      .then((data) => {
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`)
+      .then(res => res.json())
+      .then(data => {
         this.setState({
           isLoading: false,
-          name: data.name
+          imgSrc: data.photos[0].img_src
         })
       })
   }
-
   render() {
     if (this.state.isLoading) {
-      return <div>Loading... 🤔</div>
+      return <span>Loading... 👽</span>
     } else {
-      return <div>Pokemon name: {this.state.name}</div>
+      return <img src={this.state.imgSrc} />
     }
   }
 }
@@ -254,9 +255,9 @@ Here are the steps that the component takes:
 - In `render`, show a loading message because `isLoading` is true
 - Once rendered, `componentDidMount` will trigger the API request
 - When the request resolves, we set the `isLoading` state to false and set the data that we want
-- Changing state triggers a re-render, and because `isLoading` is false we render out the Pokemon's name
+- Changing state triggers a re-render, and because `isLoading` is false we render the Martian photo
 
-We can still improve our component! What happens if we make a request that fails? Our request will error, but we won't show the error in the browser. Let's see how we can fix it ([interactive example](https://stackblitz.com/edit/react-cukrzr)).
+We can still improve our component! What happens if we make a request that fails? Our request will error, but we won't show the error in the browser. Let's see how we can fix it ([interactive example](https://codesandbox.io/s/6v9qo90r2r)).
 
 First we have to deal with annoying quirk of `fetch` - it doesn't reject the promise on HTTP errors. We can fix this by adding another `.then` before we convert to JSON:
 
@@ -286,11 +287,11 @@ Now we can check if there's an error in state and render out an error message:
 ```js
 render() {
   if (this.state.isLoading) {
-    return <div>Loading... 🤔</div>
-  } else if (this.state.err) {
-    return <div>Something went wrong 😭</div>
+    return <span>Loading... 👽</span>
+  } else if (this.state.error) {
+    return <span>Something went wrong 😭</span>
   } else {
-    return <div>Pokemon name: {this.state.name}</div>
+    return <img src={this.state.imgSrc} />
   }
 }
 ```

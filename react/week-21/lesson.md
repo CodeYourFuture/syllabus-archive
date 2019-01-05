@@ -297,10 +297,22 @@ render() {
 ```
 
 > **Exercise:**
-> Open your `my-hotel` application again
-
-> Convert the `SpecialDeals` component to fetch data from http://www.mocky.io/v2/5a9ad31d3400002c00a39a3c.
-> Make sure that you include a loading state and error handling.
+> Open the `pokedex` React application again and open the `src/BestPokemon.js` file
+> 1. If you haven't already, convert the `BestPokemon` component to a class component
+> 2. Create a `constructor` method (hint: remember to call `super(props)`)
+> 3. Set the initial state to have a key named `pokemonNames` that is assigned to `null`
+> 4. Add a `componentDidMount` method to the component
+> 5. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do?
+> 6. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`)
+> 8. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`
+> 9. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`)
+> 10. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`)
+> 11. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it)
+> 12. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?
+> 13. Add an `isLoading` piece of state, which is initialised to `true`
+> 14. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
+> 15. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
+> 16. **(STRETCH GOAL)** Add some error handling which renders an error message
 
 ## Refs
 

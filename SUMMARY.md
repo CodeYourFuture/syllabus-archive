@@ -11,7 +11,7 @@
   * [Week 3 - Design frameworks, Naming patterns and Forms](/html-css/week-03/lesson.md) | [Homework](/html-css/week-03/homework.md)
 * [JavaScript I](/js-core/index.md)
   * [Week 4 - Hello JavaScript](/js-core/week-04/lesson.md) | [Homework](/js-core/week-04/homework.md)
-  * [Week 5 - Arrays](/js-core/week-05/lesson.md) | [Homework](/js-core/week-05/homework.md)
+  * [Week 5 - Conditionals and Arrays](/js-core/week-05/lesson.md) | [Homework](/js-core/week-05/homework.md)
   * [Week 6 - More Arrays](/js-core/week-06/lesson.md) | [Homework](/js-core/week-06/homework.md)
 * [JavaScript II](/js-core-2/index.md)
   * [Week 7 - Objects](/js-core-2/week-07/lesson.md) | [Homework](/js-core-2/week-07/homework.md)
@@ -38,6 +38,7 @@
 * [Useful links](useful-links.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
+* [CORS](/others/cors.md)
 * [Useful Tools](/others/useful-tools.md)
 
 ### Workshops and other resources
@@ -53,4 +54,7 @@
 
 * [Contributing](CONTRIBUTING.md)
 * [Lesson Template](/others/lesson-template.md)
-* [HTML/CSS Mentors guide](/html-css/mentor-guide.md)
+* HTML/CSS
+  * [Mentors guide](/html-css/mentor-guide.md)
+* JavaScript I
+  * [Week 4 - Hello JavaScript](/js-core/week-04/mentors.md)

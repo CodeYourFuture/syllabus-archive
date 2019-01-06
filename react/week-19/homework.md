@@ -1,4 +1,4 @@
-Complete user stories 1, 2 and 3 from the [cyf-hotel-react](https://github.com/CodeYourFuture/cyf-hotel-react) project
+Complete user stories 1, 2, 3, 4 and 5 from the [cyf-hotel-react](https://github.com/CodeYourFuture/cyf-hotel-react) project
 
 ### Prepare for the next class
 

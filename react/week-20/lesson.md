@@ -377,7 +377,7 @@ class Counter extends Component {
 
 Now we can count up as many times as we like! 
 
-So when do we need to use a callback function for `this.setState`? If we are computing the new state based on the old state, then we need to use a callback function. Otherwise we can just use an object.
+So when do we need to use a callback function for `this.setState`? If we are computing the new state based on the old state, then we need to use a callback function. Otherwise we can just use an object. This is because React can 'delay' `this.setState` executing for performance reasons. By using a callback function, we ensure that we are computing the new state with the correct version of the old state and not an outdated one.
 
 Let's recap what we've learnt about React state:
 

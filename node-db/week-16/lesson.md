@@ -187,7 +187,13 @@ What we have here:
 
 * For 'invoice_date_time' you must store the data in the form of a combination of date and time. It has a 'not null' constraint which means that you *have* to give a datetime when you insert data, it will refuse to let you insert an invoice without specifying invoice_date_time and refuse to let you explicitly give your invoice_date_time as null.
 
-**Note:** For the sake of simplicity we will be using the `YYYY-MM-DD` date format.
+<!-- ![postman-get-1](postman-get-1.png) -->
+<p align="center">
+  <img src="perfect-date.png" display="block" width="85%"/>
+</p>
+
+For the sake of simplicity we will be using the `YYYY-MM-DD` date format.
+
 
 Further reading on sqlite3 types  [here](https://www.sqlite.org/datatype3.html).
 

@@ -288,9 +288,10 @@ websites and see the differences between them and VS Code.
 
 During our classes, Students and Mentors will share their code with the rest of the class using a tool
 called [Airtame](https://airtame.com/) to present their laptop screen wirelessly to the projector.
-The instructions below were tested on Ubuntu. Installion may differ on OSX. To install Airtame:
+The instructions below were tested on Ubuntu only. Installation will differ on Mac OSX.
+To install Airtame:
 
-* Download the version for your Operating System (OS) [here](https://airtame.com/download/).
+* Download the Airtame version for Ubuntu [here](https://airtame.com/download/).
 * In the Terminal, navigate to the directory you downloaded the file. For example,
   if you downloaded Airtame to your `Downloads` directory:
   `$ cd ~/Downloads`
@@ -315,7 +316,7 @@ one or more missing libraries in your System. Check the error message and:
 * If it contains `libgconf` as part of the message, then execute the following comand:
   `$ sudo apt-get install libgconf2.0`
 
-For any other errors, contact the Mentors on Slack, including the error message you are facing.
+For any other errors, contact the Mentors on Slack, including the error message from the Terminal.
 
 ## Homework
 

@@ -8,7 +8,7 @@
 * [JavaScript I](/js-core/index.md)
   * [Week 1 - Hello JavaScript](/js-core/week-04/lesson.md) | [Homework](/js-core/week-04/homework.md)
   * [Week 2 - Conditionals and Arrays](/js-core/week-05/lesson.md) | [Homework](/js-core/week-05/homework.md)
-  * [Week 2 - More Arrays](/js-core/week-06/lesson.md) | [Homework](/js-core/week-06/homework.md)
+  * [Week 3 - More Arrays](/js-core/week-06/lesson.md) | [Homework](/js-core/week-06/homework.md)
 * [JavaScript II](/js-core-2/index.md)
   * [Week 4 - Objects](/js-core-2/week-07/lesson.md) | [Homework](/js-core-2/week-07/homework.md)
   * [Week 5 - JS in the Browser](/js-core-2/week-08/lesson.md) | [Homework](/js-core-2/week-08/homework.md)

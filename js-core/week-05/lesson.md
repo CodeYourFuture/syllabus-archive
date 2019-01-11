@@ -373,16 +373,23 @@ Arrays also have several methods that you can use.
 
 ### `.sort()`
 
-_An array method that sorts the values in an array into ascending alphabetical order._
+_An array method that sorts the values in an array into ascending alphabetical or numerical order._
 
 ```js
 var unorderedLetters = ["z", "v", "b", "f", "g"];
 var orderedLetters = unorderedLetters.sort();
 
+var unorderedNumbers = [8, 5, 1, 4, 2];
+var orderedNumbers = unorderedNumbers.sort();
+
 console.log(orderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
+console.log(unorderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
+
+console.log(orderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
+console.log(unorderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
 ```
 
-> When you call an array method it uses the array on the left side of the dot as an input, and returns a new, transformed, array.
+> When you call this array method it uses the array on the left side of the dot as an input, and it sorts that array also returning it. Note how both ordered and unordered arrays are sorted now!
 
 ### `.concat()`
 
@@ -446,12 +453,14 @@ console.log(isAMentor("Rukmini")); // logs false
 
 ### `.join()`
 
-_Returns all the array values joined together in a string._
+_Returns all the array values joined together in a string. By default, this method takes no parameters and then the elements are divided with a comma `,`. If you provide it with a string parameter though, then it becomes the divider of the elements, like the example below:_
 
 ```sh
 $ node
-> ["H", "e", "l", "l", "o"].join()
-'Hello'
+> ["H", "e", "l", "l", "o"].join();
+'H,e,l,l,o'
+> ["H", "e", "l", "l", "o"].join("==");
+'H==e==l==l==o'
 ```
 
 There is a string method `.split()`. In an interactive console try using the string `.split()` method and the array `.join()`. How could they work together?

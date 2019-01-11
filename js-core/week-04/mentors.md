@@ -1,13 +1,12 @@
 # Mentor's Notes
 
-### Some notes about JS1-1
+## Some notes about JS1-1
 
+### What worked well
 
-*What worked well*
 [-]Having all the exercises for the module in the js-exercises repo works well.
 
-
-*Things to improve*
+### Things to improve
 
 [-]Array methods in syllabus seem outdated / not the most useful.
 
@@ -17,7 +16,7 @@ Also suggest adding filter() to array methods section.
 
 [-]Can we introduce arrow functions here? It is likely students will encounter this notation during their research, so it would be useful to cover this.
 
-*Other thoughts*
+### Other thoughts
 
 [-]Students confuse returns and console.logs
 [-]It's difficult for students to differentiate between variables the coder has created, and reserved words that are built into javascript. e.g. multiply() vs push()

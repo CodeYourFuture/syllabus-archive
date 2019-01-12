@@ -335,21 +335,32 @@ to check out their websites and see the differences between them and VS Code.
 During our classes, Students and Mentors will share their code with the rest of the class using a tool
 called [Airtame](https://airtame.com/) to present their laptop screen wirelessly to the projector.
 The instructions below were tested on Ubuntu only. Installation will differ on Mac OSX.
+
 To install Airtame:
 
 * Download the Airtame version for Ubuntu [here](https://airtame.com/download/).
 * In the Terminal, navigate to the directory you downloaded the file. For example,
   if you downloaded Airtame to your `Downloads` directory:
-  `$ cd ~/Downloads`
-  The downloaded file should have `.tar.gz` extension. You can see the full name with
-  `$ ls airtame*`
-* Extract the file using
-  `$ tar -xzf <filename>` replacing `<filename>` with the name of the downloaded file.
+
+    `$ cd ~/Downloads`
+
+  The downloaded file should have `.tar.gz` extension. You can see the full name with:
+
+    `$ ls airtame*`
+
+* Extract the file using:
+
+    `$ tar -xzf <filename>` replacing `<filename>` with the name of the downloaded file.
+
   The command above will extract the contents of the downloaded file into a directory of the same name.
 * Launch Airtame with the following command:
-  `$ ./<airtame-dir>/launch-airtame.sh` replacing `<airtame-dir>` with the directory created in the previous step.
+
+    `$ ./<airtame-dir>/launch-airtame.sh` replacing `<airtame-dir>` with the directory created in the previous step.
+
 * Install Airtame with the following command:
-  `$ ./<airtame-dir>/install.sh`
+
+    `$ ./<airtame-dir>/install.sh`
+
   This will create a shortcut (icon) so you can launch Airtame from your Applications
 
 ### Common Issues

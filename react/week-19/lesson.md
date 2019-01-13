@@ -12,6 +12,8 @@
 - [React Components](#react-components)
 - [Embedding JS into JSX](#embedding-js-into-jsx)
 - [Importing/Exporting Components](#importingexporting-components)
+- [Making an Argument for Props](#making-an-argument-for-props)
+- [What Are Props?](#what-are-props)
 
 ## What is React?
 
@@ -294,6 +296,47 @@ class HelloMentor extends React.Component {
 > **Exercise**:
 > Using the `my-hotel` app, edit `src/App.js` to extract the `Logo`, `BookingsMessage` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
 > Hint: you will need to import React
+
+## Making an Argument for Props
+
+What's the problem with this component? Hint: imagine what a user story might look like for this small application. How might changes to the user story affect changes to the code?
+
+Our components are very inflexible. They cannot say hello to other mentors, and they can only say "hello", not "hi" or "greetings". If our user stories change, for example if we wanted to say hello to a different mentor, we would have to to change the code too. This is easy in our tiny application but for "real" applications this might be more difficult.
+
+Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what "props" are for.
+
+## What Are Props?
+
+Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props in a component.
+
+First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=index.js)):
+
+```js
+<Mentor mentor="Kash" />
+```
+
+As you can see props are key-value pairs, in this example the key is `mentor` and the value is the string `'Kash'`. We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
+
+```js
+<HotelRoom price={123}>
+```
+
+Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-ketrwi?file=Mentor.js)):
+
+```js
+<span>{this.props.mentor}</span>
+```
+
+React gives you access to props via the `this.props` object. We can then inject into our component using curly braces. Because `this.props` is just a regular object, you can also inject into DOM attributes:
+
+```js
+<div id={'my-id-' + this.props.id}>{this.props.content}</div>
+```
+
+> **Exercise:**
+> Open the `my-hotel` React application that your created last week
+> 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
+> 2. Edit the `SpecialDeals` component so that the array is passed as a prop
 
 #### Credits
 

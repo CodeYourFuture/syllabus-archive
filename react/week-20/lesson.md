@@ -7,8 +7,6 @@
 - [Recap](#recap)
 - [Reacting to Changes](#reacting-to-changes)
 - [State](#state)
-- [Functional Components](#functional-components)
-- [Passing Functions as Props](#passing-functions-as-props)
 
 ## Recap
 

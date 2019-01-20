@@ -53,7 +53,7 @@ HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags o
 
 During this module, you will use an [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises) to practice what you learn. To begin, open the [repository](https://github.com/CodeYourFuture/html-css-git-exercises), scroll down and follow the instructions in the image below.
 
-![HTML Hierarchy](../assets/exercises-readme.png)
+![Screenshot indicating where to read the instructions for the exercises](../assets/exercises-readme.png)
 
 For now, stop after you complete exercises 1 and 2.
 

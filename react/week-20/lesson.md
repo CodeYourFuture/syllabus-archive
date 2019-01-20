@@ -210,7 +210,15 @@ class SmartGreeting extends React.Component {
 
 ReactDOM.render(<SmartGreeting />, document.getElementById('root'))
 ```
+
 **Exercice 5**: Time to practice! Reproduce the code above and make sure the greeting message is updated as you type your name in the input field.
+
+## State recap
+
+- To identify what is a state, ask yourself what can change in a component.
+- Initialize the state of a component in the constructor function. You can use props to initialize the state.
+- You can read from the state using `this.state.something`.
+- You can update the state using the React function `this.setState`. Do **NOT** update a state using `this.state.something = 'value'` as it will not trigger to re-render the component.
 
 **TODO: review the exercices below**
 > **Exercise:**

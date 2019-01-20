@@ -2,9 +2,12 @@
 
 What will we learn today?
 
-- [Semantic HTML tags](#html-syntax)
-- [CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`](#css-selectors)
-- [Box model: `margin`/`padding`/`border` etc...](#box-model)
+- [Semantic HTML tags](#semantic-html)
+- [Linking Resources](#add-css-and-javascript)
+- [CSS Selectors](#css-selectors)
+- [CSS Properties](#css-properties)
+- [The Box Model](#box-model)
+- [Git Branching](#git-branching)
 
 ## <a name="soc"></a> What makes a web page?
 

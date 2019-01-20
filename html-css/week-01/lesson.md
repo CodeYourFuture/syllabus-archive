@@ -68,9 +68,9 @@ We'll cover the following semantic tags and talk about their use on the [BBC New
 - `<header role="banner"></header>`
 - `<footer role="contentinfo"></footer>`
 - `<main role="main"></main>`
-- `<nav role="navigation">`
-- `<article role="article">`
-- `<aside role="complementary">`
+- `<nav></nav>`
+- `<article></article>`
+- `<aside role="complementary"></aside>`
 
 There are more than 100 semantic tags. If you would like, you can [review several semantic tags](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantic_elements).
 

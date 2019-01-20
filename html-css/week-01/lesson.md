@@ -157,7 +157,7 @@ Complete exercises 5, 6 and 7 from the [exercise project](https://github.com/Cod
 
 ## Advanced CSS Selectors
 
-You can use more advanced CSS selectors to limit your selections. Read about [Child Selectors](https://learn.shayhowe.com/advanced-html-css/complex-selectors/#child-selectors), [Sibling Selectors](https://learn.shayhowe.com/advanced-html-css/complex-selectors/#sibling-selectors) and other complex selectors.
+You can use more advanced CSS selectors to limit your selections. Read about [Child Selectors](https://learn.shayhowe.com/advanced-html-css/complex-selectors/#child-selectors), [Sibling Selectors](https://learn.shayhowe.com/advanced-html-css/complex-selectors/#sibling-selectors), [Pseudo Classes](https://learn.shayhowe.com/advanced-html-css/complex-selectors/#pseudo-classes), and other complex selectors.
 
 Then complete exercise 8 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises).
 
@@ -175,7 +175,7 @@ With branches, you can work on two copies of your project and switch back and fo
 
 ![Visualization of git commits](../assets/git-branch-3.png)
 
-Complete exercise 8 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises) to learn how to use git branches.
+Complete exercise 9 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises) to learn how to use git branches.
 
 > If you want to go deeper, read this article on [how git branching works](https://www.atlassian.com/git/tutorials/using-branches).
 

@@ -1,4 +1,4 @@
-![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
+![Lesson in review](https://img.shields.io/badge/status-review-orange.svg)
 
 # HTML/CSS 2
 

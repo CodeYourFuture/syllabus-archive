@@ -7,8 +7,6 @@
 * [Responsive web design](#responsive-web-design)
 * [Media queries](#media-queries)
 * [Flexbox](#flexbox)
-* (Optional) Content layout: floats
-* (Optional) Content layout: relative and absolute positioning
 
 ---
 
@@ -42,38 +40,115 @@ In this media query, we're assigning a red background color to the `<body>` elem
 
 Finally, we wrap all of our styles for this media query in brackets (`{` and `}`), just like a CSS rule.
 
-> **Exercise:** Working in pairs, reduce the size of the "Bikes for Refugees" text so that it fits on a small screen (`320px`). But make sure it increases in size on larger screens.
-
-> **Exercise:** The two buttons in the jumbotron don't fit on the same line on small screens around `320px` wide. Can you adjust their size so that they fit on the same line?
-
 ## Flexbox
 
-Flexbox is a name for a set of CSS layout rules which are supported in newer browsers. They allow you to apply rules to elements to place them side-by-side and re-arrange them. You just specify how you want your elements arranged and the browser will scale this arrangement depending on the screen size and device used for viewing.
+Flexbox allows you to arrange things on a webpage.
+These can be buttons, `<div>` elements, paragraphs, anything you want!
 
-Most flexbox rules are applied to the container, to tell it how to arrange its children. However, there are some rules that can be applied to children as well.
-
-You can see all the rules that can be applied to both the container and the children here:
-[https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-
-> **Exercise:** Continue editing the "Bike for refugees" website by adding 3 boxes below Jumbotron, and using Flexbox, make sure they are arranged like in the sketch below:
-<img src="assets/flexbox_practice.png">
-
-You can start with something like the below, by just adding a container, and the 3 text pieces within it. Try to use flexbox to position the text elements within the container to match the picture:
+To add flexbox:
+  1. Identify the elements you want to arrange in a certain way. Let's use this for now:
+  ```html
+    <button>Home</button>
+    <button>Gallery</button>
+    <button>Contact</button>
+  ```
+  2. Make sure they're part of the same container:
 
 ```html
-<div>  <!-- CONTAINER START -->
-   <div> Check availability </div>
-   <div> Donate bikes </div>
-   <div> Volunteer with us </div>
-</div> <!-- CONTAINER END -->
+    <div class="menu">
+      <button>Home</button>
+      <button>Gallery</button>
+      <button>Contact</button>
+    </div>
+  ```
+
+  3. Tell the container to use Flexbox to arrange all its children
+
+```css
+.menu {
+  display: flex;
+}
 ```
 
-Once that's done you can move on to creating boxes for each individual text piece, and again, using flexbox to position the text piece in the middle of its box.
+Once you have flexbox applied to the container you can start adding more rules to tell it exactly how the elements should be arranged.
 
----
+**`flex-direction`**
 
-Let's take a break from flexbox for a minute. Do you remember the `:first-child` psuedo class? There's a `:last-child` psuedo class as well.
+*Display elements on a row*
 
-> **Exercise:** See if you can use these psuedo classes to give the left box a grey background (`#ddd`) and the right box a grey border (`1px solid #ddd`). Use [this screenshot](assets/screenshot-complete.png) to guide you.
+```css
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+```
+
+![A sceenshot showing a tag selector in action](./assets/example-flex-direction-row.png)
+
+*Display elements in a column*
+
+```css
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+```
+
+![A sceenshot showing a tag selector in action](./assets/example-flex-direction-column.png)
+
+**`justify-content`**
+
+*Space out elements equally on a row*
+```css
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* OR space-around */
+}
+```
+
+![A sceenshot showing a tag selector in action](./assets/example-justify-content-row.png)
+
+*Space out elements equally in a column*
+```css
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* OR space-around */
+}
+```
+
+![A sceenshot showing a tag selector in action](./assets/example-justify-content-column.png)
+
+**! Important !** In the above 2 examples we used the exact same rule `justify-content: space-between;` BUT we changed the `flex-direction` to `row` and then `column`. Notice how `justify-content` works in the same direction as `flex-direction`. So in the above two images, the "green" arrow for `justify-content` is operating in the same direction `flex-direction`.
+
+**`align-items`**
+
+*Align elements on a row*
+```css
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+```
+
+![A sceenshot showing a tag selector in action](./assets/example-align-items-row.png)
+
+*Align elements on a column*
+```css
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+```
+
+![A sceenshot showing a tag selector in action](./assets/example-align-items-column.png)
+
+**! Important !** While `justify-content` works on the same direction as `flex-direction`, `align-items` works the opposite way! Have a close look at the above images - the "green" arrow is opposite to the yellow `flex-direction` one.
+
+Here is a really easy to read, visual and complete reference to the different kinds of properties you can use with flexbox and their values:
+[https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 {% include "./homework.md" %}

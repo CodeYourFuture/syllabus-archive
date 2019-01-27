@@ -98,7 +98,7 @@ To use all of the files together, we have to tell the HTML code to load the othe
 	</head>
 	<body>
 		<p>My webpage content.</p>
-    <script src="main.js"></script>
+		<script src="main.js"></script>
 	</body>
 </html>
 ```

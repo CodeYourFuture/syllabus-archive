@@ -7,12 +7,13 @@
 * [Responsive web design](#responsive-web-design)
 * [Media queries](#media-queries)
 * [Flexbox](#flexbox)
+* [Git Merging](#git-merging)
 
 ---
 
 ## Responsive Web Design
 
-When we build for the web, we're making websites that can be viewed in a phone, a laptop, a tablet and more. To ensure we're presenting a website that's easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.
+When we build for the web, we're making websites that can be viewed in a phone, a laptop, a tablet and many other devices. To ensure we're presenting a website that's easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.
 
 > **Exercise:** As a group, let's brainstorm as many devices as we can think of which might access the websites we build.
 
@@ -38,7 +39,7 @@ In this media query, we're assigning a red background color to the `<body>` elem
 * `(min-width: 900px)` tells it to apply these styles when the viewport is
   larger than `900px`
 
-Finally, we wrap all of our styles for this media query in brackets (`{` and `}`), just like a CSS rule.
+Finally, we wrap all of our styles for this media query in the brackets `{` and `}`, just like a CSS rule.
 
 Complete exercise 10 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises).
 
@@ -75,7 +76,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ### `flex-direction`
 
-*Display elements on a row*
+*Display elements in a row*
 
 ```css
 .menu {
@@ -99,7 +100,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ### `justify-content`
 
-*Space out elements equally on a row*
+*Space out elements equally in a row*
 ```css
 .menu {
   display: flex;
@@ -125,7 +126,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ### `align-items`
 
-*Align elements on a row*
+*Align elements in a row*
 ```css
 .menu {
   display: flex;

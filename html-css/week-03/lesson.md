@@ -9,7 +9,7 @@ What will we learn today?
 - [Fields](#fields)
 - [Labels](#labels)
 - [Buttons](#buttons)
-- [More Field Types](#more-fields)
+- [More Field Types](#more-field-types)
 - [Accessibility](#accessibility)
 - [Fieldsets](#fieldsets)
 - [Form Attributes](#attributes)
@@ -422,11 +422,11 @@ Sometimes Git can not automatically merge one branch into another, because each 
 
 As a developer, you have to tell Git which version of the line of code is correct.
 
-Complete exercise 26 from week 3 of the [HTML, CSS and Git Exercises](https://github.com/CodeYourFuture/html-css-git-exercises) to learn how to .
+Complete exercise 26 from week 3 of the [HTML, CSS and Git Exercises](https://github.com/CodeYourFuture/html-css-git-exercises) to learn how to resolve a merge conflict.
 
 ## <a name="retrospective"></a>Retrospective
 
-At the end of each module, we'll have a retrospective. What went right? What went wrong? What can we do better to help you learn? Let's discuss the HTML/CSS module.
+At the end of each module, we'll have a retrospective. What went right? What went wrong? What do we need to do as a group to learn better? Let's discuss the HTML/CSS module.
 
 ## Resources
 

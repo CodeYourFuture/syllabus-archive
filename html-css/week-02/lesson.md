@@ -40,6 +40,8 @@ In this media query, we're assigning a red background color to the `<body>` elem
 
 Finally, we wrap all of our styles for this media query in brackets (`{` and `}`), just like a CSS rule.
 
+Complete exercise 10 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises).
+
 ## Flexbox
 
 Flexbox allows you to arrange things on a webpage. These can be buttons, `<div>` elements, paragraphs, anything you want!
@@ -82,7 +84,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 }
 ```
 
-![A diagram showing flex-directions set to row](./assets/example-flex-direction-row.png)
+![A diagram showing flex-directions set to row](../assets/example-flex-direction-row.png)
 
 *Display elements in a column*
 
@@ -93,7 +95,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 }
 ```
 
-![A diagram showing flex-directions set to column](./assets/example-flex-direction-column.png)
+![A diagram showing flex-directions set to column](../assets/example-flex-direction-column.png)
 
 ### `justify-content`
 
@@ -106,7 +108,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 }
 ```
 
-![A diagram showing the use of justify-content in a row](./assets/example-justify-content-row.png)
+![A diagram showing the use of justify-content in a row](../assets/example-justify-content-row.png)
 
 *Space out elements equally in a column*
 ```css
@@ -117,7 +119,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 }
 ```
 
-![A diagram showing the use of justify-content in a column](./assets/example-justify-content-column.png)
+![A diagram showing the use of justify-content in a column](../assets/example-justify-content-column.png)
 
 > **Important:** In the above 2 examples we used the same rule (`justify-content: space-between;`), **but** we changed the `flex-direction` from `row` to `column`. Notice how `justify-content` works in the same direction as `flex-direction`. In the images above, the "green" arrow for `justify-content` is operating in the same direction as `flex-direction`.
 
@@ -132,7 +134,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 }
 ```
 
-![A diagram showing the use of align-items in a row](./assets/example-align-items-row.png)
+![A diagram showing the use of align-items in a row](../assets/example-align-items-row.png)
 
 *Align elements on a column*
 ```css
@@ -143,10 +145,31 @@ Once you have flexbox applied to the container you can start adding more rules t
 }
 ```
 
-![A diagram showing the use of align-items in a row](./assets/example-align-items-column.png)
+![A diagram showing the use of align-items in a row](../assets/example-align-items-column.png)
 
 > **Important:** While `justify-content` works in the same direction as `flex-direction`, `align-items` works the opposite way! Have a close look at the above images - the "green" arrow is opposite to the yellow `flex-direction` one.
 
 Learn more about flexbox by reading this [helpful, visual and complete reference](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to the many properties you can use with flexbox.
+
+Complete exercises 11-16 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises).
+
+
+## Git Merging
+
+Last week you used Git to create a branch so that you could work on two different copies of your project at the same time.
+
+![Visualization of commits in two git branches](../assets/git-branch-3.png)
+
+This week you will learn how to merge your changes in one branch back to your master branch.
+
+![Visualization of merging one branch into another](../assets/git-merge.png)
+
+Complete exercise 17 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises).
+
+## Resources
+
+Use the following resources to learn more about the topics we covered this week.
+
+- [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 {% include "./homework.md" %}

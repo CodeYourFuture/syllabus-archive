@@ -4,7 +4,7 @@
 
 2. (Est. 2 hours) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 
-3. Fork [this repository](https://github.com/CodeYourFuture/html-css-project) and follow the instructions under "For Week 1".
+3. (Est. 2-4 hours) Fork [this repository](https://github.com/CodeYourFuture/html-css-project) and follow the instructions under "For Week 1".
 
 (If you don't remember how to fork, you can follow [this tutorial on forking](https://help.github.com/articles/fork-a-repo/)).
 

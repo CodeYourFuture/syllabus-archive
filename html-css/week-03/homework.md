@@ -1,7 +1,9 @@
 # Homework
 
-Revise what you've learned during the HTML/CSS module. Next week we'll have a short quiz for you. (Hint: use your Progress Tracker to identify what you need to study.)
+1. (Est. 1-2 hours) Complete Lesson 1 of this course on [Building High Conversion Web Forms])https://eu.udacity.com/course/building-high-conversion-web-forms--ud890).
+2. (Est. 1-2  hours) Complete videos 1-16 in Lesson 2 of the same course as above. You can stop after lesson 17.
+3. Revise what you've learned during the HTML/CSS module. Next week we'll have a short quiz for you.
 
 # Prepare for the next class
 
-Next week, we will begin learning and programming JavaScript. To prepare for the next lesson, what a two minute video, ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU).
+Next week, we will begin learning and programming JavaScript. To prepare for the next lesson, watch a two minute video, ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU).

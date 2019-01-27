@@ -171,11 +171,11 @@ You have been using git to track the changes you make to your exercises project.
 
 When you create a new branch, you create a separate line of commits.
 
-![Visualization of git commits](../assets/git-branch-2.png)
+![Visualization of a git branch](../assets/git-branch-2.png)
 
 With branches, you can work on two copies of your project and switch back and forth.
 
-![Visualization of git commits](../assets/git-branch-3.png)
+![Visualization of commits in two git branches](../assets/git-branch-3.png)
 
 Complete exercise 9 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises) to learn how to use git branches.
 

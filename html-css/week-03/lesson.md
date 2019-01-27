@@ -133,7 +133,24 @@ Every field _must_ have a `<label>`. A field that does not have a `<label>` can 
 
 ## <a name="buttons"></a>Buttons
 
-...
+Buttons are used for many things. The most common purpose is to submit a form. When used to submit a form, they must have a `type` attribute with a value of `submit`.
+
+```html
+<button type="submit">Search Now</button>
+```
+<button type="submit">Search Now</button>
+
+When a user clicks on a submit button, the information in the form is sent to the form's `action` attribute.
+
+```html
+<form method="GET" action="https://www.google.com/search">
+	<button type="submit">Search Now</button>
+</form>
+```
+<input type="text" name="search-query">
+<button type="submit">Search Now</button>
+
+---
 
 Complete exercises 17, 18 and 19 from week 3 of the [HTML, CSS and Git Exercises](https://github.com/CodeYourFuture/html-css-git-exercises).
 
@@ -391,7 +408,21 @@ The `checked` attribute can be added to a checkbox or radio button to pre-check 
 	</label>
 </fieldset>
 
+Complete exercise 25 from week 3 of the [HTML, CSS and Git Exercises](https://github.com/CodeYourFuture/html-css-git-exercises).
+
 ## <a name="merge-conflicts"></a>Git Merge Conflicts
+
+Last week you used Git to merge your changes from one branch back into your master branch.
+
+![Visualization of merging one branch into another](../assets/git-merge.png)
+
+Sometimes Git can not automatically merge one branch into another, because each branch has modified the same line of code. Git does not know which version of the line is the correct one. When this happens, we have a "merge conflict".
+
+![Visualization of a merge conflict](../assets/git-merge-conflict.png)
+
+As a developer, you have to tell Git which version of the line of code is correct.
+
+Complete exercise 26 from week 3 of the [HTML, CSS and Git Exercises](https://github.com/CodeYourFuture/html-css-git-exercises) to learn how to .
 
 ## <a name="retrospective"></a>Retrospective
 
@@ -401,7 +432,5 @@ At the end of each module, we'll have a retrospective. What went right? What wen
 
 * [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
 * [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
-* [Bootstrap 4 Documentation](https://getbootstrap.com/)
-* [Introduction](http://getbem.com/introduction/) and [Naming](http://getbem.com/naming/) with BEM Syntax for Reusable CSS
 
 {% include "./homework.md" %}

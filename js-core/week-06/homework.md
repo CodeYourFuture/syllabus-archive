@@ -2,7 +2,7 @@
 
 1. Make sure you finish all the pending exercies in [The repo](https://github.com/CodeYourFuture/js-exercises).
 
-2. Signup to [CodeWars](https://codewars.com) and work on these challenges
+1. Signup to [CodeWars](https://codewars.com) and work on these challenges
 
 *functions, types, conditionals etc...*
 

@@ -38,7 +38,7 @@ The example below submits the form to Google's search engine.
 
 ```html
 <form action="https://www.google.com/search">
-	...
+  ...
 </form>
 ```
 
@@ -58,7 +58,7 @@ When we search on Google, we are requesting information. We should use the `GET`
 
 ```html
 <form method="GET" action="https://www.google.com/search">
-	...
+  ...
 </form>
 ```
 
@@ -71,6 +71,7 @@ The most common fields are `<input>`, `<textarea>` and `<select>`.
 ```html
 <input type="text" name="search-query">
 ```
+
 <input type="text">
 
 ---
@@ -78,6 +79,7 @@ The most common fields are `<input>`, `<textarea>` and `<select>`.
 ```html
 <textarea name="message"></textarea>
 ```
+
 <textarea name="message"></textarea>
 
 ---
@@ -91,6 +93,7 @@ The most common fields are `<input>`, `<textarea>` and `<select>`.
   <option>Uganda</option>
 </select>
 ```
+
 <select name="country">
   <option>Brazil</option>
   <option>Croatia</option>
@@ -107,7 +110,7 @@ Field elements should be nested inside of a `<form>` element.
 
 ```html
 <form method="GET" action="https://www.google.com/search">
-	<input type="text" name="search-query">
+  <input type="text" name="search-query">
 </form>
 ```
 
@@ -117,8 +120,8 @@ Labels are used to tell the user what information they should put into each fiel
 
 ```html
 <label>
-	Username
-	<input type="text" name="uid">
+  Username
+  <input type="text" name="uid">
 </label>
 ```
 
@@ -138,15 +141,17 @@ Buttons are used for many things. The most common purpose is to submit a form. W
 ```html
 <button type="submit">Search Now</button>
 ```
+
 <button type="submit">Search Now</button>
 
 When a user clicks on a submit button, the information in the form is sent to the form's `action` attribute.
 
 ```html
 <form method="GET" action="https://www.google.com/search">
-	<button type="submit">Search Now</button>
+  <button type="submit">Search Now</button>
 </form>
 ```
+
 <input type="text" name="search-query">
 <button type="submit">Search Now</button>
 
@@ -176,13 +181,14 @@ A checkbox allows the user to say yes or no to an option. With a checkbox, the u
 
 ```html
 <label>
-	<input type="checkbox" name="signup" value="yes">
-	Would you like to receive discounts by email?
+  <input type="checkbox" name="signup" value="yes">
+  Would you like to receive discounts by email?
 </label>
 ```
+
 <label>
-	<input type="checkbox" value="yes" name="signup">
-	Would you like to receive discounts by email?
+  <input type="checkbox" value="yes" name="signup">
+  Would you like to receive discounts by email?
 </label>
 
 ---
@@ -191,35 +197,36 @@ Checkboxes that are related to each other can be grouped together in a `<fieldse
 
 ```html
 <fieldset>
-	<legend>What languages do you speak?</legend>
-	<label>
-		<input type="checkbox" name="language" value="ar">
-		Arabic
-	</label>
-	<label>
-		<input type="checkbox" name="language" value="es">
-		Spanish
-	</label>
-	<label>
-		<input type="checkbox" name="language" value="en">
-		English
-	</label>
+  <legend>What languages do you speak?</legend>
+  <label>
+    <input type="checkbox" name="language" value="ar">
+    Arabic
+  </label>
+  <label>
+    <input type="checkbox" name="language" value="es">
+    Spanish
+  </label>
+  <label>
+    <input type="checkbox" name="language" value="en">
+    English
+  </label>
 </fieldset>
 ```
+
 <fieldset>
-	<legend>What languages do you speak?</legend>
-	<label style="margin-right: 1em;">
-		<input type="checkbox" name="language" value="ar">
-		Arabic
-	</label>
-	<label style="margin-right: 1em;">
-		<input type="checkbox" name="language" value="es">
-		Spanish
-	</label>
-	<label>
-		<input type="checkbox" name="language" value="en">
-		English
-	</label>
+  <legend>What languages do you speak?</legend>
+  <label style="margin-right: 1em;">
+    <input type="checkbox" name="language" value="ar">
+    Arabic
+  </label>
+  <label style="margin-right: 1em;">
+    <input type="checkbox" name="language" value="es">
+    Spanish
+  </label>
+  <label>
+    <input type="checkbox" name="language" value="en">
+    English
+  </label>
 </fieldset>
 
 ---
@@ -232,35 +239,36 @@ Radio buttons are just like checkboxes, except the user can only select one opti
 
 ```html
 <fieldset>
-	<legend>What is your preferred language?</legend>
-	<label>
-		<input type="radio" name="language" value="ar">
-		Arabic
-	</label>
-	<label>
-		<input type="radio" name="language" value="es">
-		Spanish
-	</label>
-	<label>
-		<input type="radio" name="language" value="en">
-		English
-	</label>
+  <legend>What is your preferred language?</legend>
+  <label>
+    <input type="radio" name="language" value="ar">
+    Arabic
+  </label>
+  <label>
+    <input type="radio" name="language" value="es">
+    Spanish
+  </label>
+  <label>
+    <input type="radio" name="language" value="en">
+    English
+  </label>
 </fieldset>
 ```
+
 <fieldset>
-	<legend>What is your preferred language?</legend>
-	<label style="margin-right: 1em;">
-		<input type="radio" name="language" value="ar">
-		Arabic
-	</label>
-	<label style="margin-right: 1em;">
-		<input type="radio" name="language" value="es">
-		Spanish
-	</label>
-	<label>
-		<input type="radio" name="language" value="en">
-		English
-	</label>
+  <legend>What is your preferred language?</legend>
+  <label style="margin-right: 1em;">
+    <input type="radio" name="language" value="ar">
+    Arabic
+  </label>
+  <label style="margin-right: 1em;">
+    <input type="radio" name="language" value="es">
+    Spanish
+  </label>
+  <label>
+    <input type="radio" name="language" value="en">
+    English
+  </label>
 </fieldset>
 
 ---
@@ -274,6 +282,7 @@ All fields must have a `<label>` and all fieldsets must have a `<legend>`. Somet
 ```html
 🔍 <input type="search" placeholder="Search">
 ```
+
 🔍 <input type="search" placeholder="Search">
 
 This is clear for most users, but not for the visually impaired, who use a screen reader to browse the web. These users can not see the icon next to the field and their assistive technology may not read out the `placeholder` text.
@@ -284,24 +293,29 @@ You _must_ add a `<label>` in order to be accessible to all users.
 <label for="search-input">Search</label>
 🔍 <input type="search" placeholder="Search" id="search-input">
 ```
+
 <label for="search-input">Search</label>
 🔍 <input type="search" placeholder="Search" id="search-input">
 
 For sighted users, it now looks like there are two labels. In these circumstances, we use special CSS code to visually hide the label.
 
 HTML:
+
 ```html
 <label for="search-input" class="screenreader">Search</label>
 🔍 <input type="search" placeholder="Search" id="search-input">
 ```
+
 CSS:
+
 ```css
 .screenreader {
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-	left: -2000px;
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  left: -2000px;
 }
 ```
+
 <label for="search-input" class="screenreader" style="clip: rect(1px, 1px, 1px, 1px); position: absolute !important; left: -2000px;">Search</label>
 🔍 <input type="search" placeholder="Search" id="search-input">
 
@@ -313,33 +327,34 @@ Fieldsets can be used for any fields that are grouped together. This is often us
 
 ```html
 <fieldset>
-	<legend>Mother</legend>
-	<label for="mother-given">Given Name</label>
-	<input type="text" name="mother-given" id="mother-given">
-	<label for="mother-family">Family Name</label>
-	<input type="text" name="mother-family" id="mother-family">
+  <legend>Mother</legend>
+  <label for="mother-given">Given Name</label>
+  <input type="text" name="mother-given" id="mother-given">
+  <label for="mother-family">Family Name</label>
+  <input type="text" name="mother-family" id="mother-family">
 </fiedset>
 <fieldset>
-	<legend>Father</legend>
-	<label for="father-given">Given Name</label>
-	<input type="text" name="father-given" id="father-given">
-	<label for="father-family">Family Name</label>
-	<input type="text" name="father-family" id="father-family">
+  <legend>Father</legend>
+  <label for="father-given">Given Name</label>
+  <input type="text" name="father-given" id="father-given">
+  <label for="father-family">Family Name</label>
+  <input type="text" name="father-family" id="father-family">
 </fiedset>
 ```
+
 <fieldset>
-	<legend>Mother</legend>
-	<label for="mother-given">Given Name</label>
-	<input type="text" name="mother-given" id="mother-given">
-	<label for="mother-family">Family Name</label>
-	<input type="text" name="mother-family" id="mother-family">
+  <legend>Mother</legend>
+  <label for="mother-given">Given Name</label>
+  <input type="text" name="mother-given" id="mother-given">
+  <label for="mother-family">Family Name</label>
+  <input type="text" name="mother-family" id="mother-family">
 </fiedset>
 <fieldset>
-	<legend>Father</legend>
-	<label for="father-given">Given Name</label>
-	<input type="text" name="father-given" id="father-given">
-	<label for="father-family">Family Name</label>
-	<input type="text" name="father-family" id="father-family">
+  <legend>Father</legend>
+  <label for="father-given">Given Name</label>
+  <input type="text" name="father-given" id="father-given">
+  <label for="father-family">Family Name</label>
+  <input type="text" name="father-family" id="father-family">
 </fieldset>
 
 ---
@@ -351,6 +366,7 @@ Complete exercises 25 and 26 from week 3 of the [HTML, CSS and Git Exercises](ht
 There are many attributes you can use on `<input>`, `<textarea>` and `<select>` fields.
 
 ### Required
+
 A field with the `required` attribute will not allow the form to be submitted until the user has entered information.
 
 ```html
@@ -358,56 +374,61 @@ A field with the `required` attribute will not allow the form to be submitted un
 ```
 
 ### Value
+
 The `value` attribute can be added to an `<input>` field to pre-fill information. This is often used when a website remembers your username during login.
 
 ```html
 <input type="text" name="username" value="hotshot777">
 ```
+
 <input type="text" name="username" value="hotshot777">
 
 ### Readonly
+
 The `readonly` attribute can be added to `<input>`, `<textarea>` and `<select>` fields to prevent the user from making changes to the field.
 
 ```html
 <input type="text" name="city" value="Glasgow" readonly="readonly">
 ```
+
 <input type="text" name="city" value="Glasgow" readonly="readonly">
 
-
 ### Checked
+
 The `checked` attribute can be added to a checkbox or radio button to pre-check the field. This is often used to select a default that the user may not want to change.
 
 ```html
 <fieldset>
-	<legend>What languages do you speak?</legend>
-	<label>
-		<input type="checkbox" name="language" value="ar">
-		Arabic
-	</label>
-	<label>
-		<input type="checkbox" name="language" value="es">
-		Spanish
-	</label>
-	<label>
-		<input type="checkbox" name="language" value="en" checked="checked">
-		English
-	</label>
+  <legend>What languages do you speak?</legend>
+  <label>
+    <input type="checkbox" name="language" value="ar">
+    Arabic
+  </label>
+  <label>
+    <input type="checkbox" name="language" value="es">
+    Spanish
+  </label>
+  <label>
+    <input type="checkbox" name="language" value="en" checked="checked">
+    English
+  </label>
 </fieldset>
 ```
+
 <fieldset>
-	<legend>What languages do you speak?</legend>
-	<label style="margin-right: 1em;">
-		<input type="checkbox" name="language" value="ar">
-		Arabic
-	</label>
-	<label style="margin-right: 1em;">
-		<input type="checkbox" name="language" value="es">
-		Spanish
-	</label>
-	<label>
-		<input type="checkbox" name="language" value="en" checked="checked">
-		English
-	</label>
+  <legend>What languages do you speak?</legend>
+  <label style="margin-right: 1em;">
+    <input type="checkbox" name="language" value="ar">
+    Arabic
+  </label>
+  <label style="margin-right: 1em;">
+    <input type="checkbox" name="language" value="es">
+    Spanish
+  </label>
+  <label>
+    <input type="checkbox" name="language" value="en" checked="checked">
+    English
+  </label>
 </fieldset>
 
 Complete exercise 27 from week 3 of the [HTML, CSS and Git Exercises](https://github.com/CodeYourFuture/html-css-git-exercises).
@@ -432,7 +453,7 @@ At the end of each module, we'll have a retrospective. What went right? What wen
 
 ## Resources
 
-* [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
-* [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
+- [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
+- [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
 
 {% include "./homework.md" %}

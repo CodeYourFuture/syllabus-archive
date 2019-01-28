@@ -92,14 +92,14 @@ To use all of the files together, we have to tell the HTML code to load the othe
 
 ```html
 <html>
-	<head>
-		<title>Example Webpage</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
-		<p>My webpage content.</p>
-		<script src="main.js"></script>
-	</body>
+  <head>
+    <title>Example Webpage</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p>My webpage content.</p>
+    <script src="main.js"></script>
+  </body>
 </html>
 ```
 
@@ -139,7 +139,7 @@ You learned about CSS selectors during your application. Let's review the most c
 
 CSS properties allow you to change the way an element appears on your HTML page. You do this by assigning "values" to "properties". Consider the properties and values in CSS code below.
 
-```
+```css
 p {
   color: darkslategrey;
   font-size: 16px;
@@ -186,10 +186,10 @@ Complete exercise 9 from the [exercise project](https://github.com/CodeYourFutur
 Use the following resources to learn more about the topics we covered this week.
 
 1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
-2. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
-3. [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
-4. [Box Model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model)
-5. [Box Model, box-sizing: border-box - CSS Tricks](https://css-tricks.com/international-box-sizing-awareness-day/)
-6. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
+1. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
+1. [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)
+1. [Box Model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Box_model)
+1. [Box Model, box-sizing: border-box - CSS Tricks](https://css-tricks.com/international-box-sizing-awareness-day/)
+1. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
 
 {% include "./homework.md" %}

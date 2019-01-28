@@ -2,9 +2,9 @@
 
 1. (Est. 1-2 hours) Complete the "Common Responsive Patterns" lesson of the [Responsive Web Design Fundamentals](https://www.udacity.com/course/responsive-web-design-fundamentals--ud893) course.
 
-2. (Est. 3 hours) Complete as many levels as you can from [Flexbox Zombies](http://flexboxzombies.com/)
+1. (Est. 3 hours) Complete as many levels as you can from [Flexbox Zombies](http://flexboxzombies.com/)
 
-3. (Est. 2-4 hours) Return to the [HTML/CSS Project](https://github.com/CodeYourFuture/html-css-project) you built for homework last week. Complete the instructions under "For Week 2".
+1. (Est. 2-4 hours) Return to the [HTML/CSS Project](https://github.com/CodeYourFuture/html-css-project) you built for homework last week. Complete the instructions under "For Week 2".
 
 # Extra Credit
 

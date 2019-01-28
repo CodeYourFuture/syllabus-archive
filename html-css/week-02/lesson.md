@@ -48,23 +48,26 @@ Complete exercise 10 from the [exercise project](https://github.com/CodeYourFutu
 Flexbox allows you to arrange things on a webpage. These can be buttons, `<div>` elements, paragraphs, anything you want!
 
 To add flexbox:
-  1. Identify the elements you want to arrange in a certain way. Let's use this for now:
-  ```html
+
+1. Identify the elements you want to arrange in a certain way. Let's use this for now:
+
+```html
+  <button>Home</button>
+  <button>Gallery</button>
+  <button>Contact</button>
+```
+
+1. Make sure they're part of the same container:
+
+```html
+  <div class="menu">
     <button>Home</button>
     <button>Gallery</button>
     <button>Contact</button>
-  ```
-  2. Make sure they're part of the same container:
+  </div>
+```
 
-```html
-    <div class="menu">
-      <button>Home</button>
-      <button>Gallery</button>
-      <button>Contact</button>
-    </div>
-  ```
-
-  3. Tell the container to use Flexbox to arrange all its children
+1. Tell the container to use Flexbox to arrange all its children
 
 ```css
 .menu {
@@ -76,7 +79,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ### `flex-direction`
 
-*Display elements in a row*
+#### Display elements in a row
 
 ```css
 .menu {
@@ -87,7 +90,7 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ![A diagram showing flex-directions set to row](../assets/example-flex-direction-row.png)
 
-*Display elements in a column*
+#### Display elements in a column
 
 ```css
 .menu {
@@ -100,7 +103,8 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ### `justify-content`
 
-*Space out elements equally in a row*
+#### Space out elements equally in a row
+
 ```css
 .menu {
   display: flex;
@@ -111,7 +115,8 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ![A diagram showing the use of justify-content in a row](../assets/example-justify-content-row.png)
 
-*Space out elements equally in a column*
+#### Space out elements equally in a column
+
 ```css
 .menu {
   display: flex;
@@ -126,7 +131,8 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ### `align-items`
 
-*Align elements in a row*
+#### Align elements in a row
+
 ```css
 .menu {
   display: flex;
@@ -137,7 +143,8 @@ Once you have flexbox applied to the container you can start adding more rules t
 
 ![A diagram showing the use of align-items in a row](../assets/example-align-items-row.png)
 
-*Align elements on a column*
+#### Align elements on a column
+
 ```css
 .menu {
   display: flex;
@@ -153,7 +160,6 @@ Once you have flexbox applied to the container you can start adding more rules t
 Learn more about flexbox by reading this [helpful, visual and complete reference](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) to the many properties you can use with flexbox.
 
 Complete exercises 11-17 from the [exercise project](https://github.com/CodeYourFuture/html-css-git-exercises).
-
 
 ## Git Merging
 
@@ -171,6 +177,6 @@ Complete exercise 18 from the [exercise project](https://github.com/CodeYourFutu
 
 Use the following resources to learn more about the topics we covered this week.
 
-- [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 {% include "./homework.md" %}

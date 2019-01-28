@@ -1,12 +1,12 @@
 # Homework
 
+1. Complete all of the exercises from week 1.
+
 1. (Est. 2 hours) Read about [advanced CSS selectors](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) and then practice by playing this [CSS selector game](https://flukeout.github.io/). It gets hard at the end, but try your best!
 
-2. Fork this repo and follow the instructions on the README - [https://github.com/Code-Your-Future/html-css-project](https://github.com/Code-Your-Future/html-css-project)
+1. (Est. 2-4 hours) Fork [this repository](https://github.com/CodeYourFuture/html-css-project) and follow the instructions under "For Week 1".
 
-3. You'll be put in groups of three. Over the next three weeks, you'll be asked to complete one of the [Starter Projects](https://github.com/CodeYourFuture/group-projects#starter-projects) as a group.
-
-(If you need help with Forking - then refer back to [this tutorial](https://help.github.com/articles/fork-a-repo/))
+(If you don't remember how to fork, you can follow [this tutorial on forking](https://help.github.com/articles/fork-a-repo/)).
 
 # Prepare for the next class
 

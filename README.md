@@ -1,4 +1,4 @@
-# [CYF Syllabus](https://codeyourfuture.github.io/syllabus-master/) [![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=master)](https://travis-ci.org/CodeYourFuture/syllabus) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/master/CONTRIBUTING.md)
+# [CYF Syllabus](https://codeyourfuture.github.io/syllabus-scotland/) [![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=scotland)](https://travis-ci.org/CodeYourFuture/syllabus) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/scotland/CONTRIBUTING.md)
 
 This is the syllabus and course material for
 [Code Your Future](http://codeyourfuture.co/), a not-for-profit volunteer-run
@@ -22,7 +22,7 @@ and job interview practices, etc.
 * If you're interested in joining the program, please
 [refer to the main code your future website](https://codeyourfuture.io/students).
 * If you're looking for the active course,
-[you can find it here](https://codeyourfuture.github.io/syllabus-master/),
+[you can find it here](https://codeyourfuture.github.io/syllabus-scotland/),
 or click on the 'CYF Syllabus' link at the very top of
 this readme.
 * If you're looking for the summary file, [it's here](/SUMMARY.md).

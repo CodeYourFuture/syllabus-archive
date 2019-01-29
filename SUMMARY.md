@@ -7,8 +7,8 @@
   * [House Rules](house-rules.md)
 * [HTML/CSS](/html-css/index.md)
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md) | [Homework](/html-css/week-01/homework.md)
-  * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md) | [Homework](/html-css/week-02/homework.md)
-  * [Week 3 - Design frameworks, Naming patterns and Forms](/html-css/week-03/lesson.md) | [Homework](/html-css/week-03/homework.md)
+  * [Week 2 - Responsive Web, Layout and Flexbox](/html-css/week-02/lesson.md) | [Homework](/html-css/week-02/homework.md)
+  * [Week 3 - HTML Forms](/html-css/week-03/lesson.md) | [Homework](/html-css/week-03/homework.md)
 * [JavaScript I](/js-core/index.md)
   * [Week 4 - Hello JavaScript](/js-core/week-04/lesson.md) | [Homework](/js-core/week-04/homework.md)
   * [Week 5 - Arrays](/js-core/week-05/lesson.md) | [Homework](/js-core/week-05/homework.md)
@@ -51,4 +51,5 @@
 
 * [Contributing](CONTRIBUTING.md)
 * [Lesson Template](/others/lesson-template.md)
-* [HTML/CSS Mentors guide](/html-css/mentor-guide.md)
+* JavaScript I
+  * [Week 4 - Hello JavaScript](/js-core/week-04/mentors.md)

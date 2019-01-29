@@ -332,14 +332,14 @@ Fieldsets can be used for any fields that are grouped together. This is often us
   <input type="text" name="mother-given" id="mother-given">
   <label for="mother-family">Family Name</label>
   <input type="text" name="mother-family" id="mother-family">
-</fiedset>
+</fieldset>
 <fieldset>
   <legend>Father</legend>
   <label for="father-given">Given Name</label>
   <input type="text" name="father-given" id="father-given">
   <label for="father-family">Family Name</label>
   <input type="text" name="father-family" id="father-family">
-</fiedset>
+</fieldset>
 ```
 
 <fieldset>
@@ -348,7 +348,7 @@ Fieldsets can be used for any fields that are grouped together. This is often us
   <input type="text" name="mother-given" id="mother-given">
   <label for="mother-family">Family Name</label>
   <input type="text" name="mother-family" id="mother-family">
-</fiedset>
+</fieldset>
 <fieldset>
   <legend>Father</legend>
   <label for="father-given">Given Name</label>

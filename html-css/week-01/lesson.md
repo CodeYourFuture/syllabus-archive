@@ -31,13 +31,13 @@ All together, let's review the basic syntax in the following example:
 </article>
 ```
 
-> **Exercise** Which parts are the **Tags** and which parts are the **Attributes**.
+> **Exercise**: Which parts are the **Tags** and which parts are the **Attributes**.
 
 HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags or creating an HTML "tree". Between the opening `<article>` tag and the closing `</article>` tag there are three other tags. We call these "child" tags, because they have a parent-child relationship.
 
 ![HTML Hierarchy](../assets/html-hierarchy.png)
 
-> **Exercise** As a group, let's try to name all of the parent and child tags in the following example.
+> **Exercise**: As a group, let's try to name all of the parent and child tags in the following example.
 
 ```html
 <article>
@@ -103,7 +103,7 @@ To use all of the files together, we have to tell the HTML code to load the othe
 </html>
 ```
 
-The `<link>` tag must be placed in the `<header>` element. Usually, the `<script>` tag appears near the end of the `<body>` element of the HTML page:
+The `<link>` tag must be placed in the `<head>` element. Usually, the `<script>` tag appears near the end of the `<body>` element of the HTML page:
 
 > **Group Discussion**: How do these files relate to the [Separation of Concerns](#soc) that we discussed at the start of the class?
 
@@ -137,7 +137,7 @@ You learned about CSS selectors during your application. Let's review the most c
 
 ## CSS Properties
 
-CSS properties allow you to change the way an element appears on your HTML page. You do this by assigning "values" to "properties". Consider the properties and values in CSS code below.
+CSS properties allow you to change the way an element appears on your HTML page. You do this by assigning _values_ to _properties_. Consider the properties and values in CSS code below.
 
 ```css
 p {

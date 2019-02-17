@@ -12,7 +12,7 @@
 
 ## Recap
 
-Last week we looked at using props and state to create React components that change with user input ([interactive example](https://stackblitz.com/edit/react-pezgpe)):
+Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/7j21mrq08x)):
 
 ```js
 class Counter extends Component {
@@ -22,7 +22,11 @@ class Counter extends Component {
   }
 
   increment = () => {
-    this.setState({ count: ++this.state.count })
+    this.setState((previousState) => {
+      return {
+        count: previousState.count + 1
+      }
+    })
   }
 
   render() {
@@ -38,7 +42,7 @@ class Counter extends Component {
 
 ## Unmounting
 
-So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://stackblitz.com/edit/react-ldakkv)):
+So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://codesandbox.io/s/xmo8oo514)):
 
 ```js
 const IsShown = () => (
@@ -81,7 +85,7 @@ This diagram shows the React component lifecycle:
 
 ![React component lifecycle](../assets/lifecycle.png)
 
-Let's look at how we can use one of the lifecycle methods ([interactive example](https://stackblitz.com/edit/react-sf6spn)):
+Let's look at how we can use one of the lifecycle methods ([interactive example](https://codesandbox.io/s/m5z2v36x1y)):
 
 ```js
 class Lifecycle extends Component {
@@ -116,7 +120,7 @@ To look at these in more detail, we'll create a Clock component in an exercise.
 > **Exercise:**
 > Open the `pokedex` React application again
 > 1. Create a new file called `Clock.js` in the `src` directory
-> 2. Copy and paste in the code below ([interactive version](https://stackblitz.com/edit/react-7zvt98)):
+> 2. Copy and paste in the code below ([interactive version](https://codesandbox.io/s/p9q2wq069j)):
 
 ```js
 import React, { Component } from 'react'
@@ -217,7 +221,7 @@ Now we can see the Martian photo that we fetched from the server!
 
 However we have a bit of a problem - when we first render the component, we don't have the photo `src` yet. We first have to initialise it to `null` in the constructor. This shows us that we're missing something from our UI - a *loading status*.
 
-Let's look at showing a different UI when the request is loading ([interactive example](https://stackblitz.com/edit/react-j86faz)):
+Let's look at showing a different UI when the request is loading ([interactive example](https://codesandbox.io/s/93zr0xz32r)):
 
 ```js
 class MartianPhotoFetcher extends Component {
@@ -317,7 +321,7 @@ render() {
 
 As we have seen, React manages the DOM for us. That means we generally don't have to worry about keeping track of DOM nodes, or manipulating them directly. However sometimes you need to be able to access a DOM node that React is managing. Some common use cases are managing browser focus and integrating with third party libraries like a jQuery plugin.
 
-We can do this with a *ref*. Let's look at an example that will change browser focus to an input when a button is clicked ([interactive example](https://stackblitz.com/edit/react-nbezfm)):
+We can do this with a *ref*. Let's look at an example that will change browser focus to an input when a button is clicked ([interactive example](https://codesandbox.io/s/yw510x1l81)):
 
 ```js
 class InputFocuser extends Component {

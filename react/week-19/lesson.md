@@ -278,7 +278,7 @@ const Greeting = () => {
   )
 }
 ```
-Now instead of hard-coding the greeting in the `Greeting` component, we are using a variable. Remember that everything between the curly braces is just regular JavaScript. So we can use more than just variables ([interactive example](https://stackblitz.com/edit/react-byupse)):
+Now instead of hard-coding the greeting in the `Greeting` component, we are using a variable. Remember that everything between the curly braces is just regular JavaScript. So we can use more than just variables ([interactive example](https://codesandbox.io/s/nw29kzx744)):
 
 ```js
 const Mentor = () => {
@@ -310,7 +310,7 @@ function formatName(user) {
 <span>{formatName(user)}</span>
 ```
 
-A common pattern in React is to use `Array.map` to loop through a list of items and render a component for each one ([interactive example](https://stackblitz.com/edit/react-z51fpz)):
+A common pattern in React is to use `Array.map` to loop through a list of items and render a component for each one ([interactive example](https://codesandbox.io/s/7mw0mw3qx0)):
 
 ```js
 const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
@@ -341,7 +341,7 @@ Here we are using `Array.map` to turn an array of strings into an array of compo
 
 ## Importing/Exporting Components
 
-To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://stackblitz.com/edit/react-jnkuqk)):
+To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://codesandbox.io/s/1z6xozl81l)):
 
 ```js
 import Greeting from './Greeting'
@@ -389,7 +389,7 @@ Instead wouldn't it be good if we could change which mentor we are saying hello 
 
 Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props within a component.
 
-First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=index.js)):
+First let's look at passing props to your components ([interactive example](https://codesandbox.io/s/vmjy0o91m7)):
 
 ```js
 <Greeting greeting="Hi" />
@@ -405,7 +405,7 @@ We don't have to use strings, we can use any valid JavaScript data like numbers,
 
 This is identical to the [Embedding JS into JSX section](../week-19/lesson.md#embedding-js-into-jsx) we looked at earlier.
 
-Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=Greeting.js)):
+Now let's take a look at using props that we have passed to a component ([interactive example](https://codesandbox.io/s/vmjy0o91m7)):
 
 ```js
 const Greeting = (props) => {

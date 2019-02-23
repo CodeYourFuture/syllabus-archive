@@ -29,3 +29,9 @@ At the bottom of the syllabus for each week you will find a list of resources to
 
 - [MailThis.to](https://mailthis.to/) is a free form to email service. Read about the service and then try to create a form that sends the information to your email address. _Warning: everything you send will be collected by the MailThis.to service, so **do not send private information**._
 - Get inspired by these great forms to [login](https://codepen.io/khadkamhn/pen/ZGvPLo), [subscribe](https://codepen.io/appdesweb/pen/mJdEqb), [make a payment](https://codepen.io/andytran/pen/pJLEbZ) and [send a message](https://codepen.io/felixw/pen/jEaExv). Try to recreate one of these designs yourself.
+
+### Reference
+
+- [HTML Cheat Sheet](http://overapi.com/html) gives you quick links to documentation on all of the features of the HTML language.
+- [CSS Cheat Sheet](http://overapi.com/css) gives you quick links to documentation on all of the features of the CSS language.
+- [Git Cheat Sheet](http://overapi.com/git) gives you a list of common git commands.

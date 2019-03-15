@@ -27,6 +27,9 @@ or click on the 'CYF Syllabus' link at the very top of
 this readme.
 * If you're looking for the summary file, [it's here](/SUMMARY.md).
 
+## Code Of Conduct
+You can find our full code of conduct [here](/conduct.md).
+
 ## Contributing
 
 The current syllabus is thanks to the hard work by our amazing

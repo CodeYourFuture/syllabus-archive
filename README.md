@@ -28,7 +28,7 @@ this readme.
 * If you're looking for the summary file, [it's here](/SUMMARY.md).
 
 ## Code Of Conduct
-You can find our full code of conduct [here](/conduct.md).
+You can find our full code of conduct [here](conduct.md).
 
 ## Contributing
 

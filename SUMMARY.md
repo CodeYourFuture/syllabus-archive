@@ -36,7 +36,7 @@
 
 ### Useful information
 
-# [Code of Conduct](conduct.md)
+* [Code of Conduct](conduct.md)
 * [Useful links](useful-links.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)

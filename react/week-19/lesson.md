@@ -14,7 +14,6 @@
 - [Importing/Exporting Components](#importingexporting-components)
 - [Making an Argument for Props](#making-an-argument-for-props)
 - [What Are Props?](#what-are-props)
-- [Prop Types](#prop-types)
 
 ## What is React?
 
@@ -30,7 +29,7 @@ Why has it become so popular?
 
 React heavily relies on a concept called "components". Components are like small Lego blocks for designing and developing user interfaces. They can be stuck together in different ways to create new UI.
 
-Let's have a look at an example: the GitHub header. What are logical "pieces" of UI? What could be a component?
+Let's have a look at an example: the GitHub header. What are the logical "pieces" of UI? What could be a component?
 
 ![GitHub header](../assets/components.png)
 
@@ -53,7 +52,7 @@ There are no hard & fast rules for making components. UIs can be split up into c
 
 ## Rendering with React
 
-Remember how annoying it was to manage the DOM yourself in [week 8](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript apis for updating the DOM are quite long and difficult to remember. React makes this easier by manipulating each DOM element itself, instead of you doing it manually. You give React a "description" of the DOM that you want and it will update the DOM for you. React "abstracts" away the management of the DOM.
+Remember how annoying it was to manage the DOM yourself in [our previous lesson](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-08/lesson.html)? The "vanilla" JavaScript APIs for updating the DOM are quite long and difficult to remember. React makes this easier by manipulating each DOM element itself, instead of you doing it manually. You give React a "description" of the DOM that you want and it will update the DOM for you. React *abstracts* away the management of the DOM.
 
 Let's take a look at an example. We are going to walk through how to render a `<div>` with the text "Hello World" within it.
 
@@ -107,7 +106,7 @@ Now let's convert to using React ([interactive version](http://jsbin.com/recegad
 
 As you can see, React is already helping us a bit by cleaning up some of the verbose vanilla JS APIs. However in a typical React application you would still use a *lot* of the `React.createElement` function. To improve the developer experience the React team developed **JSX**.
 
-JSX is a simple syntax "sugar" that *looks* like HTML, but is actually converted to the `React.createElement` function when you run it.
+JSX is a simple syntax *sugar* that looks like HTML, but is actually converted to the `React.createElement` function when you run it.
 
 Using JSX ([interactive version](http://jsbin.com/gekahexige/edit?html,output)):
 
@@ -141,19 +140,19 @@ As you can see, this is much easier to read than both the straight `React.create
 
 ## Let's Create A React App
 
-The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). We will use it for the rest of the module.
+The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). It sets up files like we saw in the previous example, so that you don't have to.
 
 > **Exercise**: Install & set up a Create React App by following the steps below
 
 ```
 npm install -g create-react-app
 
-create-react-app my-hotel
-cd my-hotel/
+create-react-app pokedex
+cd pokedex
 npm start
 ```
 
-Notice that create-react-app has created a bunch of folders for you in the `my-hotel` directory.
+The last command should open a web browser for you. This shows the application that we are going to be working on. Open the `pokedex` directory in your editor. Notice that create-react-app has created a bunch of folders for you. We will be working with the `pokedex` application for the rest of the module.
 
 ## React Components
 
@@ -177,6 +176,57 @@ There are 3 important parts in this code:
 1. First we import `React`. This is important because JSX is converted to `React.createElement` calls. If the `React` variable is undefined then this will fail
 2. We create a React component called `HelloWorld`
 3. We *render* the `HelloWorld` component into a `div` with the id of `root`
+
+> **Exercise**:
+> Using the `pokedex` React app that you just created and open the `src/App.js` file
+> 1. Delete everything in the file except the line containing `export default App`. You should see an error in your terminal and in your web browser - don't panic! We're going to remake the `App` component ourselves
+> 2. Import React variable from the React package
+> 3. Create a function named `App`, which will be our component
+> 4. Within the `App` function, return a `<h1>` element with the text "Welcome to the Pokedex". What do you see in your web browser?
+> 5. Create a `<div>` element that *wraps around* the `<h1>` you just created
+> 6. Below the `<h1>` element (but within the `<div>`), create an `<img>` element. Then make it's `src` attribute equal to `https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png`. What do you expect to see in your web browser?
+> 5. Now create a `<header>` element to wrap both the `<h1>` element **and** the `<img>` element
+
+#### Component Composition
+
+A component can be combined with another component so that both are rendered. This is sometimes called *composition* ([interactive example](https://codesandbox.io/s/0x4wonqn00)):
+
+```js
+function Greeting() {
+  return (
+    <span>Hello</span>
+  )
+}
+
+function Mentor() {
+  return (
+    <span>Ali</span>
+  )
+}
+
+function HelloWorld() {
+  return (
+    <div>
+      <Greeting />
+      <Mentor />
+    </div>
+  )
+}
+```
+
+In the `HelloWorld` component we are using a reference to the `Greeting` and `Mentor` components. React reads these references when rendering `HelloWorld` and so it renders the `Greeting` and `Mentor` *child* components.
+
+We are also using some shorter syntax within the `HelloWorld` component. `<Greeting />` is just a shorter way of writing `<Greeting></Greeting>`, which is useful if we don't need to put anything inside the `Greeting` component.
+
+Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `CamelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
+
+> **Exercise**:
+> Using the `pokedex` React app that you created earlier and open the `src/App.js` file
+> 1. Create a new function named `Logo`
+> 2. Copy `<header>` element and it's contents and paste into the `Logo` component
+> 3. Replace the `<header>` element in the `App` component with `Heading`
+> 4. Create a new component function named `BestPokemon` and return a `<p>` element with some text saying which is your favourite Pokemon (e.g. "My favourite Pokemon is Squirtle")
+> 5. *Render* your new `BestPokemon` component below the `Logo` component within the `App` component
 
 #### Arrow Functions for shorter syntax
 
@@ -210,31 +260,25 @@ const HelloWorld = () => (
 
 If we want to do this, we can still use arrow functions but we can't use the implicit return.
 
-#### Component Composition
-
-Components get more powerful when you combine (or "compose") several components together ([interactive example](https://stackblitz.com/edit/react-nxhe2q)):
-
-```js
-const Greeting = () => (
-  <span>Hello</span>
-)
-const Mentor = () => (
-  <span>Ali</span>
-)
-
-const HelloWorld = () => (
-  <div>
-    <Greeting />
-    <Mentor />
-  </div>
-)
-```
-
-Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `CamelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
+> **Exercise**:
+> Using the `pokedex` React app that you created earlier and open the `src/App.js` file
+> Convert the `Logo` and `BestPokemon` functions into an arrow functions
 
 ## Embedding JS into JSX
 
-Like Handlebars, you can insert variables (and some other things) into React components. Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-byupse)):
+So far all of the components we have looked at haven't been able to change - they are *hard-coded*. But this doesn't make very interesting websites, we want to be able to use variables with different data. We can insert variables (and some other things) into our React components.
+
+Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://codesandbox.io/s/l910pqnjql)):
+
+```js
+const Greeting = () => {
+  const greetingWord = 'Hello'
+  return (
+    <span>{greetingWord}</span>
+  )
+}
+```
+Now instead of hard-coding the greeting in the `Greeting` component, we are using a variable. Remember that everything between the curly braces is just regular JavaScript. So we can use more than just variables ([interactive example](https://codesandbox.io/s/nw29kzx744)):
 
 ```js
 const Mentor = () => {
@@ -266,35 +310,38 @@ function formatName(user) {
 <span>{formatName(user)}</span>
 ```
 
-A common pattern in React is to use `Array.map` to loop through a list of items and render a component for each one ([interactive example](https://stackblitz.com/edit/react-z51fpz)):
+A common pattern in React is to use `Array.map` to loop through a list of items and render a component for each one ([interactive example](https://codesandbox.io/s/7mw0mw3qx0)):
 
 ```js
 const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
 
 const List = () => (
   <ul>
-    {mentors.map((name) => (
-      <li>{name}</li>
-    ))}
+    {mentors.map((name) => {
+      return (
+        <li>{name}</li>
+      )
+    })}
   </ul>
 )
 ```
 
-Here we are using `Array.map` to turn an array of strings into an array of components. We are using a "real" map function, not just special syntax like `{{> each}}` from Handlebars.
+Here we are using `Array.map` to turn an array of strings into an array of components.
 
 > **Exercise**:
-> Using the `my-hotel` React app that you created earlier, edit `src/App.js` to create a hotel welcome page.
-> 1. Change the title to say "Welcome to CYF Hotel" and change the `img` to have `src="https://codeyourfuture.io/static/media/cyf_brand.fbcea877.png"`
-> 2. Copy the content of the `header` to a new component called `Logo`
-> 3. Replace the `header` with a usage of the new `Logo` component
-> 4. Replace the `p` with a message saying that there are bookings available for today's date (hint `new Date().toLocaleDateString()`)
-> 5. Extract the `p` to a component named `BookingsMessage`
-> 6. Create a new component `SpecialDeals` and render an empty `div`
-> 7. Within the `SpecialDeals` components, use an array containing some special deal strings and render each one as a `<p>` within the `div`
+> Using the `pokedex` React app that you created earlier and open the `src/App.js` file
+> 1. Inside the `Logo` component create a new variable called `appName` and assign it to `"Pokedex"`
+> 2. Now replace the hard-coded app name with `{appName}`. What do you see in your web browser? What would you do if you wanted to change the app name?
+> 3. Create a new component named `CaughtPokemon`. Within this component return a `<p>` with the text "Caught 0 Pokemon on" (we're going to fill in today's date in the next step)
+> 4. Create a variable named `date` within the `CaughtPokemon` component, and assign it today's date (hint: `new Date().toLocaleDateString()`). Finally, render the `date` variable after the text
+> 5. Render the `CaughtPokemon` component within the `App` component (below `BestPokemon`)
+> 6. Within the `BestPokemon` component, create a variable named `pokemonNames` and assign it to an array with some Pokemon names (e.g. `['Squirtle', 'Bulbasaur', 'Charmander']`)
+> 7. Change the `BestPokemon` component to return a `<ul>` element instead of a `<p>` element
+> 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name can return a `<li>` element (hint: look at the mentors list example above)
 
 ## Importing/Exporting Components
 
-To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://stackblitz.com/edit/react-jnkuqk)):
+To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://codesandbox.io/s/1z6xozl81l)):
 
 ```js
 import Greeting from './Greeting'
@@ -321,8 +368,14 @@ export default Greeting
 The convention is to name component files the exactly same as the component (including the capital letter).
 
 > **Exercise**:
-> Using the `my-hotel` app, edit `src/App.js` to extract the `Logo`, `BookingsMessage` and `SpecialDeals` components to new files `src/Logo.js` and `src/SpecialDeals.js`
-> Hint: you will need to import React
+> Using the `pokedex` React app that you created earlier
+> 1. Create a new file within the `src` directory named `Logo.js`
+> 2. Copy and paste the `Logo` component from `App.js` into `Logo.js`
+> 3. Remember to add `import React from 'react'` at the top of `Logo.js`
+> 4. Export the `Logo` component from `Logo.js` (hint: look at the `Greeting` example above)
+> 5. Delete the old `Logo` component from `App.js`
+> 6. Import the `Logo` component into `App.js` (hint: look at the `HelloMentor` example above)
+> 7. Repeat this process with the `BestPokemon` and `CaughtPokemon` components. What do you think the files should be called?
 
 ## Making an Argument for Props
 
@@ -330,13 +383,13 @@ What's the problem with our `HelloMentor` component above? Hint: imagine what ou
 
 Our components are very inflexible. They cannot say hello to other mentors, and they can only say "hello", not "hi" or "greetings". If our boss changes their mind, for example if they wanted to say hello to a different mentor, we would have to to change the code too. This is easy in our tiny application but for "real" applications this might be more difficult.
 
-Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what "props" are for.
+Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? This is what *props* are for.
 
 ## What Are Props?
 
-Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props in a component.
+Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props within a component.
 
-First let's look at passing props to your components ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=index.js)):
+First let's look at passing props to your components ([interactive example](https://codesandbox.io/s/vmjy0o91m7)):
 
 ```js
 <Greeting greeting="Hi" />
@@ -352,7 +405,7 @@ We don't have to use strings, we can use any valid JavaScript data like numbers,
 
 This is identical to the [Embedding JS into JSX section](../week-19/lesson.md#embedding-js-into-jsx) we looked at earlier.
 
-Now let's take a look at using props that we have passed to a component ([interactive example](https://stackblitz.com/edit/react-k4upkw?file=Greeting.js)):
+Now let's take a look at using props that we have passed to a component ([interactive example](https://codesandbox.io/s/vmjy0o91m7)):
 
 ```js
 const Greeting = (props) => {
@@ -377,59 +430,24 @@ Or calculating new values:
 <div>{props.counter + 1}</div>
 ```
 
-Components are just regular functions and props are just regular variables, so we can use destructuring to pull variables out of props. This can make our components even shorter:
-
-```js
-const Greeting = ({ greeting }) => (
-  <span>{greeting}</span>
-)
-```
-
 > **Exercise:**
-> Open the `my-hotel` React application once again
-> 1. Edit the `Logo` component so that the hotel name in the welcome message is passed as a prop
-> 2. Edit the `SpecialDeals` component so that the array is passed as a prop
-
-## Prop Types
-
-Previously we looked at how our `Mentor` component is showing the mentors names from a prop. It takes an array as a `mentors` prop and uses a `map` function to convert those names into React elements.
-
-What happens if we change the code that uses `Mentor` to pass something that is not an array? ([interactive example](https://stackblitz.com/edit/react-rpsejy?file=index.js))
-
-```js
-const HelloMentor = () => (
-  <div>
-    <Greeting />
-    <Mentor mentors="Kash" />
-  </div>
-)
-```
-
-Now we're just passing a string as the `mentors` prop. Can you explain why we get an error running this code? (Hint: read the error message carefully)
-
-We're passing the wrong *type* to the `Mentor` component. The component is expecting an array, but we're passing a string, which does not have a `map` method. PropTypes are a way to prevent this problem ([interactive example](https://stackblitz.com/edit/react-eqcedt?file=Mentor.js), open the console):
-
-```js
-Mentor.propTypes = {
-  mentors: PropTypes.array
-}
-```
-
-Now we are declaring that our `Mentor` component takes a `mentors` prop and it must be an array. If we try to pass a `mentors` props with a different type (e.g. string, number, object), then you will see an error in the console. This gives you a hint where you are using the wrong type.
-
-### Installing PropTypes
-
-PropTypes used to be included in React itself, but was split out into a separate package. If you want to use PropTypes you must first run `npm install prop-types` from the command line. Then at the top of every file that you want to use PropTypes you need to import it:
-
-```js
-import PropTypes from 'prop-types'
-```
-
-The official documentation has more information on how to use PropTypes [here](https://reactjs.org/docs/typechecking-with-proptypes.html).
+> Using the `pokedex` React app that you created earlier
+> 1. Open the `App.js` file
+> 2. Pass a prop `appName="Pokedex"` to the `Logo` component
+> 3. Now open the `Logo.js` file
+> 4. Delete the `appName` variable. What do you see in your web browser? Why?
+> 5. Change the `Logo` function to access the first argument and call it `props`. Use `console.log` to inspect the `props` variable
+> 6. Change the usage of `appName` in the `<h1>` to be `props.appName` instead. Does this fix the problem? Why?
+> 7. Now open the `BestPokemon.js` file
+> 8. Copy the `pokemonNames` variable and then delete it
+> 9. Paste the `pokemonNames` variable into `App.js`
+> 10. Pass the `pokemonNames` variable as a prop to `BestPokemon`
+> 11. In the `BestPokemon.js` file replace the existing usage of `pokemonNames` with the `pokemonNames` prop. You should still see the Pokemon names in your web browser
+> 12. **(STRETCH GOAL)** Repeat the process with the `date` variable in the `CaughtPokemon.js` file
 
 #### Credits
 
-Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course on Egghead.io. It's a free course, so check it out :)
+Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course.
 
 # Homework
 

@@ -12,18 +12,6 @@
 
 + **Help each other**. As students, you're the most qualified to help each other, as you're going through the same journey of learning - offer and ask for help from your fellow students (helping someone else is also one of the best ways to improve your own skills)
 
-+  **We are a community**. This project is special (it's more than just a coding school) and it belongs to all of us: students, mentors, volunteers and friends of CYF. Embrace it like that, be proactive about helping it grow and succeed in all of its aspects.
++ **We are a community**. This project is special (it's more than just a coding school) and it belongs to all of us: students, mentors, volunteers and friends of CYF. Embrace it like that, be proactive about helping it grow and succeed in all of its aspects.
 
-Code of Conduct
----
-Our project is dedicated to providing a harassment-free experience for everyone, regardless of gender, gender identity and expression, age, nationality, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof) etc... We do not tolerate harassment of the project's members (mentors, students, volunteers etc...) in any form. Anyone violating these rules may be expelled from the course, at the discretion of CodeYourFuture.
-
-Harassment includes, but is not limited to:
-- Verbal comments that reinforce social structures of domination [related to gender, gender identity and expression, sexual orientation, disability, physical appearance, body size, race, age, religion, nationality etc...
-- Sexual images in public spaces
-- Deliberate intimidation, stalking, or following
-- Harassing photography or recording
-- Sustained disruption of talks or other events
-- Inappropriate physical contact
-- Unwelcome sexual attention
-- Advocating for, or encouraging, any of the above behaviour
+{% include "./conduct.md" %}

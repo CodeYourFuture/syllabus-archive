@@ -35,6 +35,8 @@
   * [Week 21 - Data Integrity & Analytics](/node-db/week-18/lesson.md) | [Homework](/node-db/week-18/homework.md)
 
 ### Useful information
+
+* [Code of Conduct](conduct.md)
 * [Useful links](useful-links.md)
 * [Coding Standards and Best Practices](PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)

@@ -218,11 +218,11 @@ kittens.map(getName);   // returns ["Fluffy", "Megatron", "Billy"]
 
 Since we started JavaScript, we have used `console.log` to print things to our console.
 
-In week 2 and 3, you learned about array methods like `.map()`, `.length()`.
+In week 2 and 3, you learned about array methods like `.map()`, and `.filter()`.
 
 These are what we call built-in methods, and they're part of the JavaScript language. Someone else created these methods, and we can use them in our code.
 
-Like arrays, objects have build in methods that can help us. In this lesson, we will learn about `Object.keys()`. This method goes into our object, and returns the object property names as an array.
+Like arrays, objects have built-in methods that can help us. In this lesson, we will learn about `Object.keys()`. This method goes into our object, and returns the object property names as an array.
 
 Here is an example output for using `.keys()`:
 

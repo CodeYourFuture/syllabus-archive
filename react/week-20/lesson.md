@@ -12,7 +12,7 @@
 
 ## Recap
 
-Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://stackblitz.com/edit/react-jnkuqk)):
+Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/7zvk9n1950)):
 
 ```js
 // Greeting.js
@@ -39,17 +39,25 @@ const HelloMentor = () => (
 
 ## Class Components
 
-So far we have looked at components which are just functions (which are sometimes called *stateless functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://stackblitz.com/edit/react-esgmuh?file=Greeting.js)):
+So far we have looked at components which are just functions (which are sometimes called *functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://codesandbox.io/s/1zmoz1817j)):
 
 ```js
 import React, { Component } from 'react'
 
-export default class Greeting extends Component {
+// Class component
+class Greeting extends Component {
   render() {
     return (
       <div>Hello</div>
     )
   }
+}
+
+// Functional component
+const Greeting = () => {
+  return (
+    <div>Hello</div>
+  )
 }
 ```
 
@@ -67,9 +75,24 @@ class Mentor extends Component {
 
 So when do we use the `class` keyword and when do we use function components? Class components have special super powers called state and lifecycle (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of state or lifecycle.
 
+Here are the steps to follow to convert from a functional component into a class component:
+
+1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react'`
+2. Create a new `class` that extends the component: `class MyComponentName extends Component {}`
+3. Inside the class, create a render method: `render() {}`
+4. Copy and paste the contents of the functional component into the `render` method
+5. Replace any references to `props` with `this.props`
+6. Delete the old functional component
+
+> **Exercise:**
+> Open the `pokedex` React application that you created last week
+> 1. Convert the `Logo` component from a functional component into a class component
+> 2. Convert the `CaughtPokemon` component into a class component
+> 3. Convert the `BestPokemon` component into a class component
+
 ### Class Methods
 
-One of the super powers that class components have is how we can add more functions within the class scope. These are sometimes called *methods*:
+One of the super powers that class components have is how we can add more functions within the class scope. These are sometimes called *methods* ([interactive example](https://codesandbox.io/s/13omkro30j)):
 
 ```js
 import React, { Component } from 'react'
@@ -87,8 +110,21 @@ class Hello extends Component {
 }
 ```
 
+Notice how we use a slightly different syntax for the `sayHello` method than the `render` method? There is a reason for this, but it is quite complicated and mostly irrelevant. The rule of thumb is to always use this syntax:
+
+```js
+methodName = () => {
+  // ...
+}
+```
+**Except** for the `render` method (and a handful of others which we'll talk about later).
+
 > **Exercise:**
-> Open the `my-hotel` React application that your created last week and convert the `BookingsMessage` component to a class component
+> Open the `pokedex` React application and open the `Logo.js` file
+> 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
+> 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
+> 3. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above)
+> 4. In your web browser, try clicking on the image. What do you see in the JavaScript console?
 
 ## Passing Functions as Props
 
@@ -109,7 +145,7 @@ console.log(hello)
 console.log(hello())
 ```
 
-This is important in React as we can pass the reference to the function as a prop, and then call the function from the child component ([interactive example](https://stackblitz.com/edit/react-zdeki8)):
+This is important in React as we can pass the reference to the function as a prop, and then call the function from the child component ([interactive example](https://codesandbox.io/s/zqlnmo16y3)):
 
 ```js
 class App extends Component {
@@ -137,16 +173,18 @@ const FancyButton = (props) => (
 ```
 
 > **Exercise:**
-> Open the `my-hotel` React application once again
-> 1. Add a `logWhenClicked` method to the `App` class component
-> 2. Pass the `logWhenClicked` method as a prop to the `Logo` component
-> 3. Call the function when the `<img>` is clicked (Hint: `onClick`)
+> Open the `pokedex` React application
+> 1. Open the `Logo.js` component and copy the `logWhenClicked` method. Then delete it
+> 2. Then change the `onClick` handler to `this.props.handleClick`
+> 3. Paste the `logWhenClicked` method into the component in `App.js`
+> 4. Then pass the `logWhenClicked` method as a prop to the `Logo` component (hint: look at the `App` example above)
+> 5. Try clicking the image in your web browser again. Does it still work? Can you explain why to the person sitting next to you?
 
 ## Reacting to Changes
 
 Now let's write a more interesting app that responds to some user input. We'll see how React will take care of updating the DOM for you.
 
-A counter is a common React example, showing the number of times a button has been clicked. First lets render a button and a counter which set to 0 clicks ([interactive example](https://stackblitz.com/edit/react-bb5vjg)):
+A counter is a common React example, showing the number of times a button has been clicked. First lets render a button and a counter which set to 0 clicks ([interactive example](https://codesandbox.io/s/voqzrx5ny)):
 
 ```js
 let count = 0
@@ -165,9 +203,9 @@ function renderCounter() {
 renderCounter(count)
 ```
 
-Note that this example is simplified compared to your `my-hotel` application, because some parts are split into separate files to keep the code clean. You'll find the `ReactDOM.render` call in `index.js`
+Note that this example is simplified compared to your `pokedex` application, because some parts are split into separate files to keep the code clean. You'll find the `ReactDOM.render` call in `index.js`
 
-This example isn't very useful yet as it doesn't do anything when clicking the button. Now let's listen for clicks on the button and increment the counter ([interactive version](https://stackblitz.com/edit/react-bssdkj)):
+This example isn't very useful yet as it doesn't do anything when clicking the button. Now let's listen for clicks on the button and increment the counter ([interactive version](https://codesandbox.io/s/llow115pll)):
 
 ```js
 let count = 0
@@ -211,13 +249,22 @@ What other approaches can we take?
 
 The solution that React provides for us is called *state*. It allows a component to "remember" some variables. Let's take a look at how we could rewrite the counter with React state.
 
-First we'll get rid of the global variables. **Generally having global variables is a bad idea**, since it is very easy to create a bug which affects the whole application. We can also get rid of the `renderCounter` function and just call `ReactDOM.render` directly:
+Let's start over and get rid of the global variables. **Generally having global variables is a bad idea**, since it is very easy to create a bug which affects the whole application.
 
 ```js
+const Counter = (props) => {
+  return (
+    <div>
+      Count: {props.count}
+      <button>Click me!</button>
+    </div>
+  )
+}
+
 ReactDOM.render(<Counter count={0} />, document.getElementById('root'))
 ```
 
-Now we need to use one of the class component super powers - state. That means we'll have to convert our `Counter` component to use a class ([interactive example](https://stackblitz.com/edit/react-b8zhqp)):
+Now we need to use one of the class component super powers - state. That means we'll have to convert our `Counter` component to use a class ([interactive example](https://codesandbox.io/s/pjlro5rop7)):
 
 ```js
 class Counter extends Component {
@@ -225,14 +272,14 @@ class Counter extends Component {
     return (
       <div>
         Count: {this.props.count}
-        <button id="click-me">Click me!</button>
+        <button>Click me!</button>
       </div>
     )
   }
 }
 ```
 
-Next we'll change the component to use the count from `this.state` instead of `this.props` ([interactive example](https://stackblitz.com/edit/react-8aumme)):
+Next we'll change the component to use the count from `this.state` instead of `this.props` ([interactive example](https://codesandbox.io/s/42y7xqj700)):
 
 ```js
 class Counter extends Component {
@@ -240,14 +287,14 @@ class Counter extends Component {
     return (
       <div>
         Count: {this.state.count}
-        <button id="click-me">Click me!</button>
+        <button>Click me!</button>
       </div>
     )
   }
 }
 ```
 
-This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it from props. We can do this in the class constructor ([interactive example](https://stackblitz.com/edit/react-ww2caz)):
+This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it from props. We can do this in the class constructor ([interactive example](https://codesandbox.io/s/1oyxx4lzz7)):
 
 ```js
 class Counter extends Component {
@@ -263,9 +310,7 @@ class Counter extends Component {
 }
 ```
 
-This is a common pattern in React. Props often act like "initial configuration" for a component which are copied to state. If state doesn't need to be configured through props, you can set it's initial value here too.
-
-Now the counter component is "remembering" that it's count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://stackblitz.com/edit/react-znvcmk)):
+Now the counter component is "remembering" that it's count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
 
 ```js
 class Counter extends Component {
@@ -274,9 +319,8 @@ class Counter extends Component {
   }
 
   increment = () => {
-    let currentCount = this.state.count
     this.setState({
-      count: ++currentCount
+      count: 1
     })
   }
 
@@ -291,40 +335,74 @@ class Counter extends Component {
 }
 ```
 
-There's a couple of things happening here. We've added an click handler to the button, which will call the `increment` function when the button gets clicked. When the `increment` function is called, it gets the current value of the count from `this.state`. Then it calls `this.setState` function with an incremented count.
+There's a couple of things happening here. We've added an click handler to the button, which will call the `increment` function when the button gets clicked. When the `increment` function is called, it calls `this.setState` function with the `count` set to 1.
 
 `this.setState` is a special function provided by React's `Component`, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
 
-Now that we have refactored to use React state, we can easily add multiple counters ([interactive example](https://stackblitz.com/edit/react-678rgd)):
+Now that we have refactored to use React state, we can easily add multiple counters ([interactive example](https://codesandbox.io/s/v8165mq503)):
 
 ```js
-class App extends Component {
+const App = () => {
+  return (
+    <div>
+      <Counter count={0} />
+      <Counter count={0} />
+      <Counter count={0} />
+    </div>
+  )
+}
+```
+
+This still isn't a particular useful application, because we can only still only count to 1! We need to change our `Counter` component so that it reads the previous state, then adds 1 onto that. We can do this by passing a callback function to `this.setState` ([interactive example](https://codesandbox.io/s/qxz27q9y4)):
+
+```js
+class Counter extends Component {
+  constructor(props) {
+    // ...
+  }
+
+  increment = () => {
+    this.setState(previousState => {
+      return {
+        count: previousState.count + 1
+      }
+    })
+  }
+
   render() {
-    return (
-      <div>
-        <Counter count={0} />
-        <Counter count={0} />
-        <Counter count={0} />
-      </div>
-    )
+    // ...
   }
 }
 ```
 
+Now we can count up as many times as we like! 
+
+So when do we need to use a callback function for `this.setState`? If we are computing the new state based on the old state, then we need to use a callback function. Otherwise we can just use an object. This is because React can 'delay' `this.setState` executing for performance reasons. By using a callback function, we ensure that we are computing the new state with the correct version of the old state and not an outdated one.
+
+Let's recap what we've learnt about React state:
+
+- State is one of the class component super powers - you must use a class component to use state
+- We initialise state in the `constructor` method by assigning the `this.state` variable to an object with whatever initial state we want (e.g. `{ something: 'hello' }`)
+- We can read or render state by using the `this.state` variable (e.g. `this.state.something`)
+- We can change state using the `this.setState()` method and by passing the piece of state we want to update (e.g. `this.setState({ something: 'hi' })`)
+- If we need to read the previous state to be able to calculate the new state, then we must use a callback function with `this.setState()` (e.g. `this.setState((previousState) => { return { something: previousState.something + 1 } })`)
+
 > **Exercise:**
-> Open the `my-hotel` React application that your created last week
-> 1. Set the initial state of the `BookingsMessage` component to have 0 bookings
-> 2. Show the number of bookings from state in `BookingsMessage`
-> 3. Add an "Add Booking" button to the `BookingsMessage` component
-> 4. Create an `addBooking` function on the `BookingsMessage` component
-> 5. Add a click handler to the button which calls the `addBooking` function
-> 6. Use `this.setState` to increment the number of bookings in state
+> Open the `pokedex` React application and open the `CaughtPokemon.js` file
+> 1. Add a `constructor` method to the `CaughtPokemon` component and remember to handle `props` correctly (hint: `super(props)`)
+> 2. Set the initial state by assigning `this.state` in the `constructor` method to an object. Then make the initial state have 0 `caughtPokemon`
+> 3. Change the `CaughtPokemon` component to render `this.state.caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser?
+> 4. Add a `<button>` with the text "Catch Pokemon" to the `CaughtPokemon` component
+> 5. Create an `catchPokemon` method within the `CaughtPokemon` class
+> 6. Add a `onClick` handler to the `<button>` we just created that will call the `catchPokemon` method
+> 7. Within the `catchPokemon` method, use `this.setState()` to change `caughtPokemon` to 1
+> 8. Update the `catchPokemon` method to increase the number of `caughtPokemon` by 1 every time the button is clicked (hint: we need to use the previous state to calculate the new state)
 
 ### When do you use Props or State?
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
 
-Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://stackblitz.com/edit/react-c9dw8g)):
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
 
 ```js
 class Hello extends Component {

@@ -137,7 +137,7 @@ As you can see, this is much easier to read than both the straight `React.create
 
 > **Exercises**
 > 1. Change the [JSX example from above](http://jsbin.com/gekahexige/edit?html,output) to instead render a `h1` with an id of `"main-header"` and the text "Hello Ali"
-> 2. Visit the [Babel REPL](https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=DwEwlgbgfAEgpgGwQewAQHVkCcEmAenGiA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=true&fileSize=false&lineWrap=false&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=) and copy/paste the `h1` that you just created
+> 2. Visit the [Babel REPL](https://babeljs.io/repl/) and copy/paste the `h1` that you just created
 
 ## Let's Create A React App
 

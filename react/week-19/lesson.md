@@ -337,7 +337,7 @@ Here we are using `Array.map` to turn an array of strings into an array of compo
 > 5. Render the `CaughtPokemon` component within the `App` component (below `BestPokemon`)
 > 6. Within the `BestPokemon` component, create a variable named `pokemonNames` and assign it to an array with some Pokemon names (e.g. `['Squirtle', 'Bulbasaur', 'Charmander']`)
 > 7. Change the `BestPokemon` component to return a `<ul>` element instead of a `<p>` element
-> 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name can return a `<li>` element (hint: look at the mentors list example above)
+> 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name and return a `<li>` element for each (hint: look at the mentors list example above)
 
 ## Importing/Exporting Components
 

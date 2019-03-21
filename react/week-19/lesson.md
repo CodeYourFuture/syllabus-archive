@@ -224,7 +224,7 @@ Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are
 > Using the `pokedex` React app that you created earlier and open the `src/App.js` file
 > 1. Create a new function named `Logo`
 > 2. Copy `<header>` element and its contents and paste into the `Logo` component
-> 3. Replace the `<header>` element in the `App` component with the new `Heading` component
+> 3. Replace the `<header>` element in the `App` component with the new `Logo` component
 > 4. Create a new component function named `BestPokemon` and return a `<p>` element with some text saying which is your favourite Pokemon (e.g. "My favourite Pokemon is Squirtle")
 > 5. *Render* your new `BestPokemon` component below the `Logo` component within the `App` component
 

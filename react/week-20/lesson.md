@@ -310,7 +310,7 @@ class Counter extends Component {
 }
 ```
 
-Now the counter component is "remembering" that its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
+Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
 
 ```js
 class Counter extends Component {

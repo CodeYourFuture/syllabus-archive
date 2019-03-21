@@ -184,7 +184,7 @@ There are 3 important parts in this code:
 > 3. Create a function named `App`, which will be our component
 > 4. Within the `App` function, return a `<h1>` element with the text "Welcome to the Pokedex". What do you see in your web browser?
 > 5. Create a `<div>` element that *wraps around* the `<h1>` you just created
-> 6. Below the `<h1>` element (but within the `<div>`), create an `<img>` element. Then make it's `src` attribute equal to `https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png`. What do you expect to see in your web browser?
+> 6. Below the `<h1>` element (but within the `<div>`), create an `<img>` element. Then make its `src` attribute equal to `https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png`. What do you expect to see in your web browser?
 > 5. Now create a `<header>` element to wrap both the `<h1>` element **and** the `<img>` element
 
 #### Component Composition
@@ -223,8 +223,8 @@ Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are
 > **Exercise**:
 > Using the `pokedex` React app that you created earlier and open the `src/App.js` file
 > 1. Create a new function named `Logo`
-> 2. Copy `<header>` element and it's contents and paste into the `Logo` component
-> 3. Replace the `<header>` element in the `App` component with the new `Heading` component
+> 2. Copy `<header>` element and its contents and paste into the `Logo` component
+> 3. Replace the `<header>` element in the `App` component with the new `Logo` component
 > 4. Create a new component function named `BestPokemon` and return a `<p>` element with some text saying which is your favourite Pokemon (e.g. "My favourite Pokemon is Squirtle")
 > 5. *Render* your new `BestPokemon` component below the `Logo` component within the `App` component
 

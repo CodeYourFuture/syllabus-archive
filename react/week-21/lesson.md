@@ -163,15 +163,14 @@ export default Clock
 
 > 3. In `App.js` import the `Clock` component with `import Clock from './Clock'`
 > 4. Then render the `Clock` component in the `App` component (hint: `<Clock />`)
-> 5. Switch back to `Clock.js` and change the `Time` component (notice that there are 2 components defined in this file) to add a `tick` method
-> 6. Now add a `componentDidMount` method to the `Time` component
-> 7. Within the `componentDidMount` method use `setInterval` to call `this.tick` every 1000 milliseconds (hint: `setInterval(this.tick, 1000)`)
-> 8. Now open the JavaScript console your web browser. What is happening? Can you explain why?
-> 9. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it?
-> 10. Change the `componentDidMount` method to assign `this.timer` to the output of `setInterval` (hint: `this.timer = setInterval(this.tick, 1000)`)
-> 11. Add a `componentWillUnmount` method to the `Time` component
-> 12. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)`
-> 13. Try clicking the "Toggle time" button again, like in step 9. How have we solved the problem?
+> 5. Now change the `Time` component (notice that there are 2 components defined in this file) add a `componentDidMount` method
+> 6. Within the `componentDidMount` method use `setInterval` to call `this.tick` every 1000 milliseconds (hint: `setInterval(this.tick, 1000)`)
+> 7. Now open the JavaScript console your web browser. What is happening? Can you explain why?
+> 8. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it?
+> 9. Change the `componentDidMount` method to assign `this.timer` to the output of `setInterval` (hint: `this.timer = setInterval(this.tick, 1000)`)
+> 10. Add a `componentWillUnmount` method to the `Time` component
+> 11. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)`
+> 12. Try clicking the "Toggle time" button again, like in step 9. How have we solved the problem?
 
 ## Fetching Data in React
 

@@ -99,7 +99,7 @@ class Lifecycle extends Component {
 }
 ```
 
-> **Exercise:**
+> **Exercise A**
 > Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file
 > 1. Add a `constructor` method to the `CaughtPokemon` component. Within this method add a `console.log('constructor')`
 > 2. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
@@ -117,7 +117,7 @@ The `componentWillUnmount` method runs when a component has been unmounted from 
 
 To look at these in more detail, we'll create a Clock component in an exercise.
 
-> **Exercise:**
+> **Exercise B**
 > Open the `pokedex` React application again
 > 1. Create a new file called `Clock.js` in the `src` directory
 > 2. Copy and paste in the code below ([interactive version](https://codesandbox.io/s/p9q2wq069j)):
@@ -298,7 +298,7 @@ render() {
 }
 ```
 
-> **Exercise:**
+> **Exercise C**
 > Open the `pokedex` React application again and open the `src/BestPokemon.js` file
 > 1. If you haven't already, convert the `BestPokemon` component to a class component
 > 2. Create a `constructor` method (hint: remember to call `super(props)`)

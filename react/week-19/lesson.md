@@ -339,6 +339,26 @@ Here we are using `Array.map` to turn an array of strings into an array of compo
 > 7. Change the `BestPokemon` component to return a `<ul>` element instead of a `<p>` element
 > 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name and return a `<li>` element for each (hint: look at the mentors list example above)
 
+## Keys
+
+You may have noticed that we are now seeing a red error message in the Dev Tools: `Warning: Each child in a list should have a unique "key" prop.`. This error happens when you use `Array.map` to return a list of elements ([interactive example](https://codesandbox.io/s/pwp8ox4kn0)):
+
+```js
+const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
+
+const List = () => (
+  <ul>
+    {mentors.map((name, index) => {
+      return (
+        <li key={index}>{name}</li>
+      )
+    })}
+  </ul>
+)
+```
+
+Here we're added a `key` prop the to element. A documentation page explaining in more depth is in the further reading section, but in brief, the `key` prop has has special meaning in React because it is used internally to keep track of which element is which.
+
 ## Importing/Exporting Components
 
 To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://codesandbox.io/s/1z6xozl81l)):

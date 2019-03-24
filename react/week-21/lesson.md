@@ -315,6 +315,7 @@ render() {
 > 14. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
 > 15. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
 > 16. **(STRETCH GOAL)** Add some error handling which renders an error message
+> 17. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
 
 ## Refs
 

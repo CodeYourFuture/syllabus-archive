@@ -346,6 +346,72 @@ class InputFocuser extends Component {
 
 The key method here is `setInputRef`. It is called by React when rendering the `<input>`, and passes a reference to the real DOM node as an argument. We remember the reference by assigning it to `this.input`. Then when the button is clicked we can call the `focus` method (a vanilla method, not part of React) on the input DOM node.
 
+### Uncontrolled & Controlled Components
+
+Refs are also useful when building forms to collect user data. We can use them in a *pattern* called an *uncontrolled component*. A pattern is a repeated solution to a problem that is useful in multiple similar cases.
+
+Let's look an example of an uncontrolled component ([interactive example](https://codesandbox.io/s/04x2r6ko0p)):
+
+```js
+class UncontrolledComponent extends Component {
+  inputRef = (inputEl) => {
+    this.inputRef = inputEl
+  }
+
+  handleSubmit = (event) => {
+    console.log(this.inputRef.value)
+    event.preventDefault() // Prevents form submission
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" ref={this.inputRef} placeholder="Name" />
+        <button type="submit">Submit</button>
+      </form>
+    )
+  }
+}
+```
+
+By using a ref, we can gather all of the input data in the form at once and do something with it, for example send it in a POST request.
+
+In contrast, we can get more control over our input data by using the *controlled component* pattern. Let's look at an example ([interactive example]()):
+
+```js
+class ControlledComponent extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: ''
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      name: event.target.value
+    })
+  }
+
+  render() {
+    return (
+      <input
+        type="text"
+        placeholder="Name"
+        value={this.state.name}
+        onChange={this.handleChange}
+      />
+    )
+  }
+}
+```
+
+Now we're controlling the `value` of the input by using the value from state. This means that we can only change the value by updating state. If you didn't call `this.setState()` in the `handleChange` method, then the input's value would never change and it would appear as if you couldn't type in the input!
+
+This pattern is useful if you need to keep track of what the user is typing in the input. We could transform the string before we set it with `this.setState()`, for example by calling `toUpperCase()` on the string.
+
+Both of these patterns are useful when working with forms, but in general the uncontrolled component pattern is most common, unless you know that you need the controlled component pattern.
+
 # Homework
 
 {% include "./homework.md" %}

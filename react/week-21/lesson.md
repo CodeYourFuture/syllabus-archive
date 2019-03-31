@@ -376,7 +376,7 @@ class UncontrolledComponent extends Component {
 
 By using a ref, we can gather all of the input data in the form at once and do something with it, for example send it in a POST request.
 
-In contrast, we can get more control over our input data by using the *controlled component* pattern. Let's look at an example ([interactive example]()):
+In contrast, we can get more control over our input data by using the *controlled component* pattern. Let's look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
 
 ```js
 class ControlledComponent extends Component {

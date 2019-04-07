@@ -26,7 +26,21 @@
 
 - Refs
   - The example we show is for input focusing
+  - This whole section can be dropped if short on time
 - Useful to talk about the uncontrolled vs controlled components patterns
   - Uncontrolled component pattern uses refs to collect `<input>` data on form submission
   - Compare against controlled component pattern, e.g. by showing inputs that transform data
-  - [CodeSandbox example](https://codesandbox.io/s/n53127o16p)
+
+### Interactive Example Index
+
+- [Recap](https://codesandbox.io/s/7j21mrq08x)
+- [Unmounting](https://codesandbox.io/s/xmo8oo514)
+- [Simple React Lifecycle](https://codesandbox.io/s/m5z2v36x1y)
+- [Toggleable Clock](https://codesandbox.io/s/p9q2wq069j) (used in exercise)
+- [Data fetching problem](https://codesandbox.io/s/4rkovwq0kw)
+- [Data fetching with setState](https://codesandbox.io/s/5kk53yx6ll)
+- [Data fetching with loading state](https://codesandbox.io/s/93zr0xz32r)
+- [Data fetching with error state](https://codesandbox.io/s/6v9qo90r2r)
+- [Intro to Refs](https://codesandbox.io/s/yw510x1l81)
+- [Uncontrolled Component](https://codesandbox.io/s/04x2r6ko0p)
+- [Controlled Component](https://codesandbox.io/s/4jq1yqy8kx)

@@ -47,7 +47,7 @@ There are no hard & fast rules for making components. UIs can be split up into c
 - Components should have good, explicit names
   + This helps you to remember what the component's job is
 
-> **Exercise**:
+> **Exercise A**:
 > Look at the example online shopping user interface in the [Thinking in React article](https://reactjs.org/docs/thinking-in-react.html) (the image at the top). Draw boxes around the components and give them names. Compare with the example components shown in the second image.
 
 ## Rendering with React
@@ -134,7 +134,7 @@ Using JSX ([interactive version](http://jsbin.com/gekahexige/edit?html,output)):
 
 As you can see, this is much easier to read than both the straight `React.createElement` API and the vanilla JS API. Most people using React use JSX to write their components.
 
-> **Exercises**
+> **Exercise B**
 > 1. Change the [JSX example from above](http://jsbin.com/gekahexige/edit?html,output) to instead render a `h1` with an id of `"main-header"` and the text "Hello Ali"
 > 2. Visit the [Babel REPL](https://babeljs.io/repl/) and copy/paste the `h1` that you just created
 
@@ -142,7 +142,7 @@ As you can see, this is much easier to read than both the straight `React.create
 
 The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). It sets up files like we saw in the previous example, so that you don't have to.
 
-> **Exercise**: Install & set up a Create React App by following the steps below
+> **Exercise C**: Install & set up a Create React App by following the steps below
 
 ```
 npm install -g create-react-app
@@ -177,7 +177,7 @@ There are 3 important parts in this code:
 2. We create a React component called `HelloWorld`
 3. We *render* the `HelloWorld` component into a `div` with the id of `root`
 
-> **Exercise**:
+> **Exercise D**:
 > Using the `pokedex` React app that you just created and open the `src/App.js` file
 > 1. Delete everything in the file except the line containing `export default App`. You should see an error in your terminal and in your web browser - don't panic! We're going to remake the `App` component ourselves
 > 2. Import React variable from the React package
@@ -220,7 +220,7 @@ We are also using some shorter syntax within the `HelloWorld` component. `<Greet
 
 Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are `CamelCased` and always start with an uppercase letter? And "regular DOM" components (`div`, `span`) are always lowercase? This the convention to let you know whether you are using a "regular DOM component" or something that you have written.
 
-> **Exercise**:
+> **Exercise E**:
 > Using the `pokedex` React app that you created earlier and open the `src/App.js` file
 > 1. Create a new function named `Logo`
 > 2. Copy `<header>` element and its contents and paste into the `Logo` component
@@ -260,7 +260,7 @@ const HelloWorld = () => (
 
 If we want to do this, we can still use arrow functions but we can't use the implicit return.
 
-> **Exercise**:
+> **Exercise F**:
 > Using the `pokedex` React app that you created earlier and open the `src/App.js` file
 > Convert the `Logo` and `BestPokemon` functions into an arrow functions
 
@@ -328,7 +328,7 @@ const List = () => (
 
 Here we are using `Array.map` to turn an array of strings into an array of components.
 
-> **Exercise**:
+> **Exercise G**:
 > Using the `pokedex` React app that you created earlier and open the `src/App.js` file
 > 1. Inside the `Logo` component create a new variable called `appName` and assign it to `"Pokedex"`
 > 2. Now replace the hard-coded app name with `{appName}`. What do you see in your web browser? What would you do if you wanted to change the app name?
@@ -338,6 +338,26 @@ Here we are using `Array.map` to turn an array of strings into an array of compo
 > 6. Within the `BestPokemon` component, create a variable named `pokemonNames` and assign it to an array with some Pokemon names (e.g. `['Squirtle', 'Bulbasaur', 'Charmander']`)
 > 7. Change the `BestPokemon` component to return a `<ul>` element instead of a `<p>` element
 > 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name and return a `<li>` element for each (hint: look at the mentors list example above)
+
+## Keys
+
+You may have noticed that we are now seeing a red error message in the Dev Tools: `Warning: Each child in a list should have a unique "key" prop.`. This error happens when you use `Array.map` to return a list of elements ([interactive example](https://codesandbox.io/s/pwp8ox4kn0)):
+
+```js
+const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
+
+const List = () => (
+  <ul>
+    {mentors.map((name, index) => {
+      return (
+        <li key={index}>{name}</li>
+      )
+    })}
+  </ul>
+)
+```
+
+Here we have added a `key` prop the to element. A documentation page explaining in more depth is in the further reading section but basically the `key` prop has a special meaning in React because it is used internally to keep track of which element in the list is which.
 
 ## Importing/Exporting Components
 
@@ -367,7 +387,7 @@ export default Greeting
 
 The convention is to name component files the exactly same as the component (including the capital letter).
 
-> **Exercise**:
+> **Exercise H**:
 > Using the `pokedex` React app that you created earlier
 > 1. Create a new file within the `src` directory named `Logo.js`
 > 2. Copy and paste the `Logo` component from `App.js` into `Logo.js`
@@ -430,7 +450,7 @@ Or calculating new values:
 <div>{props.counter + 1}</div>
 ```
 
-> **Exercise:**
+> **Exercise I**
 > Using the `pokedex` React app that you created earlier
 > 1. Open the `App.js` file
 > 2. Pass a prop `appName="Pokedex"` to the `Logo` component

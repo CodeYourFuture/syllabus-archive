@@ -84,7 +84,7 @@ Here are the steps to follow to convert from a functional component into a class
 5. Replace any references to `props` with `this.props`
 6. Delete the old functional component
 
-> **Exercise:**
+> **Exercise A**
 > Open the `pokedex` React application that you created last week
 > 1. Convert the `Logo` component from a functional component into a class component
 > 2. Convert the `CaughtPokemon` component into a class component
@@ -119,7 +119,7 @@ methodName = () => {
 ```
 **Except** for the `render` method (and a handful of others which we'll talk about later).
 
-> **Exercise:**
+> **Exercise B**
 > Open the `pokedex` React application and open the `Logo.js` file
 > 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
 > 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
@@ -172,7 +172,7 @@ const FancyButton = (props) => (
 )
 ```
 
-> **Exercise:**
+> **Exercise C**
 > Open the `pokedex` React application
 > 1. Open the `Logo.js` component and copy the `logWhenClicked` method. Then delete it
 > 2. Then change the `onClick` handler to `this.props.handleClick`
@@ -310,7 +310,7 @@ class Counter extends Component {
 }
 ```
 
-Now the counter component is "remembering" that it's count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
+Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
 
 ```js
 class Counter extends Component {
@@ -387,7 +387,7 @@ Let's recap what we've learnt about React state:
 - We can change state using the `this.setState()` method and by passing the piece of state we want to update (e.g. `this.setState({ something: 'hi' })`)
 - If we need to read the previous state to be able to calculate the new state, then we must use a callback function with `this.setState()` (e.g. `this.setState((previousState) => { return { something: previousState.something + 1 } })`)
 
-> **Exercise:**
+> **Exercise D**
 > Open the `pokedex` React application and open the `CaughtPokemon.js` file
 > 1. Add a `constructor` method to the `CaughtPokemon` component and remember to handle `props` correctly (hint: `super(props)`)
 > 2. Set the initial state by assigning `this.state` in the `constructor` method to an object. Then make the initial state have 0 `caughtPokemon`

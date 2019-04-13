@@ -354,7 +354,7 @@ Let's look an example of an uncontrolled component ([interactive example](https:
 
 ```js
 class UncontrolledComponent extends Component {
-  inputRef = (inputEl) => {
+  setInputRef = (inputEl) => {
     this.inputRef = inputEl
   }
 
@@ -366,7 +366,7 @@ class UncontrolledComponent extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" ref={this.inputRef} placeholder="Name" />
+        <input type="text" ref={this.setInputRef} placeholder="Name" />
         <button type="submit">Submit</button>
       </form>
     )

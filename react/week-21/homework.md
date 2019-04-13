@@ -1,2 +1,3 @@
-Complete user stories 9, 10, 11 and 12 from [cyf-hotel-react](https://github.com/CodeYourFuture/cyf-hotel-react) project.
-Try to complete the Stretch Goal exercises.
+Complete all of the lesson 3 exercises in the [cyf-hotel-react](https://github.com/CodeYourFuture/cyf-hotel-react#lesson-3) project.
+
+Try to complete the [Stretch Goal exercises](https://github.com/CodeYourFuture/cyf-hotel-react#stretch-goals).

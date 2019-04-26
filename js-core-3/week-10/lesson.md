@@ -152,7 +152,7 @@ equals(myNewFunction(arg1, arg2, etc), expectedOutput)
 ```
 As you can see in this example, instead of using a number as the first argument to the `equals()` function, we have used a function instead; the one we wish to test.
 
-> Exercise: Write tests for the the exercises under `I.write-tests`
+> Exercise: Write tests for the the exercises under `II.write-tests`
 
 ### Unit testing frameworks
 

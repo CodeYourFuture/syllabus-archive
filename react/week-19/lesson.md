@@ -405,7 +405,7 @@ The convention is to name component files the exactly same as the component (inc
 
 What's the problem with our `HelloMentor` component above?
 
-The component `HelloMentor` is very static. It cannot say hello to a different mentor, and it can only say "hello", not "hi" or "greetings". What if we want to say hello to a different mentor? Currently, we would have to change the code too! This is easy in our tiny application but for "real" applications this might be more difficult.
+The component `HelloMentor` is very static. What if we want to say *hello* to a different mentor? Currently, we would have to change the code too! This is easy in our tiny application but for "real" applications this might be more difficult.
 
 Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? So we could reuse the `HelloMentor` component for different mentor names. This is what *props* are for.
 
@@ -416,24 +416,24 @@ Props are what we use in React to pass "arguments" to components. They are very 
 First let's look at passing props to your components ([interactive example](https://codesandbox.io/s/035q5w5o30)):
 
 ```js
-<Greeting greeting="Hi" />
+<Mentor name="Mozafar" />
 ```
 
-As you can see props are key-value pairs, in this example the key is `greeting` and the value is the string `'Hi'`. We can pass as many props as we like to a component.
+As you can see props are key-value pairs, in this example the key is `name` and the value is the string `'Mozafar'`. We can pass as many props as we like to a component.
 
 We don't have to use strings, we can use any valid JavaScript data like numbers, arrays and objects. Remember that in JSX you can use curly braces (`{` & `}`) to inject data that is not a string:
 
 ```js
-<HotelRoom price={123}>
+<Mentor age={30}>
 ```
 
 Now let's take a look at using props that we have passed to a component ([interactive example](https://codesandbox.io/s/035q5w5o30)):
 
 ```js
-const Greeting = (props) => {
+const Mentor = (props) => {
   console.log(props);
   return (
-    <span>{props.greeting}</span>
+    <span>{props.name}</span>
   );
 };
 ```
@@ -443,13 +443,13 @@ React gives you access to props in the **first argument** to the component funct
 The `props` variable is just a normal object with key-value pairs that match what was passed to the component. Because it is just a variable, it can be used like any other variable. That includes injecting props into attributes:
 
 ```js
-<div id={'my-id-' + props.id}>{props.content}</div>
+<div id={'mentor-id-' + props.id}>{props.name}</div>
 ```
 
 Or calculating new values:
 
 ```js
-<div>{props.counter + 1}</div>
+<div>{props.age + 1}</div>
 ```
 
 > **Exercise I**

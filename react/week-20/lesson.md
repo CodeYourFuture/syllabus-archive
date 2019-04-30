@@ -12,44 +12,44 @@
 
 ## Recap
 
-Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/7zvk9n1950)):
+Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/035q5w5o30)):
 
 ```js
 // Greeting.js
 const Greeting = () => (
   <span>Hello</span>
-)
+);
 
 // Mentor.js
 const Mentor = (props) => (
   <span>{props.name}</span>
-)
+);
 
 // index.js
-import Greeting from './Greeting'
-import Mentor from './Mentor'
+import Greeting from './Greeting';
+import Mentor from './Mentor';
 
 const HelloMentor = () => (
   <div>
     <Greeting />
     <Mentor name="Ali" />
   </div>
-)
+);
 ```
 
 ## Class Components
 
-So far we have looked at components which are just functions (which are sometimes called *functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://codesandbox.io/s/1zmoz1817j)):
+So far we have looked at components which are just functions (which are called *functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://codesandbox.io/s/81rq0n0q32)):
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 // Class component
 class Greeting extends Component {
   render() {
     return (
       <div>Hello</div>
-    )
+    );
   }
 }
 
@@ -58,7 +58,7 @@ const Greeting = () => {
   return (
     <div>Hello</div>
   )
-}
+};
 ```
 
 Instead of getting props through the first argument of the component function, the class component gets props from `this.props`:
@@ -68,16 +68,16 @@ class Mentor extends Component {
   render() {
     return (
       <div>{this.props.name}</div>
-    )
+    );
   }
 }
 ```
 
-So when do we use the `class` keyword and when do we use function components? Class components have special super powers called state and lifecycle (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of state or lifecycle.
+So when do we use the `class` keyword and when do we use function components? Class components have special super powers called *state* and *lifecycle* (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of *state* or *lifecycle*.
 
 Here are the steps to follow to convert from a functional component into a class component:
 
-1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react'`
+1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react';`
 2. Create a new `class` that extends the component: `class MyComponentName extends Component {}`
 3. Inside the class, create a render method: `render() {}`
 4. Copy and paste the contents of the functional component into the `render` method
@@ -92,20 +92,20 @@ Here are the steps to follow to convert from a functional component into a class
 
 ### Class Methods
 
-One of the super powers that class components have is how we can add more functions within the class scope. These are sometimes called *methods* ([interactive example](https://codesandbox.io/s/13omkro30j)):
+One of the super powers that class components have is how we can add more functions within the class scope. These are called *methods* ([interactive example](https://codesandbox.io/s/48ypvj8w94)):
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Hello extends Component {
   sayHello = () => {
-    console.log('Hello from Hello component!')
+    console.log('Hello from Hello component!');
   }
 
   render() {
     return (
       <button onClick={this.sayHello}>Say hello</button>
-    )
+    );
   }
 }
 ```
@@ -132,25 +132,23 @@ Remember that functions in JavaScript are "first class" - that means we can pass
 
 ```js
 function hello() {
-  return 'Hello!'
+  return 'Hello!';
 }
 ```
 
 In the example above `hello` is a *reference* to a function. The functions are not called until we use parentheses:
 
 ```js
-// Logs: "ƒ hello() {}"
-console.log(hello)
-// Logs: "Hello!"
-console.log(hello())
+console.log(hello);   // Logs: "ƒ hello() {}"
+console.log(hello()); // Logs: "Hello!"
 ```
 
-This is important in React as we can pass the reference to the function as a prop, and then call the function from the child component ([interactive example](https://codesandbox.io/s/zqlnmo16y3)):
+This is important in React as we can pass the reference to the function as a prop, and then call the function from the child component ([interactive example](https://codesandbox.io/s/2v27krw73r)):
 
 ```js
 class App extends Component {
   logWhenClicked = () => {
-    console.log('Button was clicked!')
+    console.log('Button was clicked!');
   }
 
   render() {
@@ -158,7 +156,7 @@ class App extends Component {
       <div>
         <FancyButton handleClick={this.logWhenClicked} />
       </div>
-    )
+    );
   }
 }
 
@@ -169,13 +167,13 @@ const FancyButton = (props) => (
   >
     Click Me!
   </button>
-)
+);
 ```
 
 > **Exercise C**
 > Open the `pokedex` React application
-> 1. Open the `Logo.js` component and copy the `logWhenClicked` method. Then delete it
-> 2. Then change the `onClick` handler to `this.props.handleClick`
+> 1. Open the `Logo.js` component and copy the `logWhenClicked` method. Then delete it from the `Logo` component.
+> 2. Change the `onClick` handler to `this.props.handleClick`
 > 3. Paste the `logWhenClicked` method into the component in `App.js`
 > 4. Then pass the `logWhenClicked` method as a prop to the `Logo` component (hint: look at the `App` example above)
 > 5. Try clicking the image in your web browser again. Does it still work? Can you explain why to the person sitting next to you?
@@ -184,28 +182,28 @@ const FancyButton = (props) => (
 
 Now let's write a more interesting app that responds to some user input. We'll see how React will take care of updating the DOM for you.
 
-A counter is a common React example, showing the number of times a button has been clicked. First lets render a button and a counter which set to 0 clicks ([interactive example](https://codesandbox.io/s/voqzrx5ny)):
+A counter is a common React example, showing the number of times a button has been clicked. First lets render a button and a counter which set to 0 clicks ([interactive example](https://codesandbox.io/s/ry39r6vlym)):
 
 ```js
-let count = 0
+let count = 0;
 
 const Counter = (props) => (
   <div>
     Count: {props.count}
     <button id="click-me">Click me!</button>
   </div>
-)
+);
 
 function renderCounter() {
-  ReactDOM.render(<Counter count={count} />, document.getElementById('root'))
+  ReactDOM.render(<Counter count={count} />, document.getElementById('root'));
 }
 
-renderCounter(count)
+renderCounter(count);
 ```
 
-Note that this example is simplified compared to your `pokedex` application, because some parts are split into separate files to keep the code clean. You'll find the `ReactDOM.render` call in `index.js`
+Note that this example is simplified compared to your `pokedex` application. To keep the code clean, some parts are split into separate files. In the `pokedex` application, you'll find the `ReactDOM.render` call in `index.js`.
 
-This example isn't very useful yet as it doesn't do anything when clicking the button. Now let's listen for clicks on the button and increment the counter ([interactive version](https://codesandbox.io/s/llow115pll)):
+This example isn't very useful yet as it doesn't do anything when clicking the button. Now let's listen for clicks on the button and increment the counter ([interactive version](https://codesandbox.io/s/1rrz3z0p47)):
 
 ```js
 let count = 0
@@ -229,7 +227,7 @@ As you can see, the DOM automatically updates when you render. This is an incred
 
 ## State
 
-Let's take another look at the the counter example. Our boss has asked us to create multiple counters on the same page. How would you add another counter?
+Let's take another look at the the counter example. What if you wanted to create multiple counters on the same page? How would you add another counter?
 
 You could add some more `count` global variables:
 
@@ -247,7 +245,7 @@ What might be the problem here?
 
 What other approaches can we take?
 
-The solution that React provides for us is called *state*. It allows a component to "remember" some variables. Let's take a look at how we could rewrite the counter with React state.
+The solution that React provides for us is called *state*. It allows a component to "remember" some variables. Let's take a look at how we could rewrite the counter with React *state*.
 
 Let's start over and get rid of the global variables. **Generally having global variables is a bad idea**, since it is very easy to create a bug which affects the whole application.
 
@@ -259,12 +257,12 @@ const Counter = (props) => {
       <button>Click me!</button>
     </div>
   )
-}
+};
 
-ReactDOM.render(<Counter count={0} />, document.getElementById('root'))
+ReactDOM.render(<Counter count={0} />, document.getElementById('root'));
 ```
 
-Now we need to use one of the class component super powers - state. That means we'll have to convert our `Counter` component to use a class ([interactive example](https://codesandbox.io/s/pjlro5rop7)):
+Now we need to use one of the class component super powers - state. That means we'll have to convert our `Counter` component to use a class ([interactive example](https://codesandbox.io/s/0m9w3xwv7l)):
 
 ```js
 class Counter extends Component {
@@ -274,12 +272,12 @@ class Counter extends Component {
         Count: {this.props.count}
         <button>Click me!</button>
       </div>
-    )
+    );
   }
 }
 ```
 
-Next we'll change the component to use the count from `this.state` instead of `this.props` ([interactive example](https://codesandbox.io/s/42y7xqj700)):
+Next we'll change the component to use the count from `this.state` instead of `this.props` ([interactive example](https://codesandbox.io/s/211q38k8y0)):
 
 ```js
 class Counter extends Component {
@@ -289,19 +287,19 @@ class Counter extends Component {
         Count: {this.state.count}
         <button>Click me!</button>
       </div>
-    )
+    );
   }
 }
 ```
 
-This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it from props. We can do this in the class constructor ([interactive example](https://codesandbox.io/s/1oyxx4lzz7)):
+This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it from props. We can do this in the class constructor ([interactive example](https://codesandbox.io/s/6oyy4llx3)):
 
 ```js
 class Counter extends Component {
   constructor(props) {
     this.state = {
       count: props.count
-    }
+    };
   }
 
   render() {
@@ -310,7 +308,7 @@ class Counter extends Component {
 }
 ```
 
-Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
+Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/0myxz2nmqw)):
 
 ```js
 class Counter extends Component {
@@ -321,7 +319,7 @@ class Counter extends Component {
   increment = () => {
     this.setState({
       count: 1
-    })
+    });
   }
 
   render() {
@@ -330,7 +328,7 @@ class Counter extends Component {
         Count: {this.state.count}
         <button onClick={this.increment}>Click me!</button>
       </div>
-    )
+    );
   }
 }
 ```
@@ -339,7 +337,7 @@ There's a couple of things happening here. We've added an click handler to the b
 
 `this.setState` is a special function provided by React's `Component`, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
 
-Now that we have refactored to use React state, we can easily add multiple counters ([interactive example](https://codesandbox.io/s/v8165mq503)):
+Now that we have refactored to use React state, we can easily add multiple counters ([interactive example](https://codesandbox.io/s/4xn0o33p20)):
 
 ```js
 const App = () => {
@@ -349,11 +347,11 @@ const App = () => {
       <Counter count={0} />
       <Counter count={0} />
     </div>
-  )
-}
+  );
+};
 ```
 
-This still isn't a particular useful application, because we can only still only count to 1! We need to change our `Counter` component so that it reads the previous state, then adds 1 onto that. We can do this by passing a callback function to `this.setState` ([interactive example](https://codesandbox.io/s/qxz27q9y4)):
+This still isn't a particular useful application, because we can only still only count to 1! We need to change our `Counter` component so that it reads the previous state, then adds 1 onto that. We can do this by passing a callback function to `this.setState` ([interactive example](https://codesandbox.io/s/qlvy68xj36)):
 
 ```js
 class Counter extends Component {
@@ -365,8 +363,8 @@ class Counter extends Component {
     this.setState(previousState => {
       return {
         count: previousState.count + 1
-      }
-    })
+      };
+    });
   }
 
   render() {
@@ -402,12 +400,12 @@ Let's recap what we've learnt about React state:
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
 
-Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/nrwjj6yy64)):
 
 ```js
 class Hello extends Component {
   render() {
-    this.props.name = 'Ali'
+    this.props.name = 'Ali';
 
     return (
       <p>Hello {this.props.name}</p>
@@ -415,7 +413,7 @@ class Hello extends Component {
   }
 }
 
-render(<Hello name="Mona" />, document.getElementById('root'))
+render(<Hello name="Mona" />, document.getElementById('root'));
 ```
 
 You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
@@ -424,11 +422,11 @@ From this we can get a clue about when to use state. If data *changes over time*
 
 ### Container components
 
-In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of bookings in the exercise above increases when you add a booking. Most of the time, business logic is about figuring out when and how to change state.
+In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of caught Pokemon in the exercise  increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
 
 To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
 
-Container components usually have some state and handler methods. Because of this they must use the `class` syntax. presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
+Container components usually have some state and handler methods. Because of this they must use the `class` syntax. Presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
 
 ## Further Reading
 

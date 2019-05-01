@@ -172,9 +172,8 @@ ReactDOM.render(<HelloWorld />, document.querySelector('#root'));
 There are 4 important parts in this code:
 
 1. First we import `React`. This is important because JSX is converted to `React.createElement` calls. If the `React` variable is undefined then this will fail.
-2. We import `ReactDOM` which will be used to *render* the component on the screen.
-3. We create a React component called `HelloWorld`.
-4. We *render* the `HelloWorld` component into a `div` with the id of `root`.
+2. We create a React component called `HelloWorld`.
+3. We *render* the `HelloWorld` component into a `div` with the id of `root`.
 
 > **Exercise D**:
 > Using the `pokedex` React app that you just created and open the `src/App.js` file

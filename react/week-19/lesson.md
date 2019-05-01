@@ -360,7 +360,7 @@ const List = () => (
 );
 ```
 
-Here we have added a `key` property to the `li` element. A documentation page explaining in more depth is in the further reading section but basically the `key` prop has a special meaning in React because it is used internally to keep track of which element in the list is which.
+Here we have added a `key` prop to the `li` element. A documentation page explaining in more depth is in the further reading section but basically the `key` prop has a special meaning in React because it is used internally to keep track of which element in the list is which.
 
 ## Importing/Exporting Components
 

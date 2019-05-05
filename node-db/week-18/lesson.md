@@ -56,13 +56,16 @@ Note that:
 
 Let's try the query.
 
-First, go to the `cyf-hotel-db` repo in your terminal and switch to the `class3` branch. Next, run `npm i` and `npm start` to start the server. Then, open a new terminal tab in the `cyf-hotel-db` directory and run `sqlite3 database/database.sqlite` to open SQLite.
+First, go to the `cyf-hotel-db` repo in your terminal and switch to the `class3` branch. Next, run `npm i` and `npm start` to start the server. Then, open a new terminal tab in the `cyf-hotel-db` directory and run "./rebuild":
 
-Now, copy and paste the above `SELECT` query into SQLite. You should get this:
+Now, copy and paste the above `SELECT` query into postgres. You should get something like this:
 
 ```
-2018/08/19|Marie|Niki
-2018/08/19|Anna|Kolen
+
+| firstname | surname  | check_in_date         |
++-----------+----------+-----------------------+
+| Marie     | Niki     | 2011-02-01 00:00:00   |
+| Anna      | Kolen    | 2011-02-01 00:00:00   |
 ```
 
 
@@ -91,7 +94,7 @@ Now, this guest does a little poking around and he realizes that he can delete h
 DELETE http://localhost:8080/api/reservations/6
 ```
 
-Now, open a new terminal window and run "sqlite3 databases/database.sqlite":
+Now, open a new terminal window and run "./rebuild":
 
 ```
 sqlite> SELECT * FROM reservations;

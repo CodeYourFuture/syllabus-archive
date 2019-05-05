@@ -84,26 +84,62 @@ once you do and shifting from mongo to an SQL database once you're deep into a p
 
 #### EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE
 
-The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fits in one file or runs a small website (where small means under 100,000 hits per day). There is more [here](https://www.sqlite.org/whentouse.html) on when it is and is not a good database to use.
+The RDBMS we are going to teach you is called "postgresql" (pronounced postgres-q-l) or
+"postgres". It's one of the most popular free, open source databases and if you end
+up becoming web developers it's highly likely that you will be using it. We will be
+using version 11 although for straightforward databases you will probably not notice
+much of a difference for anything over version 9.
 
-To set up, we do the following:
+### FOR MAC OS USERS:
 
-* Windows: https://sqlite.org/download.html#win32
-* Ubuntu: `sudo apt-get install sqlite3`
-* Mac OS: `brew install sqlite3`
+1. Go to https://postgresapp.com
+2. Go to the Downloads tab
+3. Download the latest version
+4. Open the downloaded file
+5. Drag the app to Applications folder
+6. Got to the Applications folder
+7. Open Postgres
+8. Click the Open button in the popup
+9. Click the Initialize button
+10. Run the following in the terminal:
 
-To run SQLite, open a command prompt and run "sqlite mydatabase.sqlite".
+>> psql -d template1
 
-This should give you a prompt like this:
+You should see:
 
 ```
-sqlite3
-SQLite version 3.11.0 2016-02-15 17:29:24
-Enter ".help" for usage hints.
-sqlite>
+postgres=#
 ```
 
-This is a command prompt where you can run snippets of SQL and load files containing SQL.
+To quit, run "\q".
+
+
+### FOR MAC OS USERS:
+
+To set up on Linux you need to do the following:
+
+>> sudo apt-get install postgresql
+
+>> whoami
+gareth
+
+Replace gareth with whatever your username is, e.g.:
+
+>> sudo -u postgres createuser gareth --superuser --no-password -d
+
+If you run this command
+
+>> psql -d template1
+
+You should have a command prompt like follows:
+
+```
+postgres=#
+```
+
+To quit, run "\q"
+
+
 
 ## LESSON 1C: CREATING A TABLE
 

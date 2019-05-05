@@ -224,7 +224,7 @@ We're trying to locate a reservation for a customer. We know that:
 
 Write a query using *IN* that is guaranteed to return their reservation.
 
-N.B. Remember 01/01/2017? Remember to put the date in an *unambiguous format*.
+N.B. Remember 01/02/2017? Remember to put the date in an *unambiguous format*.
 
 ### LESSON 5 : I WISH I COULD DELETE HIM IN REAL LIFE
 
@@ -234,7 +234,7 @@ and it needs to go.
 It's a fairly simple command that looks like select, you just specify the table and a predicate and it wipes:
 
 ```sql
-delete from customers where surname like '%trump%';
+delete from customers where surname like '%rump%';
 ```
 
 There are several things you need to worry about when you delete data and what you do about them will depend entirely upon what it is you are trying to do:

@@ -3,7 +3,7 @@
 **What we will learn today?**
 
 * Why we need databases
-* Installing SQLite
+* Installing Postgres
 * Creating a database with SQL and storing data in it.
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
@@ -19,13 +19,16 @@ TEACHER STORY:
 
 Back in 2013 I used to work for a company that ran hotel wifi for big hotel chain.
 We did at least 4 big brands that you've probably heard of and a whole bunch of others.
-This company had been going for a long time and used to make $8 when, back in the dark ages, you paid $12 for a day of wifi.
+This company had been going for a long time and used to make $8 when, back in the dark
+ages, you paid $12 for a day of wifi.
 
 The code for this system had the notion of "invoices", "wifi enrollments" and "guests" and
 stored data on each of them as well as the links between them. We would store data about
-these things and we would run reports on each and send them to the hotels who would use them to bill guests.
+these things and we would run reports on each and send them to the hotels who would
+use them to bill guests.
 
-All normal so far. Except we would sometimes send reports with invoices which didn't have enrollments, and enrollments which didn't have guests.
+All normal so far. Except we would sometimes send reports with invoices which didn't
+have enrollments, and enrollments which didn't have guests.
 
 Sometimes the amounts on those invoices would rack up to tens even hundreds of thousands of dollars of invoices *without* customers, and the hotel managers were rarely happy:
 

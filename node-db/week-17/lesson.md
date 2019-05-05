@@ -5,14 +5,13 @@
 What we did last lesson:
 
 * Why we need databases
-* Why NoSQL why SQL?
-* Installing SQLite
+* Installing Postgresql
 * Creating a database with SQL and storing data in it.
 * Inserting data into a database using SQL.
 * Retrieving data from a database using SQL.
 * Primary keys
 * Escaping (dealing with awkward people with the surname O'Connor)
-* How to run SQLite *with node* on your machine - setting up a development environment.
+* How to run Postgres *with node* on your machine - setting up a development environment.
 
 Homework from last lesson:
 
@@ -30,8 +29,7 @@ Homework from last lesson:
 - Dealing with unclear user stories. There is a trap in one of these user stories we will be giving you today.
 - What is the difference between user story, use case and user acceptance test.
 
-
-This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Big chain hotel manager grumpy cat - e.g. so that all invoices come attached to reservations. With all the constraints you have already added to the database, on your `hotel.sql` file, the application should be much safer now - if you screw up (and you will, because bugs are as inevitable as taxes), you can *see* the bugs getting deployed before they start screwing up your valuable data.
+This lesson will primarily be about taking what you have stored in a *flat file*, and changing it such that it is stored in a database instead. This will be done to appease Big chain hotel manager grumpy cat - e.g. so that you can guarantee that all invoices come attached to reservations. With all the constraints you have already added to the database, on your `hotel.sql` file, this risk should be eliminated - if you screw up (and you will, because bugs are as inevitable as taxes), the problem is made obvious.
 
 Use `/server/class2.js` for the exercises of this class.
 
@@ -196,13 +194,13 @@ Now let's say that you want to see all of the customers who have the surname O'C
 The way we've learned so far (note the quotation marks):
 
 ```sql
-select * from customers where surname = "O'Connor" or surname = 'Trump'
+select * from customers where surname = 'O''Connor' or surname = 'Trump'
 ```
 
 You can also do it like so:
 
 ```sql
-select * from customers where surname in ("O'Connor", 'Trump')
+select * from customers where surname in ('O''Connor', 'Trump')
 ```
 
 This is might seem like a minor difference but:

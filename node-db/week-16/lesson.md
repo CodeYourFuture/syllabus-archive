@@ -502,7 +502,7 @@ select * from invoices where invoice_date_time = '2017-01-03';
 If you want to change this invoice to be £300, you need to use 'UPDATE'.
 
 ```sql
-update invoices set total = 300.0 where id = <ID-FROM-ABOVE>;
+update invoices set total = 300.0 where id = 1;
 ```
 
 #### EXERCISE 1J : Updating data

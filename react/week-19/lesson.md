@@ -287,17 +287,17 @@ Now we have modified the `Mentor` component to use the `Array.join` method so th
 
 ```js
 const Addition = () => {
-	return <span>{1 + 2 + 3}</span>;
+  return <span>{1 + 2 + 3}</span>;
 };
 ```
 
 ```js
 const Weather = () => {
-	const weatherData = {
-	  temperature: 5,
-	  location: 'London'
-	};
-	return <p>The temperature in {weatherData.location} is {weatherData.temperature}</p>;
+  const weatherData = {
+    temperature: 5,
+    location: 'London'
+  };
+  return <p>The temperature in {weatherData.location} is {weatherData.temperature}</p>;
 };
 ```
 
@@ -307,11 +307,11 @@ function formatName(user) {
 }
 
 const Name = () => {
-	const user = {
-		firstName: 'Bob',
-		lastName: 'Marley'
-	};
-	return <span>{formatName(user)}</span>;
+  const user = {
+    firstName: 'Bob',
+    lastName: 'Marley'
+  };
+  return <span>{formatName(user)}</span>;
 };
 ```
 

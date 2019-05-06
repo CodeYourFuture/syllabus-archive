@@ -13,13 +13,15 @@
   - Although don't spend too much time on it - the student's don't know about other frameworks, and so don't really care about other approaches
   - Also useful to identify why the React api is improved over the vanilla DOM apis
 - JSX section
-  - Open the Babel REPL - demonstrate that there isn't any magic in JSX
+  - Open the Babel REPL (https://babeljs.io/repl/) - demonstrate that there isn't any magic in JSX
   - Just React.createElement calls with syntax sugar
 - CRA exercise - can take time as everyone is downloading from npm at the same time
 - React components section
   - Originally this was written with class components first
     - However, students went home and googled and saw alternative syntaxes
     - This is a common theme in this first lesson - have to teach some stuff that is perhaps unnecessary just so that they're prepared when they see it at home
+- Making an argument for props section
+	- Relate to a situation in real life, something like: imagine what our boss might ask for with this small application. What could our boss ask for which would mean we would have to make changes to the code? 
 - Exercises
   - Written to be quite step-by-step deliberately
     - Some students were distracted by the wording and not getting to the useful part of the exercise

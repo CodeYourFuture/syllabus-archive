@@ -163,13 +163,13 @@ import ReactDOM from 'react-dom';
 function HelloWorld() {
   return (
     <div>Hello World</div>
-  )
+  );
 }
 
 ReactDOM.render(<HelloWorld />, document.querySelector('#root'));
 ```
 
-There are 4 important parts in this code:
+There are 3 important parts in this code:
 
 1. First we import `React`. This is important because JSX is converted to `React.createElement` calls. If the `React` variable is undefined then this will fail.
 2. We create a React component called `HelloWorld`.
@@ -177,7 +177,7 @@ There are 4 important parts in this code:
 
 > **Exercise D**:
 > Using the `pokedex` React app that you just created and open the `src/App.js` file
-> 1. Delete everything in the file except the line containing `export default App`. You should see an error in your terminal and in your web browser - don't panic! We're going to remake the `App` component ourselves.
+> 1. Delete everything in the file except the line containing `export default App`. You should see an error in your terminal and in your web browser - don't panic! We're going to remake the `App` component ourselves
 > 2. Import React variable from the React package
 > 3. Create a function named `App`, which will be our component
 > 4. Within the `App` function, return a `<h1>` element with the text "Welcome to the Pokedex". What do you see in your web browser?
@@ -262,7 +262,7 @@ If we want to do this, we can still use arrow functions but we can't use the imp
 
 So far all of the components we have looked at haven't been able to change - they are *hard-coded*. But this doesn't make very interesting websites, we want to be able to use variables with different data. We can insert variables (and some other things) into our React components.
 
-Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://codesandbox.io/s/o5vzzyxm9)):
+Anything that is inside curly braces (`{` and `}`) is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://codesandbox.io/s/l910pqnjql)):
 
 ```js
 const Greeting = () => {
@@ -272,7 +272,7 @@ const Greeting = () => {
   );
 }
 ```
-Now instead of hard-coding the greeting in the `Greeting` component, we are using a variable. Remember that everything between the curly braces is just regular JavaScript. So we can use more than just variables ([interactive example](https://codesandbox.io/s/1016mnr7o7)):
+Now instead of hard-coding the greeting in the `Greeting` component, we are using a variable. Remember that everything between the curly braces is just regular JavaScript. So we can use more than just variables ([interactive example](https://codesandbox.io/s/nw29kzx744)):
 
 ```js
 const Mentor = () => {
@@ -315,7 +315,7 @@ const Name = () => {
 };
 ```
 
-A common pattern in React is to use `Array.map` to loop through a list of items and render a component for each one ([interactive example](https://codesandbox.io/s/8yp87yn7kl)):
+A common pattern in React is to use `Array.map` to loop through a list of items and render a component for each one ([interactive example](https://codesandbox.io/s/7mw0mw3qx0)):
 
 ```js
 const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald'];
@@ -346,7 +346,7 @@ Here we are using `Array.map` to turn an array of strings into an array of compo
 
 ## Keys
 
-You may have noticed that we are now seeing a red error message in the Dev Tools: `Warning: Each child in a list should have a unique "key" prop.`. This error happens when you use `Array.map` to return a list of elements ([interactive example](https://codesandbox.io/s/846y8rlrnl)):
+You may have noticed that we are now seeing a red error message in the Dev Tools: `Warning: Each child in a list should have a unique "key" prop.`. This error happens when you use `Array.map` to return a list of elements ([interactive example](https://codesandbox.io/s/pwp8ox4kn0)):
 
 ```js
 const mentors = ['Ali', 'Kash', 'Davide', 'German', 'Gerald']
@@ -364,7 +364,7 @@ Here we have added a `key` prop to the `li` element. A documentation page explai
 
 ## Importing/Exporting Components
 
-To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://codesandbox.io/s/zr308rz65l)):
+To help organise your code, components can be imported and exported just like any other JavaScript code ([interactive example](https://codesandbox.io/s/1z6xozl81l)):
 
 ```js
 import Greeting from './Greeting';
@@ -412,7 +412,7 @@ Instead wouldn't it be good if we could change which mentor we are saying hello 
 
 Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props within a component.
 
-First let's look at passing props to your components ([interactive example](https://codesandbox.io/s/035q5w5o30)):
+First let's look at passing props to your components ([interactive example](https://codesandbox.io/s/vmjy0o91m7)):
 
 ```js
 <Mentor name="Mozafar" />
@@ -426,7 +426,7 @@ We don't have to use strings, we can use any valid JavaScript data like numbers,
 <Mentor age={30}>
 ```
 
-Now let's take a look at using props that we have passed to a component ([interactive example](https://codesandbox.io/s/035q5w5o30)):
+Now let's take a look at using props that we have passed to a component ([interactive example](https://codesandbox.io/s/vmjy0o91m7)):
 
 ```js
 const Mentor = (props) => {

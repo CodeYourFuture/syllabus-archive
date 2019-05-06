@@ -17,17 +17,17 @@ Last week we looked at using props and state to create React components that cha
 ```js
 class Counter extends Component {
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
+    super(props);
+    this.state = { count: 0 };
   }
 
   increment = () => {
     this.setState((previousState) => {
       return {
         count: previousState.count + 1
-      }
-    })
-  }
+      };
+    });
+  };
 
   render() {
     return (
@@ -35,7 +35,7 @@ class Counter extends Component {
         Count: {this.state.count}
         <button onClick={this.increment}>Click me!</button>
       </div>
-    )
+    );
   }
 }
 ```
@@ -47,20 +47,21 @@ So far we've looked at components that are always rendered in the browser. Howev
 ```js
 const IsShown = () => (
   <p>I'm shown when true ✅</p>
-)
+);
+
 const IsNotShown = () => (
   <p>I'm shown when false ☑️</p>
-)
+);
 
 class Toggle extends Component {
   constructor(props) {
-    super(props)
-    this.state = { isShown: false }
+    super(props);
+    this.state = { isShown: false };
   }
 
   toggle = () => {
-    this.setState({ isShown: !this.state.isShown })
-  }
+    this.setState({ isShown: !this.state.isShown });
+  };
 
   render() {
     return (
@@ -68,7 +69,7 @@ class Toggle extends Component {
         {this.state.isShown ? <IsShown /> : <IsNotShown />}
         <button onClick={this.toggle}>Toggle</button>
       </div>
-    )
+    );
   }
 }
 ```
@@ -79,7 +80,7 @@ If you open up dev tools, you will see that the element changes based on the `is
 
 When a component is within the DOM, we call it *mounted*. When a component is removed from the DOM, we call it *unmounted*. When we change state like in the unmounting example above, we can switch between these statuses. This gives us a clue that components go through a *lifecycle* of different statuses. We have seen 2 of the statuses: mounting and unmounting, there is also a third called *updating*.
 
-We can hook into this lifecycle through special component methods that are added by React's `Component` class. They are run at different points of the lifecycle, often before and after they change to a different status. The method names are contain `will` or `did` based on whether they run before or after a status change.
+We can hook into this lifecycle through special component methods that are added by React's `Component` class. They are run at different points of the lifecycle, often before and after they change to a different status. The method names contain `will` or `did` based on whether they run before or after a status change.
 
 This diagram shows the React component lifecycle:
 
@@ -90,11 +91,11 @@ Let's look at how we can use one of the lifecycle methods ([interactive example]
 ```js
 class Lifecycle extends Component {
   componentDidMount() {
-    console.log('componentDidMount')
+    console.log('componentDidMount');
   }
 
   render() {
-    return <div>Hello World</div>
+    return <div>Hello World</div>;
   }
 }
 ```
@@ -123,42 +124,47 @@ To look at these in more detail, we'll create a Clock component in an exercise.
 > 2. Copy and paste in the code below ([interactive version](https://codesandbox.io/s/p9q2wq069j)):
 
 ```js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Time extends Component {
   constructor(props) {
-    super(props)
-    this.state = { date: new Date() }
+    super(props);
+    this.state = { date: new Date() };
   }
+  
   tick = () => {
-    console.log('tick')
+    console.log('tick');
     this.setState({
       date: new Date()
-    })
-  }
+    });
+  };
+  
   render() {
     return (
       <div>{this.state.date.toLocaleTimeString()}</div>
-    )
+    );
   }
 }
+
 class Clock extends Component {
   constructor(props) {
-    super(props)
-    this.state = { isShowingClock: true }
+    super(props);
+    this.state = { isShowingClock: true };
   }
-  toggle = () => this.setState({ isShowingClock: !this.state.isShowingClock })
+  
+  toggle = () => this.setState({ isShowingClock: !this.state.isShowingClock });
+  
   render() {
     return (
       <div>
         {this.state.isShowingClock && <Time />}
         <button onClick={this.toggle}>Toggle time</button>
       </div>
-    )
+    );
   }
 }
 
-export default Clock
+export default Clock;
 ```
 
 > 3. In `App.js` import the `Clock` component with `import Clock from './Clock'`
@@ -181,12 +187,12 @@ If we tried to fetch data in our `render` method, it would make a request every 
 ```js
 class MartianPhotoFetcher extends Component {
   componentDidMount() {
-    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`)
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`);
   }
 
   render() {
     // We don't don't what the img src is when we render :(
-    return <img src={src} />
+    return <img src={src} />;
   }
 }
 ```
@@ -196,11 +202,12 @@ This example isn't very useful! We can't use the data returned from the server i
 ```js
 class MartianPhotoFetcher extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       imgSrc: null
-    }
+    };
   }
+  
   componentDidMount() {
     fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`)
       .then(res => res.json())
@@ -208,10 +215,11 @@ class MartianPhotoFetcher extends Component {
         this.setState({
           imgSrc: data.photos[0].img_src
         })
-      })
+      });
   }
+  
   render() {
-    return <img src={this.state.imgSrc} />
+    return <img src={this.state.imgSrc} />;
   }
 }
 ```
@@ -225,12 +233,13 @@ Let's look at showing a different UI when the request is loading ([interactive e
 ```js
 class MartianPhotoFetcher extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isLoading: true,
       imgSrc: null
-    }
+    };
   }
+  
   componentDidMount() {
     fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`)
       .then(res => res.json())
@@ -239,13 +248,14 @@ class MartianPhotoFetcher extends Component {
           isLoading: false,
           imgSrc: data.photos[0].img_src
         })
-      })
+      });
   }
+  
   render() {
     if (this.state.isLoading) {
-      return <span>Loading... 👽</span>
+      return <span>Loading... 👽</span>;
     } else {
-      return <img src={this.state.imgSrc} />
+      return <img src={this.state.imgSrc} />;
     }
   }
 }
@@ -266,9 +276,9 @@ First we have to deal with annoying quirk of `fetch` - it doesn't reject the pro
 ```js
 .then((res) => {
   if (res.status >= 200 && res.status < 300) {
-    return res
+    return res;
   } else {
-    throw new Error('HTTP error')
+    throw new Error('HTTP error');
   }
 })
 ```
@@ -280,7 +290,7 @@ Now we can add our solution - a `.catch` on the `fetch` call. Here we reset the 
   this.setState({
     isLoading: false,
     err: err
-  })
+  });
 })
 ```
 
@@ -289,11 +299,11 @@ Now we can check if there's an error in state and render out an error message:
 ```js
 render() {
   if (this.state.isLoading) {
-    return <span>Loading... 👽</span>
+    return <span>Loading... 👽</span>;
   } else if (this.state.error) {
-    return <span>Something went wrong 😭</span>
+    return <span>Something went wrong 😭</span>;
   } else {
-    return <img src={this.state.imgSrc} />
+    return <img src={this.state.imgSrc} />;
   }
 }
 ```
@@ -326,12 +336,12 @@ We can do this with a *ref*. Let's look at an example that will change browser f
 ```js
 class InputFocuser extends Component {
   setInputRef = (input) => {
-    this.input = input
-  }
+    this.input = input;
+  };
 
   focusInput = () => {
-    this.input.focus()
-  }
+    this.input.focus();
+  };
 
   render() {
     return (
@@ -339,7 +349,7 @@ class InputFocuser extends Component {
         <input type="text" ref={this.setInputRef} />
         <button onClick={this.focusInput}>Focus</button>
       </div>
-    )
+    );
   }
 }
 ```
@@ -355,13 +365,13 @@ Let's look an example of an uncontrolled component ([interactive example](https:
 ```js
 class UncontrolledComponent extends Component {
   setInputRef = (inputEl) => {
-    this.inputRef = inputEl
-  }
+    this.inputRef = inputEl;
+  };
 
   handleSubmit = (event) => {
-    console.log(this.inputRef.value)
-    event.preventDefault() // Prevents form submission
-  }
+    console.log(this.inputRef.value);
+    event.preventDefault(); // Prevents form submission
+  };
 
   render() {
     return (
@@ -369,7 +379,7 @@ class UncontrolledComponent extends Component {
         <input type="text" ref={this.setInputRef} placeholder="Name" />
         <button type="submit">Submit</button>
       </form>
-    )
+    );
   }
 }
 ```
@@ -381,17 +391,17 @@ In contrast, we can get more control over our input data by using the *controlle
 ```js
 class ControlledComponent extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: ''
-    }
+    };
   }
 
   handleChange = (event) => {
     this.setState({
       name: event.target.value
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -401,7 +411,7 @@ class ControlledComponent extends Component {
         value={this.state.name}
         onChange={this.handleChange}
       />
-    )
+    );
   }
 }
 ```

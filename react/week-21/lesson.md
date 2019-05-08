@@ -44,12 +44,8 @@ class Counter extends Component {
 So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://codesandbox.io/s/xmo8oo514)):
 
 ```js
-const IsShown = () => (
-  <p>I'm shown when true ✅</p>
-);
-
-const IsNotShown = () => (
-  <p>I'm shown when false ☑️</p>
+const Message = () => (
+  <p>I'm shown when this.state.isShown is true ✅</p>
 );
 
 class Toggle extends Component {
@@ -64,7 +60,7 @@ class Toggle extends Component {
   render() {
     return (
       <div>
-        {this.state.isShown ? <IsShown /> : <IsNotShown />}
+        {this.state.isShown ? <Message /> : null}
         <button onClick={this.toggle}>Toggle</button>
       </div>
     );
@@ -72,7 +68,7 @@ class Toggle extends Component {
 }
 ```
 
-If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is important in larger applications as it can free up resources (CPU & memory) that aren't being used any more.
+If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is because `this.state.isShown` is `false` which means the Toggle component returns `null` for that part of the JSX. If you return `null` in JSX then React will render nothing at all.
 
 ## The Circle of Life
 

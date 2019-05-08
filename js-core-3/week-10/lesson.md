@@ -94,6 +94,114 @@ function getMentorInfo(mentors, name) {
 */
 ```
 
+## Module Systems
+
+So far we've looked at JavaScript programs that are entirely within 1 file. This
+works fine for when we're learning, but in most jobs web applications are
+significantly more complex. They can often reach hundreds of thousands of lines
+of code. Clearly this won't work if we put it all in 1 file.
+
+Once we start splitting up our applications into multiple files we need a
+*module system*. This is a system within our programming language that can
+*import* functionality from another file and *export* functionality to another
+file.
+
+Due to historical reasons JavaScript did not have a module system until
+relatively recently. Because of this, there are several module systems that
+people have written.
+
+### CommonJS
+
+The most common module system that you will encounter is called *CommonJS*
+(CJS). We write our code as normal, but then we can export it out of the current
+file like this:
+
+```js
+module.exports = function hello() { /* ... */ }
+```
+
+If we want to export multiple things, we can wrap them in an object:
+
+```js
+function hello() { /* ... */ }
+function goodbye() { /* ... */ }
+
+module.exports = {
+  hello: hello,
+  goodbye: goodbye
+}
+```
+
+Most of the time we want to export functions but we can export any type:
+
+```js
+module.exports = {
+  meaningOfLife: 42,
+  ultimateQuestion: "What do you get if you multiply 6 by 9",
+  mostlyHarmless: true,
+  dolphins: ["So", "long", "thanks", "for", "all", "the", "fish"]
+}
+```
+
+#### Exercise
+
+- 
+
+#### File paths (recap)
+
+Before we get to how to import, we're going to quickly recap file paths. This is
+a common way of showing multiple files and folders.
+
+#### Exercise
+
+Within the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises)
+
+- `cd` to this week's folder (`week-7/A-file-paths`)
+- Open the folder in a file explorer (Finder on Mac, Files on Linux)
+- Run these commands and think carefully about the file path (the  bit after
+`node`):
+  1. `node ./one.js`
+  2. `node ./folder-A/two.js`
+  3. `cd folder-B` then `node ../three.js`
+  4. `cd folder-C` then `node ../../four.js`
+- Can you explain what the dots (`.`) mean?
+
+Once we've exported some functionality we can then import it. Let's say we have
+`hello.js` that looks like this:
+
+```js
+// hello.js
+function hello() {
+  return "Hello world!"
+}
+
+module.exports = hello
+```
+
+Then we have another file `import.js` which is within the same folder:
+
+```js
+// import.js
+var hello = require("./hello"); // the .js extension will be added for you
+console.log(hello());
+```
+
+To import a file in a sub folder:
+
+```js
+var anotherHello = require("./my-folder/hello");
+```
+
+To import a file in a sibling folder:
+
+```js
+var yetAnotherHello = require("../another-folder/hello");
+```
+
+#### Exercise
+
+- 
+
 ## Unit Testing
 
 Testing is a key skill for any software programmer. We need to make sure our

@@ -426,6 +426,10 @@ console.log(dynamicKeyObject); // => { key1: "value1" }
 ```
 
 
+## Further Reading
+
+There is a new update to React, which adds a new feature called *Hooks*. It allows you to access the special super powers of state and lifecycle in regular function components. There is an extensive guide in the [official React tutorial](https://reactjs.org/docs/hooks-intro.html).
+
 # Homework
 
 {% include "./homework.md" %}

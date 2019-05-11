@@ -8,7 +8,7 @@
 - [Unmounting](#unmounting)
 - [The Circle of Life](#the-circle-of-life)
 - [Fetching Data in React](#fetching-data-in-react)
-- [Refs](#refs)
+- [Working with forms in React](#working-with-forms-in-react)
 
 ## Recap
 

@@ -435,6 +435,15 @@ class CreateAccountForm extends Component {
 
 We now have three different inputs named `username`, `email` and `password`, and we keep each entered value in a state with the same name. The method `handleChange` is reused to keep track of each change of value. The trick here is to use the name of the input element to update the corresponding state. Finally, when the user clicks on the submit button, the `submit` method is called to process the values. They are currently just displayed in the console but you could imagine validating the format of these values and sending them in a POST request.
 
+**Additional note:** Have you seen this strange syntax in the `setState` of `handleChange`? It's called a computed property name. In a Javascript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as: 
+
+```
+const myFirstKey = "key1";
+const myFirstValue = "value1";
+const dynamicKeyObject = { [myFirstKey]: myFirstValue };
+console.log(dynamicKeyObject); // => { key1: "value1" }
+```
+
 
 # Homework
 

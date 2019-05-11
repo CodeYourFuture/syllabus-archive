@@ -368,7 +368,7 @@ We're controlling the `value` of the input by using the value from the `reminder
 
 In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `this.setState()`, for example by calling `toUpperCase()` on the string.
 
-Let's have a look at a more complex example where we want to build a form to let users enter information to create an personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
+Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
 
 ```
 class CreateAccountForm extends Component {

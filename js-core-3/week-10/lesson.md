@@ -264,6 +264,100 @@ Navigate to the CommonJS imports folder (`cd week-7/C-common-js-imports`).
 - Import the `distanceFromSun` and `circumference` variables from `jupiter.js`
 file
 
+### ES Modules
+
+Recently a new module system has been built into JavaScript, called *ES Modules*
+(ESM). Because it is so new, it is currently **not supported in Node**.
+
+It is very similar to CommonJS, but uses slightly different syntax. Let's take
+a look. If we have a file `export.js`:
+
+```js
+function hello() {
+  return "Hi world!";
+}
+
+export default hello
+```
+
+And a file `import.js`:
+
+```js
+import hello from "./export.js";
+
+console.log(hello());
+```
+
+Let's compare this syntax against what we saw with CommonJS:
+
+| CommonJS | ES Modules |
+| - | - |
+| `module.exports = someVariable` | `export default someVariable` |
+| `var someVariable = require('PATH/TO/FILE')` | `import someVariable from 'PATH/TO/FILE'` |
+
+#### ✍️ Exercise
+
+Navigate to the ES Modules folder (`cd week-7/D-es-modules`)
+
+#### Exercise 1
+
+- Export the `saturnFact` function
+
+#### Exercise 2
+
+- Import the `saturnFact` function from the `exercise.js` file
+
+#### Named Exports
+
+One of the benefits of ES Modules is a feature that isn't possible with
+CommonJS. The feature is called *named exports* and it allows you to export
+multiple values from your files. The syntax looks like this:
+
+```js
+export var githubUsername = "noopkat";
+export var numberOfRepos = 175;
+```
+
+Named exports are slightly different from the *default export* we looked at
+above because the `export` keyword has to appear directly before the variable
+declaration.
+
+We can combine named exports with the *default export* in the same file too.
+Let's imagine that we have a file named `github-info.js`:
+
+```js
+export var githubUsername = "sdras";
+
+function getPinnedRepos() {
+  return ["awesome-actions", "array-explorer", "night-owl-vscode-theme"]
+}
+
+export default pinnedRepos
+```
+
+Now we can import values from the file above like this:
+
+```js
+import getPinnedRepos, { githubUsername } from "./github-info.js";
+
+console.log(getPinnedRepos());
+console.log(githubUsername);
+```
+
+#### ✍️ Exercise
+
+Navigate to the named exports folder (`cd week-7/E-names-exports`)
+
+##### Exercise 1
+
+- Export the `radiusInKm` variable as a named export
+- Export the `uranusFact` function as the default export
+
+##### Exercise 2
+
+- Import the `radiusInKm` variable and `uranusFact` function from the
+`exercise.js`
+
 ## Unit Testing
 
 Testing is a key skill for any software programmer. We need to make sure our

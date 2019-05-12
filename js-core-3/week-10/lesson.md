@@ -117,7 +117,9 @@ The most common module system that you will encounter is called *CommonJS*
 file like this:
 
 ```js
-module.exports = function hello() { /* ... */ }
+function hello() { /* ... */ }
+
+module.exports = hello;
 ```
 
 If we want to export multiple things, we can wrap them in an object:
@@ -129,7 +131,7 @@ function goodbye() { /* ... */ }
 module.exports = {
   hello: hello,
   goodbye: goodbye
-}
+};
 ```
 
 Most of the time we want to export functions but we can export any type:
@@ -140,31 +142,50 @@ module.exports = {
   ultimateQuestion: "What do you get if you multiply 6 by 9",
   mostlyHarmless: true,
   dolphins: ["So", "long", "thanks", "for", "all", "the", "fish"]
-}
+};
 ```
 
-#### Exercise
+#### ✍️ Exercise
 
-- 
+Open the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) and
+navigate to the CommonJS exports folder (`cd week-7/A-common-js-exports`).
+
+##### Exercise 1
+
+- Export the `ageInSecondsOnEarth` function
+
+##### Exercise 2
+
+- Export `numberOfSecondsIn1YearOnMars`, `moonsOfMars` and `ageInSecondsOnMars`
+wrapped in an object
 
 #### File paths (recap)
 
-Before we get to how to import, we're going to quickly recap file paths. This is
-a common way of showing multiple files and folders.
+Before we get to how to import, we're going to quickly recap file paths. These
+are a common way of showing representing our files and folders within
+applications.
 
-#### Exercise
+Within a file path, a single dot (`.`) means "look inside the current folder"
+for whatever comes after the slash (`/`). Two dots (`..`) means "look inside the
+parent folder" for whatever comes after the slash.
 
-Within the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises)
+You can chain multiple dots, slashes and file names together. So
+`../../my-file.js` means "look in the parent folder of the parent folder for a
+file named `my-file.js`.
 
-- `cd` to this week's folder (`week-7/A-file-paths`)
-- Open the folder in a file explorer (Finder on Mac, Files on Linux)
-- Run these commands and think carefully about the file path (the  bit after
-`node`):
-  1. `node ./one.js`
-  2. `node ./folder-A/two.js`
-  3. `cd folder-B` then `node ../three.js`
-  4. `cd folder-C` then `node ../../four.js`
-- Can you explain what the dots (`.`) mean?
+#### ✍️ Exercise
+
+- Navigate to the file paths folder (`cd week-7/B-file-paths`)
+- Open the folder in a file explorer (Finder on Mac, Files on Linux) and look at
+the file structure. There are 3 files (`one.js`, `two.js` and `three.js`)
+provided for you
+- Run Node on each of the 3 files (`node FILE_PATH_GOES_HERE`) from the
+`B-file-paths` folder
+- Then `cd folder-A` and run Node on the 3 files again (notice how the file
+paths have to change)
+- `cd ../folder-B/folder-C` and run Node on the 3 files again
+
+#### CommonJS imports
 
 Once we've exported some functionality we can then import it. Let's say we have
 `hello.js` that looks like this:
@@ -172,10 +193,10 @@ Once we've exported some functionality we can then import it. Let's say we have
 ```js
 // hello.js
 function hello() {
-  return "Hello world!"
+  return "Hello world!";
 }
 
-module.exports = hello
+module.exports = hello;
 ```
 
 Then we have another file `import.js` which is within the same folder:
@@ -198,9 +219,50 @@ To import a file in a sibling folder:
 var yetAnotherHello = require("../another-folder/hello");
 ```
 
-#### Exercise
+Remember that we could export values of any type? We can import any type too.
+Let's say we have `goodbye.js`:
 
-- 
+```js
+var goodbyeString = "Goodbye";
+
+module.exports = goodbyeString;
+```
+
+Then we can import them like this:
+
+```js
+var goodbyeString = require("./goodbye.js");
+console.log(goodbyeString);
+```
+
+With CommonJS, it is possible to write your `require` functions anywhere within
+your code. However the convention is to write them all at the top of the file:
+
+```js
+var hello = require("./hello");
+var anotherHello = require("./my-folder/hello");
+var yetAnotherHello = require("../another-folder/hello");
+var goodbyeString = require("./goodbye.js");
+
+console.log(hello());
+console.log(anotherHello());
+console.log(yetAnotherHello());
+console.log(goodbyeString);
+// etc...
+```
+
+#### ✍️ Exercise
+
+Navigate to the CommonJS imports folder (`cd week-7/C-common-js-imports`).
+
+##### Exercise 1
+
+- Import the `moonFact` function from the `moon.js` file
+
+##### Exercise 2
+
+- Import the `distanceFromSun` and `circumference` variables from `jupiter.js`
+file
 
 ## Unit Testing
 

@@ -4,6 +4,7 @@
 
 **What will we learn today?**
 
+* [Module Systems](#module-systems)
 * [Tracing Code](#tracing-code)
 * [Testing](#testing-our-code)
 * [Unit Testing](#unit-testing)
@@ -13,86 +14,6 @@
   * [Test coverage](#test-coverage)
   * [Refactoring](#refactoring)
   * [Modules](#modules)
-
-> Fork and Clone the [js-exercises-tdd repo](https://github.com/CodeYourFuture/js-exercises-tdd)
-
-## Tracing Code
-
-What is Code? Computer code is a **set of rules or instructions**. It is made up of words and numbers and when you put them in the **right order** it will tell your computer what you want it to do. 
-
-Let's trace these code samples together:
-
-- [Sample 1](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/I.write-tests/01-greet-people/greet-people.js) 
-
-- [Sample 2](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/I.write-tests/02-remove-vowels/remove-vowels.js) 
-
-- [Sample 3](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/I.write-tests/03-remove-vowels-from-array/remove-vowels-in-array.js) 
-
-## Testing our code
-
-We have just traced the output of some code on paper, but how do ensure that the code actually does what it is supposed to do when we run it.
-
-> Discussion: How have we been testing our code so far? How do ensure it is *correct*. What is "*correct*" anyhow?
-
-In many organisations, there are full teams dedicated to **testing** and ensuring that the code written behaves correctly, to report **bugs** and make sure that they are fixed on time. In general, **Quality Assurance** is a responsibility of everyone in a team starting from Project Manager, Scrum Masters, Developers and Testers.
-
-There are typically several levels of testing when working on a project:
-
-- Unit testing
-- Integration testing
-- Functional, End to End testing and User Acceptance Testing (UAT)
-
-[This answer from Stack OverFlow](https://stackoverflow.com/a/4904533) has a good explanation of types of testing. The defintions for Functional, e2e and UAT are often mean different things in different teams, the responisibility for them also falls on different individuals depending on the team.
-
-*Unit testing* though is always the responsibility of the Developer, and it is a very important skill for any professional developer to be able to write tests, and also write code that is testable.
-
-> Discussion: What is testable code?
-
-```js
-var result;
-
-function getMentorInfo(mentors, name) {
-    var greeting = 'Hello ';
-
-    result = mentors.find(function (person) {
-        return person.name === name;
-    });
-
-    var mentorTitle = 'Junior Developer';
-
-    if (result.yearsOfExp > 10) {
-        mentorTitle = 'Senior Developer';
-    } else if (result.yearsOfExp > 20) {
-        mentorTitle = 'Very Senior Developer';
-    }
-
-    result.jobTitle = mentorTitle;
-    result.fullName = result.title + ' ' + result.name;
-
-    return result;
-}
-
-/*
-  var mentors = [
-      {
-          name: 'Irina',
-          title: 'Dr.',
-          yearsOfExperience: 10
-      }, {
-          name: 'Ashleigh',
-          title: 'Dame',
-          yearsOfExperience: 20
-      }, {
-          name: 'Etza',
-          title: 'Professor',
-          yearsOfExperience: 30
-      }
-  ];
-  
-  var result = getMentorInfo(mentors, 'Etza')
-  Trace the value of "result"
-*/
-```
 
 ## Module Systems
 
@@ -357,6 +278,86 @@ Navigate to the named exports folder (`cd week-7/E-names-exports`)
 
 - Import the `radiusInKm` variable and `uranusFact` function from the
 `exercise.js`
+
+> Fork and Clone the [js-exercises-tdd repo](https://github.com/CodeYourFuture/js-exercises-tdd)
+
+## Tracing Code
+
+What is Code? Computer code is a **set of rules or instructions**. It is made up of words and numbers and when you put them in the **right order** it will tell your computer what you want it to do. 
+
+Let's trace these code samples together:
+
+- [Sample 1](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/I.write-tests/01-greet-people/greet-people.js) 
+
+- [Sample 2](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/I.write-tests/02-remove-vowels/remove-vowels.js) 
+
+- [Sample 3](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/I.write-tests/03-remove-vowels-from-array/remove-vowels-in-array.js) 
+
+## Testing our code
+
+We have just traced the output of some code on paper, but how do ensure that the code actually does what it is supposed to do when we run it.
+
+> Discussion: How have we been testing our code so far? How do ensure it is *correct*. What is "*correct*" anyhow?
+
+In many organisations, there are full teams dedicated to **testing** and ensuring that the code written behaves correctly, to report **bugs** and make sure that they are fixed on time. In general, **Quality Assurance** is a responsibility of everyone in a team starting from Project Manager, Scrum Masters, Developers and Testers.
+
+There are typically several levels of testing when working on a project:
+
+- Unit testing
+- Integration testing
+- Functional, End to End testing and User Acceptance Testing (UAT)
+
+[This answer from Stack OverFlow](https://stackoverflow.com/a/4904533) has a good explanation of types of testing. The defintions for Functional, e2e and UAT are often mean different things in different teams, the responisibility for them also falls on different individuals depending on the team.
+
+*Unit testing* though is always the responsibility of the Developer, and it is a very important skill for any professional developer to be able to write tests, and also write code that is testable.
+
+> Discussion: What is testable code?
+
+```js
+var result;
+
+function getMentorInfo(mentors, name) {
+    var greeting = 'Hello ';
+
+    result = mentors.find(function (person) {
+        return person.name === name;
+    });
+
+    var mentorTitle = 'Junior Developer';
+
+    if (result.yearsOfExp > 10) {
+        mentorTitle = 'Senior Developer';
+    } else if (result.yearsOfExp > 20) {
+        mentorTitle = 'Very Senior Developer';
+    }
+
+    result.jobTitle = mentorTitle;
+    result.fullName = result.title + ' ' + result.name;
+
+    return result;
+}
+
+/*
+  var mentors = [
+      {
+          name: 'Irina',
+          title: 'Dr.',
+          yearsOfExperience: 10
+      }, {
+          name: 'Ashleigh',
+          title: 'Dame',
+          yearsOfExperience: 20
+      }, {
+          name: 'Etza',
+          title: 'Professor',
+          yearsOfExperience: 30
+      }
+  ];
+  
+  var result = getMentorInfo(mentors, 'Etza')
+  Trace the value of "result"
+*/
+```
 
 ## Unit Testing
 

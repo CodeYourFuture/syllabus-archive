@@ -8,7 +8,7 @@
 - [Unmounting](#unmounting)
 - [The Circle of Life](#the-circle-of-life)
 - [Fetching Data in React](#fetching-data-in-react)
-- [Refs](#refs)
+- [Working with forms in React](#working-with-forms-in-react)
 
 ## Recap
 
@@ -327,100 +327,123 @@ render() {
 > 16. **(STRETCH GOAL)** Add some error handling which renders an error message
 > 17. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
 
-## Refs
+## Working with forms in React
 
-As we have seen, React manages the DOM for us. That means we generally don't have to worry about keeping track of DOM nodes, or manipulating them directly. However sometimes you need to be able to access a DOM node that React is managing. Some common use cases are managing browser focus and integrating with third party libraries like a jQuery plugin.
+Modern web applications often involve interacting with forms such as creating an account, adding a blog post or posting a comment. This would involve using inputs, buttons and various form elements and being able to get the values entered by users to do something with it (like display them on a page or send them in a POST request). So, how do we do this in React?
 
-We can do this with a *ref*. Let's look at an example that will change browser focus to an input when a button is clicked ([interactive example](https://codesandbox.io/s/yw510x1l81)):
+A popular pattern for building forms and collect user data is the *controlled component* pattern. A pattern is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
 
-```js
-class InputFocuser extends Component {
-  setInputRef = (input) => {
-    this.input = input;
-  };
+```
+class SimpleReminder extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reminder: ""
+    };
+  }
 
-  focusInput = () => {
-    this.input.focus();
+  handleChange = event => {
+    this.setState({
+      reminder: event.target.value
+    });
   };
 
   render() {
     return (
       <div>
-        <input type="text" ref={this.setInputRef} />
-        <button onClick={this.focusInput}>Focus</button>
+        <input
+          type="text"
+          placeholder="Some reminder"
+          value={this.state.reminder}
+          onChange={this.handleChange}
+        />
+        <p>Today I need to remember to... {this.state.reminder}</p>
       </div>
     );
   }
 }
 ```
 
-The key method here is `setInputRef`. It is called by React when rendering the `<input>`, and passes a reference to the real DOM node as an argument. We remember the reference by assigning it to `this.input`. Then when the button is clicked we can call the `focus` method (a vanilla method, not part of React) on the input DOM node.
+We're controlling the `value` of the input by using the value from the `reminder` state. This means that we can only change the value by updating the state. It is done using the `onChange` attribute and the method `handleChange` which is called every time the input value changes (typically when a new character is added or removed). If you didn't call `this.setState()` in the `handleChange` method, then the input's value would never change and it would appear as if you couldn't type in the input! Finally, the value we keep in the `reminder` state is displayed on the screen as today's reminder. 
 
-### Uncontrolled & Controlled Components
+In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `this.setState()`, for example by calling `toUpperCase()` on the string.
 
-Refs are also useful when building forms to collect user data. We can use them in a *pattern* called an *uncontrolled component*. A pattern is a repeated solution to a problem that is useful in multiple similar cases.
+Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
 
-Let's look an example of an uncontrolled component ([interactive example](https://codesandbox.io/s/04x2r6ko0p)):
-
-```js
-class UncontrolledComponent extends Component {
-  setInputRef = (inputEl) => {
-    this.inputRef = inputEl;
-  };
-
-  handleSubmit = (event) => {
-    console.log(this.inputRef.value);
-    event.preventDefault(); // Prevents form submission
-  };
-
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" ref={this.setInputRef} placeholder="Name" />
-        <button type="submit">Submit</button>
-      </form>
-    );
-  }
-}
 ```
-
-By using a ref, we can gather all of the input data in the form at once and do something with it, for example send it in a POST request.
-
-In contrast, we can get more control over our input data by using the *controlled component* pattern. Let's look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
-
-```js
-class ControlledComponent extends Component {
+class CreateAccountForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      username: "",
+      email: "",
+      password: ""
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
-      name: event.target.value
+      [event.target.name]: event.target.value
     });
+  };
+
+  submit = () => {
+    console.log("Do something with the form values...");
+    console.log(`Username = ${this.state.username}`);
+    console.log(`Email = ${this.state.email}`);
+    console.log(`Password = ${this.state.password}`);
   };
 
   render() {
     return (
-      <input
-        type="text"
-        placeholder="Name"
-        value={this.state.name}
-        onChange={this.handleChange}
-      />
+      <div>
+        <div>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+        </div>
+        <button type="submit" onClick={this.submit}>
+          Create account
+        </button>
+      </div>
     );
   }
 }
 ```
 
-Now we're controlling the `value` of the input by using the value from state. This means that we can only change the value by updating state. If you didn't call `this.setState()` in the `handleChange` method, then the input's value would never change and it would appear as if you couldn't type in the input!
+We now have three different inputs named `username`, `email` and `password`, and we keep each entered value in a state with the same name. The method `handleChange` is reused to keep track of each change of value. The trick here is to use the name of the input element to update the corresponding state. Finally, when the user clicks on the submit button, the `submit` method is called to process the values. They are currently just displayed in the console but you could imagine validating the format of these values and sending them in a POST request.
 
-This pattern is useful if you need to keep track of what the user is typing in the input. We could transform the string before we set it with `this.setState()`, for example by calling `toUpperCase()` on the string.
+**Additional note:** Have you seen this strange syntax in the `setState` of `handleChange`? It's called a computed property name. In a Javascript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as: 
 
-Both of these patterns are useful when working with forms, but in general the uncontrolled component pattern is most common, unless you know that you need the controlled component pattern.
+```
+const myFirstKey = "key1";
+const myFirstValue = "value1";
+const dynamicKeyObject = { [myFirstKey]: myFirstValue };
+console.log(dynamicKeyObject); // => { key1: "value1" }
+```
+
 
 # Homework
 

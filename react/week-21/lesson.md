@@ -317,7 +317,7 @@ Modern web applications often involve interacting with forms such as creating an
 
 A popular pattern for building forms and collect user data is the *controlled component* pattern. A pattern is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
 
-```
+```js
 class SimpleReminder extends Component {
   constructor(props) {
     super(props);
@@ -354,7 +354,7 @@ In addition, instead of just saving the value of the input in the state, we coul
 
 Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
 
-```
+```js
 class CreateAccountForm extends Component {
   state = {
     username: "",

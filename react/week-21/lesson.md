@@ -319,12 +319,9 @@ A popular pattern for building forms and collect user data is the *controlled co
 
 ```js
 class SimpleReminder extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reminder: ""
-    };
-  }
+  state = {
+    reminder: ""
+  };
 
   handleChange = event => {
     this.setState({

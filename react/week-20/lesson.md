@@ -306,6 +306,27 @@ class Counter extends Component {
 }
 ```
 
+This state *class property* is something you may not have seen before. It runs before anything else in the component, assigning our state to `this.state`. As we've just seen, state initialisation needs to be done before anything else, that's why we have to do it here.
+
+You may also see another style of initialising state, which is **exactly equivalent**, where the `constructor` method is run before everything else and assigns `this.state` like a normal variable:
+
+```js
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+
+  render() {
+    // ...
+  }
+}
+```
+
+The first style is a bit simpler to remember than the second style, so we'll stick to that through the rest of the course.
+
 Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
 
 ```js

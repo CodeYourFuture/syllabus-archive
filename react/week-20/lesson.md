@@ -292,30 +292,13 @@ class Counter extends Component {
 }
 ```
 
-This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it. We can do this by assigning the state class property: ([interactive example](https://codesandbox.io/s/1oyxx4lzz7)):
-
-```js
-class Counter extends Component {
-  state = {
-    count: 0
-  };
-
-  render() {
-    // ...
-  }
-}
-```
-
-This state *class property* is something you may not have seen before. It runs before anything else in the component, assigning our state to `this.state`. As we've just seen, state initialisation needs to be done before anything else, that's why we have to do it here.
-
-You may also see another style of initialising state, which is **exactly equivalent**, where the `constructor` method is run before everything else and assigns `this.state` like a normal variable:
+This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it from props. We can do this in the class constructor ([interactive example](https://codesandbox.io/s/1oyxx4lzz7)):
 
 ```js
 class Counter extends Component {
   constructor(props) {
-    super(props);
     this.state = {
-      count: 0
+      count: props.count
     };
   }
 
@@ -325,13 +308,13 @@ class Counter extends Component {
 }
 ```
 
-The first style is a bit simpler to remember than the second style, so we'll stick to that through the rest of the course.
-
 Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
 
 ```js
 class Counter extends Component {
-  // ...
+  constructor(props) {
+    // ...
+  }
 
   increment = () => {
     this.setState({
@@ -372,7 +355,9 @@ This still isn't a particular useful application, because we can only still only
 
 ```js
 class Counter extends Component {
-  // ...
+  constructor(props) {
+    // ...
+  }
 
   increment = () => {
     this.setState(previousState => {
@@ -395,20 +380,21 @@ So when do we need to use a callback function for `this.setState`? If we are com
 Let's recap what we've learnt about React state:
 
 - State is one of the class component super powers - you must use a class component to use state
-- We initialise state by assigning the `state` class property to an object with whatever initial state we want (e.g. `{ something: 'hello' }`)
+- We initialise state in the `constructor` method by assigning the `this.state` variable to an object with whatever initial state we want (e.g. `{ something: 'hello' }`)
 - We can read or render state by using the `this.state` variable (e.g. `this.state.something`)
 - We can change state using the `this.setState()` method and by passing the piece of state we want to update (e.g. `this.setState({ something: 'hi' })`)
 - If we need to read the previous state to be able to calculate the new state, then we must use a callback function with `this.setState()` (e.g. `this.setState((previousState) => { return { something: previousState.something + 1 } })`)
 
 > **Exercise D**
 > Open the `pokedex` React application and open the `CaughtPokemon.js` file
-> 1. Set the initial state by assigning the `state` class property to an object. Then make the initial state have `caughtPokemon: 0`
-> 2. Change the `CaughtPokemon` component to render `this.state.caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser?
-> 3. Add a `<button>` with the text "Catch Pokemon" to the `CaughtPokemon` component
-> 4. Create an `catchPokemon` method within the `CaughtPokemon` class
-> 5. Add a `onClick` handler to the `<button>` we just created that will call the `catchPokemon` method
-> 6. Within the `catchPokemon` method, use `this.setState()` to change `caughtPokemon` to 1
-> 7. Update the `catchPokemon` method to increase the number of `caughtPokemon` by 1 every time the button is clicked (hint: we need to use the previous state to calculate the new state)
+> 1. Add a `constructor` method to the `CaughtPokemon` component and remember to handle `props` correctly (hint: `super(props)`)
+> 2. Set the initial state by assigning `this.state` in the `constructor` method to an object. Then make the initial state have 0 `caughtPokemon`
+> 3. Change the `CaughtPokemon` component to render `this.state.caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser?
+> 4. Add a `<button>` with the text "Catch Pokemon" to the `CaughtPokemon` component
+> 5. Create an `catchPokemon` method within the `CaughtPokemon` class
+> 6. Add a `onClick` handler to the `<button>` we just created that will call the `catchPokemon` method
+> 7. Within the `catchPokemon` method, use `this.setState()` to change `caughtPokemon` to 1
+> 8. Update the `catchPokemon` method to increase the number of `caughtPokemon` by 1 every time the button is clicked (hint: we need to use the previous state to calculate the new state)
 
 ### When do you use Props or State?
 

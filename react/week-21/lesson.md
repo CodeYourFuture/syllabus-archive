@@ -16,9 +16,10 @@ Last week we looked at using props and state to create React components that cha
 
 ```js
 class Counter extends Component {
-  state = {
-    count: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
 
   increment = () => {
     this.setState((previousState) => {
@@ -49,9 +50,10 @@ const Message = () => (
 );
 
 class Toggle extends Component {
-  state = {
-    isShown: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = { isShown: false };
+  }
 
   toggle = () => {
     this.setState({ isShown: !this.state.isShown });
@@ -96,10 +98,11 @@ class Lifecycle extends Component {
 
 > **Exercise A**
 > Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file
-> 1. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
-> 2. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
-> 3. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
-> 4. The `componentWillUnmount` method will never be called. Can you explain why?
+> 1. Add a `constructor` method to the `CaughtPokemon` component. Within this method add a `console.log('constructor')`
+> 2. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
+> 3. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
+> 4. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
+> 5. The `componentWillUnmount` method will never be called. Can you explain why?
 
 We'll now focus on a few of the lifecycle hooks and see how they are used.
 
@@ -120,10 +123,11 @@ To look at these in more detail, we'll create a Clock component in an exercise.
 import React, { Component } from 'react';
 
 class Time extends Component {
-  state = {
-    date: new Date()
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
+  
   tick = () => {
     console.log('tick');
     this.setState({
@@ -139,10 +143,11 @@ class Time extends Component {
 }
 
 class Clock extends Component {
-  state = {
-    isShowingClock: true
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = { isShowingClock: true };
+  }
+  
   toggle = () => this.setState({ isShowingClock: !this.state.isShowingClock });
   
   render() {
@@ -192,10 +197,13 @@ This example isn't very useful! We can't use the data returned from the server i
 
 ```js
 class MartianPhotoFetcher extends Component {
-  state = {
-    imgSrc: null
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      imgSrc: null
+    };
+  }
+  
   componentDidMount() {
     fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`)
       .then(res => res.json())
@@ -214,16 +222,19 @@ class MartianPhotoFetcher extends Component {
 
 Now we can see the Martian photo that we fetched from the server!
 
-However we have a bit of a problem - when we first render the component, we don't have the photo `src` yet. We first have to initialise it to `null`. This shows us that we're missing something from our UI - a *loading status*.
+However we have a bit of a problem - when we first render the component, we don't have the photo `src` yet. We first have to initialise it to `null` in the constructor. This shows us that we're missing something from our UI - a *loading status*.
 
 Let's look at showing a different UI when the request is loading ([interactive example](https://codesandbox.io/s/93zr0xz32r)):
 
 ```js
 class MartianPhotoFetcher extends Component {
-  state = {
-    isLoading: true,
-    imgSrc: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      imgSrc: null
+    };
+  }
   
   componentDidMount() {
     fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`)
@@ -296,20 +307,21 @@ render() {
 > **Exercise C**
 > Open the `pokedex` React application again and open the `src/BestPokemon.js` file
 > 1. If you haven't already, convert the `BestPokemon` component to a class component
-> 2. Set the initial state to have a key named `pokemonNames` that is assigned to `null` (hint: `state = {}`)
-> 3. Add a `componentDidMount` method to the component
-> 4. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do?
-> 5. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`)
-> 6. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`
-> 7. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`)
-> 8. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`)
-> 9. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it)
-> 10. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?
-> 11. Add an `isLoading` piece of state, which is initialised to `true`
-> 12. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
-> 13. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
-> 14. **(STRETCH GOAL)** Add some error handling which renders an error message
-> 15. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
+> 2. Create a `constructor` method (hint: remember to call `super(props)`)
+> 3. Set the initial state to have a key named `pokemonNames` that is assigned to `null`
+> 4. Add a `componentDidMount` method to the component
+> 5. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do?
+> 6. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`)
+> 8. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`
+> 9. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`)
+> 10. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`)
+> 11. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it)
+> 12. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?
+> 13. Add an `isLoading` piece of state, which is initialised to `true`
+> 14. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
+> 15. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
+> 16. **(STRETCH GOAL)** Add some error handling which renders an error message
+> 17. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
 
 ## Working with forms in React
 
@@ -319,9 +331,12 @@ A popular pattern for building forms and collect user data is the *controlled co
 
 ```js
 class SimpleReminder extends Component {
-  state = {
-    reminder: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      reminder: ""
+    };
+  }
 
   handleChange = event => {
     this.setState({
@@ -353,11 +368,14 @@ Let's have a look at a more complex example where we want to build a form to let
 
 ```js
 class CreateAccountForm extends Component {
-  state = {
-    username: "",
-    email: "",
-    password: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      email: "",
+      password: ""
+    };
+  }
 
   handleChange = event => {
     this.setState({

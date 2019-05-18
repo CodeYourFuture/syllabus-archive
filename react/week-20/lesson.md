@@ -297,6 +297,7 @@ This code has a bug! `this.state` is initialised as an empty object, and so `thi
 ```js
 class Counter extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       count: props.count
     };

@@ -45,12 +45,8 @@ class Counter extends Component {
 So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://codesandbox.io/s/xmo8oo514)):
 
 ```js
-const IsShown = () => (
-  <p>I'm shown when true ✅</p>
-);
-
-const IsNotShown = () => (
-  <p>I'm shown when false ☑️</p>
+const Message = () => (
+  <p>I'm shown when this.state.isShown is true ✅</p>
 );
 
 class Toggle extends Component {
@@ -66,7 +62,7 @@ class Toggle extends Component {
   render() {
     return (
       <div>
-        {this.state.isShown ? <IsShown /> : <IsNotShown />}
+        {this.state.isShown ? <Message /> : null}
         <button onClick={this.toggle}>Toggle</button>
       </div>
     );
@@ -74,7 +70,7 @@ class Toggle extends Component {
 }
 ```
 
-If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is important in larger applications as it can free up resources (CPU & memory) that aren't being used any more.
+If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is because `this.state.isShown` is `false` which means the Toggle component returns `null` for that part of the JSX. If you return `null` in JSX then React will render nothing at all.
 
 ## The Circle of Life
 
@@ -333,7 +329,7 @@ Modern web applications often involve interacting with forms such as creating an
 
 A popular pattern for building forms and collect user data is the *controlled component* pattern. A pattern is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
 
-```
+```js
 class SimpleReminder extends Component {
   constructor(props) {
     super(props);
@@ -370,7 +366,7 @@ In addition, instead of just saving the value of the input in the state, we coul
 
 Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
 
-```
+```js
 class CreateAccountForm extends Component {
   constructor(props) {
     super(props);
@@ -444,6 +440,10 @@ const dynamicKeyObject = { [myFirstKey]: myFirstValue };
 console.log(dynamicKeyObject); // => { key1: "value1" }
 ```
 
+
+## Further Reading
+
+There is a new update to React, which adds a new feature called *Hooks*. It allows you to access the special super powers of state and lifecycle in regular function components. There is an extensive guide in the [official React tutorial](https://reactjs.org/docs/hooks-intro.html).
 
 # Homework
 

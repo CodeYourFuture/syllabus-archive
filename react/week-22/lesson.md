@@ -55,7 +55,7 @@ Here you can see that React-Router provides some default React component that yo
 
 Often, URLs are not static and you will need to be able to pass parameters. For example, imagine you build an online shopping application. You will have one page for each product and it would be great to have a unique URL for each page. React-Router let you define dynamic parameter ([interactive example](https://codesandbox.io/s/compassionate-https-jsf59)):
 
-```
+```js
 function Product({ match }) {
   return <h2>Product: {match.params.name}</h2>;
 }

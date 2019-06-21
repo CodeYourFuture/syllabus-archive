@@ -5,24 +5,31 @@
 
 ## Introduction to React-Router
 
-In the past few weeks, you've learned how to build applications with React and the different applications and examples were all built on a single page. However, what if you wanted to have different pages with each page having its own URL? This is what React-Router can help you with!
+In the past few weeks, you've learned how to build applications with React and the different applications and examples were all built on a single page. However, what if you wanted to have different pages with each page having its own URL (so you can bookmark it for example)? You will need to introduce a router in your application. In JavaScript, a router is the piece of code which is in charge of switching between views of your application and keep each view in sync with a specific URL. For example, you could imagine having a homepage reachable from the root path `/` and a users page with the path `/users`. In React, a popular library to help you achieve this is React-Router.
 
 Let's look at a first example ([interactive example](https://codesandbox.io/s/react-router-1-lk44e)):
 
 ```js
-function Index() {
+const Index = () => {
   return <h2>Home</h2>;
-}
+};
 
-function About() {
+const About = () => {
   return <h2>About</h2>;
-}
+};
 
-function Users() {
-  return <h2>Users</h2>;
-}
+const Users = ({ names }) => {
+  return (
+    <div>
+      <h2>Users</h2>
+      <ul>
+        {names.map(name => <li>{name}</li>)}
+      </ul>
+    </div>
+  );
+};
 
-function AppRouter() {
+const AppRouter = () => {
   return (
     <Router>
       <div>
@@ -42,14 +49,24 @@ function AppRouter() {
 
         <Route path="/" exact component={Index} />
         <Route path="/about/" component={About} />
-        <Route path="/users/" component={Users} />
+        <Route path="/users/" render={() => <Users names={["Raresh", "Nate"]} />} />
       </div>
     </Router>
   );
-}
+};
 ```
 
-Here you can see that React-Router provides some default React component that you can use to enable routing in your application. First, notice the top level `<Router>` component which wraps everything else. Then you define your navigation with the `<Link>` component and define each route with the `<Route>` component. The `<Route>` component maps a URL (defined with the `path` props) with a React component (defined with the `component` props).
+React-Router provides some default React components that you can use to enable routing in your application. First, notice the top level `<Router>` component which wraps everything else. Each route is defined with the `<Route>` component which maps a path (defined with the `path` props) with a React component. In the simplest case, you can specify the React component to map to the path with the `component` props. However, it is assuming you don't need to pass any props to it. If you face a more complex scenarios or if you need to pass props to your React component, you can use the `render` props which takes a function and return exactly what you want to render on this path. Then, the `Link` component can be used to create links to navigate to different routes.
+
+> **Exercise A**
+> Open the `pokedex` React application. In this exercise, React-Router will be introduced. Instead of displaying all your components in the same page, we will use React-Router to define  different pages in the `pokedex` application.
+> 1. In the terminal, install React-Router with `npm install --save react-router-dom`.
+> 2. Open `src/App.js` and import Router, Route and Link components from React-Router (hint: `import { BrowserRouter as Router, Route, Link } from "react-router-dom";`)
+> 3. Wrap all the components in the `render` method in the `<Router>` component.
+> 4. In the following, we will have `CaughtPokemon` and `BestPokemon` displayed with different route. But first, let's create some links to navigate to different pages. Still in the `render` method of `src/App.js`, use the `Link` component to create 2 links: one to navigate to the URL `/best-pokemon` and another one to navigate to `/caught-pokemon` (hint: `<Link to="/best-pokemon">Best Pokemon</Link>`).
+> 5. Open the `pokedex` in your browser and verify that you can see 2 links on the page. When clicking on each of these links, the URL in your browser address bar should change (but nothing will change on the screen yet!).
+> 6. Now let's define the routes to map a path to a React component. First, create a route to map `/best-pokemon` to the `BestPokemon` component. Then, use another route to map `/caught-pokemon` to the `CaughtPokemon` component (Hint: depending on if you pass some props to `BestPokemon` or `CaughtPokemon` you will need to use either the `component` or the `render` props in the `<Route>` component).
+> 7. Open the `pokedex` in your browser and verify that when clicking on each link, `BestPokemon` and `CaughtPokemon` are rendered accordingly.
 
 ## Dynamic parameters
 
@@ -86,7 +103,7 @@ function AppRouter() {
 }
 ```
 
-> **Exercise **
+> **Exercise B**
 
 TODO
 

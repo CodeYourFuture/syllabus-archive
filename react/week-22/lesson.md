@@ -68,16 +68,16 @@ React-Router provides some default React components that you can use to enable r
 > 6. Now let's define the routes to map a path to a React component. First, create a route to map `/best-pokemon` to the `BestPokemon` component. Then, use another route to map `/caught-pokemon` to the `CaughtPokemon` component (Hint: depending on if you pass some props to `BestPokemon` or `CaughtPokemon` you will need to use either the `component` or the `render` props in the `<Route>` component).
 > 7. Open the `pokedex` in your browser and verify that when clicking on each link, `BestPokemon` and `CaughtPokemon` are rendered accordingly.
 
-## Dynamic parameters
+## URL parameters
 
-Often, URLs are not static and you will need to be able to pass parameters. For example, imagine you build an online shopping application. You will have one page for each product and it would be great to have a unique URL for each page. React-Router let you define dynamic parameter ([interactive example](https://codesandbox.io/s/compassionate-https-jsf59)):
+Sometimes, parameters can be passed from the URL to a React component directly via its props. In this case, different URLs can be mapped to one single React component. For example, in an online shopping application, a React component `Product` may be responsible to display a specific product on the page. By using URL parameters, the name or ID of the requested product can be specific in the URL and React-Router will pass it a props of the `Product` component ([interactive example](https://codesandbox.io/s/compassionate-https-jsf59)):
 
 ```js
-function Product({ match }) {
+const Product = ({ match }) => {
   return <h2>Product: {match.params.name}</h2>;
 }
 
-function AppRouter() {
+const AppRouter = () => {
   return (
     <Router>
       <div>
@@ -103,9 +103,15 @@ function AppRouter() {
 }
 ```
 
-> **Exercise B**
+In the route definition above, a specific syntax is used to define the URL parameter: `:name`. Then in the `Product` component, the value of `name` can be accessed through the component props `match.params.name`.
 
-TODO
+> **Exercise B**
+> In the following, we will create a new component to display a Pokemon information. The Pokemon name will be passed through the URL and displayed on the screen.
+> 1. Create a new component `PokemonInfo`.
+> 2. In `src/App.js`, create a new route which maps the path `/pokemon/:name` to the previously created component `PokemonInfo` (hint: `<Route path="/pokemon/:name" component={PokemonInfo} />`).
+> 3. In the `render` method of `PokemonInfo` component, display the name of the Pokemon which is passed in the URL parameter (hint: use the props `match.params.name`).
+> 4. Open the `pokedex` in your browser and try several URLs (such as `http://localhost:3000/pokemon/Pikachu` and see if the Pokemon name is displayed accordingly on your screen.
+> 5. **(STRETCH GOAL)** Instead of passing the name of the Pokemon in the URL parameter, now pass an ID. The ID passed correspond to the ID of the Pokemon in the Poke API. For example, the ID 1 corresponds to the Pokemon Bulbasaur (https://pokeapi.co/api/v2/pokemon-species/1/). In the `PokemonInfo` component, use the Pokemon ID from the URL to load the corresponding Pokemon data from the Poke API and display the following Pokemon information on the screen: name, color.name, shape.name, base_happiness and capture_rate.
 
 
 ## Further Reading

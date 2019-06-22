@@ -31,7 +31,7 @@ const Users = ({ names }) => {
 
 const AppRouter = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <nav>
           <ul>
@@ -51,18 +51,18 @@ const AppRouter = () => {
         <Route path="/about/" component={About} />
         <Route path="/users/" render={() => <Users names={["Raresh", "Nate"]} />} />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 ```
 
-React-Router provides some default React components that you can use to enable routing in your application. First, notice the top level `<Router>` component which wraps everything else. Each route is defined with the `<Route>` component which maps a path (defined with the `path` props) with a React component. In the simplest case, you can specify the React component to map to the path with the `component` props. However, it is assuming you don't need to pass any props to it. If you face a more complex scenarios or if you need to pass props to your React component, you can use the `render` props which takes a function and return exactly what you want to render on this path. Then, the `Link` component can be used to create links to navigate to different routes.
+React-Router provides some default React components that you can use to enable routing in your application. First, notice the top level `<BrowserRouter>` component which wraps everything else. Each route is defined with the `<Route>` component which maps a path (defined with the `path` props) with a React component. In the simplest case, you can specify the React component to map to the path with the `component` props. However, it is assuming you don't need to pass any props to it. If you face a more complex scenarios or if you need to pass props to your React component, you can use the `render` props which takes a function and return exactly what you want to render on this path. Then, the `Link` component can be used to create links to navigate to different routes.
 
 > **Exercise A**
 > Open the `pokedex` React application. In this exercise, React-Router will be introduced. Instead of displaying all your components in the same page, we will use React-Router to define  different pages in the `pokedex` application.
 > 1. In the terminal, install React-Router with `npm install --save react-router-dom`.
-> 2. Open `src/App.js` and import Router, Route and Link components from React-Router (hint: `import { BrowserRouter as Router, Route, Link } from "react-router-dom";`)
-> 3. Wrap all the components in the `render` method in the `<Router>` component.
+> 2. Open `src/App.js` and import BrowserRouter, Route and Link components from React-Router (hint: `import { BrowserRouter, Route, Link } from "react-router-dom";`)
+> 3. Wrap all the components in the `render` method in the `<BrowserRouter>` component.
 > 4. In the following, we will have `CaughtPokemon` and `BestPokemon` displayed with different route. But first, let's create some links to navigate to different pages. Still in the `render` method of `src/App.js`, use the `Link` component to create 2 links: one to navigate to the URL `/best-pokemon` and another one to navigate to `/caught-pokemon` (hint: `<Link to="/best-pokemon">Best Pokemon</Link>`).
 > 5. Open the `pokedex` in your browser and verify that you can see 2 links on the page. When clicking on each of these links, the URL in your browser address bar should change (but nothing will change on the screen yet!).
 > 6. Now let's define the routes to map a path to a React component. First, create a route to map `/best-pokemon` to the `BestPokemon` component. Then, use another route to map `/caught-pokemon` to the `CaughtPokemon` component (Hint: depending on if you pass some props to `BestPokemon` or `CaughtPokemon` you will need to use either the `component` or the `render` props in the `<Route>` component).
@@ -79,7 +79,7 @@ const Product = ({ match }) => {
 
 const AppRouter = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <nav>
           <h2>Product List</h2>
@@ -98,7 +98,7 @@ const AppRouter = () => {
 
         <Route path="/products/:name" component={Product} />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 ```

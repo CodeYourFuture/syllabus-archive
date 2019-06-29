@@ -228,7 +228,7 @@ If you don't feel comfortable with the terminal just yet, download the
 recommend becoming comfortable with the Terminal commands and understanding the
 steps for the different workflows before moving on to visual Git clients.**
 
-[Github client guides >](https://help.github.com/desktop/guides/contributing/)
+[Github client guides >](https://help.github.com/en/desktop)
 
 ### Pull Requests
 
@@ -241,7 +241,7 @@ During our course, we will be using [Github](https://github.com) to store our
 code. Github is the most popular Git service around, and is used by many large
 companies, like Facebook, Airbnb and The Guardian.
 
-[CodeYourFuture's Github page >](https://github.com/Code-Your-Future)
+[CodeYourFuture's Github page >](https://github.com/CodeYourFuture)
 
 ### More Resources
 

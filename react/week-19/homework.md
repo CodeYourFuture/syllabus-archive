@@ -4,5 +4,3 @@ Complete user stories 1, 2 and 3 from the [cyf-hotel-react](https://github.com/C
 
 1. Follow the official [React tutorial](https://reactjs.org/tutorial/tutorial.html)
 2. Watch the [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) on Egghead.io
-3. Read about functional components. 
-{% include "./functionalComponents.md" %}

@@ -240,7 +240,7 @@ tries to access the webpage.
 
 ## 1. Create your own handler function.
 
-Let us add a handler handler function to send back a message to the client. To do that,
+Let us add a handler function to send back a message to the client. To do that,
 we're going to use the Express `send()`
 [method](http://expressjs.com/en/api.html#res.send). This will update the
 response object with the message.
@@ -252,7 +252,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", function(req, res) {
-  res.send("Yay Node Girls!");
+  res.send("Hello CYF class 3!");
 });
 
 app.listen(3000, function() {
@@ -293,7 +293,7 @@ congratulations! You just sent your first response from the server.
 # Step 5 - Routing
 
 At the moment our server only does one thing. When it receives a request from
-the `/` endpoint, it sends back the same response: "Yay Node Girls!".
+the `/` endpoint, it sends back the same response: "Hello CYF class 3!".
 
 > Try typing http://localhost:3000/nodegirls and see what happens.
 

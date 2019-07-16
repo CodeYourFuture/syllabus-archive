@@ -41,6 +41,9 @@ There are many different kinds of database and different implementations. Someti
 - Finally, users can book a room in an hotel.
 
 
+## ========== OLD CLASS BELOW ============
+
+
 ## LESSON 1A: Why we need databases
 
 So, in your previous lessons you have been taught how to store and retrieve data

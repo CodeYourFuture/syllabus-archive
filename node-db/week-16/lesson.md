@@ -1,13 +1,45 @@
-# WEEK 16 LESSON 1 : BASIC SQL
+# Database 1: Introduction to SQL
 
-**What we will learn today?**
+**What will we learn today?**
 
-* Why we need databases
-* Installing SQLite
-* Creating a database with SQL and storing data in it.
-* Inserting data into a database using SQL.
-* Retrieving data from a database using SQL.
-* Escaping
+* Introduction to database
+  * Why do we need them?
+  * Different types of database
+  * Database modeling exercise 
+  	 
+* Introduction to PostgreSQL
+
+* How to communicate with a database: SQL
+  * Creating a Table
+  * Inserting data
+  * Retrieving data
+
+## Introduction to database
+
+A database is a structured set of data held in a computer. It provides ways to store, retrieve and organize information.
+
+### Why do we need them?
+
+In the past few weeks, you stored and retrieved data using files. This is fine for simple data but it can quickly become an issue as your application becomes more complex and needs to store and manipulate more complicated data. For example, imagine you want to develop the next biggest hotel booking application. You will need to store somewhere the list of hotels available for booking, and as you add more features, you will need to save users information, the reviews they post for each hotel, but also the bookings each user makes. You can see that the data you need to handle can become very complicated, especially when you need to consider that data are not static, as they can be updated or deleted. To work more effectively with data, we can then use a database, which present the following benefits:
+
+- A database defines a structure for your data and the relationships between entities
+- A database provides a mechanism to check the validity of your data
+- A database provides convenient and performant ways to safely store and retrieve data
+
+### Different types of database
+
+There are many different kinds of database and different implementations. Sometimes, a database type is a better fit to certain use case or certain problems. The most well-known database types include relational database, key/value database, graph database and document database (also known as NoSQL). For this class, we will focus specifically on relational database as they are the most widely used and supported. You can consult [DB-Engines](https://db-engines.com/en/ranking) to see a ranking of the most used database, as you can see, there is a lot of them!
+
+### Database modeling exercise
+
+**Scenario:** You've been hired to create a database for a new startup which want to revolutionize the hotel booking market. The first task you've been given is to model how the company would store its data in a database. Here are your requirements:
+
+- The company wants to store the list of hotels available on their website.
+- For each hotel, the company wants to store the name, the number of rooms, the room types and the price for each room types. The application will focus only on the following room types: single room and double room and you can assume that the price will be fixed for a given room type.
+- The company also wants to give the ability to create an account for its users recording an email and a password for each new user.
+- Users need to be able to record their bank details which consist of an account number and a sort code.
+- Finally, users can book a room in an hotel.
+
 
 ## LESSON 1A: Why we need databases
 

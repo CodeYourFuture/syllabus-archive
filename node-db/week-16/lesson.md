@@ -8,6 +8,10 @@
   * Database modeling exercise 
   	 
 * Introduction to PostgreSQL
+  * What is SQL?
+  * What is a RDBMS?
+  * What characterises a relational database?
+  * Check your PostgreSQL installation
 
 * How to communicate with a database: SQL
   * Creating a Table
@@ -23,8 +27,8 @@ A database is a structured set of data held in a computer. It provides ways to s
 In the past few weeks, you stored and retrieved data using files. This is fine for simple data but it can quickly become an issue as your application becomes more complex and needs to store and manipulate more complicated data. For example, imagine you want to develop the next biggest hotel booking application. You will need to store somewhere the list of hotels available for booking, and as you add more features, you will need to save users information, the reviews they post for each hotel, but also the bookings each user makes. You can see that the data you need to handle can become very complicated, especially when you need to consider that data are not static, as they can be updated or deleted. To work more effectively with data, we can then use a database, which present the following benefits:
 
 - A database defines a structure for your data and the relationships between entities
-- A database provides a mechanism to check the validity of your data
 - A database provides convenient and performant ways to safely store and retrieve data
+- A database provides a mechanism to check the validity of your data
 
 ### Different types of database
 
@@ -32,110 +36,63 @@ There are many different kinds of database and different implementations. Someti
 
 ### Database modeling exercise
 
-**Scenario:** You've been hired to create a database for a new startup which want to revolutionize the hotel booking market. The first task you've been given is to model how the company would store its data in a database. Here are your requirements:
+**Scenario:** You've been hired to create a database for a new company which wants to revolutionize the hotel booking market. The first task you've been given is to model how the company would store its data in a database. Here are your requirements:
 
-- The company wants to store the list of hotels available on their website.
-- For each hotel, the company wants to store the name, the number of rooms, the room types and the price for each room types. The application will focus only on the following room types: single room and double room and you can assume that the price will be fixed for a given room type.
-- The company also wants to give the ability to create an account for its users recording an email and a password for each new user.
+- The company wants to store all the hotels available on their website
+- For each hotel, the company wants to record the name, the number of rooms, the room types and the price for each room types. The price of each room type is fixed for each hotel.
+- The company also needs to store the information of users who registered on their website with an email and a password.
 - Users need to be able to record their bank details which consist of an account number and a sort code.
-- Finally, users can book a room in an hotel.
+- Finally, as users can book a room in an hotel on the website, the company wants to store all the bookings.
+
+With mentors help, model the database for this company. In particular, show the different entities, fields and relationships between each entity.
+
+
+## Introduction to PostgreSQL
+
+*"PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. The origins of PostgreSQL date back to 1986 as part of the POSTGRES project at the University of California at Berkeley and has more than 30 years of active development on the core platform."* (source: [postgresql.org](https://www.postgresql.org/about/))
+
+### What is SQL?
+
+- Pronounced S-Q-L or sequel
+- Stands for Structured Query Language
+- SQL is the standard language used to communicate with relational database
+- SQL statements are used to query, create, update, delete records in a database
+- SQL statements are executed by RDBMS.
+
+### What is a RDBMS?
+
+- Stands for Relational Database Management System
+- It is a program that processes SQL statements to manage a relational database
+- PostgreSQL is a RDBMS.
+
+### What characterizes a relational database?
+
+As mentioned previously, a relational database is a specific type of database. Data is stored in *tables* of *rows* and *columns* as per the example below:
+
+<!-- ![table-diagram](table-diagram.png) -->
+<p align="center">
+  <img src="table-diagram.png" display="block" width="60%"/>
+</p>
+
+**How about storing everything in one big table as shown below? Why isn't it a good idea?**
+
+A customer could have several bookings. If the customer changes their telephone number, you would have to update every single rows for this customer with their new number, which is more prone to errors. As a general rule, try to avoid duplication of data, and instead design your system in a way that you have a single source of truth for each piece of data.
+
+<!-- ![combined-diagram](combined-diagram.png) -->
+<p align="center">
+  <img src="combined-diagram.png" display="block" width="60%"/>
+</p>
+
+### Check your PostgreSQL installation
+
+Open a terminal in your laptop and verify the command `psql` returns the version of PostgreSQL. In psql, you can type use the command `help` to show the help menu. Within the command prompt, you can enter SQL statements and run them against PostgreSQL.
+
+
 
 
 ## ========== OLD CLASS BELOW ============
 
 
-## LESSON 1A: Why we need databases
-
-So, in your previous lessons you have been taught how to store and retrieve data
-using files. This is fine and works well for some data - particularly simple data -
-but it can quickly cause issues when you have a *lot* of data and *complicated* data.
-
-TEACHER STORY:
-
-Back in 2013 I used to work for a company that ran hotel wifi for big hotel chain.
-We did at least 4 big brands that you've probably heard of and a whole bunch of others.
-This company had been going for a long time and used to make $8 when, back in the dark ages, you paid $12 for a day of wifi.
-
-The code for this system had the notion of "invoices", "wifi enrollments" and "guests" and
-stored data on each of them as well as the links between them. We would store data about
-these things and we would run reports on each and send them to the hotels who would use them to bill guests.
-
-All normal so far. Except we would sometimes send reports with invoices which didn't have enrollments, and enrollments which didn't have guests.
-
-Sometimes the amounts on those invoices would rack up to tens even hundreds of thousands of dollars of invoices *without* customers, and the hotel managers were rarely happy:
-
-<!-- ![Hotel manager](grumpy-cat.jpg "Hotel manager's face") -->
-<p align="center">
-  <img src="grumpy-cat.jpg" display="block" width="75%"/>
-</p>
-
-This was a very, very serious problem. We were >.< this close to losing a big hotel chain as a customer - and a large part of it was because of this.
-
-This was a problem because our system was buggy, so we had what are generally called "data integrity" issues. You've encountered bugs before on this course - data integrity issues bugs too - bugs with your data.
-
-The difference between a bug in your code and a bug in your data, caused by a bug in your code, is that bugs in your code can always be fixed. Bugs in your data - sometimes they can never be fixed.
-
-These lessons are about using SQL and storing and retrieving data in your code in such a way that your data is kept clean.
-
-
-## LESSON 1B : What is the point of an SQL database?
-
-We're going to teach you a new programming language. It's called SQL. Pronounced "S - Q - L" or sequel, either is fine.
-
-Databases are simply programs that take data and stuff it in files just like you were doing in the previous lesson.
-
-However, the way we use a database is different to the way we store things in files. In a file, you can put any random jumble of data in and get it out again. How you put it in and get it out is up to you. Your code needs to open the file, close the file, retrieve, store or modify and validate everything itself. Offloading some of that responsibility to another program means that your code can achieve all the same things but be simpler.
-
-You interact with almost all of them using the same programming language which is called "SQL". It's been around for 31 years and is still completely dominant. Computing moves fast, but SQL doesn't change. This kind of lesson will probably still be taught in 50 years. Probably 4 out of 5 software jobs involve SQL In some way.
-
-SQL is a different, and usually simpler kind of programming language that you use *with* a database (sometimes called an RDBMS) to:
-
-- Store data in a way such that its structure cannot be violated.
-- Retrieve data (get me all the reservations under the name "Trump") and answer questions about data ("what was the sum total of all of the invoices in february?").
-
-An RDBMS (relational database management system) will do this by, for example:
-
-- Data constraints (e.g. each reservation *must* have a customer)
-- Data types (e.g. check in date *can only* be a date)
-- Uniqueness of certain pieces of data (e.g. there is *only one* person with the driver's license ID 941413).
-- Organizing how the data is retrieved and assembled (e.g. fetch me all reservations under customer "Donald Trump").
-- Executes on a different process/machine, meaning that the queries can be parallelized, and work can be offloaded from the main server.
-
-
-### SHOULD I USE SQL OR SHOULD I USE NOSQL?
-
-My short answer: if in doubt, I would just use SQL. Always.
-
-Long answer: There are two forms of NoSQL.
-
-1) Extremely high scale -- terabytes upon terabytes of data and tens of people working just on handling the database -- the canonical example is Cassandra --- constraints are not enforced *due to extremley high loads and high levels of data*. Some companies like Netflix, Google do this. 99% of tech companies do not.
-
-2) For beginner programmers - Mongo --- constraints (among other features) are not there *to simplify things for beginners*. This means it will be quicker to build your project but you face a higher risk of data integrity issues
-once you do and shifting from mongo to an SQL database once you're deep into a project is tricky.
-
-
-#### EXERCISE 1B: INSTALLING SQLITE ON YOUR LAPTOP AND CREATING YOUR FIRST DATABASE
-
-The RDBMS we are going to teach you first is called "sqlite". It's pretty much the industry standard for creating small, self contained database that fits in one file or runs a small website (where small means under 100,000 hits per day). There is more [here](https://www.sqlite.org/whentouse.html) on when it is and is not a good database to use.
-
-To set up, we do the following:
-
-* Windows: https://sqlite.org/download.html#win32
-* Ubuntu: `sudo apt-get install sqlite3`
-* Mac OS: `brew install sqlite3`
-
-To run SQLite, open a command prompt and run "sqlite mydatabase.sqlite".
-
-This should give you a prompt like this:
-
-```
-sqlite3
-SQLite version 3.11.0 2016-02-15 17:29:24
-Enter ".help" for usage hints.
-sqlite>
-```
-
-This is a command prompt where you can run snippets of SQL and load files containing SQL.
 
 ## LESSON 1C: CREATING A TABLE
 

@@ -13,8 +13,8 @@
   * What characterises a relational database?
   * Check your PostgreSQL installation
 
-* How to communicate with a database: SQL
-  * Creating a Table
+* Communicating with the database using SQL
+  * Creating a table
   * Inserting data
   * Retrieving data
 
@@ -40,9 +40,9 @@ There are many different kinds of database and different implementations. Someti
 
 - The company wants to store all the hotels available on their website
 - For each hotel, the company wants to record the name, the number of rooms, the room types and the price for each room types. The price of each room type is fixed for each hotel.
-- The company also needs to store the information of users who registered on their website with an email and a password.
-- Users need to be able to record their bank details which consist of an account number and a sort code.
-- Finally, as users can book a room in an hotel on the website, the company wants to store all the bookings.
+- The company also needs to store the information of customers who registered on their website with an email and a password.
+- Customers need to be able to record their bank details which consist of an account number and a sort code.
+- Finally, as customers can book a room in an hotel on the website, the company wants to store all the bookings.
 
 With mentors help, model the database for this company. In particular, show the different entities, fields and relationships between each entity.
 
@@ -76,22 +76,37 @@ As mentioned previously, a relational database is a specific type of database. D
 
 **How about storing everything in one big table as shown below? Why isn't it a good idea?**
 
-A customer could have several bookings. If the customer changes their telephone number, you would have to update every single rows for this customer with their new number, which is more prone to errors. As a general rule, try to avoid duplication of data, and instead design your system in a way that you have a single source of truth for each piece of data.
+A customer could have several bookings. If the customer changes their telephone number, you would have to update every single rows for this customer with their new number, which is more prone to errors. As a general rule, try to avoid duplication of data, and instead design your system in a way that you have a single source of truth for each piece of data. The example below is **NOT** a good design.
 
 <!-- ![combined-diagram](combined-diagram.png) -->
 <p align="center">
   <img src="combined-diagram.png" display="block" width="60%"/>
 </p>
 
+
 ### Check your PostgreSQL installation
 
 Open a terminal in your laptop and verify the command `psql` returns the version of PostgreSQL. In psql, you can type use the command `help` to show the help menu. Within the command prompt, you can enter SQL statements and run them against PostgreSQL.
 
 
+## Communicating with the database using SQL
+
+### Creating a table
+
+TODO
+
+### Inserting data
+
+TODO
+
+### Retrieving data
+
+TODO
+
+
 
 
 ## ========== OLD CLASS BELOW ============
-
 
 
 ## LESSON 1C: CREATING A TABLE

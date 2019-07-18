@@ -97,20 +97,17 @@ All commands in the following need to be entered in a psql command prompt. Howev
 
 ### Creating a new database
 
-Create a new database named `cyf_hotels` with the following command:
+In a terminal, create a new database named `cyf_hotels` with the following command:
 
 ```
-CREATE DATABASE cyf_hotels;
+createdb cyf_hotels
 ```
 
-To list existing database and verify that your new database has been created correctly, use the command `\l`. You should be able to see a list of databases which exists on your laptop. Verify that you can see the database `cyf_hotels`.
+Then connect to your database with:
 
-You will need to connect to the database you have created so all the following commands will be executed against the `cyf_hotels`:
-
+```sql
+psql cyf_hotels
 ```
-\connect cyf_hotels;
-```
-
 
 ### Creating a table
 
@@ -139,7 +136,7 @@ Few things to mention from the SQL statement above:
 #### Exercise 1
 
 - Create the `customers` table in the `cyf_hotels` database.
-- Verify that the table `customers` is created with the psql command `\dt` which lists the existing tables. Remember to connect to the `cyf_hotels` with `\connect cyf_hotels` before.
+- Verify that the table `customers` is created with the psql command `\dt` which lists the existing tables.
 - Display the table `customers` definition with the command `\d customers` and verify that it matches what you expect.
 - Create a new table `hotels` in the `cyf_hotels` database with the following columns: an `id`, a `name`, the number of `rooms` and the hotel `postcode`. Use the commands above to verify that the table is correctly created.
 

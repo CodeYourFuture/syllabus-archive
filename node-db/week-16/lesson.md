@@ -53,7 +53,8 @@ With mentors help, model the database for this company. In particular, show the 
 
 *"PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. The origins of PostgreSQL date back to 1986 as part of the POSTGRES project at the University of California at Berkeley and has more than 30 years of active development on the core platform."* (source: [postgresql.org](https://www.postgresql.org/about/))
 
-### What is SQL?
+
+### What is SQL?
 
 - Pronounced S-Q-L or sequel
 - Stands for Structured Query Language
@@ -115,7 +116,7 @@ Data are stored in tables. Let's first create a `customers` table to hold the de
 
 ```sql
 CREATE TABLE customers (
-	id 			SERIAL PRIMARY KEY,
+	id			SERIAL PRIMARY KEY,
 	name 		VARCHAR(30) NOT NULL,
 	email 		VARCHAR(120) NOT NULL,
 	address 	VARCHAR(120),
@@ -144,11 +145,11 @@ Now that we have a table to store `customers` and a table to store `hotels`, we 
 
 ```sql
 CREATE TABLE bookings (
-	id					SERIAL PRIMARY KEY,
-	customer_id 		INT REFERENCES customers(id),
-	hotel_id			INT REFERENCES hotels(id),
-	checkin_date 		DATE NOT NULL,
-	nights				INT NOT NULL
+	id               SERIAL PRIMARY KEY,
+	customer_id      INT REFERENCES customers(id),
+	hotel_id         INT REFERENCES hotels(id),
+	checkin_date     DATE NOT NULL,
+	nights           INT NOT NULL
 );
 ```
 

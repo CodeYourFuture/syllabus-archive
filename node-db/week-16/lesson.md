@@ -155,6 +155,7 @@ CREATE TABLE bookings (
 
 In the above, `customer_id` and `hotel_id` are called **foreign keys** as they reference an id from a different table. This set a very strong constraint as you will not be able to create a booking for a customer id which does not exist in the customers table!
 
+
 #### Exercise 2
 
 - Create the table `bookings` in your `cyf_hotels` database and verify that it is correctly created.

@@ -116,13 +116,13 @@ Data are stored in tables. Let's first create a `customers` table to hold the de
 
 ```sql
 CREATE TABLE customers (
-	id			SERIAL PRIMARY KEY,
-	name 		VARCHAR(30) NOT NULL,
-	email 		VARCHAR(120) NOT NULL,
-	address 	VARCHAR(120),
-	city 		VARCHAR(30),
-	postcode 	VARCHAR(12),
-	country 	VARCHAR(20)
+	id        SERIAL PRIMARY KEY,
+	name      VARCHAR(30) NOT NULL,
+	email     VARCHAR(120) NOT NULL,
+	address   VARCHAR(120),
+	city      VARCHAR(30),
+	postcode  VARCHAR(12),
+	country   VARCHAR(20)
 );
 ```
 
@@ -131,7 +131,7 @@ Few things to mention from the SQL statement above:
 - `SERIAL PRIMARY KEY` defines the column `id` as a unique identifier for each row. Moreover, this identifier will automatically incremented every time data is inserted. `id` is called the primary key of the table `customers`.
 - `VARCHAR(20)` defines the column to hold text data with a maximum length of 20 characters
 - `NOT NULL` defines the column as not nullable, which means that you must set a value.
-- Other useful types include `INT`, `TEXT` and `DATE`.
+- Other useful types include `INT`, `TEXT`, `BOOLEAN` and `DATE`.
 
 
 #### Exercise 1

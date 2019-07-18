@@ -2,7 +2,7 @@
 
 **What will we learn today?**
 
-* Introduction to database
+* Introduction to databases
   * Why do we need them?
   * Different types of database
   * Database modeling exercise 
@@ -18,13 +18,13 @@
   * Inserting data
   * Retrieving data
 
-## Introduction to database
+## Introduction to databases
 
 A database is a structured set of data held in a computer. It provides ways to store, retrieve and organize information.
 
 ### Why do we need them?
 
-In the past few weeks, you stored and retrieved data using files. This is fine for simple data but it can quickly become an issue as your application becomes more complex and needs to store and manipulate more complicated data. For example, imagine you want to develop the next biggest hotel booking application. You will need to store somewhere the list of hotels available for booking, and as you add more features, you will need to save users information, the reviews they post for each hotel, but also the bookings each user makes. You can see that the data you need to handle can become very complicated, especially when you need to consider that data are not static, as they can be updated or deleted. To work more effectively with data, we can then use a database, which present the following benefits:
+In the past few weeks, you stored and retrieved data using files. This is fine for simple data but it can quickly become an issue as your application becomes more complex and needs to store and manipulate more complicated data. For example, imagine you want to develop the next biggest hotel booking application. You will need to store the list of hotels available for booking somewhere, and as you add more features, you will need to save users information, the reviews they post for each hotel, but also the bookings each user makes. You can see that the data you need to handle can become very complicated, especially when you need to consider that data are not static, as they can be updated or deleted. To work more effectively with data, we can then use a database, which present the following benefits:
 
 - A database defines a structure for your data and the relationships between entities
 - A database provides convenient and performant ways to safely store and retrieve data
@@ -57,7 +57,7 @@ With mentors help, model the database for this company. In particular, show the 
 - Stands for Structured Query Language
 - SQL is the standard language used to communicate with relational database
 - SQL statements are used to query, create, update, delete records in a database
-- SQL statements are executed by RDBMS.
+- SQL statements are executed by a RDBMS.
 
 ### What is a RDBMS?
 
@@ -76,7 +76,7 @@ As mentioned previously, a relational database is a specific type of database. D
 
 **How about storing everything in one big table as shown below? Why isn't it a good idea?**
 
-A customer could have several bookings. If the customer changes their telephone number, you would have to update every single rows for this customer with their new number, which is more prone to errors. As a general rule, try to avoid duplication of data, and instead design your system in a way that you have a single source of truth for each piece of data. The example below is **NOT** a good design.
+A customer could have several bookings. If the customer changes their telephone number, you would have to update every single rows for this customer with their new number, which is more prone to errors. As a general rule, try to avoid duplication of data, and instead design your system in a way that you have a single source of truth for each piece of data. The example below is **NOT** a good solution.
 
 <!-- ![combined-diagram](combined-diagram.png) -->
 <p align="center">
@@ -86,7 +86,7 @@ A customer could have several bookings. If the customer changes their telephone 
 
 ### Check your PostgreSQL installation
 
-Open a terminal in your laptop and verify the command `psql` returns the version of PostgreSQL. In psql, you can type use the command `help` to show the help menu. Within the command prompt, you can enter SQL statements and run them against PostgreSQL.
+Open a terminal in your laptop and verify the command `psql -V` returns the version of PostgreSQL. In psql, you can type use the command `help` to show the help menu. Within the command prompt, you can enter SQL statements and run them against PostgreSQL.
 
 
 ## Communicating with the database using SQL

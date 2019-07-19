@@ -2,23 +2,25 @@
 
 **What will we learn today?**
 
-* Introduction to databases
+* [Introduction to databases](#introduction-to-databases)
   * Why do we need them?
   * Different types of database
-  * Database modeling exercise 
   	 
-* Introduction to PostgreSQL
+* [Introduction to PostgreSQL](#introduction-to-postgresql)
   * What is SQL?
   * What is a RDBMS?
   * What characterises a relational database?
+  * Database modeling exercise
   * Check your PostgreSQL installation
 
-* Communicating with the database using SQL
+* [Communicating with the database using SQL](#communicating-with-the-database-using-sql)
   * Creating a new database
   * Creating a table
   * Inserting data
   * Retrieving data
   * Retrieving data with conditions
+
+* [Homeworks](#homeworks)
 
 ## Introduction to databases
 
@@ -35,18 +37,6 @@ In the past few weeks, you stored and retrieved data using files. This is fine f
 ### Different types of database
 
 There are many different kinds of database and different implementations. Sometimes, a database type is a better fit to certain use case or certain problems. The most well-known database types include relational database, key/value database, graph database and document database (also known as NoSQL). For this class, we will focus specifically on relational database as they are the most widely used and supported. You can consult [DB-Engines](https://db-engines.com/en/ranking) to see a ranking of the most used database, as you can see, there is a lot of them!
-
-### Database modeling exercise
-
-**Scenario:** You've been hired to create a database for a new company which wants to revolutionize the hotel booking market. The first task you've been given is to model how the company would store its data in a database. Here are your requirements:
-
-- The company wants to store all the hotels available on their website
-- For each hotel, the company wants to record the name, the number of rooms, the room types and the price for each room types. The price of each room type is fixed for each hotel.
-- The company also needs to store the information of customers who registered on their website with a name, an email and an address.
-- Customers need to be able to record their bank details which consist of an account number and a sort code.
-- Finally, as customers can book a room in an hotel on the website, the company wants to store all the bookings.
-
-With mentors help, model the database for this company. In particular, show the different entities, fields and relationships between each entity.
 
 
 ## Introduction to PostgreSQL
@@ -85,6 +75,19 @@ A customer could have several bookings. If the customer changes their telephone 
 <p align="center">
   <img src="combined-diagram.png" display="block" width="60%"/>
 </p>
+
+
+### Database modeling exercise
+
+**Scenario:** You've been hired to create a database for a new company which wants to revolutionize the hotel booking market. The first task you've been given is to model how the company would store its data in a database. Here are your requirements:
+
+- The company wants to store in the database all the hotels available on their website
+- For each hotel, the company wants to record the name and the number of rooms. Also each hotel can have several room types and each room type has a specific price.
+- The company also needs to store the information of customers who registered on their website with a name, an email and an address.
+- Customers need to be able to record their bank details which consist of an account number and a sort code. Each customer can register several bank accounts if they want.
+- Finally, as customers can book a room in an hotel starting on a specific date for a specific number of nights, the company wants to store the bookings.
+
+With mentors help, model the database for this company. In particular, show the different entities, fields and relationships between each entity.
 
 
 ### Check your PostgreSQL installation
@@ -132,6 +135,7 @@ Few things to mention from the SQL statement above:
 - `VARCHAR(20)` defines the column to hold text data with a maximum length of 20 characters
 - `NOT NULL` defines the column as not nullable, which means that you must set a value.
 - Other useful types include `INT`, `TEXT`, `BOOLEAN` and `DATE`.
+- The database will reject any values which don't match the type.
 
 
 #### Exercise 1
@@ -167,8 +171,15 @@ Once your `customers`, `hotels` and `bookings` table are created, you can insert
 
 ```sql
 INSERT INTO customers (name, email, address, city, postcode, country) VALUES ('John Smith','j.smith@johnsmith.org','11 New Road','Liverpool','L10 2AB','UK');
-INSERT INTO hotels (name, rooms, postcode) VALUES ('Triple Point Hotel', '10', 'CM194JS');
+INSERT INTO hotels (name, rooms, postcode) VALUES ('Triple Point Hotel', 10, 'CM194JS');
 INSERT INTO bookings (customer_id, hotel_id, checkin_date, nights) VALUES (1, 1, '2019-10-01', 2);
+```
+
+The data you insert should be of the same type with your table definition. For example, the following 2 insert statements will **fail**:
+
+```sql
+INSERT INTO bookings (customer_id, hotel_id, checkin_date, nights) VALUES (1, 1, '2019-14-01', 2);
+INSERT INTO hotels (name, rooms, postcode) VALUES (123, 10, 'CMHJ10');
 ```
 
 #### Exercise 3
@@ -236,7 +247,7 @@ SELECT * FROM hotels WHERE postcode = 'CM194JS' OR postcode = 'TR209AX';
 
 #### Exercise 5
 
-- Execute the file `cyf_hotels_exercise5.sql` which will insert a lot of data in the `customers`, `hotels` and `bookings` tables. (hint: in the terminal, use `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`).
+- Execute the file [`cyf_hotels_exercise5.sql`](./cyf_hotels_exercise5.sql) which will reset your existing tables and insert more data in the `customers`, `hotels` and `bookings` tables. (hint: in the terminal, use `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`).
 - Retrieve all information for the customer Laurence Lebihan.
 - Retrieve all customers name living in UK.
 - Retrieve the address, city and postcode of Melinda Marsh.
@@ -248,4 +259,7 @@ SELECT * FROM hotels WHERE postcode = 'CM194JS' OR postcode = 'TR209AX';
 - Retrieve all bookings for more than 4 nights.
 - Retrieve all bookings starting in 2020.
 - Retrieve all bookings before 2020 for less than 4 nights.
+
+## Homeworks
+
 

@@ -175,11 +175,10 @@ INSERT INTO hotels (name, rooms, postcode) VALUES ('Triple Point Hotel', 10, 'CM
 INSERT INTO bookings (customer_id, hotel_id, checkin_date, nights) VALUES (1, 1, '2019-10-01', 2);
 ```
 
-The data you insert should be of the same type with your table definition. For example, the following 2 insert statements will **fail**:
+The data you insert should be of the same type with your table definition. For example, the following insert statement will **fail**:
 
 ```sql
 INSERT INTO bookings (customer_id, hotel_id, checkin_date, nights) VALUES (1, 1, '2019-14-01', 2);
-INSERT INTO hotels (name, rooms, postcode) VALUES (123, 10, 'CMHJ10');
 ```
 
 #### Exercise 3

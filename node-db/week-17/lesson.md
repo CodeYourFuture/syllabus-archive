@@ -17,6 +17,8 @@
 
 ## More SQL
 
+For the following, use the file [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql) from the previous class to reinitialise your database with `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
+
 ### Changing the definition of a table
 
 Sometimes, you may need to change the definition of a table you created before without deleting it. Such changes include renaming the table, adding/removing a column, changing the name of a column, changing the type of a column etc... The general syntax to perform these operations is:
@@ -47,7 +49,9 @@ For more examples, you can consul the following tutorial: [Postgres alter table]
 
 #### Exercise 1
 
-TODO
+- Add a column `date_of_birth` of type `DATE` in the `customers` table.
+- Rename the column `date_of_birth` to `birthdate` in the `customers` table.
+- Delete the column `birthdate` from the `customers` table.
 
 ### Dropping a table
 
@@ -59,7 +63,9 @@ DROP TABLE customers;
 
 #### Exercise 2:
 
-TODO
+- Create a new table `test`
+- Drop the table `test`
+
 
 ### Updating a row
 
@@ -77,7 +83,10 @@ UPDATE customers SET name='Bob Marley', country='Jamaica' WHERE id=3;
 
 #### Exercise 3
 
-TODO
+- Update the postcode of the hotel named `Elder Lake Hotel` to `L10XYZ`
+- Update the number of rooms of `Cozy Hotel` to `25`
+- For the customer named `Nadia Sethuraman`, update her address to `2 Blue Street`, her city to `Glasgow` and her postcode to `G11ABC` in one query
+- Update all the bookings of customer with ID `1` for the hotel with ID `1` to `5` nights in one query
 
 ### Deleting a row
 
@@ -95,19 +104,48 @@ DELETE FROM bookings WHERE id=4;
 
 #### Exercise 4
 
-TODO
+- Delete the booking of customer ID `8` for the date `2020-01-03`
+- Delete all the bookings of customer ID `6`
+- Delete the customer with ID `6`
 
-### Join tables
+### Joining tables
+
+Sometimes, you will need to retrieve data which are spread in different tables in a single response. For this purpose, you will need to join tables together. Below is the general syntax:
 
 ```sql
 SELECT A.column1, B.column2 FROM A INNER JOIN B ON A.b_id=B.id;
 ```
 
-TODO
+For example, to load all the bookings along customer data:
+
+```sql
+SELECT * FROM customers INNER JOIN bookings ON customers.id=bookings.customer_id;
+```
+
+To load all the bookings along customer data and hotel data:
+
+```sql
+SELECT * FROM bookings 
+INNER JOIN customers ON customers.id=bookings.customer_id 
+INNER JOIN hotels ON hotels.id=bookings.hotel_id;
+```
+
+To load the bookings date of customer ID `1` along with the customer name and the hotel name:
+
+```sql
+SELECT bookings.checkin_date,customers.name,hotels.name FROM bookings
+INNER JOIN customers ON customers.id=bookings.customer_id
+INNER JOIN hotels ON hotels.id=bookings.hotel_id
+WHERE customers.id=1;
+```
 
 #### Exercise 5
 
-TODO
+- Try and understand each of the query above in your `psql` prompt
+- Retrieve all the bookings along customer data for bookings starting in 2020
+- Retrieve the customer names, booking start dates and number of nights for all customers who booked the hotel name `Jade Peaks Hotel`
+- Retrieve all the booking start dates with customer names and hotels names for all bookings for more than 5 nights
+
 
 ### Other useful operations
 
@@ -133,6 +171,17 @@ Query by pattern matching, for example retrieve all customers whose name starts 
 
 ```sql
 SELECT * FROM customers WHERE name LIKE 'Bob%';
+```
+
+You can combine different operations together, for example, if you want to retrieve all the booking start dates with the customer names, hotel names and number of nights booked, for customer names starting with the letter `M` ordered by hotel name with a limit of 3 results:
+
+```sql
+SELECT bookings.checkin_date,customers.name,hotels.name FROM bookings
+INNER JOIN customers ON customers.id=bookings.customer_id
+INNER JOIN hotels ON hotels.id=bookings.hotel_id
+WHERE customers.name LIKE 'M%' 
+ORDER BY hotels.name
+LIMIT 3;
 ```
 
 #### Exercise 6

@@ -11,7 +11,7 @@
   * Join tables
   * Other useful operations
 * [Use a database from a NodeJS application](#use-a-database-from-a-nodejs-application)
-  * Introduction to Knex.JS
+  * Introduction to node-postgres
   * Loading data from a database with a GET endpoint
 * [Homework](#homework)
 
@@ -193,16 +193,70 @@ LIMIT 3;
 
 ## Use a database from a NodeJS application
 
-### Introduction to Knex.JS
+### Introduction to node-postgres
 
-https://knexjs.org/
+*"node-postgres is a collection of node.js modules for interfacing with your PostgreSQL database."* - [https://node-postgres.com/](https://node-postgres.com/)
 
-TODO: we'll use knex.raw all the time, we don't use the Knex query builder, so students can still practice writing SQL query also with knex.
+In the following, we will use *node-postgres* to...
+
+1. Connect to a database
+2. Send SQL query to the database and get results
 
 ### Loading data from a database with a GET endpoint
 
-TODO, small workshop to create a brand new nodejs app with a get endpoint and load data from a database with knex.raw and call the endpoint with Postman to try.
+Let's build a brand new NodeJS application with a single GET endpoint to load the list of hotels that you already have in the `hotels` table of the `cyf_hotels` database.
 
+First, create a new NodeJS application that we will call **cyf-hotels-api** (enter `server.js` when asking about the entry point):
+
+```
+mkdir cyf-hotels-api && cd cyf-hotels-api && npm init
+```
+
+As before, we will use the Express library to build our API, and the node-postgres library to connect with our database:
+
+```
+npm install --save express
+npm install --save pg
+```
+
+Create a `server.js` file, import express, initialise the server and start listening for requests:
+
+```
+const express = require("express");
+const app = express();
+
+app.listen(3000, function() {
+    console.log("Server is listening on port 3000. Ready to accept requests!");
+});
+```
+
+Import pg library and create a new GET endpoint to load the list of hotels:
+
+```
+const { Pool } = require('pg');
+
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'cyf_hotels',
+    password: '',
+    port: 5432
+});
+
+app.get("/hotels", function(req, res) {
+    pool.query('SELECT * FROM hotels', (error, result) => {
+        res.json(result.rows);
+    });
+});
+```
+
+In the code above:
+
+- We first import the Pool class from the pg library, which is used to connect to a database
+- We create a new pool where we specify the credentials to connect to the cyf_hotels database
+- We then create a new /hotels endpoint where we use the method `query()` to send a SQL query to load all the hotels from the table `hotels` and return the results with `result.rows`. You can write any valid SQL query that you learned in the `query()` method!
+
+Start you server with `node server.js` and try to reach the `/hotels` endpoint to see the list of hotels currently available in your `hotels` table of your `cyf_hotels` database. You can try to create/update/delete hotels to verify that your API always returns what is stored in your database.
 
 ## Homework
 

@@ -31,6 +31,7 @@ CV samples
 
 - <https://www.livecareer.co.uk/cv-search/r/front-end-web-developer-31839afbd6b640429d637cdda953561c>
 - <https://www.livecareer.co.uk/cv-search/r/front-end-developer-00fdd3a63d27437d899f94a70df420be>
+- <https://www.brookes.ac.uk/students/careers/students-and-graduates/cv-guide/mature-graduate-cv/>—useful reference for people with gaps in their CV
 
 ## Interviews
 
@@ -43,7 +44,7 @@ Technical interview questions with answers (intermediate-level)
 - <https://github.com/30-seconds/30-seconds-of-interviews>
 - <https://github.com/FAQGURU/FAQGURU>
 
-Questions to ask the company (for inspiration)
+Questions to ask the company
 
 - <https://github.com/Twipped/InterviewThis>—some of these questions are great, but some are not so good
 
@@ -54,6 +55,7 @@ They are very useful for employers to see how you code and also demonstrate your
 
 Inspiration for personal projects
 
+- <https://github.com/florinpop17/app-ideas>
 - <https://github.com/karan/Projects>
 
 Walkthroughs of projects

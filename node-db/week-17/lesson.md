@@ -21,7 +21,7 @@ For the following, use the file [`cyf_hotels_exercise5.sql`](../week-16/cyf_hote
 
 ### Changing the definition of a table
 
-Sometimes, you may need to change the definition of a table you created before without deleting it. Such changes include renaming the table, adding/removing a column, changing the name of a column, changing the type of a column etc... The general syntax to perform these operations is:
+Sometimes, you may need to change the definition of a table you created before without deleting it. Such changes include renaming a table, adding/removing a column, changing the name of a column, changing the type of a column etc... The general syntax to perform these operations is:
 
 ```sql
 ALTER TABLE table_name action;
@@ -173,7 +173,7 @@ Query by pattern matching, for example retrieve all customers whose name starts 
 SELECT * FROM customers WHERE name LIKE 'Bob%';
 ```
 
-You can combine different operations together, for example, if you want to retrieve all the booking start dates with the customer names, hotel names and number of nights booked, for customer names starting with the letter `M` ordered by hotel name with a limit of 3 results:
+You can combine different operations together, for example, if you want to retrieve all the booking start dates with the customer names and hotel names for customer names starting with the letter `M` ordered by hotel name with a limit of 3 results:
 
 ```sql
 SELECT bookings.checkin_date,customers.name,hotels.name FROM bookings

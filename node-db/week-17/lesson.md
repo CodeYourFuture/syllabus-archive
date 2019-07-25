@@ -1,4 +1,4 @@
-# Database 2: 
+# Database 2: More SQL and integration with NodeJS
 
 **What will we learn today?**
 
@@ -10,7 +10,7 @@
   * Deleting a row
   * Join tables
   * Other useful operations
-* [Use a database from a NodeJS application](#use-a-database-from-a-nodejs-application)
+* [Integration with NodeJS](#integration-with-nodejs)
   * Introduction to node-postgres
   * Loading data from a database with a GET endpoint
 * [Homework](#homework)
@@ -191,7 +191,7 @@ LIMIT 3;
 - Retrieve the booking start date, customer name, hotel name for the top 5 bookings ordered by number of nights in descending order
 
 
-## Use a database from a NodeJS application
+## Integration with NodeJS
 
 ### Introduction to node-postgres
 
@@ -260,4 +260,41 @@ Start you server with `node server.js` and try to reach the `/hotels` endpoint t
 
 ## Homework
 
-TODO
+In this homework, you are going to work with an ecommerce database. In this database, you have `products` that `consumers` can buy from different `suppliers`. Customers can create an `order` and several products can be added in one order.
+
+To prepare your environment for this homework, open a terminal and create first a new database called `cyf_ecommerce`:
+
+```
+createdb cyf_ecommerce 
+```
+
+Import the file [`cyf_ecommerce.sql`](./cyf_ecommerce.sql) in your newly created database:
+
+```
+psql -d cyf_ecommerce -f cyf_ecommerce.sql
+```
+
+- Open the file `cyf_ecommerce.sql` in VSCode and make sure you understand all the SQL code. Take a piece of paper and draw the database with the different relations between tables. Identify the foreign keys and make sure you understand the full database schema.
+
+Once you understand the database that you are going to work with, solve the following challenge by writing SQL queries using everything you learned about SQL:
+
+- Retrieve all the customers name and address who lives in United States
+- Retrieve all the customers ordered by ascending name
+- Retrieve all the products which cost more than 100
+- Retrieve all the products which name contains the word `socks`
+- Retrieve the top 5 of most expensive products
+- Retrieve all the products with their corresponding suppliers. The result should only contain the columns `product_name`, `unit_price` and `supplier_name`
+- Retrieve all the products sold by suppliers based in United Kingdom. The result should only contain the columns `product_name` and `supplier_name`.
+- Retrieve all orders from customer ID `1`
+- Retrieve all orders from customer named `Hope Crosby`
+- Retrieve all the products in the order `ORD006`. The result should only contain the columns `product_name`, `unit_price` and `quantity`.
+- Retrieve all the products with their supplier for all orders of all customers. The result should only contain the column about customer `name`, `order_reference` `order_date`, `product_name`, `supplier_name` and `quantity`.
+- Retrieve the names of all customers who bought a product from a supplier from China.
+
+For the second part of this homework:
+
+- Create a new NodeJS application called `cyf-ecommerce-api`
+- Add Express and node-postgres and make sure you can start the server with `node server.js`
+- Add a new GET endpoint `/customers` to load all the customers from the database
+- Add a new GET endpoint `/suppliers` to load all the suppliers from the database
+- (STRETCH GOAL) Add a new GET endpoint `/products` to load all the product names along their supplier names.

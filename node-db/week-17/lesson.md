@@ -15,7 +15,7 @@
   * Loading data from a database with a GET endpoint
 * [Homework](#homework)
 
-## More SQL
+## More SQL
 
 For the following, use the file [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql) from the previous class to reinitialise your database with `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
 
@@ -45,7 +45,7 @@ To rename the table `customers` into `clients`:
 ALTER TABLE customers RENAME TO clients;
 ```
 
-For more examples, you can consul the following tutorial: [Postgres alter table](http://www.postgresqltutorial.com/postgresql-alter-table/).
+For more examples, you can consult the following tutorial: [Postgres alter table](http://www.postgresqltutorial.com/postgresql-alter-table/).
 
 #### Exercise 1
 
@@ -61,7 +61,7 @@ To delete the table `customers`:
 DROP TABLE customers;
 ```
 
-#### Exercise 2:
+#### Exercise 2:
 
 - Create a new table `test`
 - Drop the table `test`
@@ -102,6 +102,9 @@ For example, to delete the booking with ID 4:
 DELETE FROM bookings WHERE id=4;
 ```
 
+**NOTE:** If you don't supply a `WHERE` clause with `DELETE` or `UPDATE` the command will be applied to **all** the rows in the table which is rarely what you want.
+
+
 #### Exercise 4
 
 - Delete the booking of customer ID `8` for the date `2020-01-03`
@@ -110,27 +113,27 @@ DELETE FROM bookings WHERE id=4;
 
 ### Joining tables
 
-Sometimes, you will need to retrieve data which are spread in different tables in a single response. For this purpose, you will need to join tables together. Below is the general syntax:
+Sometimes, you will need to retrieve data which are spread in different tables in a single response. For this purpose, you will need to join tables together. The general syntax is:
 
 ```sql
 SELECT A.column1, B.column2 FROM A INNER JOIN B ON A.b_id=B.id;
 ```
 
-For example, to load all the bookings along customer data:
+For example, to load all the bookings along with customer data:
 
 ```sql
 SELECT * FROM customers INNER JOIN bookings ON customers.id=bookings.customer_id;
 ```
 
-To load all the bookings along customer data and hotel data:
+To load all the bookings along with customer data and hotel data:
 
 ```sql
-SELECT * FROM bookings 
-INNER JOIN customers ON customers.id=bookings.customer_id 
+SELECT * FROM bookings
+INNER JOIN customers ON customers.id=bookings.customer_id
 INNER JOIN hotels ON hotels.id=bookings.hotel_id;
 ```
 
-To load the bookings date of customer ID `1` along with the customer name and the hotel name:
+To load the booking checkin dates for customer ID `1` along with the customer name and the hotel name:
 
 ```sql
 SELECT bookings.checkin_date,customers.name,hotels.name FROM bookings
@@ -141,18 +144,24 @@ WHERE customers.id=1;
 
 #### Exercise 5
 
-- Try and understand each of the query above in your `psql` prompt
-- Retrieve all the bookings along customer data for bookings starting in 2020
+- Try and understand each of the queries above in your `psql` prompt
+- Retrieve all the bookings along with customer data for bookings starting in 2020
 - Retrieve the customer names, booking start dates and number of nights for all customers who booked the hotel name `Jade Peaks Hotel`
-- Retrieve all the booking start dates with customer names and hotels names for all bookings for more than 5 nights
+- Retrieve all the booking start dates with customer names and hotel names for all bookings for more than 5 nights
 
 
-### Other useful operations
+### Other useful operations
 
 Ordering the result:
 
 ```sql
-SELECT * FROM table ORDER BY column (DESC);
+SELECT * FROM table ORDER BY column;
+```
+
+This will sort the returned rows in the ascending order for "column". To sort them in descending order, use:
+
+```sql
+SELECT * FROM table ORDER BY column DESC;
 ```
 
 Limiting the number of results returned:
@@ -179,7 +188,7 @@ You can combine different operations together, for example, if you want to retri
 SELECT bookings.checkin_date,customers.name,hotels.name FROM bookings
 INNER JOIN customers ON customers.id=bookings.customer_id
 INNER JOIN hotels ON hotels.id=bookings.hotel_id
-WHERE customers.name LIKE 'M%' 
+WHERE customers.name LIKE 'M%'
 ORDER BY hotels.name
 LIMIT 3;
 ```
@@ -252,20 +261,20 @@ app.get("/hotels", function(req, res) {
 
 In the code above:
 
-- We first import the Pool class from the pg library, which is used to connect to a database
+- We first import the `Pool` class from the pg library, which is used to connect to a database
 - We create a new pool where we specify the credentials to connect to the cyf_hotels database
 - We then create a new /hotels endpoint where we use the method `query()` to send a SQL query to load all the hotels from the table `hotels` and return the results with `result.rows`. You can write any valid SQL query that you learned in the `query()` method!
 
-Start you server with `node server.js` and try to reach the `/hotels` endpoint to see the list of hotels currently available in your `hotels` table of your `cyf_hotels` database. You can try to create/update/delete hotels to verify that your API always returns what is stored in your database.
+Start your server with `node server.js` and try to reach the `/hotels` endpoint to see the list of hotels currently available in your `hotels` table of your `cyf_hotels` database. You can try to create/update/delete hotels to verify that your API always returns what is stored in your database.
 
 ## Homework
 
 In this homework, you are going to work with an ecommerce database. In this database, you have `products` that `consumers` can buy from different `suppliers`. Customers can create an `order` and several products can be added in one order.
 
-To prepare your environment for this homework, open a terminal and create first a new database called `cyf_ecommerce`:
+To prepare your environment for this homework, open a terminal and create a new database called `cyf_ecommerce`:
 
 ```
-createdb cyf_ecommerce 
+createdb cyf_ecommerce
 ```
 
 Import the file [`cyf_ecommerce.sql`](./cyf_ecommerce.sql) in your newly created database:
@@ -278,17 +287,17 @@ psql -d cyf_ecommerce -f cyf_ecommerce.sql
 
 Once you understand the database that you are going to work with, solve the following challenge by writing SQL queries using everything you learned about SQL:
 
-- Retrieve all the customers name and address who lives in United States
+- Retrieve all the customers names and addresses who lives in United States
 - Retrieve all the customers ordered by ascending name
 - Retrieve all the products which cost more than 100
-- Retrieve all the products which name contains the word `socks`
-- Retrieve the top 5 of most expensive products
+- Retrieve all the products whose name contains the word `socks`
+- Retrieve the 5 most expensive products
 - Retrieve all the products with their corresponding suppliers. The result should only contain the columns `product_name`, `unit_price` and `supplier_name`
-- Retrieve all the products sold by suppliers based in United Kingdom. The result should only contain the columns `product_name` and `supplier_name`.
+- Retrieve all the products sold by suppliers based in the United Kingdom. The result should only contain the columns `product_name` and `supplier_name`.
 - Retrieve all orders from customer ID `1`
 - Retrieve all orders from customer named `Hope Crosby`
 - Retrieve all the products in the order `ORD006`. The result should only contain the columns `product_name`, `unit_price` and `quantity`.
-- Retrieve all the products with their supplier for all orders of all customers. The result should only contain the column about customer `name`, `order_reference` `order_date`, `product_name`, `supplier_name` and `quantity`.
+- Retrieve all the products with their supplier for all orders of all customers. The result should only contain the columns `name` (from customer), `order_reference` `order_date`, `product_name`, `supplier_name` and `quantity`.
 - Retrieve the names of all customers who bought a product from a supplier from China.
 
 For the second part of this homework:
@@ -297,4 +306,4 @@ For the second part of this homework:
 - Add Express and node-postgres and make sure you can start the server with `node server.js`
 - Add a new GET endpoint `/customers` to load all the customers from the database
 - Add a new GET endpoint `/suppliers` to load all the suppliers from the database
-- (STRETCH GOAL) Add a new GET endpoint `/products` to load all the product names along their supplier names.
+- (STRETCH GOAL) Add a new GET endpoint `/products` to load all the product names along with their supplier names.

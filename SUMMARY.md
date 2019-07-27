@@ -37,9 +37,9 @@
 
 ### Useful information
 
-* [Code of Conduct](conduct.md)
-* [Useful links](useful-links.md)
-* [Coding Standards and Best Practices](PRACTICES.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Useful links](/others/useful-links.md)
+* [Coding Standards and Best Practices](/others/PRACTICES.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
 * [CORS](/others/cors.md)
 * [Useful Tools](/others/useful-tools.md)

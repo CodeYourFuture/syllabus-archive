@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/status-review-orange.svg)
 ![](https://img.shields.io/badge/status-ready-green.svg) (have one of these
 badges on top of your Lessons and follow the guidelines/workflow defined in this
-[issue](https://github.com/Code-Your-Future/syllabus/issues/9))
+[issue](https://github.com/CodeYourFuture/syllabus/issues/9))
 
 # [Class name]
 
@@ -27,8 +27,8 @@ High level explanation of Topic 1 - rely on the exercises
 
 # Resources
 
-1. [Resource 1 to learn more about Topic 1](https://google.com)
-2. [Resource 2 for Topic 2](https://google.com)
+1. [Resource 1 to learn more about Topic 1](https://example.com)
+2. [Resource 2 for Topic 2](https://example.com)
 
 # Homework
 
@@ -42,7 +42,7 @@ High level explanation of Topic 1 - rely on the exercises
 
 ## Prepare for the next class
 
-1. Read this [Some Tutorial or Video etc...](https://google.com)
+1. Read this [Some Tutorial or Video etc...](https://example.com)
 
 # Escalation Policy
 

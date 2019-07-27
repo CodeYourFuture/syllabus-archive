@@ -1,7 +1,7 @@
 # [CYF Syllabus](https://codeyourfuture.github.io/syllabus-master/) [![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=master)](https://travis-ci.org/CodeYourFuture/syllabus) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/master/CONTRIBUTING.md)
 
 This is the syllabus and course material for
-[Code Your Future](http://codeyourfuture.co/), a not-for-profit volunteer-run
+[Code Your Future](https://codeyourfuture.co/), a not-for-profit volunteer-run
 coding school for refugees and asylum seekers.
 
 During the course you will learn a technology stack that helps you build
@@ -13,7 +13,7 @@ The six-months course contains:
 * HTML/CSS
 * Core JavaScript
 * Backend development using [NodeJS](https://nodejs.org)
-* Modern front-end development with [React](https://facebook.github.io/react/)
+* Modern front-end development with [React](https://reactjs.org/)
 
 We’ll complement the training with workshops on modern software methodologies
 and job interview practices, etc.
@@ -25,7 +25,6 @@ and job interview practices, etc.
 [you can find it here](https://codeyourfuture.github.io/syllabus-master/),
 or click on the 'CYF Syllabus' link at the very top of
 this readme.
-* If you're looking for the summary file, [it's here](/SUMMARY.md).
 
 ## Code Of Conduct
 You can find our full code of conduct [here](CODE_OF_CONDUCT.md).
@@ -49,4 +48,4 @@ Do you want to get involved? we are looking for:
 * PR Reviewers for student homeworks
 * Other volunteers
 
-Please [contact us](https://codeyourfuture.io/apply/mentor) to get involved!
+Please [contact us](https://codeyourfuture.io/volunteers/) to get involved!

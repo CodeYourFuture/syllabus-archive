@@ -8,8 +8,8 @@ Sometimes you need to have several different versions of Node installed on your 
 
 ### Installation
 
-1. Go to the GitHub homepage: https://github.com/creationix/nvm
-2. Follow the installation instructions: https://github.com/creationix/nvm#install-script. The easiest way is just to copy the command beginning with `curl` and paste it into your command line
+1. Go to the GitHub homepage: https://github.com/nvm-sh/nvm
+2. Follow the installation instructions: https://github.com/nvm-sh/nvm#install-script. The easiest way is just to copy the command beginning with `curl` and paste it into your command line
 
 **⚠️ Important Note**
 

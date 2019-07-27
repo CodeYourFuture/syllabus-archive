@@ -2,38 +2,40 @@
 
 ## Contents
 
-* [Code Your Future](#code-your-future)
-* [Getting Started](#getting-started)
-* [GIT](#git)
-* [HTML and CSS](#html-and-css)
-* [JavaScript Core](#javascript-core)
-* [Node.js and APIs](#nodejs-and-apis)
-* [Databases and MongoDB](#databases-and-mongodb)
-* [React](#react)
-* [JavaScript Advanced](#javascript-advanced)
-* [Further Reading](#further-reading)
-* [Meetups](#meetups)
-* [Getting a Job](#getting-a-job)
+- [Useful Links and Resources](#useful-links-and-resources)
+	- [Contents](#contents)
+		- [Code Your Future:](#code-your-future)
+		- [Getting Started](#getting-started)
+		- [GIT](#git)
+		- [HTML and CSS](#html-and-css)
+		- [JavaScript Core](#javascript-core)
+		- [Node.js and APIs](#nodejs-and-apis)
+		- [Databases and MongoDB](#databases-and-mongodb)
+		- [React](#react)
+		- [JavaScript Advanced](#javascript-advanced)
+		- [Further Reading](#further-reading)
+		- [Meetups](#meetups)
+		- [Getting a Job](#getting-a-job)
 
 ***
 
-### Code Your Future: 
-* CYF General: 
-[CYF Website](https://codeyourfuture.io/) / 
-[CYF Twitter](https://twitter.com/CodeYourFuture_/) / 
+### Code Your Future:
+* CYF General:
+[CYF Website](https://codeyourfuture.io/) /
+[CYF Twitter](https://twitter.com/CodeYourFuture_/) /
 [CYF Facebook](https://www.facebook.com/codeyourfuture.io)
-* Class Locations (Google Maps): 
-[Kinning Park Complex](https://goo.gl/maps/ur4jmj2H83R2) / 
+* Class Locations (Google Maps):
+[Kinning Park Complex](https://goo.gl/maps/ur4jmj2H83R2) /
 [Collabor8](https://goo.gl/maps/C6aFxhqyvqz)
 * [The CYF Scotland Syllabus on GitHub](https://github.com/CodeYourFuture/syllabus/tree/scotland)
 
 ### Getting Started
 
 * [HTML, CSS, JavaScript Explained - a fast 4 minute summary (video)](https://www.youtube.com/watch?v=gT0Lh1eYk78)
-* [Basic Linux Commands for Beginners](https://maker.pro/education/basic-linux-commands-for-beginners) / 
+* [Basic Linux Commands for Beginners](https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners) /
 [Navigating the Terminal (Mac)](https://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855)
-* Visual Studio Code: 
-[Download](https://code.visualstudio.com/download) / 
+* Visual Studio Code:
+[Download](https://code.visualstudio.com/download) /
 [Tutorials](https://code.visualstudio.com/docs/getstarted/introvideos)
 
 ### GIT
@@ -49,30 +51,29 @@
 ### HTML and CSS
 
 * [MarkSheet - free HTML and CSS tutorial](https://marksheet.io/)
-* Learn to Code HTML & CSS: 
-[Beginner](https://learn.shayhowe.com/) / 
+* Learn to Code HTML & CSS:
+[Beginner](https://learn.shayhowe.com/) /
 [Advanced](https://learn.shayhowe.com/advanced-html-css/)
-* Mozilla Developer Guide: 
-[HTML Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) / 
-[HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) / 
+* Mozilla Developer Guide:
+[HTML Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) /
+[HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) /
 [HTML attribute reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes)
 * [Responsive Web Design Fundamentals](https://eu.udacity.com/course/responsive-web-design-fundamentals--ud893)
 * [CSS Reference - A free visual guide to CSS](https://cssreference.io/)
-* CSS Games: 
-[CSS Diner](https://flukeout.github.io/) / 
-[Flexbox Froggy](http://flexboxfroggy.com/) / 
+* CSS Games:
+[CSS Diner](https://flukeout.github.io/) /
+[Flexbox Froggy](https://flexboxfroggy.com/) /
 [Super Markup World](http://supermarkupworld.com/)
-* CSS Flexbox: 
-[Solved by Flexbox](https://philipwalton.github.io/solved-by-flexbox/) / 
-[Flexbox Patterns](https://www.flexboxpatterns.com/) / 
-[How Flexbox works](https://medium.freecodecamp.org/an-animated-guide-to-flexbox-d280cf6afc35) / 
+* CSS Flexbox:
+[Solved by Flexbox](https://philipwalton.github.io/solved-by-flexbox/) /
+[Flexbox Patterns](https://www.flexboxpatterns.com/) /
+[How Flexbox works](https://www.freecodecamp.org/news/an-animated-guide-to-flexbox-d280cf6afc35/) /
 [What the Flexbox?](https://flexbox.io/)
 * [Learn CSS Grid for free](https://scrimba.com/g/gR8PTE)
 * [Learn Bootstrap 4 for free](https://scrimba.com/g/gbootstrap4)
 
 ### JavaScript Core
 
-* [Getting Started with JavaScript for Web Development](https://scotch.io/courses/getting-started-with-javascript)
 * [javascript.info - The Modern JavaScript Tutorial](https://javascript.info/)
 * [JavaScript For Cats](http://jsforcats.com/)
 * [JavaScript String Reference](https://www.w3schools.com/jsref/jsref_obj_string.asp) / [JavaScript Array Reference](https://www.w3schools.com/jsref/jsref_obj_array.asp)
@@ -102,16 +103,16 @@
 
 * [What the heck is the event loop anyway? (video)](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 * [What the heck is a Callback?](https://codeburst.io/javascript-what-the-heck-is-a-callback-aba4da2deced)
-* Master the JavaScript Interview: 
-[Closures](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.ecfskj935) / 
-[Class & Prototypal Inheritance](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9#.h96dymht1) / 
-[Pure Functions](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976#.4256pjcfq) / 
-[Function Composition](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0#.i84zm53fb) / 
-[Functional Programming](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0) / 
-[Promises](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.aa7ubggsy)
+* Master the JavaScript Interview:
+[Closures](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36) /
+[Class & Prototypal Inheritance](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9) /
+[Pure Functions](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976) /
+[Function Composition](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0) /
+[Functional Programming](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0) /
+[Promises](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)
 * [JavaScript Promises: an Introduction](https://developers.google.com/web/fundamentals/primers/promises)
-* The Two Pillars of JavaScript: 
-[Prototypal Inheritance](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3) / 
+* The Two Pillars of JavaScript:
+[Prototypal Inheritance](https://medium.com/javascript-scene/the-two-pillars-of-javascript-ee6f3281e7f3) /
 [Functional Programming](https://medium.com/javascript-scene/the-two-pillars-of-javascript-pt-2-functional-programming-a63aa53a41a4)
 * [Semicolons cannot save you! (video)](https://www.youtube.com/watch?v=Qlr-FGbhKaI)
 * [Gentle introduction into compilers](https://medium.com/dailyjs/gentle-introduction-into-compilers-part-1-lexical-analysis-and-scanner-733246be6738)
@@ -120,11 +121,11 @@
 
 * [10 Basic Programming Principles Every Programmer Must Follow](https://www.makeuseof.com/tag/basic-programming-principles/)
 * [Learn to Code: 13 Tips that Could Save You Years of Effort](https://medium.com/javascript-scene/learn-to-code-13-tips-that-could-save-you-years-of-effort-92ce799a3e1f)
-* [Why Coding Style Matters](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/) / 
-[Good code Vs Bad code](https://medium.com/@navdeepsingh_2336/good-code-vs-bad-code-35624b4e91bc) / 
+* [Why Coding Style Matters](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/) /
+[Good code Vs Bad code](https://medium.com/@navdeepsingh_2336/good-code-vs-bad-code-35624b4e91bc) /
 [Writing Clean Code](https://dev.to/gonedark/writing-clean-code)
-* [620+ Free Online Programming & Computer Science Courses](https://medium.freecodecamp.org/620-free-online-programming-computer-science-courses-you-can-start-in-march-68af9d45a115)
-* [Stack Overflow Developer Survey 2018](https://insights.stackoverflow.com/survey/2018)
+* [620+ Free Online Programming & Computer Science Courses](https://www.freecodecamp.org/news/620-free-online-programming-computer-science-courses-you-can-start-in-march-68af9d45a115/)
+* [Stack Overflow Developer Survey 2019](https://insights.stackoverflow.com/survey/2019)
 * [Progressive Web Apps](https://developers.google.com/web/progressive-web-apps/)
 * [Demystifying Regular Expressions](https://www.sitepoint.com/demystifying-regex-with-practical-examples/)
 * [What happens when you type google.com into your browser and press enter?](https://github.com/alex/what-happens-when)

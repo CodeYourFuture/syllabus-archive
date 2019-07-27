@@ -19,10 +19,10 @@
 * Who we are?
 * What we learn?
   * Read this Technology Survey from
-    [StackOverflow](http://stackoverflow.com/insights/survey/2017). Pay
+    [StackOverflow](https://insights.stackoverflow.com/survey/2019). Pay
     particular attention to the technologies we'll be teaching you (JavaScript,
     React, NodeJS)
-* [House Rules](../house-rules.md)
+* [House Rules](/others/house-rules.md)
   * How we work?
   * How we treat each other?
 * Standup
@@ -140,13 +140,13 @@ There's a set of commands you should become comfortable with during the course t
 
 The Terminal is already installed. It should be in the list of applications
 available in your computer.
-[More instructions >](http://www.wikihow.com/Open-a-Terminal-Window-in-Ubuntu)
+[More instructions >](https://www.wikihow.com/Open-a-Terminal-Window-in-Ubuntu)
 
 #### macOS (Apple)
 
 The Terminal is already installed. It should be in the list of applications
 available in your computer.
-[More instructions >](http://www.wikihow.com/Get-to-the-Command-Line-on-a-Mac)
+[More instructions >](https://www.wikihow.com/Get-to-the-Command-Line-on-a-Mac)
 
 #### Windows
 
@@ -173,13 +173,12 @@ It's like Dropbox for developers. But much better!
 > Extract from
 > [Git Pro book](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
 
-This [answer](http://stackoverflow.com/a/1408464) on StackOverflow by
-[si618](http://stackoverflow.com/users/44540/si618) explains very well why we
-use Version Control.
+This [answer](https://stackoverflow.com/a/1408464) on StackOverflow by
+si618 explains very well why we use Version Control.
 
 So what is **Git**? Git is one of many Version Control Systems available to use,
 and by far
-[the most popular](http://stackoverflow.com/insights/survey/2015#tech-sourcecontrol).
+[the most popular](https://insights.stackoverflow.com/survey/2018#work-_-version-control).
 
 What is **Github**? Github is a very popular site where you can publish and
 share your Git repositories, share and collaborate with other people.
@@ -187,7 +186,7 @@ share your Git repositories, share and collaborate with other people.
 ### Get Started
 
 Follow this tutorial from Github to setup Git
-https://help.github.com/articles/set-up-git/
+https://help.github.com/en/articles/set-up-git
 
 Then
 [learn how to use git from the Terminal >](https://www.codecademy.com/learn/learn-git)
@@ -199,10 +198,10 @@ intermediate features, like branching.
 
 * If you're basing your work from another project, the first step is typically
   to **fork** their repo. Read this guide for instructions
-  (https://help.github.com/articles/fork-a-repo/)
+  (https://help.github.com/en/articles/fork-a-repo)
 
 * If you're starting a new project then you should follow these steps
-  https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+  https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
 
 ### Using Git through the Terminal
 
@@ -233,7 +232,7 @@ steps for the different workflows before moving on to visual Git clients.**
 ### Pull Requests
 
 You should also learn how to create and work with
-[Pull Requests](https://help.github.com/articles/about-pull-requests/).
+[Pull Requests](https://help.github.com/en/articles/about-pull-requests).
 
 ### Github
 
@@ -241,21 +240,21 @@ During our course, we will be using [Github](https://github.com) to store our
 code. Github is the most popular Git service around, and is used by many large
 companies, like Facebook, Airbnb and The Guardian.
 
-[CodeYourFuture's Github page >](https://github.com/Code-Your-Future)
+[CodeYourFuture's Github page >](https://github.com/CodeYourFuture)
 
 ### More Resources
 
 * Follow this tutorial to learn the basic Git commands
-  https://www.codeschool.com/courses/try-git
+  https://www.pluralsight.com/courses/how-git-works
 * Another good resource: Git - the simple guide
-  http://rogerdudler.github.io/git-guide/
+  https://rogerdudler.github.io/git-guide/
 * A more detailed tutorial that goes into advanced topics of Git -
   https://www.atlassian.com/git/tutorials/what-is-version-control
 * You can also check this visual explanation of different commands and what they
   do: http://ndpsoftware.com/git-cheatsheet.html#loc=workspace
 * There are GUI software - Gitkraken is one of them https://www.gitkraken.com/
 * This Glossary has definitions of the terms normally used with Git:
-  https://help.github.com/articles/github-glossary/
+  https://help.github.com/en/articles/github-glossary
 
 ## IDE
 

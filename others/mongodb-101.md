@@ -50,7 +50,7 @@ First of all, how does MongoDB compare with traditional SQL queries that we have
 
 [MongoDB to SQL Mapping](assets/mongodb-101/sql_to_mongo_mapping.pdf)
 
-http://s3.amazonaws.com/info-mongodb-com/sql_to_mongo.pdf
+<https://s3.amazonaws.com/info-mongodb-com/sql_to_mongo.pdf>
 
 # Lesson 2 - Why MongoDB?
 
@@ -366,12 +366,11 @@ https://docs.mongodb.com/manual/sharding/
 
 # What's next?
 
-If you have time and interest, please register to either of these classes or any other class in MongoDB university.
+If you have time and interest, please register to this class or any other class in MongoDB university.
 
 All classes are **free** and on average require 6-10 hours of time per week.
 
-https://university.mongodb.com/courses/M101JS/about
-https://university.mongodb.com/courses/M101P/about
+<https://university.mongodb.com/courses/M001/about>
 
 _Shameless plug_
 

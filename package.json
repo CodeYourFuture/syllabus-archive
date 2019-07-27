@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Code-Your-Future/syllabus.git"
+    "url": "git+https://github.com/CodeYourFuture/syllabus.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Code-Your-Future/syllabus/issues"
+    "url": "https://github.com/CodeYourFuture/syllabus/issues"
   },
-  "homepage": "https://github.com/Code-Your-Future/syllabus#readme"
+  "homepage": "https://github.com/CodeYourFuture/syllabus#readme"
 }

@@ -46,7 +46,7 @@
 ## Getting started with JavaScript
 
 We will spend most of this lesson in Codepen. To get started, go to
-[codepen.io/pen/](codepen.io/pen/) to create a new Pen. On the bottom left,
+<https://codepen.io/pen> to create a new Pen. On the bottom left,
 click the "Console" button to open the console.
 
 ![Codepen console](assets/codepen-console.png)

@@ -61,7 +61,7 @@ In today's class, we will begin adapting styles on this example website. We'll r
   <img src="../assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
 </a>
 
-The example website you'll begin working with is available [on this GitHub repository](https://github.com/Code-Your-Future/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.
+The example website you'll begin working with is available [on this GitHub repository](https://github.com/CodeYourFuture/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.
 
 1. `cd ~`
 2. `cd <your-project-directory>`

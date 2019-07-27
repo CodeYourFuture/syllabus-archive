@@ -4,11 +4,13 @@
 
 **What will we learn today?**
 
-* [Why fork?](#why-fork)
-* [What is a remote?](#what-is-a-remote)
-* [How to fork a GitHub repo](#how-to-fork-a-github-repo)
-* [Adding a remote](#adding-a-remote)
-* [Creating a PR](#creating-a-pr)
+- [Making a Pull Request](#making-a-pull-request)
+	- [Why fork?](#why-fork)
+	- [What is a remote?](#what-is-a-remote)
+	- [How to fork a GitHub repo](#how-to-fork-a-github-repo)
+	- [Adding a Remote](#adding-a-remote)
+	- [Creating a PR](#creating-a-pr)
+	- [Resources](#resources)
 
 ## Why fork?
 
@@ -127,4 +129,4 @@ That's it! You created your PR!
 
 ## Resources
 
-1. [Creating a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
+1. [Creating a pull request from a fork](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork)

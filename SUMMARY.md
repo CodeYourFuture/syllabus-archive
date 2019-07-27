@@ -43,6 +43,7 @@
 * [Making a Pull Request](/others/making-a-pull-request.md)
 * [CORS](/others/cors.md)
 * [Useful Tools](/others/useful-tools.md)
+* [Career Development](/others/career-development.md)
 
 ### Workshops and other resources
 * [Coding 101](/others/coding-101.md)

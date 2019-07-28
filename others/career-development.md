@@ -9,14 +9,19 @@
   - Name
   - Email
   - Phone number
-  - Your city (not your full address since this is personal information! If they need it they'll ask for it later)
-- Use the following sections, and only populate them with relevant details starting from the most recent first
+  - Your city (not your full address since this is personal information!
+    If they need it they'll ask for it later)
+- Use the following sections, and only populate them with relevant details
+  starting from the most recent first
   1. Summary (optional)
   2. Skills
   3. Employment
-     - Use action verbs for each bullet point (see: <https://www.indeed.com/career-advice/resumes-cover-letters/action-verbs-to-make-your-resume-stand-out>)
-     - Show your accomplishments, with numbers if you can (e.g. Improved landing page time to interactive by 50%)
-  4. Education (this can go above Employment if the last thing you did was education and not work)
+     - Use action verbs for each bullet point
+       (see: <https://www.indeed.com/career-advice/resumes-cover-letters/action-verbs-to-make-your-resume-stand-out>)
+     - Show your accomplishments, with numbers if you can
+       (e.g. Improved landing page time to interactive by 50%)
+  4. Education(this can go above Employment if the last thing
+     you did was education and not work)
   5. Personal projects
   6. Interests (optional)
 
@@ -31,7 +36,8 @@ CV samples
 
 - <https://www.livecareer.co.uk/cv-search/r/front-end-web-developer-31839afbd6b640429d637cdda953561c>
 - <https://www.livecareer.co.uk/cv-search/r/front-end-developer-00fdd3a63d27437d899f94a70df420be>
-- <https://www.brookes.ac.uk/students/careers/students-and-graduates/cv-guide/mature-graduate-cv/>—useful reference for people with gaps in their CV
+- <https://www.brookes.ac.uk/students/careers/students-and-graduates/cv-guide/mature-graduate-cv/>
+  — useful reference for people with gaps in their CV
 
 ## Interviews
 
@@ -46,12 +52,14 @@ Technical interview questions with answers (intermediate-level)
 
 Questions to ask the company
 
-- <https://github.com/Twipped/InterviewThis>—some of these questions are great, but some are not so good
+- <https://github.com/Twipped/InterviewThis>
+  — some of these questions are great, but some are not so good
 
 ## Personal projects
 
 Personal projects are a good way to build up your portfolio of code projects on Github.
-They are very useful for employers to see how you code and also demonstrate your enthusiasm.
+They are very useful for employers to see how you code
+and also demonstrate your enthusiasm.
 
 Inspiration for personal projects
 
@@ -69,9 +77,3 @@ Easier open source issues for people starting with open source contribution
 
 - <https://github.com/MunGell/awesome-for-beginners>
 - <https://firstcontributions.github.io/>
-
-## Miscellaneous
-
-Quizzes for fun
-
-- <https://davidshariff.com/quiz/>

@@ -1,16 +1,16 @@
-![Status: Draft](https://camo.githubusercontent.com/997591db1749880b8b23c96b8f788e69af09c04d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d64726166742d6461726b7265642e737667)
-
 # Coding 101
+
+![Status: Draft](https://camo.githubusercontent.com/997591db1749880b8b23c96b8f788e69af09c04d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d64726166742d6461726b7265642e737667)
 
 **What we will learn today?**
 
 * What is a computer program?
 * Getting started with JavaScript
 
-## What is a computer program?
+## What is a computer program
 
 > Intro to programming logic – Making a sandwich (Source:
-> http://static.zerorobotics.mit.edu/docs/team-activities/ProgrammingPeanutButterAndJelly.pdf)
+> <http://static.zerorobotics.mit.edu/docs/team-activities/ProgrammingPeanutButterAndJelly.pdf>)
 
 1. Ask the students what they think a program is at its most basic level
    * Guide, if necessary, towards the idea that its instructions or an action
@@ -68,7 +68,7 @@ variable.
 Variables have a name (_identifier_) that we can use to refer to a value. You
 can assign a value to a variable with the following statement:
 
-```
+```js
 var x = 3;
 ^   ^ ^ ^
 |   | | value
@@ -133,7 +133,7 @@ precedence than `+` and `-`.
 Strings represent any sort of text. They are delimited by single quotes (`'`) or
 double quotes (`”`) and can be of any length.
 
-```
+```js
 '' // empty string
 "" // empty string
 'Hello'
@@ -150,7 +150,7 @@ double quotes (`”`) and can be of any length.
 The most common operation on strings is to append one string to another. This is
 called _string concatenation_. It’s achieved by the plus (`+`) operator:
 
-```
+```js
 "Hello" + "World" // "HelloWorld"
 ```
 
@@ -199,11 +199,11 @@ true && true; // true
 > **Exercise**: Put simple mathematical expressions into the console: `2 * 2`,
 > `2 + 2`, `5 * 7 - 13` > **Exercise**: Calculate the area of a circle (`r * r *
 > pi`). Do a quick Google search on how to use PI in JavaScript.
-
+>
 > See what happens when you "add" two strings together
-
+>
 > Research the JS Math library. sqrt, floor, ceil, round
-
+>
 > Write an expression that outputs the percentage of students who are female.
 > Make it so it outputs it as `58%`, and make sure you use the actual numbers of
 > women and the total number of students. Solution: `console.log(Math.round(7 /

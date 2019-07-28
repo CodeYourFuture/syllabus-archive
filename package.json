@@ -12,7 +12,7 @@
     "url": "https://github.com/CodeYourFuture/syllabus.git"
   },
   "scripts": {
-    "serve": "gitbook serve",
+    "serve": "gitbook install && gitbook serve",
     "build": "gitbook install && gitbook build",
     "test": "markdownlint ./html-css ./js-core"
   },

@@ -1,6 +1,6 @@
 # Summary
 
-### Course
+## Course
 
 * Before you start
   * [Week 0 - Introduction and basic setup](/others/lesson0.md)
@@ -35,7 +35,7 @@
   * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
   * [Week 22 - Routing (optional)](/react/week-22/lesson.md)
 
-### Useful information
+## Useful information
 
 * [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Useful links](/others/useful-links.md)
@@ -45,7 +45,8 @@
 * [Useful Tools](/others/useful-tools.md)
 * [Career Development](/others/career-development.md)
 
-### Workshops and other resources
+## Workshops and other resources
+
 * [Coding 101](/others/coding-101.md)
 * Instructions: [Compiling SCSS](/html-css/compile-scss-instructions.md)
 * [Express Workshop](/node-db/week-13/workshop.md)
@@ -54,11 +55,7 @@
 * [AWS - DynamoDB](/others/aws-workshop-2.md)
 * [Java module](https://github.com/Thomas-Stewart/syllabus/tree/master/java)
 
-### For Mentors
+## For Mentors
 
 * [Contributing](CONTRIBUTING.md)
 * [Lesson Template](/others/lesson-template.md)
-* HTML/CSS
-  * [Mentors guide](/html-css/mentor-guide.md)
-* JavaScript I
-  * [Week 4 - Hello JavaScript](/js-core/week-04/mentors.md)

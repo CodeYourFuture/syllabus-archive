@@ -1,4 +1,164 @@
-# LESSON 3: DATA INTEGRITY AND ANALYTICS
+# Database 3: More integration with NodeJS
+
+**What will we learn today?**
+
+- Revision from last week
+- Recap integration of cyf_hotels DB with NodeJS
+- CRUD operations with NodeJS and PostgreSQL
+  - Creating data
+  - Reading data
+  - Updating data
+  - Deleting data
+- Introduction to Web Application Security and SQL Injection
+- Homework
+
+
+For the following, use the file [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql) from the previous class to reinitialise your database with `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
+
+
+## Recap integration of `cyf_hotels` DB with NodeJS
+
+```js
+const express = require("express");
+const app = express();
+const { Pool } = require('pg');
+
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'cyf_hotels',
+    password: '',
+    port: 5432
+});
+
+app.get("/hotels", function(req, res) {
+    pool.query('SELECT * FROM hotels')
+        .then(result => res.json(result.rows))
+        .catch(e => console.error(e));
+});
+
+app.listen(3000, function() {
+    console.log("Server is listening on port 3000. Ready to accept requests!");
+});
+```
+
+## CRUD operations with NodeJS and PostgreSQL
+
+*"The acronym CRUD refers to all of the major functions that are implemented in relational database applications. Each letter in the acronym can map to a standard Structured Query Language (SQL) statement and Hypertext Transfer Protocol (HTTP) method [...]."* - [Wikipedia](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
+<!-- ![table-diagram](crud.png) -->
+<p align="center">
+  <img src="crud.png" display="block" width="50%"/>
+</p>
+
+### Creating data
+
+In the following, we will create a new API endpoint to create a new hotel in our database. As a reminder, here is an example of SQL insert statement to add a new hotel:
+
+```sql
+INSERT INTO hotels (name, rooms, postcode) VALUES ('New Hotel', 5, 'ABC001');
+```
+
+We will add a new endpoint in our `cyf-hotels-api`. As we will create a new record in the database, we will use a POST endpoint. Moreover, we will need to pass parameters such as hotel name, number of rooms and postcode in the body of the request so we can create different hotels. To access body parameters, we will need to add the module `body-parser` to the `cyf-hotels-api` project:	 	
+
+```
+npm install --save body-parser
+```
+
+Then include it in the `server.js`:
+
+```js
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+```
+
+We can finally add our new endpoint to create a new hotel:
+
+```js
+app.post("/hotels", function(req, res) {
+    const newHotelName = req.body.name;
+    const newHotelRooms = req.body.rooms;
+    const newHotelPostcode = req.body.postcode;
+
+    const query = "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
+
+    pool.query(query, [newHotelName, newHotelRooms, newHotelPostcode])
+        .then(() => res.send("Hotel created!"))
+        .catch(e => console.error(e));
+});
+```
+
+What could go wrong with the code above? We don't validate any user inputs! To improve the code, we could:
+
+- Verify that no hotel with the same name already exists in the database
+- Verify that the number of rooms is a positive number
+- Verify that the postcode follows a given pattern
+
+Let's try by validating that the number of rooms is a positive number:
+
+```js
+if(!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
+    return res.status(400).send("The number of rooms should be a positive integer.");
+}
+```
+
+Then we can validate that no other hotels in our database already has the same name:
+
+```js
+app.post("/hotels", function(req, res) {
+    const newHotelName = req.body.name;
+    const newHotelRooms = req.body.rooms;
+    const newHotelPostcode = req.body.postcode;
+
+    if(!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
+        return res.status(400).send("The number of rooms should be a positive integer.");
+    }
+
+    pool.query("SELECT * FROM hotels WHERE name=$1", [newHotelName])
+        .then(result => {
+            if(result.rows.length > 0) {
+                return res.send('An hotel with the same name already exists!');
+            } else {
+                const query = "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
+                pool.query(query, [newHotelName, newHotelRooms, newHotelPostcode])
+                    .then(() => res.send("Hotel created!"))
+                    .catch(e => console.error(e));
+            }
+        });
+});
+```
+
+#### Exercise 1
+
+- Add a new POST API endpoint to create a new customer in the `customers` table
+- Validate that there is no customers with the same name in the customers table before creating the new customer
+
+### Reading data
+
+
+
+#### Exercise 2
+
+- Add a new GET endpoint to load all bookings of a given customer
+
+### Updating data
+
+
+
+#### Exercise 3
+
+### Deleting data
+
+#### Exercise 4
+
+
+## Introduction to Web Application Security and SQL Injection
+
+
+## Homework
+
+
+## =========
 
 **Recap of last lesson**
 

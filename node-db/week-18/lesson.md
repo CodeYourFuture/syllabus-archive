@@ -5,10 +5,10 @@
 - Revision from last week
 - [Recap integration of cyf_hotels DB with NodeJS](#recap-integration-of-cyf_hotels-db-with-nodejs)
 - [CRUD operations with NodeJS and PostgreSQL](#crud-operations-with-nodejs-and-postgresql)
-  - Creating data
-  - Reading data
-  - Updating data
-  - Deleting data
+  - [Creating data](#creating-data)
+  - [Reading data](#reading-data)
+  - [Updating data](#updating-data)
+  - [Deleting data](#deleting-data)
 - [Homework](#homework)
 
 

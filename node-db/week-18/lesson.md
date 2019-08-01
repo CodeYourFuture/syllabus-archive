@@ -169,7 +169,7 @@ In some case, you would want to load only a specific hotel by id. Let's define a
 app.get("/hotels/:hotelId", function(req, res) {
     const hotelId = req.params.hotelId;
 
-    pool.query(`SELECT * FROM hotels WHERE id=${hotelId}`)
+    pool.query("SELECT * FROM hotels WHERE id=$1", [hotelId])
         .then(result => res.json(result.rows))
         .catch(e => console.error(e));
 });

@@ -3,16 +3,16 @@
 **What will we learn today?**
 
 - Revision from last week
-- Recap integration of cyf_hotels DB with NodeJS
-- CRUD operations with NodeJS and PostgreSQL
+- [Recap integration of cyf_hotels DB with NodeJS](#recap-integration-of-cyf_hotels-db-with-nodejs)
+- [CRUD operations with NodeJS and PostgreSQL](#crud-operations-with-nodejs-and-postgresql)
   - Creating data
   - Reading data
   - Updating data
   - Deleting data
-- Homework
+- [Homework](#homework)
 
 
-## Recap integration of `cyf_hotels` DB with NodeJS
+## Recap integration of cyf_hotels DB with NodeJS
 
 For this class, we will use the tables and data from [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql). To start from a clean state for your `cyf_hotels` database, run `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
 

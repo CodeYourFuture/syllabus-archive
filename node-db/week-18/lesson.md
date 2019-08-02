@@ -1,469 +1,259 @@
-# LESSON 3: DATA INTEGRITY AND ANALYTICS
+# Database 3: More integration with NodeJS
 
-**Recap of last lesson**
+**What will we learn today?**
 
-- What is the difference between user story, use case and user acceptance test.
-- How to run a database query that retrieves tabular data in node express to an endpoint.
-- Inserting data from an endpoint using postman.
-- Updating data from an endpoint using postman.
-- Using 'IN'
-- Deleting data
-
-
-**What we will learn today?**
-
-* Joins
-* SQL Injection
-* LIMIT
-* DISTINCT
-* SUM / AVG / COUNT
-* GROUP BY
-* HAVING
+- Revision from last week
+- [Recap integration of cyf_hotels DB with NodeJS](#recap-integration-of-cyf_hotels-db-with-nodejs)
+- [CRUD operations with NodeJS and PostgreSQL](#crud-operations-with-nodejs-and-postgresql)
+  - [Creating data](#creating-data)
+  - [Reading data](#reading-data)
+  - [Updating data](#updating-data)
+  - [Deleting data](#deleting-data)
+- [Homework](#homework)
 
 
-### LESSON 1: JOIN ME, AND TOGETHER WE CAN RULE THE GALAXY AS FATHER AND SON!
+## Recap integration of cyf_hotels DB with NodeJS
 
-So far, we've put data in tables and kept references to each of them using IDs, but
-we've not yet learned how to link them automatically.
+For this class, we will use the tables and data from [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql). To start from a clean state for your `cyf_hotels` database, run `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
 
-We don't know how to get the *name* of a customer from a reservation - only their ID.
+During the last class, we created a new NodeJS project called `cyf-hotels-api` with a single API endpoint `/hotels` to get the list of all hotels. In this class, we will add other endpoints with more functionalities to interact with the `cyf_hotels` database.
 
-Now let's say we want to get the *names* of customers who have a reservation *today*.
+```js
+const express = require("express");
+const app = express();
+const { Pool } = require('pg');
 
-From what we know now, we *could* do it like this:
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'cyf_hotels',
+    password: '',
+    port: 5432
+});
 
-- `SELECT customer_id FROM reservations WHERE check_in_date = '2018/08/19';`
-- write down the list of customer IDs on paper (e.g. 3, 5, 7)
-- `SELECT * FROM customers WHERE id IN (3, 5, 7);`
+app.get("/hotels", function(req, res) {
+    pool.query('SELECT * FROM hotels')
+        .then(result => res.json(result.rows))
+        .catch(e => console.error(e));
+});
 
-However, we want the computer to figure out that we want IDs 3, 5 and 7 by itself.
+app.listen(3000, function() {
+    console.log("Server is listening on port 3000. Ready to accept requests!");
+});
+```
 
-This is what a database "JOIN" is. In real life, if you work with databases, you will be using this thing *all* of the time - relationships between data are vitally important.
+## CRUD operations with NodeJS and PostgreSQL
 
-Now, we have data that spans two tables - we have reservations with a "customer_id" column that refers to the ID column in the "customers" table.
+*"The acronym CRUD refers to all of the major functions that are implemented in relational database applications. Each letter in the acronym can map to a standard Structured Query Language (SQL) statement and Hypertext Transfer Protocol (HTTP) method [...]."* - [Wikipedia](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
+<!-- ![table-diagram](crud.png) -->
+<p align="center">
+  <img src="crud.png" display="block" width="50%"/>
+</p>
+
+### Creating data
+
+In the following, we will add a new API endpoint to create a new hotel in the table `hotels` of the `cyf_hotels` database. As a reminder, here is an example of a SQL insert statement to add a new hotel:
 
 ```sql
-SELECT reservations.check_in_date, customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/08/19';
+INSERT INTO hotels (name, rooms, postcode) VALUES ('New Hotel', 5, 'ABC001');
 ```
 
-Note that:
-
-- Because we are selecting columns from two tables and need to distinguish them, we use "table.column" syntax.
-- We explicitly link reservations.customer_id and customers.id *even if they have a foreign key relationship*.
-- reservations.customer_id and customers.id don't actually *have* to have a foreign key relationship, but they should.
-
-Let's try the query.
-
-First, go to the `cyf-hotel-db` repo in your terminal and switch to the `class3` branch. Next, run `npm i` and `npm start` to start the server. Then, open a new terminal tab in the `cyf-hotel-db` directory and run `sqlite3 database/database.sqlite` to open SQLite.
-
-Now, copy and paste the above `SELECT` query into SQLite. You should get this:
+As we create a new record in the database, we will add a new POST endpoint in the `cyf-hotels-api` project from last class. Moreover, we need to be able to pass some parameters to this API endpoint such as the hotel name, the number of rooms and the postcode, so we can use this API to create different hotel. These parameters can be sent in the body of the request. To access the parameters in the body of the request with Express.JS, we need to add the module `body-parser` to the `cyf-hotels-api` project:
 
 ```
-2018/08/19|Marie|Niki
-2018/08/19|Anna|Kolen
+npm install --save body-parser
 ```
 
+Then include it in the `server.js`:
 
-##### EXERCISE 1.a
-
-Get the list of all room IDs together with their room type names.
-
-##### EXERCISE 1.b: OPTIONAL STRETCH GOAL
-
-Get the list of reservations (all columns) together with the the title, first name and surname customer who made it.
-
-
-
-### LESSON 2: SQL INJECTION
-
-So, our hotel has a shady new guest. Let's say that we have a react frontend on top which uses the
-APIs we're building - users won't use the APIs directly but they can just fire up postman and use them
-if they want.
-
-This is very common - lots of websites have a single page application that uses an API underneath just like the one
-we're building.
-
-Now, this guest does a little poking around and he realizes that he can delete his reservation.
-
-```
-DELETE http://localhost:8080/api/reservations/6
+```js
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 ```
 
-Now, open a new terminal window and run "sqlite3 databases/database.sqlite":
+We can finally add our new endpoint to create a new hotel:
 
-```
-sqlite> SELECT * FROM reservations;
-```
+```js
+app.post("/hotels", function(req, res) {
+    const newHotelName = req.body.name;
+    const newHotelRooms = req.body.rooms;
+    const newHotelPostcode = req.body.postcode;
 
-The reservation with ID 6 should be deleted - as you coded it to work.
+    const query = "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
 
-This is fine, but not very interesting. However, let's experiment - try doing *this* with your reservation API:
-
-```
-DELETE http://localhost:8080/api/reservations/6%20or%201%3D1
-```
-
-And run this again:
-
-```
-sqlite> SELECT * FROM reservations;
+    pool.query(query, [newHotelName, newHotelRooms, newHotelPostcode])
+        .then(() => res.send("Hotel created!"))
+        .catch(e => console.error(e));
+});
 ```
 
-And voila, he's just emptied out the entire hotel. Nobody has a reservation any more!
+What could go wrong with the code above? There is no validation of any user inputs which could result in errors, duplications or inconsistent data in the database! Here are few examples of things we can verify before creating the hotel in the database:
 
-![Hackerman](hackerman.jpg "Hackerman")
+1. Check that the number of rooms is a positive number
+2. Check that no hotel with the same name already exists in the database
+3. ...
 
-##### EXERCISE 2.a
+Let's start by validating that the number of rooms is a positive number and if it doesn't, return an error.
 
-You have five minutes. Work in teams. Figure out what happened between you and *why*.
-
-Clue : You might want to use this https://meyerweb.com/eric/tools/dencoder/
-
-
-### LESSON 3: ORDER BY SOMETHING
-
-QUESTION FOR CLASS : What the difference is between *random* and *arbitrary*?
-
-Up until now we've not been returning results in a *random* order, but we have been returning
-them in an *arbitrary* order. The database has chosen what order to return records in. It's
-generally the order you put them in but there is *no* guarantee it will be in that order.
-
-Using 'order by' we can get records back in a specified order:
-
-```sql
-SELECT reservations.check_in_date, customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname;
+```js
+if(!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
+    return res.status(400).send("The number of rooms should be a positive integer.");
+}
 ```
 
-This will give the output in a new order:
+Then we can validate the new hotel doesn't already exist in the database, thus preventing duplicate data.
 
-```
-2018/08/19|Anna|Kolen
-2018/08/19|Marie|Niki
-```
+```js
+app.post("/hotels", function(req, res) {
+    const newHotelName = req.body.name;
+    const newHotelRooms = req.body.rooms;
+    const newHotelPostcode = req.body.postcode;
 
-We have Mrs Clinton, Mr Trump and Mr Hackerman staying at the hotel. What order will the reservations be displayed in?
+    if(!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
+        return res.status(400).send("The number of rooms should be a positive integer.");
+    }
 
-If we want to get *explicitly* the three of them in ascending order:
-
-```sql
-SELECT reservations.check_in_date, customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname ASC;
-```
-
-Now, if we want them in descending order:
-
-```sql
-SELECT reservations.check_in_date, customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC;
-```
-
-```
-Check In Date  First Name  Surname
-------------------------------------
-2018/08/19     Melania     Trump
-2018/08/19     Donald      Trump
-2018/08/19     Colm        Hackerman
-2018/08/19     Bill        Clinton
-2018/08/19     Hillary     Clinton
+    pool.query("SELECT * FROM hotels WHERE name=$1", [newHotelName])
+        .then(result => {
+            if(result.rows.length > 0) {
+                return res.status(400).send('An hotel with the same name already exists!');
+            } else {
+                const query = "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
+                pool.query(query, [newHotelName, newHotelRooms, newHotelPostcode])
+                    .then(() => res.send("Hotel created!"))
+                    .catch(e => console.error(e));
+            }
+        });
+});
 ```
 
-This is just one way the results could come out. They could also come out (e.g. on a different computer, or done at a different time), for instance, like this:
+#### Exercise 1
 
-```
-Check In Date  First Name  Surname
-------------------------------------
-2018/08/19     Donald      Trump
-2018/08/19     Melania     Trump
-2018/08/19     Colm        Hackerman
-2018/08/19     Hillary     Clinton
-2018/08/19     Bill        Clinton
-```
+- Follow the above steps to create a new POST endpoint `/hotels` to create a new hotel. Make sure to add validation for the number of rooms and the hotel name. Test your new API endpoint with Postman and check that the new hotel has been correctly created in your database.
+- Add a new POST API endpoint to create a new customer in the `customers` table.
+- Add validation to check that there is no other customer with the same name in the customers table before creating a new customer.
 
-Note that Donald and Melania and Bill and Hillary are both reversed this time. This is because we said to sort by surname, which it does, but there are no guarantees about what order rows appear in where the surname is the same.
+### Reading data
 
-So, if we want to make it more *deterministic* (opposite of arbitrary), we can make it sort by surname *first* and first name *second*:
+We already have one GET endpoint to load all the hotels in the database. However, we can improve this endpoint and add a couple of extra functionalities. First, we may want to order the list of hotels by name:
 
-```sql
-SELECT reservations.check_in_date, customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date = '2018/08/19' ORDER BY customers.surname DESC, customers.first_name ASC;
+```js
+app.get("/hotels", function(req, res) {
+    pool.query("SELECT * FROM hotels ORDER BY name")
+        .then(result => res.json(result.rows))
+        .catch(e => console.error(e));
+});
 ```
 
-```
-Check In Date  First Name  Surname
-------------------------------------
-2018/08/19     Donald      Trump
-2018/08/19     Melania     Trump
-2018/08/19     Colm        Hackerman
-2018/08/19     Bill        Clinton
-2018/08/19     Hillary     Clinton
-```
+Another functionality which could be useful is to filter the hotel with a keyword to be able to search for a specific hotel name:
 
-In this case, since we're ordering by first name ascending, Donald always comes before Melania (D comes before M in the alphabet) and Bill comes before Hillary (because B comes before H in the alphabet).
+```js
+app.get("/hotels", function(req, res) {
+    const hotelNameQuery = req.query.name;
+    let query = `SELECT * FROM hotels ORDER BY name`;
+    
+    if(hotelNameQuery) {
+        query = `SELECT * FROM hotels WHERE name LIKE '%${hotelNameQuery}%' ORDER BY name`;
+    }
 
-
-### LESSON 4: LIMIT YOUR QUERIES
-
-Now, the database you're working with right now is essentially just a toy. However,
-when you work with a real database you're often going to have a number of problems
-
-1) SELECT * FROM table is going to return thousands of rows. This take ages
-to load and display and if you just want to see a representative sample it's overkill.
-
-2) You want to return the top 10 of something.
-
-3) You want to show results 1-10 on page 1, results 2-20 on page 2, etc.
-
-SQL has a keyword called "LIMIT" which you can put at the end of a query to cut down
-on the number of returned rows:
-
-```sql
-SELECT * FROM customers ORDER BY surname ASC LIMIT 2;
+    pool.query(query)
+        .then(result => res.json(result.rows))
+        .catch(e => console.error(e));
+});
 ```
 
-##### EXERCISE 4.a
+In some case, you would want to load only a specific hotel by id. Let's define a new GET endpoint to load one specific hotel:
 
-Select two rooms only.
+```js
+app.get("/hotels/:hotelId", function(req, res) {
+    const hotelId = req.params.hotelId;
 
-
-##### Exercise 4.b: OPTIONAL STRETCH GOAL
-
-Select the latest 5 reservations on the database.
-
-
-##### Exercise 4.c: OPTIONAL STRETCH GOAL
-
-Select the reservations, primarily selecting the most recent ones, and secondarily selecting the longest ones.
-
-
-### LESSON 5: DISTINCT
-
-Remember the JOIN query from above? We're going to do another similar one.
-
-```sql
-SELECT customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date > '2017/12/31' ORDER BY customers.surname ASC;
-```
-
-QUESTION FOR CLASS : What does this do?
-
-ANS : Get a list of all customers who have a reservation that begins this year
-
-Now, this is going to work with one exception. The list in my database
-is going to look a bit like this:
-
-```
-First Name  Surname
----------------------
-Hillary     Clinton
-Colm        Hackerman
-Colm        Hackerman
-Colm        Hackerman
-Donald      Trump
-```
-
-QUESTION FOR CLASS : Why?
-
-ANS : Because Mr Hackerman loves this hotel more than Hillary and Donald and has arranged to stay there a few times.
-
-Of course, we only want to know *IF* Hackerman has stayed there once, not that he's their most popular guest.
-
-```sql
-SELECT DISTINCT customers.first_name, customers.surname
-FROM reservations JOIN customers ON reservations.customer_id = customers.id
-WHERE reservations.check_in_date > '2017/12/31' ORDER BY customers.surname ASC;
-```
-
-Will output:
-
-```
-First Name  Surname
----------------------
-Hillary     Clinton
-Colm        Hackerman
-Donald      Trump
-```
-
-Problem solved.
-
-
-##### EXERCISE 5.a
-
-Get the list of check in dates in the summer 2017.
-
-
-##### EXERCISE 5.b: OPTIONAL STRETCH GOAL
-
-Get the list of customers that made a reservation in the last year, including their details.
-
-
-### LESSON 6: SUM, AVERAGE AND COUNT
-
-Let us imagine that we want to know how many reservations we have on our database. Similarly to the previous lesson, we could get all the records and count them ourselves, but that sounds boring and unrealistic in real life cases, where databases can have several millions of entries. So, for that purpose we have aggregation functions:
-
-```
-COUNT, SUM or AVG
-```
-
-The usages of each are pretty obvious.
-So, this means that we can count, sum and calculate the average of a set of values.
-
-Let's check an example for `COUNT`:
-
-`SELECT COUNT(*) FROM customers;`
-
-This will return the number of customers on a database.
-
-We call these aggregation functions, and we use them to modify the results while aggregating the table results - we had a list of rows for customers, now we have the count of customers: we aggregated the rows by counting them.
-
-
-##### EXERCISE 6.a
-
-COUNT the number of reservations for a given customer ID.
-
-
-##### EXERCISE 6.b: OPTIONAL STRETCH GOAL
-
-Calculate the average paid amount across all invoices.
-
-
-
-### LESSON 7: GROUPING
-Let us say that we need to get the list of different surnames from our list of customers, and how many times each surname shows up on our database.
-
-Here the idea is that we could group the columns by the surname and get a list of each different surname, and then we can apply an aggregation function to them.
-
-For this we can use `GROUP BY` as follows:
-
-```sql
-SELECT <column_to_aggregate_1>, <column_to_aggregate_2> FROM <table> GROUP BY <column_to_aggregate_1>, <column_to_aggregate_2>;
-```
-
-For instance, if we have the following entries on the customers:
-
-| id | title | first_name | surname | email |
-| --- | --- | --- | --- | --- |
-|1|Doc.|Tom|Jones|tom.jones@domain.com|
-|2|Mr.|Jorge|Silva|jorge-silva@domain.com|
-|3|Mr.|Jorge|Silva|jorge2-silva@domain.com|
-|16|Doc.|Pedro|Silva|pedro.silva@domain.com|
-|17|Doc.|Colm|O'Conner|colm.oconner@domain.com|
-|18|Doc.|James|Lennon|john.lennon@domain.com|
-|19|Sir.|John|O'Conner|John.oconner@domain.com|
-
-If we group by surname we have 4 different surnames: `O'Conner`, `Silva`, `Jones`, `Lennon`, but for `Silva` and `O'Conner`, we have more than one entry, so we need to aggregate them. In this case, we want to count the occurrences so we can simply do:
-
-```sql
-SELECT surname, COUNT(*) FROM customers GROUP BY surname;
-```
-
-This should give this output:
-
-```
-Jones|1
-Silva|3
-O'Conner|2
-Lennon|1
+    pool.query("SELECT * FROM hotels WHERE id=$1", [hotelId])
+        .then(result => res.json(result.rows))
+        .catch(e => console.error(e));
+});
 ```
 
 
-##### EXERCISE 7.a
+#### Exercise 2
 
-COUNT the occurrences of the DIFFERENT titles on the database.
-
-
-##### EXERCISE 7.b: OPTIONAL STRETCH GOAL
-
-COUNT the occurrences of a combination of first-name and surname to get a list of customers with the same name.
+- Add the GET endpoints `/hotels` and `/hotels/:hotelId` mentioned above and try to use these endpoints with Postman.
+- Add a new GET endpoint `/customers` to load all customers ordered by name.
+- Add a new GET endpoint `/customers/:customerId` to load one customer by ID.
+- Add a new GET endpoint `/customers/:customerId/bookings` to load all the bookings of a specific customer. Returns the following information: check in date, number of nights, hotel name, hotel postcode.
 
 
+### Updating data
 
-### LESSON 8: HAVING YOUR TABLE AND EATING IT
+We can now implement an endpoint to update a customer record in the database. For this, we will use a PUT endpoint.
 
-Suppose that we want to filter the result of what we got on the previous example - count of each customer's surname - to select only the surnames for which there are 3 or more customers?
+```js
+app.put("/customers/:customerId", function(req, res) {
+    const customerId = req.params.customerId;
+    const newEmail = req.body.email;
 
-To accomplish that we can use `HAVING` as follows:
-```sql
-SELECT surname, COUNT(*) AS count FROM customers GROUP BY surname HAVING count >= 3;
+    pool.query("UPDATE customers SET email=$1 WHERE id=$2", [newEmail, customerId])
+        .then(() => res.send(`Customer ${customerId} updated!`))
+        .catch(e => console.error(e));
+});
 ```
 
-Note that `WHERE` would not work, because it enables us to filter data that will grouped, and we want to filter the result of that grouping. We want to filter by the count of customers.
+What can go wrong in the code above? Again, there is no validation! We could set an empty email or even a string which is not following the format of an email. **Remember, validating data is very important to make sure you don't end up with inconsistent data in your database!**
+
+#### Exercise 3
+
+- Add the PUT endpoint `/customers/:customerId` and verify you can update a customer email using Postman.
+- Add validation for the email before updating the customer record in the database. If the email is empty, return an error message.
+- Add the possibility to also update the address, the city, the postcode and the country of a customer. Be aware that if you want to update the city only for example, the other fields should not be changed!
+
+### Deleting data
+
+To delete a record from the database, we will use a DELETE endpoint:
+
+```js
+app.delete("/customers/:customerId", function(req, res) {
+    const customerId = req.params.customerId;
+
+    pool.query("DELETE FROM customers WHERE id=$1", [customerId])
+        .then(() => res.send(`Customer ${customerId} deleted!`))
+        .catch(e => console.error(e));
+});
+```
+
+However, if you try to delete a customer which already has some bookings, the previous endpoint will fail. Do you know why? You cannot delete a customer whose ID is used as a foreign key in another table (in this case, in the `bookings` table). Let's delete all the customer bookings first:
+
+```js
+app.delete("/customers/:customerId", function(req, res) {
+    const customerId = req.params.customerId;
+
+    pool.query("DELETE FROM bookings WHERE customer_id=$1", [customerId])
+        .then(() => {
+            pool.query("DELETE FROM customers WHERE id=$1", [customerId])
+                .then(() => res.send(`Customer ${customerId} deleted!`))
+                .catch(e => console.error(e));;
+        })
+        .catch(e => console.error(e));
+});
+```
+
+#### Exercise 4
+
+- Add the DELETE endpoint `/customers/:customerId` above and verify you can delete a customer along their bookings with Postman.
+- Add a new DELETE endpoint `/hotels/:hotelId` to delete a specific hotel. **A hotel can only be deleted if it doesn't appear in any of the customers' bookings! Make sure you add the corresponding validation before you try to delete a hotel.**
 
 
-##### EXERCISE 8.a
+## Homework
 
-Get the list of customers that have 5 or more reservations on our hotel.
+In the following homework, you will create new API endpoints in the NodeJS application `cyf-ecommerce-api` that you created for last week homework for the Database 2 class.
 
-
-# HOMEWORK
-
-##### HOMEWORK 1
-
-**User Story:** As a staff member, I want to see reservations and their respective invoices
-
-Create an endpoint to get from `/reservations-and-invoices/` the list of reservations and respective invoices.
-
-
-##### HOMEWORK 2
-
-Calculate the total amount paid on invoices for the summer of 2017.
-
-
-##### HOMEWORK 3
-
-**User Story:** As a staff member, I want to check the number reservations for each customer, including their own details, so that we check who are our best customers.
-
-Complete the endpoint to get from `/reservations-per-customer/` the number of reservations per customer, with details for the customer and the reservation.
-
-##### HOMEWORK 4
-
-Get the number of reservations for each room ID and include the details for the room details.
-
-##### HOMEWORK 5
-
-Adapt the previous query (8.c) to include the details for the type of room.
-
-
-##### HOMEWORK 6
-
-Get the list of rooms with sea view that were reserved more than 5 times.
-
-
-##### HOMEWORK 7
-
-Create an endpoint for each previous exercise that doesn't have an endpoint yet. You will have to think about what is the context of the query, what parameters you need to receive in the end-point and what makes sense to return as a result and in which format.
-
-
-##### HOMEWORK 8
-
-**User Story** As a staff member, I want to get the list of reservations within a time period, including the room and customer details.
-
-Create an endpoint to get from `/reservations/details-between/:from_day/:to_day` the list of reservations between a specified time period. this should include the customer and room details.
-
-
-##### HOMEWORK 9
-
-**User Story** As a staff member, I want to get the number of reservations per customer.
-
-Create an endpoint to get from `/reservations-per-customer/` the number of reservations each client has.
-
-
-###### HOMEWORK 10
-
-**User Story** As a staff member I want to analyse the rentability of each room, getting the total amount earned for each room, the average per reservations, and the number of reservations it has had in the past.
-
-Create an endpoint to get from `/stats-price-room/` the list of rooms, together with the amount the hotel has earned with each, the average value earned per stay, and the number of complete stays it has had in the past.
-
-
-##### HOMEWORK 11
-
-**User Story** As a client or staff member, I want to check the availability of a room within a given date range.
-
-Create an endpoint to get from `/rooms/available-in/:from_day/:to_day` the list of available rooms.
+- If you don't have it already, add a new GET endpoint `/products` to load all the product names along with their supplier names.
+- Update the previous GET endpoint `/products` to filter the list of products by name using a query parameter, for example `/products?name=Cup`. This endpoint should still work even if you don't use the `name` query parameter!
+- Add a new GET endpoint `/customers/:customerId` to load a single customer by ID.
+- Add a new POST endpoint `/customers` to create a new customer. 
+- Adda new POST endpoint `/products` to create a new product (with a product name, a price and a supplier id). Check that the price is a positive integer and that the supplier ID exists in the database, otherwise return an error.
+- Add a new POST endpoint `/customers/:customerId/orders` to create a new order (including an order date, and an order reference) for a customer. Check that the customerId corresponds to an existing customer or return an error.
+- Add a new PUT endpoint `/customers/:customerId` to update an existing customer (name, address, city and country).
+- Add a new DELETE endpoint `/orders/:orderId` to delete an existing order along all the associated order items.
+- Add a new DELETE endpoint `/customers/:customerId` to delete an existing customer only if this customer doesn't have orders.
+- Add a new GET endpoint `/customers/:customerId/orders` to load all the orders along the  items in the orders of a specific customer. Especially, the following information should be returned: order references, order dates, product names, unit prices, suppliers and quantities.

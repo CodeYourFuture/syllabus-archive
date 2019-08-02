@@ -28,7 +28,7 @@
 * [Node/DB II](/node-db/index.md)
   * [Week 16 - Introduction to SQL](/node-db/week-16/lesson.md)
   * [Week 17 - More SQL and integration with NodeJS](/node-db/week-17/lesson.md)
-  * [Week 18 - Data Integrity & Analytics](/node-db/week-18/lesson.md) | [Homework](/node-db/week-18/homework.md)
+  * [Week 18 - More integration with NodeJS](/node-db/week-18/lesson.md)
 * [React](/react/index.md)
   * [Week 19 - React 101](/react/week-19/lesson.md) | [Homework](/react/week-19/homework.md)
   * [Week 20 - Reacting to Changes](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)

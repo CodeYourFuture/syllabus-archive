@@ -16,7 +16,7 @@
 
 For this class, we will use the tables and data from [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql). To start from a clean state for your `cyf_hotels` database, run `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
 
-During the last class, we created a new NodeJS project called `cyf-hotels-api` with a single API endpoint `/hotels` to get the list of all hotels.
+During the last class, we created a new NodeJS project called `cyf-hotels-api` with a single API endpoint `/hotels` to get the list of all hotels. In this class, we will add other endpoints with more functionalities to interact with the `cyf_hotels` database.
 
 ```js
 const express = require("express");
@@ -53,13 +53,13 @@ app.listen(3000, function() {
 
 ### Creating data
 
-In the following, we will create a new API endpoint to create a new hotel in the table `hotels` of the `cyf_hotels` database. As a reminder, here is an example of a SQL insert statement to add a new hotel:
+In the following, we will add a new API endpoint to create a new hotel in the table `hotels` of the `cyf_hotels` database. As a reminder, here is an example of a SQL insert statement to add a new hotel:
 
 ```sql
 INSERT INTO hotels (name, rooms, postcode) VALUES ('New Hotel', 5, 'ABC001');
 ```
 
-As we create a new record in the database, we will add a new POST endpoint in the `cyf-hotels-api` project from last class. Moreover, we need to be able to pass some parameters to this API endpoint such as the hotel name, the number of rooms and the postcode, so we can use it to create different hotel. These parameters can be sent in the body of the request. To access parameters in the body of the request with Express.JS, we need to add the module `body-parser` to the `cyf-hotels-api` project:
+As we create a new record in the database, we will add a new POST endpoint in the `cyf-hotels-api` project from last class. Moreover, we need to be able to pass some parameters to this API endpoint such as the hotel name, the number of rooms and the postcode, so we can use this API to create different hotel. These parameters can be sent in the body of the request. To access the parameters in the body of the request with Express.JS, we need to add the module `body-parser` to the `cyf-hotels-api` project:
 
 ```
 npm install --save body-parser
@@ -102,7 +102,7 @@ if(!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
 }
 ```
 
-Then we can validate that the hotel we want to create doesn't already exist in the database, thus preventing duplicate data.
+Then we can validate the new hotel doesn't already exist in the database, thus preventing duplicate data.
 
 ```js
 app.post("/hotels", function(req, res) {
@@ -117,7 +117,7 @@ app.post("/hotels", function(req, res) {
     pool.query("SELECT * FROM hotels WHERE name=$1", [newHotelName])
         .then(result => {
             if(result.rows.length > 0) {
-                return res.send('An hotel with the same name already exists!');
+                return res.status(400).send('An hotel with the same name already exists!');
             } else {
                 const query = "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
                 pool.query(query, [newHotelName, newHotelRooms, newHotelPostcode])
@@ -131,12 +131,12 @@ app.post("/hotels", function(req, res) {
 #### Exercise 1
 
 - Follow the above steps to create a new POST endpoint `/hotels` to create a new hotel. Make sure to add validation for the number of rooms and the hotel name. Test your new API endpoint with Postman and check that the new hotel has been correctly created in your database.
-- Add a new POST API endpoint to create a new customer in the `customers` table
-- Validate that there is no customers with the same name in the customers table before creating a new customer
+- Add a new POST API endpoint to create a new customer in the `customers` table.
+- Add validation to check that there is no other customer with the same name in the customers table before creating a new customer.
 
 ### Reading data
 
-We already have one GET endpoint to load all hotels in the database. However, we can improve this endpoint and add a couple of extra functionalities. First, we may want to order the list of hotels by name:
+We already have one GET endpoint to load all the hotels in the database. However, we can improve this endpoint and add a couple of extra functionalities. First, we may want to order the list of hotels by name:
 
 ```js
 app.get("/hotels", function(req, res) {
@@ -179,14 +179,14 @@ app.get("/hotels/:hotelId", function(req, res) {
 #### Exercise 2
 
 - Add the GET endpoints `/hotels` and `/hotels/:hotelId` mentioned above and try to use these endpoints with Postman.
-- Add a new GET endpoint `/customers` to load all customers ordered by name
-- Add a new GET endpoint `/customers/:customerId` to load one customer by ID
-- Add a new GET endpoint `/customers/:customerId/bookings` to load all the bookings of a customer. Returns the following information: check in date, number of nights, hotel name, hotel postcode.
+- Add a new GET endpoint `/customers` to load all customers ordered by name.
+- Add a new GET endpoint `/customers/:customerId` to load one customer by ID.
+- Add a new GET endpoint `/customers/:customerId/bookings` to load all the bookings of a specific customer. Returns the following information: check in date, number of nights, hotel name, hotel postcode.
 
 
 ### Updating data
 
-We can now implement an endpoint to update a customer record in the database. 
+We can now implement an endpoint to update a customer record in the database. For this, we will use a PUT endpoint.
 
 ```js
 app.put("/customers/:customerId", function(req, res) {
@@ -199,17 +199,17 @@ app.put("/customers/:customerId", function(req, res) {
 });
 ```
 
-What can go wrong in the code above? Again, there is no validation! We could set an empty email or even a string which is not following the format of an email. **Remember, validating data is very important to make sure you don't end up with inconsistent data in your database!** 
+What can go wrong in the code above? Again, there is no validation! We could set an empty email or even a string which is not following the format of an email. **Remember, validating data is very important to make sure you don't end up with inconsistent data in your database!**
 
 #### Exercise 3
 
 - Add the PUT endpoint `/customers/:customerId` and verify you can update a customer email using Postman.
 - Add validation for the email before updating the customer record in the database. If the email is empty, return an error message.
-- Add the possibility to also update the address, the city, the postcode and the country of a customer.
+- Add the possibility to also update the address, the city, the postcode and the country of a customer. Be aware that if you want to update the city only for example, the other fields should not be changed!
 
 ### Deleting data
 
-To delete a record from the database, we will use a delete endpoint:
+To delete a record from the database, we will use a DELETE endpoint:
 
 ```js
 app.delete("/customers/:customerId", function(req, res) {
@@ -221,7 +221,7 @@ app.delete("/customers/:customerId", function(req, res) {
 });
 ```
 
-However, if you try to delete a customer which already has some bookings, the previous endpoint will fail. Do you know why? You cannot delete a customer whose ID is used as a foreign key in another table, here in the bookings table. Let's delete all the customer bookings first:
+However, if you try to delete a customer which already has some bookings, the previous endpoint will fail. Do you know why? You cannot delete a customer whose ID is used as a foreign key in another table (in this case, in the `bookings` table). Let's delete all the customer bookings first:
 
 ```js
 app.delete("/customers/:customerId", function(req, res) {
@@ -240,16 +240,15 @@ app.delete("/customers/:customerId", function(req, res) {
 #### Exercise 4
 
 - Add the DELETE endpoint `/customers/:customerId` above and verify you can delete a customer along their bookings with Postman.
-- Add a new DELETE endpoint `/hotels/:hotelId` to delete a specific hotel. **A hotel can only be deleted only if it doesn't appear in any of the customers' bookings! Make sure you add the corresponding validation before you delete a hotel.**
-
+- Add a new DELETE endpoint `/hotels/:hotelId` to delete a specific hotel. **A hotel can only be deleted if it doesn't appear in any of the customers' bookings! Make sure you add the corresponding validation before you try to delete a hotel.**
 
 
 ## Homework
 
-In the following homework, you will create new API endpoints in the NodeJS application `cyf-ecommerce-api` that you created for last week homework for the class Database 2.
+In the following homework, you will create new API endpoints in the NodeJS application `cyf-ecommerce-api` that you created for last week homework for the Database 2 class.
 
 - If you don't have it already, add a new GET endpoint `/products` to load all the product names along with their supplier names.
-- Update the previous GET endpoint `/products` to filter the list of products by name using a query parameter, for example `/products?name=Cup`. This endpoint should still work even if you don't use the name query parameter!
+- Update the previous GET endpoint `/products` to filter the list of products by name using a query parameter, for example `/products?name=Cup`. This endpoint should still work even if you don't use the `name` query parameter!
 - Add a new GET endpoint `/customers/:customerId` to load a single customer by ID.
 - Add a new POST endpoint `/customers` to create a new customer. 
 - Adda new POST endpoint `/products` to create a new product (with a product name, a price and a supplier id). Check that the price is a positive integer and that the supplier ID exists in the database, otherwise return an error.
@@ -257,4 +256,4 @@ In the following homework, you will create new API endpoints in the NodeJS appli
 - Add a new PUT endpoint `/customers/:customerId` to update an existing customer (name, address, city and country).
 - Add a new DELETE endpoint `/orders/:orderId` to delete an existing order along all the associated order items.
 - Add a new DELETE endpoint `/customers/:customerId` to delete an existing customer only if this customer doesn't have orders.
-- (STRETCH GOAL) Add a new GET endpoint `/customers/:customerId/orders` to load all the orders along the ordered items of a single customer. Especially, the following information should be returned: order references, order dates, product names, unit prices, suppliers and quantities.
+- Add a new GET endpoint `/customers/:customerId/orders` to load all the orders along the  items in the orders of a specific customer. Especially, the following information should be returned: order references, order dates, product names, unit prices, suppliers and quantities.

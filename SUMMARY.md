@@ -34,12 +34,15 @@
   * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
   * [Week 22 - Routing (optional)](/react/week-22/lesson.md)
 
-## General information
+## Workshops and other tutorials
 
-* [CodeYourFuture](others/code-your-future.md)
-* [House Rules](/others/house-rules.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
-* [Contributing](CONTRIBUTING.md)
+* [Coding 101](/others/coding-101.md)
+* [Compiling SCSS](/html-css/compile-scss-instructions.md)
+* [Express Workshop](/node-db/week-13/workshop.md)
+* [Hotel Workshop](/node-db/week-15/workshop.md)
+* [MongoDB 101](/others/mongodb-101.md)
+* [AWS - DynamoDB](/others/aws-workshop-2.md)
+* [Java module](https://github.com/Thomas-Stewart/syllabus/tree/master/java)
 
 ## For Students
 
@@ -50,12 +53,9 @@
 * [Getting A Job](/others/getting-a-job.md)
 * [Developer Links](/others/developer-links.md)
 
-## Workshops and other tutorials
+## General information
 
-* [Coding 101](/others/coding-101.md)
-* [Compiling SCSS](/html-css/compile-scss-instructions.md)
-* [Express Workshop](/node-db/week-13/workshop.md)
-* [Hotel Workshop](/node-db/week-15/workshop.md)
-* [MongoDB 101](/others/mongodb-101.md)
-* [AWS - DynamoDB](/others/aws-workshop-2.md)
-* [Java module](https://github.com/Thomas-Stewart/syllabus/tree/master/java)
+* [CodeYourFuture](others/code-your-future.md)
+* [House Rules](/others/house-rules.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Contributing](CONTRIBUTING.md)

@@ -2,6 +2,8 @@
 
 ## CV
 
+This CV section is relevant for people applying to jobs within the UK.
+
 ### Best practice
 
 - Keep it short and concise, 1-2 pages maximum
@@ -20,7 +22,7 @@
        (see: <https://www.indeed.com/career-advice/resumes-cover-letters/action-verbs-to-make-your-resume-stand-out>)
      - Show your accomplishments, with numbers if you can
        (e.g. Improved landing page time to interactive by 50%)
-  4. Education(this can go above Employment if the last thing
+  4. Education (this can go above Employment if the last thing
      you did was education and not work)
   5. Personal projects
   6. Interests (optional)
@@ -55,6 +57,10 @@ Questions to ask the company
 - <https://github.com/Twipped/InterviewThis>
   — some of these questions are great, but some are not so good
 
+Live interview practice
+
+- <https://www.pramp.com/>
+
 ## Personal projects
 
 Personal projects are a good way to build up your portfolio of code projects on Github.
@@ -77,3 +83,8 @@ Easier open source issues for people starting with open source contribution
 
 - <https://github.com/MunGell/awesome-for-beginners>
 - <https://firstcontributions.github.io/>
+
+## Other
+
+- [Tips for creating your own portfolio website](https://skillcrush.com/2015/03/12/impressive-tech-portfolio/)
+- [Career tips from HackYourFuture, a refugee code school in Amsterdam](https://github.com/HackYourFuture/alumni/wiki)

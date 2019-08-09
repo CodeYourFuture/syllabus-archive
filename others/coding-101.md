@@ -23,7 +23,7 @@
 3. Ask the students what items we will need to make a sandwich:
    * As they shout them out list them on the screen for the whole class to see
    * Introduce the concept of objects and classes. Tie into the idea of how in a
-     program these would be the ‘tools’ required for an activity and how for our
+     program these would be the 'tools' required for an activity and how for our
      sandwich making task the items we have listed previously are our classes
 4. Now that we have all of the tools we need to make a sandwich ask the students
    to shout out what they think the first step or instruction is:
@@ -77,7 +77,7 @@ var x = 3;
 declaration statement
 ```
 
-Let’s break this statement down:
+Let's break this statement down:
 
 * `var`: With the `var` statement we tell the JavaScript engine that `x` is now
   a variable
@@ -98,7 +98,7 @@ Now you can use the identifier instead of the actual value in an expression:
 
 ### Numbers
 
-Let’s start with something seemingly simple - numbers. Here are some:
+Let's start with something seemingly simple - numbers. Here are some:
 
 ```js
 1;
@@ -143,12 +143,12 @@ double quotes (`”`) and can be of any length.
 ```
 
 > If you need single or double quotes _inside the string_, you need to “escape”
-> them by putting a backslash in front of them. If you don’t do this, the
+> them by putting a backslash in front of them. If you don't do this, the
 > JavaScript engine will think the string ends here, because it encounters a
 > quote.
 
 The most common operation on strings is to append one string to another. This is
-called _string concatenation_. It’s achieved by the plus (`+`) operator:
+called _string concatenation_. It's achieved by the plus (`+`) operator:
 
 ```js
 "Hello" + "World" // "HelloWorld"

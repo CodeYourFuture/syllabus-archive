@@ -35,27 +35,26 @@
   * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
   * [Week 22 - Routing (optional)](/react/week-22/lesson.md)
 
-## Useful information
+## General information
 
 * [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Contributing](CONTRIBUTING.md)
+
+## For Students
+
 * [Useful links](/others/useful-links.md)
-* [Coding Standards and Best Practices](/others/PRACTICES.md)
+* [Coding Standards and Best Practices](/others/coding-standards.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
 * [CORS](/others/cors.md)
-* [Useful Tools](/others/useful-tools.md)
+* [Node Version Manager](/others/node-version-manager.md)
 * [Career Development](/others/career-development.md)
 
-## Workshops and other resources
+## Workshops and other tutorials
 
 * [Coding 101](/others/coding-101.md)
-* Instructions: [Compiling SCSS](/html-css/compile-scss-instructions.md)
+* [Compiling SCSS](/html-css/compile-scss-instructions.md)
 * [Express Workshop](/node-db/week-13/workshop.md)
 * [Hotel Workshop](/node-db/week-15/workshop.md)
 * [MongoDB 101](/others/mongodb-101.md)
 * [AWS - DynamoDB](/others/aws-workshop-2.md)
 * [Java module](https://github.com/Thomas-Stewart/syllabus/tree/master/java)
-
-## For Mentors
-
-* [Contributing](CONTRIBUTING.md)
-* [Lesson Template](/others/lesson-template.md)

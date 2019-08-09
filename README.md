@@ -20,10 +20,8 @@ and job interview practices.
 
 ## Students
 
-* If you're interested in joining the program, please
+If you're interested in joining the program, please
 [apply through our website](https://codeyourfuture.io/students).
-* If you're looking for the active course,
-[you can find it here](https://codeyourfuture.github.io/syllabus-master/).
 
 ## Getting involved
 

@@ -41,6 +41,12 @@ CV samples
 - <https://www.brookes.ac.uk/students/careers/students-and-graduates/cv-guide/mature-graduate-cv/>
   — useful reference for people with gaps in their CV
 
+## Cover letter
+
+A cover letter is essential for job applications.
+Ensure you provide one for every one of your job applications.
+You can search the internet to find various cover letter guides and samples.
+
 ## Interviews
 
 General interview questions
@@ -83,6 +89,10 @@ Easier open source issues for people starting with open source contribution
 
 - <https://github.com/MunGell/awesome-for-beginners>
 - <https://firstcontributions.github.io/>
+
+How to contribute to an open source project on GitHub
+
+- <https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github>
 
 ## Other
 

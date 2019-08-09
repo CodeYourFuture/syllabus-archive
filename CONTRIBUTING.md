@@ -12,8 +12,8 @@ To contribute to the Code Your Future syllabus, fork and open a pull request to
 Contributions are accepted strictly through approved pull requests, even for
 administrators of the repo.
 
-Since this repository is the blueprint of our syllabus we allow different
-cohorts to adapt to their classes' needs, and also update their syllabus
+Since this repository is the blueprint of our syllabus, we allow different
+cohorts to adapt to their classes' needs and also update their syllabus
 versions to reflect how the class goes.
 We should always make sure **master** is relevant and up to date for future
 classes with the feedback from the on-going teaching in each CYF chapter.

@@ -4,7 +4,6 @@
 
 * Before you start
   * [Week 0 - Introduction and basic setup](/others/lesson0.md)
-  * [House Rules](/others/house-rules.md)
 * [HTML/CSS](/html-css/index.md)
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md) | [Homework](/html-css/week-01/homework.md)
   * [Week 2 - Responsive Web and layout](/html-css/week-02/lesson.md) | [Homework](/html-css/week-02/homework.md)
@@ -37,17 +36,19 @@
 
 ## General information
 
+* [CodeYourFuture](others/code-your-future.md)
+* [House Rules](/others/house-rules.md)
 * [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Contributing](CONTRIBUTING.md)
 
 ## For Students
 
-* [Useful links](/others/useful-links.md)
 * [Coding Standards and Best Practices](/others/coding-standards.md)
 * [Making a Pull Request](/others/making-a-pull-request.md)
 * [CORS](/others/cors.md)
 * [Node Version Manager](/others/node-version-manager.md)
-* [Career Development](/others/career-development.md)
+* [Getting A Job](/others/getting-a-job.md)
+* [Developer Links](/others/developer-links.md)
 
 ## Workshops and other tutorials
 

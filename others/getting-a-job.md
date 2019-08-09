@@ -1,4 +1,4 @@
-# Career Development
+# Getting A Job
 
 ## CV
 
@@ -44,7 +44,7 @@ CV samples
 ## Cover letter
 
 A cover letter is essential for job applications.
-Ensure you provide one for every one of your job applications.
+Ensure you provide one for each of your job applications.
 You can search the internet to find various cover letter guides and samples.
 
 ## Interviews

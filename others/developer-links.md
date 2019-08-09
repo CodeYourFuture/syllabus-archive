@@ -40,6 +40,13 @@ and improving your skills.
 - [public-apis](https://github.com/public-apis/public-apis) — contains a list
   of free APIs
 
+## Developer tools
+
+- [Remote Tools](https://www.remote.tools/) — contains a list of tools
+  useful in the life of a developer
+- [Awesome Design Tools](https://flawlessapp.io/designtools) — contains a big
+  list of design tools
+
 ## Surveys
 
 - [StackOverFlow Developer Survey Results 2019](https://insights.stackoverflow.com/survey/2019)

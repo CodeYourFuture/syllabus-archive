@@ -43,8 +43,7 @@ Some of the most important guidelines are:
 The repo is stuctured as `module-name\week-number`.
 Add your content in the correct file.
 
-If you've added a new file, add it as new entry in
-[SUMMARY.md](https://github.com/CodeYourFuture/syllabus/blob/master/SUMMARY.md)
+If you've added a new file, add it as new entry in SUMMARY.md
 to show it in the sidebar.
 If the module contains many individual markdown files, add them as nested
 bullets.
@@ -52,8 +51,9 @@ bullets.
 ## Publish the Gitbook
 
 A Gitbook for each branch is published automatically on each push.
+
 You can also run Gitbook locally:
 
-```bash
+```text
 npm install && npm run serve
 ```

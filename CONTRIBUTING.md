@@ -9,7 +9,7 @@ Make sure to go through them or add a new issue/discussion point.
 
 To contribute to the Code Your Future syllabus, fork and open a pull request to
 [this repository](https://github.com/CodeYourFuture/syllabus).
-Contributions are strictly through approved Pull Requests, even for
+Contributions are accepted strictly through approved pull requests, even for
 administrators of the repo.
 
 Since this repository is the blueprint of our syllabus we allow different
@@ -18,16 +18,25 @@ versions to reflect how the class goes.
 We should always make sure **master** is relevant and up to date for future
 classes with the feedback from the on-going teaching in each CYF chapter.
 
-## Publish the Gitbook
+## A lesson template
 
-A Gitbook for each branch is published automatically on each push.
+Please use the [lesson template](lesson-template.md) as a starting
+point for your new lessons.
 
-For your convenience, you can run Gitbook locally:
+Each lesson should follow that format: starting with
+**what we will learn today** then **class contents**, **homework**
+and **preparation for next class**.
 
-```bash
-npm install
-npm run serve
-```
+The class contents and homework should follow the
+[checklist for a lesson](https://github.com/CodeYourFuture/syllabus/issues/9).
+
+Some of the most important guidelines are:
+
+* Focus on exercises in the class rather than presentations or long explanations
+* Prefer pointers to good documentation over explaining everything in the lesson
+  itself
+* The homework should be relevant, get harder gradually with an (optional)
+  stretch goal for more advanced students.
 
 ## Add new modules or lessons
 
@@ -37,26 +46,14 @@ Add your content in the correct file.
 If you've added a new file, add it as new entry in
 [SUMMARY.md](https://github.com/CodeYourFuture/syllabus/blob/master/SUMMARY.md)
 to show it in the sidebar.
-
 If the module contains many individual markdown files, add them as nested
-bullets under the main README.
+bullets.
 
-## A lesson template
+## Publish the Gitbook
 
-Please use the [lesson template](lesson-template.md) as a starting
-point for your new lessons.
+A Gitbook for each branch is published automatically on each push.
+You can also run Gitbook locally:
 
-Each lesson should follow that format: starting with **what we will learn
-today** then **class contents**, **homework** and **preparation for next
-class**.
-
-The class contents and homework should follow the
-[checklist for a lesson](https://github.com/CodeYourFuture/syllabus/issues/9)
-
-Some of the most important guidelines are:
-
-* Focus on exercises in the class rather than presentations or long explanations
-* Prefer pointers to good documentation over explaining everything in the lesson
-  itself
-* The homework should be relevant, get harder gradually with an (optional)
-  stretch goal for more advanced students.
+```bash
+npm install && npm run serve
+```

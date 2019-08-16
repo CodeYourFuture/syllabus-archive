@@ -305,7 +305,7 @@ request.
 
 ### What is URL?
 
-![alt text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http1-url-structure.png "URL")
+![URL structure](../assets/http1-url-structure.png "URL")
 
 ## 1. Create your own endpoints and send different responses
 

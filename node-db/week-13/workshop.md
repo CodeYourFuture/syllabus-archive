@@ -163,7 +163,7 @@ that door. Setting a port will allow us to find where our server is running.
 We use the **`app.listen`** method to do this. This method takes two arguments:
 a **port** and a **callback function** telling it what to do once the server is
 running. Need clarification? Read more about the `app.listen` method in the
-[Express documentation](http://expressjs.com/en/4x/api.html#app.listen).
+[Express documentation](https://expressjs.com/en/4x/api.html#app.listen).
 
 We're going to run our server on port `3000`, and run a simple `console.log` as
 our callback function. Update your `server.js` file, calling the `app.listen`
@@ -213,7 +213,7 @@ to send back in your response.
 
 ### What does a handler function look like in Express?
 
-The `get()` [method](http://expressjs.com/en/api.html#app.get.method) is used to
+The `get()` [method](https://expressjs.com/en/api.html#app.get.method) is used to
 define a handler function in Express. It takes two parameters: the **endpoint**
 at which to trigger an action (we'll explain more about this in the next step),
 and the handler function that tells it exactly what to do. Here's a simple
@@ -256,7 +256,7 @@ app.listen(3000, function() {
 
 We want our handler function to send back a message to the client. To do that,
 we're going to use the Express `send()`
-[method](http://expressjs.com/en/api.html#res.send). This will update the
+[method](https://expressjs.com/en/api.html#res.send). This will update the
 response object with the message.
 
 Update your handler function like so:
@@ -305,7 +305,7 @@ request.
 
 ### What is URL?
 
-![alt text](https://github.com/CodeYourFuture/syllabus/blob/scotland/node-db/http1-url-structure.png "URL")
+![URL structure](../assets/http1-url-structure.png "URL")
 
 ## 1. Create your own endpoints and send different responses
 
@@ -339,7 +339,7 @@ something different than just using the `res.send()` method.
 
 To be able to send any file from the server we need a special, built-in
 **middleware** function that comes with Express: `express.static()`. Read more
-about it [here](http://expressjs.com/en/starter/static-files.html).
+about it [here](https://expressjs.com/en/starter/static-files.html).
 
 Say we want to serve all the static assets in our "public" folder. The
 `express.static()` function will look like this:

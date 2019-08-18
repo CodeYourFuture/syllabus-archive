@@ -201,7 +201,7 @@ Let's put the **Menu** in a partial.
 1. Go to `layout/main.handlebars` and cut the `<nav>` with all its contents, and
    move it to a new file called `menu.handlebars` under `views/partials`.
 
-Then to use the partial, add `{{> menu}}` in the place where you cut the
+Then to use the partial, add {% raw %} `{{> menu}}` {% endraw %} in the place where you cut the
 original menu from.
 
 ## More Templating
@@ -214,6 +214,7 @@ For now, we will finish by using the **each** helper.
 
 ### Dynamically loading the templates
 
+{% raw %}
 ```html
 {{#each posts}}
     <div class="post-preview">
@@ -228,6 +229,7 @@ For now, we will finish by using the **each** helper.
     </div>
 {{/each}}
 ```
+{% endraw %}
 
 In the `route`, let's load the file in `data/posts.json`:
 

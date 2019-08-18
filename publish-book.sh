@@ -2,14 +2,24 @@
 
 DATE=$(date +%Y%m%d_%H%M%s)
 TRAVIS_BRANCH="$1"
+IS_TRAVIS_PR="$2"
 
-if [ "$#" -ne 1 ]; then
+if [ "$#" -ne 2 ]; then
 	echo "Please provide a branch (master, london, scotland)"
 	exit 1
 fi
 
-REPO_NAME="syllabus-$TRAVIS_BRANCH"
+if [[ $IS_TRAVIS_PR -ne "false" ]]; then
+	echo "Pushed PR. Stopping"
+	exit 1
+fi
 
+if [[ ! $TRAVIS_BRANCH =~ ^(master|london|scotland)$ ]]; then
+	echo "Pushed to non-deployable branch. Stopping"
+	exit 1
+fi
+
+REPO_NAME="syllabus-$TRAVIS_BRANCH"
 
 git clone git@github.com:codeyourfuture/$REPO_NAME.git
 cp -a _book/* ./$REPO_NAME

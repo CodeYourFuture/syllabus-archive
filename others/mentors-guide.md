@@ -1,4 +1,6 @@
-From http://www.codebar.io/effective-teacher-guide
+# Mentors guide
+
+From <http://www.codebar.io/effective-teacher-guide>
 
 * You don't need a laptop for our workshops. You are there to watch and guide
   the students. If you don't feel comfortable with the tutorial you should spend

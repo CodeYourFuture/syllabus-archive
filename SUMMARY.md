@@ -20,6 +20,11 @@
   * [Week 10 - Unit Tests and TDD](/js-core-3/week-10/lesson.md) | [Homework](/js-core-3/week-10/homework.md)
   * [Week 11 - More TDD, ES6](/js-core-3/week-11/lesson.md) | [Homework](/js-core-3/week-11/homework.md)
   * [Week 12 - Recap](/js-core-3/week-12/lesson.md) | [Homework](/js-core-3/week-12/homework.md)
+* [React](/react/index.md)
+  * [Week 19 - React 101](/react/week-19/lesson.md) | [Homework](/react/week-19/homework.md)
+  * [Week 20 - Reacting to Changes](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)
+  * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
+  * [Week 22 - Routing (optional)](/react/week-22/lesson.md)
 * [Node/DB I](/node-db/index.md)
   * [Week 13 - Node and Express 101](/node-db/week-13/lesson.md) | [Homework](/node-db/week-13/homework.md) | [Workshop](/node-db/week-13/workshop.md)
   * [Week 14 - Middleware, Templating and APIs](/node-db/week-14/lesson.md) | [Homework](/node-db/week-14/homework.md)
@@ -28,11 +33,6 @@
   * [Week 16 - Introduction to SQL](/node-db/week-16/lesson.md)
   * [Week 17 - More SQL and integration with NodeJS](/node-db/week-17/lesson.md)
   * [Week 18 - More integration with NodeJS](/node-db/week-18/lesson.md)
-* [React](/react/index.md)
-  * [Week 19 - React 101](/react/week-19/lesson.md) | [Homework](/react/week-19/homework.md)
-  * [Week 20 - Reacting to Changes](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)
-  * [Week 21 - Fetching Data](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
-  * [Week 22 - Routing (optional)](/react/week-22/lesson.md)
 
 ## Workshops and other tutorials
 

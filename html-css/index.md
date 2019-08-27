@@ -1,7 +1,7 @@
 # HTML & CSS
 
-| Weeks                          | Content                                                                        |
+| Lesson                          | Content                                                                        |
 | ------------------------------ | ------------------------------------------------------------------------------ |
-| [week-01](./week-01/lesson.md) | Semantic HTML tags . CSS Selectors . CSS Cascades . Pseudo Classes . Box model |
-| [week-02](./week-02/lesson.md) | Responsive web design . Media queries . Flexbox (Content Layouts)              |
-| [week-03](./week-03/lesson.md) | Design frameworks . Naming patters . Forms . CSS processors                    |
+| [week-1](./week-1/lesson.md) | Semantic HTML tags . CSS Selectors . CSS Cascades . Pseudo Classes . Box model |
+| [week-2](./week-2/lesson.md) | Responsive web design . Media queries . Flexbox (Content Layouts)              |
+| [week-3](./week-3/lesson.md) | Design frameworks . Naming patters . Forms . CSS processors                    |

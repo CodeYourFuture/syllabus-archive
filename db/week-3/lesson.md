@@ -14,7 +14,7 @@
 
 ## Recap integration of cyf_hotels DB with NodeJS
 
-For this class, we will use the tables and data from [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql). To start from a clean state for your `cyf_hotels` database, run `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
+For this class, we will use the tables and data from [`cyf_hotels_exercise5.sql`](../week-1/cyf_hotels_exercise5.sql). To start from a clean state for your `cyf_hotels` database, run `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
 
 During the last class, we created a new NodeJS project called `cyf-hotels-api` with a single API endpoint `/hotels` to get the list of all hotels. In this class, we will add other endpoints with more functionalities to interact with the `cyf_hotels` database.
 

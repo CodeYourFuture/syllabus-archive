@@ -8,6 +8,7 @@ By the end of the module students should be able to:
 - Create a React function component
 - Nest components within other components
 - Use interpolation (`{}`) to insert JavaScript expressions into JSX
+  - And be able to distinguish between them when reading
 - Render a list using the `.map` method
 - Render components conditionally
   - Using ternary operator and logical AND (`&&`)

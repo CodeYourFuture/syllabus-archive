@@ -1,45 +1,6 @@
 # Mentor's Notes - React 1
 
-## Learning Objectives
-
-By the end of the module students should be able to:
-
-- Create a React application with create-react-app
-- Create a React function component
-- Nest components within other components
-- Use interpolation (`{}`) to insert JavaScript expressions into JSX
-  - And be able to distinguish between them when reading
-- Render a list using the `.map` method
-- Render components conditionally
-  - Using ternary operator and logical AND (`&&`)
-- Can add styles to elements using `className` (instead of `class` attribute)
-- Pass values to components as React props
-  - Receive props in a component (both function and class components)
-  - Pass functions as props and call them in child components
-- Convert a function component to a class component
-- Be able to pass functions to event handlers
-- Create a simple counter component, demonstrating knowledge of React state
-  - Be able to initialise & render state variables
-  - Be able to set state using basic object style and based on previous state
-- Identify when to use props or state
-- "Clean up" a component when it is unmounted
-- Show some data from an API in a component
-  - Understand that `render` will be called before data is available and handle this appropriately
-  - Use `componentDidMount` lifecycle method to trigger `fetch()`
-  - Be able to hold data, loading & error states and render correctly based on these
-- Create a simple form in React
-  - Use the controlled component pattern
-- Build and deploy a React application (to Netlify/Now/Heroku/etc)
-
-### Out of scope
-
-The following topics are considered out of scope:
-
-- JavaScript classes/inheritance
-- CSS-in-JS
-- In depth functional programming
-- Libraries in the React ecosystem e.g. Redux/MobX, React Router
-- React Hooks (for now)
+{% include "./learning-objectives.md" %}
 
 ## Notes for mentors
 

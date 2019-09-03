@@ -1,5 +1,9 @@
 # Mentor's Notes - React 3
 
+{% include "./learning-objectives.md" %}
+
+## Nots for mentors
+
 - Unmounting
   - Open dev tools and show how DOM updates - shows that the DOM is changing in response to React
 - Lifecycle

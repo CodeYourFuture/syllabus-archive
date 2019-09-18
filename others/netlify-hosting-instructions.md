@@ -99,7 +99,7 @@ If you decide you don't want your site hosted:
 
 # Advanced Section: You can ignore this!
 
-Jon R Sharpe suggests these improvements:
+To make updating your site easier, you can make some small adjustments (suggested by Jon R Sharpe):
 
 - You can specify the deploy directory in the Netlify `deploy` command, by adding `--dir ./build`. This way, it won't ask you to type it in.
   Example:

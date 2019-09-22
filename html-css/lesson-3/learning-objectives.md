@@ -16,15 +16,13 @@
 
 - More Field Types
 
-* [ ] Can: identify the type of form input likely in use in a sample form.
+* [ ] Can: identify the type of form input likely in use in a smple form.
 * [ ] Can: select the correct form inputs when building a simple form.
 
 - Fieldsets
 - Form field Attributes
 
 * [ ] Can answer: What's the purpose of a form field's `required` attribute? What about its `readonly`, `value`, or `checked` attributes?
-
-* [ ] Can answer: When should you use GET or POST as a form's `method` attribute?
 
 ### Accessibility
 
@@ -39,3 +37,6 @@
 # Git learning objectives
 
 ## Git Merge Conflicts
+
+- [ ] Can answer: What are Git conflicts and why do they arise?
+- [ ] Can answer: What is a good way to avoid conflicts?

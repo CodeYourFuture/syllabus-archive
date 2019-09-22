@@ -6,6 +6,7 @@ _The learning objectives under a given topic may be achieved over the multiple w
 
 ### tags vs attributes
 
+- [ ] Can answer: What is a HTML tag?
 - [ ] Can answer: What is a HTML attribute?
 
 ### Forming a hierarchy by nesting tags
@@ -20,10 +21,9 @@ _The learning objectives under a given topic may be achieved over the multiple w
 ## Semantic HTML tags
 
 - [ ] Can answer: What is semantic HTML?
+- [ ] Can: Give examples of semantic tags, and non-semantic tags.
 
-## Separation of concerns (HTML/CSS/JS)
-
-- [ ] Can answer: "Why do we separate HTML, CSS and JavaScript?"
+<!-- Idea for exercise: Here is some unsemantic markup (divs everywhere) - edit it to make it more semantic -->
 
 ### Linking Resources
 
@@ -36,6 +36,7 @@ _The learning objectives under a given topic may be achieved over the multiple w
 - [ ] Can answer: What is the difference between a tag, class, and ID selector?
 - [ ] Can answer: What is an attribute selector in CSS and how does it relate to the HTML code?
 - [ ] Can: recognise some simple attribute selectors and state their purpose.
+- [ ] Can answer: What is specificity in CSS?
 
 ## CSS Properties
 
@@ -45,11 +46,16 @@ _The learning objectives under a given topic may be achieved over the multiple w
 ## The Box Model
 
 - [ ] Can answer: What is the CSS box model?
-- [ ] Can answer: What properties modify the box model in CSS?
+- [ ] Can answer: What CSS properties does the box model refer to?
 
 # Git Learning Objectives
 
 ## Git Branching
 
-- [ ] Can: fork a project on GitHub
-- [ ] Can: commit changes locally and push to their fork
+- [ ] Can: Fork a project on GitHub
+- [ ] Can: Clone a project from the terminal
+- [ ] Can answer: What is the difference between forking and cloning?
+- [ ] Can: Create a branch
+- [ ] Can: commit changes locally and push to their branch
+- [ ] Can answer: What is the difference between committing and pushing in Git?
+- [ ] Can answer: Why do we create branches in Git?

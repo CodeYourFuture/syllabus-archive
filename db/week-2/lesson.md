@@ -17,7 +17,7 @@
 
 ## More SQL
 
-For the following, use the file [`cyf_hotels_exercise5.sql`](../week-16/cyf_hotels_exercise5.sql) from the previous class to reinitialise your database with `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
+For the following, use the file [`cyf_hotels_exercise5.sql`](../week-1/cyf_hotels_exercise5.sql) from the previous class to reinitialise your database with `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
 
 ### Changing the definition of a table
 

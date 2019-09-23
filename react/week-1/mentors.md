@@ -1,5 +1,9 @@
 # Mentor's Notes - React 1
 
+{% include "./learning-objectives.md" %}
+
+## Notes for mentors
+
 - Components - talk about the conceptual idea components, not just React components
   - E.g. bootstrap components
 - Why React?

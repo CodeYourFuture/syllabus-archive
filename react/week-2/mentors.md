@@ -1,5 +1,9 @@
 # Mentor's Notes - React 2
 
+{% include "./learning-objectives.md" %}
+
+## Notes for mentors
+
 - Class components section
   - Students often get tripped on converting between functional & class components
   - Common problem - `render(props)` instead of using `this.props`

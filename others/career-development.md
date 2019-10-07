@@ -65,12 +65,42 @@ Flexibly working whist studying  - Part of a small team in a busy hotel bar – 
 
 Don’t try to hide gaps in employment. Explain them if more than a few months. Having said that, if you have unpaid volunteer work – add this as a job. Expand on it if it provided relevant experience. 
 
-CV guides
+### CV Layout
+
+The layout of the CV should be right for the role you’re applying for – an accountant’s cv should be boring (would you hire a creative accountant?). A creative’s cv can be more visually appealing – but it’s tricky to get right. Like all things, for your CV, content is king – layout and eye-appeal is secondary – and in many cases, if done badly can detract from the content.
+
+2-column CVs are best avoided. But some are worse than others.
+
+![Equal columns](equal-columns.png)
+
+In this 2-column example, 2-column format is applied to all of CV text so that the top of both columns is likely to be very different content – this makes it more difficult to read and can trip up screen reading and applicant tracking systems (ATSs) if it tries to read across a line. 
+
+Also – CVs are usually compiled with the most important information at the top of page 1, and the least important at the top of page 2. The 2-col format can distort this – leaving your best information at the bottom of the page.
+
+![Minor column](minor-column.png)
+
+One 2-column format that can work is using a 2nd ‘minor’ column for keywords and skills – to highlight the experience in the main body. It can be a lot of work to set this up and it still can trick an ATS in to trying to parse it as a single line. 
+
+If you absolutely have to have a 2-column format – this is going to be the best.
+
+Bottom line - avoid the 2 columns, it doesn’t gain you enough for the problems it causes.
+
+**File format**
+
+Avoid PDF if you can. PDFs can be tricky to copy and paste from - often adding line breaks to text blocks that line-wrap.  (Agencies often reformat your CV to fit their house style in order to present it to clients – making copy & paste more difficult will not help them).
+
+DOC or DOCX / Word format is preferred by most employers and agents. It's easy to manipulate and copy into systems, and still the ‘industry standard’ CV format. Never embed macros into the doc – most email virus systems will filter these by default.
+
+RTF (rich text) – this is still popular, and if you can make it look good in RTF it is light and easy to maintain. 
+
+Whatever the format - never more than 15mb file size. Keep graphical elements to a minimum.
+
+### CV Guides
 
 - <https://nationalcareers.service.gov.uk/get-a-job/cv-sections>
 - <http://www.energizerecruitment.co.uk/software-developers-guide-writing-cv-2017/>
 
-CV samples
+### CV Samples
 
 - <https://www.livecareer.co.uk/cv-search/r/front-end-web-developer-31839afbd6b640429d637cdda953561c>
 - <https://www.livecareer.co.uk/cv-search/r/front-end-developer-00fdd3a63d27437d899f94a70df420be>

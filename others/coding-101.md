@@ -1,16 +1,16 @@
-![Status: Draft](https://camo.githubusercontent.com/997591db1749880b8b23c96b8f788e69af09c04d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d64726166742d6461726b7265642e737667)
-
 # Coding 101
+
+![Status: Draft](https://camo.githubusercontent.com/997591db1749880b8b23c96b8f788e69af09c04d/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f7374617475732d64726166742d6461726b7265642e737667)
 
 **What we will learn today?**
 
 * What is a computer program?
 * Getting started with JavaScript
 
-## What is a computer program?
+## What is a computer program
 
 > Intro to programming logic – Making a sandwich (Source:
-> http://static.zerorobotics.mit.edu/docs/team-activities/ProgrammingPeanutButterAndJelly.pdf)
+> <http://static.zerorobotics.mit.edu/docs/team-activities/ProgrammingPeanutButterAndJelly.pdf>)
 
 1. Ask the students what they think a program is at its most basic level
    * Guide, if necessary, towards the idea that its instructions or an action
@@ -23,7 +23,7 @@
 3. Ask the students what items we will need to make a sandwich:
    * As they shout them out list them on the screen for the whole class to see
    * Introduce the concept of objects and classes. Tie into the idea of how in a
-     program these would be the ‘tools’ required for an activity and how for our
+     program these would be the 'tools' required for an activity and how for our
      sandwich making task the items we have listed previously are our classes
 4. Now that we have all of the tools we need to make a sandwich ask the students
    to shout out what they think the first step or instruction is:
@@ -46,7 +46,7 @@
 ## Getting started with JavaScript
 
 We will spend most of this lesson in Codepen. To get started, go to
-[codepen.io/pen/](codepen.io/pen/) to create a new Pen. On the bottom left,
+<https://codepen.io/pen> to create a new Pen. On the bottom left,
 click the "Console" button to open the console.
 
 ![Codepen console](assets/codepen-console.png)
@@ -68,7 +68,7 @@ variable.
 Variables have a name (_identifier_) that we can use to refer to a value. You
 can assign a value to a variable with the following statement:
 
-```
+```js
 var x = 3;
 ^   ^ ^ ^
 |   | | value
@@ -77,7 +77,7 @@ var x = 3;
 declaration statement
 ```
 
-Let’s break this statement down:
+Let's break this statement down:
 
 * `var`: With the `var` statement we tell the JavaScript engine that `x` is now
   a variable
@@ -98,7 +98,7 @@ Now you can use the identifier instead of the actual value in an expression:
 
 ### Numbers
 
-Let’s start with something seemingly simple - numbers. Here are some:
+Let's start with something seemingly simple - numbers. Here are some:
 
 ```js
 1;
@@ -133,7 +133,7 @@ precedence than `+` and `-`.
 Strings represent any sort of text. They are delimited by single quotes (`'`) or
 double quotes (`”`) and can be of any length.
 
-```
+```js
 '' // empty string
 "" // empty string
 'Hello'
@@ -143,14 +143,14 @@ double quotes (`”`) and can be of any length.
 ```
 
 > If you need single or double quotes _inside the string_, you need to “escape”
-> them by putting a backslash in front of them. If you don’t do this, the
+> them by putting a backslash in front of them. If you don't do this, the
 > JavaScript engine will think the string ends here, because it encounters a
 > quote.
 
 The most common operation on strings is to append one string to another. This is
-called _string concatenation_. It’s achieved by the plus (`+`) operator:
+called _string concatenation_. It's achieved by the plus (`+`) operator:
 
-```
+```js
 "Hello" + "World" // "HelloWorld"
 ```
 
@@ -199,11 +199,11 @@ true && true; // true
 > **Exercise**: Put simple mathematical expressions into the console: `2 * 2`,
 > `2 + 2`, `5 * 7 - 13` > **Exercise**: Calculate the area of a circle (`r * r *
 > pi`). Do a quick Google search on how to use PI in JavaScript.
-
+>
 > See what happens when you "add" two strings together
-
+>
 > Research the JS Math library. sqrt, floor, ceil, round
-
+>
 > Write an expression that outputs the percentage of students who are female.
 > Make it so it outputs it as `58%`, and make sure you use the actual numbers of
 > women and the total number of students. Solution: `console.log(Math.round(7 /

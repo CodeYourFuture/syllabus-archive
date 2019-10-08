@@ -1,52 +1,41 @@
 # [CYF Syllabus](https://codeyourfuture.github.io/syllabus-master/) [![Build Status](https://travis-ci.org/CodeYourFuture/syllabus.svg?branch=master)](https://travis-ci.org/CodeYourFuture/syllabus) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/CodeYourFuture/syllabus/blob/master/CONTRIBUTING.md)
 
 This is the syllabus and course material for
-[Code Your Future](http://codeyourfuture.co/), a not-for-profit volunteer-run
-coding school for refugees and asylum seekers.
+[Code Your Future](https://codeyourfuture.io/) (CYF),
+a not-for-profit volunteer-run coding school for refugees and asylum seekers.
 
 During the course you will learn a technology stack that helps you build
-anything from a simple website to a powerful database-driven web application or
-even a mobile app!
+anything from a simple website to a powerful database-driven web application!
 
-The six-months course contains:
+The eight-month course contains:
 
-* HTML/CSS
-* Core JavaScript
-* Backend development using [NodeJS](https://nodejs.org)
-* Modern front-end development with [React](https://facebook.github.io/react/)
+* HTML
+* CSS
+* JavaScript
+* Back-end development using [NodeJS](https://nodejs.org)
+* Front-end development using [React](https://reactjs.org/)
 
-We’ll complement the training with workshops on modern software methodologies
-and job interview practices, etc.
+We'll complement the course with workshops on modern software methodologies
+and job interview practices.
 
 ## Students
-* If you're interested in joining the program, please
-[refer to the main code your future website](https://codeyourfuture.io/students).
-* If you're looking for the active course,
-[you can find it here](https://codeyourfuture.github.io/syllabus-master/),
-or click on the 'CYF Syllabus' link at the very top of
-this readme.
-* If you're looking for the summary file, [it's here](/SUMMARY.md).
 
-## Code Of Conduct
-You can find our full code of conduct [here](conduct.md).
-
-## Contributing
-
-The current syllabus is thanks to the hard work by our amazing
-mentors who have dedicated many hours to discussing and contributing content
-and teaching.
-
-Please read our [Contributing](CONTRIBUTING.md) guide to get started with how
-you can contribute to the CYF syllabus, or the projects we have for our
-students.
+If you're interested in joining the program, please
+[apply through our website](https://codeyourfuture.io/students).
 
 ## Getting involved
 
-Do you want to get involved? we are looking for:
+We are looking for volunteers in London, Glasgow, Manchester and Rome.
+Both coders and non-coders can help out in a variety of ways
+that suit your skills and with varying commitment levels
+depending on how much time you can give.
+Please [contact us to get involved](https://codeyourfuture.io/volunteers/)!
 
-* Lead Mentors (in London, Glasgow and Manchester)
-* Fun projects and workshops for learning Javascript
-* PR Reviewers for student homeworks
-* Other volunteers
+## Contributing
 
-Please [contact us](https://codeyourfuture.io/apply/mentor) to get involved!
+Please read our [Contributing guide](CONTRIBUTING.md) to get started with how
+you can contribute to the CYF syllabus.
+
+## Code Of Conduct
+
+You can find our full [code of conduct here](CODE_OF_CONDUCT.md).

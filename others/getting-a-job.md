@@ -1,6 +1,8 @@
-# Career Development
+# Getting A Job
 
 ## CV
+
+This CV section is relevant for people applying to jobs within the UK.
 
 ### Best practice
 
@@ -9,21 +11,27 @@
   - Name
   - Email (sensible one - no sexy_lulu@hotmail.com etc)
   - Phone number
-  - Your city (not your full address since this is personal information! If they need it they'll ask for it later)
+  - Your city (not your full address since this is personal information!
+    If they need it they'll ask for it later)
   - If you have a LinkedIn profile you can add a link to it here. (Your LinkedIn profile should have the same info/dates.)
-- Use the following sections, and only populate them with relevant details starting from the most recent first
+- Use the following sections, and only populate them with relevant details
+  starting from the most recent first
   1. Summary (optional)
-      - Summary is who you are now, a short ‘brag’ and what you want to do next. Examples below:
+     - Summary is who you are now, a short ‘brag’ and what you want to do next. Examples below:
   2. Skills
   3. Employment
-     - Use action verbs for each bullet point (see: <https://www.indeed.com/career-advice/resumes-cover-letters/action-verbs-to-make-your-resume-stand-out>)
-     - Show your accomplishments, with numbers if you can (e.g. Improved landing page time to interactive by 50%)
+     - Use action verbs for each bullet point
+       (see: <https://www.indeed.com/career-advice/resumes-cover-letters/action-verbs-to-make-your-resume-stand-out>)
+     - Show your accomplishments, with numbers if you can
+       (e.g. Improved landing page time to interactive by 50%)
      - See employment explained section, below
-  4. Education (this can go above Employment if the last thing you did was education and not work)
+  4. Education (this can go above Employment if the last thing
+     you did was education and not work)
   5. Personal projects
   6. Interests (optional)
 
 ### Resources
+
 #### Profile section explained
 
 A profile section says who you are now, a quick summary of skills/experience (1-2 sentences) and what you want to do next. It needs to use action verbs and describe the job you’re applying for. Change this section depending on the role you apply to, copying the phrases used in the ad. Stay away from “I am” (1st person) or Nick is” (3rd person) – aim for a 3rd person ‘impersonal’ tone – 
@@ -71,13 +79,13 @@ The layout of the CV should be right for the role you’re applying for – an a
 
 2-column CVs are best avoided. But some are worse than others.
 
-![Equal columns](equal-columns.png)
+![Equal columns](assets/getting-a-job/equal-columns.png)
 
 In this 2-column example, 2-column format is applied to all of CV text so that the top of both columns is likely to be very different content – this makes it more difficult to read and can trip up screen reading and applicant tracking systems (ATSs) if it tries to read across a line. 
 
 Also – CVs are usually compiled with the most important information at the top of page 1, and the least important at the top of page 2. The 2-col format can distort this – leaving your best information at the bottom of the page.
 
-![Minor column](minor-column.png)
+![Minor column](assets/getting-a-job/minor-column.png)
 
 One 2-column format that can work is using a 2nd ‘minor’ column for keywords and skills – to highlight the experience in the main body. It can be a lot of work to set this up and it still can trick an ATS in to trying to parse it as a single line. 
 
@@ -95,16 +103,23 @@ RTF (rich text) – this is still popular, and if you can make it look good in R
 
 Whatever the format - never more than 15mb file size. Keep graphical elements to a minimum.
 
-### CV Guides
+### CV guides
 
 - <https://nationalcareers.service.gov.uk/get-a-job/cv-sections>
 - <http://www.energizerecruitment.co.uk/software-developers-guide-writing-cv-2017/>
 
-### CV Samples
+### CV samples
 
 - <https://www.livecareer.co.uk/cv-search/r/front-end-web-developer-31839afbd6b640429d637cdda953561c>
 - <https://www.livecareer.co.uk/cv-search/r/front-end-developer-00fdd3a63d27437d899f94a70df420be>
-- <https://www.brookes.ac.uk/students/careers/students-and-graduates/cv-guide/mature-graduate-cv/>—useful reference for people with gaps in their CV
+- <https://www.brookes.ac.uk/students/careers/students-and-graduates/cv-guide/mature-graduate-cv/>
+  — useful reference for people with gaps in their CV
+
+## Cover letter
+
+A cover letter is essential for job applications.
+Ensure you provide one for each of your job applications.
+You can search the internet to find various cover letter guides and samples.
 
 ## Interviews
 
@@ -119,12 +134,18 @@ Technical interview questions with answers (intermediate-level)
 
 Questions to ask the company
 
-- <https://github.com/Twipped/InterviewThis>—some of these questions are great, but some are not so good
+- <https://github.com/Twipped/InterviewThis>
+  — some of these questions are great, but some are not so good
+
+Live interview practice
+
+- <https://www.pramp.com/>
 
 ## Personal projects
 
 Personal projects are a good way to build up your portfolio of code projects on Github.
-They are very useful for employers to see how you code and also demonstrate your enthusiasm.
+They are very useful for employers to see how you code
+and also demonstrate your enthusiasm.
 
 Inspiration for personal projects
 
@@ -143,8 +164,11 @@ Easier open source issues for people starting with open source contribution
 - <https://github.com/MunGell/awesome-for-beginners>
 - <https://firstcontributions.github.io/>
 
-## Miscellaneous
+How to contribute to an open source project on GitHub
 
-Quizzes for fun
+- <https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github>
 
-- <https://davidshariff.com/quiz/>
+## Other
+
+- [Tips for creating your own portfolio website](https://skillcrush.com/2015/03/12/impressive-tech-portfolio/)
+- [Career tips from HackYourFuture, a refugee code school in Amsterdam](https://github.com/HackYourFuture/alumni/wiki)

@@ -1,10 +1,10 @@
 # Summary
 
-### Course
+## Course
 
 * Before you start
   * [Week 0 - Introduction and basic setup](/others/lesson0.md)
-  * [House Rules](house-rules.md)
+  * [House Rules](/others/house-rules.md)
 * [HTML/CSS](/html-css/index.md)
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md) | [Homework](/html-css/week-01/homework.md)
   * [Week 2 - Responsive Web, Layout and Flexbox](/html-css/week-02/lesson.md) | [Homework](/html-css/week-02/homework.md)
@@ -34,26 +34,29 @@
   * [Week 20 - State](/react/week-20/lesson.md) | [Homework](/react/week-20/homework.md)
   * [Week 21 - React-router & Recap](/react/week-21/lesson.md) | [Homework](/react/week-21/homework.md)
 
-### Useful information
-
-* [Code of Conduct](CODE_OF_CONDUCT.md)
-* [Useful links](/others/useful-links.md)
-* [Coding Standards and Best Practices](/others/PRACTICES.md)
-* [Making a Pull Request](/others/making-a-pull-request.md)
-* [Career Development](/others/career-development.md)
-
-### Workshops and other resources
+## Workshops and other tutorials
 
 * [Coding 101](/others/coding-101.md)
-* Instructions: [Compiling SCSS](/html-css/compile-scss-instructions.md)
-* [Express Workshop](/node-db/week-13/workshop.md)
-* [Hotel Workshop](/node-db/week-15/workshop.md)
+* [Compiling SCSS](/html-css/compile-scss-instructions.md)
+* [Express Workshop](/node/week-1/workshop.md)
+* [Hotel Workshop](/node/week-3/workshop.md)
+* [MongoDB 101](/others/mongodb-101.md)
 * [AWS - DynamoDB](/others/aws-workshop-2.md)
-* [Java module](https://github.com/Thomas-Stewart/syllabus/tree/master/java)
+* [Java module](/others/java.md)
 
-### For Mentors
+## For Students
 
+* [Coding Standards and Best Practices](/others/coding-standards.md)
+* [Making a Pull Request](/others/making-a-pull-request.md)
+* [CORS](/others/cors.md)
+* [Hosting React apps with Netlify](/others/netlify-hosting-instructions.md)
+* [Node Version Manager](/others/node-version-manager.md)
+* [Getting A Job](/others/getting-a-job.md)
+* [Developer Links](/others/developer-links.md)
+
+## General information
+
+* [CodeYourFuture](others/code-your-future.md)
+* [House Rules](/others/house-rules.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
 * [Contributing](CONTRIBUTING.md)
-* [Lesson Template](/others/lesson-template.md)
-* JavaScript I
-  * [Week 4 - Hello JavaScript](/js-core/week-04/mentors.md)

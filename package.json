@@ -1,33 +1,27 @@
 {
   "name": "syllabus",
   "version": "1.0.0",
-  "description": "This is the course material for [Code Your Future](http://codeyourfuture.co/), a not-for-profit volunteer-run coding school for refugees and asylum seekers.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
+  "description": "This is the course material for Code Your Future, a not-for-profit volunteer-run coding school for refugees and asylum seekers.",
+  "homepage": "https://codeyourfuture.io/",
+  "bugs": {
+    "url": "https://github.com/CodeYourFuture/syllabus/issues"
   },
-  "dependencies": {
-    "gitbook-plugin-prism": "^2.3.0",
-    "gitbook-plugin-scripts": "^1.0.2",
-    "gitbook-plugin-todo": "^0.1.3",
-    "markdownlint-cli": "^0.8.1"
-  },
-  "devDependencies": {
-    "gitbook": "^3.2.3",
-    "gitbook-cli": "^2.3.2"
-  },
-  "scripts": {
-    "test": "markdownlint ./html-css ./js-core",
-    "build": "gitbook install && gitbook build"
-  },
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Code-Your-Future/syllabus.git"
+    "url": "https://github.com/CodeYourFuture/syllabus.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Code-Your-Future/syllabus/issues"
+  "scripts": {
+    "serve": "gitbook install && gitbook serve",
+    "build": "gitbook install && gitbook build",
+    "test": "markdownlint ./html-css ./js-core"
   },
-  "homepage": "https://github.com/Code-Your-Future/syllabus#readme"
+  "dependencies": {
+    "gitbook": "^3.2.3",
+    "gitbook-plugin-prism": "^2.4.0"
+  },
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2",
+    "markdownlint-cli": "^0.17.0"
+  }
 }

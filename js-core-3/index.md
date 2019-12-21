@@ -4,6 +4,6 @@ Example structure:
 
 | Week | Content                                 |
 | ---- | --------------------------------------- |
-| 1    | JSON <br> HTTP, AJAX, APIS              |
-| 2    | Promises <br> fetch                     |
-| 3    | Classes and Object Oriented Programming |
+| [week-1](./week-1/lesson.md) | JSON, HTTP, AJAX, APIS |
+| [week-2](./week-2/lesson.md) | Promises, fetch |
+| [week-3](./week-3/lesson.md) | Classes and Object Oriented Programming |

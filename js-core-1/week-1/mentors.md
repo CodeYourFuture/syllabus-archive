@@ -21,3 +21,5 @@ Also suggest adding filter() to array methods section.
 [-]Students confuse returns and console.logs
 [-]It's difficult for students to differentiate between variables the coder has created, and reserved words that are built into javascript. e.g. multiply() vs push()
 [-]The Predicates section was spent mostly trying to grasp typeof. Not sure if this is just a good opportunity to teach typeof, or if it distracts from the point of the lesson i.e. predicates?
+
+[-] Students make some confusions between the function definition and the function call during the tdd exercises. They try to reuse the values or the variables passed as parameters when calling the function inside the function itself. For Example, given the definition: function addOne(numbers) and the call: addOne(myArray), students try to use the name myArray inside the function or they think that the parameter in the function definition should be called myArray... 

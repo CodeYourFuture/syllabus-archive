@@ -3,8 +3,7 @@
 ## Course
 
 * [Introduction](/introduction/index.md)
-  * [Week 0.1 - Introduction](/introduction/week-1/lesson.md)
-  * [Week 0.2 - Introduction](/introduction/week-2/lesson.md)
+  * [Week 1](/introduction/week-1/lesson.md)
 * [HTML/CSS](/html-css/index.md)
   * [Week 1 - Semantic HTML and CSS](/html-css/week-1/lesson.md)
   * [Week 2 - Responsive Web and layout](/html-css/week-2/lesson.md)

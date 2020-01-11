@@ -2,5 +2,4 @@
 
 | Weeks                          | Content                                                        | Learning Objectives                                    |
 | ------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------ |
-| [week-1](./week-1/lesson.md)   | Introduction to CodeYourFuture. Introduction to your machine.  | [learning objectives](./week-1/learning-objectives.md) |
-| [week-2](./week-2/lesson.md)   | Programming concepts. Git.                                     | [learning objectives](./week-2/learning-objectives.md) |
+| [week-1](./week-1/lesson.md)   | TODO | [learning objectives](./week-1/learning-objectives.md) |

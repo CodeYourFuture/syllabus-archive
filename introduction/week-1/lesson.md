@@ -35,13 +35,6 @@ It is important that you get on well with your machine!
 
 Alastair TBD
 
-### Introduction to VS Code
-
-TBD
-
-It can be easy to make spelling mistakes when coding.
-Let's install a [spell checker extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) which will help reduce the number of errors made coding.
-
 ### Introduction to Slack
 
 [Slack](https://slack.com/) is a team communication tool that we will use to communicate with each other throughout the whole course.
@@ -74,10 +67,64 @@ Exercises:
 2. A mentor will now post a message asking what your favourite hobby is. Reply in a thread with your favourite hobby!
 
 For bonus points, react with an emoji to your classmate's answers!
- 
+
+### Introduction to VS Code
+
+[VS Code](https://code.visualstudio.com/) is the application we will use to write code.
+
+#### File tree view
+
+VS Code has an **Explorer** sidebar on the left side which displays files in a tree view.
+Creating, renaming and moving files can be done directly in VS Code.
+
+![IDE file tree](../assets/file-tree.png)
+
+#### Finding files
+
+When working with big projects, you will often need to find a file quickly, without having to go through the tree view manually.
+The keyboard shortcut to do this is: `Ctrl + P` (or `Cmd + P` on Mac)
+
+![IDE find file](../assets/find-file.gif)
+
+#### Auto-complete
+
+VS Code has auto-completion, which gives you suggestions of what you can can write next when you type something.
+For example, when writing a CSS property, it will tell you what values you can assign it to:
+
+![IDE auto complete](../assets/ide-auto-complete.png)
+
+#### Spell-checking
+
+It can be easy to make spelling mistakes when coding, however VS Code does not have in-built spell-checking.
+Let's install a [spell checker extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) which will help reduce the number of errors made coding.
+
 ### Introduction to the terminal
 
-TBD
+During your course journey and onwards, the **terminal** (also known as **command line**) will be one of your most valuable tools.
+It will help you to interact with you computer faster, by helping you to:
+
+- Create and delete files
+- Install web development tools
+- Use source control (explained in the next lesson)
+- Start a server
+
+All this will make sense as we progress with the lessons.
+For now, we would like you to get familiar with it by following this tutorial:
+
+- [Learn the command line](https://www.codecademy.com/learn/learn-the-command-line)
+
+#### Commonly used commands
+
+There's a set of commands you should become comfortable with during the course to allow you to effectively move around the filesystem and write software on your laptop.
+
+* `cd` - change directory. To move up into the parent directory use: `cd ..`
+* `ls` - list the contents of a directory.
+  Can also be used as `ls [directory_name]` to list the contents of a specific directory without actually moving (with `cd`) to it
+* `pwd` - print the full location of your current directory
+* `mkdir [name]` - create a new directory, with the given `name` after a space
+* `touch [file_name]` - create a new file, with the given name (don't forget to add the extension, like `.css` or `.html`)
+* `rm [file_name]` - remove a file
+* `rm -r [directory_name]` - remove a directory (**and all files inside that directory**)
 
 ## Short break
 

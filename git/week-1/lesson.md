@@ -69,12 +69,28 @@ In your teams you should.
 
 Be careful! Don't all add words at the same time!
 
-## Merge Conflicts
+## Branching
 
-When you try to make lots of changes at the same time a 'Merge Conflict' can occur. This happens when two parts of the same file are changed at the same time.
+Sometimes it can be useful to work on sometimes for a long time before showing it to everyone. This is why we use branching.
 
-1. Back in your team, all make a change to the file at the same time.
-2. By working together you should work out how to remove all the conflicts!
+The teacher should
+
+1. Show how you can create a branch in Github Desktop
+2. Show how moving between Master and the Branch keeps two versions of the file
+
+Branching is particularly helpful for using in Pull Requests
+
+1. The teacher should show how to make a Pull Request in Github
+2. The teacher should show how to comment on a PR in Github
+3. The teacher should show how to merge a pull request in Github
+
+Now the students should try this themselves in their teams.
+
+1. The group leader should make a Branch, make a Commit and Create a Pull Request
+2. The other students should comment on the Pull Request
+3. The group leader should then merge the Pull Request
+
+Now each member of the team should try this!
 
 ## (Optional) What is Git?
 

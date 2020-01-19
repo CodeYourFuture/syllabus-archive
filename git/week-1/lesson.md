@@ -25,7 +25,7 @@ The teacher is the single source of truth for the project. This is fine so long 
 - They then try to give both pieces of paper to the teacher
   - But the teacher doesn't know what to do! Which one is correct?
 
-This why Git was invented!
+This is why Git was invented!
 
 ## What is Github?
 

@@ -71,7 +71,7 @@ Be careful! Don't all add words at the same time!
 
 ## Branching
 
-Sometimes it can be useful to work on sometimes for a long time before showing it to everyone. This is why we use branching.
+Sometimes it can be useful to work on something for a long time before showing it to everyone. This is why we use branching.
 
 The teacher should
 

@@ -110,3 +110,7 @@ To make updating your site easier, you can make some small adjustments (suggeste
 
 Edit `package.json` to add `"deploy": "npm run build && netlify deploy --prod --dir ./build"` to the `scripts` object.
 Then you can just run `npm run deploy` and the build and deploy step will both be done for you. Be careful when you edit that file, and copy and paste exactly from here!
+
+# Notes for mentors
+
+These notes focus on doing deployment via the command line.  For github-based repos, note that it is also possible to set up netlify using only github and the browser.

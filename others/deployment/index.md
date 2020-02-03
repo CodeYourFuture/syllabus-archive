@@ -7,3 +7,10 @@
 | [Instructions - deploying React projects with Netlify (with CLI)](../netlify-hosting-instructions.md)                                         | How to deploy your React projects _manually_ to Netlify using the command-line.  | React Module                 | Completed, In use |
 | [Workshop - Auto-deployment of REACT projects with Netlify](./3-for-react-module/workshop-automatic-react-project-deployment-with-netlify.md) | How deployment differs for deploying React projects. Practice, trouble-shooting. | React Module                 | Not Started       |
 | [Workshop - Bonus: Working with custom domain names](./9-extras)                                                                              | How to deploy with a custom domain name                                          | pre-Final Projects, optional | Not Started       |
+
+
+# For mentors
+
+Here is [an overview for teachers and teacher assistants](mentors-guide.md)
+
+

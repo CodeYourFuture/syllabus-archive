@@ -12,6 +12,9 @@ A work-in-progress of content development around the topic of how students deplo
 
 - [ ] Write a workshop for netlify deploy via github (requiring no knowledge of command-line or npm)
 - [ ] Write supporting reference material for students to access in future, including the student's HW submission duties regarding deployments (as stand-alone page so that teachers can simply and reliably link to it when assigning HW)
+- [ ] Consider how to test for understanding during the workshop
+  - [ ] Write a 5-minute kahoot for the first (or certainly second workshop) to check for understanding
+- [ ] Write a group work exercise for the workshop
 - [ ] Test all instructions with fresh accounts
 - [ ] Test the workshop plan against another human
 - [ ] Write separate instructions for Create Netlify Account (+ github) so that we can...

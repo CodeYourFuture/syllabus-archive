@@ -61,7 +61,7 @@ live coding:
 
 ## Creating a netlify account
 
-This should get assigned as pre-workshop homework
+You should already have done this for homework. If not...
 
 - Log in to github with the account you use for CYF homework
 - visit https://www.netlify.com/
@@ -107,22 +107,35 @@ todo
 
 ## CYF site naming conventions
 
-Use a standard format for site names for HW projects, and be consistent with your name (or your anonymous handle) in all your CYF projects
+Use the standard format for site names for all CYF homework projects - see [site naming conventions](../cyf-site-naming-conventions.md)
 
-- cyf-[your name]-[exact project name as supplied by teacher]
-- neill-cakes-cyf.netlify.com
-- lucy-cakes-cyf.netlify.com
-- ali-cakes-cyf.netlify.com
-- jon-cakes-cyf.netlify.com
+- cyf-[your github username]-[exact project name as supplied by teacher]
+
+Example:
+
+- cyf-lucymac-cakes.netlify.com
 
 ## Let's practice
 
-3 sites + 1 to delete! (cakes, landing page from application, a fun p5.js template for their previous khan academy work)
+We'll deploy 3 or 4 sites, now, for practice.
 
-your cv & portfolio template (week 2))
+Don't worry that these projects aren't "finished" yet - you can continue to make improvements over the next couple of weeks and your changes will automatically be deployed.
 
-- test it on your phone, and bookmark it
-- test someone else's!
+What is important in this workshop is repeated, intentional practice.
+
+- [karma clone](https://github.com/CodeYourFuture/karma-clone)
+- [responsive cake webpage](https://github.com/CodeYourFuture/responsive-cake-webpage)
+- [p5js minimal example](https://github.com/codeyourfuture/p5js-minimal) - you might not have seen this project before, so you'll have to make your own fork of it now.
+- (TODO: possible) a cv & portfolio template (week 2))
+
+For each project:
+
+- set up netlify to automatically deploy it
+- set up the site title correctly
+- test the deployed site to check it seems ok
+- make (and push) some changes to check the site is redeployed automatically
+- test the site on your phone, and bookmark it
+- test the site of the person sitting next to you!
 
 ## linking from github repo
 

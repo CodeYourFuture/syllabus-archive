@@ -38,10 +38,11 @@ You don't need to know anything about command line or npm
   - (delete & recreate site is possible (e.g. if you use the wrong github account or repo), renaming site is possible)
   - when repos don't show up in the menu
   - site is not deploying on push to master (logs, branch awareness, propagation delay)
+- Yes, alternatives exist, but you'll do it this way for CYF projects - make easier for volunteers. (You are free to deploy elsewhere, too!)
 - recap: What we learned
-- Reference material: if you forget these steps
-- Yes, alternatives exist, but you'll do it this way for CYF projects, because. (You are free to deploy elsewhere, too!)
-- The CYF Netlify auto-deploy CheatSheet (for when you forget all this stuff)
+- Reference material:
+  - The CYF Netlify auto-deploy CheatSheet (for when you forget all this stuff)
+  - official docs
 
 # More docs
 

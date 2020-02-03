@@ -15,17 +15,20 @@ A work-in-progress of content development around the topic of how students deplo
 - [ ] Test all instructions with fresh accounts
 - [ ] Test the workshop plan against another human
 - [ ] Write separate instructions for Create Netlify Account (+ github) so that we can...
-- [ ] Assign the Create Netlify Account (+ github) as HW now (time-saver)
+  - [ ] Assign the Create Netlify Account (+ github) as HW now (time-saver)
 - [ ] Discuss practice projects with Lucy and Sophie
 - [ ] Generate three little test projects the students can fork and deploy (and perhaps modify) (landing page, CV & portfolio)
 - [ ] Add mentor notes for "why not GH pages" - a link to wiki discussion page is fine?
 - [ ] Write a trivial initial gallery tool (serves as test suite) during practice
-
 - [ ] Deliver workshop over two weeks (20mins, 20 mins):
   - [ ] Week 1: the survival course
   - [ ] Week 2: refinements (e.g. temp vs final builds, DNS, branches)
   - [ ] Coord with React & JS3 module teachers so they know the approach taken so far
-- [ ] Extra: Try to get budget (a sponsor) to have us buy a domain for each student for 1 or 2 years (caution: what happens when they can't afford it - all their links break. there's also the ownership hand-over, if CYF buy them initially)
+
+Later
+
+- [ ] Bonus: Try to get budget (a sponsor) to have us buy a domain for each student for 1 or 2 years (caution: what happens when they can't afford it - all their links break. there's also the ownership hand-over, if CYF buy them initially)
+- [ ] Bonus: get some cheapo custom domain(s) for the groups final projects (e.g. cyf-projects.io)
 
 # Meta
 

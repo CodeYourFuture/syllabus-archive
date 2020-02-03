@@ -1,5 +1,17 @@
 # Workshop 1: Basic Automatic Project Deployment using Netlify
 
+# What's this?
+
+todo
+
+# Who's it for?
+
+It's for students in the HTML/CSS module.
+
+It's intended students attend the workshop session and follow along with this document.
+
+However, you will probably manage to follow this document without a teacher.
+
 # Workshop goals:
 
 - After this first 20minute workshop, students should be able to...
@@ -8,7 +20,7 @@
 
 # Non-goals:
 
-- After the first workshop, the students DON'T need to be able to explain HOW it is working (only what the trigger(s) and results are).
+- After this _first_ workshop, the students DON'T need to be able to explain HOW it is working (only what the trigger(s) and results are). We'll have time in later sessions.
 
 # Workshop pre-reqs:
 
@@ -17,34 +29,128 @@ You have some of those sites as repos on github
 
 You don't need to know anything about command line or npm
 
-# Topics:
+# The workshop!
 
-- What we'll learn
-- Learning more ("we'll revisit later in the course")
-- Advantages (two sentences no more) (no codepen banner, few restrictions, free, professional, possibility of using your own domain name)
-- Use a standard format for site names for HW projects, and be consistent with your name (or your anonymous handle) in all your CYF projects
-  - cyf-[your name]-[exact project name as supplied by teacher]
-  - neill-cakes-cyf.netlify.com
-  - lucy-cakes-cyf.netlify.com
-  - ali-cakes-cyf.netlify.com
-  - jon-cakes-cyf.netlify.com
-- Putting your full url into your github repo website field and in your homework submission
-- Let's practice - 3 sites + 1 to delete! (cakes, landing page from application, a fun p5.js template for their previous khan academy work)
-  your cv & portfolio template (week 2))
-  - test it on your phone, and bookmark it
-  - test someone else's!
-- Deleting your hosted site (you decide you don't want it public) - practice deleting a site
-- Trouble-shooting - when things go wrong
-  - (delete & recreate site is possible (e.g. if you use the wrong github account or repo), renaming site is possible)
-  - when repos don't show up in the menu
-  - site is not deploying on push to master (logs, branch awareness, propagation delay)
-- Yes, alternatives exist, but you'll do it this way for CYF projects - make easier for volunteers. (You are free to deploy elsewhere, too!)
-- recap: What we learned
-- Reference material:
-  - The CYF Netlify auto-deploy CheatSheet (for when you forget all this stuff)
-  - official docs
+## Let's go! A 60 second demonstration
 
-# More docs
+Don't worry, I'm going to demonstrate something VERY quickly, then break it down step by step more slowly afterwards.
 
+(
+mentor notes:
+
+live coding:
+
+- make a new repo with an index.html file
+- students suggest some silly content (just text for now)
+- make a wish: I wish to publish at https://dragonsvssharks.netlify.com/
+- have a student check there's nothing there yet
+- add the site to netlify
+- commit and push
+- observe deployed site (after 60 seconds)
+  )
+
+## Let's go, v2 another 60 second demonstration
+
+## what just happened?
+
+## What we'll learn
+
+## Advantages
+
+(two sentences no more) (no codepen banner, few restrictions, free, professional, possibility of using your own domain name)
+
+## Creating a netlify account
+
+This should get assigned as pre-workshop homework
+
+- Log in to github with the account you use for CYF homework
+- visit https://www.netlify.com/
+- click "get started for free"
+- Choose `github` under "Sign up with one of the following"
+- read the permissions you are granting and click "authorize netlify"
+
+## Deploy a site
+
+- Either click on "new site from git" or visit https://app.netlify.com/start
+- choose "github"
+- read the permissions and click "Authorize Netlify by Netlify"
+- If prompted "where do you want to install netlify", choose your github username.
+- Choose "all repositories", for simplicity, but read the permissions you are allowing.
+  - if you want to choose "only select repositories", that is ok (but more work)
+- click ok
+- Under "Continuous Deployment: GitHub App", select which repo you want to set up
+  - if the repo is not there, it may be because you haven't granted netlify to look at all of your repos. you'll have to grant permissions for the repo you want.
+- Under "branch to deploy" choose the branch of your repo to which you will most often be committing when working on the site. That way, your deployed site will be updated with every change you make. (Later in the course you'll change this way of working.)
+- Leave empty "build command" and "publish directory"
+- click "Deploy site"
+- Wait til it finishes
+- click on the presented (random) link
+- check your site is really there, and working
+- check on your phone, too, if you have one!
+- check your neighbour's site (send the link via slack)
+- click site settings, and scroll to site details,site information
+- click "change site name".
+- enter a new site name and press save
+- scroll to the top and click the new link (something.netlify.com)
+- check your site is accessible via that new url
+
+### push some code changes,
+
+- make some quick visual changes to your site in vscode (change an `<h1>` or a background colour)
+- commit and _push_ the change to github (to the same branch you chose at setup)
+- check your site url again - is it updated? (it might take 60 seconds)
+- celebrate
+
+## Deploy ANOTHER site!
+
+todo
+
+## CYF site naming conventions
+
+Use a standard format for site names for HW projects, and be consistent with your name (or your anonymous handle) in all your CYF projects
+
+- cyf-[your name]-[exact project name as supplied by teacher]
+- neill-cakes-cyf.netlify.com
+- lucy-cakes-cyf.netlify.com
+- ali-cakes-cyf.netlify.com
+- jon-cakes-cyf.netlify.com
+
+## Let's practice
+
+3 sites + 1 to delete! (cakes, landing page from application, a fun p5.js template for their previous khan academy work)
+
+your cv & portfolio template (week 2))
+
+- test it on your phone, and bookmark it
+- test someone else's!
+
+## linking from github repo
+
+Putting your full url into your github repo website field and in your homework submission
+
+## Deleting your hosted site
+
+(you decide you don't want it public) - practice deleting a site
+
+## Trouble-shooting - when things go wrong
+
+- (delete & recreate site is possible (e.g. if you use the wrong github account or repo), renaming site is possible)
+- when repos don't show up in the menu
+- site is not deploying on push to master (logs, branch awareness, propagation delay)
+
+## Yes, alternatives exist, but
+
+but you'll do it this way for CYF projects - make easier for volunteers. (You are free to deploy elsewhere, too!)
+
+## recap: What we learned
+
+## Reference material for when you forget:
+
+- The CYF Netlify auto-deploy CheatSheet (for when you forget all this stuff)
+- official docs
+
+## How to learn more
+
+- we'll revisit netlify deployment later in the course
 - This video tutorial (2 minutes) is old and has some inaccuracies - you can watch it but for detail, use OUR instructions https://docs.netlify.com/site-deploys/overview/#deploy-summary
 - These written instructions are also not perfect (you should not fill in "dir" and "build command" (until the React module) https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/

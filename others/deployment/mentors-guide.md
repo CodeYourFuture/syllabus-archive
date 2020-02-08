@@ -17,9 +17,9 @@ A work-in-progress of content development around the topic of how students deplo
 - [ ] Write a group work exercise for the workshop
 - [ ] Test all instructions with fresh accounts
 - [ ] Test the workshop plan against another human
-- [ ] Write separate instructions for Create Netlify Account (+ github) so that we can...
-  - [ ] Assign the Create Netlify Account (+ github) as HW now (time-saver)
-- [ ] Discuss practice projects with Lucy and Sophie
+- [x] Write separate instructions for Create Netlify Account (+ github) so that we can...
+  - [x] Assign the Create Netlify Account (+ github) as HW now (time-saver)
+- [x] Discuss practice projects with Lucy and Sophie
 - [ ] Generate three little test projects the students can fork and deploy (and perhaps modify) (landing page, CV & portfolio)
 - [ ] Add mentor notes for "why not GH pages" - a link to wiki discussion page is fine?
 - [ ] Write a trivial initial gallery tool (serves as test suite) during practice

@@ -2,21 +2,20 @@
 
 # What's this?
 
-todo
+Some notes to accompany an in-class workshop in which you'll learn the basics of deploying your html/css projects using Netlify.
 
 # Who's it for?
 
 It's for students in the HTML/CSS module.
 
-It's intended students attend the workshop session and follow along with this document.
-
-However, you will probably manage to follow this document without a teacher.
+It's intended students attend the actual workshop session, which this document supports but does not replace.
 
 # Workshop goals:
 
-- After this first 20minute workshop, students should be able to...
-  - configure automated deploy of any STATIC, non-generated site they create on github in future (including all significant HW projects)
-  - recover from common mistakes
+- After this first 20-minute workshop, students should be able to:
+
+  - configure the automated deploy of any STATIC (non-generated) site they create on github in future (including all significant CYF homework projects).
+  - recover from common mistakes they make during deployment configuration.
 
 # Non-goals:
 
@@ -24,34 +23,54 @@ However, you will probably manage to follow this document without a teacher.
 
 # Workshop pre-reqs:
 
-You have made some very simple sites (even a single index.html)
-You have some of those sites as repos on github
+Students should have:
 
-You don't need to know anything about command line or npm
+- made some very simple sites (even a single index.html)
+- some of those sites as repos on github.
+- [created netlify account for homework](https://classroom.google.com/u/1/c/Mzk3NDA1NjA4MTVa/a/NjA0NjEwMzM1MzRa/submissions/by-status/and-sort-first-name/not-done)
+
+Students **don't** need to know anything about the command line or npm.
 
 # The workshop!
 
-## Let's go! A 60 second demonstration
+Overview:
 
-Don't worry, I'm going to demonstrate something VERY quickly, then break it down step by step more slowly afterwards.
+- demo,
+- demo,
+- practice,
+- site naming conventions
+- practice,
 
-(
-mentor notes:
+## Demonstration #1. A 60-second demonstration
 
-live coding:
+Mentor notes: Demonstrate VERY quickly, to build curiosity. We'll break it down later.
 
-- make a new repo with an index.html file
-- students suggest some silly content (just text for now)
-- make a wish: I wish to publish at https://dragonsvssharks.netlify.com/
-- have a student check there's nothing there yet
-- add the site to netlify
-- commit and push
-- observe deployed site (after 60 seconds)
-  )
+Live coding:
 
-## Let's go, v2 another 60 second demonstration
+- Show teacher's copy of cake repo on github.
+- Modify the content to prove we are live (students can suggest some silly (text) content.
+- State: I wish to publish at https://cyf-nbogie-cakes.netlify.com/
+- Post to slack
+- Have a student check there's nothing there yet
+- Add the site to Netlify
+- Observe deployed site (random name)
+- Change site name
+- Observe at new location
+- Commit and push
+- [Observe deployed site](https://cyf-nbogie-cakes.netlify.com/) (maybe wait 60 seconds)
+- Have students observe at new location
 
-## what just happened?
+## Demonstration #2. Another 60-second demonstration.
+
+- Fork the project https://github.com/CodeYourFuture/p5js-minimal
+- Deploy it
+
+## What just happened?
+
+- I configured a free service called Netlify to automatically deploy one of my github repos as a website, whenever there was a change on the master branch.
+- It made the website available at a random site name under netlify.com
+- I configured a different site name of my choosing.
+- I tested it was working by pushing new changes to that branch.
 
 ## What we'll learn
 
@@ -59,51 +78,16 @@ live coding:
 
 (two sentences no more) (no codepen banner, few restrictions, free, professional, possibility of using your own domain name)
 
-## Creating a netlify account
+## Your turn - create account and deploy a site
 
-You should already have done this for homework. If not...
+Follow [the instructions here](./instructions-for-automatic-deployment-netlify-and-github.md).
 
-- Log in to github with the account you use for CYF homework
-- visit https://www.netlify.com/
-- click "get started for free"
-- Choose `github` under "Sign up with one of the following"
-- read the permissions you are granting and click "authorize netlify"
-
-## Deploy a site
-
-- Either click on "new site from git" or visit https://app.netlify.com/start
-- choose "github"
-- read the permissions and click "Authorize Netlify by Netlify"
-- If prompted "where do you want to install netlify", choose your github username.
-- Choose "all repositories", for simplicity, but read the permissions you are allowing.
-  - if you want to choose "only select repositories", that is ok (but more work)
-- click ok
-- Under "Continuous Deployment: GitHub App", select which repo you want to set up
-  - if the repo is not there, it may be because you haven't granted netlify to look at all of your repos. you'll have to grant permissions for the repo you want.
-- Under "branch to deploy" choose the branch of your repo to which you will most often be committing when working on the site. That way, your deployed site will be updated with every change you make. (Later in the course you'll change this way of working.)
-- Leave empty "build command" and "publish directory"
-- click "Deploy site"
-- Wait til it finishes
-- click on the presented (random) link
-- check your site is really there, and working
-- check on your phone, too, if you have one!
-- check your neighbour's site (send the link via slack)
-- click site settings, and scroll to site details,site information
-- click "change site name".
-- enter a new site name and press save
-- scroll to the top and click the new link (something.netlify.com)
-- check your site is accessible via that new url
-
-### push some code changes,
+## push some code changes,
 
 - make some quick visual changes to your site in vscode (change an `<h1>` or a background colour)
 - commit and _push_ the change to github (to the same branch you chose at setup)
 - check your site url again - is it updated? (it might take 60 seconds)
 - celebrate
-
-## Deploy ANOTHER site!
-
-todo
 
 ## CYF site naming conventions
 
@@ -117,16 +101,15 @@ Example:
 
 ## Let's practice
 
-We'll deploy 3 or 4 sites, now, for practice.
+We'll practice by deploying 3 site.
 
-Don't worry that these projects aren't "finished" yet - you can continue to make improvements over the next couple of weeks and your changes will automatically be deployed.
+**Don't worry** that these projects aren't "finished" yet - you can continue to make improvements over the next couple of weeks and your changes will automatically be deployed.
 
-What is important in this workshop is repeated, intentional practice.
+We just want to repeatedly practice the process so that you can do it on your own in future.
 
 - [karma clone](https://github.com/CodeYourFuture/karma-clone)
 - [responsive cake webpage](https://github.com/CodeYourFuture/responsive-cake-webpage)
 - [p5js minimal example](https://github.com/codeyourfuture/p5js-minimal) - you might not have seen this project before, so you'll have to make your own fork of it now.
-- (TODO: possible) a cv & portfolio template (week 2))
 
 For each project:
 
@@ -137,7 +120,7 @@ For each project:
 - test the site on your phone, and bookmark it
 - test the site of the person sitting next to you!
 
-## linking from github repo
+## Linking from github repo
 
 Putting your full url into your github repo website field and in your homework submission
 
@@ -147,9 +130,9 @@ Putting your full url into your github repo website field and in your homework s
 
 ## Trouble-shooting - when things go wrong
 
-- (delete & recreate site is possible (e.g. if you use the wrong github account or repo), renaming site is possible)
-- when repos don't show up in the menu
-- site is not deploying on push to master (logs, branch awareness, propagation delay)
+- (Delete & recreate site is possible (e.g. if you use the wrong github account or repo), renaming site is possible)
+- When repos don't show up in the menu
+- If site is not deploying on push to master (logs, branch awareness, propagation delay)
 
 ## Yes, alternatives exist, but
 

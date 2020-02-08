@@ -1,25 +1,15 @@
-# What's this?
+# Cheatsheet 1: Netlify & GitHub automatic Deployment (Basic)
 
-(this will be a supplemental, minimal cheat-sheet to workshop 1 that the students will reference through HTML/CSS and JS modules)
-
-After that they'll likely reference a more advanced cheatsheet (with extra considerations for React projects)
-
-# Contrib guidelines
-
-I've only started to outline some content for this cheatsheet. feel free to contribute.
-
-Keep it simple and clean, and link back out to the fuller instructions from the workshop.
-
-# Using Netlify for the first time
+## Using Netlify for the first time
 
 - Create account and link it to your github account
 
-# Set up a project for deployment
+## Set up a project for deployment
 
 - [deployment setup instructions are here](./instructions-for-automatic-deployment-with-netlify-and-github.md)
-- Folow [site-naming convention for CYF projects](../cyf-site-naming-conventions.md)
+- Make sure to follow [site-naming convention for CYF projects](../cyf-site-naming-conventions.md)
 
-# Deploy changes to your project
+## Deploy changes to your project
 
 - Make changes locally, test locally
 - commit your changes
@@ -29,7 +19,7 @@ Keep it simple and clean, and link back out to the fuller instructions from the 
 
 Note: Netlify only monitors your _master_ branch, by default. But you can choose a branch to be monitored.
 
-# Rename your site
+## Rename your site
 
 - log in to https://netlify.com/
 - select your site from the list
@@ -37,14 +27,14 @@ Note: Netlify only monitors your _master_ branch, by default. But you can choose
 - click on `change site name`
 - follow instructions
 
-## Think about this when renaming a site
+### Think about this when renaming a site
 
 If this a CYF Homework project...
 
 - Does your teacher have your updated URL?
 - Have you followed CYF site naming conventions (help your teachers!) TODO: Link
 
-# Deleting your site
+## Deleting your site
 
 - log in to https://netlify.com/
 - select your site from the list
@@ -52,15 +42,15 @@ If this a CYF Homework project...
 - scroll down and choose `_delete this site_`
 - follow the instructions to confirm
 
-# Common problems
+## Common problems
 
-- Site has wrong name
-  - rename it (see above)
-- You create the site using the wrong repo or wrong github account
-  - Delete & recreate site.
-- My repo doesn't show up in the menu
-  - Follow the prompt to configure your netlify-github integration and give it access to the repo you need (or all repos).
 - My site is not deploying when I push a change to github
   - Are you sure netlify is configured for the branch you are pushing to?
   - Be aware that changes can take some minutes to show up
   - Check the logs
+- My repo doesn't show up in the netlify menu
+  - Follow the prompt to configure your netlify-github integration and give it access to the repo you need (or all repos).
+- My site has the wrong name
+  - rename it (see above)
+- You create the site using the wrong repo or wrong github account
+  - Delete & recreate site.

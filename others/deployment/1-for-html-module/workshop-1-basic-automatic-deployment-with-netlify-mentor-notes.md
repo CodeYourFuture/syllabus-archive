@@ -36,14 +36,18 @@ Students should have:
 
 Students **don't** need to know anything about the command line or npm.
 
+## Computer setup
+
+Wipe the projects from your netlify account, if you've previously given the workshop.
+
 ## Overview:
 
-- demo
-- demo
-- practice deploy
+- demo 1
+- demo 2
+- practice deploy 1
 - site naming conventions
-- practice deploy
-- practice deploy
+- practice deploy 2
+- practice deploy 3
 
 ## Demonstration #1. A 60-second demonstration
 
@@ -74,7 +78,44 @@ Live coding:
 - Commit & Push a change
 - [Observe site](https://cyf-nbogie-p5js.netlify.com/)
 
-## Follow student workshop notes from here
+## About the demos
+
+- I configured a free service called Netlify to automatically deploy one of my github repos as a website, whenever there was a change on the master branch.
+- It made the website available at a random site name under netlify.com
+- I configured my choice of site name.
+- I tested it was working by pushing new changes to that branch.
+
+This is what you'll learn to do now this workshop.
+
+## Setup: Creating a netlify account - ONE TIME ONLY
+
+## Exercise 1: deploy "responsive cakes" site
+
+## Exercise 1b - push some code changes
+
+## Note: CYF site naming conventions
+
+Use the standard format for site names for all CYF homework projects - see [site naming conventions](../cyf-site-naming-conventions.md)
+
+- cyf-[your github username]-[exact project name as supplied by teacher]
+
+Examples:
+
+- cyf-lucymac-cakes.netlify.com
+- cyf-nbogie-cakes.netlify.com
+
+## Exercise 2 - deploy "karma clone" site
+
+## Demo Linking to your site from your github repo
+
+- Put your full URL into your github repo website field
+- Also, include it in your homework submissions.
+
+## Note: don't worry about "unfinished" sites
+
+**Don't worry** that you are deploying "unfinished" projects - you can continue to make improvements over the next couple of weeks and your changes will automatically be deployed.
+
+We just need to repeatedly practice the process so that you can do it on your own in future.
 
 ## Trouble-shooting - when things go wrong
 
@@ -89,7 +130,15 @@ Mentor notes - points to cover:
 
 Many alternatives for hosting exist (heroku, github pages) but we'll do it this way for CYF projects, to make it easier for volunteers. (You are free to deploy elsewhere in ADDITION to netlify!)
 
-## Exercise:
+## Deleting your hosted site
+
+If you decide you don't want a site public, you can delete it.
+
+Practice deleting a site.
+
+[Instructions here](./cheatsheet-1.md)
+
+## Group exercise, recap & vocab:
 
 In your table, define what these things mean to you:
 

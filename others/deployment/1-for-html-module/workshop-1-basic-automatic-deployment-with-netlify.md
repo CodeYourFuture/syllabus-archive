@@ -1,95 +1,44 @@
 # Workshop 1: Basic Automatic Project Deployment using Netlify
 
-# What's this?
+Student notes
+[Teachers see these notes](./workshop-1-basic-automatic-deployment-with-netlify-mentor-notes.md)
 
-Some notes to accompany an in-class workshop in which you'll learn the basics of deploying your html/css projects using Netlify.
-
-# Who's it for?
-
-It's for students in the HTML/CSS module.
-
-It's intended students attend the actual workshop session, which this document supports but does not replace.
-
-# Workshop goals:
-
-- After this first 20-minute workshop, students should be able to:
-
-  - configure the automated deploy of any STATIC (non-generated) site they create on github in future (including all significant CYF homework projects).
-  - recover from common mistakes they make during deployment configuration.
-
-# Non-goals:
-
-- After this _first_ workshop, the students DON'T need to be able to explain HOW it is working (only what the trigger(s) and results are). We'll have time in later sessions.
-
-# Workshop pre-reqs:
-
-Students should have:
-
-- made some very simple sites (even a single index.html)
-- some of those sites as repos on github.
-- [created netlify account for homework](https://classroom.google.com/u/1/c/Mzk3NDA1NjA4MTVa/a/NjA0NjEwMzM1MzRa/submissions/by-status/and-sort-first-name/not-done)
-
-Students **don't** need to know anything about the command line or npm.
-
-# The workshop!
-
-Overview:
-
-- demo,
-- demo,
-- practice,
-- site naming conventions
-- practice,
-
-## Demonstration #1. A 60-second demonstration
-
-Mentor notes: Demonstrate VERY quickly, to build curiosity. We'll break it down later.
-
-Live coding:
-
-- Show teacher's copy of cake repo on github.
-- Modify the content to prove we are live (students can suggest some silly (text) content.
-- State: I wish to publish at https://cyf-nbogie-cakes.netlify.com/
-- Post to slack
-- Have a student check there's nothing there yet
-- Add the site to Netlify
-- Observe deployed site (random name)
-- Change site name
-- Observe at new location
-- Commit and push
-- [Observe deployed site](https://cyf-nbogie-cakes.netlify.com/) (maybe wait 60 seconds)
-- Have students observe at new location
-
-## Demonstration #2. Another 60-second demonstration.
-
-- Fork the project https://github.com/CodeYourFuture/p5js-minimal
-- Deploy it
-
-## What just happened?
+## What just happened in the demos?
 
 - I configured a free service called Netlify to automatically deploy one of my github repos as a website, whenever there was a change on the master branch.
 - It made the website available at a random site name under netlify.com
-- I configured a different site name of my choosing.
+- I configured my choice of site name.
 - I tested it was working by pushing new changes to that branch.
 
-## What we'll learn
+This is what you'll learn to do in this workshop.
 
-## Advantages
+## Creating a netlify account - ONE TIME ONLY
 
-(two sentences no more) (no codepen banner, few restrictions, free, professional, possibility of using your own domain name)
+(If you have not already done this for homework...)
 
-## Your turn - create account and deploy a site
+- Log in to github with the account you use for CYF homework
+- visit https://www.netlify.com/
+- click "get started for free"
+- Choose `github` under "Sign up with one of the following"
+- read the permissions you are granting and click "authorize netlify"
 
-Follow [the instructions here](./instructions-for-automatic-deployment-netlify-and-github.md).
+## Exercise 1: create account and deploy a site
 
-## push some code changes,
+- Deploy your "responsive cakes" homework using the instructions below
+- Name the site cyf-GITHUB-USERNAME-cakes
 
-- make some quick visual changes to your site in vscode (change an `<h1>` or a background colour)
-- commit and _push_ the change to github (to the same branch you chose at setup)
-- check your site url again - is it updated? (it might take 60 seconds)
-- celebrate
+Instructions: [the instructions here](./instructions-for-automatic-deployment-with-netlify-and-github.md)
 
-## CYF site naming conventions
+## Exercise 1b - push some code changes
+
+- Make some quick visual changes to your site in vscode (change an `<h1>` or a background colour)
+- Commit and _push_ the change to github (to the same branch you chose at setup)
+- Check your site url again - is it updated? (it might take 60 seconds)
+- Check on your phone, too (if you have one).
+- Check your neighbour's site (send the link via slack)
+- (Celebrate!)
+
+## Note: CYF site naming conventions
 
 Use the standard format for site names for all CYF homework projects - see [site naming conventions](../cyf-site-naming-conventions.md)
 
@@ -99,54 +48,56 @@ Example:
 
 - cyf-lucymac-cakes.netlify.com
 
-## Let's practice
+## Note: don't worry about "unfinished" sites
 
-We'll practice by deploying 3 site.
+**Don't worry** that you are deploying "unfinished" projects - you can continue to make improvements over the next couple of weeks and your changes will automatically be deployed.
 
-**Don't worry** that these projects aren't "finished" yet - you can continue to make improvements over the next couple of weeks and your changes will automatically be deployed.
+We just need to repeatedly practice the process so that you can do it on your own in future.
 
-We just want to repeatedly practice the process so that you can do it on your own in future.
+## Demo Linking to your site from your github repo
+
+- Put your full URL into your github repo website field
+- Also, include it in your homework submissions.
+
+## Exercise 2 - karma clone
 
 - [karma clone](https://github.com/CodeYourFuture/karma-clone)
-- [responsive cake webpage](https://github.com/CodeYourFuture/responsive-cake-webpage)
-- [p5js minimal example](https://github.com/codeyourfuture/p5js-minimal) - you might not have seen this project before, so you'll have to make your own fork of it now.
 
-For each project:
+* Set up netlify to automatically deploy it
+* Set up the site title correctly
+* Test the deployed site to check it seems ok
+* Make (and push) some changes to check the site is redeployed automatically
+* Test the site on your phone, and bookmark it
+* Test the site of the person sitting next to you!
 
-- set up netlify to automatically deploy it
-- set up the site title correctly
-- test the deployed site to check it seems ok
-- make (and push) some changes to check the site is redeployed automatically
-- test the site on your phone, and bookmark it
-- test the site of the person sitting next to you!
+## Exercise 3 - a drawing/animation template
 
-## Linking from github repo
+- Fork this repo: [p5js minimal example](https://github.com/codeyourfuture/p5js-minimal)
+- deploy it as cyf-username-p5js
 
-Putting your full url into your github repo website field and in your homework submission
+- Set up netlify to automatically deploy it
+- Set up the site title correctly (CYF naming conventions!)
+- Test the deployed site to check it seems ok
+- Make (and push) some changes to check the site is redeployed automatically
+- Test the site on your phone, and bookmark it
+- Test the site of the person sitting next to you!
 
 ## Deleting your hosted site
 
-(you decide you don't want it public) - practice deleting a site
+If you decide you don't want a site public, you can delete it.
 
-## Trouble-shooting - when things go wrong
+Practice deleting a site.
 
-- (Delete & recreate site is possible (e.g. if you use the wrong github account or repo), renaming site is possible)
-- When repos don't show up in the menu
-- If site is not deploying on push to master (logs, branch awareness, propagation delay)
+[Instructions here](./cheatsheet-1.md)
 
-## Yes, alternatives exist, but
+## Reference material (for when you forget)
 
-but you'll do it this way for CYF projects - make easier for volunteers. (You are free to deploy elsewhere, too!)
-
-## recap: What we learned
-
-## Reference material for when you forget:
-
-- The CYF Netlify auto-deploy CheatSheet (for when you forget all this stuff)
-- official docs
+- [cheatsheet-1.md](The CYF Netlify auto-deploy CheatSheet) (for when you forget all this stuff)
 
 ## How to learn more
 
-- we'll revisit netlify deployment later in the course
-- This video tutorial (2 minutes) is old and has some inaccuracies - you can watch it but for detail, use OUR instructions https://docs.netlify.com/site-deploys/overview/#deploy-summary
+- We'll revisit Netlify deployment later in the course.
+- [This video tutorial](https://www.youtube.com/watch?v=mN9oI98As_4) (2 minutes) is old and has some inaccuracies.
+  - you can watch it, but for detail, use OUR instructions
 - These written instructions are also not perfect (you should not fill in "dir" and "build command" (until the React module) https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/
+- The [official Netlify docs](https://docs.netlify.com/) may be initially overwhelming - you won't need to use many of their features.

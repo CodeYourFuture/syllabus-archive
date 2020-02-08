@@ -4,7 +4,7 @@
 
 After that they'll likely reference a more advanced cheatsheet (with extra considerations for React projects)
 
-# contrib guidelines
+# Contrib guidelines
 
 I've only started to outline some content for this cheatsheet. feel free to contribute.
 
@@ -12,12 +12,12 @@ Keep it simple and clean, and link back out to the fuller instructions from the 
 
 # Using Netlify for the first time
 
-- Create account, link to your github account
+- Create account and link it to your github account
 
 # Set up a project for deployment
 
-- TODO
-- note on site naming convention for CYF projects
+- [deployment setup instructions are here](./instructions-for-automatic-deployment-with-netlify-and-github.md)
+- Folow [site-naming convention for CYF projects](../cyf-site-naming-conventions.md)
 
 # Deploy changes to your project
 
@@ -27,7 +27,7 @@ Keep it simple and clean, and link back out to the fuller instructions from the 
 - wait for auto deployment to finish
 - test on your site
 
-Note: Netlify only monitors your _master_ branch, by default.
+Note: Netlify only monitors your _master_ branch, by default. But you can choose a branch to be monitored.
 
 # Rename your site
 
@@ -37,7 +37,9 @@ Note: Netlify only monitors your _master_ branch, by default.
 - click on `change site name`
 - follow instructions
 
-Is this a CYF Homework project?
+## Think about this when renaming a site
+
+If this a CYF Homework project...
 
 - Does your teacher have your updated URL?
 - Have you followed CYF site naming conventions (help your teachers!) TODO: Link
@@ -51,3 +53,14 @@ Is this a CYF Homework project?
 - follow the instructions to confirm
 
 # Common problems
+
+- Site has wrong name
+  - rename it (see above)
+- You create the site using the wrong repo or wrong github account
+  - Delete & recreate site.
+- My repo doesn't show up in the menu
+  - Follow the prompt to configure your netlify-github integration and give it access to the repo you need (or all repos).
+- My site is not deploying when I push a change to github
+  - Are you sure netlify is configured for the branch you are pushing to?
+  - Be aware that changes can take some minutes to show up
+  - Check the logs

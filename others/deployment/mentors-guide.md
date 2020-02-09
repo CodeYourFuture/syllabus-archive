@@ -10,19 +10,19 @@ A work-in-progress of content development around the topic of how students deplo
 
 # TODO:
 
-- [ ] Write a workshop for netlify deploy via github (requiring no knowledge of command-line or npm)
-- [ ] Write supporting reference material for students to access in future, including the student's HW submission duties regarding deployments (as stand-alone page so that teachers can simply and reliably link to it when assigning HW)
-- [ ] Consider how to test for understanding during the workshop
+- [x] Write a workshop for netlify deploy via github (requiring no knowledge of command-line or npm)
+- [x] Write supporting reference material for students to access in future, including the student's HW submission duties regarding deployments (as stand-alone page so that teachers can simply and reliably link to it when assigning HW)
+- [x] Consider how to test for understanding during the workshop
   - [ ] Write a 5-minute kahoot for the first (or certainly second workshop) to check for understanding
-- [ ] Write a group work exercise for the workshop
-- [ ] Test all instructions with fresh accounts
+- [x] Write a group work exercise for the workshop
+- [x] Test all instructions with fresh accounts
 - [ ] Test the workshop plan against another human
 - [x] Write separate instructions for Create Netlify Account (+ github) so that we can...
   - [x] Assign the Create Netlify Account (+ github) as HW now (time-saver)
 - [x] Discuss practice projects with Lucy and Sophie
-- [ ] Generate three little test projects the students can fork and deploy (and perhaps modify) (landing page, CV & portfolio)
-- [ ] Add mentor notes for "why not GH pages" - a link to wiki discussion page is fine?
-- [ ] Write a trivial initial gallery tool (serves as test suite) during practice
+- [x] Generate little test projects the students can fork and deploy if Lucy doesn't have enough real projects for them: (landing page, CV & portfolio, p5js starter)
+- [ ] Add mentor notes for topics such as "why not GH pages" - a link to wiki discussion page is fine.
+- [x] Write a trivial initial gallery tool (serves as test suite) during practice
 - [ ] Deliver workshop over two weeks (20mins, 20 mins):
   - [ ] Week 1: the survival course
   - [ ] Week 2: refinements (e.g. temp vs final builds, DNS, branches)
@@ -39,8 +39,9 @@ Later
 
 - K.I.S.S.
 - Give them a recipe for what to do and have them practice it
+- Try to have them interpret and follow the Netlify GUI by applying their common sense, rather than slavishly reading instructions. Should lead to Increased awareness and ownership of the task, better results in future when the GUI changes, higher confidence.
 - LATER weeks can see discussion of finer points (advantages, bigger picture, alternatives exist, etc)
-- If possible, have a gallery in place, the students will detect when they have named incorrectly
+- If possible, have a gallery/automated tester in place, so the students will detect when they have named their project incorrectly.
 
 ## Simple all-student Gallery
 

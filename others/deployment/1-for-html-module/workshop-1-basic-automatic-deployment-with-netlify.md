@@ -21,20 +21,23 @@ Don't start each exercise until the teacher asks you to.
 ## Exercise 1: deploy "responsive cakes" site
 
 - Deploy your "responsive cakes" homework using the instructions below
-- Name the site cyf-GITHUB-USERNAME-cakes
+- project name: `cakes`
+- Name the site cyf-YOUR-GITHUB-USERNAME-cakes
+  e.g.
+  `cyf-nbogie-cakes`
 
-Instructions: [the instructions here](./instructions-for-automatic-deployment-with-netlify-and-github.md)
+Instructions: [the instructions are here](./instructions-for-automatic-deployment-with-netlify-and-github.md).
 
 ## Exercise 1b - push some code changes
 
-- Make some quick visual changes to your site in vscode (change an `<h1>` or a background colour)
+- Make some VERY quick visual changes to your site in vscode (change an `<h1>` or a background colour)
 - Commit and _push_ the change to github (to the same branch you chose at setup)
 - Check your site url again - is it updated? (it might take 60 seconds)
-- Check on your phone, too (if you have one).
+- Check on someone's phone, too.
 - Check your neighbour's site (send the link via slack)
 - (Celebrate!)
 
-## Note: CYF site naming conventions
+## Note: CYF site-naming conventions
 
 Use the standard format for site names for all CYF homework projects - see [site naming conventions](../cyf-site-naming-conventions.md)
 
@@ -48,6 +51,7 @@ Examples:
 ## Exercise 2 - deploy karma clone
 
 - [karma clone](https://github.com/CodeYourFuture/karma-clone)
+- project name: `karma-clone`
 
 * Set up netlify to automatically deploy it
 * Set up the site title correctly

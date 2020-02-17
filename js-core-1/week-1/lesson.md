@@ -6,7 +6,6 @@
 
 **What we will learn today?**
 
-* [Install Node](#install-node)
 * [Setup IDE](#setup-ide)
 * [Hello World](#hello-world)
 * [Variables](#variables)
@@ -22,32 +21,6 @@
 
 > Please make sure you've forked [the js-exercises repo](https://github.com/CodeYourFuture/js-exercises) at the start of the class. This is the repo we will use during the class, and for homework.
 
-## Install Node
-
-### Windows and Mac users
-
-Download the _installer_ (.msi or .pkg) from [https://nodejs.org/en/download](https://nodejs.org/en/download)
-
----
-
-### Linux (Ubuntu) users
-
-Run the following commands in your terminal:
-
-```sh
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  sudo apt-get install -y nodejs
-```
-
-Source: [https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
-
-> A note on security: This will require you to enter a password. Don't execute a script on your terminal if you don't trust its source, especially if they use the `sudo` command to get admin access to your machine.
-
-### 2. Test installation
-
-Go to your terminal and run the command: `node -v`.
-
-You should get the node version printed on your terminal. For example, `v8.9.3`.
 
 ## Setup IDE
 
@@ -69,7 +42,9 @@ There are some tools that will help you to write code. One of these, [Prettier](
 
 It is programming tradition that the first thing you do in any language is make it output 'Hello world!'.
 
-We'll do this in JavaScript, using a command called `console.log()`.
+We'll do this in JavaScript, using a command called `console.log()`, the `console.log()` method writes a message to the console.
+
+The Console is a tool which is mainly used to log information it's useful for testing purposes
 
 Inside of `exercise.js` there's a line of code that will print "Hello world!".
 
@@ -81,21 +56,34 @@ Inside of `exercise.js` there's a line of code that will print "Hello world!".
 
 ### 2. Experiment
 
-* Try to `console.log()` something different. For example, 'Hello World. I just started learning JavaScript!'.
-* Try to console.log() several things at once.
-* What happens when you get rid of the quote marks?
-* What happens when you console.log() just a number without quotes?
+Write 10 statements like these, but in different languages.
+
+For example:
+
+```
+Halo, dunia! // Indonesian
+Ciao, mondo! // Italian
+Hola, mundo! // Spanish
+```
 
 ## Variables
 
-When you write code, you'll want to create shortcuts to data values so you can don't have to write out the same value every time.
+When you write code, you'll want to create shortcuts to data values so you don't have to write out the same value every time.
 
-We can use _variable_ to create a reference to a value.
+We can use _variable_ to create a reference to a value. Variables can be thought of as named containers. You can place data into these containers and then refer to the data simply by naming the container.
+
+Before you use a variable in a JavaScript program, you must declare it. Variables are declared with _let_ and _const_ keywords as follows.
 
 ```js
-var greeting = "Hello world";
+let greeting = "Hello world";
 
 console.log(greeting);
+```
+
+```js
+const name = "Irina";
+
+console.log(name);
 ```
 
 The program above will print "Hello world" to the console. Notice how it uses the value assigned to the variable `greeting`.
@@ -105,7 +93,7 @@ The program above will print "Hello world" to the console. Notice how it uses th
 * Add a variable `greeting` to exercise.js (make sure it comes _before_ the console.log)
 * Print your `greeting` to the console 3 times
 
-> Remember: to run this exercise you must change directory to the `D-variables`. If you already have a terminal window open for the previous exercise you can do this by running the command `cd ../D-variables`.
+> Remember: to run this exercise you must change directory to the `C-variables`. If you already have a terminal window open for the previous exercise you can do this by running the command `cd ../C-variables`.
 
 #### Expected result
 
@@ -122,7 +110,7 @@ In programming there are different _types of_ data. You've used one data type al
 Computers recognise strings as a sequence of characters but to humans, strings are simply lines of text.
 
 ```js
-var message = "This is a string";
+const message = "This is a string";
 ```
 
 Notice that strings are always wrapped **inside of quote marks**. We do this so that the computer knows when the string starts and ends.
@@ -130,43 +118,56 @@ Notice that strings are always wrapped **inside of quote marks**. We do this so 
 You can check that the data is a string by using the `typeof` operator:
 
 ```js
-var message = "This is a string";
-var messageType = typeof message;
+const message = "This is a string";
+const messageType = typeof message;
 
 console.log(messageType); // logs 'string'
 ```
 
 ### Exercise
 
-* Write a program that logs a message and its type
+* Write a program that logs a variable `colors` which contains the primary colors that make Orange color as a string separated by comma and also logs it's type using `typeof`.
 
 #### Expected result
 
-```sh
-This is a string
+```sh 
+color1, color2
 string
 ```
 
 ## String concatenation
 
-You can add two strings together using the plus operator (`+`):
+You can add two strings together using the plus operator (`+`) or `String interpolation`, String interpolation is a useful javascript feature that allows you to inject variables directly into a string.:
 
 ```js
-var greetingStart = "Hello, my name is ";
-var name = "Daniel";
+// Here is example using the plus operator to concat strings
+const greetingStart = "Hello, my name is ";
+const name = "Daniel";
 
-var greeting = greetingStart + name;
+const greeting = greetingStart + name;
+
+console.log(greeting); // Logs "Hello, my name is Daniel"
+```
+
+```js
+// Here is example using the String interpolation to concat strings
+const greetingStart = "Hello, my name is ";
+const name = "Daniel";
+
+const greeting = `${greetingStart} + ${name}`;
 
 console.log(greeting); // Logs "Hello, my name is Daniel"
 ```
 
 ### Exercise
 
-* Write a program that logs a message with a greeting and your name
+* Write a program that logs a message with a greeting and your name using the two concatenation methods we had.
 
 #### Expected result
 
 ```sh
+Hello, my name is Daniel
+
 Hello, my name is Daniel
 ```
 

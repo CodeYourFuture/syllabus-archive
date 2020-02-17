@@ -6,7 +6,6 @@
 
 **What we will learn today?**
 
-* [Install Node](#install-node)
 * [Setup IDE](#setup-ide)
 * [Hello World](#hello-world)
 * [Variables](#variables)
@@ -22,32 +21,6 @@
 
 > Please make sure you've forked [the js-exercises repo](https://github.com/CodeYourFuture/js-exercises) at the start of the class. This is the repo we will use during the class, and for homework.
 
-## Install Node
-
-### Windows and Mac users
-
-Download the _installer_ (.msi or .pkg) from [https://nodejs.org/en/download](https://nodejs.org/en/download)
-
----
-
-### Linux (Ubuntu) users
-
-Run the following commands in your terminal:
-
-```sh
-  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-  sudo apt-get install -y nodejs
-```
-
-Source: [https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
-
-> A note on security: This will require you to enter a password. Don't execute a script on your terminal if you don't trust its source, especially if they use the `sudo` command to get admin access to your machine.
-
-### 2. Test installation
-
-Go to your terminal and run the command: `node -v`.
-
-You should get the node version printed on your terminal. For example, `v8.9.3`.
 
 ## Setup IDE
 
@@ -69,7 +42,9 @@ There are some tools that will help you to write code. One of these, [Prettier](
 
 It is programming tradition that the first thing you do in any language is make it output 'Hello world!'.
 
-We'll do this in JavaScript, using a command called `console.log()`.
+We'll do this in JavaScript, using a command called `console.log()`, the `console.log()` method writes a message to the console.
+
+The Console is a tool which is mainly used to log information it's useful for testing purposes
 
 Inside of `exercise.js` there's a line of code that will print "Hello world!".
 
@@ -81,14 +56,19 @@ Inside of `exercise.js` there's a line of code that will print "Hello world!".
 
 ### 2. Experiment
 
-* Try to `console.log()` something different. For example, 'Hello World. I just started learning JavaScript!'.
-* Try to console.log() several things at once.
-* What happens when you get rid of the quote marks?
-* What happens when you console.log() just a number without quotes?
+Write 10 statements like these, but in different languages.
+
+For example:
+
+```
+Halo, dunia! // Indonesian
+Ciao, mondo! // Italian
+Hola, mundo! // Spanish
+```
 
 ## Variables
 
-When you write code, you'll want to create shortcuts to data values so you can don't have to write out the same value every time.
+When you write code, you'll want to create shortcuts to data values so you don't have to write out the same value every time.
 
 We can use _variable_ to create a reference to a value.
 

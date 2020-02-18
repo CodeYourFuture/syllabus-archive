@@ -6,7 +6,6 @@
 
 **What we will learn today?**
 
-* [Setup IDE](#setup-ide)
 * [Hello World](#hello-world)
 * [Variables](#variables)
 * [Strings](#strings)
@@ -21,40 +20,29 @@
 
 > Please make sure you've forked [the js-exercises repo](https://github.com/CodeYourFuture/js-exercises) at the start of the class. This is the repo we will use during the class, and for homework.
 
-
-## Setup IDE
-
-There are some tools that will help you to write code. One of these, [Prettier](https://prettier.io/), formats your code, making it easier for you and others to read.
-
-### 1. Install prettier
-
-* In Visual Studio open the extensions panel (see [https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions](https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions))
-* Search for `Prettier - Code formatter`
-* Click install on the top result
-
-### 2. Enable formatting on save
-
-* In Visual Studio open the settings file (see [https://code.visualstudio.com/docs/getstarted/settings#_creating-user-and-workspace-settings](https://code.visualstudio.com/docs/getstarted/settings#_creating-user-and-workspace-settings))
-* Search for `editor format`
-* Set `editor.formatOnSave` and `editor.formatOnPaste` to true
+## Prerequisites
+1. Access to a Linux console (either on Mac, Ubuntu or by using Ubuntu WSL for Windwos 10)
+2. VS Code running a default Linux terminal
+3. NodeJS must be installed
 
 ## Hello World
 
 It is programming tradition that the first thing you do in any language is make it output 'Hello world!'.
 
-We'll do this in JavaScript, using a command called `console.log()`, the `console.log()` method writes a message to the console.
+We'll do this in JavaScript, using a command called `console.log()`. The `console.log()` method writes a message to the console.
 
-The Console is a tool which is mainly used to log information it's useful for testing purposes
+The console is a tool which is mainly used to log information - it's useful for testing purposes.
 
-Inside of `exercise.js` there's a line of code that will print "Hello world!".
+### Exercise (10 minutes)
+*(This exercise will help you understand how to run a basic JS script and explore the different ways you can run JS code)*
+1. Create your first `js1-week1.js` script
+2. Type `console.log("Hello World!")`
+3. There are 2 ways you can run this script - one way is by pressing F5 in your VS Code application. Can you find out what the second way is? Pair up and use a search engine to find out! Choose your favourite method and use that from now on.
 
-### 1. Run the program
+**BONUS:** there is a third way of running JS code (notice how I haven't said scipt) - do you know what that is?
 
-* Open a terminal window
-* Change directory to this folder (`cd week-1/C-hello-world`)
-* Run the program using node (`node exercise.js`)
-
-### 2. Experiment
+### Exercise (5 minutes)
+*(This exercise will help you expand your understanding of console.log)*
 
 Write 10 statements like these, but in different languages.
 
@@ -70,7 +58,7 @@ Hola, mundo! // Spanish
 
 When you write code, you'll want to create shortcuts to data values so you don't have to write out the same value every time.
 
-We can use _variable_ to create a reference to a value. Variables can be thought of as named containers. You can place data into these containers and then refer to the data simply by naming the container.
+We can use a _variable_ to create a reference to a value. Variables can be thought of as named containers. You can place data into these containers and then refer to the data simply by naming the container.
 
 Before you use a variable in a JavaScript program, you must declare it. Variables are declared with _let_ and _const_ keywords as follows.
 
@@ -88,22 +76,12 @@ console.log(name);
 
 The program above will print "Hello world" to the console. Notice how it uses the value assigned to the variable `greeting`.
 
-### Exercise
+### Exercise (5 minutes)
 
-* Add a variable `greeting` to exercise.js (make sure it comes _before_ the console.log)
-* Print your `greeting` to the console 3 times
+1. Add a variable `greeting` to js1-week1.js and assign a greeting of your choice to the variable
+2. Print your `greeting` to the console 3 times. You should see your greeting 3 times on the console, one on each line.
 
-> Remember: to run this exercise you must change directory to the `C-variables`. If you already have a terminal window open for the previous exercise you can do this by running the command `cd ../C-variables`.
-
-#### Expected result
-
-```sh
-Hello world
-Hello world
-Hello world
-```
-
-## Strings
+## Types
 
 In programming there are different _types of_ data. You've used one data type already: **string**.
 
@@ -124,23 +102,17 @@ const messageType = typeof message;
 console.log(messageType); // logs 'string'
 ```
 
-### Exercise
+### Exercise (5 minutes)
 
-* Write a program that logs a variable `colors` which contains the primary colors that make Orange color as a string separated by comma and also logs it's type using `typeof`.
-
-#### Expected result
-
-```sh 
-color1, color2
-string
-```
+1. Write a program that logs a variable `colors` which contains the primary colors that make Orange color as a string separated by comma and also logs it's type using `typeof`.
+2. What is the `typeof` a number?
 
 ## String concatenation
 
-You can add two strings together using the plus operator (`+`) or `String interpolation`, String interpolation is a useful javascript feature that allows you to inject variables directly into a string.:
+You can add two strings together using the plus operator (`+`) or *string interpolation*. String interpolation is a useful JavaScript feature that allows you to inject variables directly into a string:
 
 ```js
-// Here is example using the plus operator to concat strings
+// Here is an example using the plus operator to concat strings
 const greetingStart = "Hello, my name is ";
 const name = "Daniel";
 
@@ -159,19 +131,11 @@ const greeting = `${greetingStart} + ${name}`;
 console.log(greeting); // Logs "Hello, my name is Daniel"
 ```
 
-### Exercise
+### Exercise (5 mins)
 
-* Write a program that logs a message with a greeting and your name using the two concatenation methods we had.
+1. Write a program that logs a message with a greeting and your name using the two concatenation methods we used
 
-#### Expected result
-
-```sh
-Hello, my name is Daniel
-
-Hello, my name is Daniel
-```
-
-## Numbers
+## Numbers as integer
 
 The next data type we will learn is **number**.
 
@@ -190,10 +154,10 @@ var quotient = 10 / 2; // 5
 var difference = 10 - 2; // 8
 ```
 
-### Exercise
+### Exercise (10 mins)
 
-* Create two variables `numberOfStudents` and `numberOfMentors`
-* Log a message that displays the total number of students and mentors
+1. Create two variables `numberOfStudents` and `numberOfMentors`
+2. Log a message that displays the total number of students and mentors
 
 #### Expected result
 
@@ -203,7 +167,7 @@ Number of mentors: 8
 Total numnber of students and mentors: 23
 ```
 
-## Floats
+## Numbers as decimals
 
 Numbers can be integers (whole numbers) or floats (numbers with a decimal).
 
@@ -218,9 +182,10 @@ var preciseAge = 30.612437;
 var roughAge = Math.round(preciseAge); // 30
 ```
 
-### Exercise
+### Exercise (15 mins)
 
-* Using the variables provided in the exercise calculate the percentage of mentors and students in the group
+1. Using the variables provided in the exercise calculate the percentage of mentors and students in the group
+2. Using online documentation, what other things can you do with the `Math` library? Pick one thing on your table that you can do other than `Math.round` and prepare an explanation for the rest of the class
 
 #### Expected result
 
@@ -251,31 +216,6 @@ var result = double(2);
 console.log(result); // 4
 ```
 
-### Exercise 1
-
-* Complete the function in exercise.js so that it halves the input
-* Try calling the function more than once with some different numbers
-
-> Remember to use the return keyword to get a value out of the function
-
-#### Expected result
-
-```sh
-6
-```
-
-### Exercise 2
-
-* Complete the function in exercise2.js so that it triples the input
-
-#### Expected result
-
-```sh
-24
-```
-
-## Function Parameters
-
 The input given to a function is called a **parameter**.
 
 A function can take more than one parameter:
@@ -296,56 +236,20 @@ function add(num1, num2) {
 }
 ```
 
-### Exercise 1
+### Exercise (20 minutes)
 
-* Write a function that multiplies two numbers together
+1. In pairs, design and create a function that:
+  * takes in more than one input
+  * uses string concatenation
+  * performs some form of operation on a number
+  * uses `return` to return a **string**
+2. Comment your function to explain what it does
+3. Call your function and run your script
+4. What's the difference between a `return` and `console.log`?
+5. When would you choose to use functions over the way we have been scripting so far?
 
-#### Expected result
-
-```sh
-12
-```
-
-### Exercise 2
-
-* From scratch, write a function that divides two numbers
-
-#### Expected result
-
-```sh
-0.75
-```
-
-### Exercise 3
-
-* Write a function that takes a name (a string) and returns a greeting
-
-#### Expected result
-
-```sh
-Hello, my name is Daniel
-```
-
-### Exercise 4
-
-* Write a function that adds two numbers together
-* Call the function, passing `13` and `124` as parameters, and assigning the returned value to a variable `sum`
-
-#### Expected result
-
-```js
-137
-```
-
-### Exercise 5
-
-* Write a function that takes a name (a string) and an age (a number) and returns a greeting (a string)
-
-#### Expected result
-
-```sh
-Hello, my name is Daniel and I'm 30 years old
-```
+### Exercise (10 minutes)
+1. Swap your laptop with your neighbouring pairs and review each other's code - what can be improved? Is the code readable?
 
 ## Nested Functions
 
@@ -368,35 +272,12 @@ function createGreeting(name, age) {
 }
 ```
 
-## Exercise 1
+## Exercise (20 mins)
 
-* In `exercise.js` write a program that displays the percentage of students and mentors in the group
-* The percentage should be rounded to the nearest whole number (use a search engine to find out how to this with JavaScript)
-* You should have one function that calculates the percentage, and one function that creates a message
-
-> Consider: should your percentage function do the rounding, or should it be done when the greeting is created?
-
-### Expected result
-
-```sh
-Percentage students: 65%
-Percentage mentors: 35%
-```
-
-## Exercise 2
-
-* In `exercise2.js` you have been provided with the names of some mentors. Write a program that logs a shouty greeting to each one.
-* Your program should include a function that spells their name in uppercase, and a function that creates a shouty greeting.
-* Log each greeting to the console.
-
-### Expected result
-
-```sh
-HELLO DANIEL
-HELLO IRINA
-HELLO MIMI
-HELLO ROB
-HELLO YOHANNES
+1. Write a function that returns the year someone is born given their age as input
+2. Using the answer from step 1, write a function that takes someone's name and age as input and returns a string that states the person's name and age in a sentence
+3. Given the following code, how can you *refactor* it to split it into two functions?
+```js
 ```
 
 {% include "./homework.md" %}

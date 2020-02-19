@@ -81,7 +81,7 @@ The program above will print "Hello world" to the console. Notice how it uses th
 1. Add a variable `greeting` to js1-week1.js and assign a greeting of your choice to the variable
 2. Print your `greeting` to the console 3 times. You should see your greeting 3 times on the console, one on each line.
 
-## Types
+## Strings
 
 In programming there are different _types of_ data. You've used one data type already: **string**.
 

@@ -104,7 +104,7 @@ console.log(messageType); // logs 'string'
 
 ### Exercise (5 minutes)
 
-1. Write a program that logs a variable `colors` which contains the primary colors that make Orange color as a string separated by comma and also logs it's type using `typeof`.
+1. Write a program that logs a variable `colors` which contains the primary colors that make Orange color as a string separated by comma and also logs its type using `typeof`.
 2. What is the `typeof` a number?
 
 ## String concatenation
@@ -123,10 +123,10 @@ console.log(greeting); // Logs "Hello, my name is Daniel"
 
 ```js
 // Here is example using the String interpolation to concat strings
-const greetingStart = "Hello, my name is ";
+const greetingStart = "Hello";
 const name = "Daniel";
 
-const greeting = `${greetingStart} + ${name}`;
+const greeting = `${greetingStart}, my name is ${name}`;
 
 console.log(greeting); // Logs "Hello, my name is Daniel"
 ```

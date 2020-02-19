@@ -142,16 +142,16 @@ The next data type we will learn is **number**.
 Unlike strings, numbers do not need to be wrapped in quotes.
 
 ```js
-var age = 30;
+const age = 30;
 ```
 
-You can use mathematical operators to caclulate numbers:
+You can use mathematical operators to calculate numbers:
 
 ```js
-var sum = 10 + 2; // 12
-var product = 10 * 2; // 20
-var quotient = 10 / 2; // 5
-var difference = 10 - 2; // 8
+const sum = 10 + 2; // 12
+const product = 10 * 2; // 20
+const quotient = 10 / 2; // 5
+const difference = 10 - 2; // 8
 ```
 
 ### Exercise (10 mins)
@@ -164,7 +164,7 @@ var difference = 10 - 2; // 8
 ```sh
 Number of students: 15
 Number of mentors: 8
-Total numnber of students and mentors: 23
+Total number of students and mentors: 23
 ```
 
 ## Numbers as decimals
@@ -172,14 +172,14 @@ Total numnber of students and mentors: 23
 Numbers can be integers (whole numbers) or floats (numbers with a decimal).
 
 ```js
-var preciseAge = 30.612437;
+const preciseAge = 30.612437;
 ```
 
-Floats can be rounded to the nearest whole number using the `Math.round` function:
+Numbers with decimals can be rounded to the nearest whole number using the `Math.round` function:
 
 ```js
-var preciseAge = 30.612437;
-var roughAge = Math.round(preciseAge); // 30
+const preciseAge = 30.612437;
+const roughAge = Math.round(preciseAge); // 30
 ```
 
 ### Exercise (15 mins)
@@ -196,7 +196,7 @@ Percentage mentors: 35%
 
 ## Functions
 
-Functions are blocks of code that can do a task as many times as you ask it to. They take an input and return an output.
+Functions are blocks of code that can do a task as many times as you ask them to. They take an input and return an output.
 
 Here's a function that doubles a number:
 

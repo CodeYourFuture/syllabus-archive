@@ -249,7 +249,7 @@ function add(num1, num2) {
 5. When would you choose to use functions over the way we have been scripting so far?
 
 ### Exercise (10 minutes)
-1. Swap your laptop with your neighbouring pairs and review each other's code - what can be improved? Is the code readable?
+1. Swap your laptop with your neighbouring pair and review each other's code - what can be improved? Is the code readable?
 
 ## Nested Functions
 
@@ -276,8 +276,5 @@ function createGreeting(name, age) {
 
 1. Write a function that returns the year someone is born given their age as input
 2. Using the answer from step 1, write a function that takes someone's name and age as input and returns a string that states the person's name and age in a sentence
-3. Given the following code, how can you *refactor* it to split it into two functions?
-```js
-```
 
 {% include "./homework.md" %}

@@ -272,9 +272,78 @@ function createGreeting(name, age) {
 }
 ```
 
-## Exercise (20 mins)
+### Exercise (20 mins)
 
 1. Write a function that returns the year someone is born given their age as input
 2. Using the answer from step 1, write a function that takes someone's name and age as input and returns a string that states the person's name and age in a sentence
+
+## Extra exercises
+
+### Playing computer I
+
+1. Working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. Have you learned anything new during this exercise?
+
+```js
+let a = 4;
+let b = 8;
+
+const multiplyNumbers = function(a, b) {
+  return a * b;
+};
+
+const addNumbers = function(a, b, c) {
+  return a + b + c;
+};
+
+for (let i = 0; i < 5; ++i) {
+  if (i < 3) {
+    const d = addNumbers(i, 2, a);
+    console.log(d);
+  } else {
+    const e = multiplyNumbers(i, 4);
+    console.log(e);
+  }
+}
+```
+
+### Playing computer II
+
+1. Again, working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. What was difficult about this exercise?
+4. Have you learned anything new?
+
+```js
+let x = 2;
+let y = 4;
+let a = 2;
+let b = 20;
+
+const f1 = function(a, b) {
+  return a * b;
+};
+
+const f2 = function(a, b, c) {
+  return a + b + c;
+};
+
+console.log(x);
+x = 3;
+y = f1(x, 2);
+console.log(y);
+
+for (let i = 0; i < 10; ++i) {
+  a = a + 1;
+  if (i % 2 === 0) {
+    const d = f2(i, y, a);
+    console.log(d);
+  } else {
+    const e = f1(i, 2);
+    console.log(e);
+  }
+}
+```
 
 {% include "./homework.md" %}

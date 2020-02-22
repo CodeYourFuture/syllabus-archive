@@ -61,7 +61,7 @@ Would it not be nice if we had a robot we could ask to do all this work for us? 
 
 Turns out we do, but our robot is called Git. And whenever we want to use Git in a folder, to track our changes, we need to tell it to initialize in that folder.
 
-> So our third important word is
+> So our third important word is:
 > **init**
 
 To put it all together, the way we'd talk to Git is:
@@ -104,6 +104,7 @@ How about if you make changes to some files, you're ready to commit, but you for
 You'll see a list of files. Their colour is important:
 
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) **RED** ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) --> they've been changed, but are not _added_ yet, so will not be part of the next commit
+
 ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **GREEN** ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) --> they've been changed AND added to be part of the next commit
 
 So let's practice:

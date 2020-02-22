@@ -316,8 +316,8 @@ for (let i = 0; i < 5; ++i) {
 4. Have you learned anything new?
 
 ```js
-let x = 2; // 3
-let y = 4; // 6
+let x = 2;
+let y = 4;
 let a = 2;
 let b = 20;
 

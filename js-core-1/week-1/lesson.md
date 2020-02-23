@@ -104,7 +104,10 @@ console.log(messageType); // logs 'string'
 
 ### Exercise (5 minutes)
 
-1. Write a program that logs a variable `colors` which contains the primary colors that make Orange color as a string separated by comma and also logs its type using `typeof`.
+1. Write a program that:
+* creates a variable called `colors` 
+* assigns colors "blue" and "yellow" as a comma separate string to `colors` 
+* logs the type `colors` using `typeof`.
 2. What is the `typeof` a number?
 
 ## String concatenation
@@ -275,7 +278,7 @@ function createGreeting(name, age) {
 ### Exercise (20 mins)
 
 1. Write a function that returns the year someone is born given their age as input
-2. Using the answer from step 1, write a function that takes someone's name and age as input and returns a string that states the person's name and age in a sentence
+2. Using the answer from step 1, write a function that takes someone's name and age as input and returns a string that states the person's name and year they were born in a sentence
 
 ## Extra exercises
 
@@ -345,5 +348,15 @@ for (let i = 0; i < 10; ++i) {
   }
 }
 ```
+
+## Glossary
+
+* Console: a place on your computer to run scripts or commands from
+* Command: something that you type on your computer which performs an operation that your computer does
+* Directory: another word for "folder" on your computer
+* Parameter: a placeholder for values you can pass into functions
+* Primitive type: a built-in type in JavaScript (e.g. strings and numbers are primitive types in JavaScript) 
+* Script: a file that contains a programme
+* Terminal: another word for "console"
 
 {% include "./homework.md" %}

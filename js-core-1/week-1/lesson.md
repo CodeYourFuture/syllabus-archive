@@ -182,7 +182,7 @@ Numbers with decimals can be rounded to the nearest whole number using the `Math
 
 ```js
 const preciseAge = 30.612437;
-const roughAge = Math.round(preciseAge); // 30
+const roughAge = Math.round(preciseAge); // 31
 ```
 
 ### Exercise (15 mins)

@@ -8,13 +8,12 @@
 
 * [Hello World](#hello-world)
 * [Variables](#variables)
-* [Strings](#strings)
 * [String concatenation](#string-concatenation)
-* [Numbers](#numbers)
-* [Floats](#floats)
+* [Strings](#strings)
+* [Numbers as integers](#numbers-as-integers)
+* [Numbers as decimals](#numbers-as-decimals)
 * [Functions](#functions)
-* [Function Parameters](#function-parameters)
-* [Nested Functions](#functions-nested)
+* [Calling functions inside functions](#calling-functions-inside-functions)
 
 ---
 
@@ -138,7 +137,7 @@ console.log(greeting); // Logs "Hello, my name is Daniel"
 
 1. Write a program that logs a message with a greeting and your name using the two concatenation methods we used
 
-## Numbers as integer
+## Numbers as integers
 
 The next data type we will learn is **number**.
 
@@ -187,7 +186,7 @@ const roughAge = Math.round(preciseAge); // 31
 
 ### Exercise (15 mins)
 
-1. Using the variables provided in the exercise calculate the percentage of mentors and students in the group
+1. Using the variables provided in the exercise calculate the percentage of mentors and students in the group (percentages must be a rounded to the nearest integer)
 2. Using online documentation, what other things can you do with the `Math` library? Pick one thing on your table that you can do other than `Math.round` and prepare an explanation for the rest of the class
 
 #### Expected result
@@ -254,7 +253,7 @@ function add(num1, num2) {
 ### Exercise (10 minutes)
 1. Swap your laptop with your neighbouring pair and review each other's code - what can be improved? Is the code readable?
 
-## Nested Functions
+## Calling functions inside functions
 
 Functions are very powerful.
 

@@ -400,4 +400,6 @@ In pairs, write a function which squares all numbers in an array and returns the
 
 Write a second function which takes an input of arrays and only returns an array of even numbers.
 
+How can you combine the two functions to return an array of even and squared numbers?
+
 {% include './homework.md' %}

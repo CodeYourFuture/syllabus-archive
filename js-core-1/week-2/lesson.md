@@ -332,7 +332,7 @@ let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]
 
 students[2] = "Bianca"
 
-console.log(students) // ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]
+console.log(students) // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
 ```
 
 ### Exercise (5 mins)
@@ -375,12 +375,12 @@ for (i=0; i<8; i++) {
 }
 ```
 
-Or over an array (called the `for/in` statement in this course):
+Or over an array (called the `for/of` statement in this course):
 
 ```js
 let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange']
 
-for (i in fruits) {
+for (i of fruits) {
   console.log(i)
 }
 ```

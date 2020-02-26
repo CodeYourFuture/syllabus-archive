@@ -59,8 +59,8 @@ function double(num) {
 A statement is some code that performs an action. Here are some examples:
 
 ```js
-var sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
-var greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
+let sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
+let greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
 console.log(2 * 4); // action: logs the result of `2 * 4` to the console
 sayGreeting(greeting); // action: calls the function `sayGreeting` with the parameter `greeting`
 ```
@@ -97,7 +97,7 @@ let thisIsATerribleClass = false
 
 ```js
 function boolChecker(bool) {
-  if (typeof boolVar === ) {
+  if (typeof boollet === ) {
     return "You've given me a bool, thanks!"
   }
 
@@ -197,7 +197,7 @@ The most common type of conditional is the **if statement**.
 An if statment runs some code if a condition is met. If the condition is not met, then the code will be skipped.
 
 ```js
-var isHappy = true;
+let isHappy = true;
 
 if (isHappy) {
   console.log("I am happy");
@@ -239,7 +239,7 @@ An `if` statement runs code when a condition is met. What if the condition is no
 An **if...else statement** also runs code when the condition is _not_ met.
 
 ```js
-var isHappy = true;
+let isHappy = true;
 
 if (isHappy) {
   console.log("I am happy 😄");

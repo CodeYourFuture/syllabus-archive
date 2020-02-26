@@ -111,15 +111,22 @@ function boolChecker(bool) {
 
 ## Comparison Operators
 
-In the previous exercise, you used an an **expression** that returns a boolean value. This was possible because of the **comparison operator** `===`. You can use comparison operators to force an expression to be either `true` or `false`.
+In the previous exercise, you used an an **expression** that returns a `boolean` value. This was possible because of the **comparison operator** `===`. Using a comparison operator will always return a `boolean` value.
 
-Here's an expression that evaluates to a boolean.
+### Assert
+We will also be using a new keyword to make sure the comparisons we do below return `true`. This is the `assert`.
 
-```sh
-1 > 2
+When given `true`, it does nothing. Nice. When given `false`, it will error. It is very good for testing things you expect to be `true`.
+
+Here's an expression that evaluates to a `boolean`.
+
+**Can you work out what will happen with the code below?**
+
+```js
+assert(1 > 2)
+// and...
+assert(2 < 1)
 ```
-
-* Can you work out what value this expression evaluates to?
 
 The `>` symbol in the expression is a **comparison operator**. Comparison operators compare two values. This operator checks to see if the number on the left is bigger than the number on the right.
 
@@ -134,31 +141,51 @@ The `>` symbol in the expression is a **comparison operator**. Comparison operat
 !== not the same value and type
 ```
 
+You might see people use two other comparison operators. They are valid, but are the evil twins of `===` and `!==` and it is generally considered bad practise because of the bugs the can cause.
+
+```sh
+== equal after type converstion
+!= unequal after type converstion
+```
+
+If you see these, suggest people change them in pull requests.
+
 ### Exercise (5 mins)
 
-1. Modify the parameters of these functions to return either `true` or `false` depending on what's in the comments above it:
+1. Modify the values below to to have the compare function return the desired value:
 
 ```js
-// true
-function moreStudentsThanMentors(mentorCount, studentCount) {
-  return mentorCount < studentCount
-}
+const mentorCount = // TODO
+const studentCount = // TODO
+assert(compare(mentorCount < studentCount))
 
-// false
-function enoughSpaceInRoom(capacity) {
-  return capacity > 25
-}
+const capacity = 25
+const people = // TODO
+assert(capacity > people)
 
-// true
-function personEquality(personA, personB) {
-  return personaA === personB
-}
 
-// false
-function numberEquality(numberA, numberB) {
-  return numberA !== numberB
-}
+const name1 = // TODO
+const name2 = // TODO
+assert(name1 === name2)
+
+const number1 = // TODO
+const number2 = // TODO
+assert(number1 !== number2)
+
+const thisNumber = // TODO
+const thatNumber = // TODO
+assert(thisNumber === thatNumber)
+
+const thisArray = [1, 2, 3, 4, 5]
+const thatArray = [1, 2, 3, 4, 5]
+assert(thisArray === thatArray)
 ```
+
+The array comparison doesn't work because JavaScript comparison only works as expected on `number`s, `string`s, and `boolean`s.
+
+You need to be aware of this, and you can go deeper into outside of the lesson, but generally remember that only `number`s, `string`s, and `boolean`s work with equality.
+
+MDN have some in depth, if not too in depth documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
 
 ## Conditionals
 
@@ -286,6 +313,7 @@ Type the following expressions into your node REPL and note the output. Anything
 
 ### Exercise (15 mins)
 In pairs, write a function that checks a username is of an acceptable format for a user type. The function must:
+
 * take two parameters: one for the username and one for the user type
 * if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
 * **BONUS:** if the user type is an `admin` or a `manager`, all usernames must return `"Username valid"`
@@ -336,6 +364,7 @@ console.log(students) // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
 ```
 
 ### Exercise (5 mins)
+
 In the node REPL, enter the following array:
 
 ```sh
@@ -343,6 +372,7 @@ In the node REPL, enter the following array:
 ```
 
 1. Which index do you need to return:
+
 * strawberry
 * kiwi
 * orange
@@ -351,6 +381,7 @@ In the node REPL, enter the following array:
 2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
 ### Exercise (5 mins)
+
 Complete this function so that, if the second index in array contains the name "Amy", it returns `"Second index matched!"`
 
 ```js
@@ -358,19 +389,18 @@ function secondMatchesAmy(array) {
   if ( ) {
     return "Second index matched!"
   }
-  
   return "Second index not matched"
 }
 ```
 
 ## Loops
 
-Loops go hand-in-hand with objects like arrays in JavaScript. A **loop**  is a way for you to go over each element in an array (or more generally, an **iterable** - we'll come to this later).
+Loops go hand-in-hand with objects like arrays in JavaScript. A **loop** is a way for you to go over each element in an array (or more generally, an **iterable** - we'll come to this later).
 
 You can loop over a range of numbers (called the `for` statement in this course):
 
 ```js
-for (i=0; i<8; i++) {
+for (i = 0; i < 8; i++) {
   console.log(i)
 }
 ```

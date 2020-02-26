@@ -38,10 +38,10 @@ We can take the value produced by an expression and assign it to a variable. Tha
 Expressions can also contain variables.
 
 ```js
-let planet = "Earth"
-
-`Hello ${planet}` // returns Hello Earth
-```
+function() {
+  const planet = "Earth"
+  return `Hello ${planet}` // returns Hello Earth
+}
 
 You can also use expressions inside a string interpolation or as a `return` value.
 

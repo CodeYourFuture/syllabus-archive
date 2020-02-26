@@ -5,18 +5,13 @@
 **What we will learn today?**
 
 * [Expressions](#expressions)
-* [Boolean Filters](#boolean-filters)
-* [Comparison operators](#comparison-operators)
-* [Predicates](#predicates)
+* [Booleans](#boolean-filters)
+* [Comparison Operators](#comparison-operators)
 * [Conditionals](#conditionals)
 * [Logical Operators](#logical-operators)
-* [More Conditionals](#more-conditionals)
-* [Array literals](#array-literals)
-* [Array properties](#array-properties)
-* [Array getters and setters](#array-getters-and-setters)
-* [Array methods](#array-methods)
-* [More Array methods](#more-array-methods)
-* [Array map](#array-map)
+* [Loops](#loops)
+* [Arrays](#arrays)
+* [Extra exercises](#extra-exercises)
 
 ---
 > Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 2** folder during this class.
@@ -43,10 +38,10 @@ We can take the value produced by an expression and assign it to a variable. Tha
 Expressions can also contain variables.
 
 ```js
-let planet = "Earth"
-
-`Hello ${planet}` // returns Hello Earth
-```
+function() {
+  const planet = "Earth"
+  return `Hello ${planet}` // returns Hello Earth
+}
 
 You can also use expressions inside a string interpolation or as a `return` value.
 
@@ -71,11 +66,13 @@ sayGreeting(greeting); // action: calls the function `sayGreeting` with the para
 
 There are some other different types of statements that we will learn in the coming weeks.
 
-You can run `node` by itself, which will open a _node console_, also called a _Read–Eval–Print Loop (REPL)_. This console allows you to run expressions in the console line by line and is a great way of testing bits of code before writing it in a script.
+You can run `node` by itself, which will open a _node console_, also called a [Read–Eval–Print Loop (REPL)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
+
+This console allows you to run expressions in the console line by line and is a great way of testing bits of code before writing it in a script.
 
 ### Exercise (5 mins)
 
-In your VS Code terminal, run the command `node` and run the following expressions. What are their outputs? Is there anything you didn't expect? (To exit the node REPL, you have to click Ctrl+D or Cmd+D on Mac)
+In your VS Code terminal, run the command `node` and run the following expressions. What are their outputs? Is there anything you didn't expect? (To exit the node REPL, you have to click <kbd>Ctrl+d</kbd> or <kbd>Cmd+D</kbd> on Mac)
 
 * `1 + 2`
 * `"hello"`
@@ -129,8 +126,6 @@ assert(2 < 1)
 ```
 
 The `>` symbol in the expression is a **comparison operator**. Comparison operators compare two values. This operator checks to see if the number on the left is bigger than the number on the right.
-
-## More comparison operators
 
 ```sh
 >   greater than
@@ -318,6 +313,40 @@ In pairs, write a function that checks a username is of an acceptable format for
 * if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
 * **BONUS:** if the user type is an `admin` or a `manager`, all usernames must return `"Username valid"`
 
+
+## Loops
+
+When we're writing programs, we often find that we want to repeat a bit of code over and over, or repeat it but change something about it each time. To save ourselves from writing all that code, we can use a **loop**. JavaScript has two kinds of loops, a `while` loop and a `for` loop.
+
+A `while` loop is a way to repeat code until some condition is evaluated to `false`. For example:
+
+```js
+let i = 0;
+while (i < 20) {
+  someFunction(i);
+  i++;
+}
+```
+
+It's important that the condition inside the parenthesis becomes false at some point - otherwise we'll have what's known as an infinite loop!
+
+The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value. A `for` loop syntax has special places for each of those three things. Here's the same loop as the first while loop above, as a for loop:
+
+```js
+for (let i = 0; i < 20; i++) {
+  someFunction(i);
+}
+```
+
+### Exercise (15 minutes)
+
+Write two functions that:
+
+* Take one number `n` as a parameter
+* Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+* The first version of the function should use `while` and the second one `for`.
+
+
 ## Arrays
 
 If you ever find yourself writing code like this...
@@ -393,43 +422,81 @@ function secondMatchesAmy(array) {
 }
 ```
 
-## Loops
-
-Loops go hand-in-hand with objects like arrays in JavaScript. A **loop** is a way for you to go over each element in an array (or more generally, an **iterable** - we'll come to this later).
-
-You can loop over a range of numbers (called the `for` statement in this course):
-
-```js
-for (i = 0; i < 8; i++) {
-  console.log(i)
-}
-```
-
-Or over an array (called the `for/of` statement in this course):
-
-```js
-let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange']
-
-for (i of fruits) {
-  console.log(i)
-}
-```
-
-If keeping the order of the array is important, you should use the `for` statement with an array:
-
-```js
-let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange']
-
-for (i=0; i<fruits.length; i++) {
-  console.log(fruits[i])
-}
-```
-
 ### Exercise (20 mins)
 In pairs, write a function which squares all numbers in an array and returns the array of squared numbers.
 
 Write a second function which takes an input of arrays and only returns an array of even numbers.
 
 How can you combine the two functions to return an array of even and squared numbers?
+
+
+## Extra exercises
+
+### Playing computer I
+
+1. Working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. Have you learned anything new during this exercise?
+
+```js
+let a = 4;
+let b = 8;
+
+const multiplyNumbers = function(a, b) {
+  return a * b;
+};
+
+const addNumbers = function(a, b, c) {
+  return a + b + c;
+};
+
+for (let i = 0; i < 5; ++i) {
+  if (i < 3) {
+    const d = addNumbers(i, 2, a);
+    console.log(d);
+  } else {
+    const e = multiplyNumbers(i, 4);
+    console.log(e);
+  }
+}
+```
+
+### Playing computer II
+
+1. Again, working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. What was difficult about this exercise?
+4. Have you learned anything new?
+
+```js
+let x = 2;
+let y = 4;
+let a = 2;
+let b = 20;
+
+const f1 = function(a, b) {
+  return a * b;
+};
+
+const f2 = function(a, b, c) {
+  return a + b + c;
+};
+
+console.log(x);
+x = 3;
+y = f1(x, 2);
+console.log(y);
+
+for (let i = 0; i < 10; ++i) {
+  a = a + 1;
+  if (i % 2 === 0) {
+    const d = f2(i, y, a);
+    console.log(d);
+  } else {
+    const e = f1(i, 2);
+    console.log(e);
+  }
+}
+```
 
 {% include './homework.md' %}

@@ -42,6 +42,7 @@ function() {
   const planet = "Earth"
   return `Hello ${planet}` // returns Hello Earth
 }
+```
 
 You can also use expressions inside a string interpolation or as a `return` value.
 

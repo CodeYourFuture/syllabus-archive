@@ -409,6 +409,12 @@ In the node REPL, enter the following array:
 
 2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
+### Exercise (10 mins)
+1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
+Sample array: [20, 20, 30, 40, 50, 50, 50]
+2. After removing the duplicate elements the function should return 4 as the new length of the array. 
+
+
 ### Exercise (5 mins)
 
 Complete this function so that, if the second index in array contains the name "Amy", it returns `"Second index matched!"`

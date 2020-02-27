@@ -377,7 +377,9 @@ let grades = ["F", "D", "A"];
 let greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 ```
 
-You can access elements in an array using the **index** of an element with **bracket notation** (remember: all arrays start at position 0! So to access the first element in an array, you need to access index 0!)
+You can access elements in an array using the **index** of an element with **bracket notation**
+
+**🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
 
 ```js
 let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]

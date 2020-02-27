@@ -333,6 +333,7 @@ It's important that the condition inside the parenthesis becomes false at some p
 
 The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value. A `for` loop syntax has special places for each of those three things. Here's the same loop as the first while loop above, as a for loop:
 
+![For loop](https://user-images.githubusercontent.com/31692/75388870-9213a880-58dd-11ea-90e6-4e67eabf390b.png)
 ```js
 for (let i = 0; i < 20; i++) {
   someFunction(i);

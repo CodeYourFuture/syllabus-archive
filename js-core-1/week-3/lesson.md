@@ -15,6 +15,190 @@
 
 > Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 3** during this class.
 
+
+## Array properties
+
+Arrays, like strings, have a `length` property.
+
+You can check this by starting a node console in your terminal.
+
+```sh
+$ node
+> var arr = [1, 2, 3];
+undefined
+> arr
+[1, 2, 3]
+> arr.length
+3
+```
+
+## Manipulating arrays
+
+You can **get** a single value out of an array using **bracket notation**.
+
+```sh
+$ node
+> var ingredients = ["Flour", "Water", "Salt"];
+undefined
+> ingredients[0]
+Flour
+> ingredients[1]
+Water
+> ingredients.length
+3
+```
+
+Did you notice how we use `[0]` to get the first value? In programming we count starting at zero.
+
+> The number inside of the brackets is called an **index**. Index just means the position of the item within the array.
+
+You can also **set** a value using bracket notation and an assignment operator (`=`).
+
+```js
+var scores = [80, 41, 47];
+
+scores[2] = 29; // Change the last score
+scores[3] = 51; // Add a new score
+```
+
+## Array methods
+
+Do you remember how strings have special functions called methods? Don't worry if not! Here's an example to jog your memory:
+
+```sh
+$ node
+> var name = "Daniel"
+undefined
+> name.toLowerCase()
+daniel
+```
+
+Arrays also have several methods that you can use.
+
+### `.sort()`
+
+_An array method that sorts the values in an array into ascending alphabetical or numerical order._
+
+```js
+var unorderedLetters = ["z", "v", "b", "f", "g"];
+var orderedLetters = unorderedLetters.sort();
+
+var unorderedNumbers = [8, 5, 1, 4, 2];
+var orderedNumbers = unorderedNumbers.sort();
+
+console.log(orderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
+console.log(unorderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
+
+console.log(orderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
+console.log(unorderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
+```
+
+> When you call this array method it uses the array on the left side of the dot as an input, and it sorts that array also returning it. Note how both ordered and unordered arrays are sorted now!
+
+### `.concat()`
+
+_Adds (or concatenates) another value or array to the array._
+
+```sh
+$ node
+> var arr = [1, 2, 3]
+undefined
+> arr.concat(4)
+[1, 2, 3, 4]
+> arr
+[1, 2, 3]
+```
+
+Did you notice how calling the concat method did not change `arr`? This is because `concat`, like most array methods, returns a _new_ array, it does not alter the one you called the method on.
+
+If you wan to use the array returned by calling `.concat()` you should store it in a new variable.
+
+```js
+var arr = [1, 2, 3];
+var newArr = arr.concat(4);
+
+console.log(newArr); // logs [1, 2, 3, 4]
+```
+
+## More Array methods
+
+Let's explore some more array methods.
+
+### `.slice()`
+
+_Returns a slice of the array._
+
+You can tell `.slice()` where you want the slice to begin and end by passing it two parameters.
+
+```sh
+$ node
+> var arr = [0, 1, 2, 3, 4]
+undefined
+> arr.slice(0, 2)
+[0, 1]
+> ["a", "b", "c", "d"].slice(1, 2)
+['b']
+```
+
+### `.includes()`
+
+_Returns true if a value is in the array._
+
+```js
+var mentors = ["Daniel", "Irini", "Ashleigh", "Rob", "Etzali"];
+
+function isAMentor(name) {
+  return mentors.includes(name);
+}
+
+consooe.log("Is Rukmuni a mentor?");
+console.log(isAMentor("Rukmini")); // logs false
+```
+
+### `.join()`
+
+_Returns all the array values joined together in a string. By default, this method takes no parameters and then the elements are divided with a comma `,`. If you provide it with a string parameter though, then it becomes the divider of the elements, like the example below:_
+
+```sh
+$ node
+> ["H", "e", "l", "l", "o"].join();
+'H,e,l,l,o'
+> ["H", "e", "l", "l", "o"].join("--");
+'H--e--l--l--o'
+```
+
+There is a string method `.split()`. In an interactive console try using the string `.split()` method and the array `.join()`. How could they work together?
+
+## Array map
+
+Imagine you have an array of names...
+
+```js
+var mentors = ["Daniel ", "irina ", " Gordon", "ashleigh "];
+```
+
+You notice that he names are not formatted consistently. To fix the array you decide you need to trim whitespace and convert to lowercase. How do you do that for every value in the array?
+
+We can write a function that changes one name:
+
+```js
+function tidy(name) {
+  return name.trim().toLowerCase();
+}
+```
+
+All you need to run every name in the array through this function and update the array values. Thankfully there is an array method that does just this!
+
+## `.map()`
+
+_Runs every item in the array through a function and returns a new array with the values returned by the function_.
+
+```js
+var tidyMentors = mentors.map(tidy);
+
+console.log(tidyMentors); // logs ["daniel", "irina", "gordon", "ashleigh"]
+```
+
 ## Array find
 
 Imagine you have an array of names:

@@ -5,18 +5,13 @@
 **What we will learn today?**
 
 * [Expressions](#expressions)
-* [Boolean Filters](#boolean-filters)
-* [Comparison operators](#comparison-operators)
-* [Predicates](#predicates)
+* [Booleans](#boolean-filters)
+* [Comparison Operators](#comparison-operators)
 * [Conditionals](#conditionals)
 * [Logical Operators](#logical-operators)
-* [More Conditionals](#more-conditionals)
-* [Array literals](#array-literals)
-* [Array properties](#array-properties)
-* [Array getters and setters](#array-getters-and-setters)
-* [Array methods](#array-methods)
-* [More Array methods](#more-array-methods)
-* [Array map](#array-map)
+* [Loops](#loops)
+* [Arrays](#arrays)
+* [Extra exercises](#extra-exercises)
 
 ---
 > Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 2** folder during this class.
@@ -35,127 +30,162 @@ The following are all examples of expressions:
 1 + 1; // returns 2
 ("hello"); // returns "hello"
 2 * 4; // returns 8
-"hello" + "world"; // returns "helloworld"
+"Hello" + "World"; // returns "HelloWorld"
 ```
 
 We can take the value produced by an expression and assign it to a variable. That line of code would be called a statement.
+
+Expressions can also contain variables.
+
+```js
+function() {
+  const planet = "Earth"
+  return `Hello ${planet}` // returns Hello Earth
+}
+```
+
+You can also use expressions inside a string interpolation or as a `return` value.
+
+```js
+console.log(`2 + 4 is ${2 + 4}`) // 2 + 4 is 6
+
+function double(num) {
+  return num * 2 // expression being returned
+}
+```
 
 ### Statement
 
 A statement is some code that performs an action. Here are some examples:
 
 ```js
-var sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
-var greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
+let sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
+let greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
 console.log(2 * 4); // action: logs the result of `2 * 4` to the console
 sayGreeting(greeting); // action: calls the function `sayGreeting` with the parameter `greeting`
 ```
 
 There are some other different types of statements that we will learn in the coming weeks.
 
-### Exercise
+You can run `node` by itself, which will open a _node console_, also called a [Read–Eval–Print Loop (REPL)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
 
-You quickly find out the result of an expression by running node in a terminal window.
+This console allows you to run expressions in the console line by line and is a great way of testing bits of code before writing it in a script.
 
-* Open a terminal window
-* Run the command `node`
-* _You have now opened a node console, also called a Read–Eval–Print Loop (REPL)_
-* Type an expression and press enter
-* To exit the console type Ctrl+C or type the command `.exit`
+### Exercise (5 mins)
 
-Example from inside a terminal window:
+In your VS Code terminal, run the command `node` and run the following expressions. What are their outputs? Is there anything you didn't expect? (To exit the node REPL, you have to click <kbd>Ctrl+d</kbd> or <kbd>Cmd+D</kbd> on Mac)
 
-```bash
-$ node
-> 1 + 2
-3
-> "hello"
-'hello'
-> var greeting = "hello"
-undefined
-> greeting
-'hello'
-> console.log(greeting)
-hello
-undefined
-> .exit
-$
-```
+* `1 + 2`
+* `"hello"`
+* `let favouriteColour = "purple"`
+* `favouriteColour`
+* `console.log(favouriteColour)`
 
-> Notice how when we execute an expression the value it produces is printed below it. When we execute a statement, we see `undefined` printed below. This is because statements don't produce values like expressions, they _do something_.
+## Booleans
 
-* Write some more expressions in the node console
-* Assign some expressions to variables
-* Check the value of the variables
-
-Further reading on using the node console: [https://hackernoon.com/know-node-repl-better-dbd15bca0af6](https://hackernoon.com/know-node-repl-better-dbd15bca0af6)
-
-## Boolean Filters
-
-There is a special data type in JavaScript known as a **boolean** value. A boolean is either `true` or `false`, and it should be written without quotes.
+There is another _primitive type_ in JavaScript known as a **boolean** value. A boolean is either `true` or `false`, and it should be written without quotes.
 
 ```js
-var codeYourFutureIsGreat = true;
+let codeYourFutureIsGreat = true
+let thisIsATerribleClass = false
 ```
 
-### Exercise
+### Exercise (10 mins)
 
-Head over to `exercise.js` and follow the instructions in the comments.
+1. In a node REPL, what is the `typeof` a `true` or `false`?
+2. Pair up and correct the following function so that the output returns `"You've given me a bool, thanks!"`
+
+```js
+function boolChecker(bool) {
+  if (typeof boollet === ) {
+    return "You've given me a bool, thanks!"
+  }
+
+  return "No bool, not cool."
+}
+```
+
+3. As a class, can you step through the function and explain what each line does?
 
 ## Comparison Operators
 
-We can also write **expressions** that return boolean values.
+In the previous exercise, you used an an **expression** that returns a `boolean` value. This was possible because of the **comparison operator** `===`. Using a comparison operator will always return a `boolean` value.
 
-Here's an expression that evaluates to a boolean.
+### Assert
+We will also be using a new keyword to make sure the comparisons we do below return `true`. This is the `assert`.
 
-```sh
-1 > 2
+When given `true`, it does nothing. Nice. When given `false`, it will error. It is very good for testing things you expect to be `true`.
+
+Here's an expression that evaluates to a `boolean`.
+
+**Can you work out what will happen with the code below?**
+
+```js
+assert(1 > 2)
+// and...
+assert(2 < 1)
 ```
 
-* Can you work out what value this expression evaluates to?
-
 The `>` symbol in the expression is a **comparison operator**. Comparison operators compare two values. This operator checks to see if the number on the left is bigger than the number on the right.
-
-`1` is not bigger than `2` so this expression returns `false`.
-
-## More comparison operators
 
 ```sh
 >   greater than
 <   less than
 <=  less than or equal
 >=  greater than or equal
-=== same value
-!== not the same value
+=== same value and same type
+!== not the same value and type
 ```
 
-### Exercise
+You might see people use two other comparison operators. They are valid, but are the evil twins of `===` and `!==` and it is generally considered bad practise because of the bugs the can cause.
 
-* Open `exercise.js` and follow the instructions.
-* Open a node console, and write some expressions that use comparison operators
+```sh
+== equal after type converstion
+!= unequal after type converstion
+```
 
-## Predicates
+If you see these, suggest people change them in pull requests.
 
-**Predicate** is a fancy word for a function that returns a boolean value.
+### Exercise (5 mins)
 
-These functions are very useful because they let you test if a value satisifies certain requirements.
+1. Modify the values below to to have the compare function return the desired value:
 
 ```js
-function isNumber(value) {
-  return typeof value === "number";
-}
+const mentorCount = // TODO
+const studentCount = // TODO
+assert(compare(mentorCount < studentCount))
 
-isNumber(10); // returns true
-isNumber("hello"); // returns false
+const capacity = 25
+const people = // TODO
+assert(capacity > people)
+
+
+const name1 = // TODO
+const name2 = // TODO
+assert(name1 === name2)
+
+const number1 = // TODO
+const number2 = // TODO
+assert(number1 !== number2)
+
+const thisNumber = // TODO
+const thatNumber = // TODO
+assert(thisNumber === thatNumber)
+
+const thisArray = [1, 2, 3, 4, 5]
+const thatArray = [1, 2, 3, 4, 5]
+assert(thisArray === thatArray)
 ```
 
-JavaScript programmers often give predicate functions a name that starts with a verb e.g. `isBig`, `isNegative`, `isActive`, `shouldUpdate`,
+The array comparison doesn't work because JavaScript comparison only works as expected on `number`s, `string`s, and `boolean`s.
 
-Calling a predicate function is like asking a question: "is this value a number". The return value is the answer to your question.
+You need to be aware of this, and you can go deeper into outside of the lesson, but generally remember that only `number`s, `string`s, and `boolean`s work with equality.
+
+MDN have some in depth, if not too in depth documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
 
 ## Conditionals
 
-Like humans, computer programs make decisions based on information given to them. **Conditionals** are a way of representing these decisions in code.
+Like humans, computer programs make decisions based on information given to them. **Conditionals** are a way of representing these decisions in code (remember, you saw this in a previous exercise!)
 
 For example:
 
@@ -167,7 +197,7 @@ The most common type of conditional is the **if statement**.
 An if statment runs some code if a condition is met. If the condition is not met, then the code will be skipped.
 
 ```js
-var isHappy = true;
+let isHappy = true;
 
 if (isHappy) {
   console.log("I am happy");
@@ -183,6 +213,7 @@ if (true) {
 }
 
 // variable assigned to boolean value
+let isHappy = true
 if (isHappy) {
   // do something
 }
@@ -203,12 +234,12 @@ if (greaterThan10(5)) {
 }
 ```
 
-An if statement runs code when a condition is met. What if the condition is not met? Sometimes you want to run an alternative bit of code.
+An `if` statement runs code when a condition is met. What if the condition is not met? Sometimes you want to run an alternative bit of code.
 
 An **if...else statement** also runs code when the condition is _not_ met.
 
 ```js
-var isHappy = true;
+let isHappy = true;
 
 if (isHappy) {
   console.log("I am happy 😄");
@@ -217,16 +248,42 @@ if (isHappy) {
 }
 ```
 
+What if there is more than one condition you want to handle in your function? For example, what if you can be confused as well? You can use **else if** to handle multiple conditions.
+
+### Exercise (5 mins)
+Can you explain what this function does line by line? What happens when you pass in a string?
+```js
+function numberChecker(num) {
+  if (num > 20) {
+    return `${num} is greater than 20`
+  } else if (num === 20) {
+    return `${num} is equal to 20`
+  } else if (num < 20) {
+    return `${num} is less than 20`
+  } else {
+    return `${num} isn't even a number :(`
+  }
+}
+```
+
+### Exercise (10 mins)
+Create a function that gives you message depending on your mood! It should:
+* take one input
+* return "Good job, you're doing great!" if you pass in "happy"
+* return "Every cloud has a silver lining" if you pass in "sad"
+* return "Beep beep boop" if you pass in a number
+* return "I'm sorry, I'm still learning about feelings!" if you pass in anything else
+
 ## Logical Operators
 
 There are three logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT).
 
 They let you write expressions that evaluate to a boolean value.
 
-Suppose you want to test if a number if bigger than 3 and smaller than 10. We can write this using logical operators.
+Suppose you want to test if a number is bigger than 3 and smaller than 10. We can write this using logical operators.
 
 ```js
-var num = 10;
+let num = 10;
 
 function satisfiesRequirements(num) {
   if (num > 3 && num < 10) {
@@ -237,63 +294,71 @@ function satisfiesRequirements(num) {
 }
 ```
 
-We can test expressions with logical operators in a node console too:
+We can test expressions with logical operators in a node console too.
 
-```sh
-$ node
-> var num = 10;
-undefined
-> num > 5 && num < 15
-true
-> num < 10 || num === 10
-true
-> false || true
-true
-> !true
-false
-> var greaterThan5 = num > 5
-undefined
-> !greaterThan5
-false
-> !(num === 10)
-false
-```
+### Exercise (5 mins)
+Type the following expressions into your node REPL and note the output. Anything you didn't expect?
+* `let num = 10`
+* `num > 5 && num < 15`
+* `num < 10 || num === 10`
+* `false || true`
+* `!true`
+* `let greaterThan5 = num > 5`
+* `!greaterThan5`
+* `!(num === 10)`
 
-## More Conditionals
+### Exercise (15 mins)
+In pairs, write a function that checks a username is of an acceptable format for a user type. The function must:
 
-A common use of if statements is inside of functions.
+* take two parameters: one for the username and one for the user type
+* if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
+* **BONUS:** if the user type is an `admin` or a `manager`, all usernames must return `"Username valid"`
+
+
+## Loops
+
+When we're writing programs, we often find that we want to repeat a bit of code over and over, or repeat it but change something about it each time. To save ourselves from writing all that code, we can use a **loop**. JavaScript has two kinds of loops, a `while` loop and a `for` loop.
+
+A `while` loop is a way to repeat code until some condition is evaluated to `false`. For example:
 
 ```js
-function getGrade(score) {
-  if (score >= 80) {
-    return "A";
-  }
-  if (score >= 60) {
-    return "B";
-  }
+let i = 0;
+while (i < 20) {
+  someFunction(i);
+  i++;
 }
 ```
 
-You can also write this using `else if`:
+It's important that the condition inside the parenthesis becomes false at some point - otherwise we'll have what's known as an infinite loop!
 
+The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value.
+
+The `for` loop syntax has special places for each of those three things. Here's the same loop as the first while loop above, as a for loop:
+
+![For loop](https://user-images.githubusercontent.com/31692/75388870-9213a880-58dd-11ea-90e6-4e67eabf390b.png)
 ```js
-function getGrade(score) {
-  if (score >= 80) {
-    return "A";
-  } else if (score >= 60) {
-    return "B";
-  }
+for (let i = 0; i < 20; i++) {
+  someFunction(i);
 }
 ```
 
-## Array Literals
+### Exercise (15 minutes)
+
+Write two functions that:
+
+* Take one number `n` as a parameter
+* Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+* The first version of the function should use `while` and the second one `for`.
+
+
+## Arrays
 
 If you ever find yourself writing code like this...
 
 ```js
-var mentor1 = "Daniel";
-var mentor2 = "Irina";
-var mentor3 = "Rares";
+let mentor1 = "Daniel";
+let mentor2 = "Irina";
+let mentor3 = "Rares";
 ```
 
 ...then it's probably time to use an **array**!
@@ -301,198 +366,149 @@ var mentor3 = "Rares";
 Arrays are data structures that hold a list of values.
 
 ```js
-var mentors = ["Daniel", "Irina", "Rares"];
+let mentors = ["Daniel", "Irina", "Rares"];
 ```
 
 Arrays can hold any type of value (although almost always you only have one data type per array).
 
 ```js
-var testScores = [16, 49, 85];
-var grades = ["F", "D", "A"];
-var greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
+let testScores = [16, 49, 85];
+let grades = ["F", "D", "A"];
+let greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 ```
 
-## Array properties
+You can access elements in an array using the **index** of an element with **bracket notation**
 
-Arrays, like strings, have a `length` property.
-
-You can check this by starting a node console in your terminal.
-
-```sh
-$ node
-> var arr = [1, 2, 3];
-undefined
-> arr
-[1, 2, 3]
-> arr.length
-3
-```
-
-## Array Getters and Setters
-
-You can **get** a single value out of an array using **bracket notation**.
-
-```sh
-$ node
-> var ingredients = ["Flour", "Water", "Salt"];
-undefined
-> ingredients[0]
-Flour
-> ingredients[1]
-Water
-> ingredients.length
-3
-```
-
-Did you notice how we use `[0]` to get the first value? In programming we count starting at zero.
-
-> The number inside of the brackets is called an **index**. Index just means the position of the item within the array.
-
-You can also **set** a value using bracket notation and an assignment operator (`=`).
+**🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
 
 ```js
-var scores = [80, 41, 47];
+let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]
 
-scores[2] = 29; // Change the last score
-scores[3] = 51; // Add a new score
+students[0] // "Ahmed"
+students[3] // "Nahidul"
 ```
 
-## Array methods
+You can also _assign_ new values to parts of an array:
 
-Do you remember how strings have special functions called methods? Don't worry if not! Here's an example to jog your memory:
+```js
+let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]
+
+students[2] = "Bianca"
+
+console.log(students) // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
+```
+
+### Exercise (5 mins)
+
+In the node REPL, enter the following array:
 
 ```sh
-$ node
-> var name = "Daniel"
-undefined
-> name.toLowerCase()
-daniel
+> let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange']
 ```
 
-Arrays also have several methods that you can use.
+1. Which index do you need to return:
 
-### `.sort()`
+* strawberry
+* kiwi
+* orange
+* banana
 
-_An array method that sorts the values in an array into ascending alphabetical or numerical order._
+2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
+
+### Exercise (10 mins)
+1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
+Sample array: [20, 20, 30, 40, 50, 50, 50]
+2. After removing the duplicate elements the function should return 4 as the new length of the array. 
+
+
+### Exercise (5 mins)
+
+Complete this function so that, if the second index in array contains the name "Amy", it returns `"Second index matched!"`
 
 ```js
-var unorderedLetters = ["z", "v", "b", "f", "g"];
-var orderedLetters = unorderedLetters.sort();
-
-var unorderedNumbers = [8, 5, 1, 4, 2];
-var orderedNumbers = unorderedNumbers.sort();
-
-console.log(orderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
-console.log(unorderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
-
-console.log(orderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
-console.log(unorderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
-```
-
-> When you call this array method it uses the array on the left side of the dot as an input, and it sorts that array also returning it. Note how both ordered and unordered arrays are sorted now!
-
-### `.concat()`
-
-_Adds (or concatenates) another value or array to the array._
-
-```sh
-$ node
-> var arr = [1, 2, 3]
-undefined
-> arr.concat(4)
-[1, 2, 3, 4]
-> arr
-[1, 2, 3]
-```
-
-Did you notice how calling the concat method did not change `arr`? This is because `concat`, like most array methods, returns a _new_ array, it does not alter the one you called the method on.
-
-If you wan to use the array returned by calling `.concat()` you should store it in a new variable.
-
-```js
-var arr = [1, 2, 3];
-var newArr = arr.concat(4);
-
-console.log(newArr); // logs [1, 2, 3, 4]
-```
-
-## More Array methods
-
-Let's explore some more array methods.
-
-### `.slice()`
-
-_Returns a slice of the array._
-
-You can tell `.slice()` where you want the slice to begin and end by passing it two parameters.
-
-```sh
-$ node
-> var arr = [0, 1, 2, 3, 4]
-undefined
-> arr.slice(0, 2)
-[0, 1]
-> ["a", "b", "c", "d"].slice(1, 2)
-['b']
-```
-
-### `.includes()`
-
-_Returns true if a value is in the array._
-
-```js
-var mentors = ["Daniel", "Irini", "Ashleigh", "Rob", "Etzali"];
-
-function isAMentor(name) {
-  return mentors.includes(name);
-}
-
-consooe.log("Is Rukmuni a mentor?");
-console.log(isAMentor("Rukmini")); // logs false
-```
-
-### `.join()`
-
-_Returns all the array values joined together in a string. By default, this method takes no parameters and then the elements are divided with a comma `,`. If you provide it with a string parameter though, then it becomes the divider of the elements, like the example below:_
-
-```sh
-$ node
-> ["H", "e", "l", "l", "o"].join();
-'H,e,l,l,o'
-> ["H", "e", "l", "l", "o"].join("--");
-'H--e--l--l--o'
-```
-
-There is a string method `.split()`. In an interactive console try using the string `.split()` method and the array `.join()`. How could they work together?
-
-## Array map
-
-Imagine you have an array of names...
-
-```js
-var mentors = ["Daniel ", "irina ", " Gordon", "ashleigh "];
-```
-
-You notice that he names are not formatted consistently. To fix the array you decide you need to trim whitespace and convert to lowercase. How do you do that for every value in the array?
-
-We can write a function that changes one name:
-
-```js
-function tidy(name) {
-  return name.trim().toLowerCase();
+function secondMatchesAmy(array) {
+  if ( ) {
+    return "Second index matched!"
+  }
+  return "Second index not matched"
 }
 ```
 
-All you need to run every name in the array through this function and update the array values. Thankfully there is an array method that does just this!
+### Exercise (20 mins)
+In pairs, write a function which squares all numbers in an array and returns the array of squared numbers.
 
-## `.map()`
+Write a second function which takes an input of arrays and only returns an array of even numbers.
 
-_Runs every item in the array through a function and returns a new array with the values returned by the function_.
+How can you combine the two functions to return an array of even and squared numbers?
+
+
+## Extra exercises
+
+### Playing computer I
+
+1. Working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. Have you learned anything new during this exercise?
 
 ```js
-var tidyMentors = mentors.map(tidy);
+let a = 4;
+let b = 8;
 
-console.log(tidyMentors); // logs ["daniel", "irina", "gordon", "ashleigh"]
+const multiplyNumbers = function(a, b) {
+  return a * b;
+};
+
+const addNumbers = function(a, b, c) {
+  return a + b + c;
+};
+
+for (let i = 0; i < 5; ++i) {
+  if (i < 3) {
+    const d = addNumbers(i, 2, a);
+    console.log(d);
+  } else {
+    const e = multiplyNumbers(i, 4);
+    console.log(e);
+  }
+}
+```
+
+### Playing computer II
+
+1. Again, working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. What was difficult about this exercise?
+4. Have you learned anything new?
+
+```js
+let x = 2;
+let y = 4;
+let a = 2;
+let b = 20;
+
+const f1 = function(a, b) {
+  return a * b;
+};
+
+const f2 = function(a, b, c) {
+  return a + b + c;
+};
+
+console.log(x);
+x = 3;
+y = f1(x, 2);
+console.log(y);
+
+for (let i = 0; i < 10; ++i) {
+  a = a + 1;
+  if (i % 2 === 0) {
+    const d = f2(i, y, a);
+    console.log(d);
+  } else {
+    const e = f1(i, 2);
+    console.log(e);
+  }
+}
 ```
 
 {% include './homework.md' %}

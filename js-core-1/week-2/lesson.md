@@ -382,8 +382,8 @@ You can access elements in an array using the **index** of an element with **bra
 ```js
 let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]
 
-students[0] // Ahmed
-students[3] // Nahidul
+students[0] // "Ahmed"
+students[3] // "Nahidul"
 ```
 
 You can also _assign_ new values to parts of an array:

@@ -406,14 +406,15 @@ In the node REPL, enter the following array:
 
 1. Which index do you need to return:
 
-* strawberry
-* kiwi
-* orange
-* banana
+  - strawberry
+  - kiwi
+  - orange
+  - banana
 
 2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
 ### Exercise (10 mins)
+
 1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
 Sample array: [20, 20, 30, 40, 50, 50, 50]
 2. After removing the duplicate elements the function should return 4 as the new length of the array. 

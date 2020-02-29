@@ -2,10 +2,10 @@
 
 # JavaScript Core I - 2
 
-**What we will learn today?**
+**What will we learn today?**
 
 * [Expressions](#expressions)
-* [Booleans](#boolean-filters)
+* [Booleans](#booleans)
 * [Comparison Operators](#comparison-operators)
 * [Conditionals](#conditionals)
 * [Logical Operators](#logical-operators)
@@ -14,7 +14,6 @@
 * [Extra exercises](#extra-exercises)
 
 ---
-> Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 2** folder during this class.
 
 ## Expressions
 
@@ -39,18 +38,18 @@ Expressions can also contain variables.
 
 ```js
 function() {
-  const planet = "Earth"
-  return `Hello ${planet}` // returns Hello Earth
+  const planet = "Earth";
+  return `Hello ${planet}`; // returns Hello Earth
 }
 ```
 
 You can also use expressions inside a string interpolation or as a `return` value.
 
 ```js
-console.log(`2 + 4 is ${2 + 4}`) // 2 + 4 is 6
+console.log(`2 + 4 is ${2 + 4}`); // 2 + 4 is 6
 
 function double(num) {
-  return num * 2 // expression being returned
+  return num * 2; // expression being returned
 }
 ```
 
@@ -86,8 +85,8 @@ In your VS Code terminal, run the command `node` and run the following expressio
 There is another _primitive type_ in JavaScript known as a **boolean** value. A boolean is either `true` or `false`, and it should be written without quotes.
 
 ```js
-let codeYourFutureIsGreat = true
-let thisIsATerribleClass = false
+let codeYourFutureIsGreat = true;
+let thisIsATerribleClass = false;
 ```
 
 ### Exercise (10 mins)
@@ -98,10 +97,10 @@ let thisIsATerribleClass = false
 ```js
 function boolChecker(bool) {
   if (typeof boollet === ) {
-    return "You've given me a bool, thanks!"
+    return "You've given me a bool, thanks!";
   }
 
-  return "No bool, not cool."
+  return "No bool, not cool.";
 }
 ```
 
@@ -121,9 +120,9 @@ Here's an expression that evaluates to a `boolean`.
 **Can you work out what will happen with the code below?**
 
 ```js
-assert(1 > 2)
+assert(1 > 2);
 // and...
-assert(2 < 1)
+assert(2 < 1);
 ```
 
 The `>` symbol in the expression is a **comparison operator**. Comparison operators compare two values. This operator checks to see if the number on the left is bigger than the number on the right.
@@ -153,28 +152,27 @@ If you see these, suggest people change them in pull requests.
 ```js
 const mentorCount = // TODO
 const studentCount = // TODO
-assert(compare(mentorCount < studentCount))
+assert(compare(mentorCount < studentCount));
 
 const capacity = 25
 const people = // TODO
-assert(capacity > people)
-
+assert(capacity > people);
 
 const name1 = // TODO
 const name2 = // TODO
-assert(name1 === name2)
+assert(name1 === name2);
 
 const number1 = // TODO
 const number2 = // TODO
-assert(number1 !== number2)
+assert(number1 !== number2);
 
 const thisNumber = // TODO
 const thatNumber = // TODO
-assert(thisNumber === thatNumber)
+assert(thisNumber === thatNumber);
 
-const thisArray = [1, 2, 3, 4, 5]
-const thatArray = [1, 2, 3, 4, 5]
-assert(thisArray === thatArray)
+const thisArray = [1, 2, 3, 4, 5];
+const thatArray = [1, 2, 3, 4, 5];
+assert(thisArray === thatArray);
 ```
 
 The array comparison doesn't work because JavaScript comparison only works as expected on `number`s, `string`s, and `boolean`s.
@@ -213,7 +211,7 @@ if (true) {
 }
 
 // variable assigned to boolean value
-let isHappy = true
+let isHappy = true;
 if (isHappy) {
   // do something
 }
@@ -255,13 +253,13 @@ Can you explain what this function does line by line? What happens when you pass
 ```js
 function numberChecker(num) {
   if (num > 20) {
-    return `${num} is greater than 20`
+    return `${num} is greater than 20`;
   } else if (num === 20) {
-    return `${num} is equal to 20`
+    return `${num} is equal to 20`;
   } else if (num < 20) {
-    return `${num} is less than 20`
+    return `${num} is less than 20`;
   } else {
-    return `${num} isn't even a number :(`
+    return `${num} isn't even a number :(`;
   }
 }
 ```
@@ -382,20 +380,20 @@ You can access elements in an array using the **index** of an element with **bra
 **🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
 
 ```js
-let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]
+let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
 
-students[0] // "Ahmed"
-students[3] // "Nahidul"
+students[0]; // "Ahmed"
+students[3]; // "Nahidul"
 ```
 
 You can also _assign_ new values to parts of an array:
 
 ```js
-let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"]
+let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
 
-students[2] = "Bianca"
+students[2] = "Bianca";
 
-console.log(students) // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
+console.log(students); // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
 ```
 
 ### Exercise (5 mins)
@@ -403,7 +401,7 @@ console.log(students) // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
 In the node REPL, enter the following array:
 
 ```sh
-> let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange']
+> let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
 ```
 
 1. Which index do you need to return:
@@ -428,9 +426,9 @@ Complete this function so that, if the second index in array contains the name "
 ```js
 function secondMatchesAmy(array) {
   if ( ) {
-    return "Second index matched!"
+    return "Second index matched!";
   }
-  return "Second index not matched"
+  return "Second index not matched";
 }
 ```
 

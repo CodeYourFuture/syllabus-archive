@@ -10,7 +10,7 @@
   - [Week 3 - Design frameworks, Naming patterns and Forms](/html-css/week-3/lesson.md)
 - [JavaScript I](/js-core-1/index.md)
   - [Week 4 - Hello JavaScript](/js-core-1/week-1/lesson.md)
-  - [Week 5 - Conditionals and Arrays](/js-core-1/week-2/lesson.md)
+  - [Week 5 - Conditionals, Loops and Arrays](/js-core-1/week-2/lesson.md)
   - [Week 6 - More Arrays](/js-core-1/week-3/lesson.md)
 - [JavaScript II](/js-core-2/index.md)
   - [Week 7 - Objects](/js-core-2/week-1/lesson.md)

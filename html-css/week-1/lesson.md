@@ -10,17 +10,46 @@
 
 ## What makes a web page?
 
-![What makes a web page](../assets/webpage-parts.png)
+There are three technologies which are combined to make a web page.
 
-**Separation of Concerns:** In computer science, separation of concerns (SoC) is a design principle for separating a computer program into distinct sections, such that each section addresses a separate concern. (Wikipedia)
+![What makes a web page? Structure, presentation, behaviour](../assets/webpage-parts.png)
 
-> **Principles** - During the course, we will highlight principles that apply to the specific topic but also to Computer Science and Programming in general. It is important to understand these principles, terms and apply them to your thinking in general.
+**Structure: HTML**
+
+The semantic structure of a web page is provided by HTML.
+
+**Presentation: CSS**
+
+The visual presentation of a web page is provided by CSS.
+
+**Behaviour: JavaScript**
+
+The web page is given behaviours (reacting to clicks etc) by JavaScript.
+
+## HTML Terminology
+
+| **Exercise** |
+| :---- |
+| Make a list of HTML terms, features and properties that you have heard of before |
+
+## Dev Tools Inspector
+
+There is a tool called the *Inspector* for helping you build web pages built into the browser. To open it, right-click any where on the page and then click Inspect.
+
+| **Exercise** |
+| :---- |
+| As a class, use the Inspector on some web pages and identify some HTML features and properties |
+| Do you notice something interesting about the HTML elements that you are inspecting? |
 
 ## HTML Syntax
 
-You're already familiar with HTML code from your application process. If you want to refresh your memory, read this [quick guide to the HTML syntax](http://marksheet.io/html-syntax.html).
+| **Exercise** |
+| :---- |
+| Make a list of all of the HTML tags and syntax that you can remember |
 
-All together, let's review the basic syntax in the following example:
+You may be already familiar with HTML code from your application process. If you want to refresh your memory, read this [quick guide to the HTML syntax](http://marksheet.io/html-syntax.html).
+
+Let's review the basic syntax in the following example:
 
 ```html
 <article>
@@ -30,52 +59,33 @@ All together, let's review the basic syntax in the following example:
 </article>
 ```
 
-> **Exercise** Which parts are the **Tags** and which parts are the **Attributes**.
+| **Exercise** |
+| :---- |
+| Which parts are the *tags* and which parts are the *attributes*? |
 
 HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags or creating an HTML "tree". Between the opening `<article>` tag and the closing `</article>` tag there are three other tags. We call these "child" tags, because they have a parent-child relationship.
 
 ![HTML Hierarchy](../assets/html-hierarchy.png)
 
-> **Exercise** As a group, let's try to name all of the parent and child tags in the following example.
-
-```html
-<article>
-    <h1>Learning HTML</h1>
-    <p>
-        <span class="author">Author:</span>
-        <a href="http://codeyourfuture.io">Code Your Future</a>
-    </p>
-    <p>Get to know the HTML basics.</p>
-    <a href="http://html5rocks.com">Read Article</a>
-</article>
-```
-
-## Example HTML/CSS Project
-
-In today's class, we will begin adapting styles on this example website. We'll review some of the HTML/CSS basics you already encountered during your application process and learn some new techniques. By the end of the third lesson, we will have worked together to improve the example site on the left so that it looks like the screenshot on the right.
-
-<a href="../assets/screenshot-start.png" target="blank">
-  <img src="../assets/screenshot-start.png" style="border: 1px solid #bababa; width: 48%; max-height: 293px">
-</a>
-<a href="../assets/screenshot-complete.png" target="blank">
-  <img src="../assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
-</a>
-
-The example website you'll begin working with is available [on this GitHub repository](https://github.com/CodeYourFuture/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.
-
-1. `cd ~`
-2. `cd <your-project-directory>`
-3. `git clone git@github.com:<your_username>/bikes-for-refugees.git`
-
-> **Exercise**: Spend a few minutes exploring the `.html` and `.css` files for this page. Why don't we put everything in one file?
-
 ## Semantic HTML
+
+### Thinking in sections
+
+A common task for a web developer is to take a *mock-up* from a designer and turn it into a web page. How do developers approach this? Often we cut the design up into sections based on their **semantics** (or "meaning").
+
+| **Exercise** |
+| :---- |
+| 1. In groups, pick one of the following web sites: [https://my.charitywater.org/donate/home](https://my.charitywater.org/donate/home), [https://medium.com](https://medium.com/), [https://www.timeout.com](https://www.timeout.com/), [https://broadsign.com](https://broadsign.com/), [https://www.airbnb.co.uk](https://www.airbnb.co.uk), [https://dribbble.com](https://dribbble.com/) |
+| 2. Without looking at the Dev Tools Inspector, decide how you would "cut it up" into semantic sections. **Tip:** start big, then go granular. |
+| 3. Present your web page sections to the rest of the class |
+
+### Semantic elements
 
 When writing HTML code, you can use different tags to describe the content. Is it a navigation menu, a paragraph of text, or an article? By using the correct tag, you help search engines like Google or screen readers for the visually impaired.
 
-> Semantic HTML is the use of HTML markup to reinforce the semantics, or **meaning**, of the information in webpages and web applications rather than merely to define its presentation or look. [Wikipedia](https://en.wikipedia.org/wiki/Semantic_HTML)
+> Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in webpages and web applications rather than merely to define its presentation or look. [Wikipedia](https://en.wikipedia.org/wiki/Semantic_HTML)
 
-We'll cover the following semantic tags:
+Here are some semantic HTML elements:
 
 - `<header>`
 - `<footer>`
@@ -84,7 +94,17 @@ We'll cover the following semantic tags:
 - `<article>`
 - `<aside role="complementary">`
 
-> **Exercise (pair programming):** Work in pairs to determine where to place these new Tags and Attributes in the index.html file. Who benefits when we write "semantic" HTML?
+| **Exercise 1** |
+| :---- |
+| 1. Open the Inspector on [this web page](http://thinkful-ed.github.io/karma-clone/) |
+| 2. What are the semantic HTML elements on this page? |
+| 3. What meaning do the semantic elements have? |
+
+| **Exercise 2** |
+| :---- |
+| 1. Open [this editor](https://codesandbox.io/s/z69nnxv5q3) in your browser |
+| 2. Read the comments (anything in-between `<!--` and `-->`) and complete the HTML tasks |
+| **Tips:** Everything that is opened, must be closed! When you write HTML, always write the opening and the closing tags at the same time, so you don’t lose track.
 
 ## CSS Selectors
 

@@ -107,12 +107,14 @@ let thisIsATerribleClass = false;
 
 ```js
 function boolChecker(bool) {
-  if (typeof boollet === ) {
+  if (typeof bool === ) {
     return "You've given me a bool, thanks!";
   }
 
   return "No bool, not cool.";
 }
+
+boolChecker(true);
 ```
 
 3. As a class, can you step through the function and explain what each line does?
@@ -161,9 +163,11 @@ If you see these, suggest people change them in pull requests.
 1. Modify the values below to to have the compare function return the desired value:
 
 ```js
+const assert = require("assert");
+
 const mentorCount = // TODO
 const studentCount = // TODO
-assert(compare(mentorCount < studentCount));
+assert(mentorCount < studentCount);
 
 const capacity = 25
 const people = // TODO

@@ -1,4 +1,16 @@
-# HTML & CSS Learning Objectives for this week
+# Learning Objectives
+
+- Recognise common HTML elements, classify those that are semantic, and explain their use. 
+- Outline the correct syntax for HTML
+- Can explain what CSS properties are and how CSS selectors work
+- Can explain what CSS specificity is and why it’s important
+- Can write simple HTML and CSS pairings in Codepen
+- Can align elements vertically and horizontally using flexbox
+- Be able to define the Box Model
+
+---
+
+# (OLD) HTML & CSS Learning Objectives
 
 _The learning objectives under a given topic may be achieved over the multiple weeks of the module, rather than in the first week the topic is introduced._
 

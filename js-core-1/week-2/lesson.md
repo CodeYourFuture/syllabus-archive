@@ -37,7 +37,7 @@ We can take the value produced by an expression and assign it to a variable. Tha
 Expressions can also contain variables.
 
 ```js
-function() {
+function greetingPlanet() {
   const planet = "Earth";
   return `Hello ${planet}`; // returns Hello Earth
 }

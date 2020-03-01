@@ -10,6 +10,7 @@ Over the next nine months you will learn the following:
 - JavaScript
 - Modern front-end development with [React](https://reactjs.org)
 - Backend development using [Node](https://nodejs.org/)
+- Database development using [PostgreSQL](https://www.postgresql.org/)
 
 We will finish with a four-week long graduation project where you will combine everything you have learned to create a real world web application.
 
@@ -66,8 +67,75 @@ For bonus points, react with an emoji to your classmate's answers!
 
 ## Tips for success
 
-Here is a [list of some tips for success](https://fundamentals.codeyourfuture.io/other-resources/tips-for-success) on the course.
-Make sure you understand the first tip now ("don't hide when you don't know"). If you have questions, let the volunteers know.
+### Don't hide when you don't know.
+
+- It is normal not to know things as programmers
+
+- The volunteers can't help you if we don't know you are lost
+
+- Probably someone else in the class has the same question as you, and is too scared to ask
+
+- If the teacher asks if everyone understands, SAY if you have doubts
+
+### The goal is NOT to complete the exercises. The goal is to learn.
+
+Completion of all exercises is not success if you do not understand.
+
+If you learn so that you can complete any future exercises without help (e.g. in a job interview), that is success.
+
+### When getting help, stay in control (of the computer and the process)
+
+Each exercise is an *opportunity to learn* - don't let anyone steal that from you by solving your problem.
+
+Again - completing the exercise is not the goal. The goal is for you to learn how to complete the exercise.
+
+### In group-work, seek to understand everything
+
+If you've done something in group-work that you don't fully understand:
+
+- Slow things down
+
+- Get it explained
+
+- Go back to it afterwards by yourself, and challenge yourself to understand it
+
+Don't let it go because the next time you don't understand something, it will be harder to get things explained.
+	
+So if you solve 10 exercises together in a group-work exercise, it is a great idea to go back over and try to solve them yourself the next day.
+
+### Take notes about what you don't understand
+
+At a minimum, take note of the exercise numbers that you have problems with, even if you solve them eventually. 
+Then you should revisit them some time afterwards and complete them again from scratch until you're positive you understand.
+
+### Try prediction, to get all the juice out of each exercise!
+
+With simple programming challenges, it is easy to just repeatedly modify and re-run your program until it works, 
+but you won't learn much unless you are thinking (and this playful approach doesn't work with more complicated problems), so instead:
+
+Always try to predict what your code will do before you run it.
+
+Write your prediction down, or tell your a friend - you can make it a game. After you run the program, if your guess was wrong, discuss why, then FIND OUT why.
+
+### Don't be frustrated when a volunteer does not solve your problem for you
+
+The instructors have told them not to! Can you say why?
+
+### This is a place where we help each other
+
+This is not a competition. There are no prizes for solving the problem first.
+
+If you can help your fellow students learn, then they will be in a better position to help you later, 
+and you will be much happier when you're working with them on group projects.
+
+Remember though: it is much more important that people understand than that they finish the exercise! Don't solve their problems for them!
+
+### If you're stuck
+
+1. Don't give up! There is a solution that works that you haven't tried yet.
+2. It is always okay to ask Google.
+3. If you've been stuck for more than five minutes in class or ten minutes at home, ask on Slack.
+4. Ask students for help before you ask mentors. Explaining how things work helps both the person explaining and the person being explained to.
 
 ## Introduction to programming
 

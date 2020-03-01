@@ -2,14 +2,22 @@
 
 # JavaScript Core I - 3
 
-**What we will learn today?**
-
 * [Array Find](#array-find)
 * [Array Some](#array-some)
 * [Array Every](#array-every)
 * [Array Filter](#array-every)
 * [Array Map](#array-map)
 * [Array ForEach](#array-foreach)
+
+**Learning Objectives**
+
+By the end of this class, you should be able to answer these questions:
+
+* What is a callback and how do you use it?
+* How do you use array methods and properties to manipulate arrays?
+* How can you chain array methods?
+* What are object literals and how do you declare one?
+* What are object properties and methods?
 
 ---
 

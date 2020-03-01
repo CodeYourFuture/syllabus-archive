@@ -2,8 +2,6 @@
 
 # JavaScript Core I - 2
 
-**What will we learn today?**
-
 * [Expressions](#expressions)
 * [Booleans](#booleans)
 * [Comparison Operators](#comparison-operators)
@@ -12,6 +10,19 @@
 * [Loops](#loops)
 * [Arrays](#arrays)
 * [Extra exercises](#extra-exercises)
+
+**Learning Objectives**
+
+By the end of this class, you should be able to answer these questions:
+
+* What are expressions and statements (and what's the difference)?
+* What are conditionals?
+* What are `for` and `while` loops (and what's the difference)?
+* How do you use expressions with conditionals?
+* What are comparitor operators and how do you use them?
+* What are logical operators and how do you use them?
+* What functionality does the `assert` module provide?
+* What are arrays and how can you interact with them?
 
 ---
 
@@ -310,7 +321,7 @@ In pairs, write a function that checks a username is of an acceptable format for
 
 * take two parameters: one for the username and one for the user type
 * if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
-* **BONUS:** if the user type is an `admin` or a `manager`, all usernames must return `"Username valid"`
+* if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
 
 
 ## Loops

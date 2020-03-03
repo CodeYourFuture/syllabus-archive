@@ -288,3 +288,4 @@ Please go to https://studio.code.org/s/course3/stage/6/puzzle/1 and complete as 
 
 1. Complete the rest of the stage 6 exercises on [Code.org](https://code.org/).
 2. See if you can do the first four debugging exercises at https://studio.code.org/s/course3/stage/14/puzzle/1.
+3. Watch the videos at https://www.youtube.com/playlist?list=PLeY8Jv3ftRaj5yJdEdo03vzuAEQil4XdC

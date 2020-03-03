@@ -1,4 +1,4 @@
-# Git and Github - Week 1
+# Github and Github Desktop - Week 1
 
 ## Learning Objectives
 

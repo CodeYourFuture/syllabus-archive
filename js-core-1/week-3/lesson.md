@@ -1,13 +1,14 @@
-![Draft lesson](https://img.shields.io/badge/status-draft-darkred.svg)
+![Lesson in review](https://img.shields.io/badge/status-review-orange.svg)
 
 # JavaScript Core I - 3
 
-* [Array Find](#array-find)
-* [Array Some](#array-some)
-* [Array Every](#array-every)
-* [Array Filter](#array-every)
-* [Array Map](#array-map)
-* [Array ForEach](#array-foreach)
+* [Array properties](#array-properties)
+* [Manipulating arrays](#manipulating-arrays)
+* [Array methods](#array-methods)
+* [Array map](#array-map)
+* [Array forEach](#array-foreach)
+* [Array filter](#array-find)
+* [Array find](#array-find)
 
 **Learning Objectives**
 
@@ -16,13 +17,8 @@ By the end of this class, you should be able to answer these questions:
 * What is a callback and how do you use it?
 * How do you use array methods and properties to manipulate arrays?
 * How can you chain array methods?
-* What are object literals and how do you declare one?
-* What are object properties and methods?
 
 ---
-
-> Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 3** during this class.
-
 
 ## Array properties
 
@@ -32,7 +28,7 @@ You can check this by starting a node console in your terminal.
 
 ```sh
 $ node
-> var arr = [1, 2, 3];
+> let arr = [1, 2, 3];
 undefined
 > arr
 [1, 2, 3]
@@ -46,7 +42,7 @@ You can **get** a single value out of an array using **bracket notation**.
 
 ```sh
 $ node
-> var ingredients = ["Flour", "Water", "Salt"];
+> let ingredients = ["Flour", "Water", "Salt"];
 undefined
 > ingredients[0]
 Flour
@@ -63,7 +59,7 @@ Did you notice how we use `[0]` to get the first value? In programming we count 
 You can also **set** a value using bracket notation and an assignment operator (`=`).
 
 ```js
-var scores = [80, 41, 47];
+let scores = [80, 41, 47];
 
 scores[2] = 29; // Change the last score
 scores[3] = 51; // Add a new score
@@ -75,7 +71,7 @@ Do you remember how strings have special functions called methods? Don't worry i
 
 ```sh
 $ node
-> var name = "Daniel"
+> let name = "Daniel";
 undefined
 > name.toLowerCase()
 daniel
@@ -88,11 +84,11 @@ Arrays also have several methods that you can use.
 _An array method that sorts the values in an array into ascending alphabetical or numerical order._
 
 ```js
-var unorderedLetters = ["z", "v", "b", "f", "g"];
-var orderedLetters = unorderedLetters.sort();
+let unorderedLetters = ["z", "v", "b", "f", "g"];
+let orderedLetters = unorderedLetters.sort();
 
-var unorderedNumbers = [8, 5, 1, 4, 2];
-var orderedNumbers = unorderedNumbers.sort();
+let unorderedNumbers = [8, 5, 1, 4, 2];
+let orderedNumbers = unorderedNumbers.sort();
 
 console.log(orderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
 console.log(unorderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
@@ -109,7 +105,7 @@ _Adds (or concatenates) another value or array to the array._
 
 ```sh
 $ node
-> var arr = [1, 2, 3]
+> let arr = [1, 2, 3];
 undefined
 > arr.concat(4)
 [1, 2, 3, 4]
@@ -122,15 +118,11 @@ Did you notice how calling the concat method did not change `arr`? This is becau
 If you wan to use the array returned by calling `.concat()` you should store it in a new variable.
 
 ```js
-var arr = [1, 2, 3];
-var newArr = arr.concat(4);
+let arr = [1, 2, 3];
+let newArr = arr.concat(4);
 
 console.log(newArr); // logs [1, 2, 3, 4]
 ```
-
-## More Array methods
-
-Let's explore some more array methods.
 
 ### `.slice()`
 
@@ -140,7 +132,7 @@ You can tell `.slice()` where you want the slice to begin and end by passing it 
 
 ```sh
 $ node
-> var arr = [0, 1, 2, 3, 4]
+> let arr = [0, 1, 2, 3, 4]
 undefined
 > arr.slice(0, 2)
 [0, 1]
@@ -153,13 +145,13 @@ undefined
 _Returns true if a value is in the array._
 
 ```js
-var mentors = ["Daniel", "Irini", "Ashleigh", "Rob", "Etzali"];
+let mentors = ["Daniel", "Irini", "Ashleigh", "Rob", "Etzali"];
 
 function isAMentor(name) {
   return mentors.includes(name);
 }
 
-consooe.log("Is Rukmuni a mentor?");
+console.log("Is Rukmuni a mentor?");
 console.log(isAMentor("Rukmini")); // logs false
 ```
 
@@ -181,8 +173,8 @@ There is a string method `.split()`. In an interactive console try using the str
 
 Imagine you have an array of names...
 
-```js
-var mentors = ["Daniel ", "irina ", " Gordon", "ashleigh "];
+```sh
+let mentors = ["Daniel ", "irina ", " Gordon", "ashleigh "];
 ```
 
 You notice that he names are not formatted consistently. To fix the array you decide you need to trim whitespace and convert to lowercase. How do you do that for every value in the array?
@@ -197,149 +189,19 @@ function tidy(name) {
 
 All you need to run every name in the array through this function and update the array values. Thankfully there is an array method that does just this!
 
-## `.map()`
+### `.map()`
 
 _Runs every item in the array through a function and returns a new array with the values returned by the function_.
 
-```js
-var tidyMentors = mentors.map(tidy);
-
-console.log(tidyMentors); // logs ["daniel", "irina", "gordon", "ashleigh"]
-```
-
-## Array find
-
-Imagine you have an array of names:
-
-```js
-var names = ["Daniel", "James", "Irina", "Mozafar", "Ashleigh"];
-```
-
-How would you find the first name that's longer than 6 characters?
-
-You can write a predicate function that checks if a string is longer than 6 characters:
-
-```js
-function isLongName(name) {
-  return name.length > 6;
-}
-```
-
-To find the first item that satisfies the predicate you would have to go through each array item, and pass it into `isLongName`. Once it returns true, we can stop going through the array and grab the item that passed the predicate's test. Sounds complicated! Thankfully there is an array method that does just this!
-
-### `.find()`
-
-_Searches through the array and returns the value of the first item that satisfies a predicate function._
-
-```js
-var longName = names.find(isLongName);
-
-console.log(longName); // logs Mozafar
-```
-
-## Array some
-
-Imagine you have an array of numbers:
-
-```js
-var numbers = [1, 3, -1, 5, 9];
-```
-
-You know that the array is supposed to contain positive numbers, but you want to check if it also contains any negative numbers.
-
-We can write a function that checks this:
-
-```js
-function isNegative(number) {
-  return number < 0;
-}
-```
-
-To check your array of numbers, you'd have to run this function against every number in the array. Thankfully there is an array method that does just this!
-
-### `.some()`
-
-_Searches through an array and returns true if at least one array item satisifies the predicate function you provided._
-
-```js
-var containsNegative = ages.some(isNegative);
-
-console.log(containsNegative); // logs true
-```
-
-## Array every
-
-Imagine you have an array of people's names:
-
-```js
-var students = ["Omar", "Austine", "Dany", "Swathi", "Lesley"];
-```
-
-You want to check that every student in the array has a name longer than 3 characters. How do you do that for every value in the array?
-
-We can write a function that returns true or false:
-
-```js
-function isAboveThreshold(name) {
-  return name.length > 3;
-}
-```
-
-To check that each name is longer than 3 characters, you'd have to run this function against every name in the array and return false if someone's name is 3 or fewer characters. Thankfully there is an array method that does just this!
-
-### `.every()`
-
-_Searches through an array and returns true if every item satisifies the predicate function you provided. Otherwise, it returns false_.
-
-```js
-var studentNameLength = students.every(isAboveThreshold);
-
-console.log(studentNameLength); // logs true
-```
-
-## Array Filter
-
-Imagine you have an array of students' test scores:
-
-```js
-var testScores = [90, 50, 100, 66, 25, 80, 81];
-```
-
-You want to show only the test scores that are higher than 80. How do you do that for every value in the array?
-
-We can write a function that checks if one score is greater than 80:
-
-```js
-function isHighScore(score) {
-  return score > 80;
-}
-```
-
-To find out which scores were greater than 80, you'd have to run this function against every score in the array, and push the 80+ scores into a new array. Thankfully there is an array method that does just this!
-
-### `.filter()`
-
-_Runs every item in the array through a condition that we set, and returns a new array with the values that match the condition_.
-
-```js
-var highTestScores = testScores.filter(isHighScore);
-
-console.log(highTestScores); // logs [90, 100, 81]
-```
-
-## Array Map
-
-We learnt about the `.map()` method in the previous week. This week we'll study how it works in more depth.
-
-You might remember this example:
+Have a look at this other example:
 
 ```js
 function double(number) {
   return number * 2;
 }
 
-var numbers = [1, 2, 3];
-var numbersDoubled = numbers.map(double);
+let numbers = [1, 2, 3];
+let numbersDoubled = numbers.map(double);
 ```
 
 The `map()` method runs the function we provided (`double`) on each item in the array and uses the return values to create a new array. In the example `numbersDoubled` is a new array containing `[2, 4, 6]`.
@@ -353,8 +215,8 @@ We'll see callback functions used a lot more in the coming weeks.
 Often, when a function is only needed for a map operation, developers will declare the callback function inside of the method call. Let's try copying and pasting the function declaration inside of the `.map()` method call.
 
 ```js
-var numbers = [1, 2, 3];
-var numbersDoubled = numbers.map(function double(number) {
+let numbers = [1, 2, 3];
+let numbersDoubled = numbers.map(function double(number) {
   return number * 2;
 });
 ```
@@ -362,8 +224,8 @@ var numbersDoubled = numbers.map(function double(number) {
 We can make this shorter by removing the function name. We can do this because we are not using the function anywhere else in the code, so we do not need the function name to reference it.
 
 ```js
-var numbers = [1, 2, 3];
-var numbersDoubled = numbers.map(function (number) {
+let numbers = [1, 2, 3];
+let numbersDoubled = numbers.map(function (number) {
   return number * 2;
 });
 ```
@@ -371,9 +233,9 @@ var numbersDoubled = numbers.map(function (number) {
 We can make this code even shorter still. In the latest versions of JavaScript a way of declaring functions was introduced called _arrow functions_. 
 
 ```js
-var numbers = [1, 2, 3];
-var numbersDoubled = numbers.map(number => {
-  return number * 2
+let numbers = [1, 2, 3];
+let numbersDoubled = numbers.map(number => {
+  return number * 2;
 });
 ```
 
@@ -382,13 +244,13 @@ The arrow function syntax lets you declare a function without the `function` key
 There is one last thing you can do to make your code shorter. If you remove the braces (`{}`) from an arrow function, the body of the function will be returned without needing to write the `return` keyword.
 
 ```js
-var numbers = [1, 2, 3];
-var numbersDoubled = numbers.map(number => number * 2);
+let numbers = [1, 2, 3];
+let numbersDoubled = numbers.map(number => number * 2);
 ```
 
 In the example above, the expression `number * 2` is automatically returned because it comes directly after the `=>` arrow (instead of coming after curly braces). This is called an `implicit return`.
 
-## Array Foreach
+## Array forEach
 
 The `.forEach()` method is similar to `.map()` except it does not return a new array. Therefore `.forEach()` is only useful if you want to perform _side effects_.
 
@@ -406,12 +268,12 @@ A pure function does not:
 
 These are all example of _side effects_. Of course, from time to time, we will need to perform side effects, but we should try to avoid side effects inside of functions and only have them when absolutely necessary.
 
-### Example
+### `.forEach()`
 
 Say we want to log to the console a list of names.
 
 ```js
-var names = ["Daniel", "mozafar", "irina"];
+let names = ["Daniel", "mozafar", "irina"];
 ```
 
 We can use `.forEach()` to go through the array, item by item, and call a function we provide.
@@ -436,6 +298,66 @@ names.map(formatName).forEach(function(name, index) {
 });
 ```
 
+## Array filter
+
+Imagine you have an array of students' test scores:
+
+```js
+let testScores = [90, 50, 100, 66, 25, 80, 81];
+```
+
+You want to show only the test scores that are higher than 80. How do you do that for every value in the array?
+
+We can write a function that checks if one score is greater than 80:
+
+```js
+function isHighScore(score) {
+  return score > 80;
+}
+```
+
+To find out which scores were greater than 80, you'd have to run this function against every score in the array, and push the 80+ scores into a new array. Thankfully there is an array method that does just this!
+
+### `.filter()`
+
+_Runs every item in the array through a condition that we set, and returns a new array with the values that match the condition_.
+
+```js
+let highTestScores = testScores.filter(isHighScore);
+
+console.log(highTestScores); // logs [90, 100, 81]
+```
+
+## Array find
+
+Imagine you have an array of names:
+
+```js
+let names = ["Daniel", "James", "Irina", "Mozafar", "Ashleigh"];
+```
+
+How would you find the first name that's longer than 6 characters?
+
+You can write a predicate function that checks if a string is longer than 6 characters:
+
+```js
+function isLongName(name) {
+  return name.length > 6;
+}
+```
+
+To find the first item that satisfies the predicate you would have to go through each array item, and pass it into `isLongName`. Once it returns true, we can stop going through the array and grab the item that passed the predicate's test. Sounds complicated! Thankfully there is an array method that does just this!
+
+### `.find()`
+
+_Searches through the array and returns the value of the first item that satisfies a predicate function._
+
+```js
+let longName = names.find(isLongName);
+
+console.log(longName); // logs Mozafar
+```
+
 ### Chaining
 
 Notice how we were able to write one method after another e.g. `names.map(formatName).forEach(log)`? This is called _method chaining_.
@@ -445,7 +367,7 @@ You can call `.forEach()` after `.map()` because `.map()` returns a new array.
 Consider this code:
 
 ```js
-var namesFormatted = names.map(format);
+let namesFormatted = names.map(format);
 namesFormatted.forEach(log);
 ```
 

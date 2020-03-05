@@ -196,7 +196,7 @@ Is this the only order of instructions that works? Are any other orders possible
 
 We will register on [Code.org](https://code.org/) and complete a few exercises together.
 
-Once you've registered, please go to https://studio.code.org/s/course3/stage/2/puzzle/1 and complete puzzles 1, 2 and 3.
+Once you've registered, please go to <https://studio.code.org/s/course3/stage/2/puzzle/1> and complete puzzles 1, 2 and 3.
 
 ### Repeating commands
 
@@ -213,7 +213,7 @@ Luckily even computers don't need to be given directions one step at a time. We 
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/2/puzzle/4 and complete puzzles 4 and 5.
+Please go to <https://studio.code.org/s/course3/stage/2/puzzle/4> and complete puzzles 4 and 5.
 
 ### Repeating blocks of commands
 
@@ -232,7 +232,7 @@ as a **loop**, and we would call the instruction list itself a **loop body**.
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/2/puzzle/4 and complete puzzles 6, 7 and 8.
+Please go to <https://studio.code.org/s/course3/stage/2/puzzle/4> and complete puzzles 6, 7 and 8.
 The puzzles are getting more difficult now. If you have any problems, put a question on Slack and see if anyone
 else can help! If you finish quickly, look at the channel and see if there are any questions you can answer.
 
@@ -249,7 +249,7 @@ we would tell our friends to drive until they are past the supermarket and then 
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/2/puzzle/4 and complete puzzles 9, 10, 11, 12 and 13.
+Please go to <https://studio.code.org/s/course3/stage/2/puzzle/4> and complete puzzles 9, 10, 11, 12 and 13.
 
 ### Functions
 
@@ -288,7 +288,7 @@ the computer with.
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/6/puzzle/1 and complete as many puzzles as you can.
+Please go to <https://studio.code.org/s/course3/stage/6/puzzle/1> and complete as many puzzles as you can.
 
 ## Homework for next week
 

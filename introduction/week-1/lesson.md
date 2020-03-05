@@ -28,9 +28,33 @@ Then afterwards we will introduce ourselves to the circle as though we are our n
 We will spend the afternoon getting you acquainted with your machine which you will spend the next nine months with.
 It is important that you get on well with your machine!
 
-### Introduction to Ubuntu
+### Ubuntu Linux
 
-Alastair TBD
+Ubuntu Linux is the *operating system* that is installed on your computer. It is the software which manages your computer's basic functions and provides you with a way to interact with it. Other operating systems you might have heard of are Microsoft Windows and Apple macOS. We use Ubuntu because it is particularly suited to the web development tasks we are doing, as most web sites run on a Linux-based computer. 
+
+Most tasks work very similarly to other computer systems you might have used, but there is also the terminal which is a very powerful but different way of telling the computer what to do. We will introduce this in another session next week.
+
+#### Launching programs
+
+There are two main ways to launch programs (also known as applications) on Ubuntu.
+
+![Ubuntu Desktop](../assets/ubuntu.png)
+
+##### Launcher
+
+The first is to launch one of the *pinned* application at the side of the screen. To try this, launch the Firefox web browser by clicking on the Firefox icon in the top left-hand corner.
+
+##### Activities
+
+The other way is to search for the application in the Activities view - you'll need to do this if the program isn't pinned. To do this either click the word Activities in the top left-hand corner of your screen or press the Windows key (the one with the flag next to Space). You can then type the name of the program to launch and you will get a selection to choose from. Type `impress` to find LibreOffice Impress, a program for making presentations then click on it to start it.
+
+#### Switching between programs
+
+The easiest way to do this is with the launcher. Try clicking back and forth between Firefox and Impress.
+
+#### Closing programs
+
+The easiest way to close an application is to click the red X icon in the top right-hand corner of its window. If you have files open in an application you may be asked whether you wish to save their state.
 
 ### Introduction to Slack
 

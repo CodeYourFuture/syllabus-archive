@@ -42,6 +42,7 @@ Let's go through some exercises to get acquainted with Slack.
 Topics are organised in different channels.
 
 Exercises:
+
 - Find the \#scotland-fun-stuff channel. This is where we organise fun things!
 - Find the \#random channel. This is where we post random stuff!
 
@@ -50,6 +51,7 @@ Exercises:
 Emojis make it easy to engage with other people's comments without needing to write a reply.
 
 Exercises:
+
 1. A mentor will now post a random message on Slack. Give it a thumbs up to show that you have read the message!
 2. A mentor will now post the name of food that they like. Give it a thumbs up if you like it or a thumbs down if you don't like it!
 
@@ -60,6 +62,7 @@ To make conversations more organised, we write replies in threads.
 This way, a single conversation stays in one thread.
 
 Exercises:
+
 1. A mentor will now post a message asking what your favourite food is. Reply in a thread with your favourite food!
 2. A mentor will now post a message asking what your favourite hobby is. Reply in a thread with your favourite hobby!
 
@@ -100,7 +103,7 @@ If you've done something in group-work that you don't fully understand:
 - Go back to it afterwards by yourself, and challenge yourself to understand it
 
 Don't let it go because the next time you don't understand something, it will be harder to get things explained.
-	
+
 So if you solve 10 exercises together in a group-work exercise, it is a great idea to go back over and try to solve them yourself the next day.
 
 ### Take notes about what you don't understand
@@ -179,6 +182,7 @@ So we need to be very precise and make sure all the steps we give the computer a
 *Turn left* then *turn right* does the same thing as *turn right* followed by *turn left*.
 
 Going back to our recipe:
+
 1. Fill a pan with water
 2. Bring the water to a boil
 3. Prick a hole in the egg
@@ -258,6 +262,7 @@ inside a loop or outside.
 What does that mean? How is it useful?
 
 Going back to the recipe for boiling an egg:
+
 1. Fill a pan with water
 2. Bring the water to a boil
 3. Prick a hole in the egg
@@ -269,6 +274,7 @@ This is not detailed enough to give to a computer. In general, computers need mo
 We can write in a recipe for humans to follow, "fill a pan with water", but a computer would need to be told what that means.
 
 Here is a recipe for filling a pan with water:
+
 1. Put the pan under a tap
 2. Turn the tap on
 3. Wait until the pan is full
@@ -287,5 +293,5 @@ Please go to https://studio.code.org/s/course3/stage/6/puzzle/1 and complete as 
 ## Homework for next week
 
 1. Complete the rest of the stage 6 exercises on [Code.org](https://code.org/).
-2. See if you can do the first four debugging exercises at https://studio.code.org/s/course3/stage/14/puzzle/1.
-3. Watch the videos at https://www.youtube.com/playlist?list=PLeY8Jv3ftRaj5yJdEdo03vzuAEQil4XdC
+2. See if you can do the first four debugging exercises at <https://studio.code.org/s/course3/stage/14/puzzle/1>.
+3. Watch the videos at <https://www.youtube.com/playlist?list=PLeY8Jv3ftRaj5yJdEdo03vzuAEQil4XdC>.

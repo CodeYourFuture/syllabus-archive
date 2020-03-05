@@ -16,6 +16,7 @@
 By the end of this class, you should be able to answer these questions:
 
 * What is a callback and how do you use it?
+* What are anonymous functions?
 * How do you use array methods and properties to manipulate arrays?
 * How can you chain array methods?
 

@@ -256,7 +256,7 @@ Please go to <https://studio.code.org/s/course3/stage/2/puzzle/4> and complete p
 Sometimes we want to do the same thing many times, but in different places. *Repeat* doesn't help, because
 we want to do other things in between repeating the instruction list.
 
-We can create something called a *function*. Functions are reusable blocks of instructions that can be called any time,
+We can create something called a **function**. Functions are reusable blocks of instructions that can be called any time,
 inside a loop or outside.
 
 What does that mean? How is it useful?

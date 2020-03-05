@@ -1,146 +1,124 @@
 # Week 0.2
 
-## Code.org review
+## Introduction to the terminal
 
-How was the homework? Any questions?
+During your course journey and onwards, the **terminal** (also known as **command line**) will be one of your most valuable tools.
+It will help you to interact with you computer faster, by helping you to:
 
-We will review some exercises from [Code.org](https://code.org/).
+- Create and delete files
+- Install web development tools
+- Use source control (explained in the next lesson)
+- Start a server
 
-## Programming concepts
+All this will make sense as we progress with the lessons.
+For now, we would like you to get familiar with it by following this tutorial:
 
-In the Code.org exercises, you were introduced to various programming concepts.
-Some of them were:
+- [Learn the command line](https://www.codecademy.com/learn/learn-the-command-line)
 
-- Sequence
-- Variables
-- Branching
-- Loops
-- Functions
+### Commonly used commands
 
-These concepts are the foundations of programming, and it is important that you understand them well!
-We will cover them briefly now so that you become familiar with them, then we will talk about them in depth in the JavaScript modules. 
+There's a set of commands you should become comfortable with during the course to allow you to effectively move around the filesystem and write software on your laptop.
 
-Pseudocode exercise?
+* `cd` - change directory. To move up into the parent directory use: `cd ..`
+* `ls` - list the contents of a directory.
+  Can also be used as `ls [directory_name]` to list the contents of a specific directory without actually moving (with `cd`) to it
+* `pwd` - print the full location of your current directory
+* `mkdir [name]` - create a new directory, with the given `name` after a space
+* `touch [file_name]` - create a new file, with the given name (don't forget to add the extension, like `.css` or `.html`)
+* `rm [file_name]` - remove a file
+* `rm -r [directory_name]` - remove a directory (**and all files inside that directory**)
 
-## Pair programming
+## Introduction to VS Code
 
-Pair programming is something we sometimes do in the industry.
-It is when two programmers work together on one computer.
-A benefit of pair programming is knowledge sharing, particularly in a scenario where a student is pairing with a mentor.
+[VS Code](https://code.visualstudio.com/) is the application we will use to write code.
 
-We will now do some pair programming.
+### File tree view
 
-## Sorting algorithm game
+VS Code has an **Explorer** sidebar on the left side which displays files in a tree view.
+Creating, renaming and moving files can be done directly in VS Code.
 
-This is a team exercise.  It works well for any number of teams of 3-5 students.
+![IDE file tree](../assets/file-tree.png)
 
+### Finding files
 
-There is a longer planning phase which all teams do at once in their teams and then a short ‘attempt’ phase where each team in sequence can attempt to run their prepared plan on a set of volunteers.
-The challenge for students
-Your team’s goal is to organise a row of ‘people’ as quickly as possible while following all the rules given.
+When working with big projects, you will often need to find a file quickly, without having to go through the tree view manually.
+The keyboard shortcut to do this is: `Ctrl + P` (or `Cmd + P` on Mac)
 
+![IDE find file](../assets/find-file.gif)
 
-Your group (ideally 3-5 students) will first work together to define the strategy and create a set of instructions needed to complete the task.
+### Auto-complete
 
+VS Code has auto-completion, which gives you suggestions of what you can can write next when you type something.
+For example, when writing a CSS property, it will tell you what values you can assign it to:
 
-When it is time to test your planned instructions, your group will split into planners and one executor:
-* The ‘planners’ communicate one instruction at a time to the executor, and receive responses from them
-* The ‘executor’ will execute the instructions and carry out the operation, according to strict rules, but will not take part in decision-making during the test.
+![IDE auto complete](../assets/ide-auto-complete.png)
 
+### Spell-checking
 
-  
-
-
-
-The group of ‘people’ to be ordered will be assigned one value each at random, written on paper, visible to your team’s executor, but hidden to your team’s planners.
-
-
-The group of people will be placed one each on numbered slots, so that your planners can refer to them by position.
-
-
-There will be one extra empty slot called ‘waiting-room’ (‘WR’ in the diagram).
-
-
-Your team can decide whether you will order the people in ascending or descending order.
-The Executor’s role
-* One of your team will take the role of executor during the test of your instructions
-* The executor will receive a command and the input needed to carry out the command (e.g. “COMPARE: is value in slot 3 is larger than value in slot 7?”)
-* The executor can only execute the instructions they receive and can only give the allowed responses.
-* The executor cannot interpret the instructions they receive
-* The executor cannot move position or signal to the planners.
-* The executor can ask for the planners to repeat when they have not heard well.
-The instructions
-Each instruction can only consist of the commands: MOVE or COMPARE. These commands can be grouped as a function (hint: see the function option).
-The MOVE command
-* With this command, the executor moves ONE person from one named slot to another.  A slot is either a numbered slot or the ‘waiting room’ slot.
-* The only response the executor should give after the move command is ‘Done’.
-* You cannot move a person to a slot with another person in it, only to an empty slot.
-* Examples:  
-   * “MOVE person from slot 3 to slot 7”
-   * “MOVE person from waiting room to slot 6”
-The COMPARE command
-* With this command, the executor compares the values held by the people in two named slots  (e.g. 0 and 1) using a given operator (‘greater than’, ‘less than’, ‘greater or equal’, ‘less or equal than’). 
-The executor announces a result: ‘Yes’, ‘No’ or ‘undefined’.
-* One of the slots for the COMPARE instruction can be the waiting room.
-* Example:
-   * “COMPARE: is value in slot 3 is larger than value in slot 7?”
-   * “Yes”
-Time limit and game end
-The ‘planners’ have a maximum of 5 mins to carry out their instructions.  When the time is reached the attempt will stop.
-
-
-At the end of the time limit or if the planners announce they have finished early, the current values can be revealed to the planners to let them see if they were successful in ordering.
-Clarifications
-Only one ‘person’ is allowed in one slot at the time.
-Optional (Function)
-   * Planners can create a predefined series of commands and call them functions
-   * Functions need to be given a clear name and need to be written in a flipchart
-Beginning of the game
-   * The Planners announce in what order they will sort the people
-   * If there are any Functions they will present them in a flipchart to the Executor 
-   * You will have 5 minutes to complete sorting the people
-
-
-///// ------------------------------------ /// 
-Instructions for Mentors for Setup
-   * For slot labels, the class needs to prepare one set of A4 paper sheets with digits 1..7 written large on them, and another one that says ‘waiting room’
-   * For values, the class needs to prepare one set of A4 paper sheets with the numbers 10, 20, 30, 40, 50, 60, 70, 80, 90 written large on them.
-   * The class needs to space the slot papers in a line on the floor, spaced so that there can be one person at every slot, comfortably.
-   * Put the waiting room slot on the floor, slightly apart.
-   * Ask for volunteers from spectators to stand on each of the numbered slots, one person per slot, no one in the waiting room, initially.
-   * The group needs to choose their executor
-   * This executor should stand facing the line of people
-   * Have the planners of the group take their places behind the row of people
-   * Being careful not to show the values to the planners, shuffle and hand out one value sheet to each person on a slot.
-   * The people on the slots should be facing AWAY from the planners, but toward the executor.  They should hold their value cards so that the executor can see them.
-   * A mentor or two needs to be assigned as compiler (see below)
-   * Someone not in the group should be assigned time-keeper (5 minute timer).
-   * The planners need to announce their intention to sort either Ascending or Descending before they start.
-The Compiler role
-   * One or two mentors should act as compilers.
-   * The compiler’s job is to spot instruction errors and announce them quickly and clearly:
-   * Illegal instructions that are not MOVE or COMPARE
-   * Critical human mistakes made by the executor under pressure that are not the fault of the planners and which would mislead them (most commonly, if they misreport the result of a comparison).
-
-
-Post-exercise Discussion
-
-
-   * What is needed for the success of the game?
-   * What did you learn by playing this?
-   * Discussion on functions. Why they could be useful?
+It can be easy to make spelling mistakes when coding, however VS Code does not have in-built spell-checking.
+Let's install a [spell checker extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) which will help reduce the number of errors made coding.
 
 ## Git
 
 TBD
 
-### Theory/Concepts
+## Introduction to programming 2
 
-TBD
+### Revising loops and functions
 
-### Basic commands
+#### Group homework revision
 
-TBD
+We're going to look at https://studio.code.org/s/course3/stage/6/puzzle/11 and https://studio.code.org/s/course3/stage/6/puzzle/12 together.
+
+### Conditionals
+
+What makes computers different from all the machines in history that came before them?
+
+Computers can make decisions.
+
+This is useful in all sorts of situations. When your phone battery is low, your phone can decide to pop up a message and tell you to plug it in. 
+If you type a word wrongly when you're writing an email, the spell-checker can decide to draw a squiggly line under it. This is just the tip of 
+the iceberg: our phones and computers are making decisions all the time, thousands of times a second.
+
+When we write computer programs, we can tell the computer to make decisions too.
+
+The word we need is: **if**.
+
+It works the same way we would use it in conversation if we were telling someone to do something. 
+
+"Go to the shops and get a litre of milk. If eggs are half price then buy six."
+
+```
+go to the shops
+get a litre of milk
+if eggs are half price
+then buy six
+```
+
+There are two different possible outcomes. 
+
+If eggs are half price, we will buy six. If eggs are not half price, we will not buy any.
+
+We call this a **conditional**. If the condition is met we do something. If it is not met, we don't.
+
+What do we mean by condition?
+
+A condition is something that can be either true or false. It's something the computer has to check in order to make the decision.
+
+Which of these things are conditions? (Hint: try to think if it is possible for the sentence to be true or false).
+
+"It is raining."
+"Water the plants."
+"My name is Inigo Montoya."
+"Wake the mentors up."
+"The mentors are awake."
+
+#### Code.org exercises
+
+Please go to https://studio.code.org/s/course3/stage/7/puzzle/1 and do puzzles 1 to 3.
+
+### Else
+
 
 ## Homework
 

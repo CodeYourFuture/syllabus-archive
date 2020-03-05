@@ -2,6 +2,7 @@
 
 # JavaScript Core I - 3
 
+* [Callbacks](#callbacks)
 * [Array properties](#array-properties)
 * [Manipulating arrays](#manipulating-arrays)
 * [Array methods](#array-methods)
@@ -19,6 +20,43 @@ By the end of this class, you should be able to answer these questions:
 * How can you chain array methods?
 
 ---
+
+## Callbacks
+
+A _callback_ is a way of calling a function of your choosing later on in another function. This is really useful for when 
+
+```js
+function add(a,b) {
+  return a + b
+}
+
+function performOperation(func) {
+  console.log("I'm going to perform the operation you give me with 2 and 4 as input.")
+
+  let sum = func(2, 4)
+
+  return sum
+}
+
+console.log(performOperation(add))
+```
+
+The functions that you pass in as an argument can also be _anonymous functions_ (i.e. function without a name) - however, you compromise reusability as you can only call this function once.
+
+```js
+// This is the same as the previous example
+function performOperation(func) {
+  console.log("I'm going to perform the operation you give me with 2 and 4 as input.")
+
+  let sum = func(2, 4)
+
+  return sum
+}
+
+console.log(performOperation(function (a,b) {
+  return a + b
+})
+```
 
 ## Array properties
 

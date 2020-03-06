@@ -81,6 +81,8 @@ Click the Documents folder on the left-hand side of the window, or double-click 
 [Slack](https://slack.com/) is a team communication tool that we will use to communicate with each other throughout the whole course.
 Let's go through some exercises to get acquainted with Slack.
 
+[Slack](../assets/slack.png)
+
 #### Channels
 
 Topics are organised in different channels.

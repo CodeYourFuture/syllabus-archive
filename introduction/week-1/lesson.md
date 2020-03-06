@@ -28,25 +28,33 @@ Then afterwards we will introduce ourselves to the circle as though we are our n
 We will spend the afternoon getting you acquainted with your machine which you will spend the next nine months with.
 It is important that you get on well with your machine!
 
-### Ubuntu Linux
+### Ubuntu
 
 Ubuntu Linux is the *operating system* that is installed on your computer. It is the software which manages your computer's basic functions and provides you with a way to interact with it. Other operating systems you might have heard of are Microsoft Windows and Apple macOS. We use Ubuntu because it is particularly suited to the web development tasks we are doing, as most web sites run on a Linux-based computer. 
 
 Most tasks work very similarly to other computer systems you might have used, but there is also the terminal which is a very powerful but different way of telling the computer what to do. We will introduce this in another session next week.
 
+#### Logging in
+
+![Ubuntu Login](../assets/login.png)
+
+The first thing you'll need to do after turning on your laptop is to login. Your user name is `coder` and we have supplied you with a password. To log in click on `coder` in the middle of the screen, type in your password and then press either the Enter key or click `Sign In`.
+
 #### Launching programs
 
 There are two main ways to launch programs (also known as applications) on Ubuntu.
 
-![Ubuntu Desktop](../assets/ubuntu.png)
-
 ##### Launcher
+
+![Ubuntu Desktop](../assets/ubuntu.png)
 
 The first is to launch one of the *pinned* application at the side of the screen. To try this, launch the Firefox web browser by clicking on the Firefox icon in the top left-hand corner.
 
 ##### Activities
 
-The other way is to search for the application in the Activities view - you'll need to do this if the program isn't pinned. To do this either click the word Activities in the top left-hand corner of your screen or press the Windows key (the one with the flag next to Space). You can then type the name of the program to launch and you will get a selection to choose from. Type `impress` to find LibreOffice Impress, a program for making presentations then click on it to start it.
+![Activities Overview](../assets/activities.png)
+
+The other way is to search for the application in the Activities view - you'll need to do this if the program isn't pinned. To do this either click the word Activities in the top left-hand corner of your screen or press the Windows key (the one with the flag next to Space). You can then type the name of the program to launch and you will get a selection to choose from. Type `impress` to find LibreOffice Impress, a program for making presentations, then click on it to start it.
 
 #### Switching between programs
 
@@ -54,7 +62,19 @@ The easiest way to do this is with the launcher. Try clicking back and forth bet
 
 #### Closing programs
 
-The easiest way to close an application is to click the red X icon in the top right-hand corner of its window. If you have files open in an application you may be asked whether you wish to save their state.
+To close an application click the red X icon in the top right-hand corner of its window. If you have files open in an application you may be asked whether you wish to save them.
+
+#### Browsing files
+
+For a graphical way to navigate your files, Ubuntu includes the Files application. This is the 2nd icon down in the top left-hand corner of the screen. Click it once to open the application.
+
+![Files](../assets/files.png)
+
+#### Creating a folder
+
+It's very important to keep your files organised, otherwise it's easy to get confused or end up in the wrong place! To help with this we'll create a folder to store your work for CodeYourFuture.
+
+Click the Documents folder on the left-hand side of the window, or double-click on the Documents folder in the main body of the window. Once you are inside the Documents folder right-click and select Create New Folder. You'll then get a dialog like the one below. Type in the name `CodeYourFuture` and click Create. Then, you can close the window.
 
 ### Introduction to Slack
 

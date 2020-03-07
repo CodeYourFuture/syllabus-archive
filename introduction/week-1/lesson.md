@@ -81,13 +81,13 @@ Click the Documents folder on the left-hand side of the window, or double-click 
 [Slack](https://slack.com/) is a team communication tool that we will use to communicate with each other throughout the whole course.
 Let's go through some exercises to get acquainted with Slack.
 
-[Slack](../assets/slack.png)
-
 #### Channels
 
 Topics are organised in different channels.
 
-Exercises:
+![Slack](../assets/slack.png)
+
+##### Exercises
 
 - Find the \#scotland-fun-stuff channel. This is where we organise fun things!
 - Find the \#random channel. This is where we post random stuff!
@@ -96,9 +96,11 @@ Exercises:
 
 Emojis make it easy to engage with other people's comments without needing to write a reply.
 
-Exercises:
+![Emojis](../assets/emoji.png)
 
-1. A mentor will now post a random message on Slack. Give it a thumbs up to show that you have read the message!
+##### Exercises
+
+1. A mentor will now post a message on Slack. Give it a thumbs up to show that you have read the message!
 2. A mentor will now post the name of food that they like. Give it a thumbs up if you like it or a thumbs down if you don't like it!
 
 #### Threads
@@ -107,7 +109,7 @@ If everyone replies in the channel then it can get very messy when there are mul
 To make conversations more organised, we write replies in threads.
 This way, a single conversation stays in one thread.
 
-Exercises:
+##### Exercises
 
 1. A mentor will now post a message asking what your favourite food is. Reply in a thread with your favourite food!
 2. A mentor will now post a message asking what your favourite hobby is. Reply in a thread with your favourite hobby!

@@ -90,36 +90,40 @@ Please do not hold the power button on the laptop to force it off as this can so
 
 If you need to connect to a wi-fi network this will be listed on the same menu as the power button in the top right-hand corner. Most wi-fi networks will require a password.
 
-### Introduction to Slack
+## Introduction to Slack
 
 [Slack](https://slack.com/) is a team communication tool that we will use to communicate with each other throughout the whole course.
 Let's go through some exercises to get acquainted with Slack.
 
-#### Channels
+### Channels
 
 Topics are organised in different channels.
 
-Exercises:
+![Slack](../assets/slack.png)
 
-- Find the \#scotland-fun-stuff channel. This is where we organise fun things!
-- Find the \#random channel. This is where we post random stuff!
+#### Exercises
 
-#### Emojis
+1. Find the \#scotland-fun-stuff channel. This is where we organise fun things!
+2. Find the \#random channel. This is where we post random stuff!
+
+### Emojis
 
 Emojis make it easy to engage with other people's comments without needing to write a reply.
 
-Exercises:
+![Emojis](../assets/emoji.png)
 
-1. A mentor will now post a random message on Slack. Give it a thumbs up to show that you have read the message!
+#### Exercises
+
+1. A mentor will now post a message on Slack. Give it a thumbs up to show that you have read the message!
 2. A mentor will now post the name of food that they like. Give it a thumbs up if you like it or a thumbs down if you don't like it!
 
-#### Threads
+### Threads
 
 If everyone replies in the channel then it can get very messy when there are multiple conversations happening at the same time.
 To make conversations more organised, we write replies in threads.
 This way, a single conversation stays in one thread.
 
-Exercises:
+#### Exercises
 
 1. A mentor will now post a message asking what your favourite food is. Reply in a thread with your favourite food!
 2. A mentor will now post a message asking what your favourite hobby is. Reply in a thread with your favourite hobby!

@@ -28,38 +28,103 @@ Then afterwards we will introduce ourselves to the circle as though we are our n
 We will spend the afternoon getting you acquainted with your machine which you will spend the next nine months with.
 It is important that you get on well with your machine!
 
-### Introduction to Ubuntu
+### Ubuntu
 
-Alastair TBD
+Ubuntu Linux is the *operating system* that is installed on your computer. It is the software which manages your computer's basic functions and provides you with a way to interact with it. Other operating systems you might have heard of are Microsoft Windows and Apple macOS. We use Ubuntu because it is particularly suited to the web development tasks we are doing, as most web sites run on a Linux-based computer. 
 
-### Introduction to Slack
+Most tasks work very similarly to other computer systems you might have used, but there is also the terminal which is a very powerful but different way of telling the computer what to do. We will introduce this in another session next week.
+
+#### Logging in
+
+![Ubuntu Login](../assets/login.png)
+
+The first thing you'll need to do after turning on your laptop is to login. Your user name is `coder` and we have supplied you with a password. To log in click on `coder` in the middle of the screen, type in your password and then press either the Enter key or click `Sign In`.
+
+#### Launching programs
+
+There are two main ways to launch programs (also known as applications) on Ubuntu.
+
+##### Launcher
+
+![Ubuntu Desktop](../assets/ubuntu.png)
+
+The first is to launch one of the *pinned* application at the side of the screen. To try this, launch the Firefox web browser by clicking on the Firefox icon in the top left-hand corner.
+
+##### Activities
+
+![Activities Overview](../assets/activities.png)
+
+The other way is to search for the application in the Activities Overview - you'll need to do this if the program isn't pinned. To do this either click the word Activities in the top left-hand corner of your screen or press the Windows key (the one with the flag next to Space). You can then type the name of the program to launch and you will get a selection to choose from. Type `impress` to find LibreOffice Impress, a program for making presentations, then click on it to start it.
+
+#### Switching between programs
+
+The easiest way to do this is with the launcher. Try clicking back and forth between Firefox and Impress.
+
+#### Closing programs
+
+To close an application click the red X icon in the top right-hand corner of its window. If you have files open in an application you may be asked whether you wish to save them.
+
+#### Working with files
+
+For a graphical way to navigate your files, Ubuntu includes the Files application. This is the 2nd icon down in the top left-hand corner of the screen. Click it once to open the application.
+
+Most of the time we will be working with files using Visual Studio Code or the Terminal (next week) however depending on how comfortable you are you might also want to practice using the *Files* application as well - e.g. to open/delete/examine files.
+
+![Files](../assets/files.png)
+
+#### Creating a folder
+
+It's very important to keep your files organised, otherwise it's easy to get confused or end up in the wrong place! To help with this we'll create a folder to store your work for CodeYourFuture.
+
+Click the Documents folder on the left-hand side of the window, or double-click on the Documents folder in the main body of the window. Once you are inside the Documents folder right-click and select Create New Folder. You'll then get a dialog like the one below. Type in the name `CodeYourFuture` and click Create. Then, you can close the window.
+
+### Turning off your computer
+
+![Shutdown](../assets/shutdown.png)
+
+To shutdown your computer you should always* use the shutdown button in the top right-hand corner of your screen, after closing your application.
+
+Please do not hold the power button on the laptop to force it off as this can sometimes cause damage both to Ubuntu and your data, even if it appears to be fine. This option is only there as a last resort in case your computer isn't responding.
+
+### Connecting to a wi-fi network
+
+If you need to connect to a wi-fi network this will be listed on the same menu as the power button in the top right-hand corner. Most wi-fi networks will require a password.
+
+## Introduction to Slack
 
 [Slack](https://slack.com/) is a team communication tool that we will use to communicate with each other throughout the whole course.
 Let's go through some exercises to get acquainted with Slack.
 
-#### Channels
+### Channels
 
 Topics are organised in different channels.
 
-Exercises:
-- Find the \#scotland-fun-stuff channel. This is where we organise fun things!
-- Find the \#random channel. This is where we post random stuff!
+![Slack](../assets/slack.png)
 
-#### Emojis
+#### Exercises
+
+1. Find the \#scotland-fun-stuff channel. This is where we organise fun things!
+2. Find the \#random channel. This is where we post random stuff!
+
+### Emojis
 
 Emojis make it easy to engage with other people's comments without needing to write a reply.
 
-Exercises:
-1. A mentor will now post a random message on Slack. Give it a thumbs up to show that you have read the message!
+![Emojis](../assets/emoji.png)
+
+#### Exercises
+
+1. A mentor will now post a message on Slack. Give it a thumbs up to show that you have read the message!
 2. A mentor will now post the name of food that they like. Give it a thumbs up if you like it or a thumbs down if you don't like it!
 
-#### Threads
+### Threads
 
 If everyone replies in the channel then it can get very messy when there are multiple conversations happening at the same time.
 To make conversations more organised, we write replies in threads.
 This way, a single conversation stays in one thread.
 
-Exercises:
+#### Exercises
+
 1. A mentor will now post a message asking what your favourite food is. Reply in a thread with your favourite food!
 2. A mentor will now post a message asking what your favourite hobby is. Reply in a thread with your favourite hobby!
 
@@ -100,7 +165,7 @@ If you've done something in group-work that you don't fully understand:
 - Go back to it afterwards by yourself, and challenge yourself to understand it
 
 Don't let it go because the next time you don't understand something, it will be harder to get things explained.
-	
+
 So if you solve 10 exercises together in a group-work exercise, it is a great idea to go back over and try to solve them yourself the next day.
 
 ### Take notes about what you don't understand
@@ -179,6 +244,7 @@ So we need to be very precise and make sure all the steps we give the computer a
 *Turn left* then *turn right* does the same thing as *turn right* followed by *turn left*.
 
 Going back to our recipe:
+
 1. Fill a pan with water
 2. Bring the water to a boil
 3. Prick a hole in the egg
@@ -192,7 +258,7 @@ Is this the only order of instructions that works? Are any other orders possible
 
 We will register on [Code.org](https://code.org/) and complete a few exercises together.
 
-Once you've registered, please go to https://studio.code.org/s/course3/stage/2/puzzle/1 and complete puzzles 1, 2 and 3.
+Once you've registered, please go to <https://studio.code.org/s/course3/stage/2/puzzle/1> and complete puzzles 1, 2 and 3.
 
 ### Repeating commands
 
@@ -209,7 +275,7 @@ Luckily even computers don't need to be given directions one step at a time. We 
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/2/puzzle/4 and complete puzzles 4 and 5.
+Please go to <https://studio.code.org/s/course3/stage/2/puzzle/4> and complete puzzles 4 and 5.
 
 ### Repeating blocks of commands
 
@@ -228,7 +294,7 @@ as a **loop**, and we would call the instruction list itself a **loop body**.
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/2/puzzle/4 and complete puzzles 6, 7 and 8.
+Please go to <https://studio.code.org/s/course3/stage/2/puzzle/4> and complete puzzles 6, 7 and 8.
 The puzzles are getting more difficult now. If you have any problems, put a question on Slack and see if anyone
 else can help! If you finish quickly, look at the channel and see if there are any questions you can answer.
 
@@ -245,7 +311,7 @@ we would tell our friends to drive until they are past the supermarket and then 
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/2/puzzle/4 and complete puzzles 9, 10, 11, 12 and 13.
+Please go to <https://studio.code.org/s/course3/stage/2/puzzle/4> and complete puzzles 9, 10, 11, 12 and 13.
 
 ### Functions
 
@@ -258,6 +324,7 @@ inside a loop or outside.
 What does that mean? How is it useful?
 
 Going back to the recipe for boiling an egg:
+
 1. Fill a pan with water
 2. Bring the water to a boil
 3. Prick a hole in the egg
@@ -269,6 +336,7 @@ This is not detailed enough to give to a computer. In general, computers need mo
 We can write in a recipe for humans to follow, "fill a pan with water", but a computer would need to be told what that means.
 
 Here is a recipe for filling a pan with water:
+
 1. Put the pan under a tap
 2. Turn the tap on
 3. Wait until the pan is full
@@ -282,10 +350,10 @@ the computer with.
 
 #### Code.org exercises
 
-Please go to https://studio.code.org/s/course3/stage/6/puzzle/1 and complete as many puzzles as you can.
+Please go to <https://studio.code.org/s/course3/stage/6/puzzle/1> and complete as many puzzles as you can.
 
 ## Homework for next week
 
 1. Complete the rest of the stage 6 exercises on [Code.org](https://code.org/).
-2. See if you can do the first four debugging exercises at https://studio.code.org/s/course3/stage/14/puzzle/1.
-3. Watch the videos at https://www.youtube.com/playlist?list=PLeY8Jv3ftRaj5yJdEdo03vzuAEQil4XdC
+2. See if you can do the first four debugging exercises at <https://studio.code.org/s/course3/stage/14/puzzle/1>.
+3. Watch the videos at <https://www.youtube.com/playlist?list=PLeY8Jv3ftRaj5yJdEdo03vzuAEQil4XdC>.

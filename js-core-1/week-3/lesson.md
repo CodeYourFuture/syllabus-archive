@@ -14,9 +14,10 @@
 
 By the end of this class, you should be able to answer these questions:
 
-* What is a callback and how do you use it?
 * How do you use array methods and properties to manipulate arrays?
 * How can you chain array methods?
+* What is a callback and how do you use it?
+* What is an anonymous function and how do you use it?
 
 ---
 
@@ -182,13 +183,7 @@ There is a string method `.split()`. In an interactive console try using the str
 * Combine it with another array filled with the names from another table
 * `console.log` the names in alphabetical order
 * Create a new value with the 2nd, 3rd and 4th people in it
-* Create a function that takes a `name` and an array of names and returns a string
-
-  ```txt
-  name is / is not sitting at the table with Daniel, Irini, Ashleigh, Rob and Etzali`
-  ```
-
-  The names above are just examples.
+* Create a function that takes a `name` and an array of names and returns a string. If the name is not in an array, it should retuern `<name> is not sitting at the table with <people in the array>`. If the name is in the array, it should return `<name> is sitting at the table with <people in the array>`.
 
 ## Array map
 
@@ -242,7 +237,7 @@ let numbersDoubled = numbers.map(function double(number) {
 });
 ```
 
-We can make this shorter by removing the function name. We can do this because we are not using the function anywhere else in the code, so we do not need the function name to reference it.
+We can make this shorter by removing the function name to declare an _anonymous function_. We can do this because we are not using the function anywhere else in the code, so we do not need the function name to reference it.
 
 ```js
 let numbers = [1, 2, 3];
@@ -271,10 +266,30 @@ let numbersDoubled = numbers.map(number => number * 2);
 
 In the example above, the expression `number * 2` is automatically returned because it comes directly after the `=>` arrow (instead of coming after curly braces). This is called an `implicit return`.
 
-### Exercise (5 minutes)
+### Exercise (10 minutes)
 
-* Create a function that takes an `birthYear`, and returns the age of someone
-* With an array of ages, `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]` create another array filled with their birth years
+I have a function defined below as:
+
+```js
+function abracaFunction(yourFunc) {
+  console.log("I am abracaFunction! Watch as I mutate an array of strings to your heart's content!")
+  const abracaArray = ['James', 'Elamin', 'Ismael', 'Sanyia', 'Chris', 'Antigoni']
+
+  const abracaOutput = yourFunc(abracaArray)
+
+  return abracaOutput
+}
+```
+
+This function does not need to be modified. Can you pass in a _callback function_ which will mutate `abracaArray` such that it:
+
+* Upper cases all letters in the array
+* Sorts `abracaArray` in alphabetical order
+
+### Exercise (10 minutes)
+
+* Create a function that takes a `birthYear`, and returns the age of someone
+* With an array of ages, create another array filled with their birth years `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`
 * `console.log` the birth years array
 
 ## Array forEach
@@ -363,6 +378,13 @@ let highTestScores = testScores.filter(isHighScore);
 console.log(highTestScores); // logs [90, 100, 81]
 ```
 
+### Exercise (10 mins)
+
+Create a function which:
+* Takes an array of `birthYears`
+* Uses `console.log` to print the message `These are the birth years of people who can drive: <filtered birth years>`
+* Returns an array of people who can drive (remember, you can drive if you are 17 years or older)
+
 ## Array find
 
 Imagine you have an array of names:
@@ -393,6 +415,13 @@ let longName = names.find(isLongName);
 console.log(longName); // logs Mozafar
 ```
 
+### Exercise (10 mins)
+
+Create a function which:
+* Takes an array of names
+* Looks to see if your name is in the array
+* If it is, return `Found me!`; if not, return `Haven't found me :(`
+
 ### Chaining
 
 Notice how we were able to write one method after another e.g. `names.map(formatName).forEach(log)`? This is called _method chaining_.
@@ -402,14 +431,22 @@ You can call `.forEach()` after `.map()` because `.map()` returns a new array.
 Consider this code:
 
 ```js
-let namesFormatted = names.map(format);
+function formatName(name) {
+  return name.split("")[0].toUpperCase() + name.slice(1);
+}
+
+function log(name, index) {
+  console.log(index + ": " + name)
+}
+
+let namesFormatted = names.map(formatName);
 namesFormatted.forEach(log);
 ```
 
 It can be written more simply (without assigning the array returned from `.map()` to a variable):
 
 ```js
-names.map(format).forEach(log);
+names.map(formatName).forEach(log);
 ```
 
 Be careful though! You can not call `.map()` after `.forEach`.
@@ -419,5 +456,20 @@ names.forEach(log).map(formatName); // ERROR
 ```
 
 This code does not work because `forEach()` does not return a new array (it returns `undefined`). The code is therefore attempting to call `.map()` on `undefined`, and `undefined` does not have a `.map()` method.
+
+### Exercise (15 minutes)
+
+Create a function which accepts an array of "messy" strings. Example:
+
+```js
+[100, 'iSMael', 55, 45, 'sANyiA', 66, 'JaMEs', 'eLAmIn', 23, 'IsMeal', 67, 19, 'ElaMIN']
+```
+
+This function should:
+
+* Remove all non-string entries
+* Only upper case the first letter of all strings and add an exclamation mark to the end
+
+If you're using the above example, you should expect to return an array with 2x `Elamin!`, 1x `Sanyia!`, 2x `Ismael!` and 1x `James!`.
 
 {% include "./homework.md" %}

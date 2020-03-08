@@ -73,6 +73,25 @@ scores[3] = 51; // Add a new score
 * Put someone from another table at the beginning of the array
 * Add someone else to the end of the list
 
+## Working with arrays
+When working with lists it is often useful to manipulate, enhance, or search the information in that list.
+
+Some examples of things you might want to do with a list of data:
+
+* Only use the first 10 items in a list
+* Get people from a list whose name starts with a `M`
+* Find the first person in a list to be over 100 years old
+* Arrange people in a list alphabetically
+* Get the last 10 items in an array
+* Add all the numbers up in a list
+* Get all the cats in an array of animals
+* From a list of numbers, add a `£` sign prefix
+* Combine a list of romance films and thrillers
+
+### Exercise (10 minutes)
+
+Working as a group - use the [MDN documentation on arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Instance_methods) to see if you can find what methods might be useful to achieving the above examples.
+
 ## Array methods
 
 Do you remember how strings have special functions called methods? Don't worry if not! Here's an example to jog your memory:
@@ -418,6 +437,7 @@ console.log(longName); // logs Mozafar
 ### Exercise (10 mins)
 
 Create a function which:
+
 * Takes an array of names
 * Looks to see if your name is in the array
 * If it is, return `Found me!`; if not, return `Haven't found me :(`

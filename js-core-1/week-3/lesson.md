@@ -74,7 +74,7 @@ scores[3] = 51; // Add a new score
 * Add someone else to the end of the list
 
 ## Working with arrays
-When workinf with lists it is often useful to manipulate, enhance, or search the information in that list.
+When working with lists it is often useful to manipulate, enhance, or search the information in that list.
 
 Some examples of things you might want to do with a list of data:
 

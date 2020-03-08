@@ -86,10 +86,11 @@ Some examples of things you might want to do with a list of data:
 * Add all the numbers up in a list
 * Get all the cats in an array of animals
 * From a list of numbers, add a `£` sign prefix
+* Combine a list of romance films and thrillers
 
 ### Exercise (10 minutes)
 
-Working as a group - use the MDN documentation on arrays to see if you can find what methods might be useful to achieving the above examples.
+Working as a group - use the [MDN documentation on arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Instance_methods) to see if you can find what methods might be useful to achieving the above examples.
 
 ## Array methods
 

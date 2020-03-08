@@ -65,6 +65,13 @@ scores[2] = 29; // Change the last score
 scores[3] = 51; // Add a new score
 ```
 
+## Exercise (5 minutes)
+
+* Create an array with the names of the people on your table
+* `console.log` out the names and how many people are at the table
+* Put someone from another table at the beginning of the array
+* Add someone else to the end of the list
+
 ## Array methods
 
 Do you remember how strings have special functions called methods? Don't worry if not! Here's an example to jog your memory:

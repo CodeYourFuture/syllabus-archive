@@ -65,6 +65,14 @@ scores[2] = 29; // Change the last score
 scores[3] = 51; // Add a new score
 ```
 
+## Exercise (5 minutes)
+
+* Create an array with the names of the people on your table
+* `console.log` out the names and how many people are at the table
+* Put someone from another table at the beginning of the array
+* Add someone else to the end of the list
+
+
 ## Array methods
 
 Do you remember how strings have special functions called methods? Don't worry if not! Here's an example to jog your memory:
@@ -210,7 +218,7 @@ The `map()` method runs the function we provided (`double`) on each item in the 
 
 A function that we provide to a method is commonly called a _callback_ function. The term highlights that although we _provide_ the `double` function, the `.map()` method _calls_ it. (Notice how we never write `double()` to call the function).
 
-We'll see callback functions used a lot more in the coming weeks. 
+We'll see callback functions used a lot more in the coming weeks.
 
 Often, when a function is only needed for a map operation, developers will declare the callback function inside of the method call. Let's try copying and pasting the function declaration inside of the `.map()` method call.
 
@@ -225,12 +233,12 @@ We can make this shorter by removing the function name. We can do this because w
 
 ```js
 let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map(function (number) {
+let numbersDoubled = numbers.map(function(number) {
   return number * 2;
 });
 ```
 
-We can make this code even shorter still. In the latest versions of JavaScript a way of declaring functions was introduced called _arrow functions_. 
+We can make this code even shorter still. In the latest versions of JavaScript a way of declaring functions was introduced called _arrow functions_.
 
 ```js
 let numbers = [1, 2, 3];
@@ -262,9 +270,9 @@ When functions meet this criteria they can be called _pure functions_.
 
 A pure function does not:
 
-* access any data unless it was passed in as a parameter
-* change data declared outside the function
-* interacts with anything outside of the function (e.g. logs a message to the console, shows a message on a website, saves data to disk)
+- access any data unless it was passed in as a parameter
+- change data declared outside the function
+- interacts with anything outside of the function (e.g. logs a message to the console, shows a message on a website, saves data to disk)
 
 These are all example of _side effects_. Of course, from time to time, we will need to perform side effects, but we should try to avoid side effects inside of functions and only have them when absolutely necessary.
 

@@ -68,7 +68,7 @@ TBD
 
 #### Group homework revision
 
-We're going to look at https://studio.code.org/s/course3/stage/6/puzzle/11 and https://studio.code.org/s/course3/stage/6/puzzle/12 together.
+We're going to look at https://studio.code.org/s/course3/stage/6/puzzle/11 together.
 
 ### Conditionals
 
@@ -107,11 +107,11 @@ A condition is something that can be either true or false. It's something the co
 
 Which of these things are conditions? (Hint: try to think if it is possible for the sentence to be true or false).
 
-"It is raining."
-"Water the plants."
-"My name is Inigo Montoya."
-"Wake the mentors up."
-"The mentors are awake."
+1. "It is raining."
+2. "Water the plants."
+3. "My name is Inigo Montoya."
+4. "Wake the mentors up."
+5. "The mentors are awake."
 
 #### Code.org exercises
 
@@ -119,8 +119,74 @@ Please go to https://studio.code.org/s/course3/stage/7/puzzle/1 and do puzzles 1
 
 ### Else
 
+Sometimes we want to choose between two different courses of action: we do one thing when the condition is true, and
+another thing when the condition is false.
+
+To return to the eggs example:
+
+```
+if eggs are half price
+	buy twelve eggs
+else
+	buy six eggs
+```
+
+This is the same as:
+
+```
+if eggs are half price
+	buy twelve eggs
+if eggs are not half price
+	buy six eggs
+```
+
+It is not the same as:
+
+```
+if eggs are half price
+	buy twelve eggs
+
+buy six eggs
+```
+
+What is the difference?
+
+#### Code.org exercises
+
+Please go to https://studio.code.org/s/course3/stage/7/puzzle/1 and do puzzles 4 to 8.
+
+### While loops
+
+Up until now we've used **repeat until**.
+
+There is no **repeat until** command in JavaScript. Instead we have **while**.
+
+**While** is like **repeat until** but the condition is the other way around. 
+Instead of stopping when something is true, we stop when something is not true.
+
+This makes **while** similar to **if**: if the condition is true, then we
+will carry out the block of commands attached to the **if** or **while**, and if
+it is not true, we don't.
+
+#### Code.org exercises
+
+Please go to https://studio.code.org/s/course3/stage/12/puzzle/1 and do puzzles 1 to 9.
+
+### Solving problems with code
+
+One of the most important skills to learn as a programmer is to identify when solving
+a problem requires either making a decision or doing the same thing repeatedly.
+
+Here are some problems to solve - do they require a loop, a conditional, or both?
+
+1. Printing all the words in the dictionary starting with the letter K
+2. Multiplying all the numbers from 1 to 10 together
+3. Checking if the key the user just pressed was "space"
+4. Adding up the prices of all the items in an online shopping basket
+5. Replacing all the occurrences of "teh" in a document with "the"
+6. Finding out if anyone in the class has a sister who speaks Japanese
 
 ## Homework
 
-2. Terminal and Git exercise (TBD repo link to fork)
-3. Video algorithm recipes (optional)
+1. Do the nested loop exercises starting at https://studio.code.org/s/course3/stage/13/puzzle/1.
+2. Do the rest of the debugging exercises starting at https://studio.code.org/s/course3/stage/14/puzzle/5.

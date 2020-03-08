@@ -176,6 +176,20 @@ $ node
 
 There is a string method `.split()`. In an interactive console try using the string `.split()` method and the array `.join()`. How could they work together?
 
+## Exercise (10 minutes)
+
+* Use the array of the people from your table
+* Combine it with another array filled with the names from another table
+* `console.log` the names in alphabetical order
+* Create a new value with the 2nd, 3rd and 4th people in it
+* Create a function that takes a `name` and an array of names and returns a string
+
+  ```txt
+  name is / is not sitting at the table with Daniel, Irini, Ashleigh, Rob and Etzali`
+  ```
+
+  The names above are just examples.
+
 ## Array map
 
 Imagine you have an array of names...

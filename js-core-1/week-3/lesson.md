@@ -65,7 +65,7 @@ scores[2] = 29; // Change the last score
 scores[3] = 51; // Add a new score
 ```
 
-## Exercise (5 minutes)
+### Exercise (5 minutes)
 
 * Create an array with the names of the people on your table
 * `console.log` out the names and how many people are at the table
@@ -176,7 +176,7 @@ $ node
 
 There is a string method `.split()`. In an interactive console try using the string `.split()` method and the array `.join()`. How could they work together?
 
-## Exercise (10 minutes)
+### Exercise (10 minutes)
 
 * Use the array of the people from your table
 * Combine it with another array filled with the names from another table
@@ -271,6 +271,12 @@ let numbersDoubled = numbers.map(number => number * 2);
 
 In the example above, the expression `number * 2` is automatically returned because it comes directly after the `=>` arrow (instead of coming after curly braces). This is called an `implicit return`.
 
+### Exercise (5 minutes)
+
+* Create a function that takes an `birthYear`, and returns the age of someone
+* With an array of ages, `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]` create another array filled with their birth years
+* `console.log` the birth years array
+
 ## Array forEach
 
 The `.forEach()` method is similar to `.map()` except it does not return a new array. Therefore `.forEach()` is only useful if you want to perform _side effects_.
@@ -318,6 +324,15 @@ names.map(formatName).forEach(function(name, index) {
   console.log(index + ": " + name);
 });
 ```
+
+### Exercise (5 minutes)
+
+You can drive in the UK at the age of 17.
+
+* Write another function that takes a birth year and returns a string `Born in {year} can drive` or `Born in {year} can drive in {x} years`
+* Use the array of birth years, `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`, to get an array of strings saying if these people can drive
+* `console.log` the answers
+
 
 ## Array filter
 

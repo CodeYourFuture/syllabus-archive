@@ -59,7 +59,7 @@ This is all really useful! But a bit annoying to do each time! And we're going t
 
 Would it not be nice if we had a robot we could ask to do all this work for us? We would just tell it anytime we're ready to commit, and it would create those folders for us, somewhere hidden, where we can't see them! Something like Alexa, or Siri - _"hey Alexa, add these files, I'm ready to commit them!"_
 
-Turns out we do, but our robot is called Git. And whenever we want to use Git in a folder, to track our changes, we need to tell it to initialize in that folder.
+Turns out we do, but our robot is called Git. And whenever we want to use Git in a folder, to track our changes, we need to first tell it to initialize in that folder.
 
 > So our third important word is:
 > **init**

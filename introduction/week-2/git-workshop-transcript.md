@@ -36,7 +36,7 @@ We now have these folders:
 
 <img alt="CV.txt file selected" src="../assets/git/3.png" width="250">
 
-The selected one, `job-application`, is our **latest** one. The one that has all the latest changes and is the most up to date. The other ones, contain different [milestones](https://www.merriam-webster.com/dictionary/milestone?src=search-dict-box) of our work, and they're named accordingly! There's a folder for our initial template (right before we first started writing) another one for when we added "Education" to our CV etc.
+The selected one, `job-application`, is our **latest** one. It is the one that has all the latest changes and is the most up to date. The other ones, contain different [milestones](https://www.merriam-webster.com/dictionary/milestone) of our work, and they're named accordingly! There's a folder for our initial template (right before we first started writing) another one for when we added "Education" to our CV etc.
 
 Now let's say that while working on our job application, we get a message about an even better job! So we pause our current work, and open our `initial-job-application` folder so we can adapt our CV and cover letter for the new job.
 

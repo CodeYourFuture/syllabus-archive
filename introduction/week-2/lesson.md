@@ -125,7 +125,7 @@ Post-exercise Discussion
 
 🏠 Reading this at home? Click [here](git-workshop-transcript.md) to access the full offline Git workshop.
 
-##### Workshop Exercises
+### Workshop Exercises
 
 You'll find these in the full guide linked above as well.
 

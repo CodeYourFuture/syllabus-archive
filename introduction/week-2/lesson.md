@@ -162,7 +162,7 @@ You'll find these in the full guide linked above as well.
 14. use `git status` (notice how you have no files)
 15. use `git log` to see what changes you made
 
-###### Part 3
+#### Part 3
 
 1. Go to [https://github.com](https://github.com) and create a new account
 2. Create a new repository

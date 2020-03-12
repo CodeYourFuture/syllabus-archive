@@ -129,7 +129,7 @@ Post-exercise Discussion
 
 You'll find these in the full guide linked above as well.
 
-###### Part 1
+#### Part 1
 
 1. Create a new folder with `mkdir`
 2. `cd` to that folder

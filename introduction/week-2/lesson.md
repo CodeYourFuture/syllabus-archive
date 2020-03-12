@@ -144,7 +144,7 @@ You'll find these in the full guide linked above as well.
 11. `add` both files to be committed
 12. `commit` your change with a message
 
-###### Part 2
+#### Part 2
 
 1. Make some changes to your CV
 2. use `git status` and see what appears (notice the red file)

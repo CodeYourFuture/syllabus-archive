@@ -19,14 +19,14 @@ For now, we would like you to get familiar with it by following this tutorial:
 
 There's a set of commands you should become comfortable with during the course to allow you to effectively move around the filesystem and write software on your laptop.
 
-* `cd` - change directory. To move up into the parent directory use: `cd ..`
-* `ls` - list the contents of a directory.
+- `cd` - change directory. To move up into the parent directory use: `cd ..`
+- `ls` - list the contents of a directory.
   Can also be used as `ls [directory_name]` to list the contents of a specific directory without actually moving (with `cd`) to it
-* `pwd` - print the full location of your current directory
-* `mkdir [name]` - create a new directory, with the given `name` after a space
-* `touch [file_name]` - create a new file, with the given name (don't forget to add the extension, like `.css` or `.html`)
-* `rm [file_name]` - remove a file
-* `rm -r [directory_name]` - remove a directory (**and all files inside that directory**)
+- `pwd` - print the full location of your current directory
+- `mkdir [name]` - create a new directory, with the given `name` after a space
+- `touch [file_name]` - create a new file, with the given name (don't forget to add the extension, like `.css` or `.html`)
+- `rm [file_name]` - remove a file
+- `rm -r [directory_name]` - remove a directory (**and all files inside that directory**)
 
 ## Introduction to VS Code
 
@@ -60,7 +60,59 @@ Let's install a [spell checker extension](https://marketplace.visualstudio.com/i
 
 ## Git
 
-TBD
+👩‍🏫 Reading this in the class? Turn off your laptop screen and pay attention to the instructor. Ask questions!
+
+🏠 Reading this at home? Click [here](git-workshop-transcript.md) to access the full offline Git workshop.
+
+### Workshop Exercises
+
+You'll find these in the full guide linked above as well.
+
+#### Part 1
+
+1. Create a new folder with `mkdir`
+2. `cd` to that folder
+3. run `git init`
+4. create a simple CV file
+5. `add` it to be committed
+6. `commit` it with a message
+7. create a cover letter file
+8. `add` it to be committed
+9. `commit` it with a message
+10. now make some changes to both files
+11. `add` both files to be committed
+12. `commit` your change with a message
+
+#### Part 2
+
+1. Make some changes to your CV
+2. use `git status` and see what appears (notice the red file)
+3. `add` the CV to be part of the next commit
+4. use `git status` again (notice how it's now green)
+5. `commit` it with a message
+6. use `git status` (there should be no files now)
+7. change CV again
+8. `add` it to be part of the next commit
+9. now change the Cover Letter
+10. use `git status` (notice how one is green and one is red)
+11. `commit` with a message
+12. use `git status` (notice how there's only the red Cover Letter now)
+13. `add` the Cover Letter and `commit`
+14. use `git status` (notice how you have no files)
+15. use `git log` to see what changes you made
+
+#### Part 3
+
+1. Go to [https://github.com](https://github.com) and create a new account
+2. Create a new repository
+
+<img alt="CV.txt file selected" src="../assets/git/new-repo.png" width="200">
+
+3. Copy the commands it gives you and run them in the terminal
+
+<img alt="CV.txt file selected" src="../assets/git/set-up-remote.png" width="400">
+
+4. run `git push`
 
 ## Introduction to programming 2
 
@@ -76,15 +128,15 @@ What makes computers different from all the machines in history that came before
 
 Computers can make decisions.
 
-This is useful in all sorts of situations. When your phone battery is low, your phone can decide to pop up a message and tell you to plug it in. 
-If you type a word wrongly when you're writing an email, the spell-checker can decide to draw a squiggly line under it. This is just the tip of 
+This is useful in all sorts of situations. When your phone battery is low, your phone can decide to pop up a message and tell you to plug it in.
+If you type a word wrongly when you're writing an email, the spell-checker can decide to draw a squiggly line under it. This is just the tip of
 the iceberg: our phones and computers are making decisions all the time, thousands of times a second.
 
 When we write computer programs, we can tell the computer to make decisions too.
 
 The word we need is: **if**.
 
-It works the same way we would use it in conversation if we were telling someone to do something. 
+It works the same way we would use it in conversation if we were telling someone to do something.
 
 "Go to the shops and get a litre of milk. If eggs are half price then buy six."
 
@@ -95,7 +147,7 @@ if eggs are half price
 then buy six
 ```
 
-There are two different possible outcomes. 
+There are two different possible outcomes.
 
 If eggs are half price, we will buy six. If eggs are not half price, we will not buy any.
 
@@ -161,7 +213,7 @@ Up until now we've used **repeat until**.
 
 There is no **repeat until** command in JavaScript. Instead we have **while**.
 
-**While** is like **repeat until** but the condition is the other way around. 
+**While** is like **repeat until** but the condition is the other way around.
 Instead of stopping when something is true, we stop when something is not true.
 
 This makes **while** similar to **if**: if the condition is true, then we

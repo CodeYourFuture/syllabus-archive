@@ -60,7 +60,59 @@ Let's install a [spell checker extension](https://marketplace.visualstudio.com/i
 
 ## Git
 
-TBD
+👩‍🏫 Reading this in the class? Turn off your laptop screen and pay attention to the instructor. Ask questions!
+
+🏠 Reading this at home? Click [here](git-workshop-transcript.md) to access the full offline Git workshop.
+
+### Workshop Exercises
+
+You'll find these in the full guide linked above as well.
+
+#### Part 1
+
+1. Create a new folder with `mkdir`
+2. `cd` to that folder
+3. run `git init`
+4. create a simple CV file
+5. `add` it to be committed
+6. `commit` it with a message
+7. create a cover letter file
+8. `add` it to be committed
+9. `commit` it with a message
+10. now make some changes to both files
+11. `add` both files to be committed
+12. `commit` your change with a message
+
+#### Part 2
+
+1. Make some changes to your CV
+2. use `git status` and see what appears (notice the red file)
+3. `add` the CV to be part of the next commit
+4. use `git status` again (notice how it's now green)
+5. `commit` it with a message
+6. use `git status` (there should be no files now)
+7. change CV again
+8. `add` it to be part of the next commit
+9. now change the Cover Letter
+10. use `git status` (notice how one is green and one is red)
+11. `commit` with a message
+12. use `git status` (notice how there's only the red Cover Letter now)
+13. `add` the Cover Letter and `commit`
+14. use `git status` (notice how you have no files)
+15. use `git log` to see what changes you made
+
+#### Part 3
+
+1. Go to [https://github.com](https://github.com) and create a new account
+2. Create a new repository
+
+<img alt="CV.txt file selected" src="../assets/git/new-repo.png" width="200">
+
+3. Copy the commands it gives you and run them in the terminal
+
+<img alt="CV.txt file selected" src="../assets/git/set-up-remote.png" width="400">
+
+4. run `git push`
 
 ## Introduction to programming 2
 

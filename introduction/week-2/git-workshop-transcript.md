@@ -74,7 +74,7 @@ git commit -m "add skills"
 
 Now it's your turn:
 
-1. Create a new folder with `mkdir`
+1. Create a new folder with [`mkdir`](https://manpages.ubuntu.com/manpages/bionic/en/man1/mkdir.1posix.html)
 2. `cd` to that folder
 3. run `git init`
 4. create a simple CV file

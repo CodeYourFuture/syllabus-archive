@@ -21,7 +21,7 @@ You make a lot of changes to both files. You now have a full cover letter, a ful
 
 What we really want is to save occasional "[snapshots](https://www.merriam-webster.com/dictionary/snapshot)". As we're working through our job application, we want to take a "photo" of our folder each time we make an important change, so we can go back to it if we need to.
 
-So let's say our next task is to add a "Skills" section to our CV. We'll start by adding some skills, maybe decide to remove some, then add some more skills again, but once we're done and satisfied that we completed the task, we'll [commit](https://www.lexico.com/en/definition/commit) to being definitely done (which means we can "take a snapshot" of our folder).
+So let's say our next task is to add a "Skills" section to our CV. We'll start by adding some skills, maybe decide to remove some, then add some more skills again, but once we're done and satisfied that we completed the task, we'll [commit](https://www.merriam-webster.com/dictionary/commit) to being definitely done (which means we can "take a snapshot" of our folder).
 
 > First word of the day:
 > **commit**

@@ -125,11 +125,11 @@ Post-exercise Discussion
 
 🏠 Reading this at home? Click [here](git-workshop-transcript.md) to access the full offline Git workshop.
 
-##### Workshop Exercises
+### Workshop Exercises
 
 You'll find these in the full guide linked above as well.
 
-###### Part 1
+#### Part 1
 
 1. Create a new folder with `mkdir`
 2. `cd` to that folder
@@ -144,7 +144,7 @@ You'll find these in the full guide linked above as well.
 11. `add` both files to be committed
 12. `commit` your change with a message
 
-###### Part 2
+#### Part 2
 
 1. Make some changes to your CV
 2. use `git status` and see what appears (notice the red file)
@@ -162,7 +162,7 @@ You'll find these in the full guide linked above as well.
 14. use `git status` (notice how you have no files)
 15. use `git log` to see what changes you made
 
-###### Part 3
+#### Part 3
 
 1. Go to [https://github.com](https://github.com) and create a new account
 2. Create a new repository

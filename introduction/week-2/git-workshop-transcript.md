@@ -36,7 +36,7 @@ We now have these folders:
 
 <img alt="CV.txt file selected" src="../assets/git/3.png" width="250">
 
-The selected one, `job-application`, is our **latest** one. The one that has all the latest changes and is the most up to date. The other ones, contain different [milestones](https://www.merriam-webster.com/dictionary/milestone?src=search-dict-box) of our work, and they're named accordingly! There's a folder for our initial template (right before we first started writing) another one for when we added "Education" to our CV etc.
+The selected one, `job-application`, is our **latest** one. It is the one that has all the latest changes and is the most up to date. The other ones, contain different [milestones](https://www.merriam-webster.com/dictionary/milestone) of our work, and they're named accordingly! There's a folder for our initial template (right before we first started writing) another one for when we added "Education" to our CV etc.
 
 Now let's say that while working on our job application, we get a message about an even better job! So we pause our current work, and open our `initial-job-application` folder so we can adapt our CV and cover letter for the new job.
 
@@ -59,7 +59,7 @@ This is all really useful! But a bit annoying to do each time! And we're going t
 
 Would it not be nice if we had a robot we could ask to do all this work for us? We would just tell it anytime we're ready to commit, and it would create those folders for us, somewhere hidden, where we can't see them! Something like Alexa, or Siri - _"hey Alexa, add these files, I'm ready to commit them!"_
 
-Turns out we do, but our robot is called Git. And whenever we want to use Git in a folder, to track our changes, we need to tell it to initialize in that folder.
+Turns out we do, but our robot is called Git. And whenever we want to use Git in a folder, to track our changes, we need to first tell it to initialize in that folder.
 
 > So our third important word is:
 > **init**
@@ -74,7 +74,7 @@ git commit -m "add skills"
 
 Now it's your turn:
 
-1. Create a new folder with `mkdir`
+1. Create a new folder with [`mkdir`](https://manpages.ubuntu.com/manpages/bionic/en/man1/mkdir.1posix.html)
 2. `cd` to that folder
 3. run `git init`
 4. create a simple CV file

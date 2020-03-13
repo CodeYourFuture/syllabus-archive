@@ -54,7 +54,7 @@ The first is to launch one of the *pinned* application at the side of the screen
 
 ![Activities Overview](../assets/activities.png)
 
-The other way is to search for the application in the Activities view - you'll need to do this if the program isn't pinned. To do this either click the word Activities in the top left-hand corner of your screen or press the Windows key (the one with the flag next to Space). You can then type the name of the program to launch and you will get a selection to choose from. Type `impress` to find LibreOffice Impress, a program for making presentations, then click on it to start it.
+The other way is to search for the application in the Activities Overview - you'll need to do this if the program isn't pinned. To do this either click the word Activities in the top left-hand corner of your screen or press the Windows key (the one with the flag next to Space). You can then type the name of the program to launch and you will get a selection to choose from. Type `impress` to find LibreOffice Impress, a program for making presentations, then click on it to start it.
 
 #### Switching between programs
 
@@ -64,9 +64,11 @@ The easiest way to do this is with the launcher. Try clicking back and forth bet
 
 To close an application click the red X icon in the top right-hand corner of its window. If you have files open in an application you may be asked whether you wish to save them.
 
-#### Browsing files
+#### Working with files
 
 For a graphical way to navigate your files, Ubuntu includes the Files application. This is the 2nd icon down in the top left-hand corner of the screen. Click it once to open the application.
+
+Most of the time we will be working with files using Visual Studio Code or the Terminal (next week) however depending on how comfortable you are you might also want to practice using the *Files* application as well - e.g. to open/delete/examine files.
 
 ![Files](../assets/files.png)
 
@@ -76,36 +78,52 @@ It's very important to keep your files organised, otherwise it's easy to get con
 
 Click the Documents folder on the left-hand side of the window, or double-click on the Documents folder in the main body of the window. Once you are inside the Documents folder right-click and select Create New Folder. You'll then get a dialog like the one below. Type in the name `CodeYourFuture` and click Create. Then, you can close the window.
 
-### Introduction to Slack
+### Turning off your computer
+
+![Shutdown](../assets/shutdown.png)
+
+To shutdown your computer you should always* use the shutdown button in the top right-hand corner of your screen, after closing your application.
+
+Please do not hold the power button on the laptop to force it off as this can sometimes cause damage both to Ubuntu and your data, even if it appears to be fine. This option is only there as a last resort in case your computer isn't responding.
+
+### Connecting to a wi-fi network
+
+If you need to connect to a wi-fi network this will be listed on the same menu as the power button in the top right-hand corner. Most wi-fi networks will require a password.
+
+## Introduction to Slack
 
 [Slack](https://slack.com/) is a team communication tool that we will use to communicate with each other throughout the whole course.
 Let's go through some exercises to get acquainted with Slack.
 
-#### Channels
+### Channels
 
 Topics are organised in different channels.
 
-Exercises:
+![Slack](../assets/slack.png)
 
-- Find the \#scotland-fun-stuff channel. This is where we organise fun things!
-- Find the \#random channel. This is where we post random stuff!
+#### Exercises
 
-#### Emojis
+1. Find the \#scotland-fun-stuff channel. This is where we organise fun things!
+2. Find the \#random channel. This is where we post random stuff!
+
+### Emojis
 
 Emojis make it easy to engage with other people's comments without needing to write a reply.
 
-Exercises:
+![Emojis](../assets/emoji.png)
 
-1. A mentor will now post a random message on Slack. Give it a thumbs up to show that you have read the message!
+#### Exercises
+
+1. A mentor will now post a message on Slack. Give it a thumbs up to show that you have read the message!
 2. A mentor will now post the name of food that they like. Give it a thumbs up if you like it or a thumbs down if you don't like it!
 
-#### Threads
+### Threads
 
 If everyone replies in the channel then it can get very messy when there are multiple conversations happening at the same time.
 To make conversations more organised, we write replies in threads.
 This way, a single conversation stays in one thread.
 
-Exercises:
+#### Exercises
 
 1. A mentor will now post a message asking what your favourite food is. Reply in a thread with your favourite food!
 2. A mentor will now post a message asking what your favourite hobby is. Reply in a thread with your favourite hobby!

@@ -5,6 +5,7 @@
 * [Introduction](/introduction/index.md)
   * [Week 0.1 - Introduction](/introduction/week-1/lesson.md)
   * [Week 0.2 - Introduction](/introduction/week-2/lesson.md)
+  * [Git workshop](/introduction/week-2/git-workshop-transcript.md)
 * [HTML/CSS](/html-css/index.md)
   * [Week 1 - Semantic HTML and CSS](/html-css/week-01/lesson.md) | [Homework](/html-css/week-01/homework.md)
   * [Week 2 - Responsive Web, Layout and Flexbox](/html-css/week-02/lesson.md) | [Homework](/html-css/week-02/homework.md)

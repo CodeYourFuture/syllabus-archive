@@ -2,22 +2,34 @@
 
 ## Introduction to the terminal
 
+![GNOME Terminal in Ubuntu](../assets/terminal.png)
+
 During your course journey and onwards, the **terminal** (also known as **command line**) will be one of your most valuable tools.
-It will help you to interact with you computer faster, by helping you to:
+
+It will help you to interact with your computer faster, by helping you to:
 
 - Create and delete files
 - Install web development tools
 - Use source control (explained in the next lesson)
 - Start a server
 
-All this will make sense as we progress with the lessons.
-For now, we would like you to get familiar with it by following this tutorial:
+There are many, many other things you can do with the terminal and it's probably the most powerful way of working with your computer, however those above are the ones on which we'll focus.
 
-- [Learn the command line](https://www.codecademy.com/learn/learn-the-command-line)
+Although we're learning on Linux most of this will also be useful on an Apple Mac or on the Windows 10 Subsystem for Linux.
 
-### Commonly used commands
+We would like you to go through this tutorial on the Ubuntu web site:
 
-There's a set of commands you should become comfortable with during the course to allow you to effectively move around the filesystem and write software on your laptop.
+- [Ubuntu tutorials - the Linux command line for beginners](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview)
+
+The parts we want you to work through are 1, 3, 4 (stop at redirection) and 5 however there is a lot of useful material in all of the sections.
+
+Part 2 is not needed for the course, but it would be worth having a look at if you're interested to learn more of the history of Linux and Ubuntu.
+
+You should add the above link to your browser bookmarks since you'll probably want to refer to it in future. 
+
+### Command reference
+
+This is a quick reference for some of the commands covered in the tutorial above.
 
 - `cd` - change directory. To move up into the parent directory use: `cd ..`
 - `ls` - list the contents of a directory.

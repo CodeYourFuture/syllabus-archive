@@ -1,4 +1,4 @@
-# Hosting your React app on the web, using Netlify
+# Hosting your React app on the web, using Netlify (via CLI)
 
 Note: these instructions are for React apps that have been created with the command `create-react-app`.
 
@@ -110,3 +110,11 @@ To make updating your site easier, you can make some small adjustments (suggeste
 
 Edit `package.json` to add `"deploy": "npm run build && netlify deploy --prod --dir ./build"` to the `scripts` object.
 Then you can just run `npm run deploy` and the build and deploy step will both be done for you. Be careful when you edit that file, and copy and paste exactly from here!
+
+# An alternative approach
+
+In this guide, we've intentionally made you do the deployment manually by typing commands, so you learn to think about deployment as a separate step.  In practice, when you're working intensively and iteratively on a project, these extra steps are repetitive.
+
+You can instead configure Netlify to *automatically* deploy your site every time you push a change to github (e.g. to the master branch), without ever having to type anything on the command-line.  This setup is similar to what many professionals use.
+
+We are writing some notes and workshops on this process, [here](./deployment/index.md) - it's really easy to get started with.  If your teacher has told you to work from this document, make sure you practice with the manual approach first, so that you learn, before you experiment with the automation.

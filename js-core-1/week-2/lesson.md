@@ -59,7 +59,7 @@ You quickly find out the result of an expression by running node in a terminal w
 
 * Open a terminal window
 * Run the command `node`
-* _You have now opened a node console (also called a REPL)_
+* _You have now opened a node console, also called a Read–Eval–Print Loop (REPL)_
 * Type an expression and press enter
 * To exit the console type Ctrl+C or type the command `.exit`
 

@@ -23,6 +23,7 @@ REPO_NAME="syllabus-$TRAVIS_BRANCH"
 
 git clone git@github.com:codeyourfuture/$REPO_NAME.git
 cp -a _book/* ./$REPO_NAME
+cp .nojekyll ./$REPO_NAME
 cd $REPO_NAME
 rm cyf-key cyf-key.enc
 git config --global user.email "kabaros+cyf@gmail.com"

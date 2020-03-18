@@ -213,7 +213,7 @@ If you don't feel comfortable with the terminal just yet, download the
 recommend becoming comfortable with the Terminal commands and understanding the
 steps for the different workflows before moving on to visual Git clients.**
 
-[Github client guides](https://help.github.com/desktop/guides/contributing/)
+[Github client guides](https://help.github.com/en/desktop)
 
 ### Pull Requests
 

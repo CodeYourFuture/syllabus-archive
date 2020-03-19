@@ -40,7 +40,7 @@ let laptop = {
 };
 ```
 
-Think of 5 different real world "things" that you 
+Think of 5 different real world "things" that you
 can describe with a JavaScript object
 
 Assign each of them to a separate variable
@@ -67,7 +67,7 @@ let kitten = {
     age "23"
 };
 
-let laptop = 
+let laptop =
     brand: "Lenovo"
     ram "5GB"
 }
@@ -86,7 +86,7 @@ Useful words to remember when talking about objects:
 
 
 ### Exercise (4)
-Choose a few nearby colleagues and one mentor, and go through each variable you 
+Choose a few nearby colleagues and one mentor, and go through each variable you
 declared above in Part 1, 2 or 3, reading everything that happens out loud.
 
 Make sure each member of your group has read at least one variable!
@@ -143,7 +143,7 @@ let kitten = {
 #### Exercise (2)
 
 ```js
-/* 
+/*
 The following code contains syntax errors - try and fix them!
 Once you fix them, run the code, it should output the correct values!
 */
@@ -227,7 +227,7 @@ console.log(dog.wantsToPlay);
 // -> it should output:
 // Rex
 // true
-``` 
+```
 
 ## More Complex Objects
  Object properties can even be assigned other objects, arrays or variables too. The example below shows an object with keys that have been assigned a variable, an array, and an object.
@@ -277,9 +277,9 @@ let house = {
   DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-console.log("Expected result: 51 Berkley Road. Actual result: " + house.address);
-console.log("Expected result: Brian M., Fiona S. Actual result: " + house.previousOwners.toString());
-console.log("Expected result: Montgomery. Actual result: " + house.currentOwner.lastName);
+console.log(`Expected result: 51 Berkley Road. Actual result: ${house.address}`);
+console.log(`Expected result: Brian M., Fiona S. Actual result: ${house.previousOwners.toString()}`);
+console.log(`Expected result: Montgomery. Actual result: ${house.currentOwner.lastName}`);
 ```
 
 #### Exercise (2)
@@ -318,11 +318,9 @@ let newCurrentOwner = {
 /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
 */
-console.log(
-    "Did you correctly assign the new owner using the given variable?",
-    "Expected result: true. Actual result: " + (house.currentOwner === newCurrentOwner));
-console.log("Expected result: Claire M., Stephen B. Actual result: " + house.previousOwners.toString());
-console.log("Expected result: false. Actual result: " + house.isForSale);
+console.log(`Did you correctly assign the new owner using the given variable?","Expected result: true. Actual result: " ${(house.currentOwner === newCurrentOwner)}`);
+console.log(`Expected result: Claire M., Stephen B. Actual result: ${house.previousOwners.toString()}`);
+console.log(`Expected result: false. Actual result: ${house.isForSale}`);
 ```
 
 #### Exercise (3)
@@ -380,9 +378,9 @@ function getCheapestAddress(house1, house2) {
 /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
 */
-console.log("Expected result: Margaret Conway. Actual result: " + getOwnerFullName(kinningParkHouse));
-console.log("Expected result: margaret@fake-emails.com, marie.m@real-emails.com. Actual result: " + getEmailAddresses(kinningParkHouse, parkAvenueHouse));
-console.log("Expected result: 1 Kinning Park. Actual result: " + getCheapestAddress(parkAvenueHouse, kinningParkHouse));
+console.log(`Expected result: Margaret Conway. Actual result: ${getOwnerFullName(kinningParkHouse)}`);
+console.log(`Expected result: margaret@fake-emails.com, marie.m@real-emails.com. Actual result: ${getEmailAddresses(kinningParkHouse, parkAvenueHouse)}`);
+console.log(`Expected result: 1 Kinning Park. Actual result: ${getCheapestAddress(parkAvenueHouse, kinningParkHouse)}`);
 ```
 
 ## Object Methods
@@ -399,7 +397,7 @@ let athlete = {
 };
 ```
 
-How do we call this method? 
+How do we call this method?
 
 ```js
 athlete.sayHi(); // returns "Hi everybody!"
@@ -460,7 +458,7 @@ console.log(athlete.silverMedals); // prints "8"
 ```js
 /*
 
-A person named Alice is defined below. 
+A person named Alice is defined below.
   1. Add a method "greet" so this person can say hello.
   2. Add a method "sayName" so this person can say their own name. Hint: use 'this' keyword to access the name property.
 
@@ -477,8 +475,8 @@ DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
 
-console.log("Expected result: Hello everybody. Actual result: " + person.greet());
-console.log("Expected result: 'My name is Alice'. Actual result: " + person.sayName());
+console.log(`Expected result: Hello everybody. Actual result: ${person.greet()}`);
+console.log(`Expected result: 'My name is Alice'. Actual result: ${person.sayName()}`);
 ```
 
 #### Exercise (2)
@@ -486,7 +484,7 @@ The following code contains syntax errors - try and fix them!
 Once you fix them, run this file, it should output the correct values!
 
 ```js
-/* 
+/*
 The following code contains syntax errors - try and fix them!
 
 Once you fix them, run this file, it should output the correct values!
@@ -507,7 +505,7 @@ let person = {
 #### Exercise (3)
 
 ```js
-/* 
+/*
 The following code contains syntax errors - try and fix them!
 
 Once you fix them, run this file, it should output the correct values!
@@ -526,15 +524,15 @@ let person = {
 };
 
 
-/* 
+/*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
 person.changeAddress("Edinburgh");
-console.log("Expected result: Edinburgh. Actual result: " + person.currentAddress);
+console.log(`Expected result: Edinburgh. Actual result: ${person.currentAddress}`);
 
 person.celebrateBirthday();
-console.log("Expected result: 26. Actual result: " + person.age);
+console.log(`Expected result: 26. Actual result: ${person.age}`);
 
 ```
 
@@ -542,8 +540,8 @@ console.log("Expected result: 26. Actual result: " + person.age);
 
 ```js
 
-/* 
-Alice has a list of good friends. 
+/*
+Alice has a list of good friends.
 
 Define a method "makeFriend" to add a new friend to her list.
 */
@@ -559,19 +557,19 @@ DO NOT EDIT ANYTHING BELOW THIS LINE
 
 person.makeFriend("Bob");
 
-console.log("Expected result: 'John,Nina,Bob'. Actual result: " + person.friends);
+console.log(`Expected result: 'John,Nina,Bob'. Actual result: ${person.friends}`);
 ```
 
 #### Exercise (5)
 
 ```js
-/* 
-A coffee machine is defined below. 
+/*
+A coffee machine is defined below.
 One can buy three different coffees.
 Complete the methods "insertMoney" and "getCoffee" to match the expected result.
 
 insertMoney takes an amount in parameter to add money in the coffee machine.
-getCoffee takes a coffee type in parameter and dispends the selected coffee 
+getCoffee takes a coffee type in parameter and dispends the selected coffee
 only if the inserted amount is greater or equal than the price of the coffee!
 */
 
@@ -597,16 +595,16 @@ DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
 coffeeMachine.insertMoney(2.40);
-console.log("Expected result: 'Please take your cappuccino'. Actual result: " + coffeeMachine.getCoffee('cappuccino'));
+console.log(`Expected result: 'Please take your cappuccino'. Actual result: ${coffeeMachine.getCoffee('cappuccino')}`);
 
 coffeeMachine.insertMoney(1.50);
-console.log("Expected result: 'Please take your blackCoffee'. Actual result: " + coffeeMachine.getCoffee('blackCoffee'));
+console.log(`Expected result: 'Please take your blackCoffee'. Actual result: ${coffeeMachine.getCoffee('blackCoffee')}`);
 
 coffeeMachine.insertMoney(4.00);
-console.log("Expected result: 'Please take your flatWhite'. Actual result: " + coffeeMachine.getCoffee('flatWhite'));
+console.log(`Expected result: 'Please take your flatWhite'. Actual result: ${coffeeMachine.getCoffee('flatWhite')}`);
 
 coffeeMachine.insertMoney(2.40);
-console.log("Expected result: 'Sorry you don't have enough money for a flatWhite'. Actual result: " + coffeeMachine.getCoffee('flatWhite'));
+console.log(`Expected result: 'Sorry you don't have enough money for a flatWhite'. Actual result: ${coffeeMachine.getCoffee('flatWhite')}`);
 
 
 ```
@@ -657,7 +655,7 @@ kittens.map(getName);   // returns ["Fluffy", "Megatron", "Billy"]
 ### Exercise (1)
 
 ```js
-/* 
+/*
 1) Define an array containing the 3 persons defined below.
 2) Return an array of the person names (hint: use map).
 3) Filter the persons to return an array with the person younger than 28 years old (hint: use filter).
@@ -678,7 +676,7 @@ let person3 = {
     age: 20
 };
 
-/* 
+/*
 DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
@@ -695,13 +693,13 @@ let personsYoungerThan28YearsOld = // Complete here
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-console.log("Question 1: array defined with 3 persons -> ", 
+console.log("Question 1: array defined with 3 persons -> ",
     (persons[0] === person1 && persons[1] === person2 && persons[2] === person3) ? 'Passed :)' : 'Not yet :(');
 
-console.log("Question 2: array containing the person names -> ", 
+console.log("Question 2: array containing the person names -> ",
     (personNames[0] === "Alice" && personNames[1] === "Bob" && personNames[2] === "John") ? 'Passed :)' : 'Not yet :(');
 
-console.log("Question 3: array containing the persons younger than 28 years old -> ", 
+console.log("Question 3: array containing the persons younger than 28 years old -> ",
     (personsYoungerThan28YearsOld[0] === person1 && personsYoungerThan28YearsOld[1] === person3) ? 'Passed :)' : 'Not yet :(');
 
 ```
@@ -709,7 +707,7 @@ console.log("Question 3: array containing the persons younger than 28 years old 
 ### Exercise (2)
 
 ```js
-/* 
+/*
 An array of travel destinations is defined below.
 Each destination has a name, a distance from Glasgow, and a list of transportations available to go there.
 
@@ -745,7 +743,7 @@ let destination4 = {
 
 let travelDestinations = [destination1, destination2, destination3, destination4];
 
-/* 
+/*
 DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
@@ -762,22 +760,22 @@ let destinationNamesMoreThan300KmsAwayByTrain = // Complete here (PRINT THE RESU
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-console.log("Question 1) Expected result: Edinburgh,Dublin, actual result: " + destinationNamesWithin500Kms);
-console.log("Question 2) Expected result: Dublin, actual result: " + destinationNameReachableByFerry);
-console.log("Question 3) Expected result: London,Paris, actual result: " + destinationNamesMoreThan300KmsAwayByTrain);
+console.log(`Question 1) Expected result: Edinburgh,Dublin, actual result: ${destinationNamesWithin500Kms}`);
+console.log(`Question 2) Expected result: Dublin, actual result: ${destinationNameReachableByFerry}`);
+console.log(`Question 3) Expected result: London,Paris, actual result:  ${destinationNamesMoreThan300KmsAwayByTrain}`);
 
 ```
 
 ### Exercise (3)
 
 ```js
-/* 
-Below are some restaurants in Glasgow. Each restaurant has a name, the number of total seats, 
+/*
+Below are some restaurants in Glasgow. Each restaurant has a name, the number of total seats,
 the number of customers in the restaurant at the moment and the menu with prices.
 
 We want to build an object to simulate a Restaurant Finder application (see below restaurantFinderApplication).
 
-1) Define a method findAvailableRestaurants which takes a number of people in parameter and returns 
+1) Define a method findAvailableRestaurants which takes a number of people in parameter and returns
 all the restaurant names which have the required number of seats available at the moment.
 
 2) Define a method findRestaurantServingDish which takes a dish name in parameter and returns
@@ -822,7 +820,7 @@ let restaurant3 = {
 
 let restaurants = [restaurant1, restaurant2, restaurant3];
 
-/* 
+/*
 DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
@@ -849,13 +847,13 @@ DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
 let restaurantsAvailableFor5People = restaurantFinderApplication.findAvailableRestaurants(5);
-console.log("Find available restaurants for 5 people: Expected result: Ubiquitous Chip,Monkeyz, actual result: " + restaurantsAvailableFor5People);
+console.log(`Find available restaurants for 5 people: Expected result: Ubiquitous Chip,Monkeyz, actual result: ${restaurantsAvailableFor5People}`);
 
 let restaurantsServingSalad = restaurantFinderApplication.findRestaurantServingDish("salad");
-console.log("Find restaurants serving salad: Expected result: Paesano,Ubiquitous Chip, actual result: " + restaurantsServingSalad);
+console.log(`Find restaurants serving salad: Expected result: Paesano,Ubiquitous Chip, actual result: ${restaurantsServingSalad}`);
 
 let numberOfRestaurantsInCityCentre = restaurantFinderApplication.countNumberOfRestaurantsInArea("center");
-console.log("Number of restaurants in city centre: Expected result: 2, actual result: " + numberOfRestaurantsInCityCentre);
+console.log(`Number of restaurants in city centre: Expected result: 2, actual result: ${numberOfRestaurantsInCityCentre}`);
 
 ```
 ## Object.keys()

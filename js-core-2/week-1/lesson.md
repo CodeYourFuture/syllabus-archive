@@ -9,7 +9,8 @@
 * [More complex objects](#more-complex-objects)
 * [Object methods](#object-methods)
 * [Arrays of Objects](#arrays-of-objects)
-* [Object.Keys()](#objectkeys)
+* [Object built-in methods](#object-built-in-methods)
+* [Loop through an object](#loop-through-an-object)
 ---
 
 > In-class exercises can also be found on [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 4**.
@@ -40,13 +41,9 @@ let laptop = {
 };
 ```
 
-Think of 5 different real world "things" that you
-can describe with a JavaScript object
-
-Assign each of them to a separate variable
-
 ### Exercise (2)
 Think of 5 different real world "things" that you can describe with a JavaScript object
+Assign each of them to a separate variable
 
 Example:
 ```js
@@ -856,7 +853,7 @@ let numberOfRestaurantsInCityCentre = restaurantFinderApplication.countNumberOfR
 console.log(`Number of restaurants in city centre: Expected result: 2, actual result: ${numberOfRestaurantsInCityCentre}`);
 
 ```
-## Object.keys()
+## Object built-in methods
 
 Since we started JavaScript, we have used `console.log` to print things to our console.
 
@@ -864,7 +861,10 @@ In week 2 and 3, you learned about array methods like `.map()`, and `.filter()`.
 
 These are what we call built-in methods, and they're part of the JavaScript language. Someone else created these methods, and we can use them in our code.
 
-Like arrays, objects have built-in methods that can help us. In this lesson, we will learn about `Object.keys()`. This method goes into our object, and returns the object property names as an array.
+Like arrays, objects have built-in methods that can help us. In this lesson, we will learn about `Object.keys()` and `Object.values()`.
+
+### Object.keys()
+This method goes into our object, and returns the object property names as an array.
 
 Here is an example output for using `.keys()`:
 
@@ -878,12 +878,28 @@ let footballClubs = {
 console.log(Object.keys(footballClubs));
 // prints [ 'chelsea_fc', 'fc_barcelona', 'ac_milan' ]
 ```
+
+### Object.values()
+This method goes into our object, and returns the values of every property as an array.
+
+Here is an example output for using `.values()`:
+
+```js
+let footballClubs = {
+  chelsea_fc: 'England',
+  fc_barcelona: 'Spain',
+  ac_milan: 'Italy'
+};
+
+console.log(Object.values(footballClubs));
+// prints [ 'England', 'Spain', 'Italy' ]
+```
 ### Exercise (1)
 
 ```js
 /*
 
-Return the keys of the following object
+Return the keys and values of the following object
 
 */
 
@@ -904,7 +920,9 @@ let highScores = {
 // ONLY EDIT BELOW HERE
 
 let capitalCitiesKeys = ;
-let highScoresKeys;
+let highScoresKeys = ;
+let capitalCitiesValues = ;
+let highScoresValues = ;
 
 // ONLY EDIT ABOVE HERE
 
@@ -913,6 +931,12 @@ console.log(capitalCitiesKeys);
 
 console.log(highScoresKeys)
 // prints ['34, '55', '89', '100']
+
+console.log(capitalCitiesValues);
+// prints [ 'Edinburgh', 'Nairobi', 'Canberra', 'Ottawa' ]
+
+console.log(highScoresValues)
+// prints [[ 'Sergi', 'Frank' ], 'Alistair, 'David', 'Hannah']
 
 ```
 
@@ -998,6 +1022,80 @@ console.log()
 console.log()
 
 // ONLY EDIT ABOVE THIS LINE
+```
+
+## Loop through an Object
+
+Once in a while it will be required to loop through objects. You can achieve this in various ways.
+
+### Use `for...in` statement
+
+The `for...in` statement iterates over all distinct properties of an object.
+
+Example:
+```js 
+
+const flowers = {
+    tulip: 20, 
+    rose: 10,
+    lily: 15,
+}
+
+for (const key in flowers) {
+  console.log(`${key}: ${flowers[key]}`);
+}
+
+// Prints
+// tulip: 20
+// rose: 10
+// lily: 15
+
+```
+
+### Convert object into an array and loop through the array
+
+Since we started JavaScript, we have used `console.log` to print things to our console.
+
+Once you create an array of the object's keys or values using the `Object.keys`, `Object.values` methods, you can loop through it as if it was a normal array using array methods like `forEach`.
+
+Example:
+
+```js
+const flowers = {
+    tulip: 20,
+    rose: 10,
+    lily: 15,
+}
+
+// Looping through the array created from Object.keys
+const flowerKeys = Object.keys(flowers);
+
+flowerKeys.forEach(key=>{console.log(`${key}: ${flowers[key]}`)});
+
+// Prints
+// tulip: 20
+// rose: 10
+// lily: 15
+```
+
+#### Exercise (1)
+
+```js
+
+// You are given an object of student names and grades
+// Loop through all the students' grades and console log the name and grade of the ones with grade more than 18
+// Try to use both methods shown above to achieve this
+
+const studentGrades = {
+    tom: 20,
+    george: 17,
+    abdul: 19
+}
+
+// Prints
+// TOM - 20
+// ABDUL - 19 
+
 ```
 
 {% include "./homework.md" %}

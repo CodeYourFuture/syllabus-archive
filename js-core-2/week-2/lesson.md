@@ -4,7 +4,7 @@
 
 **What we will learn today?**
 
-* [JS In the Browser (The DOM)](#js-in-the-browser)
+- [JS In the Browser (The DOM)](#js-in-the-browser)
 
 ---
 
@@ -26,27 +26,27 @@ Here are two examples, HTML and then JavaScript, of how the DOM might look like:
 
 ```html
 <html>
-    <body>
-        <h1> Welcome! </h1>
-        <p> Hello world! </p>
-    </body>
+  <body>
+    <h1>Welcome!</h1>
+    <p>Hello world!</p>
+  </body>
 </html>
 ```
 
 ```js
 var document = {
-    body: {
-        h1: "Welcome",
-        p: "Hello world!"
-    }
+  body: {
+    h1: "Welcome",
+    p: "Hello world!"
+  }
 };
 ```
 
 The DOM offers a lot of useful functions we can use to find elements on the page. Here are some we'll be using today:
 
 ```js
-    document.querySelector('#mainHeader');
-    document.querySelectorAll('p');
+document.querySelector("#mainHeader");
+document.querySelectorAll("p");
 ```
 
 Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
@@ -55,12 +55,12 @@ Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
 Once you retrieve an element using `.querySelector`, you can attach an **event** to it. An event is any action that can be performed on that element. For now, we will just use the **click** event:
 
 ```js
-    var myButton = document.querySelector('#myButton');
-    myButton.addEventListener("click", alertSomething);
+var myButton = document.querySelector("#myButton");
+myButton.addEventListener("click", alertSomething);
 
-    function alertSomething() {
-        alert("Something");
-    }
+function alertSomething() {
+  alert("Something");
+}
 ```
 
 You will notice in the example that we passed a second argument to `addEventListener`. That second argument is the **function** that we want to invoke when that event has happened.
@@ -68,15 +68,15 @@ You will notice in the example that we passed a second argument to `addEventList
 The elements returned by `document.querySelector` have the same properties as a normal HTML element: for example, you can get access to their css **styles**.
 
 ```js
-    var myElement = document.querySelector('#myElement');
-    myElement.style.backgroundColor = 'red';
+var myElement = document.querySelector("#myElement");
+myElement.style.backgroundColor = "red";
 ```
 
 Using the `document`, you can also create new elements. These elements will not appear until you append them as a child of another element though:
 
 ```js
-    var paragraph = document.createElement('p'); // here we're just creating it, element is not visible yet
-    myElement.appendChild(paragraph); // now the element is added to our view, but it's empty
+var paragraph = document.createElement("p"); // here we're just creating it, element is not visible yet
+myElement.appendChild(paragraph); // now the element is added to our view, but it's empty
 ```
 
 `document.createElement` accepts as an input any element type. So for example `document.createElement('article')` will create a new article element.
@@ -84,18 +84,18 @@ Using the `document`, you can also create new elements. These elements will not 
 You can then change the text displayed inside elements using the `innerText` property:
 
 ```js
-    paragraph.innerText = "How are you?"; // now we can see the text displaying on the screen
+paragraph.innerText = "How are you?"; // now we can see the text displaying on the screen
 ```
 
 We've been using `document.querySelector` to retrieve a single element.
 To retrieve an array of multiple elements (that match a specific class name for example, or a specific tag) we use `document.querySelectorAll`.
 
 ```js
-    //change the background of all the paragraph items on our page
-    var paragraphs = document.querySelectorAll('p');
-    for(var i=0; i<paragraphs.length; i++) {
-        paragraphs[i].style.backgroundColor = "blue";
-    }
+//change the background of all the paragraph items on our page
+var paragraphs = document.querySelectorAll("p");
+for (var i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].style.backgroundColor = "blue";
+}
 ```
 
 We've learned that `style` and `innerText` are properties of DOM elements. Image tags can also have `width` and `height`.
@@ -104,7 +104,7 @@ While it's really easy to change styles directly on elements using the `style` p
 
 ```js
 //before: <div id="myContainer"></div>
-var container = document.querySelector('#myContainer');
+var container = document.querySelector("#myContainer");
 container.className = "largeBlock";
 //after: <div id="myContainer" class="largeBlock"></div>
 ```
@@ -112,19 +112,19 @@ container.className = "largeBlock";
 To get the text from an Input field:
 
 ```js
-var updateTitleBtn = document.querySelector('#updateTitleBtn');
+var updateTitleBtn = document.querySelector("#updateTitleBtn");
 
-updateTitleBtn.addEventListener('click', function() {
-    var inputBox = document.querySelector('#titleInput');
-    var title = inputBox.value;
+updateTitleBtn.addEventListener("click", function() {
+  var inputBox = document.querySelector("#titleInput");
+  var title = inputBox.value;
 
-    var titleElement = document.querySelector('#lessonTitle');
-    titleElement.innerText = title;
-    inputBox.value = title;
+  var titleElement = document.querySelector("#lessonTitle");
+  titleElement.innerText = title;
+  inputBox.value = title;
 });
 ```
 
 The above waits for click on a button. When the button is clicked, it gets the input box element (`inputBox` variable).
 To get the entered text from it, we use the `value` property: `var title = inputBox.value`.
 
-
+{% include "./homework.md" %}

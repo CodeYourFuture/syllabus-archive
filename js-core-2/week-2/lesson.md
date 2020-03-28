@@ -4,7 +4,19 @@
 
 **What we will learn today?**
 
-* [JS In the Browser (The DOM)](#js-in-the-browser)
+- [JavaScript Core II - 2](#javascript-core-ii---2)
+  - [JS in the Browser](#js-in-the-browser)
+    - [The DOM](#the-dom)
+    - [Access DOM elements](#access-dom-elements)
+      - [Preparation for exercises](#preparation-for-exercises)
+      - [Exercise (1)](#exercise-1)
+    - [Attach events to DOM elements](#attach-events-to-dom-elements)
+      - [Exercise (2)](#exercise-2)
+      - [Exercise (3)](#exercise-3)
+    - [Create DOM elements](#create-dom-elements)
+      - [Exercise (4)](#exercise-4)
+    - [Manipulate DOM elements](#manipulate-dom-elements)
+      - [Exercise (5)](#exercise-5)
 
 ---
 
@@ -34,13 +46,15 @@ Here are two examples, HTML and then JavaScript, of how the DOM might look like:
 ```
 
 ```js
-var document = {
+let document = {
     body: {
         h1: "Welcome",
         p: "Hello world!"
     }
 };
 ```
+
+### Access DOM elements
 
 The DOM offers a lot of useful functions we can use to find elements on the page. Here are some we'll be using today:
 
@@ -52,10 +66,49 @@ The DOM offers a lot of useful functions we can use to find elements on the page
 Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
 `.querySelector` selects only the first element it finds, `querySelectorAll` selects all elements (it returns an array).
 
+#### Preparation for exercises
+> ---
+> Let's work on the code provided here:
+> https://github.com/CodeYourFuture/js-exercises/tree/master/week-5/InClass/A-dom-manipulation
+> 1. Open "A-dom-manipulation" project in VS code
+> 2. You will have to work on the `exercise.js` file for today's homework
+> 3. View your changes by 
+>    * using [vscode-live-server](https://github.com/ritwickdey/vscode-live-server) plugin to get live updates of your changes.
+>        * Install the plugin
+>       * Right click on `index.html` and select "Open with Live Server
+>     * or just open the `index.html` on your browser and refresh every time you > change your code
+> ---
+
+
+#### Exercise (1)
+
+```js
+/*
+Task 1
+=======
+Write JavaScript below that logs:
+    1. all the "p" element nodes of the document,
+    --> should log a list of nodes with a length of 6
+
+    2. the first div element node
+    --> should log the ".site-header" node
+
+    3. the element with id "jumbotron-text"
+    --> should log the "#jumbotron-text" node
+
+    4. all the "p" elements contained inside  the .primary-content element node
+    --> should log a list of nodes with a length of 3
+
+*/
+
+```
+
+### Attach events to DOM elements
+
 Once you retrieve an element using `.querySelector`, you can attach an **event** to it. An event is any action that can be performed on that element. For now, we will just use the **click** event:
 
 ```js
-    var myButton = document.querySelector('#myButton');
+    let myButton = document.querySelector('#myButton');
     myButton.addEventListener("click", alertSomething);
 
     function alertSomething() {
@@ -65,21 +118,57 @@ Once you retrieve an element using `.querySelector`, you can attach an **event**
 
 You will notice in the example that we passed a second argument to `addEventListener`. That second argument is the **function** that we want to invoke when that event has happened.
 
+#### Exercise (2)
+
+```js 
+/*
+Task 2
+======
+
+When a user clicks the 'ALERT' button, an alert box should pop up with the text "Thanks for visiting Bikes for Refugees!"
+*/
+```
+
 The elements returned by `document.querySelector` have the same properties as a normal HTML element: for example, you can get access to their css **styles**.
 
 ```js
-    var myElement = document.querySelector('#myElement');
+    let myElement = document.querySelector('#myElement');
     myElement.style.backgroundColor = 'red';
 ```
+
+#### Exercise (3) 
+```js
+/*
+Task 3
+=======
+
+Write JavaScript below that changes the background colour of the page when the 'Change colour' button is clicked.
+*/
+
+```
+### Create DOM elements
 
 Using the `document`, you can also create new elements. These elements will not appear until you append them as a child of another element though:
 
 ```js
-    var paragraph = document.createElement('p'); // here we're just creating it, element is not visible yet
+    let paragraph = document.createElement('p'); // here we're just creating it, element is not visible yet
     myElement.appendChild(paragraph); // now the element is added to our view, but it's empty
 ```
 
 `document.createElement` accepts as an input any element type. So for example `document.createElement('article')` will create a new article element.
+
+#### Exercise (4)
+```js 
+/*
+Task 4
+======
+
+When a user clicks the 'Add some text' button, a new paragraph should be added below the buttons that says "Read more below."
+*/
+
+```
+
+### Manipulate DOM elements
 
 You can then change the text displayed inside elements using the `innerText` property:
 
@@ -92,8 +181,8 @@ To retrieve an array of multiple elements (that match a specific class name for 
 
 ```js
     //change the background of all the paragraph items on our page
-    var paragraphs = document.querySelectorAll('p');
-    for(var i=0; i<paragraphs.length; i++) {
+    let paragraphs = document.querySelectorAll('p');
+    for(let i=0; i<paragraphs.length; i++) {
         paragraphs[i].style.backgroundColor = "blue";
     }
 ```
@@ -104,7 +193,7 @@ While it's really easy to change styles directly on elements using the `style` p
 
 ```js
 //before: <div id="myContainer"></div>
-var container = document.querySelector('#myContainer');
+let container = document.querySelector('#myContainer');
 container.className = "largeBlock";
 //after: <div id="myContainer" class="largeBlock"></div>
 ```
@@ -112,19 +201,28 @@ container.className = "largeBlock";
 To get the text from an Input field:
 
 ```js
-var updateTitleBtn = document.querySelector('#updateTitleBtn');
+let updateTitleBtn = document.querySelector('#updateTitleBtn');
 
 updateTitleBtn.addEventListener('click', function() {
-    var inputBox = document.querySelector('#titleInput');
-    var title = inputBox.value;
+    let inputBox = document.querySelector('#titleInput');
+    let title = inputBox.value;
 
-    var titleElement = document.querySelector('#lessonTitle');
+    let titleElement = document.querySelector('#lessonTitle');
     titleElement.innerText = title;
     inputBox.value = title;
 });
 ```
 
 The above waits for click on a button. When the button is clicked, it gets the input box element (`inputBox` variable).
-To get the entered text from it, we use the `value` property: `var title = inputBox.value`.
+To get the entered text from it, we use the `value` property: `let title = inputBox.value`.
 
+#### Exercise (5)
+```js
+/*
+Task 5
+======
+
+When the 'Larger links!' button is clicked, the text of all links on the page should increase.
+*/
+```
 

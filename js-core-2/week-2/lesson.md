@@ -54,6 +54,11 @@ let document = {
 };
 ```
 
+This is how we would represent the document hierarchy above as a tree of nodes:
+
+<img src="tree.png" alt="tree-representation" width="400"/>
+
+
 ### Access DOM elements
 
 The DOM offers a lot of useful functions we can use to find elements on the page. Here are some we'll be using today:
@@ -75,8 +80,8 @@ Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
 > 3. View your changes by 
 >    * using [vscode-live-server](https://github.com/ritwickdey/vscode-live-server) plugin to get live updates of your changes.
 >        * Install the plugin
->       * Right click on `index.html` and select "Open with Live Server
->     * or just open the `index.html` on your browser and refresh every time you > change your code
+>       * Right click on `index.html` and select "Open with Live Server"
+>     * or just open the `index.html` on your browser and refresh every time you change your code
 > ---
 
 

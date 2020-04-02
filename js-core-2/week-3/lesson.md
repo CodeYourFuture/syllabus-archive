@@ -97,51 +97,8 @@ function myCallbackFunction() {
 mainFunction(myCallback);
 ```
 
-## Promises
-
-Promises are a new(ish) feature of JavaScript. They allow for
-writing easier to understand code when dealing with asynchronous functions.
-
-![](http://exploringjs.com/es6/images/promises----promise_states_simple.jpg)
-
-Promises are more "abstract" than anything we have covered so far. They are a data structure that represents some result that is going to happen in the future. The result starts off as being unknown (pending) as the code has not completed yet. The result can then move to be successful (fulfilled) or failed (rejected).
-
-The API is very simple. When you have a Promise, you can attach a `.then`
-method with a callback and/or a `.catch` method with a callback. If the promise is successful, then the function
-in the `.then` callback is called. If it fails, then the `.catch` callback is
-called.
-
-```js
-// Call a function that returns a Promise
-let myPromise = functionThatReturnsAPromise();
-
-myPromise.then(function(value) {
-  console.log("success: " + value);
-});
-
-myPromise.catch(function(value) {
-  console.log("fail:" + value);
-});
-```
-
-The `.then` and `.catch` methods can be chained, like with Array methods:
-
-```js
-myPromise.then(function(value) {
-  console.log("success: " + value);
-})
-.catch(function(value) {
-  console.log("fail: " + value);
-})
-```
-
-> **Exercises**
-> 
-> Complete the exercises in [this CodePen](https://codepen.io/fortythieves/pen/QOYgWb?editors=1010)
-
-## AJAX
-
-### Client/Server architecture
+## Client/Server architecture
+(How does the web work?)
 
 A **server** is a device or program that provides functionality to other programs or devices. There are database servers, mail servers, game servers, etc. The vast majority of these servers are accessed over the internet. They can take the form of industrial server farms that provide a service to millions of users (used by Facebook, Google, etc.), to personal servers for storing your files.
 
@@ -166,25 +123,4 @@ There are two main types of requests: **GET** and **POST**.
 
 
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
-
-### What is AJAX?
-
-AJAX is a technique for implementing client-server communication in the browser.
-
-Typically, the server holds the data, and only sends it to the client (web page) when there's a request. AJAX requests are sent after the page has loaded, usually in response to an action by the user. For example when the user clicks a button, some JavaScript will trigger an AJAX request to fetch data.
-
-### Introduction to Fetch and asynchronous code
-
-**fetch** is a way of creating HTTP requests in JavaScript.
-
-```js
-fetch('https://codeyourfuture.herokuapp.com/api/hello')
-    .then(function(response) {
-        return response.text(); // or response.json()
-    })
-    .then(function(text) {
-        console.log(text); // Print 'Hello CodeYourFuture!'
-    });
-```
-
-{% include "./homework.md" %}
+HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.

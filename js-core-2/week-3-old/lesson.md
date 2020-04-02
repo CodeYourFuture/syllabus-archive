@@ -10,14 +10,29 @@
 
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 
-## Synchronous and Asynchronous programming
-In a synchronous programming model, tasks run one at a time. When a long running action starts, the program waits for it to finish and return the result before it moves to the next action.
+## Callbacks and Asynchronous Functions
 
-Asynchronous programming allows multiple actions to happen at the same time. When a long running action starts, the program can continue to run. When the action finishes the program will get notified and get access to the result returned.
+We have already seen callback functions - in the Array methods `forEach`, `map`, `filter` etc. They are functions that are passed as parameter to another function.
 
-![](sync-vs-async.jpg)
+Callbacks have another purpose as **asynchronous** functions. For these type of functions, the callback is called once another function has completed. This allows you to run some other code while you're waiting for something to finish.
 
-### A real life example
+```js
+function finished() {
+  console.log("The task has finished");
+}
+
+function thingThatTakesALongTime(callback) {
+  //... Task that takes a long time to complete
+
+  callback(); // This is where the 'console.log' happens
+}
+
+// Pass the function to 'thingThatTakesALongTime' just like a normal variable
+thingThatTakesALongTime(finished);
+```
+
+So far all of the callbacks you have been using have been **synchronous**. This means your code is executed one line at a time, at the same time, in order. Asynchronous code is not executed in order, and can run at any time, in any order.
+
 An example of this in real life, are phone calls and text messages.
 
 * Phone calls are `synchronous` because you can't (really) do anything while the
@@ -25,47 +40,9 @@ An example of this in real life, are phone calls and text messages.
 * Text messages are `asynchronous`. When you send a text, you can go away and do
   something else, until the other person responds.
 
-### A Javascript example
-```js
-  //synchronous
-  console.log('First action');
-  console.log('Second action');
-  console.log('Third action');
-```
-```js
-  //asynchronous
-  console.log('First action');
-  setTimeout(function(){ console.log('Second action') }, 1000);
-  console.log('Third action');
-
-```
-
-## Callbacks
-
-We have already seen callback functions - in the Array methods `forEach`, `map`, `filter` etc. They are functions that are passed as parameter to another function.
-
-In order to achieve asynchronicity, callbacks can be passed on functions that perform a slow action. By doing so, the callback function can be called with the result.
-This allows you to run some other code while you're waiting for something to finish.
-
-
-```js
-function finished() {
-  console.log("The task has finished");
-}
-
-function thingThatTakesALongTime(callbackFunction) {
-  //... Task that takes a long time to complete
-
-  callbackFunction(); // This is where the 'console.log' happens
-}
-
-// Pass the function to 'thingThatTakesALongTime' just like a normal variable
-thingThatTakesALongTime(finished);
-```
-
-### Exercise (1)
-
-A simple example of an asynchronous function is `setTimeout`. This allows you to run a function after a given time period. The first argument is the function you want to run, the second argument is the `delay` (in milliseconds)
+A simple example of an asynchronous function is `setTimeout`. This allows you to run a function after a
+given time period. The first argument is the function you want to run, the
+second argument is the `delay` (in milliseconds)
 
 ```js
 // Separate function definition
@@ -76,32 +53,38 @@ setTimeout(myCallbackFunction, 1000);
 
 // Inline function
 setTimeout(function() {
-  console.log("Hello world!");
+  console.log("Goodbye world!");
 }, 500);
-
 ```
 
 Now let's use a timeout and a callback function together:
 
 ```js
-function mainFunction(callback) {
-  console.log('Starting!');
-  setTimeout(function() {
-     callback();
-  }, 1000)
-  console.log('Continuing!');
+function finished(result) {
+    console.log('Finished! The result is: ' + result)
 }
-function myCallbackFunction() {
-  console.log('Finished!');
+
+function startWork(stuff, callback) {
+    console.log('Starting! The stuff is: ', stuff)
+    setTimeout(function() {
+        callback(stuff + 50)
+    }, 1000)
 }
-mainFunction(myCallback);
+
+startWork(50, finished)
 ```
+
+>**Exercises**
+>
+> * Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds).
+> * Update your code to make the colour change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
+> ![](http://g.recordit.co/g2EqBccNzh.gif)
+> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/LrxgMN?editors=1010)
 
 ## Promises
 
 Promises are a new(ish) feature of JavaScript. They allow for
 writing easier to understand code when dealing with asynchronous functions.
-
 ![](http://exploringjs.com/es6/images/promises----promise_states_simple.jpg)
 
 Promises are more "abstract" than anything we have covered so far. They are a data structure that represents some result that is going to happen in the future. The result starts off as being unknown (pending) as the code has not completed yet. The result can then move to be successful (fulfilled) or failed (rejected).
@@ -113,7 +96,7 @@ called.
 
 ```js
 // Call a function that returns a Promise
-let myPromise = functionThatReturnsAPromise();
+var myPromise = functionThatReturnsAPromise();
 
 myPromise.then(function(value) {
   console.log("success: " + value);
@@ -133,6 +116,37 @@ myPromise.then(function(value) {
 .catch(function(value) {
   console.log("fail: " + value);
 })
+```
+
+You can even return a Promise from within a `.then` callback, and keep chaining on more `.then` callbacks. This allows you to process part of the value and keep passing it along the chain:
+
+```js
+// myPromise resolves with a value of 50
+myPromise.then(function(value) {
+  console.log(value) // Logs: 50
+  return Promise.resolve(value + 50); // Returns a new Promise
+})
+.then(function(value) {
+  console.log(value) // Logs: 100
+})
+```
+
+We will look at some common functions that return a Promise in a bit, but you can also create your own Promise. This example shows a Promise being "resolved" (successful):
+
+```js
+var myPromise = new Promise(function(resolve, reject) {
+  // Do some work in this function
+  resolve(100); // Resolves the Promise with the value 100
+});
+```
+
+This example shows a Promise being "rejected" (failed):
+
+```js
+var myPromise = new Promise(function(resolve, reject) {
+  // Do some work in this function
+  reject(50) // Rejects the Promise with the value 50
+});
 ```
 
 > **Exercises**
@@ -186,5 +200,11 @@ fetch('https://codeyourfuture.herokuapp.com/api/hello')
         console.log(text); // Print 'Hello CodeYourFuture!'
     });
 ```
+
+{% include "./homework.md" %}
+
+## More JS in the Browser
+
+Fork, clone and follow the instructions on the [Dom-AJAX workshop repo](https://github.com/CodeYourFuture/dom-ajax-repo)
 
 {% include "./homework.md" %}

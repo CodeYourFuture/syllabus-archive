@@ -35,9 +35,9 @@ By the end of this class, you should be able to answer these questions:
 
 ## Prerequisites
 
-1. Access to a Linux console (either on Mac, Ubuntu or by using Ubuntu WSL for Windwos 10)
-2. VS Code running a default Linux terminal
-3. NodeJS must be installed
+1. Access to a Linux console (either on Mac, Ubuntu or by using Ubuntu WSL for Windows 10)
+1. VS Code running a default Linux terminal
+1. NodeJS must be installed
 
 To test, you can write `node -v` in your terminal and you should see something like `v11.10.0`. If you don't see this please talk to a teacher!
 
@@ -268,11 +268,11 @@ function add(num1, num2) {
 
 - takes in more than one input
 - uses string concatenation
-  - (this means adding two strings together)
+- this means adding two strings together
 - performs some form of operation on a number
 - uses `return` to return a **string**
 
-2. Comment your function to explain what it does
+2. Add a comment above your function to explain what it does
 3. Call your function and run your script
 4. What's the difference between a `return` and `console.log`?
 5. When would you choose to use functions over the way we have been scripting so far?
@@ -314,7 +314,7 @@ function createGreeting(name, age) {
 - Directory: another word for "folder" on your computer
 - Parameter: a placeholder for values you can pass into functions
 - Primitive type: a built-in type in JavaScript (e.g. strings and numbers are primitive types in JavaScript)
-- Script: a file that contains a programme
+- Script: a file that contains a program
 - Terminal: another word for "console"
 
 {% include "./homework.md" %}

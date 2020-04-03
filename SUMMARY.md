@@ -48,16 +48,3 @@
 ## For Students
 
 * [Coding Standards and Best Practices](/others/coding-standards.md)
-* [Making a Pull Request](/others/making-a-pull-request.md)
-* [CORS](/others/cors.md)
-* [Hosting React apps with Netlify](/others/netlify-hosting-instructions.md)
-* [Node Version Manager](/others/node-version-manager.md)
-* [Getting A Job](/others/getting-a-job.md)
-* [Developer Links](/others/developer-links.md)
-
-## General information
-
-* [CodeYourFuture](others/code-your-future.md)
-* [House Rules](/others/house-rules.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
-* [Contributing](CONTRIBUTING.md)

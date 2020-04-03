@@ -300,7 +300,7 @@ function createGreeting(name, age) {
 * Directory: another word for "folder" on your computer
 * Parameter: a placeholder for values you can pass into functions
 * Primitive type: a built-in type in JavaScript (e.g. strings and numbers are primitive types in JavaScript) 
-* Script: a file that contains a programme
+* Script: a file that contains a program
 * Terminal: another word for "console"
 
 {% include "./homework.md" %}

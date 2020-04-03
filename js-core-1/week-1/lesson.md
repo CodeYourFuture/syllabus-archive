@@ -259,7 +259,7 @@ function add(num1, num2) {
   * uses string concatenation
   * performs some form of operation on a number
   * uses `return` to return a **string**
-2. Comment your function to explain what it does
+2. Add a comment above your function to explain what it does
 3. Call your function and run your script
 4. What's the difference between a `return` and `console.log`?
 5. When would you choose to use functions over the way we have been scripting so far?

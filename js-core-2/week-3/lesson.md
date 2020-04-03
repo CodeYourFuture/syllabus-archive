@@ -1,11 +1,16 @@
 # JavaScript Core II - 3
 
-
 **What we will learn today?**
 
-* [Callbacks and Asynchronous Functions](#callbacks-and-asynchronous-functions)
-* [Promises](#promises)
-* [AJAX](#ajax)
+- [JavaScript Core II - 3](#javascript-core-ii---3)
+  - [Synchronous and Asynchronous programming](#synchronous-and-asynchronous-programming)
+    - [A real life example](#a-real-life-example)
+    - [A Javascript example](#a-javascript-example)
+    - [Callbacks](#callbacks)
+      - [Exercise (1)](#exercise-1)
+  - [Client/Server architecture](#clientserver-architecture)
+    - [HTTP Requests](#http-requests)
+
 ---
 
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
@@ -40,7 +45,7 @@ An example of this in real life, are phone calls and text messages.
 
 ```
 
-## Callbacks
+### Callbacks
 
 We have already seen callback functions - in the Array methods `forEach`, `map`, `filter` etc. They are functions that are passed as parameter to another function.
 
@@ -62,8 +67,6 @@ function thingThatTakesALongTime(callbackFunction) {
 // Pass the function to 'thingThatTakesALongTime' just like a normal variable
 thingThatTakesALongTime(finished);
 ```
-
-### Exercise (1)
 
 A simple example of an asynchronous function is `setTimeout`. This allows you to run a function after a given time period. The first argument is the function you want to run, the second argument is the `delay` (in milliseconds)
 
@@ -96,6 +99,15 @@ function myCallbackFunction() {
 }
 mainFunction(myCallback);
 ```
+
+#### Exercise (1)
+>
+> * Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds).
+> * Update your code to make the colour change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
+>
+> ![](http://g.recordit.co/g2EqBccNzh.gif)
+>
+> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/LrxgMN?editors=1010)
 
 ## Client/Server architecture
 (How does the web work?)

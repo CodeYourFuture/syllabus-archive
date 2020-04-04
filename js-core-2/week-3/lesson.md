@@ -3,17 +3,31 @@
 **What we will learn today?**
 
 - [JavaScript Core II - 3](#javascript-core-ii---3)
+  - [The Callstack](#the-callstack)
   - [Synchronous and Asynchronous programming](#synchronous-and-asynchronous-programming)
     - [A real life example](#a-real-life-example)
     - [A Javascript example](#a-javascript-example)
     - [Callbacks](#callbacks)
       - [Exercise (1)](#exercise-1)
+- [How does the web work?](#how-does-the-web-work)
   - [Client/Server architecture](#clientserver-architecture)
     - [HTTP Requests](#http-requests)
 
 ---
 
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
+
+## The Callstack
+
+How does JavaScript 'know' what order its code should be run in?
+
+JavaScript is a single-threaded language, which means that normally it can handle one task at a time or a piece of code at a time. It orders what it needs to do using something called the `call stack`. 
+
+The Callstack is a data structure that works by the "Last in, First out" principle (LIFO) to store and run functions.
+
+Since there is only one Callstack in Javascript, function execution is done one at a time from top to bottom. This means that the last function that gets pushed into the call stack is always the one to be executed when the call stack is popped. Think of it like pushing to, and popping from, an array; it's always the last item of the array that is affected.
+
+> [Let's use this tool to see how the Callstack works!](http://latentflip.com/loupe/?code=CgokLm9uKCdidXR0b24nLCAnY2xpY2snLCBmdW5jdGlvbiBvbkNsaWNrKCkgewogICAgc2V0VGltZW91dChmdW5jdGlvbiB0aW1lcigpIHsKICAgICAgICBjb25zb2xlLmxvZygnWW91IGNsaWNrZWQgdGhlIGJ1dHRvbiEnKTsgICAgCiAgICB9LCAxMDAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDMwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 
 ## Synchronous and Asynchronous programming
 In a synchronous programming model, tasks run one at a time. When a long running action starts, the program waits for it to finish and return the result before it moves to the next action.
@@ -109,16 +123,26 @@ mainFunction(myCallbackFunction);
 >
 > Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/LrxgMN?editors=1010)
 
+
+
+# How does the web work?
+
 ## Client/Server architecture
-(How does the web work?)
 
-A **server** is a device or program that provides functionality to other programs or devices. There are database servers, mail servers, game servers, etc. The vast majority of these servers are accessed over the internet. They can take the form of industrial server farms that provide a service to millions of users (used by Facebook, Google, etc.), to personal servers for storing your files.
+![](client-server.png)
 
-The server communicates with **clients**. A client can be a web browser, a Slack app, your phone, etc.
+A **Client** is the typical web user's internet-connected devices and apps. This can be a web browser, a Slack app, your phone, etc.
+
+A **Server** is a computer or program that manages access to resources such as webpages, sites, or apps.
+
+There are database servers, mail servers, game servers, etc. The vast majority of these servers are accessed over the internet. They can take the form of industrial server farms that provide a service to millions of users (used by Facebook, Google, etc.), to personal servers for storing your files.
+
+The **server** communicates with **clients**. 
 
 Client–server systems use the **request–response** model: a client sends a request to the server, which performs some action and sends a response back to the client, typically with a result or acknowledgement.
 
-![](client-server.png)
+![](request-response-architecture.png)
+
 
 ### HTTP Requests
 
@@ -135,4 +159,4 @@ There are two main types of requests: **GET** and **POST**.
 
 
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
-HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
+

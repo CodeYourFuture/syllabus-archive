@@ -97,7 +97,7 @@ function mainFunction(callback) {
 function myCallbackFunction() {
   console.log('Finished!');
 }
-mainFunction(myCallback);
+mainFunction(myCallbackFunction);
 ```
 
 #### Exercise (1)

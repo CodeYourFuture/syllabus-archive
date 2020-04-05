@@ -150,7 +150,7 @@ mainFunction(myCallbackFunction);
 >
 > ![](http://g.recordit.co/g2EqBccNzh.gif)
 >
-> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/LrxgMN?editors=1010)
+> Complete the exercises in this [CodePen](https://codepen.io/makanti/pen/abOreLg?editors=1011)
 
 ## How does the web work?
 

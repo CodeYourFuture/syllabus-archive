@@ -4,8 +4,6 @@
 
 <!-- TODO: Update this once we've nailed it down a bit more -->
 
----
-
 ## Responsive Web Design
 
 When we build for the web, we're making websites that can be viewed on a variety of devices.

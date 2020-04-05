@@ -4,8 +4,6 @@
 
 <!-- TODO: Update this once we've nailed it down a bit more -->
 
----
-
 ## What makes a web page?
 
 There are three technologies which are combined to make a web page.

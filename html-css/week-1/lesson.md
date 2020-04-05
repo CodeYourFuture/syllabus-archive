@@ -194,7 +194,7 @@ Now we'll investigate *flexbox*. Open [this CodeSandbox](https://codesandbox.io/
 | 2. Read the comments (anything in-between `<!--` and `-->`) and complete the tasks in part 4. |
 <!-- FIXME: it's not clear from the notes what the part 4 tasks are -->
 
-# Resources
+## Resources
 
 1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
 2. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
@@ -203,5 +203,6 @@ Now we'll investigate *flexbox*. Open [this CodeSandbox](https://codesandbox.io/
 5. [Box Model, box-sizing: border-box - CSS Tricks](https://css-tricks.com/international-box-sizing-awareness-day/)
 6. [CSS specificity - MDN](https://developer.mozilla.org/en/docs/Web/CSS/Specificity)
 7. [Pseudo classes - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+8. [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 
 {% include "./homework.md" %}

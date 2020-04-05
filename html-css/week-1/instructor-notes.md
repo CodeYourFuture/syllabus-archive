@@ -70,3 +70,9 @@ Demo these in the [Semantics CodeSandbox](https://codesandbox.io/s/z69nnxv5q3)
 Demo different flexbox settings/values in the [Rainbox CodeSandbox](https://codesandbox.io/s/znjvoqj1l).
 
 If anyone brings up *Floats*, explain this replaces that concept.
+
+## Homework
+
+Talk about the homework and the assessment piece:
+- Karma clone wireframe - pull up design on the big screen and talk about the different sections altogether and how one might structure the markup
+= Spend some time to help set up project folder on students’ machine: fork and clone repo, and make initial commit

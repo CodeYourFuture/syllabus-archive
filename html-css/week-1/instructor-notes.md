@@ -1,6 +1,6 @@
 # Instructor Notes
 
-## Schedule
+## Rough Schedule
 
 | Time | Activity |
 |------|----------|

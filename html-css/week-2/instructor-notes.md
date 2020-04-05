@@ -1,8 +1,17 @@
 # Instructor Notes
 
-## Schedule
+## Rough Schedule
 
-<!-- TODO -->
+| Time | Activity |
+|------|----------|
+| 10:45 - 11:30 | Preparation of space |
+| 11:30 - 12:00 | Energisers/Stand Up |
+| 12:00 - 13:00 | Responsive Web Design |
+| 13:00 - 14:00 | Media Queries |
+| 14:00 - 14:45 | Lunch |
+<!-- TODO: Mobile first design?? -->
+| 14:45 - 16:45 | Cake website wireframe |
+| 16:45 - 17:00 | Homework Discussion |
 
 ## Homework review
 

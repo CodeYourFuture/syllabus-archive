@@ -9,9 +9,10 @@
     - [The Callstack](#the-callstack)
     - [Callbacks](#callbacks)
       - [Exercise (1)](#exercise-1)
-- [How does the web work?](#how-does-the-web-work)
-  - [Client/Server architecture](#clientserver-architecture)
-  - [HTTP Requests](#http-requests)
+  - [How does the web work?](#how-does-the-web-work)
+    - [Client/Server architecture](#clientserver-architecture)
+    - [HTTP Requests](#http-requests)
+      - [Exercise (2)](#exercise-2)
 
 ---
 
@@ -76,7 +77,7 @@ ReferenceError: message is not defined
     at startup (internal/bootstrap/node.js:266:19)
 ```
 
-This error happened because of a problem in the `logSomething` function on line 2, which was called by the `doSomething` function on line 6, and so on. Each line represents one entry on the call stack.
+This error happened because of a problem in the `logSomething` function on line 2, which was called by the `computeSomething` function on line 6, and so on. Each line represents one entry on the call stack.
 
 Since there is only one call stack in Javascript, function execution is done one at a time from top to bottom. This means that the last function that gets pushed into the call stack is always the one to be executed when the call stack is popped. Think of it like pushing to, and popping from, an array; it's always the last item of the array that is affected.
 
@@ -150,9 +151,9 @@ mainFunction(myCallbackFunction);
 
 
 
-# How does the web work?
+## How does the web work?
 
-## Client/Server architecture
+### Client/Server architecture
 
 ![](client-server.png)
 
@@ -168,8 +169,7 @@ Client–server systems use the **request–response** model: a client sends a r
 
 ![](request-response-architecture.png)
 
-
-## HTTP Requests
+### HTTP Requests
 
 A server stores the data, and the client (other programs or computers) requests data or sends some of its own. But how do they talk to each other?
 
@@ -184,3 +184,19 @@ There are two main types of requests: **GET** and **POST**.
 
 
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
+
+#### Exercise (2)
+> 
+> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/MWwMgmW?editors)
+>
+> * You are given a list of movie objects to work with<br/>
+> * Use setTimeout to imitate that some actions take time
+> * Remember that setTimeout behaves asynchronously
+>
+> All set, go! Work on the tasks given. Your result html will look like this:
+> 
+> <img alt="preview-exercise-2-result" src="https://i.imgur.com/wbrtLNL.png" width="500">
+>
+> 
+> 
+

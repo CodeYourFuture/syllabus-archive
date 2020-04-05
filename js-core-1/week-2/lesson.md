@@ -151,9 +151,18 @@ The `>` symbol in the expression is a **comparison operator**. Comparison operat
 
 You might see people use two other comparison operators. They are valid, but are the evil twins of `===` and `!==` and it is generally considered bad practise because of the bugs the can cause.
 
+**&#10008; - Do not use == and !=**
+
 ```sh
-== equal after type converstion
-!= unequal after type converstion
+== equal compares only value
+!= unequal compares only value
+```
+
+**&#10004; - Do use === and !==**
+
+```sh
+=== equal compares both value and type
+!== unequal compares both value and type
 ```
 
 If you see these, suggest people change them in pull requests.
@@ -264,7 +273,9 @@ if (isHappy) {
 What if there is more than one condition you want to handle in your function? For example, what if you can be confused as well? You can use **else if** to handle multiple conditions.
 
 ### Exercise (5 mins)
+
 Can you explain what this function does line by line? What happens when you pass in a string?
+
 ```js
 function numberChecker(num) {
   if (num > 20) {
@@ -280,7 +291,9 @@ function numberChecker(num) {
 ```
 
 ### Exercise (10 mins)
+
 Create a function that gives you message depending on your mood! It should:
+
 * take one input
 * return "Good job, you're doing great!" if you pass in "happy"
 * return "Every cloud has a silver lining" if you pass in "sad"
@@ -310,7 +323,9 @@ function satisfiesRequirements(num) {
 We can test expressions with logical operators in a node console too.
 
 ### Exercise (5 mins)
+
 Type the following expressions into your node REPL and note the output. Anything you didn't expect?
+
 * `let num = 10`
 * `num > 5 && num < 15`
 * `num < 10 || num === 10`
@@ -321,12 +336,12 @@ Type the following expressions into your node REPL and note the output. Anything
 * `!(num === 10)`
 
 ### Exercise (15 mins)
+
 In pairs, write a function that checks a username is of an acceptable format for a user type. The function must:
 
 * take two parameters: one for the username and one for the user type
 * if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
 * if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
-
 
 ## Loops
 
@@ -349,6 +364,7 @@ The `for` loop is similar to a while loop, but with a more specialized syntax. P
 The `for` loop syntax has special places for each of those three things. Here's the same loop as the first while loop above, as a for loop:
 
 ![For loop](https://user-images.githubusercontent.com/31692/75388870-9213a880-58dd-11ea-90e6-4e67eabf390b.png)
+
 ```js
 for (let i = 0; i < 20; i++) {
   someFunction(i);
@@ -392,7 +408,7 @@ let greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 
 You can access elements in an array using the **index** of an element with **bracket notation**
 
-**🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
+**🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero-based indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
 
 ```js
 let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
@@ -434,7 +450,6 @@ In the node REPL, enter the following array:
 Sample array: [20, 20, 30, 40, 50, 50, 50]
 2. After removing the duplicate elements the function should return 4 as the new length of the array. 
 
-
 ### Exercise (5 mins)
 
 Complete this function so that, if the second index in array contains the name "Amy", it returns `"Second index matched!"`
@@ -449,12 +464,12 @@ function secondMatchesAmy(array) {
 ```
 
 ### Exercise (20 mins)
+
 In pairs, write a function which squares all numbers in an array and returns the array of squared numbers.
 
 Write a second function which takes an input of arrays and only returns an array of even numbers.
 
 How can you combine the two functions to return an array of even and squared numbers?
-
 
 ## Extra exercises
 
@@ -468,11 +483,11 @@ How can you combine the two functions to return an array of even and squared num
 let a = 4;
 let b = 8;
 
-const multiplyNumbers = function(a, b) {
+const multiplyNumbers = function (a, b) {
   return a * b;
 };
 
-const addNumbers = function(a, b, c) {
+const addNumbers = function (a, b, c) {
   return a + b + c;
 };
 
@@ -500,11 +515,11 @@ let y = 4;
 let a = 2;
 let b = 20;
 
-const f1 = function(a, b) {
+const f1 = function (a, b) {
   return a * b;
 };
 
-const f2 = function(a, b, c) {
+const f2 = function (a, b, c) {
   return a + b + c;
 };
 
@@ -524,5 +539,15 @@ for (let i = 0; i < 10; ++i) {
   }
 }
 ```
+
+## Glossary
+
+- Assert: to determine whether something is true or not true, more precisely false
+- Duplicate: exact copies of something (e.g. two or more files, numbers, directory can be exactly the same)
+- Index: numbers that let you know an item's position inside an array
+- REPL: (Read-Eval-Print-Loop) an interactive way to execute code you write inside the console
+- Zero-based Index: an arrays starting at `0` and not at `1`
+
+For words like **Terminal**, **Primitive Types** please see [Glossary: JavaScript Core I - 2](../week-1/lesson.md#Glossary)
 
 {% include './homework.md' %}

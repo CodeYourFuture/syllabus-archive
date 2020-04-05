@@ -77,7 +77,7 @@ sayGreeting(greeting); // action: calls the function `sayGreeting` with the para
 
 There are some other different types of statements that we will learn in the coming weeks.
 
-You can run `node` by itself, which will open a _node console_, also called a [Read–Eval–Print Loop (REPL)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
+You can run `node` by itself, which will open a _node console_, also called a [Read–Eval–Print Loop (REPL)](https://www.tutorialspoint.com/nodejs/nodejs_repl_terminal.htm).
 
 This console allows you to run expressions in the console line by line and is a great way of testing bits of code before writing it in a script.
 

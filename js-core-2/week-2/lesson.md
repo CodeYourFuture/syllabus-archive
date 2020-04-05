@@ -38,19 +38,19 @@ Here are two examples, HTML and then JavaScript, of how the DOM might look like:
 
 ```html
 <html>
-    <body>
-        <h1> Welcome! </h1>
-        <p> Hello world! </p>
-    </body>
+  <body>
+    <h1>Welcome!</h1>
+    <p>Hello world!</p>
+  </body>
 </html>
 ```
 
 ```js
 let document = {
-    body: {
-        h1: "Welcome",
-        p: "Hello world!"
-    }
+  body: {
+    h1: "Welcome",
+    p: "Hello world!",
+  },
 };
 ```
 
@@ -58,32 +58,34 @@ This is how we would represent the document hierarchy above as a tree of nodes:
 
 <img src="tree.png" alt="tree-representation" width="400"/>
 
-
 ### Access DOM elements
 
 The DOM offers a lot of useful functions we can use to find elements on the page. Here are some we'll be using today:
 
 ```js
-    document.querySelector("#mainHeader");
-    document.querySelectorAll("p");
+document.querySelector("#mainHeader");
+document.querySelectorAll("p");
 ```
 
 Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
 `.querySelector` selects only the first element it finds, `querySelectorAll` selects all elements (it returns an array).
 
 #### Preparation for exercises
+
 > ---
+>
 > Let's work on the code provided here:
 > https://github.com/CodeYourFuture/js-exercises/tree/master/week-5/InClass/A-dom-manipulation
+>
 > 1. Open "A-dom-manipulation" project in VS code
 > 2. You will have to work on the `exercise.js` file for today's homework
-> 3. View your changes by 
->    * using [vscode-live-server](https://github.com/ritwickdey/vscode-live-server) plugin to get live updates of your changes.
->        * Install the plugin
->       * Right click on `index.html` and select "Open with Live Server"
->     * or just open the `index.html` on your browser and refresh every time you change your code
+> 3. View your changes by
+>    - using [vscode-live-server](https://github.com/ritwickdey/vscode-live-server) plugin to get live updates of your changes.
+>      - Install the plugin
+>      - Right click on `index.html` and select "Open with Live Server"
+>    - or just open the `index.html` on your browser and refresh every time you change your code
+>
 > ---
-
 
 #### Exercise (1)
 
@@ -105,7 +107,6 @@ Write JavaScript below that logs:
     --> should log a list of nodes with a length of 3
 
 */
-
 ```
 
 ### Attach events to DOM elements
@@ -113,19 +114,19 @@ Write JavaScript below that logs:
 Once you retrieve an element using `.querySelector`, you can attach an **event** to it. An event is any action that can be performed on that element. For now, we will just use the **click** event:
 
 ```js
-    let myButton = document.querySelector("#myButton");
-    myButton.addEventListener("click", alertSomething);
+let myButton = document.querySelector("#myButton");
+myButton.addEventListener("click", alertSomething);
 
-    function alertSomething() {
-        alert("Something");
-    }
+function alertSomething() {
+  alert("Something");
+}
 ```
 
 You will notice in the example that we passed a second argument to `addEventListener`. That second argument is the **function** that we want to invoke when that event has happened.
 
 #### Exercise (2)
 
-```js 
+```js
 /*
 Task 2
 ======
@@ -137,11 +138,12 @@ When a user clicks the "ALERT" button, an alert box should pop up with the text 
 The elements returned by `document.querySelector` have the same properties as a normal HTML element: for example, you can get access to their css **styles**.
 
 ```js
-    let myElement = document.querySelector("#myElement");
-    myElement.style.backgroundColor = "red";
+let myElement = document.querySelector("#myElement");
+myElement.style.backgroundColor = "red";
 ```
 
-#### Exercise (3) 
+#### Exercise (3)
+
 ```js
 /*
 Task 3
@@ -149,28 +151,28 @@ Task 3
 
 Write JavaScript below that changes the background colour of the page when the "Change colour" button is clicked.
 */
-
 ```
+
 ### Create DOM elements
 
 Using the `document`, you can also create new elements. These elements will not appear until you append them as a child of another element though:
 
 ```js
-    let paragraph = document.createElement("p"); // here we're just creating it, element is not visible yet
-    myElement.appendChild(paragraph); // now the element is added to our view, but it's empty
+let paragraph = document.createElement("p"); // here we're just creating it, element is not visible yet
+myElement.appendChild(paragraph); // now the element is added to our view, but it's empty
 ```
 
 `document.createElement` accepts as an input any element type. So for example `document.createElement("article")` will create a new article element.
 
 #### Exercise (4)
-```js 
+
+```js
 /*
 Task 4
 ======
 
 When a user clicks the "Add some text" button, a new paragraph should be added below the buttons that says "Read more below."
 */
-
 ```
 
 ### Manipulate DOM elements
@@ -178,18 +180,18 @@ When a user clicks the "Add some text" button, a new paragraph should be added b
 You can then change the text displayed inside elements using the `innerText` property:
 
 ```js
-    paragraph.innerText = "How are you?"; // now we can see the text displaying on the screen
+paragraph.innerText = "How are you?"; // now we can see the text displaying on the screen
 ```
 
 We've been using `document.querySelector` to retrieve a single element.
 To retrieve an array of multiple elements (that match a specific class name for example, or a specific tag) we use `document.querySelectorAll`.
 
 ```js
-    //change the background of all the paragraph items on our page
-    let paragraphs = document.querySelectorAll("p");
-    for(let i=0; i<paragraphs.length; i++) {
-        paragraphs[i].style.backgroundColor = "blue";
-    }
+//change the background of all the paragraph items on our page
+let paragraphs = document.querySelectorAll("p");
+for (let i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].style.backgroundColor = "blue";
+}
 ```
 
 We've learned that `style` and `innerText` are properties of DOM elements. Image tags can also have `width` and `height`.
@@ -208,13 +210,13 @@ To get the text from an Input field:
 ```js
 let updateTitleBtn = document.querySelector("#updateTitleBtn");
 
-updateTitleBtn.addEventListener("click", function() {
-    let inputBox = document.querySelector("#titleInput");
-    let title = inputBox.value;
+updateTitleBtn.addEventListener("click", function () {
+  let inputBox = document.querySelector("#titleInput");
+  let title = inputBox.value;
 
-    let titleElement = document.querySelector("#lessonTitle");
-    titleElement.innerText = title;
-    inputBox.value = title;
+  let titleElement = document.querySelector("#lessonTitle");
+  titleElement.innerText = title;
+  inputBox.value = title;
 });
 ```
 
@@ -222,6 +224,7 @@ The above waits for click on a button. When the button is clicked, it gets the i
 To get the entered text from it, we use the `value` property: `let title = inputBox.value`.
 
 #### Exercise (5)
+
 ```js
 /*
 Task 5
@@ -231,3 +234,4 @@ When the "Larger links!" button is clicked, the text of all links on the page sh
 */
 ```
 
+{% include "./homework.md" %}

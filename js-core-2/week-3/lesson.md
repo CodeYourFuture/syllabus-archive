@@ -3,52 +3,19 @@
 **What we will learn today?**
 
 - [JavaScript Core II - 3](#javascript-core-ii---3)
-  - [The Callstack](#the-callstack)
   - [Synchronous and Asynchronous programming](#synchronous-and-asynchronous-programming)
     - [A real life example](#a-real-life-example)
     - [A Javascript example](#a-javascript-example)
+    - [The Callstack](#the-callstack)
     - [Callbacks](#callbacks)
       - [Exercise (1)](#exercise-1)
 - [How does the web work?](#how-does-the-web-work)
   - [Client/Server architecture](#clientserver-architecture)
-    - [HTTP Requests](#http-requests)
+  - [HTTP Requests](#http-requests)
 
 ---
 
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
-
-## The Callstack
-
-How does JavaScript 'know' what order its code should be run in?
-
-JavaScript is a single-threaded language, which means that normally it can handle one task at a time or a piece of code at a time. It orders what it needs to do using something called the `call stack`. 
-
-The Callstack is a data structure that works by the "Last in, First out" principle (LIFO) to store and run functions. Whenever you call a function, it gets pushed onto the stack, and when the function returns, it is popped off of the callstack.
-
-This is why when you get an error in Javascript, you may see multiple lines with line numbers in the error, like:
-
-$ node my.js
-/home/dwh/my.js:2
-    console.log(message);
-                ^
-
-ReferenceError: message is not defined
-    at logSomething (/home/dwh/my.js:2:17)
-    at computeSomething (/home/dwh/my.js:6:5)
-    at Object.<anonymous> (/home/dwh/my.js:9:1)
-    at Module._compile (internal/modules/cjs/loader.js:689:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
-    at Module.load (internal/modules/cjs/loader.js:599:32)
-    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
-    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
-    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
-    at startup (internal/bootstrap/node.js:266:19)
-
-This error happened because of a problem in the `logSomething` function on line 2, which was called by the `doSomething` function on line 6, and so on. Each line represents one entry on the callstack.
-
-Since there is only one Callstack in Javascript, function execution is done one at a time from top to bottom. This means that the last function that gets pushed into the call stack is always the one to be executed when the call stack is popped. Think of it like pushing to, and popping from, an array; it's always the last item of the array that is affected.
-
-> [Let's use this tool to see how the Callstack works!](http://latentflip.com/loupe/?code=CgokLm9uKCdidXR0b24nLCAnY2xpY2snLCBmdW5jdGlvbiBvbkNsaWNrKCkgewogICAgc2V0VGltZW91dChmdW5jdGlvbiB0aW1lcigpIHsKICAgICAgICBjb25zb2xlLmxvZygnWW91IGNsaWNrZWQgdGhlIGJ1dHRvbiEnKTsgICAgCiAgICB9LCAxMDAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDMwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 
 ## Synchronous and Asynchronous programming
 In a synchronous programming model, tasks run one at a time. When a long running action starts, the program waits for it to finish and return the result before it moves to the next action.
@@ -79,6 +46,43 @@ An example of this in real life, are phone calls and text messages.
   console.log('Third action');
 
 ```
+
+### The Callstack
+
+How does JavaScript 'know' what order its code should be run in?
+
+JavaScript is a single-threaded language, which means that normally it can handle one task at a time or a piece of code at a time. It orders what it needs to do using something called the `call stack`. 
+
+The call stack is a data structure that works by the "Last in, First out" principle (LIFO) to store and run functions. Whenever you call a function, it gets pushed onto the stack, and when the function returns, it is popped off of the call stack.
+
+This is why when you get an error in Javascript, you may see multiple lines with line numbers in the error, like:
+
+```
+$ node my.js
+/home/dwh/my.js:2
+    console.log(message);
+                ^
+
+ReferenceError: message is not defined
+    at logSomething (/home/dwh/my.js:2:17)
+    at computeSomething (/home/dwh/my.js:6:5)
+    at Object.<anonymous> (/home/dwh/my.js:9:1)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
+    at startup (internal/bootstrap/node.js:266:19)
+```
+
+This error happened because of a problem in the `logSomething` function on line 2, which was called by the `doSomething` function on line 6, and so on. Each line represents one entry on the call stack.
+
+Since there is only one call stack in Javascript, function execution is done one at a time from top to bottom. This means that the last function that gets pushed into the call stack is always the one to be executed when the call stack is popped. Think of it like pushing to, and popping from, an array; it's always the last item of the array that is affected.
+
+> [Let's use this tool to see how the Callstack works!](http://latentflip.com/loupe/)
+
+> So, how to the `call stack` and `asynchronous` work together? Asynchronous programming essentially helps us to make JavaScript act like a multi-threaded language -- although JavaScript only has a single call stack managing function execution, coding our JavaScript asynchronously means that we can have several functions executing at the same time.
 
 ### Callbacks
 
@@ -165,7 +169,7 @@ Client–server systems use the **request–response** model: a client sends a r
 ![](request-response-architecture.png)
 
 
-### HTTP Requests
+## HTTP Requests
 
 A server stores the data, and the client (other programs or computers) requests data or sends some of its own. But how do they talk to each other?
 

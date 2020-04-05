@@ -96,23 +96,21 @@ Here are some semantic HTML elements:
 
 | **Exercise 1** |
 | :---- |
-| 1. Open the Inspector on [this web page](http://thinkful-ed.github.io/karma-clone/) |
+| 1. Open the Inspector on [this web page](http://thinkful-ed.github.io/karma-clone/). |
 | 2. What are the semantic HTML elements on this page? |
 | 3. What meaning do the semantic elements have? |
 
 | **Exercise 2** |
 | :---- |
-| 1. Open [this editor](https://codesandbox.io/s/z69nnxv5q3) in your browser |
-| 2. Read the comments (anything in-between `<!--` and `-->`) and complete the HTML tasks |
-| **Tips:** Everything that is opened, must be closed! When you write HTML, always write the opening and the closing tags at the same time, so you don’t lose track.
+| 1. Open [this CodeSandbox editor](https://codesandbox.io/s/z69nnxv5q3) in your browser. |
+| 2. Read the comments (anything in-between `<!--` and `-->`) and complete the **HTML** tasks. |
+| **Tips:** Everything that is opened, must be closed! When you write HTML, always write the opening and the closing tags at the same time, so you don’t lose track. |
 
 ## CSS Selectors
 
-During your application process, you became familiar with CSS selectors. We'll review the basic selectors and then practice combining these to modify our button styles.
+During your application process, you became familiar with CSS selectors. We'll review the basic selectors and then practice combining these to modify our button styles. If you want to review some selectors, read the [Common Selectors section](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) of this page.
 
-> If you want to review the selectors, read the [Common Selectors section](http://learn.shayhowe.com/advanced-html-css/complex-selectors/) of this page.
-
-> **Exercise (pair programming):** Work in pairs to make the blue buttons on the page red (`#ce5f31`). The white button, which says "Volunteer", should remain white but the text should change to red.
+<!-- TODO: Add some content here? -->
 
 ## Pseudo Classes
 
@@ -124,9 +122,9 @@ You can assign CSS rules to a class like this:
 }
 ```
 
-There are also things called "pseudo" classes. In this section, we'll introduce you to the common pseudo classes for assigning styles to interactions, such as moving your mouse over a link.
+There are also things called *pseudo classes*. In this section, we'll introduce you to the common pseudo classes for assigning styles to interactions, such as moving your mouse over a link.
 
-> "pseudo" is a fancy word for "fake". We call them "pseudo" classes because they're not really there in the HTML, but the browser knows what to do with them.
+> "pseudo" is a fancy word meaning "fake". We call them "pseudo" classes because they're not really there in the HTML, but the browser knows what to do with them.
 
 Here's an example of a pseudo class which changes the color of a link when the mouse moves over it.
 
@@ -145,27 +143,56 @@ Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit
 }
 ```
 
-> **Exercise:** Work in pairs and use the pseudo classes to make the background color of the red buttons change when in a "hover" or "focus" state. See if you can make the white "Volunteer" button change to a different background without effecting the red buttons.
+## What can we style?
+
+<!-- TODO: add some content here? -->
+
+| **Exercise** |
+| :---- |
+| 1. Open the CodeSandbox editor that you were using before. We will now be adding some CSS to it. |
+| 2. Read the comments (anything in-between `<!--` and `-->`) and complete the **CSS** tasks. |
+| **Tips:** Everything that is opened, must be closed! When you write a CSS rule, always write the opening and the closing braces at the same time, so you don’t lose track. |
+
+## Cascading
+
+<!-- TODO: add some content here? -->
+
+The first word *cascading* in Cascading Style Sheets (CSS) is very important. Using this [CodeSandbox](https://codesandbox.io/s/znjvoqj1l) as an example let's explore how the cascade works.
+
+<!-- TODO: flesh this out a bit? -->
+
+1. Importance
+    - `!important`
+2. Specificity
+    - Inline styles/ids/class, attribute/html selector and pseudo-selectors
+3. Source order
+    - The last one wins
 
 ## Box Model
 
-In CSS, everything is a box. An image is a box. A link is a box. The area around this box can be modified with properites that we call margins, borders and padding. Here's a diagram showing what the box looks like.
+Let's investigate the *box model* by looking at another example. Open [this CodeSandbox](https://codesandbox.io/s/znjvoqj1l) and explore it with the teacher using the browser dev tools.
+
+In CSS, everything is a box. An image is a box. A link is a box. The area around this box can be modified with properties that we call margins, borders and padding. Here's a diagram showing what the box looks like.
 
 ![Box Model. Source: MDN](https://mdn.mozillademos.org/files/13647/box-model-standard-small.png)
 
-> **Exercise:** Work in pairs and use the `margin` and `padding` rules to spread your navigation links out a bit wider. There should be a small gap between them and enough padding so that the border is not too tight on the text.
+| **Exercise** |
+| :---- |
+| 1. Open the CodeSandbox editor that you were using before. We will now be adding some CSS to it. |
+| 2. Read the comments (anything in-between `<!--` and `-->`) and complete the tasks in part 3. |
+<!-- FIXME: it's not clear from the notes what the part 3 tasks are -->
 
-You may have noticed that the border you added to the navigation links causes the links to jump around when you move your mouse over them. That's because the border is adding to the width of the box model, pushing the others to the side.
+## Flexbox
 
-You can also set a transparent border, so that it takes up the space without showing a visible border.
+Now we'll investigate *flexbox*. Open [this CodeSandbox](https://codesandbox.io/s/znjvoqj1l) again and explore it with the teacher.
 
-```css
-.navlink {
-    border: 1px solid transparent;
-}
-```
+<!-- TODO: flesh this out a bit -->
 
-> **Exercise:** Use a transparent border so that the width of each navigation menu item stays the same even when it is hovered or focused.
+| **Exercise** |
+| :---- |
+| 1. Open the CodeSandbox editor that you were using before. We will now be adding some CSS to it. |
+| 2. Read the comments (anything in-between `<!--` and `-->`) and complete the tasks in part 4. |
+<!-- FIXME: it's not clear from the notes what the part 4 tasks are -->
 
 ## Git Conflicts
 

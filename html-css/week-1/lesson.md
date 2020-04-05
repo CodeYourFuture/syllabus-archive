@@ -2,9 +2,7 @@
 
 **What will we learn today?**
 
-- [Semantic HTML tags](#html-syntax)
-- [CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`](#css-selectors)
-- [Box model: `margin`/`padding`/`border` etc...](#box-model)
+<!-- TODO: Update this once we've nailed it down a bit more -->
 
 ---
 
@@ -187,6 +185,25 @@ In CSS, everything is a box. An image is a box. A link is a box. The area around
 Now we'll investigate *flexbox*. Open [this CodeSandbox](https://codesandbox.io/s/znjvoqj1l) again and explore it with the teacher.
 
 <!-- TODO: flesh this out a bit -->
+
+Flexbox is a name for a set of CSS layout rules which are supported in newer browsers. They allow you to apply rules to elements to place them side-by-side and re-arrange them. You just specify how you want your elements arranged and the browser will scale this arrangement depending on the screen size and device used for viewing.
+
+Most flexbox rules are applied to the container, to tell it how to arrange its children. However, there are some rules that can be applied to children as well.
+
+You can see all the rules that can be applied to both the container and the children here:
+[https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+You can start with something like the below, by just adding a container, and the 3 text pieces within it. Try to use flexbox to position the text elements within the container to match the picture:
+
+```html
+<div>  <!-- CONTAINER START -->
+   <div> Check availability </div>
+   <div> Donate bikes </div>
+   <div> Volunteer with us </div>
+</div> <!-- CONTAINER END -->
+```
+
+Once that's done you can move on to creating boxes for each individual text piece, and again, using flexbox to position the text piece in the middle of its box.
 
 | **Exercise** |
 | :---- |

@@ -196,3 +196,5 @@ HTTP is the language of the internet. In our case we're using Javascript, but yo
 > All set, go! Work on the tasks given. Your result html will look like this:
 >
 > <img alt="preview-exercise-2-result" src="https://i.imgur.com/wbrtLNL.png" width="500">
+
+{% include "./homework.md" %}

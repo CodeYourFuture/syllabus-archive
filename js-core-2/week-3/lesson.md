@@ -23,7 +23,28 @@ How does JavaScript 'know' what order its code should be run in?
 
 JavaScript is a single-threaded language, which means that normally it can handle one task at a time or a piece of code at a time. It orders what it needs to do using something called the `call stack`. 
 
-The Callstack is a data structure that works by the "Last in, First out" principle (LIFO) to store and run functions.
+The Callstack is a data structure that works by the "Last in, First out" principle (LIFO) to store and run functions. Whenever you call a function, it gets pushed onto the stack, and when the function returns, it is popped off of the callstack.
+
+This is why when you get an error in Javascript, you may see multiple lines with line numbers in the error, like:
+
+$ node my.js
+/home/dwh/my.js:2
+    console.log(message);
+                ^
+
+ReferenceError: message is not defined
+    at logSomething (/home/dwh/my.js:2:17)
+    at computeSomething (/home/dwh/my.js:6:5)
+    at Object.<anonymous> (/home/dwh/my.js:9:1)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
+    at startup (internal/bootstrap/node.js:266:19)
+
+This error happened because of a problem in the `logSomething` function on line 2, which was called by the `doSomething` function on line 6, and so on. Each line represents one entry on the callstack.
 
 Since there is only one Callstack in Javascript, function execution is done one at a time from top to bottom. This means that the last function that gets pushed into the call stack is always the one to be executed when the call stack is popped. Think of it like pushing to, and popping from, an array; it's always the last item of the array that is affected.
 
@@ -159,4 +180,3 @@ There are two main types of requests: **GET** and **POST**.
 
 
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
-

@@ -19,6 +19,7 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 
 ## Synchronous and Asynchronous programming
+
 In a synchronous programming model, tasks run one at a time. When a long running action starts, the program waits for it to finish and return the result before it moves to the next action.
 
 Asynchronous programming allows multiple actions to happen at the same time. When a long running action starts, the program can continue to run. When the action finishes the program will get notified and get access to the result returned.
@@ -26,33 +27,37 @@ Asynchronous programming allows multiple actions to happen at the same time. Whe
 ![](sync-vs-async.jpg)
 
 ### A real life example
+
 An example of this in real life, are phone calls and text messages.
 
-* Phone calls are `synchronous` because you can't (really) do anything while the
+- Phone calls are `synchronous` because you can't (really) do anything while the
   other person is speaking. You are always waiting for your turn to respond
-* Text messages are `asynchronous`. When you send a text, you can go away and do
+- Text messages are `asynchronous`. When you send a text, you can go away and do
   something else, until the other person responds.
 
 ### A Javascript example
-```js
-  //synchronous
-  console.log('First action');
-  console.log('Second action');
-  console.log('Third action');
-```
-```js
-  //asynchronous
-  console.log('First action');
-  setTimeout(function(){ console.log('Second action') }, 1000);
-  console.log('Third action');
 
+```js
+//synchronous
+console.log("First action");
+console.log("Second action");
+console.log("Third action");
+```
+
+```js
+//asynchronous
+console.log("First action");
+setTimeout(function () {
+  console.log("Second action");
+}, 1000);
+console.log("Third action");
 ```
 
 ### The Callstack
 
 How does JavaScript 'know' what order its code should be run in?
 
-JavaScript is a single-threaded language, which means that normally it can handle one task at a time or a piece of code at a time. It orders what it needs to do using something called the `call stack`. 
+JavaScript is a single-threaded language, which means that normally it can handle one task at a time or a piece of code at a time. It orders what it needs to do using something called the `call stack`.
 
 The call stack is a data structure that works by the "Last in, First out" principle (LIFO) to store and run functions. Whenever you call a function, it gets pushed onto the stack, and when the function returns, it is popped off of the call stack.
 
@@ -92,7 +97,6 @@ We have already seen callback functions - in the Array methods `forEach`, `map`,
 In order to achieve asynchronicity, callbacks can be passed on functions that perform a slow action. By doing so, the callback function can be called with the result.
 This allows you to run some other code while you're waiting for something to finish.
 
-
 ```js
 function finished() {
   console.log("The task has finished");
@@ -118,38 +122,35 @@ function myCallbackFunction() {
 setTimeout(myCallbackFunction, 1000);
 
 // Inline function
-setTimeout(function() {
+setTimeout(function () {
   console.log("Hello world!");
 }, 500);
-
 ```
 
 Now let's use a timeout and a callback function together:
 
 ```js
 function mainFunction(callback) {
-  console.log('Starting!');
-  setTimeout(function() {
-     callback();
-  }, 1000)
-  console.log('Continuing!');
+  console.log("Starting!");
+  setTimeout(function () {
+    callback();
+  }, 1000);
+  console.log("Continuing!");
 }
 function myCallbackFunction() {
-  console.log('Finished!');
+  console.log("Finished!");
 }
 mainFunction(myCallbackFunction);
 ```
 
 #### Exercise (1)
->
-> * Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds).
-> * Update your code to make the colour change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
+
+> - Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds).
+> - Update your code to make the colour change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
 >
 > ![](http://g.recordit.co/g2EqBccNzh.gif)
 >
-> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/LrxgMN?editors=1010)
-
-
+> Complete the exercises in this [CodePen](https://codepen.io/makanti/pen/abOreLg?editors=1011)
 
 ## How does the web work?
 
@@ -163,7 +164,7 @@ A **Server** is a computer or program that manages access to resources such as w
 
 There are database servers, mail servers, game servers, etc. The vast majority of these servers are accessed over the internet. They can take the form of industrial server farms that provide a service to millions of users (used by Facebook, Google, etc.), to personal servers for storing your files.
 
-The **server** communicates with **clients**. 
+The **server** communicates with **clients**.
 
 Client–server systems use the **request–response** model: a client sends a request to the server, which performs some action and sends a response back to the client, typically with a result or acknowledgement.
 
@@ -182,21 +183,16 @@ There are two main types of requests: **GET** and **POST**.
 | GET          | Ask for a specified resource (e.g. show me that photo) |
 | POST         |     Send content to the server (e.g. post a photo)     |
 
-
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
 
 #### Exercise (2)
-> 
+
 > Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/MWwMgmW?editors)
 >
-> * You are given a list of movie objects to work with<br/>
-> * Use setTimeout to imitate that some actions take time
-> * Remember that setTimeout behaves asynchronously
+> - You are given a list of movie objects to work with<br/>
+> - Use setTimeout to imitate that some actions take time
+> - Remember that setTimeout behaves asynchronously
 >
 > All set, go! Work on the tasks given. Your result html will look like this:
-> 
-> <img alt="preview-exercise-2-result" src="https://i.imgur.com/wbrtLNL.png" width="500">
 >
-> 
-> 
-
+> <img alt="preview-exercise-2-result" src="https://i.imgur.com/wbrtLNL.png" width="500">

@@ -6,10 +6,12 @@
   - [Synchronous and Asynchronous programming](#synchronous-and-asynchronous-programming)
     - [A real life example](#a-real-life-example)
     - [A Javascript example](#a-javascript-example)
+    - [The Callstack](#the-callstack)
     - [Callbacks](#callbacks)
       - [Exercise (1)](#exercise-1)
+- [How does the web work?](#how-does-the-web-work)
   - [Client/Server architecture](#clientserver-architecture)
-    - [HTTP Requests](#http-requests)
+  - [HTTP Requests](#http-requests)
 
 ---
 
@@ -44,6 +46,43 @@ An example of this in real life, are phone calls and text messages.
   console.log('Third action');
 
 ```
+
+### The Callstack
+
+How does JavaScript 'know' what order its code should be run in?
+
+JavaScript is a single-threaded language, which means that normally it can handle one task at a time or a piece of code at a time. It orders what it needs to do using something called the `call stack`. 
+
+The call stack is a data structure that works by the "Last in, First out" principle (LIFO) to store and run functions. Whenever you call a function, it gets pushed onto the stack, and when the function returns, it is popped off of the call stack.
+
+This is why when you get an error in Javascript, you may see multiple lines with line numbers in the error, like:
+
+```
+$ node my.js
+/home/dwh/my.js:2
+    console.log(message);
+                ^
+
+ReferenceError: message is not defined
+    at logSomething (/home/dwh/my.js:2:17)
+    at computeSomething (/home/dwh/my.js:6:5)
+    at Object.<anonymous> (/home/dwh/my.js:9:1)
+    at Module._compile (internal/modules/cjs/loader.js:689:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+    at Module.load (internal/modules/cjs/loader.js:599:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:742:12)
+    at startup (internal/bootstrap/node.js:266:19)
+```
+
+This error happened because of a problem in the `logSomething` function on line 2, which was called by the `doSomething` function on line 6, and so on. Each line represents one entry on the call stack.
+
+Since there is only one call stack in Javascript, function execution is done one at a time from top to bottom. This means that the last function that gets pushed into the call stack is always the one to be executed when the call stack is popped. Think of it like pushing to, and popping from, an array; it's always the last item of the array that is affected.
+
+> [Let's use this tool to see how the Callstack works!](http://latentflip.com/loupe/)
+
+> So, how to the `call stack` and `asynchronous` work together? Asynchronous programming essentially helps us to make JavaScript act like a multi-threaded language -- although JavaScript only has a single call stack managing function execution, coding our JavaScript asynchronously means that we can have several functions executing at the same time.
 
 ### Callbacks
 
@@ -109,18 +148,28 @@ mainFunction(myCallbackFunction);
 >
 > Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/LrxgMN?editors=1010)
 
+
+
+# How does the web work?
+
 ## Client/Server architecture
-(How does the web work?)
-
-A **server** is a device or program that provides functionality to other programs or devices. There are database servers, mail servers, game servers, etc. The vast majority of these servers are accessed over the internet. They can take the form of industrial server farms that provide a service to millions of users (used by Facebook, Google, etc.), to personal servers for storing your files.
-
-The server communicates with **clients**. A client can be a web browser, a Slack app, your phone, etc.
-
-Client–server systems use the **request–response** model: a client sends a request to the server, which performs some action and sends a response back to the client, typically with a result or acknowledgement.
 
 ![](client-server.png)
 
-### HTTP Requests
+A **Client** is the typical web user's internet-connected devices and apps. This can be a web browser, a Slack app, your phone, etc.
+
+A **Server** is a computer or program that manages access to resources such as webpages, sites, or apps.
+
+There are database servers, mail servers, game servers, etc. The vast majority of these servers are accessed over the internet. They can take the form of industrial server farms that provide a service to millions of users (used by Facebook, Google, etc.), to personal servers for storing your files.
+
+The **server** communicates with **clients**. 
+
+Client–server systems use the **request–response** model: a client sends a request to the server, which performs some action and sends a response back to the client, typically with a result or acknowledgement.
+
+![](request-response-architecture.png)
+
+
+## HTTP Requests
 
 A server stores the data, and the client (other programs or computers) requests data or sends some of its own. But how do they talk to each other?
 
@@ -134,5 +183,4 @@ There are two main types of requests: **GET** and **POST**.
 | POST         |     Send content to the server (e.g. post a photo)     |
 
 
-HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.

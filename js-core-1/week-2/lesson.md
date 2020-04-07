@@ -19,7 +19,7 @@ By the end of this class, you should be able to answer these questions:
 * What are conditionals?
 * What are `for` and `while` loops (and what's the difference)?
 * How do you use expressions with conditionals?
-* What are comparitor operators and how do you use them?
+* What are comparator operators and how do you use them?
 * What are logical operators and how do you use them?
 * What functionality does the `assert` module provide?
 * What are arrays and how can you interact with them?
@@ -28,7 +28,7 @@ By the end of this class, you should be able to answer these questions:
 
 ## Expressions
 
-In JavaScript there are **expressions** and **statements**. We will use these words frequently to describe code.
+In JavaScript, there are **expressions** and **statements**. We will use these words frequently to describe code.
 
 ### Expression
 
@@ -121,7 +121,7 @@ boolChecker(true);
 
 ## Comparison Operators
 
-In the previous exercise, you used an an **expression** that returns a `boolean` value. This was possible because of the **comparison operator** `===`. Using a comparison operator will always return a `boolean` value.
+In the previous exercise, you used an **expression** that returns a `boolean` value. This was possible because of the **comparison operator** `===`. Using a comparison operator will always return a `boolean` value.
 
 ### Assert
 We will also be using a new keyword to make sure the comparisons we do below return `true`. This is the `assert`.
@@ -149,7 +149,7 @@ The `>` symbol in the expression is a **comparison operator**. Comparison operat
 !== not the same value and type
 ```
 
-You might see people use two other comparison operators. They are valid, but are the evil twins of `===` and `!==` and it is generally considered bad practise because of the bugs the can cause.
+You might see people use two other comparison operators. They are valid, but are the evil twins of `===` and `!==` and it is generally considered bad practice because of the bugs the can cause.
 
 **&#10008; - Do not use == and !=**
 
@@ -169,7 +169,7 @@ If you see these, suggest people change them in pull requests.
 
 ### Exercise (5 mins)
 
-1. Modify the values below to to have the compare function return the desired value:
+1. Modify the values below to have the compare function return the desired value:
 
 ```js
 const assert = require("assert");
@@ -201,13 +201,13 @@ assert(thisArray === thatArray);
 
 The array comparison doesn't work because JavaScript comparison only works as expected on `number`s, `string`s, and `boolean`s.
 
-You need to be aware of this, and you can go deeper into outside of the lesson, but generally remember that only `number`s, `string`s, and `boolean`s work with equality.
+You need to be aware of this, and its possible for you to go deeper into array comparisons outside of the lesson, though generally remember that only `number`s, `string`s, and `boolean`s work with equality.
 
-MDN have some in depth, if not too in depth documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
+MDN has some slightly in-depth documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
 
 ## Conditionals
 
-Like humans, computer programs make decisions based on information given to them. **Conditionals** are a way of representing these decisions in code (remember, you saw this in a previous exercise!)
+Like humans, computer programs make decisions based on the information given to them. **Conditionals** are a way of representing these decisions in code (remember, you saw this in a previous exercise!)
 
 For example:
 
@@ -216,7 +216,7 @@ For example:
 
 The most common type of conditional is the **if statement**.
 
-An if statment runs some code if a condition is met. If the condition is not met, then the code will be skipped.
+An if statement runs some code if a condition is met. If the condition is not met, then the code will be skipped.
 
 ```js
 let isHappy = true;
@@ -292,7 +292,7 @@ function numberChecker(num) {
 
 ### Exercise (10 mins)
 
-Create a function that gives you message depending on your mood! It should:
+Create a function that gives you a message depending on your mood! It should:
 
 * take one input
 * return "Good job, you're doing great!" if you pass in "happy"
@@ -306,7 +306,7 @@ There are three logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT
 
 They let you write expressions that evaluate to a boolean value.
 
-Suppose you want to test if a number is bigger than 3 and smaller than 10. We can write this using logical operators.
+Suppose you want to test if a number is bigger than 3 and smaller than 10. We can write this, using different logical operators.
 
 ```js
 let num = 10;
@@ -357,7 +357,7 @@ while (i < 20) {
 }
 ```
 
-It's important that the condition inside the parenthesis becomes false at some point - otherwise we'll have what's known as an infinite loop!
+It's important that the condition inside the parenthesis becomes false at some point - otherwise, we'll have what's known as an infinite loop!
 
 The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value.
 
@@ -452,7 +452,7 @@ Sample array: [20, 20, 30, 40, 50, 50, 50]
 
 ### Exercise (5 mins)
 
-Complete this function so that, if the second index in array contains the name "Amy", it returns `"Second index matched!"`
+Complete this function so that, if the second index in the array contains the name "Amy", it returns `"Second index matched!"`
 
 ```js
 function secondMatchesAmy(array) {
@@ -543,10 +543,10 @@ for (let i = 0; i < 10; ++i) {
 ## Glossary
 
 - Assert: to determine whether something is true or not true, more precisely false
-- Duplicate: exact copies of something (e.g. two or more files, numbers, directory can be exactly the same)
+- Duplicate: exact copies of something (e.g. two or more files, numbers, directories can be exactly the same)
 - Index: numbers that let you know an item's position inside an array
 - REPL: (Read-Eval-Print-Loop) an interactive way to execute code you write inside the console
-- Zero-based Index: an arrays starting at `0` and not at `1`
+- Zero-based Index: an array starting at `0` and not at `1`
 
 For words like **Terminal**, **Primitive Types** please see [Glossary: JavaScript Core I - 2](../week-1/lesson.md#Glossary)
 

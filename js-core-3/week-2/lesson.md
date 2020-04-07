@@ -1,305 +1,197 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+# JavaScript III - Week 2
 
-# JS Core III - 2
+## Agenda
 
-** What we will learn today?**
-* [Debugging](#good-design)
-* [Good Design](#good-design)
-* [Async and Sync revisited](#async-vs-sync)
-* [Intro to ES6](#intro-to-es6)
+The purpose of this class is to introduce to the student:
 
----
+- How to use the `fetch` API to do AJAX calls
+- The structure and use of `Promises`
+- The `this` keyword and its relationship with `scope`
 
-# Debugging
+## Core concepts
 
-Debugging is the process of finding and resolving defects or problems within a computer program that prevent correct operation of computer software or a system.
+## 1. Promises
 
-## Syntax bugs
-A syntax bug is an error caused by something the programmer has typed – it could be a spelling mistake or a command that the computer doesn’t understand.
+### Explanation
 
-## Logical bugs
-A logical bug is an error which means that even though the computer is able to carry out its instructions, it doesn’t act as the programmer intended or the user expects.
+- It's a way to introduce asynchronicity to your application
+- Makes asynchronous code read like it's synchronous
 
-> Exercise: This website ([https://kabaros.github.io/dom-ajax-repo-solution](https://kabaros.github.io/dom-ajax-repo-solution)) has *bugs*. Use Chrome Developer Tools to find out what is causing these issues.
+### Example
 
-> Follow this tutorial about [Debugging with Chrome](https://developers.google.com/web/tools/chrome-devtools/javascript/)
+In the examples `setTimeout` is used to illustrate asynchronous code. In the real world there will be some code doing useful work here, for example `fetch`.
 
-> The terms "bug" and "debugging" are popularly attributed to Admiral Grace Hopper in the 1940s.[1] While she was working on a Mark II computer at Harvard University, her associates discovered a moth stuck in a relay and thereby impeding operation, whereupon she remarked that they were "debugging" the system
+**Callback**
 
-# Good Design
+```javascript
+let doHomeWork = function (cb) {
+  setTimeout(function () {
+    if (true) cb();
+    // homework done
+    else cb("homework not done, too lazy");
+  }, 1000);
+};
 
-Design is important if we want our code to be understandable (both to other
-humans, but also to us in the future), to be easy to use and easy to expand.
+doHomeWork(function (err) {
+  if (err) console.warn(err);
+  else console.log("home work is done now");
+});
+```
 
-There are three main principles you need to know now: clarity, reusability and
-extensibility. There are also others, but they are deeply related to these
-three.
+**Promise**
 
-* Ease of Maintenance / Clarity
-  * Naming
-  * Commenting
-  * Clear logic
-  * Concise
-  * Formatting
-  * Avoiding Redundancy
+```javascript
+let promiseToDoHomeWork = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    if (true) resolve();
+    // homework done
+    else reject("homework not done, too lazy");
+  }, 1000);
+});
 
-* Reusability
-  * DRY
-  * Single Reponsibility
-    * Avoiding global state (scope)
-    * Predictability and Ease of testing
+promiseToDoHomeWork
+  .then(function () {
+    console.log("home work is done now");
+  })
+  .catch(function (err) {
+    console.warn(err);
+  });
+```
 
-* Extensibility
-  * Avoiding being unnecessarily specific (e.g. magic numbers)
+## 2. The `this` keyword and its relationship with `scope`
 
-Now let's take a look at a bigger example of a badly written function
+### Explanation
 
-```js
-function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
-  var totalIncomeTax = incomeTax1 + incomeTax2;
-  var studentLoan = (salary - 17775) * 0.09;
-  var originalSalary = salary;
-  var nationalInsurance = null;
+- The environment(or scope) in which the line is being executed is know as “Execution Context”
+- The object that `this` refers to, changes every time execution context is changed.
+- Whatever is calling the function passes the `this` value to it by default.
+- We can pass specific `this` by `.bind`, `.call` or `.apply`
+- By default, “this” refers to global object which is `global` in case of NodeJS and `window` object in case of browser
 
-  if (taxCode === "1150L") {
-    nationalInsurance = salary * 0.1;
-  } else if (taxCode === "ST") {
-    nationalInsurance = salary * 0.05;
-  } else {
-    nationalInsurance = salary * 0.08;
+### Example
+
+#### “this” refers to global object
+
+```javascript
+// Immediately Invoked Function Expression (IIFE)
+(function () {
+  // First Example
+  function foo() {
+    console.log("Simple function call");
+    console.log(this === window);
   }
 
-  var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
-
-  salary = salary - deductions[0];
-  salary = salary - deductions[1];
-  salary = salary - deductions[2];
-
-  return (
-    "Your gross income is £" +
-    originalSalary.toString() +
-    " and your net income is £" +
-    salary.toString() +
-    "."
-  );
-}
-
-console.log(myFunction(28000, "1150L", 1000, 580, false));
+  foo(); //prints true on console
+  console.log(this === window); //Prints true on console.
+})();
 ```
 
-What is wrong with this function?
+As you see in the example, the `foo()` function is called based on `window`, this makes the default `this` inside this `foo` function get the value `window`
 
-1. Naming: the function has a bad name, myFunction() tells you nothing about
-   what the function does. It's also considered bad practice to name variables
-   vaguely by separating them through numbers (incomeTax1, incomeTax2, etc). If
-   you find yourself doing this then you should either use an array (such as
-   incomeTax[]).
+> Note: we say a function is called based on window when there's no object calling it, like `obj.foo()`, but calling `foo()` acts if it was `window.foo()`
 
-2. Commenting: the function isn't documented at all. It's very difficult to
-   understand what the function's purpose is and how each part of the code
-   contributes to it. By writing comments, the coder communicates their
-   reasoning and helps the function be human readable.
+> Note: If `strict mode` is enabled for any function then the value of “this” will be “undefined” as in strict mode, global object refers to undefined in place of windows object.
 
-3. Layout/formatting: unnecessary spacing between the if and else statement.
-
-4. Single responsibility: the function doesn't have a single purpose. It
-   calculates national insurance and salary deductions. Maybe the national
-   insurance calculation could be moved to a separate function.
-
-5. Input variable being overwritten: the function requires gross salary (before
-   deductions) and net salary (after deductions) the `salary` input variable is
-   therefore copied into an `originalSalary` variable so that it can be changed.
-   It would be much clearer to create a new `netSalary` variable and leave
-   `salary` unmodified.
-
-6. DRY principle: the function validates the DRY (Don't Repeat Yourself) rule.
-   The line where a deduction is taken from the salary is repeated 3 times with
-   different indices. This can be replaced with a `for` loop.
-
-7. Magic numbers. The code contains a lot of magic numbers, including `17775`,
-   `0.09` and `0.1`.
-
-8. Useless parameters: the code contains a variable which isn't used. They
-   should be removed because they are confusing. It is tempting when you're
-   starting to code a function to add more parameters thinking that you might
-   need them, but it's important to remove them if you don't end up using them.
-
-> Exercise: Working in pairs, go through all of these issues and make
-> appropriate improvements to the code.
-
-# Async vs Sync
-ToDO: Trace async code on paper
-
-- Different ways of doing async in JavaScript
-
-
-# Intro to ES6
-
-ECMAScript 2015 (or ES6) is a significant update to JavaScript that introduces
-new syntax for writing complex applications. 
-
-## const and let
-
-You have already come across the `var` keyword as a way to create new variables.
-The `let` and `const` keywords are also used for variable creation, but the
-variables created using these keywords have different scope. Var has "function
-scope", whereas let and const have "block scope".
-
-> Exercise: This **badly designed** function will throw the error `message is
-> not defined`. What is the problem, and how could we fix it?
-
-```js
-function compareNumbers(m, n) {
-  if (m < n) {
-    let message = m + " is smaller than " + n;
-  } else {
-    let message = m + " is bigger than or equal to " + n;
-  }
-
-  return message;
+```javascript
+function foo() {
+  "use strict";
+  console.log("Simple function call");
+  console.log(this === window);
 }
+
+foo(); //prints false on console as in “strict mode” value of “this” in global execution context is undefined.
 ```
 
-The `const` keyword is similar to `let`, the only difference is that a variable
-declared using `const` can't be changed after it is assigned.
+#### this refers to new instance (constructors)
 
-> Exercise: What advantages might a block scope variable have over a function
-> scope variable? In what situation might you want to use `const` instead of a
-> variable that can be re-assigned?
+```javascript
+function Person(fn, ln) {
+  this.first_name = fn;
+  this.last_name = ln;
 
-> Exercise: Let's update this code to use `let` and `const` instead of `var`
-
-```js
-function getCircleArea(radius) {
-  var pi = Math.PI;
-  var rSquared = Math.pow(radius, 2);
-
-  return pi * rSquared;
+  this.displayName = function () {
+    console.log(`Name: ${this.first_name} ${this.last_name}`);
+  };
 }
 
-function getCircleAreas(radiusArr) {
-  var areasArr = [];
-
-  for (var i = 0; i < radiusArr.length; i++) {
-    var circleArea = getCircleArea(radiusArr[i]);
-    areasArr.push(circleArea);
-  }
-
-  return areasArr;
-}
+let person = new Person("John", "Reed");
+person.displayName(); // Prints Name: John Reed
+let person2 = new Person("Paul", "Adams");
+person2.displayName(); // Prints Name: Paul Adams
 ```
 
-## Template literals
+- In Javascript, property of an object can be a method or a simple value.
+- When an Object’s method is invoked then “this” refers to the object which contains the method being invoked.
 
-We do a lot of string concatenation in JavaScript - ES6 introduces a more
-elegant way of accomplishing the same.
-
-```js
-function greeting(name) {
-  return "Hello " + name + ", welcome to JS core 3!";
+```javascript
+function foo() {
+  "use strict";
+  console.log("Simple function call");
+  console.log(this === window);
 }
+
+let user = {
+  count: 10,
+  foo: foo,
+  foo1: function () {
+    console.log(this === window);
+  },
+};
+
+user.foo(); // Prints false because now “this” refers to user object instead of global object.
+let fun1 = user.foo1;
+fun1(); // Prints true as this method is invoked as a simple function.
+user.foo1(); // Prints false on console as foo1 is invoked as a object’s method
 ```
 
-Rewriting this function in ES6, we have
+> Note: the value of “this” depends on how a method is being invoked as well.
 
-```js
-function greeting(name) {
-  return `Hello ${name}, welcome to JS core 3!`;
+#### “this” with call, apply methods
+
+- These methods can be used to set custom value of `this` to the execution context of function, also they can pass arguments/parameters to the function
+
+```javascript
+function Person(fn, ln) {
+  this.first_name = fn;
+  this.last_name = ln;
+
+  this.displayName = function (prefix) {
+    console.log(`Name: ${prefix} ${this.first_name} ${this.last_name}`);
+  };
 }
+
+let person = new Person("John", "Reed");
+person.displayName(); // Prints Name: John Reed
+let person2 = new Person("Paul", "Adams");
+person2.displayName(); // Prints Name: Paul Adams
+
+person.displayName.call(person2, "Mr"); // Here we are setting value of this to be person2 object
+person.displayName.call(person2, ["Mr"]); // Here we are setting value of this to be person2 object
 ```
 
-## Arrow functions
+#### “this” with bind method
 
-ES6 also has a new way of declaring functions. Let's see how it works.
+`bind` only create a copy of the function with the binded `this` inside without calling the function.
 
-```js
-// before 
-function sum(a, b, c) {
-  return a + b + c;
+```javascript
+function Person(fn, ln) {
+  this.first_name = fn;
+  this.last_name = ln;
+
+  this.displayName = function () {
+    console.log(`Name: ${this.first_name} ${this.last_name}`);
+  };
 }
 
-// ES6
-const sum = (a, b, c) => {
-  return a + b + c;
-}
+let person = new Person("John", "Reed");
+person.displayName(); // Prints Name: John Reed
+let person2 = new Person("Paul", "Adams");
+person2.displayName(); // Prints Name: Paul Adams
+
+let person2Display = person.displayName.bind(person2); // Creates new function with value of “this” equals to person2 object
+person2Display(); // Prints Name: Paul Adams
 ```
 
-If the function only contains one expression, the curly braces and the `return` 
-are optional and we can write the whole function in one line. 
+### Exercise
 
-```js
-const sum = (a, b, c) => a + b + c;
-```
-
-> Exercise: Refactor the previous code to have a separate function that checks
-> if gender is 'female' or not, and use it in sayGreeting. Let's try and make
-> the code as compact as possible together using ES6 features.
-
-
-## Default parameters 
-
-ES6 allows us to declare defaults for function arguments. The default value is 
-used when the argument/parameter is either missing or `undefined`. 
-
-This function returns the sum of three numbers. Let's assume we want to use the 
-same function with only two arguments: 
-
-```js
-// without default parameter
-const sum = (a, b, c) => {
-  c = c || 0;
-  return a + b + c;
-}
-
-console.log(sum(1, 3, 4)) // 8
-console.log(sum(2, 5)) // NaN
-
-// with default parameter 
-const sum = (a, b, c = 0) => {
-  return a + b + c;
-}
-console.log(sum(2, 5)) // 7
-```
-
-
-## Destructuring
-
-In ES6 we can extract data from objects or arrays using destructuring. 
-
-```js
-// before 
-var chicken = {
-  name: 'Maggie', 
-  age: 2
-}
-
-var name = chicken.name;
-var age = chicken.age;
-
-var numbers = [1, 2];
-
-var firstNumber = numbers[0];
-var secondNumber = numbers[1];
-
-
-// in ES6
-const chicken = {
-  name: 'Maggie', 
-  age: 2
-}
-
-const { name, age } = chicken;
-
-const numbers = [1, 2];
-
-const [firstNumber, secondNumber] = numbers;
-
-```
-
-
-# Resources
-
-* [ES6 features](http://es6-features.org/)
-* [Let and const](http://wesbos.com/let-vs-const/)
-
-{% include "./homework.md" %}
+### Essence

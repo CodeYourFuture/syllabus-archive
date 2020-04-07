@@ -1,31 +1,44 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+# JavaScript III - Week 3
 
-To Be Agreed
+## Agenda
 
-# JS Core III
+The purpose of this class is to introduce to the student:
 
-** What we will learn today?**
+- The purpose and use of `async/await`
+- How to use ES6 `classes`
+- Debugging your code
 
-* Topic 1
-* Topic 2
-* Topic 3
-* Topic 4
+## Core concepts
 
----
+## 1. async/await
 
-## Topic 1
+### Explanation
 
-High level explanation of Topic 1 - rely on the exercises
+- It's an upgrade to `Promises`
+- Makes writing an asynchronous function more readable
 
-> **Exercise**: Always have exercises
+### Example
 
-## Topic 2
+### Exercise
 
-## Topic 3
+## 2. ES6 classes
 
-# Resources
+### Explanation
 
-1. [Resource 1 to learn more about Topic 1](https://google.com)
-2. [Resource 2 for Topic 2](https://google.com)
+- `classes` are a modern way of creating objects in JavaScript
+- It's `syntactical sugar` for object constructors
+- A `class` is a blueprint of an object, that can be instantiated
 
-{% include "./homework.md" %}
+### Example
+
+### Exercise
+
+## 3. Debugging
+
+### Explanation
+
+- Explain how a programmer can go about working out what is wrong in their code
+
+### Example
+
+### Exercise

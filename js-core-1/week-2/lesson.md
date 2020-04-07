@@ -542,11 +542,11 @@ for (let i = 0; i < 10; ++i) {
 
 ## Glossary
 
-- Assert: to determine whether something is true or not true, more precisely false
-- Duplicate: exact copies of something (e.g. two or more files, numbers, directories can be exactly the same)
+- Assert: to determine whether something is `true` or not `true`, more precisely `false`
+- Duplicate: exact copies of something (e.g. two or more files, numbers, directory can be exactly the same)
 - Index: numbers that let you know an item's position inside an array
 - REPL: (Read-Eval-Print-Loop) an interactive way to execute code you write inside the console
-- Zero-based Index: an array starting at `0` and not at `1`
+- Zero-based Index: an `array` starting at `0` and not at `1`
 
 For words like **Terminal**, **Primitive Types** please see [Glossary: JavaScript Core I - 2](../week-1/lesson.md#Glossary)
 

@@ -4,7 +4,6 @@
 
 The purpose of this class is to introduce to the student:
 
-- How to use the `fetch` API to do AJAX calls
 - The structure and use of `Promises`
 - The `this` keyword and its relationship with `scope`
 

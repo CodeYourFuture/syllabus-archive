@@ -19,7 +19,11 @@ The purpose of this class is to introduce to the student:
 
 ### Example
 
+<!-- TODO -->
+
 ### Exercise
+
+<!-- TODO -->
 
 ## 2. ES6 classes
 
@@ -31,7 +35,11 @@ The purpose of this class is to introduce to the student:
 
 ### Example
 
+<!-- TODO -->
+
 ### Exercise
+
+<!-- TODO -->
 
 ## 3. Debugging
 
@@ -41,4 +49,8 @@ The purpose of this class is to introduce to the student:
 
 ### Example
 
+<!-- TODO -->
+
 ### Exercise
+
+<!-- TODO -->

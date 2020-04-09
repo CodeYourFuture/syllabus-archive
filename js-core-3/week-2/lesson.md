@@ -145,52 +145,18 @@ user.foo1(); // Prints false on console as foo1 is invoked as a object’s metho
 
 > Note: the value of “this” depends on how a method is being invoked as well.
 
-#### “this” with call, apply methods
+### Exercise 1
 
-- These methods can be used to set custom value of `this` to the execution context of function, also they can pass arguments/parameters to the function
+<!-- TODO -->
 
-```javascript
-function Person(fn, ln) {
-  this.first_name = fn;
-  this.last_name = ln;
+### Exercise 2
 
-  this.displayName = function (prefix) {
-    console.log(`Name: ${prefix} ${this.first_name} ${this.last_name}`);
-  };
-}
+<!-- TODO -->
 
-let person = new Person("John", "Reed");
-person.displayName(); // Prints Name: John Reed
-let person2 = new Person("Paul", "Adams");
-person2.displayName(); // Prints Name: Paul Adams
+## 3. Recap
 
-person.displayName.call(person2, "Mr"); // Here we are setting value of this to be person2 object
-person.displayName.call(person2, ["Mr"]); // Here we are setting value of this to be person2 object
-```
+<!--
 
-#### “this” with bind method
+In this section we'd like to recap one or two critical sections from JS1/JS2
 
-`bind` only create a copy of the function with the binded `this` inside without calling the function.
-
-```javascript
-function Person(fn, ln) {
-  this.first_name = fn;
-  this.last_name = ln;
-
-  this.displayName = function () {
-    console.log(`Name: ${this.first_name} ${this.last_name}`);
-  };
-}
-
-let person = new Person("John", "Reed");
-person.displayName(); // Prints Name: John Reed
-let person2 = new Person("Paul", "Adams");
-person2.displayName(); // Prints Name: Paul Adams
-
-let person2Display = person.displayName.bind(person2); // Creates new function with value of “this” equals to person2 object
-person2Display(); // Prints Name: Paul Adams
-```
-
-### Exercise
-
-### Essence
+-->

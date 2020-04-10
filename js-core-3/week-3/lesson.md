@@ -10,64 +10,28 @@
 
 The purpose of this class is to introduce to the student:
 
-- The purpose and use of `async/await`
-- How to use ES6 `classes`
-- Debugging your code
+1. Debugging your code
+2. Continue to consolidate learning in the project work
 
-## Core concepts
-
-## 1. async/await
-
-### Explanation
-
-- It's an upgrade to `Promises`
-- Makes writing an asynchronous function more readable
-
-### Example
-
-<!-- TODO -->
-
-### Exercise
-
-<!-- TODO -->
-
-## 1. ES6 classes
-
-### Explanation
-
-- `classes` are a modern way of creating objects in JavaScript
-- It's `syntactical sugar` for object constructors
-- A `class` is a blueprint of an object, that can be instantiated
-
-### Example
-
-<!-- TODO -->
-
-### Exercise
-
-<!-- TODO -->
-
-## 1. POST Requests with Fetch
-
-### Explanation
-
-- Explain the concept and ideas behind GET and POST
-- Explain how to do them using Fetch
-- See them in practice
-
-### Example
-
-<!-- TODO -->
-
-### Exercise
-
-<!-- TODO -->
-
-## 3. Debugging
+## 1. Debugging
 
 ### Explanation
 
 - Explain how a programmer can go about working out what is wrong in their code
+
+### Example
+
+<!-- TODO -->
+
+### Exercise
+
+<!-- TODO -->
+
+## 2. Project Work
+
+### Explanation
+
+- Explain some key concepts that will be appearing in the homework this week
 
 ### Example
 

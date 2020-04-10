@@ -100,8 +100,16 @@ user.foo1(); // Prints false on console as foo1 is invoked as a object’s metho
 
 > Note: the value of “this” depends on how a method is being invoked as well.
 
-## 2. Continue with project work
+## 2. Project Work
 
-Last week you started work on your final JavaScript project.
+### Explanation
 
-In your groups, you should continue with this and start on this weeks homework. Use your Teaching Assistant to explain anything you don't understand!
+- Explain some key concepts that will be appearing in the homework this week
+
+### Example
+
+<!-- TODO -->
+
+### Exercise
+
+<!-- TODO -->

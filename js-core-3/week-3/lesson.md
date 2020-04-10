@@ -2,6 +2,10 @@
 
 ## Learning Objectives
 
+- The learner should understand the value of thorough and comprehensive debugging
+- The learner should be able to use error messages to debug simple logical or syntactical errors in their code
+- The learner should be able to logically step through their code to find bugs and errors
+
 ## Agenda
 
 The purpose of this class is to introduce to the student:

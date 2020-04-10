@@ -1,6 +1,6 @@
 # JavaScript Core 3
 
-## Overall Learning Objectives
+## Module Learning Objectives
 
 - The learner should be able to create a single-page application that
   - retrieves data from an `API` using `fetch`
@@ -8,8 +8,9 @@
   - use `DOM` manipulation to build a website
   - uses `event handlers` to respond to user interactions
 - The learner should understand the basics of `HTTP` `GET` and `POST` requests as they are used in practice
-- The learner should be able to use error messages to debug simple logical or syntactical errors in their code
 - The learner should understand the concept of `Promise` and how `fetch` is an implementation of it
+- The learner should be able to demonstrate a good understanding of the JavaScript language and syntax in solving practical problems
+- The learner should understand the concepts around `this` and `scope`
 
 ## Content
 

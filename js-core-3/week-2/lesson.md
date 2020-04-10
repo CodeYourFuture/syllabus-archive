@@ -2,64 +2,17 @@
 
 ## Learning Objectives
 
+- Understand the use of the `this` keyword in JavaScript
+- Understand the concept of scope and be able to define `Global`, `Function` and `Block` scope
+
 ## Agenda
 
 The purpose of this class is to introduce to the student:
 
-- The structure and use of `Promises`
-- The `this` keyword and its relationship with `scope`
+1. The `this` keyword and its relationship with `scope`
+2. Project Work
 
-## Core concepts
-
-## 1. Promises
-
-### Explanation
-
-- It's a way to introduce asynchronicity to your application
-- Makes asynchronous code read like it's synchronous
-
-### Example
-
-In the examples `setTimeout` is used to illustrate asynchronous code. In the real world there will be some code doing useful work here, for example `fetch`.
-
-**Callback**
-
-```javascript
-let doHomeWork = function (cb) {
-  setTimeout(function () {
-    if (true) cb();
-    // homework done
-    else cb("homework not done, too lazy");
-  }, 1000);
-};
-
-doHomeWork(function (err) {
-  if (err) console.warn(err);
-  else console.log("home work is done now");
-});
-```
-
-**Promise**
-
-```javascript
-let promiseToDoHomeWork = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    if (true) resolve();
-    // homework done
-    else reject("homework not done, too lazy");
-  }, 1000);
-});
-
-promiseToDoHomeWork
-  .then(function () {
-    console.log("home work is done now");
-  })
-  .catch(function (err) {
-    console.warn(err);
-  });
-```
-
-## 2. The `this` keyword and its relationship with `scope`
+## 1. The `this` keyword and its relationship with `scope`
 
 ### Explanation
 
@@ -147,18 +100,8 @@ user.foo1(); // Prints false on console as foo1 is invoked as a object’s metho
 
 > Note: the value of “this” depends on how a method is being invoked as well.
 
-### Exercise 1
+## 2. Continue with project work
 
-<!-- TODO -->
+Last week you started work on your final JavaScript project.
 
-### Exercise 2
-
-<!-- TODO -->
-
-## 3. Recap
-
-<!--
-
-In this section we'd like to recap one or two critical sections from JS1/JS2
-
--->
+In your groups, you should continue with this and start on this weeks homework. Use your Teaching Assistant to explain anything you don't understand!

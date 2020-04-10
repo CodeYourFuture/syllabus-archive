@@ -5,10 +5,12 @@
 - The learner should understand what the acronym API means
 - The learner should understand why an `API`s purpose is and why it is useful
 - The learner should understand the structure of `API`s url and how it can be manipulated to change the data
+- The learner should be able to define what a `Promise` is
 - The learner should understand what `fetch` is and what it is used for
 - The learner should be able to use `fetch` to retrieve `JSON` from an `API`
 - The learner should be able to parse the `JSON` and extract data from it
 - The learner should be able to use `DOM` manipulation to add content to the `DOM`
+- The learner should understand `window.onload` and `document.onload` and should be able to assign functions to run at specific life cycle events
 
 ## Agenda
 
@@ -71,6 +73,28 @@ The purpose of this class is to introduce to the student:
 - The Fetch API is defined in the browser (window.fetch)
 - Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
 - Fetch API documentations by mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+### What is Fetch made of?
+
+Fetch is an example of a javascript which has a very specific structure.
+
+```javascript
+let promiseToDoHomeWork = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    if (true) resolve();
+    // homework done
+    else reject("homework not done, too lazy");
+  }, 1000);
+});
+
+promiseToDoHomeWork
+  .then(function () {
+    console.log("homework is done now");
+  })
+  .catch(function (err) {
+    console.warn(err);
+  });
+```
 
 ### Example
 

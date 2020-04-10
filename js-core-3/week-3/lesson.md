@@ -1,4 +1,6 @@
-# JavaScript III - Week 3
+# JavaScript Core III - Week 3
+
+## Learning Objectives
 
 ## Agenda
 
@@ -25,13 +27,29 @@ The purpose of this class is to introduce to the student:
 
 <!-- TODO -->
 
-## 2. ES6 classes
+## 1. ES6 classes
 
 ### Explanation
 
 - `classes` are a modern way of creating objects in JavaScript
 - It's `syntactical sugar` for object constructors
 - A `class` is a blueprint of an object, that can be instantiated
+
+### Example
+
+<!-- TODO -->
+
+### Exercise
+
+<!-- TODO -->
+
+## 1. POST Requests with Fetch
+
+### Explanation
+
+- Explain the concept and ideas behind GET and POST
+- Explain how to do them using Fetch
+- See them in practice
 
 ### Example
 

@@ -1,13 +1,21 @@
-# Lesson Plan JavaScript3 Week 1
+# JavaScript Core III - Week 1
+
+## Learning Objectives
+
+- The learner should understand what the acronym API means
+- The learner should understand why an `API`s purpose is and why it is useful
+- The learner should understand the structure of `API`s url and how it can be manipulated to change the data
+- The learner should understand what `fetch` is and what it is used for
+- The learner should be able to use `fetch` to retrieve `JSON` from an `API`
+- The learner should be able to parse the `JSON` and extract data from it
+- The learner should be able to use `DOM` manipulation to add content to the `DOM`
 
 ## Agenda
 
 The purpose of this class is to introduce to the student:
 
-- What are `APIs` and how to interact with them
-- What is `AJAX` and how to apply it using `Fetch`
-
-## Core concepts
+1. What are `APIs` and how to interact with them
+2. How to use the `fetch` API to do AJAX calls
 
 ## 1. What are APIs and how to interact with them
 

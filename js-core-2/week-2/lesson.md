@@ -1,6 +1,4 @@
-![Draft lesson](https://img.shields.io/badge/status-draft-darkred.svg)
-
-# JavaScript Core II - 2
+# JavaScript Core II - Week 2
 
 **What we will learn today?**
 

@@ -1,4 +1,6 @@
-# JavaScript III - Week 2
+# JavaScript Core III - Week 2
+
+## Learning Objectives
 
 ## Agenda
 

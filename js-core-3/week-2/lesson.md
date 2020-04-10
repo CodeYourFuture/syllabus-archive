@@ -2,7 +2,7 @@
 
 ## Learning Objectives
 
-- Understand the concept of variable scope and be able to define them in `global`, `local`, `block` and `instance` scope
+- Understand the concept of variable scope and be able to define them in global, local, block and class scope
 - Understand the use of the `this` keyword in JavaScript ES6 classes
 
 ## Agenda
@@ -13,7 +13,7 @@ The purpose of this class is to introduce to the student:
    * Local
    * Block
    * Global
-   * `this` (Class)
+   * Class
 2. Project Work
 
 ## 1. Variable Scoping

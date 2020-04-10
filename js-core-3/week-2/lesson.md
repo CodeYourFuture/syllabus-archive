@@ -2,103 +2,183 @@
 
 ## Learning Objectives
 
-- Understand the use of the `this` keyword in JavaScript
-- Understand the concept of scope and be able to define `Global`, `Function` and `Block` scope
+- Understand the concept of variable scope and be able to define them in `global`, `local`, `block` and `instance` scope
+- Understand the use of the `this` keyword in JavaScript ES6 classes
 
 ## Agenda
 
 The purpose of this class is to introduce to the student:
 
-1. The `this` keyword and its relationship with `scope`
+1. The scoping of variables, specifically in reference to:
+   * Local
+   * Block
+   * Global
+   * `this` (Class)
 2. Project Work
 
-## 1. The `this` keyword and its relationship with `scope`
+## 1. Variable Scoping
 
-### Explanation
+After you declare or define a variable, you may refer to it later in your code using the variable name.
 
-- The environment(or scope) in which the line is being executed is know as “Execution Context”
-- The object that `this` refers to, changes every time execution context is changed.
-- Whatever is calling the function passes the `this` value to it by default.
-- We can pass specific `this` by `.bind`, `.call` or `.apply`
-- By default, “this” refers to global object which is `global` in case of NodeJS and `window` object in case of browser
+Depending on how you declare the variable, you can limit the context in which the variable name can be referenced. This can help with the readability of your code.
 
-### Example
+### Local Variables
 
-#### “this” refers to global object
+These variables are declared using the `let` statement as you've been familiar with:
 
 ```javascript
-// Immediately Invoked Function Expression (IIFE)
-(function () {
-  // First Example
-  function foo() {
-    console.log("Simple function call");
-    console.log(this === window);
-  }
-
-  foo(); //prints true on console
-  console.log(this === window); //Prints true on console.
-})();
+let greeting = "Hello, ";
 ```
 
-As you see in the example, the `foo()` function is called based on `window`, this makes the default `this` inside this `foo` function get the value `window`
-
-> Note: we say a function is called based on window when there's no object calling it, like `obj.foo()`, but calling `foo()` acts if it was `window.foo()`
-
-> Note: If `strict mode` is enabled for any function then the value of “this” will be “undefined” as in strict mode, global object refers to undefined in place of windows object.
+However, if these definitions are done within a function, they become **local** to it:
 
 ```javascript
-function foo() {
-  "use strict";
-  console.log("Simple function call");
-  console.log(this === window);
+
+let greetUser = (username) => {
+
+  let greeting = "Hello,";
+  
+  console.log(greeting, username);
+
+};
+
+greetUser("Jenny");
+// Prints "Hello, Jenny"
+
+// However, the greeting variable cannot be referenced here, since it's been declared within the greetUser function and we are currently trying to reference it outside the function:
+
+console.log(greeting);
+// Uncaught ReferenceError: greeting is not defined
+
+```
+
+Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
+
+```
+let x = 1;
+
+{
+   let x = 2;  // different x variable
+   x = 3;  // assigning to inner x variable
+   console.log(x);  // 3
 }
 
-foo(); //prints false on console as in “strict mode” value of “this” in global execution context is undefined.
+console.log(x);  // 1
 ```
 
-#### this refers to new instance (constructors)
+This block scoping behaviour will apply in `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
+
+If you need variable to be globally accessible, you can also omit declaring them with the `let` keyword.
+
+### Global Variables
+
+A variable that needs to be accessed everywhere (e.g. by many functions) can be defined as a global variable. You can do this by omitting the `let` keyword:
 
 ```javascript
-function Person(fn, ln) {
-  this.first_name = fn;
-  this.last_name = ln;
 
-  this.displayName = function () {
-    console.log(`Name: ${this.first_name} ${this.last_name}`);
+// The variable VERSION can be subsequently be referenced anywhere in your code.
+VERSION = "1.0.4";
+
+```
+
+Alternatively in the browser, you can also assign it only the `window` object, e.g.:
+
+```javascript
+
+window.VERSION = "1.0.4";
+
+```
+
+Global variables are handy but can hurt code readability, especially if your code is in a big file or spread across multiple files.
+
+### Classes
+
+Variables can be used to hold information about the state your code is in, e.g. how many times someone has clicked on a button:
+
+```javascript
+
+let timesClicked = 0;
+
+let whenButtonClicked = () => {
+  timesClicked++;
+  console.log(`Button has been clicked ${timesClicked} times`);
+};
+
+document.querySelector('#myButton').addEventListener('click', whenButtonClicked);
+
+```
+
+However, you may end up being in a situation where you'll have to keep track of the click state of multiple buttons, or even a dynamic number of buttons:
+
+
+```javascript
+
+let timesClicked1 = 0;
+let timesClicked2 = 0;
+
+let whenButtonClicked1 = () => {
+  timesClicked1++;
+  console.log(`Button has been clicked ${timesClicked1} times`);
+};
+
+let whenButtonClicked2 = () => {
+  timesClicked2++;
+  console.log(`Button has been clicked ${timesClicked2} times`);
+};
+
+document.querySelector('#myButton1').addEventListener('click', whenButtonClicked1);
+document.querySelector('#myButton2').addEventListener('click', whenButtonClicked2);
+
+```
+
+We can reduce this code duplication by using a JavaScript `class` (not the same as a class in CSS), a structure that ties together the state (`timesClicked`) and any functions that reference it (`whenButtonClicked`):
+
+```javascript
+
+class Counter {
+
+  constructor() {
+    this.timesClicked = 0;
+  }
+
+  whenClicked() {
+    this.timesClicked++;
+    console.log(`Button has been clicked ${this.timesClicked} times`);
   };
 }
 
-let person = new Person("John", "Reed");
-person.displayName(); // Prints Name: John Reed
-let person2 = new Person("Paul", "Adams");
-person2.displayName(); // Prints Name: Paul Adams
+let counter1 = new Counter();
+let counter2 = new Counter();
+
+document.querySelector('#myButton1').addEventListener('click', counter1.whenClicked);
+document.querySelector('#myButton2').addEventListener('click', counter2.whenClicked);
 ```
 
-- In Javascript, property of an object can be a method or a simple value.
-- When an Object’s method is invoked then “this” refers to the object which contains the method being invoked.
+We can create instances of a class using the `new` operator, followed by the class name. When a class instance is created, its `constructor` function is called. We can pass the constructor arguments to use during initialisation.
+
+For example, here is a `CounterFromN` class that starts counting from a number that's passed in:
 
 ```javascript
-function foo() {
-  "use strict";
-  console.log("Simple function call");
-  console.log(this === window);
+
+class CounterFromN {
+
+  constructor(n) {
+    this.timesClicked = n;
+  }
+
+  whenClicked() {
+    this.timesClicked++;
+    console.log(`Button has been clicked ${this.timesClicked} times`);
+  };
 }
 
-let user = {
-  count: 10,
-  foo: foo,
-  foo1: function () {
-    console.log(this === window);
-  },
-};
+let counterFromTen = new CounterFromN(10);
 
-user.foo(); // Prints false because now “this” refers to user object instead of global object.
-let fun1 = user.foo1;
-fun1(); // Prints true as this method is invoked as a simple function.
-user.foo1(); // Prints false on console as foo1 is invoked as a object’s method
+counterFromTen.whenClicked();
+// Button has been clicked 11 times
 ```
 
-> Note: the value of “this” depends on how a method is being invoked as well.
+Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
 
 ## 2. Project Work
 

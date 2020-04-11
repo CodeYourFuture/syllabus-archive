@@ -2,8 +2,9 @@
 
 ## Learning Objectives
 
-- Understand the concept of variable scope and be able to define them in global, local, block and class scope
-- Understand the use of the `this` keyword in JavaScript ES6 classes
+- The learner should understand the concept of variable scope and be able to define them in global, local, block and class scope
+- The learner should be able to create a JavaScript ES6 class that represents a simple object
+- The learner should understand the use of the `this` keyword in JavaScript ES6 classes
 
 ## Agenda
 
@@ -50,16 +51,16 @@ console.log(greeting);
 
 Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
 
-```
+```javascript
 let x = 1;
 
 {
-   let x = 2;  // different x variable
-   x = 3;  // assigning to inner x variable
-   console.log(x);  // 3
+  let x = 2; // different x variable
+  x = 3; // assigning to inner x variable
+  console.log(x); // 3
 }
 
-console.log(x);  // 1
+console.log(x); // 1
 ```
 
 This block scoping behaviour will apply in `for` loops, `while` and `if` statements (i.e. anything within curly brackets).

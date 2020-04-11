@@ -3,11 +3,11 @@
 ## Learning Objectives
 
 - The learner should understand what the acronym API means
-- The learner should understand what an `API`s purpose is and why it is useful
-- The learner should understand the structure of `API`s url and how it can be manipulated to change the data
+- The learner can define what an `REST API`s purpose is and why it is useful
+- The learner should understand the structure of `REST API`s url and how it can be manipulated to change the data
 - The learner should be able to define what a `Promise` is
 - The learner should understand what `fetch` is and what it is used for
-- The learner should be able to use `fetch` to retrieve `JSON` from an `API`
+- The learner should be able to use `fetch` to retrieve `JSON` from an `REST API`
 - The learner should be able to parse the `JSON` and extract data from it
 - The learner should be able to use `DOM` manipulation to add content to the `DOM`
 - The learner should understand `window.onload` and `document.onload` and should be able to assign functions to run at specific life cycle events

@@ -10,10 +10,10 @@
 The purpose of this class is to introduce to the student:
 
 1. The scoping of variables, specifically in reference to:
-   * Local
-   * Block
-   * Global
-   * Class
+   - Local
+   - Block
+   - Global
+   - Class
 2. Project Work
 
 ## 1. Variable Scoping
@@ -33,13 +33,10 @@ let greeting = "Hello, ";
 However, if these definitions are done within a function, they become **local** to it:
 
 ```javascript
-
 let greetUser = (username) => {
-
   let greeting = "Hello,";
-  
-  console.log(greeting, username);
 
+  console.log(greeting, username);
 };
 
 greetUser("Jenny");
@@ -49,7 +46,6 @@ greetUser("Jenny");
 
 console.log(greeting);
 // Uncaught ReferenceError: greeting is not defined
-
 ```
 
 Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
@@ -75,18 +71,14 @@ If you need variable to be globally accessible, you can also omit declaring them
 A variable that needs to be accessed everywhere (e.g. by many functions) can be defined as a global variable. You can do this by omitting the `let` keyword:
 
 ```javascript
-
 // The variable VERSION can be subsequently be referenced anywhere in your code.
 VERSION = "1.0.4";
-
 ```
 
 Alternatively in the browser, you can also assign it only the `window` object, e.g.:
 
 ```javascript
-
 window.VERSION = "1.0.4";
-
 ```
 
 Global variables are handy but can hurt code readability, especially if your code is in a big file or spread across multiple files.
@@ -96,7 +88,6 @@ Global variables are handy but can hurt code readability, especially if your cod
 Variables can be used to hold information about the state your code is in, e.g. how many times someone has clicked on a button:
 
 ```javascript
-
 let timesClicked = 0;
 
 let whenButtonClicked = () => {
@@ -104,15 +95,14 @@ let whenButtonClicked = () => {
   console.log(`Button has been clicked ${timesClicked} times`);
 };
 
-document.querySelector('#myButton').addEventListener('click', whenButtonClicked);
-
+document
+  .querySelector("#myButton")
+  .addEventListener("click", whenButtonClicked);
 ```
 
 However, you may end up being in a situation where you'll have to keep track of the click state of multiple buttons, or even a dynamic number of buttons:
 
-
 ```javascript
-
 let timesClicked1 = 0;
 let timesClicked2 = 0;
 
@@ -126,17 +116,18 @@ let whenButtonClicked2 = () => {
   console.log(`Button has been clicked ${timesClicked2} times`);
 };
 
-document.querySelector('#myButton1').addEventListener('click', whenButtonClicked1);
-document.querySelector('#myButton2').addEventListener('click', whenButtonClicked2);
-
+document
+  .querySelector("#myButton1")
+  .addEventListener("click", whenButtonClicked1);
+document
+  .querySelector("#myButton2")
+  .addEventListener("click", whenButtonClicked2);
 ```
 
 We can reduce this code duplication by using a JavaScript `class` (not the same as a class in CSS), a structure that ties together the state (`timesClicked`) and any functions that reference it (`whenButtonClicked`):
 
 ```javascript
-
 class Counter {
-
   constructor() {
     this.timesClicked = 0;
   }
@@ -144,14 +135,18 @@ class Counter {
   whenClicked() {
     this.timesClicked++;
     console.log(`Button has been clicked ${this.timesClicked} times`);
-  };
+  }
 }
 
 let counter1 = new Counter();
 let counter2 = new Counter();
 
-document.querySelector('#myButton1').addEventListener('click', counter1.whenClicked);
-document.querySelector('#myButton2').addEventListener('click', counter2.whenClicked);
+document
+  .querySelector("#myButton1")
+  .addEventListener("click", counter1.whenClicked);
+document
+  .querySelector("#myButton2")
+  .addEventListener("click", counter2.whenClicked);
 ```
 
 We can create instances of a class using the `new` operator, followed by the class name. When a class instance is created, its `constructor` function is called. We can pass the constructor arguments to use during initialisation.
@@ -159,9 +154,7 @@ We can create instances of a class using the `new` operator, followed by the cla
 For example, here is a `CounterFromN` class that starts counting from a number that's passed in:
 
 ```javascript
-
 class CounterFromN {
-
   constructor(n) {
     this.timesClicked = n;
   }
@@ -169,7 +162,7 @@ class CounterFromN {
   whenClicked() {
     this.timesClicked++;
     console.log(`Button has been clicked ${this.timesClicked} times`);
-  };
+  }
 }
 
 let counterFromTen = new CounterFromN(10);

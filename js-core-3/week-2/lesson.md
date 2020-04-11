@@ -3,8 +3,9 @@
 ## Learning Objectives
 
 - The learner should understand the concept of variable scope and be able to define them in global, local, block and class scope
+- The learner should understand the concept of a JavaScript ES6 class and describe examples of when they are useful
 - The learner should be able to create a JavaScript ES6 class that represents a simple object
-- The learner should understand the use of the `this` keyword in JavaScript ES6 classes
+- The learner should be able to use `this` keyword in JavaScript ES6 classes to target different scopes
 
 ## Agenda
 

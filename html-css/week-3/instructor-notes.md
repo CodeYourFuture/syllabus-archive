@@ -6,9 +6,10 @@
 |------|----------|
 | 10:45 - 11:30 | Preparation of space |
 | 11:30 - 12:00 | Energisers/Stand Up |
-| ... | ... |
+| 12:00 - 12:30 | Homework review |
+| 12:30 - 14:00 | 12-Column Grid |
 | 14:00 - 14:45 | Lunch |
-| ... | ... |
+| 14:45 - 16:45 | Re-usable Grid Frameworks |
 | 16:45 - 17:00 | Homework Discussion |
 
 ## Homework review

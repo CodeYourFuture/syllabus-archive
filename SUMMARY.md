@@ -37,7 +37,6 @@
 ## Workshops and other tutorials
 
 - [Coding 101](/others/coding-101.md)
-- [Compiling SCSS](/html-css/compile-scss-instructions.md)
 - [Automatic deployment of sites with Netlify and GitHub](/others/deployment/1-for-html-module/workshop-1-basic-automatic-deployment-with-netlify-mentor-notes.md)
 - [Express Workshop](/node/week-1/workshop.md)
 - [Hotel Workshop](/node/week-3/workshop.md)

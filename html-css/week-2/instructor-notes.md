@@ -28,7 +28,23 @@ Quick assessment to calibrate how well students understood the material. The ass
 
 ## Responsive Web Design
 
-#### Exercise 3
+### Exercise 1
+
+Some examples of devices:
+
+<!-- TODO: taken from old mentors notes, review for relevancy? -->
+
+* Phones
+* Tablets
+* Laptops
+* Desktop computers
+* Gaming consoles (Playstation/Xbox)
+* [Apple Watch](https://www.youtube.com/watch?v=wmyth7Bpyyo)
+* Smart devices (fridges, washing machines, TVs)
+* Screen readers
+* Crawlers (search engines)
+
+### Exercise 3
 
 Split the class into groups and assign them each a website to investigate:
 

@@ -40,6 +40,8 @@ Then get each group to present what they think the sections are to the rest of t
 
 ## CSS Selectors
 
+<!-- TODO: link from old mentor notes: https://www.codecademy.com/courses/web-beginner-en-TlhFi/resume?curriculum_id=50579fb998b470000202dc8b. Review for relevancy? -->
+
 Demo to the class the following CSS selectors:
 
 - HTML elements

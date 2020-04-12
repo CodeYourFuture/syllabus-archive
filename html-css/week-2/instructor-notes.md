@@ -6,17 +6,21 @@
 |------|----------|
 | 10:45 - 11:30 | Preparation of space |
 | 11:30 - 12:00 | Energisers/Stand Up |
-| 12:00 - 13:00 | Responsive Web Design |
-| 13:00 - 14:00 | Media Queries |
+| 12:00 - 12:30 | Homework review
+| 12:30 - 14:00 | Responsive Web Design |
 | 14:00 - 14:45 | Lunch |
+| 14:45 - 15:30 | Media Queries |
 <!-- TODO: Mobile first design?? -->
-| 14:45 - 16:45 | Cake website wireframe |
+| 15:30 - 16:45 | Cake website wireframe |
 | 16:45 - 17:00 | Homework Discussion |
 
 ## Homework review
 
-- How did the homework go? Git? Flexbox was hard? [show karma clone]
-- Go over some common problems found in during homework correction
+- How did the homework go?
+  - Git problems?
+  - Flexbox was hard?
+  - Show Karma clone <!-- TODO: Show student's work? Exemplary version? -->
+- Go over some common problems found in during homework marking
 
 ### Kahoot mini-assessment
 

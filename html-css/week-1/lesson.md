@@ -211,6 +211,8 @@ Once that's done you can move on to creating boxes for each individual text piec
 
 ## Resources
 
+<!-- TODO: review these for relevancy -->
+
 1. [HTML5 - semantic elements](https://developer.mozilla.org/en/docs/Web/Guide/HTML/HTML5)
 2. [CSS Selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors)
 3. [The Cascade - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade)

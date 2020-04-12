@@ -74,3 +74,5 @@ This is a common task for a web developer to do: they receive a wireframe from a
 | On sheets of paper, draw a wireframe of the mobile version. |
 
 {% include "./homework.md" %}
+
+<!-- TODO: Do we have a list of useful resources like weeks 1 & 3? -->

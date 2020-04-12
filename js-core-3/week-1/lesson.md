@@ -41,6 +41,22 @@ The purpose of this class is to introduce to the student:
 - Aggregated API: one API as a wrapper for multiple APIs.
 - Web services API: punch of APIs working together to forma whole app.
 
+
+##### Check-in
+
+**Question (5 mins):**
+
+    Which of the following statements below about APIs is false?
+        A) Public APIs can be accessed by anyone on the Internet.
+        B) You must use Javascript to access an API.
+        C) APIs can control access to data or features of an application.
+        D) You can change data via an API.
+
+**Question (5 mins):**
+
+    Give an example of a company that uses an API to allow access to their data.
+
+
 #### Basic structure of REST API
 
 - Endpoint: https://api.example.com
@@ -55,6 +71,24 @@ The purpose of this class is to introduce to the student:
 - Query params:
 
 * https://api.example.com/v1/users?limit=10
+
+
+##### Check-in
+
+Here is an example of Spotify's REST endpoint to allow you to get the tracks from a playlist
+
+    GET https://api.spotify.com/v1/playlists/{playlist_id}/tracks
+
+**Task (5 mins):**
+
+    On Instagram, you can access a post via the following endpoint:
+
+        GET https://api.instagram.com/v1/media/{media-id}
+
+    1. Write the URL of the endpoint to get the list of comments on a given instagram post?
+    2. What HTTP verb will you use to make requests to this endpoint?
+
+
 
 ### Example
 

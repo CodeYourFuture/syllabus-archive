@@ -130,6 +130,35 @@ promiseToDoHomeWork
   });
 ```
 
+##### Check-in
+
+**Question (5 mins):**
+
+    Which of the following statements about Promises is false?
+
+    A) A promise starts executing as soon as it is invoked.
+    B) You must always have a then method in a promise.
+    C) A promise can return multiple values.
+    D) Rejected is a valid promise state.
+
+**Question (5 mins):**
+
+Complete the following sentence:
+
+    Fetch is a web API that allows you to _____ from _____.
+
+
+**Task (5 mins):**
+Complete the rest of this code to connect to the following API: `https://dog.ceo/api/breeds/image/random`
+
+    fetch(_____)
+    .then(_____)
+    .then(body => console.log(body))
+    .catch(error => console.log(error));
+
+1. Post your code on Slack
+2. Post the image you retrievved on Slack
+
 ### Example
 
 #### Example 1

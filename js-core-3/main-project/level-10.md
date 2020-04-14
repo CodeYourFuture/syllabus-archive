@@ -16,6 +16,7 @@
 Note: Provided your project meets the above requirements, it can **look** however you want.
 
 Here is one example layout.
+
 ![Example Screenshot](./example-screenshots/example-level-1.png)
 
 [back to readme](./readme.md)

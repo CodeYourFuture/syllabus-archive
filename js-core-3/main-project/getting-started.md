@@ -21,7 +21,7 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 1. add and commit and your change
 1. Push to github
 1. Confirm the changes show up on github **in your `master` branch**
-1. Click `Settings`
+1. In GitHub, click `Settings` for your repo
 1. Scroll to `GitHub Pages`
 1. Under `Source` click the menu (`None`) and select `master`
 1. Visit your deployed site (displayed next to `GitHub pages`)

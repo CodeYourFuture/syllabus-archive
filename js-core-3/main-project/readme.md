@@ -8,18 +8,6 @@ The episode data is provided for you as an array of objects.
 
 The page of episodes should be generated using JavaScript (which will read the properties of each episode object).
 
-This project challenge is split into various levels of difficulty. You should challenge yourself to complete as many levels as possible.
-
-# Rules about the episode data
-
-- You MUST NOT edit the static episode data. If you find that the data is unsuitable (e.g. fields are missing, or have unwanted characters), you should improve your own code so that it can deal with such issues when it **runs**.
-
-# Rules about technology
-
-- You should not use React, Vue, JQuery or other libraries. Why? This project is specifically for practicing the **built-in** DOM-manipulation functions you learned about in JS2.
-
-- You can use bootstrap CSS but NOT bootstrap JS. (We recommend that you do NOT use bootstrap CSS.)
-
 # Where do I get the episode data from?
 
 For the simple versions of this project, you will get the episode data by calling a provided function `getAllEpisodes()`. This will return you an array of objects, each of which represents an episode.
@@ -55,8 +43,19 @@ In both cases, here's an example of one episode from the list:
     }
   }
 ```
+# Rules about the episode data
+
+- You MUST NOT edit the static episode data. If you find that the data is unsuitable (e.g. fields are missing, or have unwanted characters), you should improve your own code so that it can deal with such issues when it **runs**.
+
+# Rules about technology
+
+- You should not use React, Vue, JQuery or other libraries. Why? This project is specifically for practicing the **built-in** DOM-manipulation functions you learned about in JS2.
+
+- You can use bootstrap CSS but NOT bootstrap JS. (We recommend that you do NOT use bootstrap CSS.)
 
 # What are the requirements for the project?
+
+This project challenge is split into various levels of difficulty. You should challenge yourself to complete as many levels as possible, in order.
 
 - [level 10](./level-10.md)
 - [level 20](./level-20.md)

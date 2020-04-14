@@ -19,4 +19,4 @@ Here is one example layout.
 
 ![Example Screenshot](./example-screenshots/example-level-1.png)
 
-[back to readme](./readme.md)
+[top](./readme.md) - [level 20 >>](./level-20.md)

@@ -19,4 +19,4 @@ Here is one example layout.
 
 ![Example screenshot with Show Selector open](./example-screenshots/example-show-selector-2.jpg)
 
-[back to readme](./readme.md)
+[<< level 30](./level-30.md) - [top](./readme.md) - [level 99 >>](./level-99.md)

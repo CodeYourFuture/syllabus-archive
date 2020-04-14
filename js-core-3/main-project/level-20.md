@@ -18,4 +18,4 @@ Here is one example layout.
 
 ![Example Search screenshot](./example-screenshots/example-search.jpg)
 
-[back to readme](./readme.md)
+[<< level 10](./level-10.md) - [top](./readme.md) - [level 30 >>](./level-30.md)

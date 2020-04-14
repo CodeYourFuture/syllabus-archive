@@ -14,4 +14,4 @@ Here is one example layout.
 
 ![Example Episode Selector screenshot](./example-screenshots/example-episode-selector.jpg)
 
-[back to readme](./readme.md)
+[<< level 20](./level-20.md) - [top](./readme.md) - [level 40 >>](./level-40.md)

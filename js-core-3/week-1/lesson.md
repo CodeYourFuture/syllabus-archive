@@ -47,10 +47,11 @@ The purpose of this class is to introduce to the student:
 **Question (5 mins):**
 
     Which of the following statements below about APIs is false?
-        A) Public APIs can be accessed by anyone on the Internet.
-        B) You must use Javascript to access an API.
-        C) APIs can control access to data or features of an application.
-        D) You can change data via an API.
+        
+    A) Public APIs can be accessed by anyone on the Internet.
+    B) You must use Javascript to access an API.
+    C) APIs can control access to data or features of an application.
+    D) You can change data via an API.
 
 **Question (5 mins):**
 
@@ -82,9 +83,9 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 **Task (5 mins):**
 
     On Instagram, you can access a post via the following endpoint:
-
-        GET https://api.instagram.com/v1/media/{media-id}
-
+        
+    https://api.instagram.com/v1/media/{media-id}
+        
     1. Write the URL of the endpoint to get the list of comments on a given instagram post?
     2. What HTTP verb will you use to make requests to this endpoint?
 
@@ -136,7 +137,7 @@ promiseToDoHomeWork
 
     Which of the following statements about Promises is false?
 
-    A) A promise starts executing as soon as it is invoked.
+    A) The function passed into a promise is executed as soon as the promise is created.
     B) You must always have a then method in a promise.
     C) A promise can return multiple values.
     D) Rejected is a valid promise state.
@@ -157,7 +158,7 @@ Complete the rest of this code to connect to the following API: `https://dog.ceo
     .catch(error => console.log(error));
 
 1. Post your code on Slack
-2. Post the image you retrievved on Slack
+2. Post the image you retrieved on Slack
 
 ### Example
 

@@ -92,18 +92,24 @@ Global variables are handy but can hurt code readability, especially if your cod
 What would be the output of the following code:
 
     let number = 1;
-
+        
     function firstFunction() {
+      number += 1;
       console.log(number);
     }
-
+        
     function secondFunction() {
-      let a = 5;
-      return firstFunction();
+
+      let number = 5;
+        
+      number += 1;
+      console.log(number);
+        
+      firstFunction();
     }
-
+        
+    firstFunction();
     secondFunction();
-
 
 ### Classes
 
@@ -196,23 +202,6 @@ counterFromTen.whenClicked();
 Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
 
 ##### Check-in
-**Task (5 mins):**
-Complete the rest of this code to create an online shopping cart.
-```
-class ShoppingCart {
-// Add your code here
-
-}
-
-let myCart = new ShoppingCart(); // Creates an empty shopping cart
-myCart.addItem();
-```
-
-The output of running your code should be:
-
-       You have 1 item in your cart
-
-
 **Question (5 mins):**
 Create you own analogy:
 

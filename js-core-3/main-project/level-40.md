@@ -19,4 +19,8 @@ Here is one example layout.
 
 ![Example screenshot with Show Selector open](./example-screenshots/example-show-selector-2.jpg)
 
+### Play nice - a note on using `fetch` during development
+
+Be _careful_ when developing with fetch. By default, every time you make a small change to your app it will be restarted by live server - if you are fetching JSON on page load, the JSON will be downloaded again and again. These frequent HTTP requests may lead to the API permanently banning your IP address from further requests, or "throttling" it for some time. Worse, if they don't, they may cause performance issues for the API service we are using.
+
 [<< level 30](./level-30.md) - [top](./readme.md) - [level 99 >>](./level-99.md)

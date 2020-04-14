@@ -2,189 +2,243 @@
 
 ## Learning Objectives
 
-- The learner should understand the concept of variable scope and be able to define them in global, local, block and class scope
-- The learner should understand the concept of a JavaScript ES6 class and describe examples of when they are useful
-- The learner should be able to create a JavaScript ES6 class that represents a simple object
-- The learner should be able to use `this` keyword in JavaScript ES6 classes to target different scopes
+- The learner should understand what the acronym API means
+- The learner can define what an `REST API`s purpose is and why it is useful
+- The learner should understand the structure of `REST API`s url and how it can be manipulated to change the data
+- The learner should be able to define what a `Promise` is
+- The learner should understand what `fetch` is and what it is used for
+- The learner should be able to use `fetch` to retrieve `JSON` from an `REST API`
+- The learner should be able to parse the `JSON` and extract data from it
+- The learner should be able to use `DOM` manipulation to add content to the `DOM`
+- The learner should understand `window.onload` and `document.onload` and should be able to assign functions to run at specific life cycle events
 
 ## Agenda
 
 The purpose of this class is to introduce to the student:
 
-1. The scoping of variables, specifically in reference to:
-   - Local
-   - Block
-   - Global
-   - Class
-2. Project Work
+1. What are `APIs` and how to interact with them
+2. How to use the `fetch` API to do AJAX calls
 
-## 1. Variable Scoping
-
-After you declare or define a variable, you may refer to it later in your code using the variable name.
-
-Depending on how you declare the variable, you can limit the context in which the variable name can be referenced. This can help with the readability of your code.
-
-### Local Variables
-
-These variables are declared using the `let` statement as you've been familiar with:
-
-```javascript
-let greeting = "Hello, ";
-```
-
-However, if these definitions are done within a function, they become **local** to it:
-
-```javascript
-let greetUser = (username) => {
-  let greeting = "Hello,";
-
-  console.log(greeting, username);
-};
-
-greetUser("Jenny");
-// Prints "Hello, Jenny"
-
-// However, the greeting variable cannot be referenced here, since it's been declared within the greetUser function and we are currently trying to reference it outside the function:
-
-console.log(greeting);
-// Uncaught ReferenceError: greeting is not defined
-```
-
-Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
-
-```javascript
-let x = 1;
-
-{
-  let x = 2; // different x variable
-  x = 3; // assigning to inner x variable
-  console.log(x); // 3
-}
-
-console.log(x); // 1
-```
-
-This block scoping behaviour will apply in `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
-
-If you need variable to be globally accessible, you can also omit declaring them with the `let` keyword.
-
-### Global Variables
-
-A variable that needs to be accessed everywhere (e.g. by many functions) can be defined as a global variable. You can do this by omitting the `let` keyword:
-
-```javascript
-// The variable VERSION can be subsequently be referenced anywhere in your code.
-VERSION = "1.0.4";
-```
-
-Alternatively in the browser, you can also assign it only the `window` object, e.g.:
-
-```javascript
-window.VERSION = "1.0.4";
-```
-
-Global variables are handy but can hurt code readability, especially if your code is in a big file or spread across multiple files.
-
-### Classes
-
-Variables can be used to hold information about the state your code is in, e.g. how many times someone has clicked on a button:
-
-```javascript
-let timesClicked = 0;
-
-let whenButtonClicked = () => {
-  timesClicked++;
-  console.log(`Button has been clicked ${timesClicked} times`);
-};
-
-document
-  .querySelector("#myButton")
-  .addEventListener("click", whenButtonClicked);
-```
-
-However, you may end up being in a situation where you'll have to keep track of the click state of multiple buttons, or even a dynamic number of buttons:
-
-```javascript
-let timesClicked1 = 0;
-let timesClicked2 = 0;
-
-let whenButtonClicked1 = () => {
-  timesClicked1++;
-  console.log(`Button has been clicked ${timesClicked1} times`);
-};
-
-let whenButtonClicked2 = () => {
-  timesClicked2++;
-  console.log(`Button has been clicked ${timesClicked2} times`);
-};
-
-document
-  .querySelector("#myButton1")
-  .addEventListener("click", whenButtonClicked1);
-document
-  .querySelector("#myButton2")
-  .addEventListener("click", whenButtonClicked2);
-```
-
-We can reduce this code duplication by using a JavaScript `class` (not the same as a class in CSS), a structure that ties together the state (`timesClicked`) and any functions that reference it (`whenButtonClicked`):
-
-```javascript
-class Counter {
-  constructor() {
-    this.timesClicked = 0;
-  }
-
-  whenClicked() {
-    this.timesClicked++;
-    console.log(`Button has been clicked ${this.timesClicked} times`);
-  }
-}
-
-let counter1 = new Counter();
-let counter2 = new Counter();
-
-document
-  .querySelector("#myButton1")
-  .addEventListener("click", counter1.whenClicked);
-document
-  .querySelector("#myButton2")
-  .addEventListener("click", counter2.whenClicked);
-```
-
-We can create instances of a class using the `new` operator, followed by the class name. When a class instance is created, its `constructor` function is called. We can pass the constructor arguments to use during initialisation.
-
-For example, here is a `CounterFromN` class that starts counting from a number that's passed in:
-
-```javascript
-class CounterFromN {
-  constructor(n) {
-    this.timesClicked = n;
-  }
-
-  whenClicked() {
-    this.timesClicked++;
-    console.log(`Button has been clicked ${this.timesClicked} times`);
-  }
-}
-
-let counterFromTen = new CounterFromN(10);
-
-counterFromTen.whenClicked();
-// Button has been clicked 11 times
-```
-
-Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
-
-## 2. Project Work
+## 1. What are APIs and how to interact with them
 
 ### Explanation
 
-- Explain some key concepts that will be appearing in the homework this week
+- APIs are created by providers and used by consumers (BE provider, FE consumer)
+- Part of an application that can be communicated with from an outside source
+- Connect to it using "endpoints"
+- Software well-known APIs (Fb APIs, Twitter APIs, Maps APIs, weather APIs);
+- API doesn't care which language or technology is used in the consumer or the provider
+
+#### Types of APIs:
+
+- Private: for employees only under a company network for internal use.
+- Semi-private: for clients who paid for the API.
+- Public: for everyone on the web.
+
+#### Architecture styles of API:
+
+- Single purpose: API that gives a direct and specific service.
+- Aggregated API: one API as a wrapper for multiple APIs.
+- Web services API: punch of APIs working together to forma whole app.
+
+#### Basic structure of REST API
+
+- Endpoint: https://api.example.com
+- Endpoint with version: https://api.example.com/v1
+- Resources:
+
+* https://api.example.com/v1/users
+* https://api.example.com/v1/users/create
+* https://api.example.com/v1/users/1
+* https://api.example.com/v1/users/1/edit
+
+- Query params:
+
+* https://api.example.com/v1/users?limit=10
 
 ### Example
 
-<!-- TODO -->
+- Give real life example like (Devices like TV, any machine + electricity power socket interface which provides power to any external device)
+- Give an example of an API in production
+  - [Game Of Thrones API](https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones)
 
 ### Exercise
 
-<!-- TODO -->
+## 2. How to use the `fetch` API to do AJAX calls
+
+### Explanation
+
+- Modern replacement of XMLHttpRequest
+- Uses Promise structure
+- The Fetch API is defined in the browser (window.fetch)
+- Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
+- Fetch API documentations by mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+### What is Fetch made of?
+
+Fetch is an example of a javascript which has a very specific structure.
+
+```javascript
+let promiseToDoHomeWork = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    if (true) resolve();
+    // homework done
+    else reject("homework not done, too lazy");
+  }, 1000);
+});
+
+promiseToDoHomeWork
+  .then(function () {
+    console.log("homework is done now");
+  })
+  .catch(function (err) {
+    console.warn(err);
+  });
+```
+
+### Example
+
+#### Example 1
+
+```javascript
+//Retrieve the JSON
+fetch("https://seriousnews.com/api/headlines")
+  // Get the response and extract the JSON
+  .then(function (response) {
+    return response.json();
+  })
+  // Do something with the JSON
+  .then((headlines) => {
+    console.log(headlines);
+  })
+  // If something goes wrong
+  .catch((error) => console.log(error));
+```
+
+#### Example 2
+
+Wouldn't it cool to make a new friend with just the click of a button?
+
+Write a function that makes an API call using `fetch` to `https://www.randomuser.me/api`
+
+- The function should make an API call to the given endpoint: `https://www.randomuser.me/api`
+- Log the received data to the console
+- Incorporate error handling
+- Show how you can build a profile page for the user using the DOM
+  - Add a name
+  - Add a profile picture
+  - Add some styling using CSS
+
+### Exercises
+
+#### Exercise 1
+
+In groups the students should create a page of details about the United Kingdom.
+
+The API endpoint can be found [here](https://restcountries.eu/rest/v2/name/Great%20Britain?fullText=true)
+
+The website should include
+
+- The name of the country
+- The country's capital city
+- An unordered list of all the countries name in other languages
+
+##### Steps
+
+Example `html` and `javascript` files can be found in the section below
+
+1. Create a `HTML`, `CSS` and `JavaScript` file to hold different types of code
+2. In your `HTML` file, write a simple basis for your website (e.g. [this](https://www.sitepoint.com/a-basic-html5-template/))
+   - Make sure all of your `HTML`, `CSS` and `JavaScript` files are linked together!
+3. Write a function using fetch that retrieves the `JSON` from the _Country API_
+   - To make sure it's working print the JSON to the console using `console.log()`
+4. Create a `h1` tag on the website using DOM manipulation and add the countries name inside it
+   - Go back to [Week 5](../../js-core-2/week-2/lesson.html) if you need a reminder
+5. Create a `h2` tag on the website using DOM manipulation and add the capital cities name inside it
+6. Create a `ul` tag on the website using DOM manipulation
+   - For each of the translated names in the JSON, add a `li` tag
+7. Uncomment the lines inside `onLoad()` to load other countries details!
+
+**Extra**
+
+- Load the countries flag into an `img` tag
+- Add CSS to make your website look really nice
+- Add other information from the JSON to your Country Details
+
+##### Framework Files
+
+**index.html**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Country Information</title>
+    <meta name="description" content="Country Information" />
+    <meta name="author" content="Code Your Future" />
+
+    <link rel="stylesheet" href="styles.css?v=1.0" />
+  </head>
+
+  <body>
+    <div id="content"></div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
+```
+
+**scripts.js**
+
+```javascript
+// This function should retrieve the JSON from the `countryURL` and then call onCountryDataReceived() with the JSON
+function getData(countryURL) {}
+
+function onCountryDataReceived(country) {
+  addCountryName(country);
+  addCountryCapital(country);
+  addNameInOtherLanguages(country);
+}
+
+// This function should take the JSON for the country and put a H1 tag on the screen containing its name
+function addCountryName(countryData) {}
+
+// This function should take the JSON for the country and put a H2 tag on the screen containing its capital city
+function addCountryCapital(countryData) {}
+
+// This function should take the JSON for the country and put UL and LI tags on the screen with the countries name translated into other languages
+function addNameInOtherLanguages(countryData) {}
+
+function getContentDiv() {
+  return document.querySelector("#content");
+}
+
+function onLoad() {
+  getData(
+    "https://restcountries.eu/rest/v2/name/Great%20Britain?fullText=true"
+  );
+
+  /** Remove this line when you have completed the task
+
+  getData("https://restcountries.eu/rest/v2/name/France?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Germany?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Spain?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Portugal?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Hungary?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Russia?fullText=true");
+
+  */ // Remove this line when you have completed the task
+}
+
+window.onload = onLoad;
+```
+
+##### Finished Example
+
+You can find the finished example of this website [here](js-core-3\week-1\completed_country_website).

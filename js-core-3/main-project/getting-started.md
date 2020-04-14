@@ -18,14 +18,15 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 1. Edit index.html to include your name and github username in the page title instead of `(My Name (My GitHub username))`
 1. add and commit and your change
 1. Push to github
-1. Confirm the changes show up on github
+1. Confirm the changes show up on github **in your `master` branch**
 1. Click `Settings`
 1. Scroll to `GitHub Pages`
 1. Under `Source` click the menu (`None`) and select `master`
 1. Visit your deployed site (displayed next to `GitHub pages`)
-1. Have a volunteer confirm you at this checkpoint
+1. Use the following checklist to ensure you have not missed any steps
+1. Have a TA confirm you have completed the checkpoint
 
-Checkpoint:
+## Checkpoint:
 
 - [ ] New repo created
 - [ ] New repo is named EXACTLY `tv show-dom-project`
@@ -40,4 +41,4 @@ Checkpoint:
 
 ## What branch should I use?
 
-For this project you can work on the `master` branch.
+For this project you can work on your `master` branch.

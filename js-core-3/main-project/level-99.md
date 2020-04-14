@@ -1,7 +1,8 @@
 # Level 99 - Ideas for further work
 
-Here are some ideas for consideration
+Here are some ideas for consideration for further work
 
+- Truncate long summaries and provide a "... read more..." control to reveal more.
 - Allow user to mark "favourite" shows
 - Allow user to store notes on each episode
 - Use local storage to cache the above, and perhaps also to cache episode lists

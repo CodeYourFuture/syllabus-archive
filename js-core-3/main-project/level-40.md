@@ -9,4 +9,14 @@ For this level you will have to have learned to use fetch() to `GET` JSON conten
    1. You can get the list of shows by loading `shows.js` in your `index.html` and using the provided function: `getAllShows()`
    1. Ensure that your search and episode selector controls still work correctly when you switch shows.
 
+### Example screenshots of Show Selector
+
+Note: Provided your project meets the above requirements, it can **look** however you want.
+
+Here is one example layout.
+
+![Example screenshot with Show Selector closed](./example-screenshots/example-show-selector-1.jpg)
+
+![Example screenshot with Show Selector open](./example-screenshots/example-show-selector-2.jpg)
+
 [back to readme](./readme.md)

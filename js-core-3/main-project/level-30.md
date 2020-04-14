@@ -8,6 +8,10 @@
 
 ### Example screenshot of Episode Selector
 
+Note: Provided your project meets the above requirements, it can **look** however you want.
+
+Here is one example layout.
+
 ![Example Episode Selector screenshot](./example-screenshots/example-episode-selector.jpg)
 
 [back to readme](./readme.md)

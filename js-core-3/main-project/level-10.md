@@ -13,8 +13,9 @@
 
 ## Screenshot of minimal version
 
-To be successful with the minimal version, you can style and lay out your application however you like. However, here is an example of one way you could lay out the required content.
+Note: Provided your project meets the above requirements, it can **look** however you want.
 
+Here is one example layout.
 ![Example Screenshot](./example-screenshots/example-level-1.png)
 
 [back to readme](./readme.md)

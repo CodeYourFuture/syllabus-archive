@@ -12,6 +12,10 @@ If you have been fetching the episode data from the API, be careful not to cause
 
 ### Example screenshot of search
 
+Note: Provided your project meets the above requirements, it can **look** however you want.
+
+Here is one example layout.
+
 ![Example Search screenshot](./example-screenshots/example-search.jpg)
 
 [back to readme](./readme.md)

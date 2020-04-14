@@ -9,7 +9,13 @@ Here are some ideas for consideration
 - Experiment with infinite scroll
 - Handle errors from fetch
 - Responsive design
-- semantic HTML
-- accessibility
+- Semantic HTML
+- Accessibility
+- Style your page to fit the theme of the show (colours, typography, background images, etc). Commit to one show to do this.
+- Season selector (see screenshot)
+
+Screenshot of example season selector layout - you would click to load episodes for the season.
+
+![screenshot of example Season Selector](./example-screenshots/example-season-selector.jpg)
 
 [<< level 40](./level-40.md) - [top](./readme.md)

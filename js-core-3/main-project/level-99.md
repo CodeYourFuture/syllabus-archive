@@ -19,4 +19,4 @@ Screenshot of example season selector layout - you would click to load episodes 
 
 ![screenshot of example Season Selector](./example-screenshots/example-season-selector.jpg)
 
-[<< level 40](./level-50.md) - [top](./readme.md)
+[<< level 50](./level-50.md) - [top](./readme.md)

@@ -61,6 +61,7 @@ This project challenge is split into various levels of difficulty. You should ch
 - [level 20](./level-20.md)
 - [level 30](./level-30.md)
 - [level 40](./level-40.md)
+- [level 50](./level-50.md)
 - [level 99 (further work)](./level-99.md)
 
 # Getting started

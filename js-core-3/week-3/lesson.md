@@ -85,6 +85,33 @@ window.VERSION = "1.0.4";
 
 Global variables are handy but can hurt code readability, especially if your code is in a big file or spread across multiple files.
 
+#### Check-in
+
+**Question (5 mins):**
+
+What would be the output of the following code:
+
+```javascript
+let number = 1;
+
+function firstFunction() {
+  number += 1;
+  console.log(number);
+}
+
+function secondFunction() {
+  let number = 5;
+
+  number += 1;
+  console.log(number);
+
+  firstFunction();
+}
+
+firstFunction();
+secondFunction();
+```
+
 ### Classes
 
 Variables can be used to hold information about the state your code is in, e.g. how many times someone has clicked on a button:
@@ -175,6 +202,15 @@ counterFromTen.whenClicked();
 
 Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
 
+##### Check-in
+
+**Question (5 mins):**
+Create you own analogy:
+
+```
+    A class is like _____ because _____.
+```
+
 ## 2. Project Work
 
 ### Explanation
@@ -188,3 +224,7 @@ Variables specific to a particular instance of a class are defined and reference
 ### Exercise
 
 <!-- TODO -->
+
+```
+
+```

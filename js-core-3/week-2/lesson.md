@@ -41,6 +41,21 @@ The purpose of this class is to introduce to the student:
 - Aggregated API: one API as a wrapper for multiple APIs.
 - Web services API: punch of APIs working together to forma whole app.
 
+##### Check-in
+
+**Question (5 mins):**
+
+    Which of the following statements below about APIs is false?
+
+    A) Public APIs can be accessed by anyone on the Internet.
+    B) You must use Javascript to access an API.
+    C) APIs can control access to data or features of an application.
+    D) You can change data via an API.
+
+**Question (5 mins):**
+
+    Give an example of a company that uses an API to allow access to their data.
+
 #### Basic structure of REST API
 
 - Endpoint: https://api.example.com
@@ -63,6 +78,21 @@ The purpose of this class is to introduce to the student:
   - [Game Of Thrones API](https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones)
 
 ### Exercise
+
+#### Check-in
+
+Here is an example of Spotify's REST endpoint to allow you to get the tracks from a playlist
+
+    GET https://api.spotify.com/v1/playlists/{playlist_id}/tracks
+
+**Task (5 mins):**
+
+    On Instagram, you can access a post via the following endpoint:
+
+    https://api.instagram.com/v1/media/{media-id}
+
+    1. Write the URL of the endpoint to get the list of comments on a given instagram post?
+    2. What HTTP verb will you use to make requests to this endpoint?
 
 ## 2. How to use the `fetch` API to do AJAX calls
 
@@ -242,3 +272,31 @@ window.onload = onLoad;
 ##### Finished Example
 
 You can find the finished example of this website [here](js-core-3\week-1\completed_country_website).
+
+##### Check-in
+
+**Question (5 mins):**
+
+    Which of the following statements about Promises is false?
+
+    A) The function passed into a promise is executed as soon as the promise is created.
+    B) You must always have a then method in a promise.
+    C) A promise can return multiple values.
+    D) Rejected is a valid promise state.
+
+**Question (5 mins):**
+
+Complete the following sentence:
+
+    Fetch is a web API that allows you to _____ from _____.
+
+**Task (5 mins):**
+Complete the rest of this code to connect to the following API: `https://dog.ceo/api/breeds/image/random`
+
+    fetch(_____)
+    .then(_____)
+    .then(body => console.log(body))
+    .catch(error => console.log(error));
+
+1. Post your code on Slack
+2. Post the image you retrieved on Slack

@@ -23,6 +23,31 @@ The purpose of this class is to introduce to the student:
 - `Bug`
 - `Error`
 
+### Why is Debugging Important?
+
+When are projects are very small it's easy to see the problems and when something does break it's not to much of an issue. This isn't true when we start working on larger projects.
+
+The code that we write has real world uses and real world effects.
+
+#### Fly-By-Wire Aviation
+
+This was the first ever time that a fully automated flight had been flown and there was a bug in the way the maths was handled internally.
+
+You can see an example of what happens [here](https://www.youtube.com/watch?v=BxlBhucGayA). This flight was a test flight and was unmanned.
+
+#### Therac-25
+
+Therac-25 was a machine used to administer radiation to cancer patients which malfunctioned because of a programmer error.
+
+You can watch a quick video about the bug [here](https://www.youtube.com/watch?v=izGSOsAGIVQ) in a
+
+### The Debugging Mindset
+
+Debugging is a fact of life! Not everything will work the first time you do it and even when it does there will often be times when even if you feel like you've covered everything another bug may occur!
+
+**Task (5 Minutes)**
+In teams, the students should have quick discussion about the bugs that have occurred to them in the past. When they finish the class should regroup and gather together all the different types of bugs that have happened to them.
+
 ### Types of Errors
 
 #### Syntax Errors
@@ -129,26 +154,30 @@ var foo;
 foo.substring(1);
 ```
 
-#### JSHint in VSCode
-
-It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the JSHint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
-
-### The Debugging Mindset
-
-Debugging is a fact of life! Not everything will work the first time you do it and even when it does there will often be times when even if you feel like you've covered everything another bug may occur!
-
-In your teams, I want you to have a discussion about how might find out
-
-#### The Debugging Framework
+### The Debugging Framework
 
 - What did I expect to happen?
 - What happened instead?
 
-### Tools
+#### Tools
 
-- Using console.log() to find the state of variables
-- Understanding Stack Traces in the Console
-- Using Google Well
+**Task (5 Minutes)**
+
+In teams, the students should have quick discussion about the ways that they have solved bugs or errors they've had in the past.
+
+When they finish the class should regroup and gather together all the different types of bugs that have happened to them.
+
+##### Thinking like a computer
+
+<!-- TO DO -->
+
+##### Using `console.log()` and the Console
+
+<!-- TO DO -->
+
+##### JSHint in VSCode
+
+It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the JSHint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
 
 ### Exercise
 

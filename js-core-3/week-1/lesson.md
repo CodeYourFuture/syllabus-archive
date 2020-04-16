@@ -27,7 +27,7 @@ The purpose of this class is to introduce to the student:
 
 #### Syntax Errors
 
-These errors are usually quite simple to fix and happen when you've typed some code wrong or missed a character. These will normally happen as soon as you run your code, this is often called `compile time`.
+These errors are usually quite simple to fix and happen when you've typed some code wrong or missed a character. These will normally happen as soon as you run your code, this is often called *compile time*.
 
 ##### Examples of Syntax Errors
 
@@ -99,7 +99,7 @@ var foo = {};
 foo.bar;
 ```
 
-#### Type Error
+#### Type Errors
 
 Type errors usually occur when you are trying to access a method or variable from an object that doesn't have that in it.
 
@@ -146,15 +146,51 @@ In your teams, I want you to have a discussion about how might find out
 
 ### Tools
 
-- Using console.log() to find the state of variables
-- Understanding Stack Traces in the Console
-- Using Google Well
+- Using `console.log()` to find the state of variables
+- Understanding stack traces in the console
+- Using Google well
+- Using `debugger`
 
 ### Exercise
 
-In your groups we want you to go through this programme and find all of the errors that are happening in the code.
+In your groups we want you to go through this program and find all of the bugs that are happening in this code.
 
-<!-- Add exercises here -->
+```javascript
+
+let printValuesOf = (jsObject, keys) => {
+
+  for (let i = 0; i <= keys.length; i++) {
+
+    let key = keys[i];
+    console.log(jsObject[k]);
+  }
+}
+
+let simpsonsCatchphrases = {
+  lisa: 'BAAAAAART!',
+  bart: 'Eat My Shorts!',
+  marge: 'Mmm~mmmmm',
+  homer: 'd'oh!',
+  maggie: '(Pacifier Suck)',
+};
+
+printValuesOf(simpsonsCatchphrases, 'lisa', 'bart', 'homer');
+
+// Expected console output:
+
+// BAAAAAART!
+// Eat My Shorts!
+// d'oh!
+
+// Returns undefined
+
+```
+
+Try to categorise the bugs found under:
+
+1. Logical
+2. Syntactical
+3. Other (programmer/user error)
 
 ## 2. Project Work
 

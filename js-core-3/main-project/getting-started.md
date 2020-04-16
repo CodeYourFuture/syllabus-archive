@@ -16,7 +16,7 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 1. Click `Open with Github Desktop` (or use github desktop to clone the project onto your laptop)
 1. Use vscode to edit your local copy of the project
 1. right click on index.html and `open with live server`
-1. confirm in the browser that you can see the red text: "Show your episodes here!"
+1. confirm in the browser that you can see the red text: "Got 73 episode(s)"
 1. Edit index.html to include your name and github username in the page title instead of `(My Name (My GitHub username))`
 1. add and commit and your change
 1. Push to github

@@ -17,6 +17,6 @@ Note: Provided your project meets the above requirements, it can **look** howeve
 
 Here is one example layout.
 
-![Example Screenshot](./example-screenshots/example-level-1.png)
+![Example Screenshot](./example-screenshots/example-level-100.png)
 
 [top](./readme.md) - [level 200 >>](./level-200.md)

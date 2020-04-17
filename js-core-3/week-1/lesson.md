@@ -185,6 +185,8 @@ It's a great skill to get good at recognizing these errors when they happen to y
 
 ##### Using the Chrome Debugger
 
+<!-- TO DO -->
+
 ### Exercise
 
 In your groups we want you to go through this program and find all of the bugs that are happening in this code.
@@ -230,12 +232,10 @@ Try to categorise the bugs found under:
 
 ### Explanation
 
-- Explain some key concepts that will be appearing in the homework this week
+Over the next three weeks we're going to be building a website that will consolidate all of your knowledge so far in the course.
 
-### Example
+You can find the project [here](././tv-show-dom-project)
 
-<!-- TODO -->
+### Getting Setup
 
-### Exercise
-
-<!-- TODO -->
+In your groups you should get the project setup using the exact instructions found [here](././tv-show-dom-project/getting-started.md). Make sure you use your Teaching Assistants to help you!

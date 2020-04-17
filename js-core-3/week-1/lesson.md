@@ -52,7 +52,7 @@ In teams, the students should have quick discussion about the bugs that have occ
 
 #### Syntax Errors
 
-These errors are usually quite simple to fix and happen when you've typed some code wrong or missed a character. These will normally happen as soon as you run your code, this is often called *compile time*.
+These errors are usually quite simple to fix and happen when you've typed some code wrong or missed a character. These will normally happen as soon as you run your code, this is often called _compile time_.
 
 ##### Examples of Syntax Errors
 
@@ -165,7 +165,7 @@ foo.substring(1);
 
 In teams, the students should have quick discussion about the ways that they have solved bugs or errors they've had in the past.
 
-When they finish the class should regroup and gather together all the different types of bugs that have happened to them.
+When they finish the discussion we should regroup and gather together all the ways that they have solved bugs in the past
 
 ##### Thinking like a computer
 

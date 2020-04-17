@@ -24,8 +24,12 @@ You will be told who your code-reviewer(s) will be.
    1. enter the reviewer's username and select them
    1. DM your reviewer on slack to say that your code is ready for review
 
+:exclamation:
 Note: you should NEVER merge this PR into the `for-review` branch.
+:exclamation:
 
 # Giving a code review
 
 TODO: instructions for students and volunteers asked to provide code reviews. (Link to standard docs. Add any project specifics here.)
+
+[Back to readme](./readme.md)

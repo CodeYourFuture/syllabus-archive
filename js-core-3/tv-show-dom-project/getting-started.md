@@ -2,7 +2,7 @@
 
 These instructions will guide you to create your own new repository on github, based on a template we have provided.
 
-:exclamation: 
+:exclamation:
 Important: unlike previous CYF homework projects, you should **NOT** fork the CYF project.
 :exclamation:
 
@@ -11,8 +11,6 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 1. Name your new repo **exactly** this: `tv-show-dom-project`
 1. Enable `Include all branches`
 1. Click the final green button `Create repository from template`
-1. Create a branch called `for-review`
-1. Return to the `master` branch
 1. Click `Open with Github Desktop` (or use github desktop to clone the project onto your laptop)
 1. Use vscode to edit your local copy of the project
 1. right click on index.html and `open with live server`
@@ -31,16 +29,19 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 ## Checkpoint:
 
 - [ ] New repo created
-- [ ] New repo is named EXACTLY `tv show-dom-project`
+- [ ] New repo is named EXACTLY `tv-show-dom-project`
 - [ ] Repo is NOT a fork
-- [ ] Repo has the starter content
-- [ ] New branch is created called `for-review`
-- [ ] `for review` branch is EMPTY
+- [ ] Repo has the starter content (index.html, etc)
+- [ ] Repo also has an empty `for-review` branch
 - [ ] Repo cloned locally
-- [ ] First commits pushed to github
+- [ ] First commits have been pushed to github (personalised title in index.html)
 - [ ] First commits are on `master`
 - [ ] Published site is visible at https://[[username]].github.io/tv-show-dom-project/
 
 ## What branch should I use?
 
 For this project you can work on your `master` branch.
+
+When it comes time to get a code review, you should follow [code review instructions](./code-review.md).
+
+[Back to readme](./readme.md)

@@ -1,6 +1,6 @@
-# Level 20 - Add Search
+# Level 200 - Add Search
 
-1. Complete all requirements from Level 10
+1. Complete all requirements from Level 100
 1. Add a "live" search input:
    1. Only episodes whose summary **OR** title contains the search term should be displayed
    1. The search should be case-**in**sensitive
@@ -18,4 +18,4 @@ Here is one example layout.
 
 ![Example Search screenshot](./example-screenshots/example-search.jpg)
 
-[<< level 10](./level-10.md) - [top](./readme.md) - [level 30 >>](./level-30.md)
+[<< level 100](./level-100.md) - [top](./readme.md) - [level 300 >>](./level-300.md)

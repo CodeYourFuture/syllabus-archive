@@ -171,6 +171,10 @@ When they finish the class should regroup and gather together all the different 
 
 <!-- TO DO -->
 
+##### Test Often
+
+<!-- TO DO -->
+
 ##### Using `console.log()` and the Console
 
 <!-- TO DO -->

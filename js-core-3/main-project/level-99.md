@@ -2,6 +2,10 @@
 
 Here are some ideas for consideration for further work
 
+- Add cast listing to your show listing, http://api.tvmaze.com/shows/1?embed=cast
+- Add cast listing to your episode listing, http://api.tvmaze.com/shows/1?embed=cast
+- Allow clicking a cast member to present a view of all shows the person has appeared in http://api.tvmaze.com/people/1/castcredits
+    - linking those back into your episodes view of each show.
 - Truncate long summaries and provide a "... read more..." control to reveal more.
 - Allow user to mark "favourite" shows
 - Allow user to store notes on each episode

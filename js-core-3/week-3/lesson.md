@@ -64,7 +64,7 @@ let x = 1;
 console.log(x); // 1
 ```
 
-This block scoping behaviour will apply in `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
+This block scoping behaviour will apply in contexts such as `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
 
 If you need variable to be globally accessible, you can also omit declaring them with the `let` keyword.
 

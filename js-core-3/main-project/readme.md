@@ -43,6 +43,7 @@ In both cases, here's an example of one episode from the list:
     }
   }
 ```
+
 # Rules about the episode data
 
 - You MUST NOT edit the static episode data. If you find that the data is unsuitable (e.g. fields are missing, or have unwanted characters), you should improve your own code so that it can deal with such issues when it **runs**.
@@ -57,12 +58,12 @@ In both cases, here's an example of one episode from the list:
 
 This project challenge is split into various levels of difficulty. You should challenge yourself to complete as many levels as possible, in order.
 
-- [level 10](./level-10.md)
-- [level 20](./level-20.md)
-- [level 30](./level-30.md)
-- [level 40](./level-40.md)
-- [level 50](./level-50.md)
-- [level 99 (further work)](./level-99.md)
+- [level 100](./level-100.md)
+- [level 200](./level-200.md)
+- [level 300](./level-300.md)
+- [level 400](./level-400.md)
+- [level 500](./level-500.md)
+- [level 999 (further work)](./level-999.md)
 
 # Getting started
 

@@ -1,4 +1,4 @@
-# Level 10 - Minimal features:
+# Level 100 - Minimal features:
 
 1. All episodes must be shown
 1. For each episode, AT LEAST following must be displayed:
@@ -19,4 +19,4 @@ Here is one example layout.
 
 ![Example Screenshot](./example-screenshots/example-level-1.png)
 
-[top](./readme.md) - [level 20 >>](./level-20.md)
+[top](./readme.md) - [level 200 >>](./level-200.md)

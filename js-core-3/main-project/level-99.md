@@ -1,11 +1,11 @@
-# Level 99 - Ideas for further work
+# Level 999 - Ideas for further work
 
 Here are some ideas for consideration for further work
 
 - Add cast listing to your show listing, http://api.tvmaze.com/shows/1?embed=cast
 - Add cast listing to your episode listing, http://api.tvmaze.com/shows/1?embed=cast
 - Allow clicking a cast member to present a view of all shows the person has appeared in http://api.tvmaze.com/people/1/castcredits
-    - linking those back into your episodes view of each show.
+  - linking those back into your episodes view of each show.
 - Truncate long summaries and provide a "... read more..." control to reveal more.
 - Allow user to mark "favourite" shows
 - Allow user to store notes on each episode
@@ -23,4 +23,4 @@ Screenshot of example season selector layout - you would click to load episodes 
 
 ![screenshot of example Season Selector](./example-screenshots/example-season-selector.jpg)
 
-[<< level 50](./level-50.md) - [top](./readme.md)
+[<< level 500](./level-500.md) - [top](./readme.md)

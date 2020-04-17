@@ -171,13 +171,19 @@ When they finish the class should regroup and gather together all the different 
 
 <!-- TO DO -->
 
-##### Using `console.log()` and the console
+##### JSHint in VSCode
+
+It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the JSHint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+
+##### Test Often
 
 <!-- TO DO -->
 
-##### JSHint in VSCode
+##### Using `console.log()` and the Console
 
-It's a great skill to get good at recognising these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the JSHint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+<!-- TO DO -->
+
+##### Using the Chrome Debugger
 
 ### Exercise
 

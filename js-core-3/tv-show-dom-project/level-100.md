@@ -2,7 +2,7 @@
 
 1. All episodes must be shown
 1. For each episode, AT LEAST following must be displayed:
-   1. the episode's title
+   1. the episode's name
    1. the season number
    1. the episode number
    1. the episode's medium-sized image

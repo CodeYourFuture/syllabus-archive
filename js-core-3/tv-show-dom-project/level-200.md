@@ -2,7 +2,7 @@
 
 1. Complete all requirements from Level 100
 1. Add a "live" search input:
-   1. Only episodes whose summary **OR** title contains the search term should be displayed
+   1. Only episodes whose summary **OR** name contains the search term should be displayed
    1. The search should be case-**in**sensitive
    1. The display should update **immediately** after each keystroke changes the input.
    1. Display how many episodes match the current search

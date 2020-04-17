@@ -19,10 +19,10 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 1. add and commit and your change
 1. Push to github
 1. Confirm the changes show up on github **in your `master` branch**
-1. In GitHub, click `Settings` for your repo
-1. Scroll to `GitHub Pages`
-1. Under `Source` click the menu (`None`) and select `master`
-1. Visit your deployed site (displayed next to `GitHub pages`)
+1. Configure your site for automatic deployment to Netlify [Instructions here](https://github.com/CodeYourFuture/syllabus/blob/master/others/deployment/1-for-html-module/cheatsheet-1.md)
+1. Ensure the netlify site name is exactly `cyf-USERNAME-tv`.netlify.app where USERNAME is YOUR github username.
+1. Visit your deployed site
+1. Set your new repo's website link on github to be your netlify URL.
 1. Use the following checklist to ensure you have not missed any steps
 1. Have a TA confirm you have completed the checkpoint
 
@@ -36,7 +36,7 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 - [ ] Repo cloned locally
 - [ ] First commits have been pushed to github (personalised title in index.html)
 - [ ] First commits are on `master`
-- [ ] Published site is visible at https://[[username]].github.io/tv-show-dom-project/
+- [ ] Published site is visible at https://cyf-[[github-username]]-tv.netlify.app/
 
 ## What branch should I use?
 

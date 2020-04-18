@@ -177,17 +177,15 @@ It's a great skill to get good at recognizing these errors when they happen to y
 
 ##### Test Often
 
-<!-- TO DO -->
+It is important when working on your code to test each part of your code separately and carefully. Make sure everything is working before you move on to the next part otherwise problems become harder to debug.
 
 ##### Using `console.log()` and the Console
-
-<!-- TO DO -->
 
 ##### Using the Chrome Debugger
 
 <!-- TO DO -->
 
-### Exercise
+### Exercise 1
 
 In your groups we want you to go through this program and find all of the bugs that are happening in this code.
 
@@ -227,6 +225,10 @@ Try to categorise the bugs found under:
 1. Logical
 2. Syntactical
 3. Other (programmer/user error)
+
+### Exercise 2
+
+In your groups we want you to go through this program and find all of the bugs that are happening in this code.
 
 ## 2. Project Work
 

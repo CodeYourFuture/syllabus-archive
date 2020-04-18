@@ -29,11 +29,13 @@ When are projects are very small it's easy to see the problems and when somethin
 
 The code that we write has real world uses and real world effects.
 
-#### Fly-By-Wire Aviation
+#### Y2K Bug
 
-This was the first ever time that a fully automated flight had been flown and there was a bug in the way the maths was handled internally.
+In 1999 the world faced a possibly very serious bug in the way that computer stored time. When computers stored the year they would only store the last two digits (e.g. 1999 is stored as just 99). This means that when the year 2000 happened lots of people were afraid that computer would think the year was the year 1900 instead of the year 2000.
 
-You can see an example of what happens [here](https://www.youtube.com/watch?v=BxlBhucGayA). This flight was a test flight and was unmanned.
+Check out this very scary video [here](https://www.youtube.com/watch?v=ddzbxJasID4)
+
+Fortunately, a lot people put in a lot of work to stop the bug before it happened and averted catastrophe.
 
 #### Therac-25
 
@@ -66,13 +68,6 @@ if (3 > Math.PI {
 }
 ```
 
-- `SyntaxError: missing ; before statement`
-  - Note: Ignore the // in this example
-
-```javascript
-// var obj = {}
-```
-
 - `SyntaxError: missing variable name`
 
 ```javascript
@@ -101,27 +96,20 @@ How would we fix these reference errors? Post your answers in Slack!
 - `ReferenceError: "word" is not defined`
 
 ```javascript
-var ward = "bar";
+var ward = "hello";
 word.substring(1);
 ```
 
-- `ReferenceError: "num1" is not defined`
+- `ReferenceError: "a" is not defined`
 
 ```javascript
 function numbers() {
-  var num1 = 2;
-  var num2 = 3;
-  return num1 + num2;
+  var a = 2;
+  var b = 3;
+  return a + b;
 }
 
-console.log(num1);
-```
-
-- `ReferenceError: reference to undefined property "bar"`
-
-```javascript
-var foo = {};
-foo.bar;
+console.log(a);
 ```
 
 #### Type Errors
@@ -133,7 +121,7 @@ Type errors usually occur when you are trying to access a method or variable fro
 - `TypeError: document.getElByID is not a function`
 
 ```javascript
-var x = document.getElById("foo");
+var submit = document.getElById("button");
 ```
 
 - `TypeError: numbers.map is not a function`
@@ -150,27 +138,27 @@ numbers.map(function (num) {
 - `TypeError: Cannot read property 'substring' of undefined`
 
 ```javascript
-var foo;
-foo.substring(1);
+var string;
+string.substring(1);
 ```
 
 ### The Debugging Framework
 
 When debugging you should always ask yourself a few key questions
 
-1. What did I expect to happen?
+- What did I expect to happen?
 
 You should very clearly be able to say exact what you expected to happen when you run your code. If you cannot do this, then you do not understand the problem well enough.
 
-2. Is it actually broken?
+- Is it actually broken?
 
 Sometime what you think is broken is actually working fine but not what you thought was going to happen. You should confirm with what the program is trying to do.
 
-3. What happened instead?
+- What happened instead?
 
 You should be able to quickly state what you were expecting to happen. Just saying "It Didn't Work" isn't enough! The more carefully you dissect the problem the more easily you'll be able to fix it.
 
-4. What have I tried so far?
+- What have I tried so far?
 
 Debugging is a process of loops and iteration. Think about what you've done so far and work out other ways that the code could have broken.
 
@@ -208,7 +196,7 @@ Here you'll see all of the messages that have been printed by the website when i
 
 ##### JSHint in VSCode
 
-It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the JSHint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the ESLint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 ### Exercise 1
 

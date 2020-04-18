@@ -7,6 +7,9 @@ Here are some ideas for consideration for further work
 - Allow clicking a cast member to present a view of all shows the person has appeared in http://api.tvmaze.com/people/1/castcredits
   - linking those back into your episodes view of each show.
 - Truncate long summaries and provide a "... read more..." control to reveal more.
+- Allow the user to choose to have the show list sorted by rating (highest rated shows first)
+- Have your search support start-of-word search, or other search types.
+- Make the browser's back and forward buttons navigate through your changed views (see History.pushState()).
 - Allow user to mark "favourite" shows
 - Allow user to store notes on each episode
 - Use local storage to cache the above, and perhaps also to cache episode lists

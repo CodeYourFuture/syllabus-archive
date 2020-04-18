@@ -11,7 +11,7 @@
 1. Provide a free-text show search through show names, genres, and summary texts.
 1. Ensure that your episode search and episode selector controls still work correctly when you switch from shows listing to episodes listing and back.
 
-To get the list of shows, you should load `shows.js` in your `index.html` and use the provided function: `getAllShows()`
+Continue to get the list of shows the same way you did in level 400. (You do not need to fetch it.)
 
 ### Example screenshots of Shows Listing
 

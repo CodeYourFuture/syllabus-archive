@@ -1,305 +1,302 @@
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+# JavaScript Core III - Week 2
 
-# JS Core III - 2
+## Learning Objectives
 
-** What we will learn today?**
-* [Debugging](#good-design)
-* [Good Design](#good-design)
-* [Async and Sync revisited](#async-vs-sync)
-* [Intro to ES6](#intro-to-es6)
+- The learner should understand what the acronym API means
+- The learner can define what an `REST API`s purpose is and why it is useful
+- The learner should understand the structure of `REST API`s url and how it can be manipulated to change the data
+- The learner should be able to define what a `Promise` is
+- The learner should understand what `fetch` is and what it is used for
+- The learner should be able to use `fetch` to retrieve `JSON` from an `REST API`
+- The learner should be able to parse the `JSON` and extract data from it
+- The learner should be able to use `DOM` manipulation to add content to the `DOM`
+- The learner should understand `window.onload` and `document.onload` and should be able to assign functions to run at specific life cycle events
 
----
+## Agenda
 
-# Debugging
+The purpose of this class is to introduce to the student:
 
-Debugging is the process of finding and resolving defects or problems within a computer program that prevent correct operation of computer software or a system.
+1. What are `APIs` and how to interact with them
+2. How to use the `fetch` API to do AJAX calls
 
-## Syntax bugs
-A syntax bug is an error caused by something the programmer has typed – it could be a spelling mistake or a command that the computer doesn’t understand.
+## 1. What are APIs and how to interact with them
 
-## Logical bugs
-A logical bug is an error which means that even though the computer is able to carry out its instructions, it doesn’t act as the programmer intended or the user expects.
+### Explanation
 
-> Exercise: This website ([https://kabaros.github.io/dom-ajax-repo-solution](https://kabaros.github.io/dom-ajax-repo-solution)) has *bugs*. Use Chrome Developer Tools to find out what is causing these issues.
+- APIs are created by providers and used by consumers (BE provider, FE consumer)
+- Part of an application that can be communicated with from an outside source
+- Connect to it using "endpoints"
+- Software well-known APIs (Fb APIs, Twitter APIs, Maps APIs, weather APIs);
+- API doesn't care which language or technology is used in the consumer or the provider
 
-> Follow this tutorial about [Debugging with Chrome](https://developers.google.com/web/tools/chrome-devtools/javascript/)
+#### Types of APIs:
 
-> The terms "bug" and "debugging" are popularly attributed to Admiral Grace Hopper in the 1940s.[1] While she was working on a Mark II computer at Harvard University, her associates discovered a moth stuck in a relay and thereby impeding operation, whereupon she remarked that they were "debugging" the system
+- Private: for employees only under a company network for internal use.
+- Semi-private: for clients who paid for the API.
+- Public: for everyone on the web.
 
-# Good Design
+#### Architecture styles of API:
 
-Design is important if we want our code to be understandable (both to other
-humans, but also to us in the future), to be easy to use and easy to expand.
+- Single purpose: API that gives a direct and specific service.
+- Aggregated API: one API as a wrapper for multiple APIs.
+- Web services API: punch of APIs working together to forma whole app.
 
-There are three main principles you need to know now: clarity, reusability and
-extensibility. There are also others, but they are deeply related to these
-three.
+##### Check-in
 
-* Ease of Maintenance / Clarity
-  * Naming
-  * Commenting
-  * Clear logic
-  * Concise
-  * Formatting
-  * Avoiding Redundancy
+**Question (5 mins):**
 
-* Reusability
-  * DRY
-  * Single Reponsibility
-    * Avoiding global state (scope)
-    * Predictability and Ease of testing
+    Which of the following statements below about APIs is false?
 
-* Extensibility
-  * Avoiding being unnecessarily specific (e.g. magic numbers)
+    A) Public APIs can be accessed by anyone on the Internet.
+    B) You must use Javascript to access an API.
+    C) APIs can control access to data or features of an application.
+    D) You can change data via an API.
 
-Now let's take a look at a bigger example of a badly written function
+**Question (5 mins):**
 
-```js
-function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
-  var totalIncomeTax = incomeTax1 + incomeTax2;
-  var studentLoan = (salary - 17775) * 0.09;
-  var originalSalary = salary;
-  var nationalInsurance = null;
+    Give an example of a company that uses an API to allow access to their data.
 
-  if (taxCode === "1150L") {
-    nationalInsurance = salary * 0.1;
-  } else if (taxCode === "ST") {
-    nationalInsurance = salary * 0.05;
-  } else {
-    nationalInsurance = salary * 0.08;
-  }
+#### Basic structure of REST API
 
-  var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
+- Endpoint: https://api.example.com
+- Endpoint with version: https://api.example.com/v1
+- Resources:
 
-  salary = salary - deductions[0];
-  salary = salary - deductions[1];
-  salary = salary - deductions[2];
+* https://api.example.com/v1/users
+* https://api.example.com/v1/users/create
+* https://api.example.com/v1/users/1
+* https://api.example.com/v1/users/1/edit
 
-  return (
-    "Your gross income is £" +
-    originalSalary.toString() +
-    " and your net income is £" +
-    salary.toString() +
-    "."
+- Query params:
+
+* https://api.example.com/v1/users?limit=10
+
+### Example
+
+- Give real life example like (Devices like TV, any machine + electricity power socket interface which provides power to any external device)
+- Give an example of an API in production
+  - [Game Of Thrones API](https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones)
+
+### Exercise
+
+#### Check-in
+
+Here is an example of Spotify's REST endpoint to allow you to get the tracks from a playlist
+
+    GET https://api.spotify.com/v1/playlists/{playlist_id}/tracks
+
+**Task (5 mins):**
+
+    On Instagram, you can access a post via the following endpoint:
+
+    https://api.instagram.com/v1/media/{media-id}
+
+    1. Write the URL of the endpoint to get the list of comments on a given instagram post?
+    2. What HTTP verb will you use to make requests to this endpoint?
+
+## 2. How to use the `fetch` API to do AJAX calls
+
+### Explanation
+
+- Modern replacement of XMLHttpRequest
+- Uses Promise structure
+- The Fetch API is defined in the browser (window.fetch)
+- Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
+- Fetch API documentations by mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+### What is Fetch made of?
+
+Fetch is an example of a javascript which has a very specific structure.
+
+```javascript
+let promiseToDoHomeWork = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    if (true) resolve();
+    // homework done
+    else reject("homework not done, too lazy");
+  }, 1000);
+});
+
+promiseToDoHomeWork
+  .then(function () {
+    console.log("homework is done now");
+  })
+  .catch(function (err) {
+    console.warn(err);
+  });
+```
+
+### Example
+
+#### Example 1
+
+```javascript
+//Retrieve the JSON
+fetch("https://seriousnews.com/api/headlines")
+  // Get the response and extract the JSON
+  .then(function (response) {
+    return response.json();
+  })
+  // Do something with the JSON
+  .then((headlines) => {
+    console.log(headlines);
+  })
+  // If something goes wrong
+  .catch((error) => console.log(error));
+```
+
+#### Example 2
+
+Wouldn't it cool to make a new friend with just the click of a button?
+
+Write a function that makes an API call using `fetch` to `https://www.randomuser.me/api`
+
+- The function should make an API call to the given endpoint: `https://www.randomuser.me/api`
+- Log the received data to the console
+- Incorporate error handling
+- Show how you can build a profile page for the user using the DOM
+  - Add a name
+  - Add a profile picture
+  - Add some styling using CSS
+
+### Exercises
+
+#### Exercise 1
+
+In groups the students should create a page of details about the United Kingdom.
+
+The API endpoint can be found [here](https://restcountries.eu/rest/v2/name/Great%20Britain?fullText=true)
+
+The website should include
+
+- The name of the country
+- The country's capital city
+- An unordered list of all the countries name in other languages
+
+##### Steps
+
+Example `html` and `javascript` files can be found in the section below
+
+1. Create a `HTML`, `CSS` and `JavaScript` file to hold different types of code
+2. In your `HTML` file, write a simple basis for your website (e.g. [this](https://www.sitepoint.com/a-basic-html5-template/))
+   - Make sure all of your `HTML`, `CSS` and `JavaScript` files are linked together!
+3. Write a function using fetch that retrieves the `JSON` from the _Country API_
+   - To make sure it's working print the JSON to the console using `console.log()`
+4. Create a `h1` tag on the website using DOM manipulation and add the countries name inside it
+   - Go back to [Week 5](../../js-core-2/week-2/lesson.html) if you need a reminder
+5. Create a `h2` tag on the website using DOM manipulation and add the capital cities name inside it
+6. Create a `ul` tag on the website using DOM manipulation
+   - For each of the translated names in the JSON, add a `li` tag
+7. Uncomment the lines inside `onLoad()` to load other countries details!
+
+**Extra**
+
+- Load the countries flag into an `img` tag
+- Add CSS to make your website look really nice
+- Add other information from the JSON to your Country Details
+
+##### Framework Files
+
+**index.html**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Country Information</title>
+    <meta name="description" content="Country Information" />
+    <meta name="author" content="Code Your Future" />
+
+    <link rel="stylesheet" href="styles.css?v=1.0" />
+  </head>
+
+  <body>
+    <div id="content"></div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
+```
+
+**scripts.js**
+
+```javascript
+// This function should retrieve the JSON from the `countryURL` and then call onCountryDataReceived() with the JSON
+function getData(countryURL) {}
+
+function onCountryDataReceived(country) {
+  addCountryName(country);
+  addCountryCapital(country);
+  addNameInOtherLanguages(country);
+}
+
+// This function should take the JSON for the country and put a H1 tag on the screen containing its name
+function addCountryName(countryData) {}
+
+// This function should take the JSON for the country and put a H2 tag on the screen containing its capital city
+function addCountryCapital(countryData) {}
+
+// This function should take the JSON for the country and put UL and LI tags on the screen with the countries name translated into other languages
+function addNameInOtherLanguages(countryData) {}
+
+function getContentDiv() {
+  return document.querySelector("#content");
+}
+
+function onLoad() {
+  getData(
+    "https://restcountries.eu/rest/v2/name/Great%20Britain?fullText=true"
   );
+
+  /** Remove this line when you have completed the task
+
+  getData("https://restcountries.eu/rest/v2/name/France?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Germany?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Spain?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Portugal?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Hungary?fullText=true");
+
+  getData("https://restcountries.eu/rest/v2/name/Russia?fullText=true");
+
+  */ // Remove this line when you have completed the task
 }
 
-console.log(myFunction(28000, "1150L", 1000, 580, false));
+window.onload = onLoad;
 ```
 
-What is wrong with this function?
+##### Finished Example
 
-1. Naming: the function has a bad name, myFunction() tells you nothing about
-   what the function does. It's also considered bad practice to name variables
-   vaguely by separating them through numbers (incomeTax1, incomeTax2, etc). If
-   you find yourself doing this then you should either use an array (such as
-   incomeTax[]).
+You can find the finished example of this website [here](js-core-3\week-1\completed_country_website).
 
-2. Commenting: the function isn't documented at all. It's very difficult to
-   understand what the function's purpose is and how each part of the code
-   contributes to it. By writing comments, the coder communicates their
-   reasoning and helps the function be human readable.
+##### Check-in
 
-3. Layout/formatting: unnecessary spacing between the if and else statement.
+**Question (5 mins):**
 
-4. Single responsibility: the function doesn't have a single purpose. It
-   calculates national insurance and salary deductions. Maybe the national
-   insurance calculation could be moved to a separate function.
+    Which of the following statements about Promises is false?
 
-5. Input variable being overwritten: the function requires gross salary (before
-   deductions) and net salary (after deductions) the `salary` input variable is
-   therefore copied into an `originalSalary` variable so that it can be changed.
-   It would be much clearer to create a new `netSalary` variable and leave
-   `salary` unmodified.
+    A) The function passed into a promise is executed as soon as the promise is created.
+    B) You must always have a then method in a promise.
+    C) A promise can return multiple values.
+    D) Rejected is a valid promise state.
 
-6. DRY principle: the function validates the DRY (Don't Repeat Yourself) rule.
-   The line where a deduction is taken from the salary is repeated 3 times with
-   different indices. This can be replaced with a `for` loop.
+**Question (5 mins):**
 
-7. Magic numbers. The code contains a lot of magic numbers, including `17775`,
-   `0.09` and `0.1`.
+Complete the following sentence:
 
-8. Useless parameters: the code contains a variable which isn't used. They
-   should be removed because they are confusing. It is tempting when you're
-   starting to code a function to add more parameters thinking that you might
-   need them, but it's important to remove them if you don't end up using them.
+    Fetch is a web API that allows you to _____ from _____.
 
-> Exercise: Working in pairs, go through all of these issues and make
-> appropriate improvements to the code.
+**Task (5 mins):**
+Complete the rest of this code to connect to the following API: `https://dog.ceo/api/breeds/image/random`
 
-# Async vs Sync
-ToDO: Trace async code on paper
+    fetch(_____)
+    .then(_____)
+    .then(body => console.log(body))
+    .catch(error => console.log(error));
 
-- Different ways of doing async in JavaScript
-
-
-# Intro to ES6
-
-ECMAScript 2015 (or ES6) is a significant update to JavaScript that introduces
-new syntax for writing complex applications. 
-
-## const and let
-
-You have already come across the `var` keyword as a way to create new variables.
-The `let` and `const` keywords are also used for variable creation, but the
-variables created using these keywords have different scope. Var has "function
-scope", whereas let and const have "block scope".
-
-> Exercise: This **badly designed** function will throw the error `message is
-> not defined`. What is the problem, and how could we fix it?
-
-```js
-function compareNumbers(m, n) {
-  if (m < n) {
-    let message = m + " is smaller than " + n;
-  } else {
-    let message = m + " is bigger than or equal to " + n;
-  }
-
-  return message;
-}
-```
-
-The `const` keyword is similar to `let`, the only difference is that a variable
-declared using `const` can't be changed after it is assigned.
-
-> Exercise: What advantages might a block scope variable have over a function
-> scope variable? In what situation might you want to use `const` instead of a
-> variable that can be re-assigned?
-
-> Exercise: Let's update this code to use `let` and `const` instead of `var`
-
-```js
-function getCircleArea(radius) {
-  var pi = Math.PI;
-  var rSquared = Math.pow(radius, 2);
-
-  return pi * rSquared;
-}
-
-function getCircleAreas(radiusArr) {
-  var areasArr = [];
-
-  for (var i = 0; i < radiusArr.length; i++) {
-    var circleArea = getCircleArea(radiusArr[i]);
-    areasArr.push(circleArea);
-  }
-
-  return areasArr;
-}
-```
-
-## Template literals
-
-We do a lot of string concatenation in JavaScript - ES6 introduces a more
-elegant way of accomplishing the same.
-
-```js
-function greeting(name) {
-  return "Hello " + name + ", welcome to JS core 3!";
-}
-```
-
-Rewriting this function in ES6, we have
-
-```js
-function greeting(name) {
-  return `Hello ${name}, welcome to JS core 3!`;
-}
-```
-
-## Arrow functions
-
-ES6 also has a new way of declaring functions. Let's see how it works.
-
-```js
-// before 
-function sum(a, b, c) {
-  return a + b + c;
-}
-
-// ES6
-const sum = (a, b, c) => {
-  return a + b + c;
-}
-```
-
-If the function only contains one expression, the curly braces and the `return` 
-are optional and we can write the whole function in one line. 
-
-```js
-const sum = (a, b, c) => a + b + c;
-```
-
-> Exercise: Refactor the previous code to have a separate function that checks
-> if gender is 'female' or not, and use it in sayGreeting. Let's try and make
-> the code as compact as possible together using ES6 features.
-
-
-## Default parameters 
-
-ES6 allows us to declare defaults for function arguments. The default value is 
-used when the argument/parameter is either missing or `undefined`. 
-
-This function returns the sum of three numbers. Let's assume we want to use the 
-same function with only two arguments: 
-
-```js
-// without default parameter
-const sum = (a, b, c) => {
-  c = c || 0;
-  return a + b + c;
-}
-
-console.log(sum(1, 3, 4)) // 8
-console.log(sum(2, 5)) // NaN
-
-// with default parameter 
-const sum = (a, b, c = 0) => {
-  return a + b + c;
-}
-console.log(sum(2, 5)) // 7
-```
-
-
-## Destructuring
-
-In ES6 we can extract data from objects or arrays using destructuring. 
-
-```js
-// before 
-var chicken = {
-  name: 'Maggie', 
-  age: 2
-}
-
-var name = chicken.name;
-var age = chicken.age;
-
-var numbers = [1, 2];
-
-var firstNumber = numbers[0];
-var secondNumber = numbers[1];
-
-
-// in ES6
-const chicken = {
-  name: 'Maggie', 
-  age: 2
-}
-
-const { name, age } = chicken;
-
-const numbers = [1, 2];
-
-const [firstNumber, secondNumber] = numbers;
-
-```
-
-
-# Resources
-
-* [ES6 features](http://es6-features.org/)
-* [Let and const](http://wesbos.com/let-vs-const/)
-
-{% include "./homework.md" %}
+1. Post your code on Slack
+2. Post the image you retrieved on Slack

@@ -4,39 +4,42 @@
 
 [Mentor Notes](./mentors.md)
 
-* [Hello World](#hello-world)
-* [Variables](#variables)
-* [String concatenation](#string-concatenation)
-* [Strings](#strings)
-* [Numbers as integers](#numbers-as-integers)
-* [Numbers as decimals](#numbers-as-decimals)
-* [Functions](#functions)
-* [Calling functions inside functions](#calling-functions-inside-functions)
+- [Hello World](#hello-world)
+- [Variables](#variables)
+- [String concatenation](#string-concatenation)
+- [Strings](#strings)
+- [Numbers as integers](#numbers-as-integers)
+- [Numbers as decimals](#numbers-as-decimals)
+- [Functions](#functions)
+- [Calling functions inside functions](#calling-functions-inside-functions)
 
 **Learning Objectives**
 
 By the end of this class, you should be able to answer these questions:
 
-* What is `console.log()`?
-* What are the different primitive data types in JS?
-* What is `typeof` and how do you use it?
-* How do you assign data to variables using `let` and `const`?
-* How do you define, call and evaluate functions?
-* How do you manipulate strings with concatenation and interpolation techniques?
-* How do you manipulate numbers with mathematical operators and the `Math` library?
-* What is the difference between `console.log()` and `return`?
-* How do you call functions from within functions?
-* How do you search and read documentation if you're stuck?
-* How can you debug and step through code?
+- What is `console.log()`?
+- What are the different primitive data types in JS?
+- What is `typeof` and how do you use it?
+- How do you assign data to variables using `let` and `const`?
+- How do you define, call and evaluate functions?
+- How do you manipulate strings with concatenation and interpolation techniques?
+- How do you manipulate numbers with mathematical operators and the `Math` library?
+- What is the difference between `console.log()` and `return`?
+- How do you call functions from within functions?
+- How do you search and read documentation if you're stuck?
+- How can you debug and step through code?
 
 ---
 
 > Please make sure you've forked [the js-exercises repo](https://github.com/CodeYourFuture/js-exercises) at the start of the class. This is the repo we will use during the class, and for homework.
 
 ## Prerequisites
-1. Access to a Linux console (either on Mac, Ubuntu or by using Ubuntu WSL for Windwos 10)
-2. VS Code running a default Linux terminal
-3. NodeJS must be installed
+
+1. Access to a Linux console (either on Mac, Ubuntu or by using Ubuntu WSL for Windows 10)
+1. VS Code running a default Linux terminal
+1. NodeJS must be installed
+
+To test, you can write `node -v` in your terminal and you should see something like `v11.10.0`. If you don't see this please talk to a teacher!
 
 ## Hello World
 
@@ -47,7 +50,9 @@ We'll do this in JavaScript, using a command called `console.log()`. The `consol
 The console is a tool which is mainly used to log information - it's useful for testing purposes.
 
 ### Exercise (10 minutes)
-*(This exercise will help you understand how to run a basic JS script and explore the different ways you can run JS code)*
+
+_(This exercise will help you understand how to run a basic JS script and explore the different ways you can run JS code)_
+
 1. Create your first `js1-week1.js` script
 2. Type `console.log("Hello World!")`
 3. There are 2 ways you can run this script - one way is by pressing F5 in your VS Code application. Can you find out what the second way is? Pair up and use a search engine to find out! Choose your favourite method and use that from now on.
@@ -55,7 +60,8 @@ The console is a tool which is mainly used to log information - it's useful for 
 **BONUS:** there is a third way of running JS code (notice how I haven't said scipt) - do you know what that is?
 
 ### Exercise (5 minutes)
-*(This exercise will help you expand your understanding of console.log)*
+
+_(This exercise will help you expand your understanding of console.log)_
 
 Write 10 statements like these, but in different languages.
 
@@ -118,14 +124,18 @@ console.log(messageType); // logs 'string'
 ### Exercise (5 minutes)
 
 1. Write a program that:
-* creates a variable called `colors` 
-* assigns colors "blue" and "yellow" as a comma separate string to `colors` 
-* logs the type `colors` using `typeof`.
+
+- creates a variable called `colors`
+- assigns colors "blue" and "yellow" as a comma separate string to `colors`
+- logs the type `colors` using `typeof`.
+
 2. What is the `typeof` a number?
 
 ## String concatenation
 
-You can add two strings together using the plus operator (`+`) or *string interpolation*. String interpolation is a useful JavaScript feature that allows you to inject variables directly into a string:
+You can add two strings together using the plus operator (`+`) or _string interpolation_.
+
+String interpolation is a useful JavaScript feature that allows you to put variables directly into a string:
 
 ```js
 // Here is an example using the plus operator to concat strings
@@ -255,25 +265,29 @@ function add(num1, num2) {
 ### Exercise (20 minutes)
 
 1. In pairs, design and create a function that:
-  * takes in more than one input
-  * uses string concatenation
-  * performs some form of operation on a number
-  * uses `return` to return a **string**
-2. Comment your function to explain what it does
+
+- takes in more than one input
+- uses string concatenation
+- this means adding two strings together
+- performs some form of operation on a number
+- uses `return` to return a **string**
+
+2. Add a comment above your function to explain what it does
 3. Call your function and run your script
 4. What's the difference between a `return` and `console.log`?
 5. When would you choose to use functions over the way we have been scripting so far?
 
 ### Exercise (10 minutes)
+
 1. Swap your laptop with your neighbouring pair and review each other's code - what can be improved? Is the code readable?
 
 ## Calling functions inside functions
 
 Functions are very powerful.
 
-* You can write more than one line of code inside of functions.
-* You can use variables inside of functions.
-* You can call other functions inside of functions!
+- You can write more than one line of code inside of functions.
+- You can use variables inside of functions.
+- You can call other functions inside of functions!
 
 ```js
 function getAgeInDays(age) {
@@ -295,12 +309,12 @@ function createGreeting(name, age) {
 
 ## Glossary
 
-* Console: a place on your computer to run scripts or commands from
-* Command: something that you type on your computer which performs an operation that your computer does
-* Directory: another word for "folder" on your computer
-* Parameter: a placeholder for values you can pass into functions
-* Primitive type: a built-in type in JavaScript (e.g. strings and numbers are primitive types in JavaScript) 
-* Script: a file that contains a programme
-* Terminal: another word for "console"
+- Console: a place on your computer to run scripts or commands from
+- Command: something that you type on your computer which performs an operation that your computer does
+- Directory: another word for "folder" on your computer
+- Parameter: a placeholder for values you can pass into functions
+- Primitive type: a built-in type in JavaScript (e.g. strings and numbers are primitive types in JavaScript)
+- Script: a file that contains a program
+- Terminal: another word for "console"
 
 {% include "./homework.md" %}

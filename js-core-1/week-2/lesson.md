@@ -2,33 +2,33 @@
 
 # JavaScript Core I - 2
 
-* [Expressions](#expressions)
-* [Booleans](#booleans)
-* [Comparison Operators](#comparison-operators)
-* [Conditionals](#conditionals)
-* [Logical Operators](#logical-operators)
-* [Loops](#loops)
-* [Arrays](#arrays)
-* [Extra exercises](#extra-exercises)
+- [Expressions](#expressions)
+- [Booleans](#booleans)
+- [Comparison Operators](#comparison-operators)
+- [Conditionals](#conditionals)
+- [Logical Operators](#logical-operators)
+- [Loops](#loops)
+- [Arrays](#arrays)
+- [Extra exercises](#extra-exercises)
 
 **Learning Objectives**
 
 By the end of this class, you should be able to answer these questions:
 
-* What are expressions and statements (and what's the difference)?
-* What are conditionals?
-* What are `for` and `while` loops (and what's the difference)?
-* How do you use expressions with conditionals?
-* What are comparitor operators and how do you use them?
-* What are logical operators and how do you use them?
-* What functionality does the `assert` module provide?
-* What are arrays and how can you interact with them?
+- What are expressions and statements (and what's the difference)?
+- What are conditionals?
+- What are `for` and `while` loops (and what's the difference)?
+- How do you use expressions with conditionals?
+- What are comparator operators and how do you use them?
+- What are logical operators and how do you use them?
+- What functionality does the `assert` module provide?
+- What are arrays and how can you interact with them?
 
 ---
 
 ## Expressions
 
-In JavaScript there are **expressions** and **statements**. We will use these words frequently to describe code.
+In JavaScript, there are **expressions** and **statements**. We will use these words frequently to describe code.
 
 ### Expression
 
@@ -77,7 +77,7 @@ sayGreeting(greeting); // action: calls the function `sayGreeting` with the para
 
 There are some other different types of statements that we will learn in the coming weeks.
 
-You can run `node` by itself, which will open a _node console_, also called a [Read–Eval–Print Loop (REPL)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop).
+You can run `node` by itself, which will open a _node console_, also called a [Read–Eval–Print Loop (REPL)](https://www.tutorialspoint.com/nodejs/nodejs_repl_terminal.htm).
 
 This console allows you to run expressions in the console line by line and is a great way of testing bits of code before writing it in a script.
 
@@ -85,11 +85,11 @@ This console allows you to run expressions in the console line by line and is a 
 
 In your VS Code terminal, run the command `node` and run the following expressions. What are their outputs? Is there anything you didn't expect? (To exit the node REPL, you have to click <kbd>Ctrl+d</kbd> or <kbd>Cmd+D</kbd> on Mac)
 
-* `1 + 2`
-* `"hello"`
-* `let favouriteColour = "purple"`
-* `favouriteColour`
-* `console.log(favouriteColour)`
+- `1 + 2`
+- `"hello"`
+- `let favouriteColour = "purple"`
+- `favouriteColour`
+- `console.log(favouriteColour)`
 
 ## Booleans
 
@@ -121,7 +121,7 @@ boolChecker(true);
 
 ## Comparison Operators
 
-In the previous exercise, you used an an **expression** that returns a `boolean` value. This was possible because of the **comparison operator** `===`. Using a comparison operator will always return a `boolean` value.
+In the previous exercise, you used an **expression** that returns a `boolean` value. This was possible because of the **comparison operator** `===`. Using a comparison operator will always return a `boolean` value.
 
 ### Assert
 We will also be using a new keyword to make sure the comparisons we do below return `true`. This is the `assert`.
@@ -149,18 +149,27 @@ The `>` symbol in the expression is a **comparison operator**. Comparison operat
 !== not the same value and type
 ```
 
-You might see people use two other comparison operators. They are valid, but are the evil twins of `===` and `!==` and it is generally considered bad practise because of the bugs the can cause.
+You might see people use two other comparison operators. They are valid, but are the evil twins of `===` and `!==` and it is generally considered bad practice because of the bugs the can cause.
+
+**&#10008; - Do not use == and !=**
 
 ```sh
-== equal after type converstion
-!= unequal after type converstion
+== equal compares only value
+!= unequal compares only value
+```
+
+**&#10004; - Do use === and !==**
+
+```sh
+=== equal compares both value and type
+!== unequal compares both value and type
 ```
 
 If you see these, suggest people change them in pull requests.
 
 ### Exercise (5 mins)
 
-1. Modify the values below to to have the compare function return the desired value:
+1. Modify the values below to have the compare function return the desired value:
 
 ```js
 const assert = require("assert");
@@ -192,22 +201,22 @@ assert(thisArray === thatArray);
 
 The array comparison doesn't work because JavaScript comparison only works as expected on `number`s, `string`s, and `boolean`s.
 
-You need to be aware of this, and you can go deeper into outside of the lesson, but generally remember that only `number`s, `string`s, and `boolean`s work with equality.
+You need to be aware of this, and its possible for you to go deeper into array comparisons outside of the lesson, though generally remember that only `number`s, `string`s, and `boolean`s work with equality.
 
-MDN have some in depth, if not too in depth documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
+MDN has some slightly in-depth documentation [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
 
 ## Conditionals
 
-Like humans, computer programs make decisions based on information given to them. **Conditionals** are a way of representing these decisions in code (remember, you saw this in a previous exercise!)
+Like humans, computer programs make decisions based on the information given to them. **Conditionals** are a way of representing these decisions in code (remember, you saw this in a previous exercise!)
 
 For example:
 
-* In a game, if the player has 0 lives, then the game is over
-* In a weather app, if rain is forecast, a picture of rain clouds is shown
+- In a game, if the player has 0 lives, then the game is over
+- In a weather app, if rain is forecast, a picture of rain clouds is shown
 
 The most common type of conditional is the **if statement**.
 
-An if statment runs some code if a condition is met. If the condition is not met, then the code will be skipped.
+An if statement runs some code if a condition is met. If the condition is not met, then the code will be skipped.
 
 ```js
 let isHappy = true;
@@ -264,7 +273,9 @@ if (isHappy) {
 What if there is more than one condition you want to handle in your function? For example, what if you can be confused as well? You can use **else if** to handle multiple conditions.
 
 ### Exercise (5 mins)
+
 Can you explain what this function does line by line? What happens when you pass in a string?
+
 ```js
 function numberChecker(num) {
   if (num > 20) {
@@ -280,12 +291,14 @@ function numberChecker(num) {
 ```
 
 ### Exercise (10 mins)
-Create a function that gives you message depending on your mood! It should:
-* take one input
-* return "Good job, you're doing great!" if you pass in "happy"
-* return "Every cloud has a silver lining" if you pass in "sad"
-* return "Beep beep boop" if you pass in a number
-* return "I'm sorry, I'm still learning about feelings!" if you pass in anything else
+
+Create a function that gives you a message depending on your mood! It should:
+
+- take one input
+- return "Good job, you're doing great!" if you pass in "happy"
+- return "Every cloud has a silver lining" if you pass in "sad"
+- return "Beep beep boop" if you pass in a number
+- return "I'm sorry, I'm still learning about feelings!" if you pass in anything else
 
 ## Logical Operators
 
@@ -293,7 +306,7 @@ There are three logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT
 
 They let you write expressions that evaluate to a boolean value.
 
-Suppose you want to test if a number is bigger than 3 and smaller than 10. We can write this using logical operators.
+Suppose you want to test if a number is bigger than 3 and smaller than 10. We can write this, using different logical operators.
 
 ```js
 let num = 10;
@@ -310,23 +323,25 @@ function satisfiesRequirements(num) {
 We can test expressions with logical operators in a node console too.
 
 ### Exercise (5 mins)
+
 Type the following expressions into your node REPL and note the output. Anything you didn't expect?
-* `let num = 10`
-* `num > 5 && num < 15`
-* `num < 10 || num === 10`
-* `false || true`
-* `!true`
-* `let greaterThan5 = num > 5`
-* `!greaterThan5`
-* `!(num === 10)`
+
+- `let num = 10`
+- `num > 5 && num < 15`
+- `num < 10 || num === 10`
+- `false || true`
+- `!true`
+- `let greaterThan5 = num > 5`
+- `!greaterThan5`
+- `!(num === 10)`
 
 ### Exercise (15 mins)
+
 In pairs, write a function that checks a username is of an acceptable format for a user type. The function must:
 
-* take two parameters: one for the username and one for the user type
-* if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
-* if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
-
+- take two parameters: one for the username and one for the user type
+- if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
+- if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
 
 ## Loops
 
@@ -342,13 +357,16 @@ while (i < 20) {
 }
 ```
 
-It's important that the condition inside the parenthesis becomes false at some point - otherwise we'll have what's known as an infinite loop!
+It's important that the condition inside the parenthesis becomes false at some point - otherwise, we'll have what's known as an infinite loop!
 
 The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value.
 
 The `for` loop syntax has special places for each of those three things. Here's the same loop as the first while loop above, as a for loop:
 
 ![For loop](https://user-images.githubusercontent.com/31692/75388870-9213a880-58dd-11ea-90e6-4e67eabf390b.png)
+
+![For loop](https://user-images.githubusercontent.com/31692/75388870-9213a880-58dd-11ea-90e6-4e67eabf390b.png)
+
 ```js
 for (let i = 0; i < 20; i++) {
   someFunction(i);
@@ -359,10 +377,9 @@ for (let i = 0; i < 20; i++) {
 
 Write two functions that:
 
-* Take one number `n` as a parameter
-* Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
-* The first version of the function should use `while` and the second one `for`.
-
+- Take one number `n` as a parameter
+- Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- The first version of the function should use `while` and the second one `for`.
 
 ## Arrays
 
@@ -392,7 +409,7 @@ let greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 
 You can access elements in an array using the **index** of an element with **bracket notation**
 
-**🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
+**🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero-based indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
 
 ```js
 let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
@@ -421,23 +438,22 @@ In the node REPL, enter the following array:
 
 1. Which index do you need to return:
 
-  - strawberry
-  - kiwi
-  - orange
-  - banana
+- strawberry
+- kiwi
+- orange
+- banana
 
 2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
 ### Exercise (10 mins)
 
 1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
-Sample array: [20, 20, 30, 40, 50, 50, 50]
-2. After removing the duplicate elements the function should return 4 as the new length of the array. 
-
+   Sample array: [20, 20, 30, 40, 50, 50, 50]
+2. After removing the duplicate elements the function should return 4 as the new length of the array.
 
 ### Exercise (5 mins)
 
-Complete this function so that, if the second index in array contains the name "Amy", it returns `"Second index matched!"`
+Complete this function so that, if the second index in the array contains the name "Amy", it returns `"Second index matched!"`
 
 ```js
 function secondMatchesAmy(array) {
@@ -449,12 +465,12 @@ function secondMatchesAmy(array) {
 ```
 
 ### Exercise (20 mins)
+
 In pairs, write a function which squares all numbers in an array and returns the array of squared numbers.
 
 Write a second function which takes an input of arrays and only returns an array of even numbers.
 
 How can you combine the two functions to return an array of even and squared numbers?
-
 
 ## Extra exercises
 
@@ -468,11 +484,11 @@ How can you combine the two functions to return an array of even and squared num
 let a = 4;
 let b = 8;
 
-const multiplyNumbers = function(a, b) {
+const multiplyNumbers = function (a, b) {
   return a * b;
 };
 
-const addNumbers = function(a, b, c) {
+const addNumbers = function (a, b, c) {
   return a + b + c;
 };
 
@@ -500,11 +516,11 @@ let y = 4;
 let a = 2;
 let b = 20;
 
-const f1 = function(a, b) {
+const f1 = function (a, b) {
   return a * b;
 };
 
-const f2 = function(a, b, c) {
+const f2 = function (a, b, c) {
   return a + b + c;
 };
 
@@ -524,5 +540,15 @@ for (let i = 0; i < 10; ++i) {
   }
 }
 ```
+
+## Glossary
+
+- Assert: to determine whether something is `true` or not `true`, more precisely `false`
+- Duplicate: exact copies of something (e.g. two or more files, numbers, directory can be exactly the same)
+- Index: numbers that let you know an item's position inside an array
+- REPL: (Read-Eval-Print-Loop) an interactive way to execute code you write inside the console
+- Zero-based Index: an `array` starting at `0` and not at `1`
+
+For words like **Terminal**, **Primitive Types** please see [Glossary: JavaScript Core I - 2](../week-1/lesson.md#Glossary)
 
 {% include './homework.md' %}

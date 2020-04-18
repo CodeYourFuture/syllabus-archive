@@ -10,16 +10,16 @@
   - [Week 3 - Design frameworks, Naming patterns and Forms](/html-css/week-3/lesson.md)
 - [JavaScript I](/js-core-1/index.md)
   - [Week 4 - Hello JavaScript](/js-core-1/week-1/lesson.md)
-  - [Week 5 - Conditionals and Loops](/js-core-1/week-2/lesson.md)
-  - [Week 6 - Arrays](/js-core-1/week-3/lesson.md)
+  - [Week 5 - Conditionals and Arrays](/js-core-1/week-2/lesson.md)
+  - [Week 6 - More Arrays](/js-core-1/week-3/lesson.md)
 - [JavaScript II](/js-core-2/index.md)
   - [Week 7 - Objects](/js-core-2/week-1/lesson.md)
   - [Week 8 - JS in the Browser](/js-core-2/week-2/lesson.md)
   - [Week 9 - More JS in the Browser](/js-core-2/week-3/lesson.md)
 - [JavaScript III](/js-core-3/index.md)
-  - [Week 10 - Unit Tests and TDD](/js-core-3/week-1/lesson.md)
-  - [Week 11 - More TDD, ES6](/js-core-3/week-2/lesson.md)
-  - [Week 12 - Recap](/js-core-3/week-3/lesson.md)
+  - [Week 10 - Debugging](/js-core-3/week-1/lesson.md)
+  - [Week 11 - Fetch and Asynchronous Programming](/js-core-3/week-2/lesson.md)
+  - [Week 12 - Scope and ES6](/js-core-3/week-3/lesson.md)
 - [React](/react/index.md)
   - [Week 13 - React 101](/react/week-1/lesson.md)
   - [Week 14 - Reacting to Changes](/react/week-2/lesson.md)
@@ -49,16 +49,3 @@
 ## For Students
 
 - [Coding Standards and Best Practices](/others/coding-standards.md)
-- [Making a Pull Request](/others/making-a-pull-request.md)
-- [CORS](/others/cors.md)
-- [Hosting React apps with Netlify](/others/netlify-hosting-instructions.md)
-- [Node Version Manager](/others/node-version-manager.md)
-- [Getting A Job](/others/getting-a-job.md)
-- [Developer Links](/others/developer-links.md)
-
-## General information
-
-- [CodeYourFuture](others/code-your-future.md)
-- [House Rules](/others/house-rules.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Contributing](CONTRIBUTING.md)

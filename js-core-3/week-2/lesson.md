@@ -4,7 +4,7 @@
 
 - The learner should understand what the acronym API means
 - The learner can define what an `REST API`s purpose is and why it is useful
-- The learner should understand the structure of `REST API`s url and how it can be manipulated to change the data
+- The learner should understand the structure of `REST API`s URL and how it can be manipulated to change the data
 - The learner should be able to define what a `Promise` is
 - The learner should understand what `fetch` is and what it is used for
 - The learner should be able to use `fetch` to retrieve `JSON` from an `REST API`
@@ -26,7 +26,7 @@ The purpose of this class is to introduce to the student:
 - APIs are created by providers and used by consumers (BE provider, FE consumer)
 - Part of an application that can be communicated with from an outside source
 - Connect to it using "endpoints"
-- Software well-known APIs (Fb APIs, Twitter APIs, Maps APIs, weather APIs);
+- Software well-known APIs (FaceBook APIs, Twitter APIs, Maps APIs, weather APIs);
 - API doesn't care which language or technology is used in the consumer or the provider
 
 #### Types of APIs:
@@ -39,7 +39,7 @@ The purpose of this class is to introduce to the student:
 
 - Single purpose: API that gives a direct and specific service.
 - Aggregated API: one API as a wrapper for multiple APIs.
-- Web services API: punch of APIs working together to forma whole app.
+- Web services API: bunch of APIs working together to form a whole app.
 
 ##### Check-in
 
@@ -102,11 +102,11 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 - Uses Promise structure
 - The Fetch API is defined in the browser (window.fetch)
 - Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
-- Fetch API documentations by mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- Fetch API documentation by Mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
 ### What is Fetch made of?
 
-Fetch is an example of a javascript which has a very specific structure.
+Fetch is an example of a JavaScript which has a very specific structure.
 
 ```javascript
 let promiseToDoHomeWork = new Promise(function (resolve, reject) {

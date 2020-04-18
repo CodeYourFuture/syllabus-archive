@@ -192,7 +192,7 @@ Here you'll see all of the messages that have been printed by the website when i
 
 ##### Using the Chrome Debugger
 
-The Chrome browser comes also comes with powerful set of developer tools, including a debugger. While the Developer tools pane is open, the `debugger` statement will cause the program to pause execution, allowing you to inpect the state of any variables that are currently in scope (you can also modify them interactively in the console!).
+The Chrome browser comes also comes with powerful set of developer tools, including a debugger. While the Developer tools pane is open, the `debugger` statement will cause the program to pause execution, allowing you to inspect the state of any variables that are currently in scope (you can also modify them interactively in the console!).
 
 ```javascript
 

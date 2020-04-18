@@ -5,7 +5,7 @@
 - The learner should understand the concept of variable scope and be able to define them in global, local, block and class scope
 - The learner should understand the concept of a JavaScript ES6 class and describe examples of when they are useful
 - The learner should be able to create a JavaScript ES6 class that represents a simple object
-- The learner should be able to use `this` keyword in JavaScript ES6 classes to target different scopes
+- The learner should be able to use `this` keyword to define variables specific to a class instance
 
 ## Agenda
 
@@ -15,8 +15,9 @@ The purpose of this class is to introduce to the student:
    - Local
    - Block
    - Global
-   - Class
-2. Project Work
+   - `this`
+2. Classes
+3. Project Work
 
 ## 1. Variable Scoping
 
@@ -64,13 +65,24 @@ let x = 1;
 console.log(x); // 1
 ```
 
+
 This block scoping behaviour will apply in contexts such as `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
+
+Another way of declaring block (and locally) scoped variables is with the `const` keyword; this prevents that variable from being redefined later, and can help with readability.
+
+```javascript
+
+const VALUE_THAT_WONT_CHANGE = 'VALUE_THAT_WONT_CHANGE';
+
+VALUE_THAT_WONT_CHANGE = 123;
+// Uncaught TypeError: Assignment to constant variable.
+```
 
 If you need variable to be globally accessible, you can also omit declaring them with the `let` keyword.
 
 ### Global Variables
 
-A variable that needs to be accessed everywhere (e.g. by many functions) can be defined as a global variable. You can do this by omitting the `let` keyword:
+A variable that needs to be accessed everywhere (e.g. by many functions) can be defined as a global variable. You can do this by omitting the `let` (or `const`) keyword:
 
 ```javascript
 // The variable VERSION can be subsequently be referenced anywhere in your code.
@@ -112,7 +124,7 @@ firstFunction();
 secondFunction();
 ```
 
-### Classes
+## 2. Classes
 
 Variables can be used to hold information about the state your code is in, e.g. how many times someone has clicked on a button:
 
@@ -211,7 +223,7 @@ Create you own analogy:
     A class is like _____ because _____.
 ```
 
-## 2. Project Work
+## 3. Project Work
 
 ### Explanation
 

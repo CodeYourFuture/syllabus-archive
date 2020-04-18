@@ -33,7 +33,7 @@ The code that we write has real world uses and real world effects.
 
 In 1999 the world faced a possibly very serious bug in the way that computer stored time. When computers stored the year they would only store the last two digits (e.g. 1999 is stored as just 99). This means that when the year 2000 happened lots of people were afraid that computer would think the year was the year 1900 instead of the year 2000.
 
-Check out this very scary video [here](https://www.youtube.com/watch?v=ddzbxJasID4)
+Check out this scary video [here](https://www.youtube.com/watch?v=ddzbxJasID4).
 
 Fortunately, a lot people put in a lot of work to stop the bug before it happened and averted catastrophe.
 
@@ -41,7 +41,7 @@ Fortunately, a lot people put in a lot of work to stop the bug before it happene
 
 Therac-25 was a machine used to administer radiation to cancer patients which malfunctioned because of a programmer error.
 
-You can watch a quick video about the bug [here](https://www.youtube.com/watch?v=izGSOsAGIVQ) in a
+You can watch a quick video about the bug [here](https://www.youtube.com/watch?v=izGSOsAGIVQ).
 
 ### The Debugging Mindset
 
@@ -192,11 +192,28 @@ Here you'll see all of the messages that have been printed by the website when i
 
 ##### Using the Chrome Debugger
 
-<!-- TO DO -->
+The Chrome browser comes also comes with powerful set of developer tools, including a debugger. While the Developer tools pane is open, the `debugger` statement will cause the program to pause execution, allowing you to inpect the state of any variables that are currently in scope (you can also modify them interactively in the console!).
+
+```javascript
+
+let testAdd = () => {
+
+  let a = 123;
+  let b = "352";
+  
+  debugger;
+  
+  console.log(a + b);
+}
+
+testAdd();
+```
+
+![Chrome debugging session](./chrome-debugger.jpg)
 
 ##### JSHint in VSCode
 
-It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the ESLint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+It's a great skill to get good at recognising these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the ESLint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 ### Exercise 1
 

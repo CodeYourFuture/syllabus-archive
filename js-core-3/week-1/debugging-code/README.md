@@ -1,3 +1,13 @@
-# Odin Library
+# Debugging My Book Library
 
-This is a library project for the Odin Project course. 
+My website should be able to:
+
+- View a list of books that I've read
+- Add books to a list of books that I've read
+  - Including title, author, number of pages and if I've read it
+  - If any of the information is missing it shouldn't add the book and should show an alert
+- Remove books from my list
+
+## Task
+
+This purposefully broken website should use the tools we talked about in the lesson.

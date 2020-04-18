@@ -159,9 +159,20 @@ foo.substring(1);
 When debugging you should always ask yourself a few key questions
 
 1. What did I expect to happen?
-2. What happened instead?
-3. What have I tried so far?
-4. Is it actually broken?
+
+You should very clearly be able to say exact what you expected to happen when you run your code. If you cannot do this, then you do not understand the problem well enough.
+
+2. Is it actually broken?
+
+Sometime what you think is broken is actually working fine but not what you thought was going to happen. You should confirm with what the program is trying to do.
+
+3. What happened instead?
+
+You should be able to quickly state what you were expecting to happen. Just saying "It Didn't Work" isn't enough! The more carefully you dissect the problem the more easily you'll be able to fix it.
+
+4. What have I tried so far?
+
+Debugging is a process of loops and iteration. Think about what you've done so far and work out other ways that the code could have broken.
 
 #### Tools
 
@@ -169,15 +180,11 @@ When debugging you should always ask yourself a few key questions
 
 In teams, the students should have quick discussion about the ways that they have solved bugs or errors they've had in the past.
 
-When they finish the discussion we should regroup and gather together all the ways that they have solved bugs in the past
+When they finish the discussion we should regroup and gather together all the ways that they have solved bugs in the past.
 
 ##### Thinking like a computer
 
 The most important skill you can develop is thinking analytically and logically - exactly the same as a computer. In the exercises soon we will be using our logical skills to slowly step through a program to see what is going wrong.
-
-##### JSHint in VSCode
-
-It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the JSHint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
 
 ##### Test Often
 
@@ -185,11 +192,23 @@ It is important when working on your code to test each part of your code separat
 
 ##### Using `console.log()` and the Console
 
-By this point you will have seen `console.log()` quite a lot
+By this point you will have seen `console.log()` quite a lot when we see what is happening in our programs - this tool can also be one of the key tools in debugging our programs!
+
+When we're working on websites you can view the `Console` tool in Chrome by
+
+- Right Click
+- Inspect
+- Click the `Console` tab
+
+Here you'll see all of the messages that have been printed by the website when it was loading and running.
 
 ##### Using the Chrome Debugger
 
 <!-- TO DO -->
+
+##### JSHint in VSCode
+
+It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the JSHint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
 
 ### Exercise 1
 
@@ -199,10 +218,10 @@ As a class we should step through solving all of the issues in this small piece 
 
 These are the errors:
 
-• homer string syntax: apostrophe not escaped (syntax)
+• Homer string syntax: apostrophe not escaped (syntax)
 • for loop: off-by-one error on check (logical)
-• incorrect calling of the function (other)
-• typo (typerror on k) (other)
+• Incorrect calling of the function (other)
+• Typo (typerror on k) (other)
 
 -->
 

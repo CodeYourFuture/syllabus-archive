@@ -156,8 +156,12 @@ foo.substring(1);
 
 ### The Debugging Framework
 
-- What did I expect to happen?
-- What happened instead?
+When debugging you should always ask yourself a few key questions
+
+1. What did I expect to happen?
+2. What happened instead?
+3. What have I tried so far?
+4. Is it actually broken?
 
 #### Tools
 
@@ -169,7 +173,7 @@ When they finish the discussion we should regroup and gather together all the wa
 
 ##### Thinking like a computer
 
-<!-- TO DO -->
+The most important skill you can develop is thinking analytically and logically - exactly the same as a computer. In the exercises soon we will be using our logical skills to slowly step through a program to see what is going wrong.
 
 ##### JSHint in VSCode
 
@@ -177,26 +181,35 @@ It's a great skill to get good at recognizing these errors when they happen to y
 
 ##### Test Often
 
-<!-- TO DO -->
+It is important when working on your code to test each part of your code separately and carefully. Make sure everything is working before you move on to the next part otherwise problems become harder to debug.
 
 ##### Using `console.log()` and the Console
 
-<!-- TO DO -->
+By this point you will have seen `console.log()` quite a lot
 
 ##### Using the Chrome Debugger
 
 <!-- TO DO -->
 
-### Exercise
+### Exercise 1
 
-In your groups we want you to go through this program and find all of the bugs that are happening in this code.
+As a class we should step through solving all of the issues in this small piece of code. You should copy it into a code editor (e.g. VS Code) in a `.js` file so you can debug and run it easily. **Be sure to use The Debugging Framework that we discussed earlier**
+
+<!--
+
+These are the errors:
+
+• homer string syntax: apostrophe not escaped (syntax)
+• for loop: off-by-one error on check (logical)
+• incorrect calling of the function (other)
+• typo (typerror on k) (other)
+
+-->
 
 ```javascript
 
 let printValuesOf = (jsObject, keys) => {
-
   for (let i = 0; i <= keys.length; i++) {
-
     let key = keys[i];
     console.log(jsObject[k]);
   }
@@ -227,6 +240,12 @@ Try to categorise the bugs found under:
 1. Logical
 2. Syntactical
 3. Other (programmer/user error)
+
+### Exercise 2
+
+In your groups we want you to go through this program and find all of the bugs that are happening in this code.
+
+You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/week-1/debugging-code)
 
 ## 2. Project Work
 

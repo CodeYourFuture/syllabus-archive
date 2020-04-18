@@ -17,7 +17,7 @@ The purpose of this class is to introduce to the student:
    - Global
    - `this`
 2. Classes
-2. Project Work
+3. Project Work
 
 ## 1. Variable Scoping
 

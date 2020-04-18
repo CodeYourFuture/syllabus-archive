@@ -234,8 +234,8 @@ Try to categorise the bugs found under:
 
 Over the next three weeks we're going to be building a website that will consolidate all of your knowledge so far in the course.
 
-You can find the project [here](././tv-show-dom-project)
+You can find the project [here](./js-core-3/tv-show-dom-project)
 
 ### Getting Setup
 
-In your groups you should get the project setup using the exact instructions found [here](././tv-show-dom-project/getting-started.md). Make sure you use your Teaching Assistants to help you!
+In your groups you should get the project setup using the exact instructions found [here](./js-core-3/tv-show-dom-project/getting-started.md). Make sure you use your Teaching Assistants to help you!

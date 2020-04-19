@@ -192,11 +192,104 @@ Here you'll see all of the messages that have been printed by the website when i
 
 ##### Using the Chrome Debugger
 
-<!-- TO DO -->
+We know that JavaScript executes code line by line. How great would it be if we had a tool that allowed us to stop code execution on any line and inspect the values of our variables. Fortunately such a tool exists and it's called a debugger. Here we will use the Chrome debugger for JavaScript, however similar tools exist of all other popular browsers.
 
-##### JSHint in VSCode
+To view the debugger go to the `Sources` tab of Chrome developer tools which we opened above.
 
-It's a great skill to get good at recognizing these errors when they happen to you but you can also use tools to help you find these errors before you run your code. You can use the ESLint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+To tell the debugger to stop we need to create a something called a `breakpoint`, it's an instruction to the debugger to stop execution and await instruction from us.
+
+We can place a debugger in one of two ways. We can either insert a line into our called saying
+
+```
+debugger;
+```
+
+or we can click on the line number in the debugger tool itself.
+
+Let's say we have a simple piece of code below and we want to inspect the values of `x` and `y` before adding them.
+
+```
+var x = 10;
+var y = 20;
+
+var z = x * y;
+```
+
+To use debugger on above code we will save it in a file called `temp.js` and import it into an html file called `temp.html`.
+
+We can either use the `debugger` statement to pause the code
+
+```
+var x = 10;
+var y = 20;
+debugger;
+var z = x * y;
+```
+
+or by opening the file in the debugger using the file navigation on the right hand side and clicking on line 4. Note you can pause on line with code not empty lines.
+
+![](breakpoint.png)
+
+Once we have paused code execution, we can mouse over the the variables to see their values.
+
+![](debug-value.png)
+
+Once we have finished inspecting the values, we can use the controls in the top right corner to tell the debugger what to do.
+
+![](controls.png)
+
+We can click the button with the blue triangle to tell the debugger to continue executing code until it hits the next breakpoint. Or if we want to execute code line by line ourselves, we can press the button with the curved arrow that will the debugger to execute the current line and stop on the next line.
+
+To remove a breakpoint you either remove the `debugger` statement or if you placed a breakpoint from the debugger itself, you can click that line number again to remove it.
+
+##### Comparing console.log and debugger
+
+As a developer you will likely use both tools to understand what your code is doing and help you fin and fix bugs. `console.log` can be a quick and easy way to check a value, but it can also be a bit inflexible since you can only inspect the value you log out in that one place.
+
+Using the debug tool to inspect values can be a bit slower than console logging out values. However, it is also more flexible since you can inspect any value and move execution yourself line by line.
+
+Try using both methods in your exercises and homeworks to get more familiar with them.
+
+##### ESLint in VSCode
+
+Often you will have code that is perfectly valid JavaScript, but it may possibly not do what you want it to do. For example, you might have misspelled a variable name and as a result the variable you wanted to using is now unused and the variable you using does not exist.
+
+To catch such problems, we can use a static code analysis tool or commonly known as a linter. The most common one in use today is `ESLint` and it allows us to configure different rules to look out for and alert us when one of them is broken by our code.
+
+You can use the ESLint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+We have created a sample ESLint configuration to help you get started. You can download it [here](.eslintrc).
+
+```
+{
+  "rules": {
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double"],
+    "eqeqeq": ["warn", "always"],
+    "no-unused-vars": ["warn", "always"],
+    "no-redeclare": ["warn", "always"],
+    "no-undef": ["warn", "always"]
+  }
+}
+```
+
+`semi` warns you if you did not use a semi colon at the end of the line
+`quotes` ensures consistency by warning you if you did not use double quote marks
+`eqeqeq` ensures you use `===` and `!==` rather than `==` and `!=` since the latter can lead to errors
+`no-unused-vars` will warn you if you have unused variables in your code
+`no-redeclare` will warn you if you redeclare an existing variable
+`no-undef` will warn you if you try to use an undeclared variable or function
+
+You can see all rules and their explanations at [https://eslint.org/docs/rules/](https://eslint.org/docs/rules/). Many of them not make sense to you (they don't to me), but it can be a handy reference and over time your use and understanding of them will improve and increase.
+
+##### Summary
+
+- Bugs are a fact of life. No one produces bug free code.
+- Test regularly to find bugs early.
+- Having multiple bugs in code can make them harder to deal with. See previous rule
+- Use tools such a linters spot and prevent bugs early
+- Error messages might look scary, but they are your friend
+- Use tools such as console.log and debugger to find root of bugs
 
 ### Exercise 1
 

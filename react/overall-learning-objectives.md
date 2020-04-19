@@ -1,4 +1,4 @@
-# Overall Learning Objectives
+# Overall Learning Objectives - React module
 
 By the end of the three lessons & homework, students should be able to build a React application:
 
@@ -7,7 +7,7 @@ By the end of the three lessons & homework, students should be able to build a R
   - Split across multiple files
 - Uses props to pass values between components
   - Data like numbers/strings/objects/arrays
-  - And functions for handling state changes
+  - Functions as event handlers
 - Uses state to react to user interaction
   - E.g. a button can be clicked to increment a counter
 - That fetches data from an API
@@ -17,6 +17,11 @@ By the end of the three lessons & homework, students should be able to build a R
   - Can be submitted, triggering an update in the app
 
 <!-- TODO: use this to make a rubric? -->
+
+For advanced students, some further objectives would be:
+
+- Use class components instead of function components/Hooks
+- Explain why React state is used over plain old JavaScript variables
 
 ## Out of scope
 

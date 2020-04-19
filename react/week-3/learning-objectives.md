@@ -15,8 +15,3 @@
 
 - Create a simple form in React
   - Use the controlled component pattern
-
-### Out of scope
-
-- Libraries in the React ecosystem e.g. Redux/MobX, React Router
-- React Hooks (for now)

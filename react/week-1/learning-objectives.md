@@ -24,8 +24,3 @@
 ### Deployment
 
 - Build and deploy a React application (to Netlify/Now/Heroku/etc)
-
-### Out of scope
-
-- CSS-in-JS
-- In depth functional programming

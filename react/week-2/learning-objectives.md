@@ -14,7 +14,3 @@
   - Be able to initialise & render state variables
   - Be able to set state using basic object style and based on previous state
 - Identify when to use props or state
-
-### Out of scope
-
-- JavaScript classes/inheritance

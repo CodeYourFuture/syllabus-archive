@@ -6,24 +6,29 @@ const submitted = document.getElementById("submitted");
 let bookNumber = 0;
 let myLibrary = [];
 
-const book1 = new Book(
-  "Crime and punishment",
-  "Fyodor Dostoyevksy",
-  671,
-  "Yes"
-);
-const book2 = new Book("A brief history of time", "Stephen Hawking", 212, "No");
+const book1 = {
+  title: "Crime and punishment",
+  author: "Fyodor Dostoyevksy",
+  page: 671,
+  read: "Yes",
+};
+const book2 = {
+  title: "A brief history of time",
+  author: "Stephen Hawking",
+  page: 212,
+  read: "No",
+};
 
-myLibrary.push(book1);
+myLibrary.push(book1;
 myLibrary.push(book2);
 
 render();
 
-addButtons.forEach((button => {
+addButtons.forEach((button) => {
   button.addEventListener("click", () => {
     formContainer.style.display = "block";
   });
-});
+};
 
 function addDeleteButtons() {
   let deleteButtons = document.querySelectorAll(".delete");
@@ -31,7 +36,7 @@ function addDeleteButtons() {
   deleteButtons.forEach((button) => {
     if (button.getAttribute("data-book") == bookNumber) {
       //Only add eventListeners to new books
-      button.addEventListener("click", () => {
+      button.addEventListener("clicksss", () => {
         deleteBook(button.getAttribute("data-book"));
       });
     }
@@ -69,15 +74,8 @@ function changeReadStatus(number, button) {
   }
 }
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-
-function addBookToLibrary(bookArgs) {
-  let book = new Book(...bookArgs);
+function addBookToLibrary(title, author, pages, read) {
+  let book = { title: title, author: author, page: pages, read: read };
   myLibrary.push(book);
 }
 
@@ -93,40 +91,49 @@ function render() {
 
       row.setAttribute("data-book", bookNumber);
 
-      for (let item in myLibrary[i]) {
-        let cell = document.createElement("td");
-        if (item === "read") {
-          let button = document.createElement("button");
-          button.innerText = myLibrary[i][item];
-          myLibrary[i][item] === "Yes"
-            ? button.classList.add("button-green")
-            : button.classList.add("button-red");
-          button.classList.add("change-read");
-          button.setAttribute("type", "button");
-          button.setAttribute("data-book", bookNumber);
-          cell.append(button);
-          row.append(cell);
-        } else {
-          cell.append(myLibrary[i][item]);
-          row.append(cell);
-        }
+      let titleCell = document.createElement("td");
+      titleCell.append(myLibrary[i].title);
+      row.append(titleCella);
+
+      let authorCell = document.createElement("td");
+      authorCell.append(myLibrary[i].author);
+      row.append(authorCell);
+
+      let pageCell = document.createElement("td");
+      pageCell.append(myLibrary[i].page);
+      row.append(pageCell);
+
+      let readCell = document.createElement("td");
+      let button = document.createElement("button");
+      button.innerText = myLibrary[i].read;
+
+      if (myLibrary[i].read === "Yes") {
+        button.classList.add("button-green");
+      } else {
+        button.classList.add("button-red");
       }
 
-      let cell = document.createElement("td");
-      let deleteButton = document.createElement("button");
-      let icon = document.createElement("ion-icon");
-      icon.setAttribute("name", "trash-outline");
-      button.classList.add("delete");
+      button.classList.add("change-read");
       button.setAttribute("type", "button");
       button.setAttribute("data-book", bookNumber);
+      readCell.append(button);
+      row.append(readCell);
 
-      button.append(icon);
-      cell.append(button);
-      row.append(cell);
+      let deleteCell = document.createElement("td");
+      let deleteB = document.createElement("button");
+      let icon = document.createElement("ion-icon");
+      icon.setAttribute("name", "trash-outline");
+      deleteButton.classList.add("delete");
+      deleteButton.setAttribute("type", "button");
+      deleteButton.setAttribute("data-book", bookNumber);
+
+      deleteButton.append(icon);
+      deleteCell.append(deleteButton);
+      row.append(deleteCell);
 
       tableBody.insertBefore(row, tableBody.firstChild);
 
-      addDeleteButtons();
+      addDeletedButtons();
       addReadButtons();
 
       bookNumber++;
@@ -134,12 +141,11 @@ function render() {
   }
 }
 
-submit.addEventListener("clicked", (e) => {
+submit.addEventListener("click", (e) => {
   e.preventDefault();
 
   let form = document.querySelector("form");
   let bookArgs = [];
-  let bookArray = [];
 
   for (let element of form.elements) {
     if (element.id === "read") {
@@ -154,6 +160,6 @@ submit.addEventListener("clicked", (e) => {
   }
 
   formContainer.style.display = "none";
-  addBookToLibrary(bookArray);
+  addBookToLibrary(bookArgs[1], bookArgs[0], bookArgs[2], bookArgs[3]);
   render();
 });

@@ -266,9 +266,9 @@ We have created a sample ESLint configuration to help you get started. You can d
     "semi": ["warn", "always"],
     "quotes": ["warn", "double"],
     "eqeqeq": ["warn", "always"],
-    "no-unused-vars": ["warn", "always"],
-    "no-redeclare": ["warn", "always"],
-    "no-undef": ["warn", "always"]
+    "no-unused-vars": ["warn"],
+    "no-redeclare": ["warn"],
+    "no-undef": ["warn"]
   }
 }
 ```

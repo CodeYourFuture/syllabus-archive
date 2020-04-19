@@ -11,6 +11,8 @@ Important: unlike previous CYF homework projects, you should **NOT** fork the CY
 1. Name your new repo **exactly** this: `tv-show-dom-project`
 1. Enable `Include all branches`
 1. Click the final green button `Create repository from template`
+1. Create a branch called `for-review`
+1. Return to the `master` branch
 1. Click `Open with Github Desktop` (or use github desktop to clone the project onto your laptop)
 1. Use vscode to edit your local copy of the project
 1. right click on index.html and `open with live server`

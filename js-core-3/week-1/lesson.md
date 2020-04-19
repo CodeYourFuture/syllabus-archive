@@ -54,7 +54,7 @@ In teams, the students should have quick discussion about the bugs that have occ
 
 #### Syntax Errors
 
-These errors are usually quite simple to fix and happen when you've typed some code wrong or missed a character. These will normally happen as soon as you run your code, this is often called _compile time_.
+These errors are usually quite simple to fix and happen when you've typed some code wrong or missed a character. These will normally happen as soon as you run your code.
 
 ##### Examples of Syntax Errors
 
@@ -173,6 +173,10 @@ When they finish the discussion we should regroup and gather together all the wa
 ##### Thinking like a computer
 
 The most important skill you can develop is thinking analytically and logically - exactly the same as a computer. In the exercises soon we will be using our logical skills to slowly step through a program to see what is going wrong.
+
+Remember that the computer will run your program line-by-line, from top to bottom, and that loops and functions may jump to a new location. If in doubt, try going through the program one line at a time - don't jump ahead, or guess what you _want_ your program to do, make sure you're reading what it actually _does_ do.
+
+When debugging, it can often be useful to write down what values variables have, either on paper, in comments, or by using `console.log` - this is particularly true in loops and functions, where variable values may change from iteration to iteration, or between calls!
 
 ##### Test Often
 

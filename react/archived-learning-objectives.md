@@ -1,4 +1,4 @@
-# Archived learning objectives - React module
+# Archived Learning Objectives - React module
 
 ### Class components
 

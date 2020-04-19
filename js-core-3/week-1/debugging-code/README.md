@@ -14,3 +14,9 @@ This purposefully broken website should use the tools we talked about in the les
 
 You can find a working version of this here:
 https://arodrigues92.github.io/library/
+
+## Github
+
+You can copy this code from here
+
+https://github.com/CodeYourFuture/Debugging-Library-Code

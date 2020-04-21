@@ -41,35 +41,23 @@ The purpose of this class is to introduce to the student:
 - Aggregated API: one API as a wrapper for multiple APIs.
 - Web services API: punch of APIs working together to forma whole app.
 
-##### Check-in
-
-**Question (5 mins):**
-
-    Which of the following statements below about APIs is false?
-
-    A) Public APIs can be accessed by anyone on the Internet.
-    B) You must use Javascript to access an API.
-    C) APIs can control access to data or features of an application.
-    D) You can change data via an API.
-
-**Question (5 mins):**
-
-    Give an example of a company that uses an API to allow access to their data.
-
 #### Basic structure of REST API
 
-- Endpoint: https://api.example.com
-- Endpoint with version: https://api.example.com/v1
-- Resources:
+Endpoint: `https://api.example.com`
 
-* https://api.example.com/v1/users
-* https://api.example.com/v1/users/create
-* https://api.example.com/v1/users/1
-* https://api.example.com/v1/users/1/edit
+Endpoint with version: `https://api.example.com/v1`
 
-- Query params:
+Resources:
 
-* https://api.example.com/v1/users?limit=10
+- `https://api.example.com/v1/users`
+- `https://api.example.com/v1/users/create`
+- `https://api.example.com/v1/users/1`
+- `https://api.example.com/v1/users/1/edit`
+
+Query params:
+
+- `https://api.example.com/v1/users?limit=10`
+- `https://api.example.com/v1/users?limit=10&sort=top`
 
 ### Example
 
@@ -79,7 +67,7 @@ The purpose of this class is to introduce to the student:
 
 ### Exercise
 
-#### Check-in
+**Task (5 mins):**
 
 Here is an example of Spotify's REST endpoint to allow you to get the tracks from a playlist
 
@@ -93,6 +81,21 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 
     1. Write the URL of the endpoint to get the list of comments on a given instagram post?
     2. What HTTP verb will you use to make requests to this endpoint?
+
+#### Recap
+
+**Question (5 mins):**
+
+    Which of the following statements below about APIs is false?
+
+    A) Public APIs can be accessed by anyone on the Internet.
+    B) You must use Javascript to access an API.
+    C) APIs can control access to data or features of an application.
+    D) You can change data via an API.
+
+**Question (5 mins):**
+
+    Give an example of a company that uses an API to allow access to their data.
 
 ## 2. How to use the `fetch` API to do AJAX calls
 
@@ -251,19 +254,19 @@ function onLoad() {
 
   /** Remove this line when you have completed the task
 
-  getData("https://restcountries.eu/rest/v2/name/France?fullText=true");
+    getData("https://restcountries.eu/rest/v2/name/France?fullText=true");
 
-  getData("https://restcountries.eu/rest/v2/name/Germany?fullText=true");
+    getData("https://restcountries.eu/rest/v2/name/Germany?fullText=true");
 
-  getData("https://restcountries.eu/rest/v2/name/Spain?fullText=true");
+    getData("https://restcountries.eu/rest/v2/name/Spain?fullText=true");
 
-  getData("https://restcountries.eu/rest/v2/name/Portugal?fullText=true");
+    getData("https://restcountries.eu/rest/v2/name/Portugal?fullText=true");
 
-  getData("https://restcountries.eu/rest/v2/name/Hungary?fullText=true");
+    getData("https://restcountries.eu/rest/v2/name/Hungary?fullText=true");
 
-  getData("https://restcountries.eu/rest/v2/name/Russia?fullText=true");
+    getData("https://restcountries.eu/rest/v2/name/Russia?fullText=true");
 
-  */ // Remove this line when you have completed the task
+    */ // Remove this line when you have completed the task
 }
 
 window.onload = onLoad;
@@ -273,7 +276,7 @@ window.onload = onLoad;
 
 You can find the finished example of this website [here](js-core-3\week-1\completed_country_website).
 
-##### Check-in
+##### Recap
 
 **Question (5 mins):**
 
@@ -286,17 +289,18 @@ You can find the finished example of this website [here](js-core-3\week-1\comple
 
 **Question (5 mins):**
 
-Complete the following sentence:
+    Complete the following sentence:
 
-    Fetch is a web API that allows you to _____ from _____.
+    Fetch is a web API that allows you to **\_** from **\_**.
 
 **Task (5 mins):**
-Complete the rest of this code to connect to the following API: `https://dog.ceo/api/breeds/image/random`
 
-    fetch(_____)
-    .then(_____)
-    .then(body => console.log(body))
-    .catch(error => console.log(error));
+    Complete the rest of this code to connect to the following API: `https://dog.ceo/api/breeds/image/random`
 
-1. Post your code on Slack
-2. Post the image you retrieved on Slack
+        fetch(_____)
+        .then(_____)
+        .then(body => console.log(body))
+        .catch(error => console.log(error));
+
+    1. Post your code on Slack
+    2. Post the image you retrieved on Slack

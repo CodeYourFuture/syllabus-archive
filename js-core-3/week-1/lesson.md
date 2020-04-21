@@ -200,7 +200,7 @@ We know that JavaScript executes code line by line. How great would it be if we 
 
 To view the debugger go to the `Sources` tab of Chrome developer tools which we opened above.
 
-To tell the debugger to stop we need to create a something called a `breakpoint`, it's an instruction to the debugger to stop execution and await instruction from us.
+To tell the debugger to stop we need to create something called a `breakpoint`, it's an instruction to the debugger to stop execution and await instruction from us.
 
 We can place a debugger in one of two ways. We can either insert a line into our called saying
 

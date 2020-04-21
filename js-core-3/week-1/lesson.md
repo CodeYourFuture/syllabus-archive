@@ -138,8 +138,8 @@ numbers.map(function (num) {
 - `TypeError: Cannot read property 'substring' of undefined`
 
 ```javascript
-var string;
-string.substring(1);
+var name;
+name.substring(1);
 ```
 
 ### The Debugging Framework

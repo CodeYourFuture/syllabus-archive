@@ -4,7 +4,7 @@
 
 - The learner should understand what the acronym API means
 - The learner can define what an `REST API`'s purpose is and why it is useful
-- The learner should understand the structure of a `REST API` URL and how it can be manipulated to change the data
+- The learner should be able to edit the structure of a `REST API` URL and to change the data retrieved from the server
 - The learner should be able to define what a `Promise` is
 - The learner should understand what `fetch` is and what it is used for
 - The learner should be able to use `fetch` to retrieve `JSON` from an `REST API`
@@ -144,25 +144,25 @@ Using Promises allows us to schedule functions to be called after some asynchron
 Promises can make it easier to split our code into small well-named functions, and make code easier to read. They also make it easier to handle errors.
 
 ```javascript
-  let clickCount;
+let clickCount;
 
-  document.querySelector("button").addEventListener("click", () => clickCount++);
+document.querySelector("button").addEventListener("click", () => clickCount++);
 
-  let promiseOfClicks = new Promise(function(resolve, reject) {
-    clickCount = 0;
-    console.log("Counting clicks for 5 seconds...");
-    setTimeout(() => {
-      if (clickCount > 0) {
-        resolve(clickCount);
-      } else {
-        reject();
-      }
-    }, 5000)
-  });
+let promiseOfClicks = new Promise(function(resolve, reject) {
+  clickCount = 0;
+  console.log("Counting clicks for 5 seconds...");
+  setTimeout(() => {
+    if (clickCount > 0) {
+      resolve(clickCount);
+    } else {
+      reject();
+    }
+  }, 5000)
+});
 
-  promiseOfClicks
-    .then(clicks => console.log(`Clicked ${clicks} times`)
-    .catch(error => console.warn(error));
+promiseOfClicks
+  .then(clicks => console.log(`Clicked ${clicks} times`)
+  .catch(error => console.warn(error));
 ```
 
 ### Example
@@ -316,27 +316,33 @@ You can find the finished example of this website [here](js-core-3\week-1\comple
 
 **Question (5 mins):**
 
-    Which of the following statements about Promises is false?
+```
+Which of the following statements about Promises is false?
 
-    A) The function passed into a promise is executed as soon as the promise is created.
-    B) You must always have a then method in a promise.
-    C) A promise can return multiple values.
-    D) Rejected is a valid promise state.
+A) The function passed into a promise is executed as soon as the promise is created.
+B) You must always have a then method in a promise.
+C) A promise can return multiple values.
+D) Rejected is a valid promise state.
+```
 
 **Question (5 mins):**
 
-    Complete the following sentence:
+```
+Complete the following sentence:
 
-    Fetch is a web API that allows you to **\_** from **\_**.
+Fetch is a web API that allows you to **\_** from **\_**.
+```
 
 **Task (5 mins):**
 
-    Complete the rest of this code to connect to the following API: `https://dog.ceo/api/breeds/image/random`
+```
+Complete the rest of this code to connect to the following API: `https://dog.ceo/api/breeds/image/random`
 
-        fetch(_____)
-        .then(_____)
-        .then(body => console.log(body))
-        .catch(error => console.log(error));
+    fetch(_____)
+    .then(_____)
+    .then(body => console.log(body))
+    .catch(error => console.log(error));
 
-    1. Post your code on Slack
-    2. Post the image you retrieved on Slack
+1. Post your code on Slack
+2. Post the image you retrieved on Slack
+```

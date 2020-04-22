@@ -97,11 +97,11 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 
     Give an example of a company that uses an API to allow access to their data.
 
-## 2. How to use the `fetch` API to do AJAX calls
+## 2. How to use `fetch` to do network requests
 
 ### Explanation
 
-- Modern replacement of XMLHttpRequest
+- A way for websites to request from other places on the internet
 - Uses Promise structure
 - The Fetch API is defined in the browser (window.fetch)
 - Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
@@ -112,21 +112,25 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 Fetch is an example of a javascript which has a very specific structure.
 
 ```javascript
-let promiseToDoHomeWork = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    if (true) resolve();
-    // homework done
-    else reject("homework not done, too lazy");
-  }, 1000);
-});
+  let clickCount;
 
-promiseToDoHomeWork
-  .then(function () {
-    console.log("homework is done now");
-  })
-  .catch(function (err) {
-    console.warn(err);
+  document.querySelector("button").addEventListener("click", () => clickCount++);
+
+  let promiseOfClicks = new Promise(function(resolve, reject) {
+    clickCount = 0;
+    console.log("Counting clicks for 5 seconds...");
+    setTimeout(() => {
+      if (clickCount > 0) {
+        resolve(clickCount);
+      } else {
+        reject();
+      }
+    }, 5000)
   });
+
+  promiseOfClicks
+    .then(clicks => console.log(`Clicked ${clicks} times`)
+    .catch(error => console.warn(error));
 ```
 
 ### Example

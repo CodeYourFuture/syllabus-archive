@@ -192,7 +192,7 @@ To tell the debugger to stop we need to create a `breakpoint`, it's an instructi
 
 We can place a debugger in one of two ways. We can either insert a line into our called saying
 
-```
+```javascript
 debugger;
 ```
 
@@ -200,7 +200,7 @@ or we can click on the line number in the debugger tool itself.
 
 Let's say we have a simple piece of code below and we want to inspect the values of `x` and `y` before adding them.
 
-```
+```javascript
 var x = 10;
 var y = 20;
 
@@ -211,7 +211,7 @@ To use debugger on above code we will save it in a file called `temp.js` and imp
 
 We can either use the `debugger` statement to pause the code
 
-```
+```javascript
 var x = 10;
 var y = 20;
 debugger;
@@ -252,7 +252,7 @@ You can use the ESLint extension for VSCode which you can [download here](https:
 
 We have created a sample ESLint configuration to help you get started. You can download it [here](.eslintrc).
 
-```
+```javascript
 {
   "rules": {
     "semi": ["warn", "always"],

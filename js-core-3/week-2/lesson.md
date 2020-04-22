@@ -33,7 +33,7 @@ The purpose of this class is to introduce to the student:
 
 - Private: for employees only under a company network for internal use.
 - Semi-private: for clients who paid for the API.
-- Public: for everyone on the web.
+- Public: for everyone on the web (but may or may not need an account to use).
 
 #### Architecture styles of API:
 

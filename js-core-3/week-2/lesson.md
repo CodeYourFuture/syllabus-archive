@@ -109,7 +109,11 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 
 ### What is Fetch made of?
 
-Fetch is an example of a javascript which has a very specific structure.
+Fetch uses a javascript pattern called "Promises" which has a very specific structure.
+
+Using Promises allows us to schedule functions to be called after some asynchronous code finishes running. We can specify different functions depending on whether the asynchronous code was successful or ran into an error.
+
+Promises can make it easier to split our code into small well-named functions, and make code easier to read. They also make it easier to handle errors.
 
 ```javascript
 let promiseToDoHomeWork = new Promise(function (resolve, reject) {

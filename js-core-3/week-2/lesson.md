@@ -131,10 +131,9 @@ As a class, you should discuss three examples when you think that a `POST` reque
 ### Explanation
 
 - A way for websites to request from other places on the internet
-- Uses Promise structure
-- The Fetch API is defined in the browser (window.fetch)
+- Fetch is defined in the browser which means it can be used without using an external library (`window.fetch`)
 - Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
-- Fetch API documentations by mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- Fetch API documentations by Mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
 ### What is Fetch made of?
 

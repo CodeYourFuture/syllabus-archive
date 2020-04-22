@@ -169,6 +169,10 @@ promiseOfClicks
 
 #### Example 1
 
+_Live Coding Exercise_
+
+Let's step through how the Fetch function is used and what it is comprised off
+
 ```javascript
 //Retrieve the JSON
 fetch("https://seriousnews.com/api/headlines")
@@ -185,6 +189,8 @@ fetch("https://seriousnews.com/api/headlines")
 ```
 
 #### Example 2
+
+_Live Coding Exercise_
 
 Wouldn't it cool to make a new friend with just the click of a button?
 

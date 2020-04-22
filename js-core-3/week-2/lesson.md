@@ -33,7 +33,7 @@ The purpose of this class is to introduce to the student:
 
 - Private: for employees only under a company network for internal use.
 - Semi-private: for clients who paid for the API.
-- Public: for everyone on the web.
+- Public: for everyone on the web (but may or may not need an account to use).
 
 #### Architecture styles of API:
 
@@ -109,7 +109,11 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 
 ### What is Fetch made of?
 
-Fetch is an example of a javascript which has a very specific structure.
+Fetch uses a javascript pattern called "Promises" which has a very specific structure.
+
+Using Promises allows us to schedule functions to be called after some asynchronous code finishes running. We can specify different functions depending on whether the asynchronous code was successful or ran into an error.
+
+Promises can make it easier to split our code into small well-named functions, and make code easier to read. They also make it easier to handle errors.
 
 ```javascript
   let clickCount;
@@ -178,7 +182,7 @@ The website should include
 
 - The name of the country
 - The country's capital city
-- An unordered list of all the countries name in other languages
+- An unordered list of the country's name in other all of the other returned languages
 
 ##### Steps
 
@@ -189,7 +193,7 @@ Example `html` and `javascript` files can be found in the section below
    - Make sure all of your `HTML`, `CSS` and `JavaScript` files are linked together!
 3. Write a function using fetch that retrieves the `JSON` from the _Country API_
    - To make sure it's working print the JSON to the console using `console.log()`
-4. Create a `h1` tag on the website using DOM manipulation and add the countries name inside it
+4. Create a `h1` tag on the website using DOM manipulation and add the country's name inside it
    - Go back to [Week 5](../../js-core-2/week-2/lesson.html) if you need a reminder
 5. Create a `h2` tag on the website using DOM manipulation and add the capital city's name inside it
 6. Create a `ul` tag on the website using DOM manipulation

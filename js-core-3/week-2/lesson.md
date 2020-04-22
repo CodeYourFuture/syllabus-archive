@@ -3,8 +3,8 @@
 ## Learning Objectives
 
 - The learner should understand what the acronym API means
-- The learner can define what an `REST API`s purpose is and why it is useful
-- The learner should understand the structure of `REST API`s url and how it can be manipulated to change the data
+- The learner can define what an `REST API`'s purpose is and why it is useful
+- The learner should understand the structure of a `REST API` URL and how it can be manipulated to change the data
 - The learner should be able to define what a `Promise` is
 - The learner should understand what `fetch` is and what it is used for
 - The learner should be able to use `fetch` to retrieve `JSON` from an `REST API`
@@ -33,13 +33,13 @@ The purpose of this class is to introduce to the student:
 
 - Private: for employees only under a company network for internal use.
 - Semi-private: for clients who paid for the API.
-- Public: for everyone on the web.
+- Public: for everyone on the web (but may or may not need an account to use).
 
 #### Architecture styles of API:
 
 - Single purpose: API that gives a direct and specific service.
 - Aggregated API: one API as a wrapper for multiple APIs.
-- Web services API: punch of APIs working together to forma whole app.
+- Web services API: bunch of APIs working together to form a whole app.
 
 #### Basic structure of REST API
 
@@ -97,11 +97,11 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 
     Give an example of a company that uses an API to allow access to their data.
 
-## 2. How to use the `fetch` API to do AJAX calls
+## 2. How to use `fetch` to do network requests
 
 ### Explanation
 
-- Modern replacement of XMLHttpRequest
+- A way for websites to request from other places on the internet
 - Uses Promise structure
 - The Fetch API is defined in the browser (window.fetch)
 - Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
@@ -109,24 +109,32 @@ Here is an example of Spotify's REST endpoint to allow you to get the tracks fro
 
 ### What is Fetch made of?
 
-Fetch is an example of a javascript which has a very specific structure.
+Fetch uses a javascript pattern called "Promises" which has a very specific structure.
+
+Using Promises allows us to schedule functions to be called after some asynchronous code finishes running. We can specify different functions depending on whether the asynchronous code was successful or ran into an error.
+
+Promises can make it easier to split our code into small well-named functions, and make code easier to read. They also make it easier to handle errors.
 
 ```javascript
-let promiseToDoHomeWork = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    if (true) resolve();
-    // homework done
-    else reject("homework not done, too lazy");
-  }, 1000);
-});
+  let clickCount;
 
-promiseToDoHomeWork
-  .then(function () {
-    console.log("homework is done now");
-  })
-  .catch(function (err) {
-    console.warn(err);
+  document.querySelector("button").addEventListener("click", () => clickCount++);
+
+  let promiseOfClicks = new Promise(function(resolve, reject) {
+    clickCount = 0;
+    console.log("Counting clicks for 5 seconds...");
+    setTimeout(() => {
+      if (clickCount > 0) {
+        resolve(clickCount);
+      } else {
+        reject();
+      }
+    }, 5000)
   });
+
+  promiseOfClicks
+    .then(clicks => console.log(`Clicked ${clicks} times`)
+    .catch(error => console.warn(error));
 ```
 
 ### Example
@@ -174,7 +182,7 @@ The website should include
 
 - The name of the country
 - The country's capital city
-- An unordered list of all the countries name in other languages
+- An unordered list of the country's name in other all of the other returned languages
 
 ##### Steps
 
@@ -185,16 +193,16 @@ Example `html` and `javascript` files can be found in the section below
    - Make sure all of your `HTML`, `CSS` and `JavaScript` files are linked together!
 3. Write a function using fetch that retrieves the `JSON` from the _Country API_
    - To make sure it's working print the JSON to the console using `console.log()`
-4. Create a `h1` tag on the website using DOM manipulation and add the countries name inside it
+4. Create a `h1` tag on the website using DOM manipulation and add the country's name inside it
    - Go back to [Week 5](../../js-core-2/week-2/lesson.html) if you need a reminder
-5. Create a `h2` tag on the website using DOM manipulation and add the capital cities name inside it
+5. Create a `h2` tag on the website using DOM manipulation and add the capital city's name inside it
 6. Create a `ul` tag on the website using DOM manipulation
    - For each of the translated names in the JSON, add a `li` tag
 7. Uncomment the lines inside `onLoad()` to load other countries details!
 
 **Extra**
 
-- Load the countries flag into an `img` tag
+- Load the country's flag into an `img` tag
 - Add CSS to make your website look really nice
 - Add other information from the JSON to your Country Details
 

@@ -194,7 +194,7 @@ Example `html` and `javascript` files can be found in the section below
 
 **Extra**
 
-- Load the countries flag into an `img` tag
+- Load the country's flag into an `img` tag
 - Add CSS to make your website look really nice
 - Add other information from the JSON to your Country Details
 

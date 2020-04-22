@@ -51,7 +51,7 @@ console.log(greeting);
 // Uncaught ReferenceError: greeting is not defined
 ```
 
-Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
+Any time you use `{}`s (e.g. when you make an `if` statement, a `function`, or a loop), you're creating a new "block". You can even just add `{}`s in just to make a block. Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
 
 ```javascript
 let x = 1;

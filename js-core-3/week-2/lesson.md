@@ -23,11 +23,24 @@ The purpose of this class is to introduce to the student:
 
 ### Explanation
 
-- APIs are created by providers and used by consumers (BE provider, FE consumer)
-- Part of an application that can be communicated with from an outside source
-- Connect to it using "endpoints"
-- Software well-known APIs (Fb APIs, Twitter APIs, Maps APIs, weather APIs);
-- API doesn't care which language or technology is used in the consumer or the provider
+- API stands for `Application Programmer Interface`
+- APIs are created by providers and used by consumers
+- It is a specific part of a larger system that can be contacted from the internet.
+- When we connect to an `API` we say that we are connecting to an `Endpoint`
+- Some well-known APIs are [Facebook APIs](https://developers.facebook.com/), [Twitter APIs](https://developer.twitter.com/en/docs), [Maps APIs](https://developers.google.com/maps/documentation) and many many more
+- In particular, an API doesn't care what language or technology is used in the consumer or the provider
+
+#### Why do we need APIs?
+
+Imagine that I am a big social network and I want to give developers all over the world access to the data on the people on my website.
+
+What are some problems that I would have with sharing my data with everyone?
+
+1. Some of the information that I have is public (for example, peoples names) whilst other information I have is private (for example, email addresses). I want to make sure that I only ever give developers access to peoples names but never to their email addresses - otherwise they could send them spam email.
+2. I want to make sure that when developers ask for my data I can control who has access to it. I like that my users data is being used to make their lives better but I don't like it when companies try to sell them new stuff they don't need.
+3. Some developers might want to change some of the users details on my social network and this would get very messy quickly if people where allowed to change whatever they wanted
+
+An API is a special type of program what acts as a **gatekeeper** to all of this information. Having an API means that I can control which information is shared about my users and with who it is shared. Perfect!
 
 #### Types of APIs:
 
@@ -43,44 +56,60 @@ The purpose of this class is to introduce to the student:
 
 #### Basic structure of REST API
 
-Endpoint: `https://api.example.com`
+Let’s say you’re trying to find videos about Batman on Youtube. You open up Youtube, type “Batman” into a search field, hit enter, and you see a list of videos about Batman. A REST API works in a similar way. You search for something, and you get a list of results back from the service you’re requesting from.
 
-Endpoint with version: `https://api.example.com/v1`
+An API is an application programming interface. It is a set of rules that allow programs to talk to each other. The developer creates the API on the server and allows the client to talk to it.
 
-Resources:
+`REST` determines how the `API` looks like. It stands for “Representational State Transfer”. It is a set of rules that developers follow when they create their `API`. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL.
 
-- `https://api.example.com/v1/users`
-- `https://api.example.com/v1/users/create`
-- `https://api.example.com/v1/users/1`
-- `https://api.example.com/v1/users/1/edit`
+Each URL is called a `request` while the data sent back to you is called a `response`.
 
-Query params:
+##### Examples
 
-- `https://api.example.com/v1/users?limit=10`
-- `https://api.example.com/v1/users?limit=10&sort=top`
+This endpoint will generate a random person for us
 
-### Example
+https://randomuser.me/api/
 
-- Give real life example like (Devices like TV, any machine + electricity power socket interface which provides power to any external device)
-- Give an example of an API in production
-  - [Game Of Thrones API](https://api.tvmaze.com/singlesearch/shows?q=game%20of%20thrones)
+We can Query params:
+
+- We only want to generate women
+  - `https://randomuser.me/api/?gender=female`
+- We only want to generate British people
+  - `https://randomuser.me/api/?nat=gb`
+- We only want to generate British women
+  - `https://randomuser.me/api/?gender=female&nat=gb`
 
 ### Exercise
 
 **Task (5 mins):**
 
-Here is an example of Spotify's REST endpoint to allow you to get the tracks from a playlist
+    Here is an API that gets you random pictures of dogs of different breeds
 
-    GET https://api.spotify.com/v1/playlists/{playlist_id}/tracks
+    https://dog.ceo/api/breed/{BREED_NAME}/images/random
 
-**Task (5 mins):**
+    1. Write the URL of the endpoint to a picture of a `greyhound` dog
+    2. Write the URL of the endpoint to a picture of a `pug` dog
+    3. Write the URL of the endpoint to a picture of a `shiba` dog
 
-    On Instagram, you can access a post via the following endpoint:
+    You can test this is working by putting it in your browser
 
-    https://api.instagram.com/v1/media/{media-id}
+### POST vs GET
 
-    1. Write the URL of the endpoint to get the list of comments on a given instagram post?
-    2. What HTTP verb will you use to make requests to this endpoint?
+So far we've been using examples of `GET` requests which is the most common type of `request` that we'll be using at the moment.
+
+It's also important that you understand that there are other types of requests that we can make to APIs.
+
+One in particular is a `POST` request which is used to send information up to a server in order to change something on the website.
+
+| GET                                 | POST                                      |
+| ----------------------------------- | ----------------------------------------- |
+| Used to retried data from a website | Used to send data to a website            |
+| Parameters are in the URL           | Parameters are in the body of the request |
+| Shouldn't change the server         | Should change the server                  |
+
+#### Exercise
+
+As a class, you should discuss three examples when you think that a `POST` request would be used and three examples when a `GET` request would be used.
 
 #### Recap
 

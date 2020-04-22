@@ -189,7 +189,7 @@ Example `html` and `javascript` files can be found in the section below
    - Make sure all of your `HTML`, `CSS` and `JavaScript` files are linked together!
 3. Write a function using fetch that retrieves the `JSON` from the _Country API_
    - To make sure it's working print the JSON to the console using `console.log()`
-4. Create a `h1` tag on the website using DOM manipulation and add the countries name inside it
+4. Create a `h1` tag on the website using DOM manipulation and add the country's name inside it
    - Go back to [Week 5](../../js-core-2/week-2/lesson.html) if you need a reminder
 5. Create a `h2` tag on the website using DOM manipulation and add the capital city's name inside it
 6. Create a `ul` tag on the website using DOM manipulation

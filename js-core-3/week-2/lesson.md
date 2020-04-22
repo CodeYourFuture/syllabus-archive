@@ -3,7 +3,7 @@
 ## Learning Objectives
 
 - The learner should understand what the acronym API means
-- The learner can define what an `REST API`s purpose is and why it is useful
+- The learner can define what an `REST API`'s purpose is and why it is useful
 - The learner should understand the structure of `REST API`s url and how it can be manipulated to change the data
 - The learner should be able to define what a `Promise` is
 - The learner should understand what `fetch` is and what it is used for

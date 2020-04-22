@@ -100,18 +100,6 @@ var ward = "hello";
 word.substring(1);
 ```
 
-- `ReferenceError: "a" is not defined`
-
-```javascript
-function numbers() {
-  var a = 2;
-  var b = 3;
-  return a + b;
-}
-
-console.log(a);
-```
-
 #### Type Errors
 
 Type errors usually occur when you are trying to access a method or variable from an object that doesn't have that in it.
@@ -138,8 +126,8 @@ numbers.map(function (num) {
 - `TypeError: Cannot read property 'substring' of undefined`
 
 ```javascript
-var string;
-string.substring(1);
+var name;
+name.substring(1);
 ```
 
 ### The Debugging Framework
@@ -200,7 +188,7 @@ We know that JavaScript executes code line by line. How great would it be if we 
 
 To view the debugger go to the `Sources` tab of Chrome developer tools which we opened above.
 
-To tell the debugger to stop we need to create a something called a `breakpoint`, it's an instruction to the debugger to stop execution and await instruction from us.
+To tell the debugger to stop we need to create a `breakpoint`, it's an instruction to the debugger to stop execution and await instruction from us.
 
 We can place a debugger in one of two ways. We can either insert a line into our called saying
 

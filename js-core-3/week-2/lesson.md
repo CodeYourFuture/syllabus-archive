@@ -178,7 +178,7 @@ The website should include
 
 - The name of the country
 - The country's capital city
-- An unordered list of all the countries name in other languages
+- An unordered list of the country's name in other all of the other returned languages
 
 ##### Steps
 

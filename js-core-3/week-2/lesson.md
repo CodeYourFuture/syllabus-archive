@@ -39,7 +39,7 @@ The purpose of this class is to introduce to the student:
 
 - Single purpose: API that gives a direct and specific service.
 - Aggregated API: one API as a wrapper for multiple APIs.
-- Web services API: punch of APIs working together to forma whole app.
+- Web services API: bunch of APIs working together to form a whole app.
 
 #### Basic structure of REST API
 

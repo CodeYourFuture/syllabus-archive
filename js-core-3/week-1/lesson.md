@@ -37,11 +37,15 @@ Check out this very scary video [here](https://www.youtube.com/watch?v=ddzbxJasI
 
 Fortunately, a lot people put in a lot of work to stop the bug before it happened and averted catastrophe.
 
+**Discuss**: Why did the Y2K bug happen? What oversights did the developers have?
+
 #### Therac-25
 
 Therac-25 was a machine used to administer radiation to cancer patients which malfunctioned because of a programmer error.
 
-You can watch a quick video about the bug [here](https://www.youtube.com/watch?v=izGSOsAGIVQ) in a
+**Watch**: You can watch a quick video about the bug [here](https://www.youtube.com/watch?v=izGSOsAGIVQ)
+
+**Discuss**: Why did the Y2K bug happen? What oversights did the developers have?
 
 ### The Debugging Mindset
 
@@ -169,6 +173,23 @@ When debugging, it can often be useful to write down what values variables have,
 ##### Test Often
 
 It is important when working on your code to test each part of your code separately and carefully. Make sure everything is working before you move on to the next part otherwise problems become harder to debug.
+
+##### Stackoverflow.com
+
+[Stackoverflow](https://stackoverflow.com/) is a crucial tool for lots of new developers in finding answers to their programming problems. While a lot of the information is very good there are several points to keep in mind.
+
+- Information goes out of date very quickly
+  - You have to make sure that what your looking at it new
+- Don't copy and paste code
+  - If you don't understand what your code does then there is no pointing using it since soon you won't be able to debug it
+- The Chosen Answer isn't always the right answer for you
+  - Always read all the responses to questions to find the correct answer for you
+
+##### Talking It Through (a.k.a Rubber Ducking)
+
+When you're stuck on a problem one of the key techniques you can use is talking through your problem with somebody else. Being forced to slow down and think is important and you'll often realise your problem whilst trying to explain it so somebody else.
+
+Nobody else around to ask? Still tell it to somebody! The act of talking helps you work through the problem. Traditionally, programmers use a [rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging).
 
 ##### Using `console.log()` and the Console
 

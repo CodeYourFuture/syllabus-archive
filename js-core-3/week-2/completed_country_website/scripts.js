@@ -6,9 +6,7 @@ function getData(countryURL) {
     .then((countryData) => {
       console.log(countryData);
       let country = countryData[0];
-      addCountryName(country);
-      addCountryCapital(country);
-      addNameInOtherLanguages(country);
+      onCountryDataReceived(country);
     })
     .catch((error) => console.log(error));
 }

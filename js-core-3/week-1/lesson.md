@@ -241,15 +241,15 @@ var z = x * y;
 
 or by opening the file in the debugger using the file navigation on the right hand side and clicking on line 4. Note you can pause on line with code not empty lines.
 
-![](./breakpoint.png)
+![](./assets/breakpoint.png)
 
 Once we have paused code execution, we can mouse over the the variables to see their values.
 
-![](./debug-value.png)
+![](./assets/debug-value.png)
 
 Once we have finished inspecting the values, we can use the controls in the top right corner to tell the debugger what to do.
 
-![](./controls.png)
+![](./assets/controls.png)
 
 We can click the button with the blue triangle to tell the debugger to continue executing code until it hits the next breakpoint. Or if we want to execute code line by line ourselves, we can press the button with the curved arrow that will the debugger to execute the current line and stop on the next line.
 

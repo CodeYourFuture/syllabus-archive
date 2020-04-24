@@ -1,5 +1,3 @@
 # Homework
 
-1. [The repo](https://github.com/CodeYourFuture/js-exercises) that you
-   have forked during this class contains few challenges - solve all the pending exercises in `week-1` and `week-1-practise` in
-   JavaScript!
+1. Fork [the js-exercises repo](https://github.com/CodeYourFuture/js-exercises) repo and solve all exercises in the `week-1/Homework/mandatory`. You can complete the optional exercises in `week-1/Homework/extra` for more of a challenge!

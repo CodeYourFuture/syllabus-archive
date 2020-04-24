@@ -2,7 +2,12 @@
 
 ### Data fetching (advanced)
 
-TODO (needs some scoping out)
+TODO (needs further scoping out)
+
+Some initial ideas:
+
+- Cleaning up effects with unsubscribe function
+- Update `useEffect()` in response to prop changes using 2nd dependencies argument
 
 ### Forms
 

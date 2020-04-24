@@ -73,7 +73,7 @@ Each URL is called a `request` while the data sent back to you is called a `resp
 
 ##### Examples
 
-Here is the API endpoint for Transfort For London
+Here is the API endpoint for Transport For London
 
 https://api.tfl.gov.uk
 
@@ -129,7 +129,7 @@ As a class, you should discuss three examples when you think that a `POST` reque
 
 #### Recap
 
-**Question (5 mins):**
+**Question:**
 
     Which of the following statements below about APIs is false?
 
@@ -138,9 +138,14 @@ As a class, you should discuss three examples when you think that a `POST` reque
     C) APIs can control access to data or features of an application.
     D) You can change data via an API.
 
-**Question (5 mins):**
+**Question:**
 
     Give an example of a company that uses an API to allow access to their data.
+
+**Question:**
+
+    What is the `myapi/` part of a url called in this url?
+    http://www.google.com/**myapi**/
 
 ## 3. How to use `fetch` to do network requests
 
@@ -148,7 +153,8 @@ As a class, you should discuss three examples when you think that a `POST` reque
 
 - A way for websites to request from other places on the internet
 - Fetch is defined in the browser which means it can be used without using an external library (`window.fetch`)
-- Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
+- Fetch is available in nearly all browser but it's good to check which ones it won't work in
+  - We can use this website to help us - [caniuse.com](https://caniuse.com/#feat=fetch))
 - Fetch API documentations by Mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
 ### What is Fetch made of?
@@ -164,7 +170,7 @@ You can think of a Promise as you would think of a promise you make to another p
 In this example we
 
 1. Get the `Promise` that will get the milk from the shops (this could take a long time so it's good that it's a `Promise`!)
-2. When the the milk has arrived from the shop `then` I should drink it and `return` the bottle so I can do something else with it
+2. When the milk has arrived from the shop `then` I should drink it and `return` the bottle so I can do something else with it
 3. When I've drank the milk `then` I should recycle the bottle
 4. If anything goes wrong with those steps I should `catch` the error and `warn` everyone what happened
 
@@ -179,9 +185,7 @@ getMilkFromShops
     console.log(`I'm going to recycle the bottle`);
     bottle.recycle();
   })
-  .catch((error) =>
-    console.warn("Something went wrong when I was getting the milk")
-  );
+  .catch((error) => console.warn("Oh no, I dropped the milk"));
 ```
 
 ### Example

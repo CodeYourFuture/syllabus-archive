@@ -16,10 +16,23 @@
 
 The purpose of this class is to introduce to the student:
 
-1. What are `APIs` and how to interact with them
-2. How to use the `fetch` API to do AJAX calls
+1. Debugging Quiz
+2. What are `APIs` and how to interact with them
+3. How to use the `fetch` API to do AJAX calls
 
-## 1. What are APIs and how to interact with them
+## 1. Debugging Quiz
+
+Let's see what you remember from last week!
+
+_Answer in a thread on Slack_
+
+1. What are the four questions we ask ourselves in the Debugging Framework?
+2. What are three of the tools we could use to debug our programs?
+3. What is a `syntax` error?
+4. What is a `reference` error?
+5. What is a `type` error?
+
+## 2. What are APIs and how to interact with them
 
 ### Explanation
 
@@ -48,12 +61,6 @@ An API is a special type of program what acts as a **gatekeeper** to all of this
 - Semi-private: for clients who paid for the API.
 - Public: for everyone on the web (but may or may not need an account to use).
 
-#### Architecture styles of API:
-
-- Single purpose: API that gives a direct and specific service.
-- Aggregated API: one API as a wrapper for multiple APIs.
-- Web services API: bunch of APIs working together to form a whole app.
-
 #### Basic structure of REST API
 
 Let’s say you’re trying to find videos about Batman on Youtube. You open up Youtube, type “Batman” into a search field, hit enter, and you see a list of videos about Batman. A REST API works in a similar way. You search for something, and you get a list of results back from the service you’re requesting from.
@@ -66,18 +73,27 @@ Each URL is called a `request` while the data sent back to you is called a `resp
 
 ##### Examples
 
-This endpoint will generate a random person for us
+Here is the API endpoint for Transfort For London
 
-https://randomuser.me/api/
+https://api.tfl.gov.uk
 
-We can Query params:
+The data from this endpoint will be used by many apps that you use every day - Google Maps and Citymapper to name two.
 
-- We only want to generate women
-  - `https://randomuser.me/api/?gender=female`
-- We only want to generate British people
-  - `https://randomuser.me/api/?nat=gb`
-- We only want to generate British women
-  - `https://randomuser.me/api/?gender=female&nat=gb`
+This endpoint will get location of all of the Bikepoints in London.
+
+https://api.tfl.gov.uk/BikePoint
+
+That's a lot of Bikes! It would be better if we could search for a location. Luckily this API let's us search for places.
+
+https://api.tfl.gov.uk/BikePoint/Search?query=Clerkenwell
+
+This API also has lots of other endpoints that we can use to get other data. For example, lets find the Air Quality of London.
+
+https://api.tfl.gov.uk/AirQuality
+
+As you can see the URL changes the data that we get from the API. This can be broken down like this
+
+![](./assets/api-breakdown.png)
 
 ### Exercise
 
@@ -126,7 +142,7 @@ As a class, you should discuss three examples when you think that a `POST` reque
 
     Give an example of a company that uses an API to allow access to their data.
 
-## 2. How to use `fetch` to do network requests
+## 3. How to use `fetch` to do network requests
 
 ### Explanation
 
@@ -143,26 +159,29 @@ Using Promises allows us to schedule functions to be called after some asynchron
 
 Promises can make it easier to split our code into small well-named functions, and make code easier to read. They also make it easier to handle errors.
 
+You can think of a Promise as you would think of a promise you make to another person - you make a promise that something will happen in the future. For example - I promise to call you later, I promise to go to the shops and buy milk later,.
+
+In this example we
+
+1. Get the `Promise` that will get the milk from the shops (this could take a long time so it's good that it's a `Promise`!)
+2. When the the milk has arrived from the shop `then` I should drink it and `return` the bottle so I can do something else with it
+3. When I've drank the milk `then` I should recycle the bottle
+4. If anything goes wrong with those steps I should `catch` the error and `warn` everyone what happened
+
 ```javascript
-let clickCount;
-
-document.querySelector("button").addEventListener("click", () => clickCount++);
-
-let promiseOfClicks = new Promise(function(resolve, reject) {
-  clickCount = 0;
-  console.log("Counting clicks for 5 seconds...");
-  setTimeout(() => {
-    if (clickCount > 0) {
-      resolve(clickCount);
-    } else {
-      reject();
-    }
-  }, 5000)
-});
-
-promiseOfClicks
-  .then(clicks => console.log(`Clicked ${clicks} times`)
-  .catch(error => console.warn(error));
+getMilkFromShops
+  .then((milk) => {
+    console.log(`I've got the milk`);
+    milk.drink();
+    return milk.bottle;
+  })
+  .then((bottle) => {
+    console.log(`I'm going to recycle the bottle`);
+    bottle.recycle();
+  })
+  .catch((error) =>
+    console.warn("Something went wrong when I was getting the milk")
+  );
 ```
 
 ### Example
@@ -175,7 +194,7 @@ Let's step through how the Fetch function is used and what it is comprised off
 
 ```javascript
 //Retrieve the JSON
-fetch("https://seriousnews.com/api/headlines")
+fetch("https://cat-fact.herokuapp.com/facts")
   // Get the response and extract the JSON
   .then(function (response) {
     return response.json();
@@ -319,17 +338,6 @@ window.onload = onLoad;
 You can find the finished example of this website [here](js-core-3\week-1\completed_country_website).
 
 ##### Recap
-
-**Question (5 mins):**
-
-```
-Which of the following statements about Promises is false?
-
-A) The function passed into a promise is executed as soon as the promise is created.
-B) You must always have a then method in a promise.
-C) A promise can return multiple values.
-D) Rejected is a valid promise state.
-```
 
 **Question (5 mins):**
 

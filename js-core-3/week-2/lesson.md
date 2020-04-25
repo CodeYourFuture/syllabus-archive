@@ -36,7 +36,7 @@ _Answer in a thread on Slack_
 
 ### Explanation
 
-- API stands for `Application Programmer Interface`
+- API stands for `Application Programming Interface`
 - APIs are created by providers and used by consumers
 - It is a specific part of a larger system that can be contacted from the internet.
 - When we connect to an `API` we say that we are connecting to an `Endpoint`
@@ -53,7 +53,7 @@ What are some problems that I would have with sharing my data with everyone?
 2. I want to make sure that when developers ask for my data I can control who has access to it. I like that my users data is being used to make their lives better but I don't like it when companies try to sell them new stuff they don't need.
 3. Some developers might want to change some of the users details on my social network and this would get very messy quickly if people where allowed to change whatever they wanted
 
-An API is a special type of program what acts as a **gatekeeper** to all of this information. Having an API means that I can control which information is shared about my users and with who it is shared. Perfect!
+An API is a special type of program what acts as a **gatekeeper** to all of this information. Having an API means that I can control which information is shared about my users and who it is shared with. Perfect!
 
 #### Types of APIs:
 
@@ -65,11 +65,11 @@ An API is a special type of program what acts as a **gatekeeper** to all of this
 
 Let’s say you’re trying to find videos about Batman on Youtube. You open up Youtube, type “Batman” into a search field, hit enter, and you see a list of videos about Batman. A REST API works in a similar way. You search for something, and you get a list of results back from the service you’re requesting from.
 
-An API is an application programming interface. It is a set of rules that allow programs to talk to each other. The developer creates the API on the server and allows the client to talk to it.
+An API is an application programming interface. It is a set of rules that allow programs to talk to each other. The developer creates the API on the server and allows the client to talk to it. An example of a server is the application on a computer hosting a website and an example of a client is the browser on the phone trying to access the website.
 
-`REST` determines how the `API` looks like. It stands for “Representational State Transfer”. It is a set of rules that developers follow when they create their `API`. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL.
+More APIs which you are likely to come across are called `REST` APIs and so these are they type which we will discuss here. `REST` determines what the `API` looks like. It stands for “Representational State Transfer”. It is a set of rules that developers follow when they create their `API`. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL.
 
-Each URL is called a `request` while the data sent back to you is called a `response`.
+Each URL is called a `request` while the data sent back to you is called a `response`. 
 
 ##### Examples
 
@@ -103,9 +103,9 @@ As you can see the URL changes the data that we get from the API. This can be br
 
     https://dog.ceo/api/breed/{BREED_NAME}/images/random
 
-    1. Write the URL of the endpoint to a picture of a `greyhound` dog
-    2. Write the URL of the endpoint to a picture of a `pug` dog
-    3. Write the URL of the endpoint to a picture of a `shiba` dog
+    1. Write the URL of the endpoint to get a picture of a `greyhound` dog
+    2. Write the URL of the endpoint to get a picture of a `pug` dog
+    3. Write the URL of the endpoint to get a picture of a `shiba` dog
 
     You can test this is working by putting it in your browser
 
@@ -119,7 +119,7 @@ One in particular is a `POST` request which is used to send information up to a 
 
 | GET                                 | POST                                      |
 | ----------------------------------- | ----------------------------------------- |
-| Used to retried data from a website | Used to send data to a website            |
+| Used to retrieve data from a website | Used to send data to a website            |
 | Parameters are in the URL           | Parameters are in the body of the request |
 | Shouldn't change the server         | Should change the server                  |
 
@@ -165,11 +165,11 @@ Using Promises allows us to schedule functions to be called after some asynchron
 
 Promises can make it easier to split our code into small well-named functions, and make code easier to read. They also make it easier to handle errors.
 
-You can think of a Promise as you would think of a promise you make to another person - you make a promise that something will happen in the future. For example - I promise to call you later, I promise to go to the shops and buy milk later,.
+You can think of a Promise as you would think of a promise you make to another person - you make a promise that something will happen in the future. For example - I promise to call you later, I promise to go to the shops and buy milk later.
 
 In this example we
 
-1. Get the `Promise` that will get the milk from the shops (this could take a long time so it's good that it's a `Promise`!)
+1. Get the `Promise` that we will get the milk from the shops (this could take a long time so it's good that it's a `Promise`!)
 2. When the milk has arrived from the shop `then` I should drink it and `return` the bottle so I can do something else with it
 3. When I've drank the milk `then` I should recycle the bottle
 4. If anything goes wrong with those steps I should `catch` the error and `warn` everyone what happened
@@ -215,7 +215,7 @@ fetch("https://cat-fact.herokuapp.com/facts")
 
 _Live Coding Exercise_
 
-Wouldn't it cool to make a new friend with just the click of a button?
+Wouldn't it be cool to make a new friend with just the click of a button?
 
 Write a function that makes an API call using `fetch` to `https://www.randomuser.me/api`
 

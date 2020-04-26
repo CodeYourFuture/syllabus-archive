@@ -97,48 +97,6 @@ class Toggle extends Component {
 
 If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is because `this.state.isShown` is `false` which means the Toggle component returns `null` for that part of the JSX. If you return `null` in JSX then React will render nothing at all.
 
-## The Circle of Life
-
-When a component is within the DOM, we call it *mounted*. When a component is removed from the DOM, we call it *unmounted*. When we change state like in the unmounting example above, we can switch between these statuses. This gives us a clue that components go through a *lifecycle* of different statuses. We have seen 2 of the statuses: mounting and unmounting, there is also a third called *updating*.
-
-We can hook into this lifecycle through special component methods that are added by React's `Component` class. They are run at different points of the lifecycle, often before and after they change to a different status. The method names contain `will` or `did` based on whether they run before or after a status change.
-
-This diagram shows the React component lifecycle:
-
-![React component lifecycle](../assets/lifecycle.png)
-
-Let's look at how we can use one of the lifecycle methods ([interactive example](https://codesandbox.io/s/m5z2v36x1y)):
-
-```js
-class Lifecycle extends Component {
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
-
-  render() {
-    return <div>Hello World</div>;
-  }
-}
-```
-
-> **Exercise A**
-> Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file
-> 1. Add a `constructor` method to the `CaughtPokemon` component. Within this method add a `console.log('constructor')`
-> 2. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
-> 3. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
-> 4. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
-> 5. The `componentWillUnmount` method will never be called. Can you explain why?
-
-We'll now focus on a few of the lifecycle hooks and see how they are used.
-
-### `componentDidMount` and `componentWillUnmount`
-
-The `componentDidMount` method runs after a component has finished rendering to the DOM. The component is now waiting for a props change or input from the user. It is called only once. We use this lifecycle hook to make changes outside of the component (sometimes these are called *side effects*).
-
-The `componentWillUnmount` method runs when a component has been unmounted from the DOM. It is used to "clean up" the component as it is no longer being shown. Often we need to close down or cancel the changes we made in `componentDidMount`.
-
-To look at these in more detail, we'll create a Clock component in an exercise.
-
 > **Exercise B**
 > Open the `pokedex` React application again
 > 1. Create a new file called `Clock.js` in the `src` directory

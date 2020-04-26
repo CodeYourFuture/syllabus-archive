@@ -53,7 +53,7 @@ console.log(greeting);
 
 You cannot define another variable with the same name inside the function:
 
-```javascript
+````javascript
 let greetUser = (username) => {
     let greeting = "Hello";
 
@@ -72,16 +72,14 @@ let x = 1;
 }
 
 console.log(x); // 1
-```
-
+````
 
 This block scoping behaviour will apply in contexts such as `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
 
 Another way of declaring block (and locally) scoped variables is with the `const` keyword; this prevents that variable from being redefined later, and can help with readability.
 
 ```javascript
-
-const VALUE_THAT_WONT_CHANGE = 'VALUE_THAT_WONT_CHANGE';
+const VALUE_THAT_WONT_CHANGE = "VALUE_THAT_WONT_CHANGE";
 
 VALUE_THAT_WONT_CHANGE = 123;
 // Uncaught TypeError: Assignment to constant variable.
@@ -249,3 +247,5 @@ Create you own analogy:
 ```
 
 ```
+
+{% include './homework.md' %}

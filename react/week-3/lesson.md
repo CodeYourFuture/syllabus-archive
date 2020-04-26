@@ -65,37 +65,47 @@ function DataFetcher() {
 
 ## Unmounting
 
-So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://codesandbox.io/s/xmo8oo514)):
+So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not.
+
+| **Exercise** |
+| Open [this CodeSandbox](https://codesandbox.io/s/p9q2wq069j) (it works just like VS Code, but in the browser) |
+| Take 5 minutes to read the code (in the middle panel) |
+| Open your browser dev tools and inspect the element showing the current time |
+| While watching the dev tools, click the "Toggle time" button |
+| What happens to the time element? Can you explain why this happens? |
+
+Here is the code if you want to look at it later:
 
 ```js
-const Message = () => (
-  <p>I'm shown when this.state.isShown is true ✅</p>
-);
+import React, { useState, useEffect } from "react";
 
-class Toggle extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isShown: false };
-  }
+function Time() {
+  const [date, setDate] = useState(new Date());
 
-  toggle = () => {
-    this.setState((previousState) => { 
-    	return { isShown: !previousState.isShown } 
-	 });
-  };
-
-  render() {
-    return (
-      <div>
-        {this.state.isShown ? <Message /> : null}
-        <button onClick={this.toggle}>Toggle</button>
-      </div>
-    );
-  }
+  return <time>{date.toLocaleTimeString()}</time>;
 }
+
+function Clock() {
+  const [isShowingTime, setIsShowingTime] = useState(true);
+
+  function toggle() {
+    setIsShowingTime(!isShowingTime);
+  }
+
+  return (
+    <div>
+      <button onClick={toggle}>Toggle time</button>
+      {isShowingTime ? <Time /> : null}
+    </div>
+  );
+}
+
+export default Clock;
 ```
 
-If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is because `this.state.isShown` is `false` which means the Toggle component returns `null` for that part of the JSX. If you return `null` in JSX then React will render nothing at all.
+Inside the `App` component, `isShowingTime` can switch between `true` and `false`. The `App` component then decides whether to render the `Time` component or `null` based on the value of `isShowingTime`. If you return `null` in JSX then React will render nothing at all. The `<time>` element of the `Time` component changes based on the `isShowingTime` state. The `Time` component's elements are removed from the DOM.
+
+When `isShowingTime` is `true`, we say that the `Time` component is *mounted* When `isShowingTime` is `false`, we instead say that the `Time` component is *UNmounted*.
 
 > **Exercise B**
 > Open the `pokedex` React application again

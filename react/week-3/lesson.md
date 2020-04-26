@@ -1,7 +1,5 @@
 # React 3
 
-![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
-
 **What will we learn today?**
 
 - [Recap](#recap)
@@ -12,30 +10,55 @@
 
 ## Recap
 
+<!-- TODO: check this after reviewing updates to week 2 -->
+
 Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/7j21mrq08x)):
 
 ```js
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount(count + 1)
   }
 
-  increment = () => {
-    this.setState((previousState) => {
-      return {
-        count: previousState.count + 1
-      };
-    });
-  };
+  return (
+    <div>
+      Count: {count}
+      <button onClick={increment}>Click me!</button>
+    </div>
+  );
+}
+```
 
-  render() {
+We also looked at fetching data in our React components: <!-- TODO: add interactive example -->
+
+```js
+function DataFetcher() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('URL')
+      .then(res => res.json())
+      .then(data => {
+        setData(data)
+        setError(null)
+      })
+      .catch(err => {
+        setError(err)
+        setData(null)
+      })
+  }, []);
+
+  if (!data) {
+    return 'Loading...'
+  } else {
     return (
       <div>
-        Count: {this.state.count}
-        <button onClick={this.increment}>Click me!</button>
+        Your data is {data.thing}
       </div>
-    );
+    )
   }
 }
 ```

@@ -2,6 +2,7 @@
 
 ### Data fetching (advanced)
 
+- Can explain what the effect of unmounting a component
 - Cleaning up effects
   - Recognise when an effect could cause a memory leak
   - Be able to prevent an effect causing a memory leak using the unsubscribe function of `useEffect()`
@@ -13,9 +14,9 @@
 ### Forms
 
 - Create a simple form in React using the controlled component pattern
-  - Initialise state with `useState()`
+  - Can initialise state with `useState()`
   - Be able to set the input `value` to the state variable
-  - Explain why the input does not change when typing if `onChange` is not set
+  - Can explain why the input does not change when typing if `onChange` is not set
   - Be able to update the state using an `onChange` handler
 - Use data from a submitted form to update the application
   - Be able to handle an `onSubmit` event to the form

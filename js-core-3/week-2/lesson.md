@@ -94,11 +94,13 @@ Common content types include
 
 ### Exercise
 
+```
 In Slack post answers to the following
 
 - What can HTTP headers contain?
 - What is the purpose of status codes?
 - What can an HTTP message contain?
+```
 
 ## 3. What are APIs and how to interact with them
 
@@ -158,6 +160,8 @@ As you can see the URL changes the data that we get from the API. This can be br
 ### Exercise
 
 **Task (5 mins):**
+
+```
 Let's use the TFL API to get data about the London Underground
 
 https://api.tfl.gov.uk
@@ -165,6 +169,7 @@ https://api.tfl.gov.uk
 1.  Which endpoint would you use to find out if there is a disruption on the 'central' line? 2. Does the 'central' line have a disruption right now? Name another line that has a disruption on it.
 
 Hint: Use your browser to access the endpoints
+```
 
 #### Recap
 

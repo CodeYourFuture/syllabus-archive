@@ -98,16 +98,14 @@ As you can see the URL changes the data that we get from the API. This can be br
 ### Exercise
 
 **Task (5 mins):**
-
-    Here is an API that gets you random pictures of dogs of different breeds
-
-    https://dog.ceo/api/breed/{BREED_NAME}/images/random
-
-    1. Write the URL of the endpoint to get a picture of a `greyhound` dog
-    2. Write the URL of the endpoint to get a picture of a `pug` dog
-    3. Write the URL of the endpoint to get a picture of a `shiba` dog
-
-    You can test this is working by putting it in your browser
+    Let's use the TFL API to get data about the London Underground
+        
+    https://api.tfl.gov.uk
+        
+    1. Which endpoint would you use to find out if there is a disruption on the 'central' line?
+    2. Does the 'central' line have a disruption right now? Name another line that has a disruption on it.
+        
+    Hint: Use your browser to access the endpoints
 
 ### POST vs GET
 

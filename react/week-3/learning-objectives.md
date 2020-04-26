@@ -2,12 +2,13 @@
 
 ### Data fetching (advanced)
 
-TODO (needs further scoping out)
-
-Some initial ideas:
-
-- Cleaning up effects with unsubscribe function
-- Update `useEffect()` in response to prop changes using 2nd dependencies argument
+- Cleaning up effects
+  - Recognise when an effect could cause a memory leak
+  - Be able to prevent an effect causing a memory leak using the unsubscribe function of `useEffect()`
+- Allow effects to update in response to prop changes
+  - Explain why a component with an effect dependent on props is broken with empty `useEffect()` dependencies (`[]`)
+  - Be able to fix a component with an effect dependent on props using the `useEffect()` dependencies
+  - Can describe the "lifecycle" of a component with `useEffect()` when props change
 
 ### Forms
 

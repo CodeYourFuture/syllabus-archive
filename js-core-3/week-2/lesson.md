@@ -194,7 +194,7 @@ getMilkFromShops
 
 _Live Coding Exercise_
 
-Let's step through how the Fetch function is used and what it is comprised off
+Let's step through how the Fetch function is used and what it is comprised of
 
 ```javascript
 //Retrieve the JSON
@@ -226,6 +226,45 @@ Write a function that makes an API call using `fetch` to `https://www.randomuser
   - Add a name
   - Add a profile picture
   - Add some styling using CSS
+
+### Status Codes
+
+How are you able to tell whether the contents returned by a network response is normal or erroneous?
+
+When the server send back the response, it will include an **HTTP status* code** - a 3 digit number that summarises the result of that request, categorised as follows:
+
+* 1xx: Informational
+* 2xx: Success
+* 3xx: Redirection
+* 4xx: Client Error
+* 5xx: Server Error
+
+Some status codes you may have come across before are:
+
+* 200 OK: the request has succeeded
+* 404 Not Found: the server cannot find what has been requested
+* 500 Server Error: the server has encountered an error while trying to process your request
+
+You can handle these errors gracefully in your code by checking the `status` and `statustext` value of the response:
+
+```javascript
+
+fetch('https://httpstat.us/500')
+  .then((response) => {
+    if (response.status >= 200 && response.status <= 299) {
+      return response.json();
+    } else {
+      alert(`Encountered something unexpected: ${response.status} ${response.statusText}`);
+    }
+  })
+  .then((jsonResponse) => {
+    // do whatever you want with the JSON response
+  }).catch((error) => {
+    // Handle the error
+    console.log(error);
+  });
+
+```
 
 ### Exercises
 

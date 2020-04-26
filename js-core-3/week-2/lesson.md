@@ -157,7 +157,7 @@ As a class, you should discuss three examples when you think that a `POST` reque
 
 ### What is Fetch made of?
 
-Fetch uses a javascript pattern called "Promises" which has a very specific structure.
+Fetch uses a JavaScript pattern called "Promises" which has a very specific structure.
 
 Using Promises allows us to schedule functions to be called after some asynchronous code finishes running. We can specify different functions depending on whether the asynchronous code was successful or ran into an error.
 
@@ -243,7 +243,7 @@ Some status codes you may have come across before are:
 * 404 Not Found: the server cannot find what has been requested
 * 500 Server Error: the server has encountered an error while trying to process your request
 
-You can handle these errors gracefully in your code by checking the `status` and `statustext` value of the response:
+You can handle these errors gracefully in your code by checking the `status` and `statusText` value of the response:
 
 ```javascript
 

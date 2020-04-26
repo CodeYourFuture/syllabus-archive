@@ -2,22 +2,22 @@
 
 # JavaScript Core I - 3
 
-* [Array properties](#array-properties)
-* [Manipulating arrays](#manipulating-arrays)
-* [Array methods](#array-methods)
-* [Array map](#array-map)
-* [Array forEach](#array-foreach)
-* [Array filter](#array-find)
-* [Array find](#array-find)
+- [Array properties](#array-properties)
+- [Manipulating arrays](#manipulating-arrays)
+- [Array methods](#array-methods)
+- [Array map](#array-map)
+- [Array forEach](#array-foreach)
+- [Array filter](#array-find)
+- [Array find](#array-find)
 
 **Learning Objectives**
 
 By the end of this class, you should be able to answer these questions:
 
-* How do you use array methods and properties to manipulate arrays?
-* How can you chain array methods?
-* What is a callback and how do you use it?
-* What is an anonymous function and how do you use it?
+- How do you use array methods and properties to manipulate arrays?
+- How can you chain array methods?
+- What is a callback and how do you use it?
+- What is an anonymous function and how do you use it?
 
 ---
 
@@ -68,25 +68,25 @@ scores[3] = 51; // Add a new score
 
 ### Exercise (5 minutes)
 
-* Create an array with the names of the people on your table
-* `console.log` out the names and how many people are at the table
-* Put someone from another table at the beginning of the array
-* Add someone else to the end of the list
+- Create an array with the names of the people on your table
+- `console.log` out the names and how many people are at the table
+- Put someone from another table at the beginning of the array
+- Add someone else to the end of the list
 
 ## Working with arrays
 When working with lists it is often useful to manipulate, enhance, or search the information in that list.
 
 Some examples of things you might want to do with a list of data:
 
-* Only use the first 10 items in a list
-* Get people from a list whose name starts with a `M`
-* Find the first person in a list to be over 100 years old
-* Arrange people in a list alphabetically
-* Get the last 10 items in an array
-* Add all the numbers up in a list
-* Get all the cats in an array of animals
-* From a list of numbers, add a `£` sign prefix
-* Combine a list of romance films and thrillers
+- Only use the first 10 items in a list
+- Get people from a list whose name starts with a `M`
+- Find the first person in a list to be over 100 years old
+- Arrange people in a list alphabetically
+- Get the last 10 items in an array
+- Add all the numbers up in a list
+- Get all the cats in an array of animals
+- From a list of numbers, add a `£` sign prefix
+- Combine a list of romance films and thrillers
 
 ### Exercise (10 minutes)
 
@@ -198,11 +198,11 @@ There is a string method `.split()`. In an interactive console try using the str
 
 ### Exercise (10 minutes)
 
-* Use the array of the people from your table
-* Combine it with another array filled with the names from another table
-* `console.log` the names in alphabetical order
-* Create a new value with the 2nd, 3rd and 4th people in it
-* Create a function that takes a `name` and an array of names and returns a string. If the name is not in an array, it should retuern `<name> is not sitting at the table with <people in the array>`. If the name is in the array, it should return `<name> is sitting at the table with <people in the array>`.
+- Use the array of the people from your table
+- Combine it with another array filled with the names from another table
+- `console.log` the names in alphabetical order
+- Create a new value with the 2nd, 3rd and 4th people in it
+- Create a function that takes a `name` and an array of names and returns a string. If the name is not in an array, it should retuern `<name> is not sitting at the table with <people in the array>`. If the name is in the array, it should return `<name> is sitting at the table with <people in the array>`.
 
 ## Array map
 
@@ -245,7 +245,7 @@ The `map()` method runs the function we provided (`double`) on each item in the 
 
 A function that we provide to a method is commonly called a _callback_ function. The term highlights that although we _provide_ the `double` function, the `.map()` method _calls_ it. (Notice how we never write `double()` to call the function).
 
-We'll see callback functions used a lot more in the coming weeks. 
+We'll see callback functions used a lot more in the coming weeks.
 
 Often, when a function is only needed for a map operation, developers will declare the callback function inside of the method call. Let's try copying and pasting the function declaration inside of the `.map()` method call.
 
@@ -265,11 +265,11 @@ let numbersDoubled = numbers.map(function (number) {
 });
 ```
 
-We can make this code even shorter still. In the latest versions of JavaScript a way of declaring functions was introduced called _arrow functions_. 
+We can make this code even shorter still. In the latest versions of JavaScript a way of declaring functions was introduced called _arrow functions_.
 
 ```js
 let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map(number => {
+let numbersDoubled = numbers.map((number) => {
   return number * 2;
 });
 ```
@@ -280,7 +280,7 @@ There is one last thing you can do to make your code shorter. If you remove the 
 
 ```js
 let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map(number => number * 2);
+let numbersDoubled = numbers.map((number) => number * 2);
 ```
 
 In the example above, the expression `number * 2` is automatically returned because it comes directly after the `=>` arrow (instead of coming after curly braces). This is called an `implicit return`.
@@ -291,25 +291,34 @@ I have a function defined below as:
 
 ```js
 function abracaFunction(yourFunc) {
-  console.log("I am abracaFunction! Watch as I mutate an array of strings to your heart's content!")
-  const abracaArray = ['James', 'Elamin', 'Ismael', 'Sanyia', 'Chris', 'Antigoni']
+  console.log(
+    "I am abracaFunction! Watch as I mutate an array of strings to your heart's content!"
+  );
+  const abracaArray = [
+    "James",
+    "Elamin",
+    "Ismael",
+    "Sanyia",
+    "Chris",
+    "Antigoni",
+  ];
 
-  const abracaOutput = yourFunc(abracaArray)
+  const abracaOutput = yourFunc(abracaArray);
 
-  return abracaOutput
+  return abracaOutput;
 }
 ```
 
 This function does not need to be modified. Can you pass in a _callback function_ which will mutate `abracaArray` such that it:
 
-* Upper cases all letters in the array
-* Sorts `abracaArray` in alphabetical order
+- Upper cases all letters in the array
+- Sorts `abracaArray` in alphabetical order
 
 ### Exercise (10 minutes)
 
-* Create a function that takes a `birthYear`, and returns the age of someone
-* With an array of ages, create another array filled with their birth years `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`
-* `console.log` the birth years array
+- Create a function that takes a `birthYear`, and returns the age of someone
+- With an array of ages, create another array filled with their birth years `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`
+- `console.log` the birth years array
 
 ## Array forEach
 
@@ -323,9 +332,9 @@ When functions meet this criteria they can be called _pure functions_.
 
 A pure function does not:
 
-* access any data unless it was passed in as a parameter
-* change data declared outside the function
-* interacts with anything outside of the function (e.g. logs a message to the console, shows a message on a website, saves data to disk)
+- access any data unless it was passed in as a parameter
+- change data declared outside the function
+- interacts with anything outside of the function (e.g. logs a message to the console, shows a message on a website, saves data to disk)
 
 These are all example of _side effects_. Of course, from time to time, we will need to perform side effects, but we should try to avoid side effects inside of functions and only have them when absolutely necessary.
 
@@ -340,7 +349,7 @@ let names = ["Daniel", "mozafar", "irina"];
 We can use `.forEach()` to go through the array, item by item, and call a function we provide.
 
 ```js
-names.forEach(function(name, index) {
+names.forEach(function (name, index) {
   console.log(index + ": " + name);
 });
 ```
@@ -354,7 +363,7 @@ function formatName(name) {
   return name.split("")[0].toUpperCase() + name.slice(1);
 }
 
-names.map(formatName).forEach(function(name, index) {
+names.map(formatName).forEach(function (name, index) {
   console.log(index + ": " + name);
 });
 ```
@@ -363,9 +372,9 @@ names.map(formatName).forEach(function(name, index) {
 
 You can drive in the UK at the age of 17.
 
-* Write another function that takes a birth year and returns a string `Born in {year} can drive` or `Born in {year} can drive in {x} years`
-* Use the array of birth years, `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`, to get an array of strings saying if these people can drive
-* `console.log` the answers
+- Write another function that takes a birth year and returns a string `Born in {year} can drive` or `Born in {year} can drive in {x} years`
+- Use the array of birth years, `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`, to get an array of strings saying if these people can drive
+- `console.log` the answers
 
 ## Array filter
 
@@ -400,9 +409,10 @@ console.log(highTestScores); // logs [90, 100, 81]
 ### Exercise (10 mins)
 
 Create a function which:
-* Takes an array of `birthYears`
-* Uses `console.log` to print the message `These are the birth years of people who can drive: <filtered birth years>`
-* Returns an array of people who can drive (remember, you can drive if you are 17 years or older)
+
+- Takes an array of `birthYears`
+- Uses `console.log` to print the message `These are the birth years of people who can drive: <filtered birth years>`
+- Returns an array of people who can drive (remember, you can drive if you are 17 years or older)
 
 ## Array find
 
@@ -438,9 +448,9 @@ console.log(longName); // logs Mozafar
 
 Create a function which:
 
-* Takes an array of names
-* Looks to see if your name is in the array
-* If it is, return `Found me!`; if not, return `Haven't found me :(`
+- Takes an array of names
+- Looks to see if your name is in the array
+- If it is, return `Found me!`; if not, return `Haven't found me :(`
 
 ### Chaining
 
@@ -456,7 +466,7 @@ function formatName(name) {
 }
 
 function log(name, index) {
-  console.log(index + ": " + name)
+  console.log(index + ": " + name);
 }
 
 let namesFormatted = names.map(formatName);
@@ -482,14 +492,32 @@ This code does not work because `forEach()` does not return a new array (it retu
 Create a function which accepts an array of "messy" strings. Example:
 
 ```js
-[100, 'iSMael', 55, 45, 'sANyiA', 66, 'JaMEs', 'eLAmIn', 23, 'IsMeal', 67, 19, 'ElaMIN']
+[
+  100,
+  "iSMael",
+  55,
+  45,
+  "sANyiA",
+  66,
+  "JaMEs",
+  "eLAmIn",
+  23,
+  "IsMeal",
+  67,
+  19,
+  "ElaMIN",
+];
 ```
 
 This function should:
 
-* Remove all non-string entries
-* Only upper case the first letter of all strings and add an exclamation mark to the end
+- Remove all non-string entries
+- Only upper case the first letter of all strings and add an exclamation mark to the end
 
 If you're using the above example, you should expect to return an array with 2x `Elamin!`, 1x `Sanyia!`, 2x `Ismael!` and 1x `James!`.
 
 {% include "./homework.md" %}
+
+# JavaScript 1 Quiz
+
+An optional quiz can be found [here](https://docs.google.com/forms/d/1-jVH3eTZy6Cig8iEZqDTdLaFgJCgVKv8q5HIF5yDUQ0/edit) which can be used to test students understanding. This can be done in class or set as homework.

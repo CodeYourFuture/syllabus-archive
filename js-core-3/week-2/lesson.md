@@ -3,11 +3,11 @@
 ## Learning Objectives
 
 - The learner should understand what the acronym API means
-- The learner can define what an `REST API`'s purpose is and why it is useful
-- The learner should be able to edit the structure of a `REST API` URL and to change the data retrieved from the server
+- The learner can define what an API's purpose is and why it is useful
+- The learner should be able to edit the structure of a API URL and to change the data retrieved from the server
 - The learner should be able to define what a `Promise` is
 - The learner should understand what `fetch` is and what it is used for
-- The learner should be able to use `fetch` to retrieve `JSON` from an `REST API`
+- The learner should be able to use `fetch` to retrieve `JSON` from an API
 - The learner should be able to parse the `JSON` and extract data from it
 - The learner should be able to use `DOM` manipulation to add content to the `DOM`
 - The learner should understand `window.onload` and `document.onload` and should be able to assign functions to run at specific life cycle events
@@ -16,19 +16,102 @@
 
 The purpose of this class is to introduce to the student:
 
-1. What are `APIs` and how to interact with them
-2. How to use the `fetch` API to do AJAX calls
+1. Debugging Quiz
+2. How the web works
+3. What are `APIs` and how to interact with them
+4. How to use the `fetch` API to do AJAX calls
 
-## 1. What are APIs and how to interact with them
+## 1. Debugging Quiz
+
+Let's see what you remember from last week!
+
+_Answer in a thread on Slack_
+
+1. What are the four questions we ask ourselves in the Debugging Framework?
+2. What are three of the tools we could use to debug our programs?
+3. What is a `syntax` error?
+4. What is a `reference` error?
+5. What is a `type` error?
+
+## 2. How the web works - quick recap
+
+In this session we will look at how computer talk to each other using the web.
+
+At the core of the web is the URL, which stands for Uniform Resource Locator. We use the term resource to mean anything that a server might return such as webpage, CSS, JavaScript, image, data etc. A good way to think of a URL is as an address. It allows us to refer to webpages, images, data etc that is stored on servers elsewhere.
+
+### Methods
+
+The main methods used to send requests on the web are `GET` and `POST`. However, later in the course when we look at building APIs using Node we will also look at other methods such as `PUT`, `PATCH` and `DELETE`.
+
+A `GET` method is a way of asking a server for a webpage, resource or a piece of data. For example, when we type a URL into a browser and submit it. The browser will send a `GET` request.
+
+A `POST` method is used to send data to a server.
+
+The main difference between `GET` and `POST` is that a `POST` method has a body, that is it can contain some data that we are sending. Whereas a `GET` does not have a body since we use it to request data.
+
+### Headers
+
+Each request and response sent has meta data, information about the data, at the beginning called a `header`. The `header` contains information such as a
+
+- status code indicating whether a request was successful
+- content type which indicates what the request or response contains
+
+as well as lots of other things we won't cover here
+
+### Status codes
+
+Each response returned needs to contain a `status` code which tells the client whether the request was successful. If the request succeeded the response code will be `200`. If the resource you tried to access was not found the response code used is `404`.
+
+Some status codes you may have come across before are:
+
+- `200` ok. Request was successful
+- `301` moved permanently. Used to redirect request when moved permanently
+- `401` Unauthorised. User credentials were not supplied
+- `404` Not found
+- `500` Internal server error
+
+The response codes can be grouped into categories
+
+- 1xx: Informational
+- 2xx: Success
+- 3xx: Redirection
+- 4xx: Client Error
+- 5xx: Server Error
+
+If you want a fun look at HTTP codes, take a look at [https://httpstatusdogs.com/](https://httpstatusdogs.com/) or [https://http.cat/](https://http.cat/) if you are cat person. For a technical perspective take a look at [https://en.wikipedia.org/wiki/List_of_HTTP_status_codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
+
+### Content type
+
+When sending data across the web, we need to specify in the header what the request or response contains. To do that, the `content-type` header is used. That way the receiver knows what to do with the data received.
+
+Common content types include
+
+- `text/html` - HTML web page
+- `text/css` - CSS
+- `image/jpeg` - JPEG image
+- `application/javascript` - JavaScript code
+- `application/json` - JSON data
+
+### Exercise
+
+In Slack post answers to the following
+
+- What can HTTP headers contain?
+- What is the purpose of status codes?
+- What can an HTTP message contain?
+
+## 3. What are APIs and how to interact with them
 
 ### Explanation
 
-- API stands for `Application Programmer Interface`
+- API stands for `Application Programming Interface`
 - APIs are created by providers and used by consumers
-- It is a specific part of a larger system that can be contacted from the internet.
+- It is a specific part of a larger system that can be contacted by other systems, for example from the internet.
 - When we connect to an `API` we say that we are connecting to an `Endpoint`
 - Some well-known APIs are [Facebook APIs](https://developers.facebook.com/), [Twitter APIs](https://developer.twitter.com/en/docs), [Maps APIs](https://developers.google.com/maps/documentation) and many many more
 - In particular, an API doesn't care what language or technology is used in the consumer or the provider
+
+An API is a set of rules that allow programs to talk to each other. The developer creates the API on the server and allows the client to talk to it. An example of a server is the application on a computer hosting a website and an example of a client is the browser on the phone trying to access the website.
 
 #### Why do we need APIs?
 
@@ -40,7 +123,7 @@ What are some problems that I would have with sharing my data with everyone?
 2. I want to make sure that when developers ask for my data I can control who has access to it. I like that my users data is being used to make their lives better but I don't like it when companies try to sell them new stuff they don't need.
 3. Some developers might want to change some of the users details on my social network and this would get very messy quickly if people where allowed to change whatever they wanted
 
-An API is a special type of program what acts as a **gatekeeper** to all of this information. Having an API means that I can control which information is shared about my users and with who it is shared. Perfect!
+An API is a special type of program what acts as a **gatekeeper** to all of this information. Having an API means that I can control which information is shared about my users and who it is shared with. Perfect!
 
 #### Types of APIs:
 
@@ -48,72 +131,44 @@ An API is a special type of program what acts as a **gatekeeper** to all of this
 - Semi-private: for clients who paid for the API.
 - Public: for everyone on the web (but may or may not need an account to use).
 
-#### Architecture styles of API:
-
-- Single purpose: API that gives a direct and specific service.
-- Aggregated API: one API as a wrapper for multiple APIs.
-- Web services API: bunch of APIs working together to form a whole app.
-
-#### Basic structure of REST API
-
-Let’s say you’re trying to find videos about Batman on Youtube. You open up Youtube, type “Batman” into a search field, hit enter, and you see a list of videos about Batman. A REST API works in a similar way. You search for something, and you get a list of results back from the service you’re requesting from.
-
-An API is an application programming interface. It is a set of rules that allow programs to talk to each other. The developer creates the API on the server and allows the client to talk to it.
-
-`REST` determines how the `API` looks like. It stands for “Representational State Transfer”. It is a set of rules that developers follow when they create their `API`. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL.
-
-Each URL is called a `request` while the data sent back to you is called a `response`.
-
 ##### Examples
 
-This endpoint will generate a random person for us
+Here is the API endpoint for Transport For London
 
-https://randomuser.me/api/
+https://api.tfl.gov.uk
 
-We can Query params:
+The data from this endpoint will be used by many apps that you use every day - Google Maps and Citymapper to name two.
 
-- We only want to generate women
-  - `https://randomuser.me/api/?gender=female`
-- We only want to generate British people
-  - `https://randomuser.me/api/?nat=gb`
-- We only want to generate British women
-  - `https://randomuser.me/api/?gender=female&nat=gb`
+This endpoint will get location of all of the Bikepoints in London.
+
+https://api.tfl.gov.uk/BikePoint
+
+That's a lot of Bikes! It would be better if we could search for a location. Luckily this API let's us search for places.
+
+https://api.tfl.gov.uk/BikePoint/Search?query=Clerkenwell
+
+This API also has lots of other endpoints that we can use to get other data. For example, lets find the Air Quality of London.
+
+https://api.tfl.gov.uk/AirQuality
+
+As you can see the URL changes the data that we get from the API. This can be broken down like this
+
+![](./assets/api-breakdown.png)
 
 ### Exercise
 
 **Task (5 mins):**
+Let's use the TFL API to get data about the London Underground
 
-    Here is an API that gets you random pictures of dogs of different breeds
+https://api.tfl.gov.uk
 
-    https://dog.ceo/api/breed/{BREED_NAME}/images/random
+1.  Which endpoint would you use to find out if there is a disruption on the 'central' line? 2. Does the 'central' line have a disruption right now? Name another line that has a disruption on it.
 
-    1. Write the URL of the endpoint to a picture of a `greyhound` dog
-    2. Write the URL of the endpoint to a picture of a `pug` dog
-    3. Write the URL of the endpoint to a picture of a `shiba` dog
-
-    You can test this is working by putting it in your browser
-
-### POST vs GET
-
-So far we've been using examples of `GET` requests which is the most common type of `request` that we'll be using at the moment.
-
-It's also important that you understand that there are other types of requests that we can make to APIs.
-
-One in particular is a `POST` request which is used to send information up to a server in order to change something on the website.
-
-| GET                                 | POST                                      |
-| ----------------------------------- | ----------------------------------------- |
-| Used to retried data from a website | Used to send data to a website            |
-| Parameters are in the URL           | Parameters are in the body of the request |
-| Shouldn't change the server         | Should change the server                  |
-
-#### Exercise
-
-As a class, you should discuss three examples when you think that a `POST` request would be used and three examples when a `GET` request would be used.
+Hint: Use your browser to access the endpoints
 
 #### Recap
 
-**Question (5 mins):**
+**Question:**
 
     Which of the following statements below about APIs is false?
 
@@ -122,60 +177,67 @@ As a class, you should discuss three examples when you think that a `POST` reque
     C) APIs can control access to data or features of an application.
     D) You can change data via an API.
 
-**Question (5 mins):**
+**Question:**
 
     Give an example of a company that uses an API to allow access to their data.
 
-## 2. How to use `fetch` to do network requests
+**Question:**
+
+    What is the `myapi/` part of a url called in this url?
+    http://www.google.com/**myapi**/
+
+## 4. How to use `fetch` to do network requests
 
 ### Explanation
 
-- A way for websites to request from other places on the internet
+- Fetch is a function to request from other places on the web
 - Fetch is defined in the browser which means it can be used without using an external library (`window.fetch`)
-- Only modern browsers support it (show [caniuse.com](https://caniuse.com/#feat=fetch))
+- Fetch is available in nearly all browser but it's good to check which ones it won't work in
+  - We can use this website to help us - [caniuse.com](https://caniuse.com/#feat=fetch))
 - Fetch API documentations by Mozilla [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
-### What is Fetch made of?
+### How does fetch work?
 
-Fetch uses a javascript pattern called "Promises" which has a very specific structure.
+Fetch uses a JavaScript pattern called "Promises" which has a very specific structure.
+
+You can think of a Promise as you would think of a promise you make to another person - you make a promise that something will happen in the future. For example - I promise to call you later, I promise to go to the shops and buy milk later.
 
 Using Promises allows us to schedule functions to be called after some asynchronous code finishes running. We can specify different functions depending on whether the asynchronous code was successful or ran into an error.
 
-Promises can make it easier to split our code into small well-named functions, and make code easier to read. They also make it easier to handle errors.
+Promises can make it easier to split our code into small functions and make code easier to read. They also make it easier to handle errors.
 
-```javascript
-let clickCount;
+In this example we
 
-document.querySelector("button").addEventListener("click", () => clickCount++);
-
-let promiseOfClicks = new Promise(function(resolve, reject) {
-  clickCount = 0;
-  console.log("Counting clicks for 5 seconds...");
-  setTimeout(() => {
-    if (clickCount > 0) {
-      resolve(clickCount);
-    } else {
-      reject();
-    }
-  }, 5000)
-});
-
-promiseOfClicks
-  .then(clicks => console.log(`Clicked ${clicks} times`)
-  .catch(error => console.warn(error));
-```
+1. Get the `Promise` that we will get the milk from the shops (this could take a long time so it's good that it's a `Promise`!)
+2. When the milk has arrived from the shop `then` I should drink it and `return` the bottle so I can do something else with it
+3. When I've drank the milk `then` I should recycle the bottle
+4. If anything goes wrong with those steps I should `catch` the error and `warn` everyone what happened
 
 ### Example
+
+```javascript
+getMilkFromShops
+  .then((milk) => {
+    console.log(`I've got the milk`);
+    milk.drink();
+    return milk.bottle;
+  })
+  .then((bottle) => {
+    console.log(`I'm going to recycle the bottle`);
+    bottle.recycle();
+  })
+  .catch((error) => console.warn("Oh no, I dropped the milk"));
+```
 
 #### Example 1
 
 _Live Coding Exercise_
 
-Let's step through how the Fetch function is used and what it is comprised off
+Let's step through how the Fetch function is used and what it is comprised of
 
 ```javascript
 //Retrieve the JSON
-fetch("https://seriousnews.com/api/headlines")
+fetch("https://cat-fact.herokuapp.com/facts")
   // Get the response and extract the JSON
   .then(function (response) {
     return response.json();
@@ -192,7 +254,7 @@ fetch("https://seriousnews.com/api/headlines")
 
 _Live Coding Exercise_
 
-Wouldn't it cool to make a new friend with just the click of a button?
+Wouldn't it be cool to make a new friend with just the click of a button?
 
 Write a function that makes an API call using `fetch` to `https://www.randomuser.me/api`
 
@@ -203,6 +265,32 @@ Write a function that makes an API call using `fetch` to `https://www.randomuser
   - Add a name
   - Add a profile picture
   - Add some styling using CSS
+
+### Error handling
+
+We saw earlier that each HTTP response contains an status code which indicates if our request was successful or not. If the our request failed we usually want to handle it appropriately.
+
+We can handle these errors gracefully in your code by checking the `status` and `statusText` value of the response:
+
+```javascript
+fetch("https://httpstat.us/500")
+  .then((response) => {
+    if (response.status >= 200 && response.status <= 299) {
+      return response.json();
+    } else {
+      throw new Error(
+        `Encountered something unexpected: ${response.status} ${response.statusText}`
+      );
+    }
+  })
+  .then((jsonResponse) => {
+    // do whatever you want with the JSON response
+  })
+  .catch((error) => {
+    // Handle the error
+    console.log(error);
+  });
+```
 
 ### Exercises
 
@@ -319,17 +407,6 @@ window.onload = onLoad;
 You can find the finished example of this website [here](js-core-3\week-1\completed_country_website).
 
 ##### Recap
-
-**Question (5 mins):**
-
-```
-Which of the following statements about Promises is false?
-
-A) The function passed into a promise is executed as soon as the promise is created.
-B) You must always have a then method in a promise.
-C) A promise can return multiple values.
-D) Rejected is a valid promise state.
-```
 
 **Question (5 mins):**
 

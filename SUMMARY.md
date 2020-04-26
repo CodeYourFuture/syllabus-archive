@@ -18,7 +18,7 @@
   - [Week 9 - More JS in the Browser](/js-core-2/week-3/lesson.md)
 - [JavaScript III](/js-core-3/index.md)
   - [Week 10 - Debugging](/js-core-3/week-1/lesson.md)
-  - [Week 11 - Fetch and Asynchronous Programming](/js-core-3/week-2/lesson.md)
+  - [Week 11 - APIs and Fetch](/js-core-3/week-2/lesson.md)
   - [Week 12 - Scope and ES6](/js-core-3/week-3/lesson.md)
 - [React](/react/index.md)
   - [Week 13 - React 101](/react/week-1/lesson.md)

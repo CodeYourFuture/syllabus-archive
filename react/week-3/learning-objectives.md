@@ -12,6 +12,11 @@
 
 ### Forms
 
-- Create a simple form in React
-  - Use the controlled component pattern
+- Create a simple form in React using the controlled component pattern
+  - Initialise state with `useState()`
+  - Be able to set the input `value` to the state variable
+  - Explain why the input does not change when typing if `onChange` is not set
+  - Be able to update the state using an `onChange` handler
 - Use data from a submitted form to update the application
+  - Be able to handle an `onSubmit` event to the form
+  - Be able to collect the form state variables and use them (setting state, POST request)

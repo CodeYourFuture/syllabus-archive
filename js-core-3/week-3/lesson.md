@@ -63,6 +63,32 @@ console.log(drinkingAge);
 
 As you can see the Global Laws defined at the top of the code apply everywhere but the local laws only apply when you are inside the function.
 
+This is also true for laws inside countries - for example the times that bars close at. For example in this diagram
+
+()[https://i1.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/d7905-1cdqas_85deas-team241aq.png?w=730&ssl=1]
+
+In this example the state of New York has a drinking age of 21 and all bars must close at 2am. In other states and countries they have different laws. This diagram could be shown by this example code
+
+```javascript
+function unitedStates() {
+  let drinkingAge = 21;
+  let state = "massachusetts";
+
+  if (state == "massachusetts") {
+    let closingTime = "2AM";
+    console.log(drinkingAge); //21
+    console.log(closingTime); // 2AM
+  }
+
+  if (state == "newYork") {
+    let closingTime = "4AM";
+    console.log(closingTime); // 4AM
+  }
+
+  console.log(closingTime); //undefined
+}
+```
+
 _You can read more about this analogy [here](https://blog.codeanalogies.com/2017/11/22/how-javascript-variable-scoping-is-just-like-multiple-levels-of-government/)_
 
 ### Local Variables

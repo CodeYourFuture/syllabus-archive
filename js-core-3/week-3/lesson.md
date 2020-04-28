@@ -21,9 +21,49 @@ The purpose of this class is to introduce to the student:
 
 ## 1. Variable Scoping
 
+## The Problem
+
 After you declare or define a variable, you may refer to it later in your code using the variable name.
 
-Depending on how you declare the variable, you can limit the context in which the variable name can be referenced. This can help with the readability of your code.
+This is fine when your code is small like this
+
+```javascript
+let myNumber = 4282;
+let yourNumber = 2181;
+let anotherNumber = 2112;
+```
+
+But imagine if you code gets really long, you'll suddenly find it really hard to keep track of all of them or - worse yet - you'll get confused and start to re-declare variables that you've already used somewhere else.
+
+Wouldn't it be good if certain variables could only be used in certain places? This is what we call `scope`
+
+### A Scope Analogy
+
+When thinking about scope you can imagine it in the way that countries set laws for themselves. For example, a country has Global Laws, National Laws and Local Laws - like this
+
+()[https://i0.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/474b7-1ywpubaj-_gmws4jedvbufa.png?w=730&ssl=1]
+
+In this analogy the Human Rights laws apply to all countries but the specific laws for a state do not apply to the world. This is useful as different laws apply in different places!
+
+This could be shown in some example code like this
+
+```javascript
+const unLawOne = "Slavery is prohibited";
+const unLawTwo = "Chemical weapons are prohibited";
+
+function unitedStates() {
+  let drinkingAge = 21;
+  console.log(drinkingAge); // 21
+  console.log(unLawOne); // Slavery is prohibited
+}
+
+console.log(drinkingAge);
+// error, drinkingAge not defined
+```
+
+As you can see the Global Laws defined at the top of the code apply everywhere but the local laws only apply when you are inside the function.
+
+_You can read more about this analogy [here](https://blog.codeanalogies.com/2017/11/22/how-javascript-variable-scoping-is-just-like-multiple-levels-of-government/)_
 
 ### Local Variables
 
@@ -36,11 +76,11 @@ let greeting = "Hello, ";
 However, if these definitions are done within a function, they become **local** to it:
 
 ```javascript
-let greetUser = (username) => {
-  let greeting = "Hello,";
+function greetUser(username) {
+  let greeting = "Hello, ";
 
   console.log(greeting, username);
-};
+}
 
 greetUser("Jenny");
 // Prints "Hello, Jenny"
@@ -53,39 +93,48 @@ console.log(greeting);
 
 You cannot define another variable with the same name inside the function:
 
-````javascript
+```javascript
 let greetUser = (username) => {
-    let greeting = "Hello";
+  let greeting = "Hello";
 
-    let greeting = "Howdy"
-    // SyntaxError: Identifier 'greeting' has already been declared
+  let greeting = "Howdy";
+  // SyntaxError: Identifier 'greeting' has already been declared
 };
+```
+
 Any time you use `{}`s (e.g. when you make an `if` statement, a `function`, or a loop), you're creating a new "block". You can even just add `{}`s in just to make a block. Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
 
 ```javascript
 let x = 1;
 
-{
+function numberSetting() {
   let x = 2; // different x variable
   x = 3; // assigning to inner x variable
   console.log(x); // 3
 }
 
 console.log(x); // 1
-````
+```
 
 This block scoping behaviour will apply in contexts such as `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
 
-Another way of declaring block (and locally) scoped variables is with the `const` keyword; this prevents that variable from being redefined later, and can help with readability.
+Every time you nest a
 
 ```javascript
-const VALUE_THAT_WONT_CHANGE = "VALUE_THAT_WONT_CHANGE";
-
-VALUE_THAT_WONT_CHANGE = 123;
-// Uncaught TypeError: Assignment to constant variable.
+function grandfather() {
+  var name = "Hammad";
+  // likes is not accessible here
+  function parent() {
+    // name is accessible here
+    // likes is not accessible here
+    function child() {
+      // Innermost level of the scope chain
+      // name is also accessible here
+      var likes = "Coding";
+    }
+  }
+}
 ```
-
-If you need variable to be globally accessible, you can also omit declaring them with the `let` keyword.
 
 ### Global Variables
 
@@ -106,9 +155,9 @@ Global variables are handy but can hurt code readability, especially if your cod
 
 #### Check-in
 
-**Question (5 mins):**
+**Questions**
 
-What would be the output of the following code:
+What would be printed to the console in this code?
 
 ```javascript
 let number = 1;
@@ -129,6 +178,40 @@ function secondFunction() {
 
 firstFunction();
 secondFunction();
+```
+
+What’s the result of executing this code and why?
+
+```javascript
+function test() {
+  console.log(a);
+  console.log(foo());
+
+  var a = 1;
+  function foo() {
+    return 2;
+  }
+}
+
+test();
+```
+
+What is the result of the following code? Explain your answer?
+
+```javascript
+var fullName = "John Doe";
+var obj = {
+  fullName: "Colin Ihrig",
+  inside: {
+    fullName: "Aurelio De Rosa",
+    getFullName: function () {
+      return this.fullName;
+    },
+  },
+};
+
+console.log(obj.fullName);
+console.log(obj.inside.getFullName());
 ```
 
 ## 2. Classes
@@ -221,7 +304,7 @@ counterFromTen.whenClicked();
 
 Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
 
-##### Check-in
+### Check-in
 
 **Question (5 mins):**
 Create you own analogy:
@@ -234,18 +317,10 @@ Create you own analogy:
 
 ### Explanation
 
-- Explain some key concepts that will be appearing in the homework this week
+For the test of the days we'll be working together on our group project
 
-### Example
+You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/tv-show-dom-project)
 
-<!-- TODO -->
-
-### Exercise
-
-<!-- TODO -->
-
-```
-
-```
+Students should group into teams based on the Level that they are working on currently.
 
 {% include './homework.md' %}

@@ -41,7 +41,7 @@ Wouldn't it be good if certain variables could only be used in certain places? T
 
 When thinking about scope you can imagine it in the way that countries set laws for themselves. For example, a country has Global Laws, National Laws and Local Laws - like this
 
-()[https://i0.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/474b7-1ywpubaj-_gmws4jedvbufa.png?w=730&ssl=1]
+[](https://i0.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/474b7-1ywpubaj-_gmws4jedvbufa.png?w=730&ssl=1)
 
 In this analogy the Human Rights laws apply to all countries but the specific laws for a state do not apply to the world. This is useful as different laws apply in different places!
 
@@ -65,7 +65,7 @@ As you can see the Global Laws defined at the top of the code apply everywhere b
 
 This is also true for laws inside countries - for example the times that bars close at. For example in this diagram
 
-()[https://i1.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/d7905-1cdqas_85deas-team241aq.png?w=730&ssl=1]
+[](https://i1.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/d7905-1cdqas_85deas-team241aq.png?w=730&ssl=1)
 
 In this example the state of New York has a drinking age of 21 and all bars must close at 2am. In other states and countries they have different laws. This diagram could be shown by this example code
 

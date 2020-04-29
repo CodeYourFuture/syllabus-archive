@@ -44,6 +44,7 @@
 - [MongoDB 101](/others/mongodb-101.md)
 - [AWS - DynamoDB](/others/aws-workshop-2.md)
 - [Java module](/others/java.md)
+- [Github Desktop module](/git/week-1/lesson.md)
 
 ## For Students
 

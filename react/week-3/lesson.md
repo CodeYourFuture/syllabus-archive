@@ -110,69 +110,60 @@ Inside the `App` component, `isShowingTime` can switch between `true` and `false
 
 When `isShowingTime` is `true`, we say that the `Time` component is *mounted* When `isShowingTime` is `false`, we instead say that the `Time` component is *UNmounted*.
 
-> **Exercise B**
-> Open the `pokedex` React application again
-> 1. Create a new file called `Clock.js` in the `src` directory
-> 2. Copy and paste in the code below ([interactive version](https://codesandbox.io/s/p9q2wq069j)):
+## Cleaning Up Effects
+
+Sometimes we need to "clean up" our components when they are unmounted or when props change. As we have just seen React does most of the hard work for us, but when using `useEffect()` you sometimes have to do it yourself.
+
+We'll keep using the example of a clock. To make a clock, we first need to understand how *timers* work:
+
+| **Exercise A** |
+| :--- |
+| 1. Open [task 1](https://jsbin.com/zozugugotu/edit?js,console) (JSBin is a bit like CodePen, but has a built-in console, just like your browser dev tools). Read the comments carefully and then follow the instructions <details><summary>Click here to see the expected output</summary>The string "tick" is logged to the console every second</details> |
+| 2. Complete [task 2](https://jsbin.com/yilijopegi/edit?js,console) <details><summary>Click here to see the expected output</summary>The string "tick" is logged to the console every 5 seconds</details> |
+| 3. Complete [task 3](https://jsbin.com/zifisalalu/edit?js,console) <details><summary>Click here to see the expected output</summary>The string "tick" is not logged any more</details> |
+
+Now that we understand `setInterval()` and `clearInterval()`, Let's go back to our clock example and try to make it work!
+
+| **Exercise B** |
+| :--- |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/toggleable-clock-with-hooks-starting-point-gtqif?file=/src/Clock.js). The code is very similar to the previous unmounting exercise. The main difference is that a `useEffect()` has been added to the `Time` component. |
+| 2. Edit the `useEffect()` in the `Time` component, so that the `console.log` and `setDate` are wrapped in a `setInterval` callback. Remember you can look at the previous exercises for examples of `setInterval` |
+| 3. You've just made a working clock! Pat yourself on the back 🙂 |
+| 4. Now open the JavaScript console your web browser. What is happening? Can you explain why? <details><summary>Click here if you're stuck</summary>The string "tick" is logged every second by the setInterval in the Time component</details> |
+| 5. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think is happening? Why is this a problem? |
+
+Situations like this are common bugs in frontend applications. When the `Time` component is unmounted, the `setInterval` timer is still running, so it keeps logging "tick" in the console.
+
+This might not seem like a big problem, but if we kept this running for a really long time, it might start to cause a *memory leak*. This can make your website slow down or even break entirely. If we were doing something that was more intensive to calculate, this problem may happen faster and be worse.
+
+To fix this we need to clean up our timer so that it does not run when the `Time` component is unmounted. You can do this with `useEffect` by returning a clean-up function:
 
 ```js
-import React, { Component } from 'react';
+useEffect(() => {
+  // Set up...
+  const intervalTimer = setInterval(() => {
+    // ...
+  });
 
-class Time extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { date: new Date() };
-  }
-  
-  tick = () => {
-    console.log('tick');
-    this.setState({
-      date: new Date()
-    });
+  // Return a clean-up function
+  return () => {
+    // Clean up...
+    clearInterval(intervalTimer);
   };
-  
-  render() {
-    return (
-      <div>{this.state.date.toLocaleTimeString()}</div>
-    );
-  }
-}
-
-class Clock extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isShowingClock: true };
-  }
-  
-  toggle = () => {
-    this.setState((previousState) => {
-      return { isShowingClock: !previousState.isShowingClock };
-    });
-  };
-  
-  render() {
-    return (
-      <div>
-        {this.state.isShowingClock && <Time />}
-        <button onClick={this.toggle}>Toggle time</button>
-      </div>
-    );
-  }
-}
-
-export default Clock;
+}, []);
 ```
 
-> 3. In `App.js` import the `Clock` component with `import Clock from './Clock'`
-> 4. Then render the `Clock` component in the `App` component (hint: `<Clock />`)
-> 5. Now change the `Time` component (notice that there are 2 components defined in this file) add a `componentDidMount` method
-> 6. Within the `componentDidMount` method use `setInterval` to call `this.tick` every 1000 milliseconds (hint: `setInterval(this.tick, 1000)`)
-> 7. Now open the JavaScript console your web browser. What is happening? Can you explain why?
-> 8. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it?
-> 9. Change the `componentDidMount` method to assign `this.timer` to the output of `setInterval` (hint: `this.timer = setInterval(this.tick, 1000)`)
-> 10. Add a `componentWillUnmount` method to the `Time` component
-> 11. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)`
-> 12. Try clicking the "Toggle time" button again, like in step 9. How have we solved the problem?
+The clean-up function is run when the component is unmounted, allowing us to tear down our timer after it is no longer needed. Let's try implementing this ourselves.
+
+| **Exercise C** |
+| :--- |
+| 1. Continue with the CodeSandbox we used in Exercise B. |
+| 2. Declare a `intervalTimer` variable inside the `useEffect` callback and assign it to the `setInterval`. If you're stuck, go back and look at the code for Exercise A: Step 3. |
+| 3. Still inside the `useEffect` callback, create a clean-up function and return it. |
+| 4. Inside the clean-up function, run `clearInterval(intervalTimer)`. If you're stuck, go back and look at the code for Exercise A: Step 3. |
+| 5. Try clicking the "Toggle time" button again, like in Exercise B: Step 5. Have we solved the problem? |
+
+We have looked at an example using `setInterval`, but there are lots of similar situations where we need to "clean up" after a component unmounts. An example might be *subscribing* to the status of a friend in a chat application. When the chat is closed, you want to ensure that the connection to the friend's status is stopped.
 
 ## Fetching Data in React
 

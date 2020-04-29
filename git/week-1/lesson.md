@@ -10,6 +10,10 @@
 
 ---
 
+## Setup
+
+It is important that all of the attendees have access to the CodeYourFuture Github Teams. Make sure that they have all been added and if they haven't add them.
+
 ## What is the problem?
 
 When programmers work together it can be hard to stay in sync. This can be demonstrated by:
@@ -29,20 +33,29 @@ This is why Git was invented!
 
 ## What is Github?
 
-**Confirm that everyone has a Github account and that they've been added to the relevant Github Teams**
+Give an overview of Github including
 
-1. Give an overview of Github including
-   - A Project Overview
-   - Issues
-   - Creating a repository
-   - Changing a file in a repository
-2. All students should now
-   - Create a repository called "Code Your Future". This should include the ReadMe.md.
-   - Edit the ReadMe.md inside Github to include their name.
+- A Project Overview
+- Issues
+- Creating a repository
+- Changing a file in a repository
+
+**Glossary** - _Repository_ - A repository is like a folder on your computer. It can hold a lot of other files.
+**Glossary** - _Commit_ - When you commit - you are saving the file to your repository
+
+### Exercise
+
+All students should now complete the following steps
+
+```
+1. Create a repository called "Code Your Future".
+2. Create a file in their repository called `ReadMe.md`
+3. Edit the ReadMe.md inside Github to include their name.
+```
 
 ## What is Github Desktop?
 
-Github desktop is a way to edit files on your computer instead of editing them online.
+Github Desktop is a way to edit files on your computer instead of editing them online.
 
 Give a demonstration of
 
@@ -51,21 +64,38 @@ Give a demonstration of
 3. Committing the changes to our local repository
 4. Pushing our changes to Github
 
-The students should now repeat these steps on their projects
+**Glossary** - _Clone_ - Clone means to create a copy of the repository on your laptop
+**Glossary** - _Push_ - Push means to send your saved copy of the repository to Github
+**Glossary** - _Fetch_ - Find out if there have been any changes to the repository
+**Glossary** - _Pull_ - Get the latest changes from the repository
+
+### Exercise
+
+The students should now complete the following steps
+
+```
+1. Clone their repository called `Code Your Future` to their computer
+2. Fetch to find out if there have been any changes on Github
+3. Pull the changes that have happened from Github recently
+4. Change the "ReadMe.md" file to also include the city they live in
+5. Commit the change they have made
+6. Push the change to Github
+```
+
+Each person in the group should try this
 
 ## What about working in Teams?
 
 Github also makes it really easy to work in teams.
 
-One way that we could work in a team is by writing a story together.
+One way that we could work in a team is by making a list of our favorite things.
 
-In your teams you should.
+In your teams you should
 
-1. Elect a Project Leader
-2. The Project leader should create a repository on Github and then share the link to the team
-3. All of the rest of the team should clone the repository
-4. Each team member should take it in turns changing one work in the ReadMe.md file in the project.
-5. Write a story! Keep on adding works until you've got a story.
+1. Each clone this repository to their computers
+   - https://github.com/CodeYourFuture/GitTeaching
+2. Each team member should take it in turns changing one work in the ReadMe.md file in the project.
+3. Make a list of your favorite things. This can be food, hobbies or places. It's completely up to you!
 
 Be careful! Don't all add words at the same time!
 
@@ -78,19 +108,35 @@ The teacher should
 1. Show how you can create a branch in Github Desktop
 2. Show how moving between Master and the Branch keeps two versions of the file
 
+## Exercise
+
+All students should now
+
+```
+1. Create a branch called "my-favorite-stuff"
+2. Edit a file to add something that is your favorite
+3. Commit your change to the file
+4. Push your commit and your new branch to Github
+```
+
+## Pull requests
+
 Branching is particularly helpful for using in Pull Requests
 
 1. The teacher should show how to make a Pull Request in Github
 2. The teacher should show how to comment on a PR in Github
 3. The teacher should show how to merge a pull request in Github
 
-Now the students should try this themselves in their teams.
+### Exercise
 
-1. The group leader should make a Branch, make a Commit and Create a Pull Request
-2. The other students should comment on the Pull Request
-3. The group leader should then merge the Pull Request
+Now the students should try this themselves
 
-Now each member of the team should try this!
+```
+1. Each student should go to this repository
+   - https://github.com/CodeYourFuture/GitTeaching
+2. They should open a pull request
+3. Share the link to their pull request in Slack with the rest of the class
+```
 
 ## (Optional) What is Git?
 
@@ -105,3 +151,10 @@ The teacher should show
 - How to how to push to the repository
 
 This is only to show students how it's done! We'll be doing more of this in the future.
+
+## Quiz
+
+1. What is a repository?
+   - A repository is like a
+2. What is Github?
+3. What is git?

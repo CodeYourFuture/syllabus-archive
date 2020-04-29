@@ -2,6 +2,8 @@
 
 **What will we learn today?**
 
+<!-- TODO: update these after making the changes -->
+
 - [Recap](#recap)
 - [Unmounting](#unmounting)
 - [The Circle of Life](#the-circle-of-life)
@@ -68,11 +70,12 @@ function DataFetcher() {
 So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not.
 
 | **Exercise** |
-| Open [this CodeSandbox](https://codesandbox.io/s/p9q2wq069j) (it works just like VS Code, but in the browser) |
-| Take 5 minutes to read the code (in the middle panel) |
-| Open your browser dev tools and inspect the element showing the current time |
-| While watching the dev tools, click the "Toggle time" button |
-| What happens to the time element? Can you explain why this happens? |
+| :--- |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/p9q2wq069j) (it works just like VS Code, but in the browser) |
+| 2. Take 5 minutes to read the code (in the middle panel). For this exercise, we are the most interested in the `Clock` component |
+| 3. Open your browser dev tools and inspect the element showing the current time |
+| 4. While watching the dev tools, click the "Toggle time" button |
+| 5. What happens to the time element? Can you explain why this happens? |
 
 Here is the code if you want to look at it later:
 

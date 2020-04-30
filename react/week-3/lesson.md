@@ -165,6 +165,193 @@ The clean-up function is run when the component is unmounted, allowing us to tea
 
 We have looked at an example using `setInterval`, but there are lots of similar situations where we need to "clean up" after a component unmounts. An example might be *subscribing* to the status of a friend in a chat application. When the chat is closed, you want to ensure that the connection to the friend's status is stopped.
 
+## Updating Data Fetching when Props Change
+
+Last week we looked at how we could fetch data from an API and render it in our React applications. However, there was a problem with the method that we learned before. To understand this problem we first have to understand the *lifecycle* of a component.
+
+### The Circle of Life
+
+Let's take a look at an example:
+
+| **Exercise A** |
+| :--- |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-starting-point-x1dox?file=/src/App.js). |
+| 2. Take 5 minutes to read the code. |
+| 3. Click the "Fetch image for 2019" button. **If you're feeling confident**: predict what is going to happen before you click the button. |
+| 4. Now click the "Fetch image for 2020" button. What did you expect to happen? What actually happened? Can you explain why? |
+
+Together let's "play computer" to break down exactly what is happening with these components:
+
+1. When the page loads, the `App` function component is called
+2. It doesn't have any `date` state already, so we initialise it to an empty string (`""`) with `useState`
+3. It renders the 2 buttons, but because `date` is an empty string, it does **not** render the `MartianImageFetcher` component. Instead `null` is returned, which means that nothing is rendered
+```js
+function App() {
+  const [date, setDate] = useState("");
+
+  ...
+
+  return (
+    <div>
+      <button onClick={handle2019Click}>Fetch image for 2019</button>
+      <button onClick={handle2020Click}>Fetch image for 2020</button>
+      {date ? <MartianImageFetcher date={date} /> : null}
+    </div>
+  );
+}
+```
+4. When we click the "Fetch image for 2019" button, the `handle2019Click` click handler is called
+5. The state is set by `setDate` to be `"2019-01-01"`, and a re-render is triggered
+6. The `App` function component is called again
+7. This time, `useState` remembers that we have `date` state and it is set to `"2019-01-01"`
+```js
+function App() {
+  ...
+
+  function handle2019Click() {
+    setDate("2019-01-01");
+  }
+
+  ...
+
+  return (
+    ...
+    <div>
+      ...
+      <button onClick={handle2019Click}>Fetch image for 2019</button>
+      ...
+    </div>
+    ...
+  );
+}
+```
+8. Now `App` **does** render `MartianImageFetcher` and passes the `date` state as a prop (also named `date`)
+9. The `MartianImageFetcher` function component is called for the first time
+10. `useState` knows that we haven't got any `imgSrc` state so initialises it to `null`
+11. We queue an effect, which will run after we render for the first time
+12. Because the `imgSrc` state is set to `null`, we return `null`. This means that nothing is rendered
+```js
+function MartianImageFetcher(props) {
+  const [imgSrc, setImgSrc] = useState(null);
+
+  useEffect(() => {
+    ...
+  }, []);
+
+  if (!imgSrc) {
+    return null;
+  } else {
+    return <img src={imgSrc} />;
+  }
+}
+```
+13. Now that the component has rendered for the first time, the effect is run
+14. A `fetch` request is made to the NASA API (🚀!)
+15. When the request data comes back, we set the `imgSrc` state to a piece of the data, which triggers a re-render
+```js
+function MartianImageFetcher(props) {
+  ...
+
+  useEffect(() => {
+    fetch(
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${
+        props.date
+      }&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`
+    )
+      .then(res => res.json())
+      .then(data => {
+        setImgSrc(data.photos[0].img_src);
+      });
+  }, []);
+
+  ...
+}
+```
+16. The `MartianImageFetcher` function component is called again
+17. `useState` remembers that the `imgSrc` state is set to the data from the API
+18. This time, we do **not** queue an effect. We used an empty array (`[]`) as the `useEffect` dependencies argument which means that we only queue effects on the **first** render
+19. We do have `imgSrc` state set, so we render the image using the data from the API 🎉
+```js
+function MartianImageFetcher(props) {
+  const [imgSrc, setImgSrc] = useState(null);
+
+  ...
+
+  if (!imgSrc) {
+    return null;
+  } else {
+    return <img src={imgSrc} />;
+  }
+}
+```
+
+Phew! That was a lot of work just to render an image! But we're not quite done yet, we still need to find out what happens when we click the "Fetch image for 2020" button:
+
+1. In the `App` component, the `handle2020Click` click handler is called
+2. The `date` state is set to `"2020-01-01"` and a re-render is triggered
+3. The `App` function component is called again and the `date` state is set to `"2020-01-01"`
+4. The `date` prop that is passed to `MartianImageFetcher` is **different** which means that it has to re-render
+```js
+function App() {
+  ...
+
+  function handle2020Click() {
+    setDate("2020-01-01");
+  }
+
+  ...
+
+  return (
+    ...
+    <div>
+      ...
+      <button onClick={handle2020Click}>Fetch image for 2020</button>
+      ...
+      {date ? <MartianImageFetcher={date} /> : null}
+      ...
+    </div>
+    ...
+  );
+}
+```
+5. In the `MartianImageFetcher` component `useState` remembers that we already had `imgSrc` state. It is set to the image from 2019
+6. Again, we do **not** queue the effect because this is a re-render and `useEffect` has been passed an empty array `[]`
+7. Because `imgSrc` state has been set previously we render the image from 2019
+```js
+function MartianImageFetcher(props) {
+  const [imgSrc, setImgSrc] = useState(null);
+
+  useEffect(() => {
+    ...
+  }, []);
+
+  return <img src={imgSrc} />;
+}
+```
+
+Did you spot where the bug was? The key that the `useEffect` in `MartianImageFetcher` is **only run once**. This is because we told React that the queue should be queued on the first render only. However, as we saw, sometimes you need the effect to run again when some data changes. In this case the `date` prop, changed from `"2019-01-01"` to `"2020-01-01"`, meaning that we have to fetch data different data. We call this a *dependency* of the effect.
+
+### `useEffect` dependencies array
+
+To solve this problem, we can tell React to queue the effect on the first render **and** when a dependency changes. We do this by adding the dependency variable to the array:
+
+```js
+function MartianImageFetcher(props) {
+  const [imgSrc, setImgSrc] = useState(null);
+
+  useEffect(() => {
+    ...
+  }, [props.date]);
+
+  ...
+}
+```
+
+Now when the `date` prop changes, React knows that the effect must be run again, this time with the 2020 data.
+
+<!-- TODO: loading state (need to update codesandboxes) -->
+<!-- TODO: exercises (maybe need to coordinate with Lucy) -->
+
 ## Fetching Data in React
 
 Most web applications will load data from the server. How do we do this in React? The component lifecycle is very important - we don't want to be calling our API at the wrong time, or multiple times with the same data!

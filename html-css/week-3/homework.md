@@ -4,4 +4,4 @@ You can find the homework for this week [here](https://github.com/CodeYourFuture
 
 # Prepare for the next class
 
-Next week, we will begin learning and programming JavaScript. To prepare for the next lesson, what a two minute video, ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU).
+Next lesson, we will begin learning and programming JavaScript. To prepare for it, what a two minute video, ['What is JavaScript?'](https://www.youtube.com/watch?v=nItSSTwBvSU).

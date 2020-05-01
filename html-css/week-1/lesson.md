@@ -24,9 +24,9 @@ All together, let's review the basic syntax in the following example:
 
 ```html
 <article>
-    <h1>Learning HTML</h1>
-    <p>Get to know the HTML basics.</p>
-    <a href="http://html5rocks.com">Read Article</a>
+  <h1>Learning HTML</h1>
+  <p>Get to know the HTML basics.</p>
+  <a href="http://html5rocks.com">Read Article</a>
 </article>
 ```
 
@@ -40,13 +40,13 @@ HTML tags are arranged in a hierarchy. This is sometimes called "nesting" tags o
 
 ```html
 <article>
-    <h1>Learning HTML</h1>
-    <p>
-        <span class="author">Author:</span>
-        <a href="http://codeyourfuture.io">Code Your Future</a>
-    </p>
-    <p>Get to know the HTML basics.</p>
-    <a href="http://html5rocks.com">Read Article</a>
+  <h1>Learning HTML</h1>
+  <p>
+    <span class="author">Author:</span>
+    <a href="http://codeyourfuture.io">Code Your Future</a>
+  </p>
+  <p>Get to know the HTML basics.</p>
+  <a href="http://html5rocks.com">Read Article</a>
 </article>
 ```
 
@@ -61,7 +61,8 @@ In today's class, we will begin adapting styles on this example website. We'll r
   <img src="../assets/screenshot-complete.png" style="border: 1px solid #bababa; width: 48%;">
 </a>
 
-The example website you'll begin working with is available [on this GitHub repository](https://github.com/CodeYourFuture/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.
+The example website you'll begin working with is available on this Code Your Future GitHub repository -
+[Bikes for Refugees](https://github.com/CodeYourFuture/bikes-for-refugees). Fork the repository to your personal account and use the following terminal commands to download the files to your projects folder.
 
 1. `cd ~`
 2. `cd <your-project-directory>`
@@ -100,7 +101,7 @@ You can assign CSS rules to a class like this:
 
 ```css
 .btn {
-    background: #ce5f31;
+  background: #ce5f31;
 }
 ```
 
@@ -112,7 +113,7 @@ Here's an example of a pseudo class which changes the color of a link when the m
 
 ```css
 .btn:hover {
-    background: #ef7f52;
+  background: #ef7f52;
 }
 ```
 
@@ -121,7 +122,7 @@ Not everyone uses a mouse. Some users will prefer a keyboard, where they can hit
 ```css
 .btn:hover,
 .btn:focus {
-    background: #ef7f52;
+  background: #ef7f52;
 }
 ```
 
@@ -141,7 +142,7 @@ You can also set a transparent border, so that it takes up the space without sho
 
 ```css
 .navlink {
-    border: 1px solid transparent;
+  border: 1px solid transparent;
 }
 ```
 

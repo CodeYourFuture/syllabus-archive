@@ -1,6 +1,6 @@
 # Homework
 
-Revise what you've learned during the HTML/CSS module. Next lesson we'll have a short quiz for you. (Hint: use your Progress Tracker to identify what you need to study.)
+You can find the homework for this week [here](https://github.com/CodeYourFuture/HTML-CSS-Homework)
 
 # Prepare for the next class
 

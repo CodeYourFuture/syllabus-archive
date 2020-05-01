@@ -330,11 +330,11 @@ counterFromTen.whenClicked();
 
 Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
 
-Functions defined within class can also be known as **methods**.
+Functions defined within class are also be known as **methods**.
 
 ### Exercises
 
-Try these exercises in your breakout groups 
+Try these exercises in your breakout groups.
 
 #### Exercise 1
 
@@ -417,7 +417,7 @@ myAddresBook.lookup('homer');
 
 ```
 
-Notice that when you come to using an `AddressBook` instance, you are only interacting with it through its methods, `store` and `lookup`. Similar to functions, classes provide a way of creating abstractions over lower-level implementations, which can help us better organise and maintain our code.
+Notice that when you come to using a class instance, you are only interacting with it through its methods, e.g. `store` and `lookup` for `AddressBook`. Similar to functions, classes provide a way of creating abstractions over lower-level implementations, which can help us better organise and maintain our code.
 
 ## 3. Project Work
 

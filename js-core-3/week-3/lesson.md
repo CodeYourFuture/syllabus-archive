@@ -330,14 +330,96 @@ counterFromTen.whenClicked();
 
 Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
 
-### Check-in
+Functions defined within class are also be known as **methods**.
 
-**Question (5 mins):**
-Create you own analogy:
+### Exercises
+
+Try these exercises in your breakout groups.
+
+#### Exercise 1
+
+Implement the `add` and `getTotal` methods of the `RunningTotal` class below.
+
+```javascript
+class RunningTotal {
+
+  constructor() {
+    this.currentTotal = 0;
+  }
+
+  add(n) {
+    // Implement this method
+  }
+  getTotal() {
+    // Implement this method
+  }
+}
+
+const runningTotal  = new RunningTotal();
+
+runningTotal.add(3);
+runningTotal.add(7);
+runningTotal.add(7);
+runningTotal.getTotal();
+// 17
+```
+
+#### Exercise 2
+
+Implement the `constructor` method of the `StopWatch` class below.
+
+```javascript
+class StopWatch {
+
+  constructor() {
+    this.secondsElapsed = 0;
+    
+    //Finish implementing the rest of the constructor so that secondsElapsed is updated
+  }
+
+  getTime() {
+    return `Seconds elapsed: ${this.secondsElapsed}`;
+  }
+}
+
+const stopWatch  = new StopWatch();
+
+// Wait a few seconds...
+
+stopWatch.getTime()
+// 'Seconds elapsed: 3'
+
+// Wait a few more seconds...
+
+stopWatch.getTime()
+// 'Seconds elapsed: 7'
+```
+
+#### Exercise 3
+
+Implement the `constructor`, `store` and the `lookup` methods of the `AddressBook` class below.
+
+```javascript
+class AddressBook {
+  // Implement the constructor method
+  // Implement the store method
+  // Implement the store lookup
+}
+
+const myAddresBook = new AddressBook();
+
+myAddressBook.store('bart', 'bart@simpsons.com');
+myAddressBook.store('maggie', 'maggie@simpsons.com');
+
+myAddresBook.lookup('bart');
+// 'bart@simpsons.com'
+
+myAddresBook.lookup('homer');
+// 'address not found'
 
 ```
-    A class is like _____ because _____.
-```
+
+Notice that when you come to using a class instance, you are only interacting with it through its methods, e.g. `store` and `lookup` for `AddressBook`. Similar to functions, classes provide a way of creating abstractions over lower-level implementations, which can help us better organise and maintain our code.
 
 ## 3. Project Work
 

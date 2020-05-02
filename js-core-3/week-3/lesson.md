@@ -251,7 +251,7 @@ document
   .addEventListener("click", whenButtonClicked2);
 ```
 
-We can reduce this code duplication by using a JavaScript `class` (not the same as a class in CSS), a structure that ties together the state (`timesClicked`) and any functions that reference it (`whenButtonClicked`):
+We can reduce this code duplication by using a JavaScript `class` (not the same as a class in CSS). Classes are structures like objects but they have methods baked into them as well as holding state. For example here the class `Counter` ties together the state, `timesClicked`, and the functions that reference it like `whenButtonClicked`:
 
 ```javascript
 class Counter {
@@ -276,7 +276,7 @@ document
   .addEventListener("click", counter2.whenClicked);
 ```
 
-We can create instances of a class using the `new` operator, followed by the class name. When a class instance is created, its `constructor` function is called. We can pass the constructor arguments to use during initialisation.
+We can create instances of a class using the `new` operator, followed by the class name. When a class instance is created, its `constructor` function is called automatically. We can pass the constructor arguments to use during initialisation.
 
 For example, here is a `CounterFromN` class that starts counting from a number that's passed in:
 
@@ -297,10 +297,9 @@ let counterFromTen = new CounterFromN(10);
 counterFromTen.whenClicked();
 // Button has been clicked 11 times
 ```
+As shown above, a class' functionss can be called by referring to the name of the object's function followed by brackets. If the function expects any arguments then these can be passed into it inside the brackets as per normal. Functions defined within classes are also be known as **methods**.
 
 Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
-
-Functions defined within class are also be known as **methods**.
 
 ### Exercises
 

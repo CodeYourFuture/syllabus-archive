@@ -19,165 +19,135 @@ The purpose of this class is to introduce to the student:
 2. Classes
 3. Project Work
 
-## 1. Variable Scoping
+# 1. Variable Scope
 
 ## The Problem
 
-After you declare or define a variable, you may refer to it later in your code using the variable name.
+Variables are amazing! Variables let us store data and reuse it many times rather than writing the same data over and over again, also if the variables are well named then it makes it much easier to think about what our code is doing.
 
-This is fine when your code is small like this
+As we know, after we declare or define a new variable we can refer to it later in our code using the variable name.
 
-```javascript
-let myNumber = 4282;
-let yourNumber = 2181;
-let anotherNumber = 2112;
+```js
+let name = "mo";
+let age = 42;
+let favouriteFoods = ["pizza", "apples", "tofu"];
+
+// lots of code here
+
+// later
+console.log("my name is " + name);
 ```
 
-But imagine if you code gets really long, you'll suddenly find it really hard to keep track of all of them or - worse yet - you'll get confused and start to re-declare variables that you've already used somewhere else.
+Now, imagine what would happen when our code gets really long. Every time we want to define a new variable we have to check that it hasn't already been used for something else. If that variable is already being used and we redefine it, bad things can happen. We could overwrite something important.
 
-Wouldn't it be good if certain variables could only be used in certain places? This is what we call `scope`
+Imagine a banking app being built by two developers. Developer 1 uses the variable name `money` to store the total amount of cash a single customer has in the bank, Developer 2 uses the variable name `money` to store the total amount of cash that ALL customers have in the bank added together, the total money in the bank's vaults. This could be really good news for a customer who accidentally receives the entire bank's money in their account, but really BAD news for us as the owners of a bank.
 
-### A Scope Analogy
+## The Solution
 
-When thinking about scope you can imagine it in the way that countries set laws for themselves. For example, a country has Global Laws, National Laws and Local Laws - like this
+One solution might be that every time we want to create a new variable, we call around all of the other developers on the project and ask them if it's safe to use the variable name `money`. We can quickly see a problem with this, some codebases are millions of lines long! No single person knows what is contained in every file. It would be impossible to know what variables are safe to use and which are not.
+
+Instead, we need to find a way to make variables **safer**. We need a way to use the best variable name to describe our data, without worrying that we will be causing problems in a different part of the codebase.
+
+We call this `scope`.
+
+## What is Scope?
+
+Think about the way that laws are set in different countries. Most laws are set by the government of that country and are `local` to that country. However, some laws are international, laws like 'no slavery' apply across all countries, these are `global` laws.
+
+In some countries, different regions inside the country can set their own laws too. In America you must be 21 to drink (national law), but in the state of Massachusetts all bars must be closed by 2AM (state law). These are two levels of local laws.
 
 ![Types of laws](https://i0.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/474b7-1ywpubaj-_gmws4jedvbufa.png?w=730&ssl=1)
 
-In this analogy the Human Rights laws apply to all countries but the specific laws for a state do not apply to the world. This is useful as different laws apply in different places!
+In Massachusetts, a citizen must follow all 3: International Law, National Law and State Law.
 
-This could be shown in some example code like this
+But a pirate 🏴‍☠️ in the middle of the ocean only needs to follow International Law (and perhaps the law of the Ship).
 
-```javascript
-const unLawOne = "Slavery is prohibited";
-const unLawTwo = "Chemical weapons are prohibited";
+In the same way we think about which laws apply to which **parts of a country** we must also think about which variables apply to which **parts of your code**. Variables, like laws, only apply to a certain area.
 
-function unitedStates() {
-  let drinkingAge = 21;
-  console.log(drinkingAge); // 21
-  console.log(unLawOne); // Slavery is prohibited
+```js
+let globalLaw = "no slavery";
+// only 1 law applies here
+
+function USA() {
+  let nationalLaw = "drinking age is 21";
+  // 2 laws apply here
+
+  function Massachusetts() {
+    let stateLaw = "bars closed at 2am";
+    // all 3 laws apply here
+  }
 }
 
-console.log(drinkingAge);
-// error, drinkingAge not defined
+console.log(stateLaw); // Error: 'stateLaw' is not defined
 ```
 
-As you can see the Global Laws defined at the top of the code apply everywhere but the local laws only apply when you are inside the function.
-
-This is also true for laws inside countries - for example the times that bars close at. For example in this diagram
-
-![Implementation of different laws in different countries](https://i1.wp.com/blog.codeanalogies.com/wp-content/uploads/2017/11/d7905-1cdqas_85deas-team241aq.png?w=730&ssl=1)
-
-In this example the state of New York has a drinking age of 21 and all bars must close at 2am. In other states and countries they have different laws. This diagram could be shown by this example code
-
-```javascript
-function unitedStates() {
-  let drinkingAge = 21;
-  let state = "massachusetts";
-
-  if (state == "massachusetts") {
-    let closingTime = "2AM";
-    console.log(drinkingAge); //21
-    console.log(closingTime); // 2AM
-  }
-
-  if (state == "newYork") {
-    let closingTime = "4AM";
-    console.log(closingTime); // 4AM
-  }
-
-  console.log(closingTime); //undefined
-}
-```
-
-_You can read more about this analogy [here](https://blog.codeanalogies.com/2017/11/22/how-javascript-variable-scoping-is-just-like-multiple-levels-of-government/)_
+In the example above, the State Law only applies to Massachusetts. When we try to `console.log` the `stateLaw` variable at the end, it is not defined. This part of your code does not even know this variable exists!
 
 ### Local Variables
 
-These variables are declared using the `let` statement as you've been familiar with:
+Let's rewind and look at this in detail. We know that variables are declared using the `let` statement.
 
-```javascript
-let greeting = "Hello, ";
+```js
+let greeting = "Hi ";
 ```
 
-However, if these definitions are done within a function, they become **local** to it:
+If we define a variable inside a function, it becomes **local** to that function. If we want to use a fancy word, we can also say it becomes **scoped** to that function.
 
-```javascript
-function greetUser(username) {
-  let greeting = "Hello, ";
-
-  console.log(greeting, username);
+```js
+function greetUser(name) {
+  let greeting = "Hi "; // This variable only exists here
+  console.log(greeting + name);
 }
 
-greetUser("Jenny");
-// Prints "Hello, Jenny"
-
-// However, the greeting variable cannot be referenced here, since it's been declared within the greetUser function and we are currently trying to reference it outside the function:
-
-console.log(greeting);
-// Uncaught ReferenceError: greeting is not defined
+greetUser("Naima");
+console.log(greeting); // It doesn't exist here
 ```
 
-You cannot define another variable with the same name inside the function:
+The `console.log(greeting)` on the last line throws an error, it tells us that "greeting is not not defined". Why is this? Because the variable `greeting` was defined in the `greetUser` function, it **does not exist** outside the function.
 
-```javascript
-let greetUser = (username) => {
-  let greeting = "Hello";
+This lets us do new things with variables. You cannot usually create two variables with the same name. For example:
 
-  let greeting = "Howdy";
-  // SyntaxError: Identifier 'greeting' has already been declared
-};
-```
-
-Any time you use `{}`s (e.g. when you make an `if` statement, a `function`, or a loop), you're creating a new "block". You can even just add `{}`s in just to make a block. Variables declared using `let` are also block scoped, meaning that you are free to reuse a variable name within a block and it won't affect the outer variable.
-
-```javascript
-let x = 1;
-
-function numberSetting() {
-  let x = 2; // different x variable
-  x = 3; // assigning to inner x variable
-  console.log(x); // 3
-}
-
-console.log(x); // 1
-```
-
-This block scoping behaviour will apply in contexts such as `for` loops, `while` and `if` statements (i.e. anything within curly brackets).
-
-Every time you nest a
-
-```javascript
-function grandfather() {
-  var name = "Hammad";
-  // likes is not accessible here
-  function parent() {
-    // name is accessible here
-    // likes is not accessible here
-    function child() {
-      // Innermost level of the scope chain
-      // name is also accessible here
-      var likes = "Coding";
-    }
-  }
+```js
+function greetUser(name) {
+  let greeting = "Hi";
+  let greeting = "Shalom";
+  // Error: 'greeting' has already been declared
 }
 ```
 
-### Global Variables
+But in the same way countries have different laws, functions have different `scopes`! And so it becomes possible to use the same variable name for different situations.
 
-A variable that needs to be accessed everywhere (e.g. by many functions) can be defined as a global variable. You can do this by omitting the `let` (or `const`) keyword:
+```js
+function greetOnce(name) {
+  let greeting = "Hi ";
+  console.log(greeting + name);
+}
 
-```javascript
-// The variable VERSION can be subsequently be referenced anywhere in your code.
-VERSION = "1.0.4";
+function greetAgain(name) {
+  let greeting = "Shalom ";
+  console.log(greeting + name);
+}
 ```
 
-Alternatively in the browser, you can also assign it only the `window` object, e.g.:
+We have used the variable name `greeting` twice but it's very important to remember that **these are not the same variable**! The two variables called 'greeting' do not even know each other exist.
 
-```javascript
-window.VERSION = "1.0.4";
-```
+## Scope to the rescue!
 
-Global variables are handy but can hurt code readability, especially if your code is in a big file or spread across multiple files.
+When do we get a new scope?
+
+Basically any time we use curly brackets (`{}`). Not just functions but also `if` statements, `for` or `while` loops.
+
+Together we call these things `blocks`. A block is anything inside curly brackets. An if statement is a block, a function is a block, a loop is a block.
+
+**Any time you define a variable inside a block, that variable cannot escape that block.** We say the variable is `scoped` to that block.
+
+#### Check-in
+
+Complete this [scope task](https://codepen.io/DomVinyard/pen/YzyxrjR?editors=0012) to understand how different scope applies to different variables.
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjE2Mzk4NTUxLDEzNTkxNjcwNjNdfQ==
+-->
 
 #### Check-in
 
@@ -342,7 +312,6 @@ Implement the `add` and `getTotal` methods of the `RunningTotal` class below.
 
 ```javascript
 class RunningTotal {
-
   constructor() {
     this.currentTotal = 0;
   }
@@ -355,7 +324,7 @@ class RunningTotal {
   }
 }
 
-const runningTotal  = new RunningTotal();
+const runningTotal = new RunningTotal();
 
 runningTotal.add(3);
 runningTotal.add(7);
@@ -370,10 +339,9 @@ Implement the `constructor` method of the `StopWatch` class below.
 
 ```javascript
 class StopWatch {
-
   constructor() {
     this.secondsElapsed = 0;
-    
+
     //Finish implementing the rest of the constructor so that secondsElapsed is updated
   }
 
@@ -382,16 +350,16 @@ class StopWatch {
   }
 }
 
-const stopWatch  = new StopWatch();
+const stopWatch = new StopWatch();
 
 // Wait a few seconds...
 
-stopWatch.getTime()
+stopWatch.getTime();
 // 'Seconds elapsed: 3'
 
 // Wait a few more seconds...
 
-stopWatch.getTime()
+stopWatch.getTime();
 // 'Seconds elapsed: 7'
 ```
 
@@ -408,15 +376,14 @@ class AddressBook {
 
 const myAddresBook = new AddressBook();
 
-myAddressBook.store('bart', 'bart@simpsons.com');
-myAddressBook.store('maggie', 'maggie@simpsons.com');
+myAddressBook.store("bart", "bart@simpsons.com");
+myAddressBook.store("maggie", "maggie@simpsons.com");
 
-myAddresBook.lookup('bart');
+myAddresBook.lookup("bart");
 // 'bart@simpsons.com'
 
-myAddresBook.lookup('homer');
+myAddresBook.lookup("homer");
 // 'address not found'
-
 ```
 
 Notice that when you come to using a class instance, you are only interacting with it through its methods, e.g. `store` and `lookup` for `AddressBook`. Similar to functions, classes provide a way of creating abstractions over lower-level implementations, which can help us better organise and maintain our code.

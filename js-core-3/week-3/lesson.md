@@ -385,10 +385,12 @@ class StopWatch {
 const stopWatch  = new StopWatch();
 
 // Wait a few seconds...
+
 stopWatch.getTime()
 // 'Seconds elapsed: 3'
 
 // Wait a few more seconds...
+
 stopWatch.getTime()
 // 'Seconds elapsed: 7'
 ```
@@ -406,8 +408,8 @@ class AddressBook {
 
 const myAddresBook = new AddressBook();
 
-myAddressBook.store('bart', bart@simpsons.com');
-myAddressBook.store(maggie, maggie@simpsons.com');
+myAddressBook.store('bart', 'bart@simpsons.com');
+myAddressBook.store('maggie', 'maggie@simpsons.com');
 
 myAddresBook.lookup('bart');
 // 'bart@simpsons.com'

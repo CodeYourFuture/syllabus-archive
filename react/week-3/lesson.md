@@ -110,7 +110,7 @@ Sometimes we need to "clean up" our components when they are unmounted or when p
 We'll keep using the example of a clock. To make a clock, we first recap how *timers* work ([interactive example](https://jsbin.com/sinayazuhi/edit?js,console)):
 
 ```js
-// Create a timer that calls the function every 1000 miliseconds (or 1 second)
+// Create a timer that calls the function every 1000 milliseconds (or 1 second)
 let timer = setInterval(() => {
   console.log('tick');
 }, 1000);

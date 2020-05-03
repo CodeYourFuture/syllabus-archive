@@ -343,10 +343,10 @@ let counter2 = new Counter();
 
 document
   .querySelector("#myButton1")
-  .addEventListener("click", counter1.whenClicked);
+  .addEventListener("click", () => counter1.whenClicked());
 document
   .querySelector("#myButton2")
-  .addEventListener("click", counter2.whenClicked);
+  .addEventListener("click", () => counter2.whenClicked());
 ```
 
 We can create instances of a class using the `new` operator, followed by the class name. When a class instance is created, its `constructor` function is called automatically. We can pass the constructor arguments to use during initialisation.
@@ -444,7 +444,7 @@ Implement the `constructor`, `store` and the `lookup` methods of the `AddressBoo
 class AddressBook {
   // Implement the constructor method
   // Implement the store method
-  // Implement the store lookup
+  // Implement the lookup method
 }
 
 const myAddresBook = new AddressBook();
@@ -452,10 +452,10 @@ const myAddresBook = new AddressBook();
 myAddressBook.store("bart", "bart@simpsons.com");
 myAddressBook.store("maggie", "maggie@simpsons.com");
 
-myAddresBook.lookup("bart");
+myAddressBook.lookup("bart");
 // 'bart@simpsons.com'
 
-myAddresBook.lookup("homer");
+myAddressBook.lookup("homer");
 // 'address not found'
 ```
 

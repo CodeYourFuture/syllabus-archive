@@ -324,7 +324,7 @@ document
   .addEventListener("click", whenButtonClicked2);
 ```
 
-We can reduce this code duplication by using a JavaScript `class` (not the same as a class in CSS). Classes are structures like objects but they have methods baked into them as well as holding state. For example here the class `Counter` ties together the state, `timesClicked`, and the functions that reference it like `whenButtonClicked`:
+We can reduce this code duplication by using a JavaScript `class` (not the same as a class in CSS). Classes are templates which are used to create objects containing methods and properties of the class. For example here the class `Counter` ties together the state, `timesClicked`, and the functions that reference it like `whenButtonClicked`:
 
 ```javascript
 class Counter {
@@ -370,9 +370,10 @@ let counterFromTen = new CounterFromN(10);
 counterFromTen.whenClicked();
 // Button has been clicked 11 times
 ```
-As shown above, a class' functionss can be called by referring to the name of the object's function followed by brackets. If the function expects any arguments then these can be passed into it inside the brackets as per normal. Functions defined within classes are also be known as **methods**.
 
-Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance.
+As shown above, a class' functions can be called by referring to the name of the object's function followed by brackets. If the function expects any arguments then these can be passed into it inside the brackets as per normal. Functions defined within classes are also be known as **methods**.
+
+Variables specific to a particular instance of a class are defined and referenced using the `this` keyword (e.g. `this.timesClicked`) within that instance. `this` refers to the object which is created by the class when it instantiated.
 
 ### Exercises
 
@@ -514,7 +515,7 @@ function sayHey() {
 sayHey();
 ```
 
-### methods as called as functions
+### methods called as functions
 
 We can take a method and assign it to a variable. Essentially that turns it from being a method into a standalone function.
 
@@ -562,9 +563,37 @@ sayHi(); // Hi, Mike
 
 This behaviour will become important in the near future, when we will need to start passing methods to be called other parts of our code.
 
-### Exercise 1
+### Exercises
 
-// to be added shortly
+In break out groups solve the following exercises. Only run code to verify answers. Try to understand what each line of code is doing and the effect it has.
+
+```js
+// Exercise 1
+class Car {
+  goFaster() {
+    this.speed = 100; // what is the value of this code below is run
+  }
+}
+
+const ferrari = new Car();
+ferrari.goFaster();
+
+// Exercise 2
+class Car {
+  goFaster() {
+    this.speed = 100; // what is the value of this code below is run
+  }
+}
+
+const honda = new Car();
+const quicker = honda.goFaster;
+
+quicker();
+
+// Exercise 3
+
+// How can we fix the bug above? Why do have a problem and how does your solution fix it?
+```
 
 ## 4. Project Work
 

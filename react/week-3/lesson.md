@@ -107,17 +107,21 @@ When `isShown` is `true`, we say that the `Details` component is *mounted*. When
 
 Sometimes we need to "clean up" our components when they are unmounted or when props change. As we have just seen React does most of the hard work for us, but when using `useEffect()` you sometimes have to do it yourself.
 
-We'll keep using the example of a clock. To make a clock, we first need to understand how *timers* work:
+We'll keep using the example of a clock. To make a clock, we first recap how *timers* work ([interactive example](https://jsbin.com/sinayazuhi/edit?js,console)):
+
+```js
+// Create a timer that calls the function every 1000 miliseconds (or 1 second)
+let timer = setInterval(() => {
+  console.log('tick');
+}, 1000);
+
+// Stop the timer immediately
+clearInterval(timer);
+```
+
+Now let's go back to our clock example and try to make it work!
 
 | **Exercise A** |
-| :--- |
-| 1. Open [task 1](https://jsbin.com/zozugugotu/edit?js,console) (JSBin is a bit like CodePen, but has a built-in console, just like your browser dev tools). Read the comments carefully and then follow the instructions <details><summary>Click here to see the expected output</summary>The string "tick" is logged to the console every second</details> |
-| 2. Complete [task 2](https://jsbin.com/yilijopegi/edit?js,console) <details><summary>Click here to see the expected output</summary>The string "tick" is logged to the console every 5 seconds</details> |
-| 3. Complete [task 3](https://jsbin.com/zifisalalu/edit?js,console) <details><summary>Click here to see the expected output</summary>The string "tick" is not logged any more</details> |
-
-Now that we understand `setInterval()` and `clearInterval()`, Let's go back to our clock example and try to make it work!
-
-| **Exercise B** |
 | :--- |
 | 1. Open [this CodeSandbox](https://codesandbox.io/s/toggleable-clock-with-hooks-starting-point-gtqif?file=/src/Clock.js). The code is very similar to the previous unmounting exercise. The main difference is that a `useEffect()` has been added to the `Time` component. |
 | 2. Edit the `useEffect()` in the `Time` component, so that the `console.log` and `setDate` are wrapped in a `setInterval` callback. Remember you can look at the previous exercises for examples of `setInterval` |
@@ -148,7 +152,7 @@ useEffect(() => {
 
 The clean-up function is run when the component is unmounted, allowing us to tear down our timer after it is no longer needed. Let's try implementing this ourselves.
 
-| **Exercise C** |
+| **Exercise B** |
 | :--- |
 | 1. Continue with the CodeSandbox we used in Exercise B. |
 | 2. Declare a `intervalTimer` variable inside the `useEffect` callback and assign it to the `setInterval`. If you're stuck, go back and look at the code for Exercise A: Step 3. |

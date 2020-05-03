@@ -343,10 +343,10 @@ let counter2 = new Counter();
 
 document
   .querySelector("#myButton1")
-  .addEventListener("click", () => counter1.whenClicked);
+  .addEventListener("click", () => counter1.whenClicked());
 document
   .querySelector("#myButton2")
-  .addEventListener("click", () => counter2.whenClicked);
+  .addEventListener("click", () => counter2.whenClicked());
 ```
 
 We can create instances of a class using the `new` operator, followed by the class name. When a class instance is created, its `constructor` function is called automatically. We can pass the constructor arguments to use during initialisation.

@@ -347,33 +347,77 @@ function MartianImageFetcher(props) {
 }
 ```
 
-Now when the `date` prop changes, React knows that the effect must be run again, this time with the 2020 data.
+Now when the `date` prop changes, React knows that the effect must be run again, this time with the 2020 data. Because of this behaviour, the second argument to `useEffect` is called the *dependencies argument*. We use it whenever we have something in our effect that *depends* on a variable outside of the effect function.
+
+To help you understand this better, try "playing computer" again, but this time think about what happens when we use `[props.date]` for the dependencies argument. Think carefully about what changes with step 6 after we click the 2020 button.
 
 | **Exercise** |
 | :--- |
-| 1. Open the `pokedex` React application from last week and open the `src/BestPokemon.js` file |
+| 1. Open the `pokedex` React application from last week and open the `src/BestPokemon.js` file. |
+| 2. Copy the `BestPokemonSelector` component from [this CodeSandbox](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/App.js). Then paste it into `src/BestPokemon.js`. |
+| 3. Change the `default export` so that it exports `BestPokemonSelector` instead of `BestPokemonFetcher`. |
+| 4. Take a few minutes to read what the `BestPokemonSelector` component does. If you have questions, ask a Teaching Assistant to help. |
+| 5. In the `BestPokemonFetcher` component change the URL to use backticks (`` `...` ``) instead of double-quotes (`"`). Then replace the number 1 with `${props.pokemonId}`. What will this do? <details><summary>Click here if you don't know</summary>The URL will contain the pokemonId instead of always fetching the pokemon with id of 1</details> |
+| 6. Open your browser and find the `BestPokemonSelector` component. **Before you click the buttons**, think about what you expect will happen. Then click the "Fetch Bulbasaur" button to find out what actually happens. |
+| 7. Refresh the page. What happens now if you click the "Fetch Bulbasaur" button, then click the "Fetch Charmander" button? Is this what you expected? Explain to someone why this happens. |
+| 8. Fix the bug by adding `props.pokemonId` to the `useEffect` dependencies array in `BestPokemonFetcher`. Remember that you can test if the bug still happens by refreshing the page, clicking one of the buttons, then the other button. |
 
-> **Exercise C**
-> 
-> 1. If you haven't already, convert the `BestPokemon` component to a class component
-> 2. Create a `constructor` method (hint: remember to call `super(props)`)
-> 3. Set the initial state to have a key named `pokemonNames` that is assigned to an empty array `[]`
-> 4. Add a `componentDidMount` method to the component
-> 5. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do?
-> 6. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`)
-> 8. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`
-> 9. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`)
-> 10. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`)
-> 11. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it)
-> 12. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?
-> 13. Add an `isLoading` piece of state, which is initialised to `true`
-> 14. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
-> 15. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
-> 16. **(STRETCH GOAL)** Add some error handling which renders an error message
-> 17. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
+### ESLint rules for React Hooks
 
-<!-- TODO: loading state (need to update codesandboxes) -->
-<!-- TODO: exercises (maybe need to coordinate with Lucy) -->
+As you may have noticed, VSCode highlighted the empty dependencies array when you changed the URL passed to `fetch` in `BestPokemonFetcher`. This is because your React application is using the rules from [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), a package created by the developers who make React. It helps you to find bugs in React Hooks code by highlighting places where you might be missing dependencies.
+
+If you see a red squiggly line underneath your `useEffect` dependencies array, you can hover your mouse over and it will tell you which variable is missing so you can add it to the dependencies array. Here's an example:
+
+![React Hooks eslint rule](../assets/eslint-hooks-rule.png)
+
+### Loading state
+
+| **Exercise A** |
+| :--- |
+| Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-mid-point-64vw3?file=/src/App.js). |
+| Click the "Fetch image for 2019" button and wait for the image to load. |
+| Now click the "Fetch image for 2020" button. Do you think this is a good user experience? Explain what you think is wrong to a Teaching Assistant. |
+
+In the application above, the image from 2020 takes a while to load. This makes it feel like the app is broken: the user might think that they didn't actually click the 2020 button or that it is not working correctly. We are not telling the user that *something* is happening, it's just taking a bit of time to load.
+
+We can fix this by adding a *loading state*. Let's take a look ([interactive example](https://codesandbox.io/s/fetch-with-prop-updates-finishing-point-7bi9z?file=/src/App.js)):
+
+```js
+function MartianImageFetcher(props) {
+  ...
+
+  if (!imgSrc) {
+    return "Loading...";
+  } else {
+    return <img src={imgSrc} />;
+  }
+}
+```
+
+Previously, we were just rendering nothing (by returning `null`) when we didn't have any `imgSrc`. We can tell the user that this by instead rendering something telling them that we're still waiting for the data to come back.
+
+There is still a problem though: when we click to fetch another image, we still have `imgSrc` set to the previous image. What we could do instead is set the `imgSrc` back to `null` when we know that we're fetching another image ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-2-dvu6k?file=/src/App.js)):
+
+```js
+function MartianImageFetcher(props) {
+  ...
+
+  useEffect(() => {
+    setImgSrc(null);
+
+    ...
+  }, [props.date]);
+
+  ...
+}
+```
+
+| **Exercise B** |
+| :--- |
+| 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file. |
+| 2. In the `BestPokemonFetcher` component, instead of returning `null` if there is no `pokemon`, return `"Loading..."`. |
+| 3. Now add `setPokemon(null)` inside the `useEffect` callback, before the call to `fetch`. |
+| 4. Try clicking on the "Fetch Bulbasaur" and "Fetch Charmander" buttons quickly. Do you see the loading state? (It may only appear for a flash, the Pokemon API is very fast). |
 
 ## Fetching Data in React
 

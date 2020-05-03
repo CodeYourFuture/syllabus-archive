@@ -105,9 +105,9 @@ When `isShown` is `true`, we say that the `Details` component is *mounted*. When
 
 ## Cleaning Up Effects
 
-Sometimes we need to "clean up" our components when they are unmounted or when props change. As we have just seen React does most of the hard work for us, but when using `useEffect()` you sometimes have to do it yourself.
+Sometimes we need to "clean up" our components when they are unmounted or when props change. As we have just seen React does most of the hard work for us, but when using `useEffect()` you sometimes have to some things yourself.
 
-We'll keep using the example of a clock. To make a clock, we first recap how *timers* work ([interactive example](https://jsbin.com/sinayazuhi/edit?js,console)):
+We're going to use an example of a clock. To make a clock, we first recap how *timers* work ([interactive example](https://jsbin.com/sinayazuhi/edit?js,console)):
 
 ```js
 // Create a timer that calls the function every 1000 milliseconds (or 1 second)
@@ -119,12 +119,12 @@ let timer = setInterval(() => {
 clearInterval(timer);
 ```
 
-Now let's go back to our clock example and try to make it work!
+Now let's try to make a real clock!
 
 | **Exercise A** |
 | :--- |
 | 1. Open [this CodeSandbox](https://codesandbox.io/s/toggleable-clock-with-hooks-starting-point-gtqif?file=/src/Clock.js). The code is very similar to the previous unmounting exercise. The main difference is that a `useEffect()` has been added to the `Time` component. |
-| 2. Edit the `useEffect()` in the `Time` component, so that the `console.log` and `setDate` are wrapped in a `setInterval` callback. Remember you can look at the previous exercises for examples of `setInterval` |
+| 2. Edit the `useEffect()` in the `Time` component, so that the `console.log` and `setDate` are wrapped in a `setInterval` callback. Remember you can look at the previous exercises for examples of `setInterval`. |
 | 3. You've just made a working clock! Pat yourself on the back 🙂 |
 | 4. Now open the JavaScript console your web browser. What is happening? Can you explain why? <details><summary>Click here if you're stuck</summary>The string "tick" is logged every second by the setInterval in the Time component</details> |
 | 5. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think is happening? Why is this a problem? |

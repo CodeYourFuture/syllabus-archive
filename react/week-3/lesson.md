@@ -71,44 +71,37 @@ So far we've looked at components that are always rendered in the browser. Howev
 
 | **Exercise** |
 | :--- |
-| 1. Open [this CodeSandbox](https://codesandbox.io/s/p9q2wq069j) (it works just like VS Code, but in the browser) |
-| 2. Take 5 minutes to read the code (in the middle panel). For this exercise, we are the most interested in the `Clock` component |
-| 3. Open your browser dev tools and inspect the element showing the current time |
-| 4. While watching the dev tools, click the "Toggle time" button |
-| 5. What happens to the time element? Can you explain why this happens? |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/toggleable-details-component-j96sl?file=/src/App.js) (it works just like VS Code, but in the browser). |
+| 2. Take 5 minutes to read the code (in the middle panel). Try interacting with the app (in the right-hand panel). |
+| 3. Open your browser dev tools and inspect the element that can be shown or hidden. |
+| 4. While watching the dev tools, click the "Show Details" button. |
+| 5. What happens to the `<p>` element? Can you explain why this happens? |
 
 Here is the code if you want to look at it later:
 
 ```js
-import React, { useState, useEffect } from "react";
+function App() {
+  const [isShown, setIsShown] = useState(false);
 
-function Time() {
-  const [date, setDate] = useState(new Date());
-
-  return <time>{date.toLocaleTimeString()}</time>;
-}
-
-function Clock() {
-  const [isShowingTime, setIsShowingTime] = useState(true);
-
-  function toggle() {
-    setIsShowingTime(!isShowingTime);
+  function handleClick() {
+    setIsShown(!isShown);
   }
 
   return (
-    <div>
-      <button onClick={toggle}>Toggle time</button>
-      {isShowingTime ? <Time /> : null}
+    <div className="app">
+      <button onClick={handleClick} className="details-btn">
+        <span>ⓘ</span>Show Details
+      </button>
+
+      {isShown ? <p>{loremIpsum()}</p> : null}
     </div>
   );
 }
-
-export default Clock;
 ```
 
-Inside the `App` component, `isShowingTime` can switch between `true` and `false`. The `App` component then decides whether to render the `Time` component or `null` based on the value of `isShowingTime`. If you return `null` in JSX then React will render nothing at all. The `<time>` element of the `Time` component changes based on the `isShowingTime` state. The `Time` component's elements are removed from the DOM.
+The `isShown` state variable switches between `true` and `false` when you click on the "Show Details" button. The component then decides whether to render the `<Details>` component or `null` based on the value of `isShown`, using a ternary statement. If you return `null` in JSX then React will render nothing at all. When switching from showing an element to nothing (`null`), then the element is completely removed from the DOM.
 
-When `isShowingTime` is `true`, we say that the `Time` component is *mounted* When `isShowingTime` is `false`, we instead say that the `Time` component is *UNmounted*.
+When `isShown` is `true`, we say that the `Details` component is *mounted*. When `isShown` is `false`, we instead say that the `Details` component is *UNmounted*.
 
 ## Cleaning Up Effects
 

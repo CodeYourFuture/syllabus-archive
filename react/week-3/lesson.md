@@ -348,7 +348,7 @@ To help you understand this better, try "playing computer" again, but this time 
 | **Exercise** |
 | :--- |
 | 1. Open the `pokedex` React application from last week and open the `src/BestPokemon.js` file. |
-| 2. Copy the `BestPokemonSelector` component from [this CodeSandbox](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/App.js). Then paste it into `src/BestPokemon.js`. |
+| 2. Copy the `BestPokemonSelector` component from [this CodeSandbox](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/BestPokemonSelector.js). Then paste it into `src/BestPokemon.js`. |
 | 3. Change the `default export` so that it exports `BestPokemonSelector` instead of `BestPokemonFetcher`. |
 | 4. Take a few minutes to read what the `BestPokemonSelector` component does. If you have questions, ask a Teaching Assistant to help. |
 | 5. In the `BestPokemonFetcher` component change the URL to use backticks (`` `...` ``) instead of double-quotes (`"`). Then replace the number 1 with `${props.pokemonId}`. What will this do? <details><summary>Click here if you don't know</summary>The URL will contain the pokemonId instead of always fetching the pokemon with id of 1</details> |
@@ -374,7 +374,7 @@ If you see a red squiggly line underneath your `useEffect` dependencies array, y
 
 In the application above, the image from 2020 takes a while to load. This makes it feel like the app is broken: the user might think that they didn't actually click the 2020 button or that it is not working correctly. We are not telling the user that *something* is happening, it's just taking a bit of time to load.
 
-We can fix this by adding a *loading state*. Let's take a look ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-1-7bi9z?file=/src/App.js)):
+We can fix this by adding a *loading state*. Let's take a look ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-1-7bi9z?file=/src/FetchWithLoadingState.js)):
 
 ```js
 function MartianImageFetcher(props) {
@@ -390,7 +390,7 @@ function MartianImageFetcher(props) {
 
 Previously, we were just rendering nothing (by returning `null`) when we didn't have any `imgSrc`. We can tell the user that this by instead rendering something telling them that we're still waiting for the data to come back.
 
-There is still a problem though: when we click to fetch another image, we still have `imgSrc` set to the previous image. What we could do instead is set the `imgSrc` back to `null` when we know that we're fetching another image ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-2-dvu6k?file=/src/App.js)):
+There is still a problem though: when we click to fetch another image, we still have `imgSrc` set to the previous image. What we could do instead is set the `imgSrc` back to `null` when we know that we're fetching another image ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-2-dvu6k?file=/src/FetchWithLoadingState.js)):
 
 ```js
 function MartianImageFetcher(props) {

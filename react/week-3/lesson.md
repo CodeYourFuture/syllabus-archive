@@ -14,7 +14,7 @@
 
 <!-- TODO: check this after reviewing updates to week 2 -->
 
-Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/7j21mrq08x)):
+Last week we looked at using props and state to create React components that change with user input ([interactive example]()): <!-- TODO: update with relevant interactive example -->
 
 ```js
 function Counter() {
@@ -33,7 +33,7 @@ function Counter() {
 }
 ```
 
-We also looked at fetching data in our React components: <!-- TODO: add interactive example -->
+We also looked at fetching data in our React components: <!-- TODO: update with relevant interactive example -->
 
 ```js
 function DataFetcher() {
@@ -75,7 +75,7 @@ So far we've looked at components that are always rendered in the browser. Howev
 | 2. Take 5 minutes to read the code (in the middle panel). Try interacting with the app (in the right-hand panel). |
 | 3. Open your browser dev tools and inspect the element that can be shown or hidden. |
 | 4. While watching the dev tools, click the "Show Details" button. |
-| 5. What happens to the `<p>` element? Can you explain why this happens? |
+| 5. What happens to the `Details` component? Can you explain why this happens? |
 
 Here is the code if you want to look at it later:
 
@@ -155,9 +155,9 @@ The clean-up function is run when the component is unmounted, allowing us to tea
 | **Exercise B** |
 | :--- |
 | 1. Continue with the CodeSandbox we used in Exercise B. |
-| 2. Declare a `intervalTimer` variable inside the `useEffect` callback and assign it to the `setInterval`. If you're stuck, go back and look at the code for Exercise A: Step 3. |
+| 2. Declare an `intervalTimer` variable inside the `useEffect` callback and assign it to the `setInterval`. If you're stuck, try looking at the timers example above. |
 | 3. Still inside the `useEffect` callback, create a clean-up function and return it. |
-| 4. Inside the clean-up function, run `clearInterval(intervalTimer)`. If you're stuck, go back and look at the code for Exercise A: Step 3. |
+| 4. Inside the clean-up function, run `clearInterval(intervalTimer)`. If you're stuck, try looking at the timers example above. |
 | 5. Try clicking the "Toggle time" button again, like in Exercise B: Step 5. Have we solved the problem? |
 
 We have looked at an example using `setInterval`, but there are lots of similar situations where we need to "clean up" after a component unmounts. An example might be *subscribing* to the status of a friend in a chat application. When the chat is closed, you want to ensure that the connection to the friend's status is stopped.
@@ -192,6 +192,7 @@ Together let's "play computer" to break down exactly what is happening with thes
         <div>
           <button onClick={handle2019Click}>Fetch image for 2019</button>
           <button onClick={handle2020Click}>Fetch image for 2020</button>
+
           {date ? <MartianImageFetcher date={date} /> : null}
         </div>
       );
@@ -213,11 +214,7 @@ Together let's "play computer" to break down exactly what is happening with thes
 
       return (
         ...
-        <div>
-          ...
-          <button onClick={handle2019Click}>Fetch image for 2019</button>
-          ...
-        </div>
+        <button onClick={handle2019Click}>Fetch image for 2019</button>
         ...
       );
     }
@@ -377,7 +374,7 @@ If you see a red squiggly line underneath your `useEffect` dependencies array, y
 
 In the application above, the image from 2020 takes a while to load. This makes it feel like the app is broken: the user might think that they didn't actually click the 2020 button or that it is not working correctly. We are not telling the user that *something* is happening, it's just taking a bit of time to load.
 
-We can fix this by adding a *loading state*. Let's take a look ([interactive example](https://codesandbox.io/s/fetch-with-prop-updates-finishing-point-7bi9z?file=/src/App.js)):
+We can fix this by adding a *loading state*. Let's take a look ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-1-7bi9z?file=/src/App.js)):
 
 ```js
 function MartianImageFetcher(props) {

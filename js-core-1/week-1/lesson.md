@@ -2,9 +2,7 @@
 
 # JavaScript Core I - 1
 
-[Mentor Notes](./mentors.html)
-
-## Contents
+[Mentor Notes](./mentors.md)
 
 - [Hello World](#hello-world)
 - [Variables](#variables)
@@ -15,7 +13,7 @@
 - [Functions](#functions)
 - [Calling functions inside functions](#calling-functions-inside-functions)
 
-## Learning Objectives
+**Learning Objectives**
 
 By the end of this class, you should be able to answer these questions:
 

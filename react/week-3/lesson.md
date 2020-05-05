@@ -123,7 +123,7 @@ Now let's try to make a real clock!
 
 | **Exercise A** |
 | :--- |
-| 1. Open [this CodeSandbox](https://codesandbox.io/s/toggleable-clock-with-hooks-starting-point-gtqif?file=/src/Clock.js). The code is very similar to the previous unmounting exercise. The main difference is that a `useEffect()` has been added to the `Time` component. |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/toggleable-clock-with-hooks-starting-point-gtqif?file=/src/Clock.js). |
 | 2. Edit the `useEffect()` in the `Time` component, so that the `console.log` and `setDate` are wrapped in a `setInterval` callback. Remember you can look at the previous exercises for examples of `setInterval`. |
 | 3. You've just made a working clock! Pat yourself on the back 🙂 |
 | 4. Now open the JavaScript console your web browser. What is happening? Can you explain why? <details><summary>Click here if you're stuck</summary>The string "tick" is logged every second by the setInterval in the Time component</details> |

@@ -154,7 +154,7 @@ The clean-up function is run when the component is unmounted, allowing us to tea
 
 | **Exercise B** |
 | :--- |
-| 1. Continue with the CodeSandbox we used in Exercise B. |
+| 1. Continue with the CodeSandbox we used in Exercise A. |
 | 2. Declare an `intervalTimer` variable inside the `useEffect` callback and assign it to the `setInterval`. If you're stuck, try looking at the timers example above. |
 | 3. Still inside the `useEffect` callback, create a clean-up function and return it. |
 | 4. Inside the clean-up function, run `clearInterval(intervalTimer)`. If you're stuck, try looking at the timers example above. |

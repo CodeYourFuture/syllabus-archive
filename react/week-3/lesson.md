@@ -107,7 +107,7 @@ When `isShown` is `true`, we say that the `Details` component is *mounted*. When
 
 Sometimes we need to "clean up" our components when they are unmounted or when props change. As we have just seen React does most of the hard work for us, but when using `useEffect()` you sometimes have to some things yourself.
 
-We're going to use an example of a clock. To make a clock, we first recap how *timers* work ([interactive example](https://jsbin.com/sinayazuhi/edit?js,console)):
+We're going to use an example of a clock. To make a clock, we first need to recap how *timers* work ([interactive example](https://jsbin.com/sinayazuhi/edit?js,console)):
 
 ```js
 // Create a timer that calls the function every 1000 milliseconds (or 1 second)

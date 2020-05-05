@@ -77,7 +77,7 @@ So far we've looked at components that are always rendered in the browser. Howev
 | 4. While watching the dev tools, click the "Show Details" button. |
 | 5. What happens to the `Details` component? Can you explain why this happens? |
 
-Here is the code if you want to look at it later:
+Let's look at the code together ([interactive example](https://codesandbox.io/s/toggleable-details-component-j96sl?file=/src/App.js)):
 
 ```js
 function App() {
@@ -172,7 +172,7 @@ Let's take a look at an example:
 
 | **Exercise A** |
 | :--- |
-| 1. Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-starting-point-x1dox?file=/src/App.js). |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-not-working-x1dox?file=/src/App.js). |
 | 2. Take 5 minutes to read the code. |
 | 3. Click the "Fetch image for 2019" button. **If you're feeling confident**: predict what is going to happen before you click the button. |
 | 4. Now click the "Fetch image for 2020" button. What did you expect to happen? What actually happened? Can you explain why? |
@@ -327,7 +327,7 @@ Did you spot where the bug was? The key that the `useEffect` in `MartianImageFet
 
 ### `useEffect` dependencies array
 
-To solve this problem, we can tell React to queue the effect on the first render **and** when a dependency changes. We do this by adding the dependency variable to the array:
+To solve this problem, we can tell React to queue the effect on the first render **and** when a dependency changes. We do this by adding the dependency variable to the array ([interactive example](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js)):
 
 ```js
 function MartianImageFetcher(props) {
@@ -368,7 +368,7 @@ If you see a red squiggly line underneath your `useEffect` dependencies array, y
 
 | **Exercise A** |
 | :--- |
-| Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-mid-point-64vw3?file=/src/App.js). |
+| Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js). |
 | Click the "Fetch image for 2019" button and wait for the image to load. |
 | Now click the "Fetch image for 2020" button. Do you think this is a good user experience? Explain what you think is wrong to a Teaching Assistant. |
 

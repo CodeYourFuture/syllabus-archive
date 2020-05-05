@@ -1,8 +1,13 @@
 # Mentor's Notes
 
-## Some notes about JS1-1
+## Presentations
+[Week 1 - JS Core 1 [Google Slides] - 01/05/2020](https://drive.google.com/open?id=1NFMenLrQ5B5UhU7HJAf9_xQxXHs2Md0pN3ENynuhjJ0)
 
-### What worked well
+Feel free to duplicate these slides. 
+
+If you do one better and share your improved versions here. That'd be splendid! Thanks!
+
+## What worked well
 
 [-]Having all the exercises for the module in the js-exercises repo works well.
 

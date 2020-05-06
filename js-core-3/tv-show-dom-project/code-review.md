@@ -30,6 +30,6 @@ Note: you should NEVER merge this PR into the `for-review` branch.
 
 # Giving a code review
 
-TODO: instructions for students and volunteers asked to provide code reviews. (Link to standard docs. Add any project specifics here.)
+Read the [Giving Feedback](./giving-feedback.md) page for how to do this.
 
 [Back to readme](./readme.md)

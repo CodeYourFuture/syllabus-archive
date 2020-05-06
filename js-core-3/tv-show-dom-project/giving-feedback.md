@@ -6,17 +6,32 @@ Whenever we do work we can always make it better and pointing out ways that some
 
 ## Getting Other People Codes
 
-You can retrieve other peoples code by cloning their project on Github and switching to the branch that they have been working on.
+You can retrieve other peoples code by
 
-You can find the branch that they have been working on here inside the small blue area
+1. Cloning their project on Github
+2. Switching to the branch that they have been working on
+3. Opening in VSCode
+
+You can find the branch that they have been working on inside the small blue area
 
 ![Branch Name](./example-screenshots/reviewing_branch.png)
 
 If you have any problems getting setup - ask the person that you're reviewing as they will be able to help you.
 
-## Review Guide
+## Leaving Feedback
 
-When you are looking at a pull request you can go to the `Files changed` tab to add comments to somebodies code. You can do this by clicking on the `Blue Plus` here
+We give feedback to people by adding comments on their pull requests.
+
+You can do this by
+
+1. Open the person's pull request
+2. Go to the `Files changed` tab
+3. Move your cursor to the line number you want to comment on
+4. Click the blue `+` symbol
+5. Write your commend
+6. Click submit
+
+You can find an example of the blue `x` here:
 
 ![Add Comment](./example-screenshots/add_comment.png)
 

@@ -69,6 +69,16 @@ Before starting this section, check which `Level` the student has completed up u
 - Does the website load quickly and respond quickly when you use it?
   - If people write too much or too complex JavaScript your browser can slow down
 
+### Bugs
+
+When using the website you might find some bugs that they did not notice when making the website
+
+- If you have noticed a bug in their code - you can suggest a fix for it
+- If you find a bug when using their website - leave a comment on their Pull Request with instructions of
+  - What happened to make bug happen
+  - What the bug is
+  - Ideas on how to fix it
+
 ### Design
 
 In this section we want to evaluate if the project is nice too look at and to use.
@@ -79,3 +89,8 @@ In this section we want to evaluate if the project is nice too look at and to us
   - Make sure they haven't put dark text on a dark background as this is hard to read for some people
 - Are images the right size in each card?
   - Sometimes images can look distorted if they've been loaded incorrectly
+- Is the text on the website the correct size?
+  - Is the text too large?
+  - Is the text too small?
+
+You should also thing of other ways that the design could be improved and suggest them!

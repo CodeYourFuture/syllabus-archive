@@ -10,7 +10,7 @@ You can retrieve other peoples code by cloning their project on Github and switc
 
 You can find the branch that they have been working on here inside the small blue area
 
-![Branch Name](./example-screenshots/reviewing_branch.jpg)
+![Branch Name](./example-screenshots/reviewing_branch.png)
 
 If you have any problems getting setup - ask the person that you're reviewing as they will be able to help you.
 
@@ -18,7 +18,7 @@ If you have any problems getting setup - ask the person that you're reviewing as
 
 When you are looking at a pull request you can go to the `Files changed` tab to add comments to somebodies code. You can do this by clicking on the `Blue Plus` here
 
-![Add Comment](./example-screenshots/add_comment.jpg)
+![Add Comment](./example-screenshots/add_comment.png)
 
 ## Review Guidelines
 

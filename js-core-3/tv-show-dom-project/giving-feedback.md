@@ -4,7 +4,7 @@ In this document you will find the feedback guide for the TV-Show project.
 
 Whenever we do work we can always make it better and pointing out ways that somebody else project can be improved is always good! You should never feel bad about suggesting improvements to other peoples code - it's how we improve!
 
-## Getting Other People Codes
+## Viewing The Code To Review
 
 You can retrieve other peoples code by
 

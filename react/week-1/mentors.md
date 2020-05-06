@@ -19,7 +19,10 @@
 - JSX section
   - Open the Babel REPL (https://babeljs.io/repl/) - demonstrate that there isn't any magic in JSX
   - Just React.createElement calls with syntax sugar
-- CRA exercise - can take time as everyone is downloading from npm at the same time
+- CRA exercise
+  - This can take time as everyone is downloading from npm at the same time
+  - CRA can consume a lot of resources (especially on older laptops) so emphasise stopping/starting
+    - This is the first time that students will have encountered a daemon, so may need some explanation
 - React components section
   - Originally this was written with class components first
     - However, students went home and googled and saw alternative syntaxes

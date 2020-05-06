@@ -148,10 +148,32 @@ npm install -g create-react-app
 
 create-react-app pokedex
 cd pokedex
+```
+
+Open the `pokedex` directory in your editor. Notice that create-react-app has created a bunch of folders for you. We will be working with the `pokedex` application for the rest of the module.
+
+### Starting the app
+
+We have now installed a React application starter kit using a tool called Create-React-App. The official documentation is available [here](https://create-react-app.dev/docs/getting-started).
+
+To start running your application, open your terminal and run:
+
+```
 npm start
 ```
 
-The last command should open a web browser for you. This shows the application that we are going to be working on. Open the `pokedex` directory in your editor. Notice that create-react-app has created a bunch of folders for you. We will be working with the `pokedex` application for the rest of the module.
+This does two things:
+
+1. Run a program on your computer that *watches* your files and updates your application when you make changes. It also runs some checks for common bugs or problems in your code. An error message will be shown in your browser if it detects that there is a problem
+2. Opens a web browser with a link to your React app so that you can test it
+
+### Stopping the app
+
+You might notice that once you have run `npm start` your terminal will look different. This is because it is running the *watcher* program. If you have a slower computer we recommend that you *stop* the program when you are not using your React app.
+
+To stop the program, open your terminal and press `Ctrl-C` (it's the same on Windows, Mac & Linux). Unfortunately, closing your terminal will **not** stop the program from running.
+
+Once you have stopped running the program, your React app **will stop working**. To start it again, open your terminal and run `npm start`.
 
 ## React Components
 

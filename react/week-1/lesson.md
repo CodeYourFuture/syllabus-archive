@@ -144,9 +144,7 @@ The Facebook team behind React have created a tool to help you create and set up
 > **Exercise C**: Install & set up a Create React App by following the steps below
 
 ```
-npm install -g create-react-app
-
-create-react-app pokedex
+npx create-react-app pokedex
 cd pokedex
 ```
 

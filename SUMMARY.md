@@ -34,17 +34,23 @@
   - [Week 2 - More SQL and integration with NodeJS](/db/week-2/lesson.md)
   - [Week 3 - More integration with NodeJS](/db/week-3/lesson.md)
 
-## Workshops and other tutorials
+## Workshops
 
-- [Coding 101](/others/coding-101.md)
-- [Compiling SCSS](/html-css/compile-scss-instructions.md)
-- [Automatic deployment of sites with Netlify and GitHub](/others/deployment/1-for-html-module/workshop-1-basic-automatic-deployment-with-netlify-mentor-notes.md)
+- [Deploying Code Workshop](/others/deployment/1-for-html-module/workshop-1-basic-automatic-deployment-with-netlify-mentor-notes.md)
 - [Express Workshop](/node/week-1/workshop.md)
 - [Hotel Workshop](/node/week-3/workshop.md)
-- [MongoDB 101](/others/mongodb-101.md)
-- [AWS - DynamoDB](/others/aws-workshop-2.md)
-- [Java module](/others/java.md)
-- [Github Desktop module](/git/week-1/lesson.md)
+- [AWS & DynamoDB Workshop](/others/aws-workshop-2.md)
+- [Github Desktop Workshop](/others/git-desktop-workshop.md)
+
+## Guides
+
+- [Compiling SCSS](/html-css/compile-scss-instructions.md)
+- [Coding 101](/others/coding-101.md)
+
+## Modules
+
+- [Java Module](/others/java.md)
+- [MongoDB Module](/others/mongodb-101.md)
 
 ## For Students
 

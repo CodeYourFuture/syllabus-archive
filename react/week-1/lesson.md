@@ -173,6 +173,18 @@ To stop the program, open your terminal and press `Ctrl-C` (it's the same on Win
 
 Once you have stopped running the program, your React app **will stop working**. To start it again, open your terminal and run `npm start`.
 
+### Installing stop-runaway-react-effects
+
+We need to install another package that will help us later in the module.
+
+| **Exercise** |
+| :--- |
+| 1. Stop the React app from running, by following the instructions above. |
+| 2. In your terminal, run: `npm install stop-runaway-react-effects` |
+| 3. Once this has this finished, open the `src/index.js` file in your editor. Don't worry about understanding the code in this file, we'll learn about it later. |
+| 4. Add an extra line **at the top of the file** with this code: `import 'stop-runaway-react-effects/hijack';`. |
+| 5. Run `npm start` again to start the React app again. |
+
 ## React Components
 
 We looked at the beginning of the lesson at the concept of components. Now let's look at how components are made in React.

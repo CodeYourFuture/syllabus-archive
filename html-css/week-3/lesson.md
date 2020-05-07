@@ -2,11 +2,11 @@
 
 # HTML/CSS 3
 
-**Teaching this lesson?**
+## Teaching this lesson?
 
-Read the [Mentor Notes here](./mentors.md)
+Read the Mentors Notes [here](./mentors.md)
 
-**What will we learn today?**
+## What will we learn today?
 
 - [HTML/CSS frameworks](#htmlcss-frameworks)
 - [Bootstrap 4](#bootstrap-4)

@@ -2,11 +2,11 @@
 
 # HTML/CSS 2
 
-**Teaching this lesson?**
+## Teaching this lesson?
 
-Read the [Mentor Notes here](./mentors.md)
+Read the Mentors Notes [here](./mentors.md)
 
-**What will we learn today?**
+## What will we learn today?
 
 - [Responsive web design](#responsive-web-design)
 - [Media queries](#media-queries)

@@ -21,8 +21,13 @@
   - Just React.createElement calls with syntax sugar
 - CRA exercise
   - This can take time as everyone is downloading from npm at the same time
+    - Consider asking students to install ahead of the class
   - CRA can consume a lot of resources (especially on older laptops) so emphasise stopping/starting
     - This is the first time that students will have encountered a daemon, so may need some explanation
+- Installing `stop-runaway-react-effects`
+  - A package to prevent accidental infinite `useEffect` loops
+  - It **must** be imported before the `react` import so that `useEffect` can be monkey-patched
+  - [Package docs](https://github.com/kentcdodds/stop-runaway-react-effects)
 - React components section
   - Originally this was written with class components first
     - However, students went home and googled and saw alternative syntaxes

@@ -368,6 +368,7 @@ while (i < 20) {
   i++;
 }
 ```
+Notice the line **i++** - this is the same as saying **i = i + 1** It does exactly the same thing but it is just more convenient to write.
 
 It's important that the condition inside the parenthesis becomes false at some point - otherwise, we'll have what's known as an infinite loop!
 
@@ -413,7 +414,7 @@ let mentor3 = "Rares";
 
 ...then it's probably time to use an **array**!
 
-Arrays are data structures that hold a list of values.
+Arrays are data structures that hold a list of values. We call these values the **elements** of the array.
 
 ```js
 let mentors = ["Daniel", "Irina", "Rares"];
@@ -456,20 +457,14 @@ In the node REPL, enter the following array:
 > let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
 ```
 
-1. Which index do you need to return:
+Which index do you need to return:
 
 - strawberry
 - kiwi
 - orange
 - banana
 
-2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
-
-### Exercise (10 mins)
-
-1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
-   Sample array: [20, 20, 30, 40, 50, 50, 50]
-2. After removing the duplicate elements the function should return 4 as the new length of the array.
+Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
 ### Exercise (5 mins)
 
@@ -484,7 +479,27 @@ function secondMatchesAmy(array) {
 }
 ```
 
-### Exercise (20 mins)
+### Using if loops with arrays
+
+We can use the power of loops to run some code for each element in our array.
+
+When we do this say we **iterate** over an array.
+
+```js
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+for(let i = 0; i < daysOfWeek.length; i++){
+    let dayMessage = "day is: " + daysOfWeek[i];
+    let indexMessage = "index is: " + i;
+    console.log(indexMessage, dayMessage);
+}
+```
+
+### Exercise (10 mins)
+
+Write a function which takes your **students** array as an input. In the function, use a for loop to **iterate** over the array and print the name of each student to the console.
+
+### Exercise - extra credit (20 mins)
 
 In pairs, write a function which squares all numbers in an array and returns the array of squared numbers.
 

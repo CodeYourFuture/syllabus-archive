@@ -139,7 +139,7 @@ As you can see, this is much easier to read than both the straight `React.create
 
 ## Let's Create A React App
 
-The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). It sets up files like we saw in the previous example, so that you don't have to.
+The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://create-react-app.dev/). It sets up files like we saw in the previous example, so that you don't have to.
 
 > **Exercise C**: Install & set up a Create React App by following the steps below
 

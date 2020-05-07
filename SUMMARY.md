@@ -49,3 +49,36 @@
 ## For Students
 
 - [Coding Standards and Best Practices](/others/coding-standards.md)
+
+## For Teachers
+
+- Teaching Notes
+  - [HTML/CSS](/html-css/index.md)
+    - [Week 1 - Semantic HTML and CSS](/html-css/week-1/lesson.md)
+    - [Week 2 - Responsive Web and layout](/html-css/week-2/lesson.md)
+    - [Week 3 - Design frameworks, Naming patterns and Forms](/html-css/week-3/lesson.md)
+  - [JavaScript I](/js-core-1/index.md)
+    - [Week 1 - Hello JavaScript](/js-core-1/week-1/lesson.md)
+    - [Week 2 - Conditionals and Arrays](/js-core-1/week-2/lesson.md)
+    - [Week 3 - More Arrays](/js-core-1/week-3/lesson.md)
+  - [JavaScript II](/js-core-2/index.md)
+    - [Week 1 - Objects](/js-core-2/week-1/lesson.md)
+    - [Week 2 - JS in the Browser](/js-core-2/week-2/lesson.md)
+    - [Week 3 - More JS in the Browser](/js-core-2/week-3/lesson.md)
+  - [JavaScript III](/js-core-3/index.md)
+    - [Week 1 - Unit Tests and TDD](/js-core-3/week-1/lesson.md)
+    - [Week 2 - More TDD, ES6](/js-core-3/week-2/lesson.md)
+    - [Week 3 - Recap](/js-core-3/week-3/lesson.md)
+  - [React](/react/index.md)
+    - [Week 1 - React 101](/react/week-1/lesson.md)
+    - [Week 2 - Reacting to Changes](/react/week-2/lesson.md)
+    - [Week 3 - Fetching Data](/react/week-3/lesson.md)
+    - [Routing (optional)](/react/week-4/lesson.md)
+  - [Node](/node/index.md)
+    - [Week 1 - Node and Express 101](/node/week-1/lesson.md)
+    - [Week 2 - Middleware, Templating and APIs](/node/week-2/lesson.md)
+    - [Week 3 - Advanced Node](/node/week-3/lesson.md)
+  - [Databases](/db/index.md)
+    - [Week 1 - Introduction to SQL](/db/week-1/lesson.md)
+    - [Week 2 - More SQL and integration with NodeJS](/db/week-2/lesson.md)
+    - [Week 3 - More integration with NodeJS](/db/week-3/lesson.md)

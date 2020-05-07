@@ -511,6 +511,32 @@ How can you combine the two functions to return an array of even and squared num
 
 ### Playing computer I
 
+1. Working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. Have you learned anything new during this exercise?
+
+```js
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+function workingDay(day) {
+  return day + " is a working day";
+}
+
+function weekendDay(day) {
+  return day + " is at the weekend!";
+}
+
+for (let i = 0; i < daysOfWeek.length; i++) {
+  if (i < 5) {
+    let d = workingDay(daysOfWeek[i]);
+    console.log(d);
+  } else {
+    let e = weekendDay(daysOfWeek[i]);
+    console.log(e);
+  }
+}
+```
+
 ### Playing computer II
 
 1. Working in pairs or groups, you have to predict the output of this program without executing it.

@@ -259,21 +259,16 @@ SELECT * FROM hotels WHERE postcode = 'CM194JS' OR postcode = 'TR209AX';
 
 ## Homework
 
-- Create a new database called `cyf_classes` (hint: use `createdb` in the terminal)
-- Create a new table `mentors`, for each mentor we want to save their name, how many years they lived in Glasgow, their address and their favourite programming language.
-- Insert 5 mentors in the `mentors` table (you can make up the data, it doesn't need to be accurate ;-)).
-- Create a new table `students`, for each student we want to save their name, address and if they have graduated from Code Your Future.
-- Insert 10 students in the `students` table.
-- Verify that the data you created for mentors and students are correctly stored in their respective tables (hint: use a `select` SQL statement).
-- Create a new `classes` table to record the following information:
-  - A class has a leading mentor
-  - A class has a topic (such as Javascript, NodeJS)
-  - A class is taught at a specific date and at a specific location
-- Insert a few classes in the `classes` table
-- We now want to store who among the students attends a specific class. How would you store that? Come up with a solution and insert some data if you model this as a new table.
-- Answer the following questions using a `select` SQL statement:
-  - Retrieve all the mentors who lived more than 5 years in Glasgow
-  - Retrieve all the mentors whose favourite language is Javascript
-  - Retrieve all the students who are CYF graduates
-  - Retrieve all the classes taught before June this year
-  - Retrieve all the students (retrieving student ids only is fine) who attended the Javascript class (or any other class that you have in the `classes` table).
+All of the homework can be found in [this repository](https://github.com/CodeYourFuture/Databases-Homework).
+
+### Submission
+
+Fork and clone the repository above to get the homework for this week.
+
+Create a new branch from `Master` to start working on this weeks homework. It should be called `[YOUR_NAME]/Week1`.
+
+When you have completed the homework create a pull request back to the `CodeYourFuture/Databases-Homework` repository so your teach can feedback on it.
+
+### Tasks
+
+You should complete all of the tasks in **Week 1** of the [Database Homework repository](https://github.com/CodeYourFuture/Databases-Homework).

@@ -1,26 +1,33 @@
 # Database 1: Introduction to SQL
 
-**What will we learn today?**
+---
 
-* [Introduction to databases](#introduction-to-databases)
-  * Why do we need them?
-  * Different types of database
-  	 
-* [Introduction to PostgreSQL](#introduction-to-postgresql)
-  * What is SQL?
-  * What is a RDBMS?
-  * What characterises a relational database?
-  * Database modeling exercise
-  * Check your PostgreSQL installation
+**Teaching this lesson?**
 
-* [Communicating with the database using SQL](#communicating-with-the-database-using-sql)
-  * Creating a new database
-  * Creating a table
-  * Inserting data
-  * Retrieving data
-  * Retrieving data with conditions
+Read the Mentors Notes [here](./mentors.md)
 
-* [Homework](#homework)
+---
+
+## What will we learn today?
+
+- [Introduction to databases](#introduction-to-databases)
+  - Why do we need them?
+  - Different types of database
+- [Introduction to PostgreSQL](#introduction-to-postgresql)
+  - What is SQL?
+  - What is a RDBMS?
+  - What characterises a relational database?
+  - Database modeling exercise
+  - Check your PostgreSQL installation
+- [Communicating with the database using SQL](#communicating-with-the-database-using-sql)
+  - Creating a new database
+  - Creating a table
+  - Inserting data
+  - Retrieving data
+  - Retrieving data with conditions
+- [Homework](#homework)
+
+---
 
 ## Introduction to databases
 
@@ -38,11 +45,9 @@ In the past few weeks, you stored and retrieved data using files. This is fine f
 
 There are many different kinds of database and different implementations. Sometimes, a database type is a better fit to certain use case or certain problems. The most well-known database types include relational database, key/value database, graph database and document database (also known as NoSQL). For this class, we will focus specifically on relational database as they are the most widely used and supported. You can consult [DB-Engines](https://db-engines.com/en/ranking) to see a ranking of the most used database, as you can see, there is a lot of them!
 
-
 ## Introduction to PostgreSQL
 
-*"PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. The origins of PostgreSQL date back to 1986 as part of the POSTGRES project at the University of California at Berkeley and has more than 30 years of active development on the core platform."* (source: [postgresql.org](https://www.postgresql.org/about/))
-
+_"PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. The origins of PostgreSQL date back to 1986 as part of the POSTGRES project at the University of California at Berkeley and has more than 30 years of active development on the core platform."_ (source: [postgresql.org](https://www.postgresql.org/about/))
 
 ### What is SQL?
 
@@ -60,7 +65,7 @@ There are many different kinds of database and different implementations. Someti
 
 ### What characterizes a relational database?
 
-As mentioned previously, a relational database is a specific type of database. Data is stored in *tables* of *rows* and *columns* as per the example below:
+As mentioned previously, a relational database is a specific type of database. Data is stored in _tables_ of _rows_ and _columns_ as per the example below:
 
 <!-- ![table-diagram](table-diagram.png) -->
 <p align="center">
@@ -76,7 +81,6 @@ A customer could have several bookings. If the customer changes their telephone 
   <img src="combined-diagram.png" display="block" width="60%"/>
 </p>
 
-
 ### Database modeling exercise
 
 **Scenario:** You've been hired to create a database for a new company which wants to revolutionize the hotel booking market. The first task you've been given is to model how the company would store its data in a database. Here are your requirements:
@@ -89,11 +93,9 @@ A customer could have several bookings. If the customer changes their telephone 
 
 With mentors help, model the database for this company. In particular, show the different entities, fields and relationships between each entity.
 
-
 ### Check your PostgreSQL installation
 
 Open a terminal in your laptop and verify the command `psql -V` returns the version of PostgreSQL. In psql, you can type use the command `help` to show the help menu. Within the command prompt, you can enter SQL statements and run them against PostgreSQL. To quit psql, enter the command `\q`.
-
 
 ## Communicating with the database using SQL
 
@@ -103,7 +105,7 @@ All commands in the following need to be entered in a psql command prompt. Howev
 
 In a terminal, create a new database named `cyf_hotels` with the following command:
 
-```
+```sql
 createdb cyf_hotels
 ```
 
@@ -119,13 +121,13 @@ Data are stored in tables. Let's first create a `customers` table to hold the de
 
 ```sql
 CREATE TABLE customers (
-	id        SERIAL PRIMARY KEY,
-	name      VARCHAR(30) NOT NULL,
-	email     VARCHAR(120) NOT NULL,
-	address   VARCHAR(120),
-	city      VARCHAR(30),
-	postcode  VARCHAR(12),
-	country   VARCHAR(20)
+  id        SERIAL PRIMARY KEY,
+  name      VARCHAR(30) NOT NULL,
+  email     VARCHAR(120) NOT NULL,
+  address   VARCHAR(120),
+  city      VARCHAR(30),
+  postcode  VARCHAR(12),
+  country   VARCHAR(20)
 );
 ```
 
@@ -136,7 +138,6 @@ Few things to mention from the SQL statement above:
 - `NOT NULL` defines the column as not nullable, which means that you must set a value.
 - Other useful types include `INT`, `TEXT`, `BOOLEAN` and `DATE`.
 - The database will reject any values which don't match the type.
-
 
 #### Exercise 1
 
@@ -149,21 +150,19 @@ Now that we have a table to store `customers` and a table to store `hotels`, we 
 
 ```sql
 CREATE TABLE bookings (
-	id               SERIAL PRIMARY KEY,
-	customer_id      INT REFERENCES customers(id),
-	hotel_id         INT REFERENCES hotels(id),
-	checkin_date     DATE NOT NULL,
-	nights           INT NOT NULL
+  id               SERIAL PRIMARY KEY,
+  customer_id      INT REFERENCES customers(id),
+  hotel_id         INT REFERENCES hotels(id),
+  checkin_date     DATE NOT NULL,
+  nights           INT NOT NULL
 );
 ```
 
 In the above, `customer_id` and `hotel_id` are called **foreign keys** as they reference an id from a different table. This set a very strong constraint as you will not be able to create a booking for a customer id which does not exist in the customers table!
 
-
 #### Exercise 2
 
 - Create the table `bookings` in your `cyf_hotels` database and verify that it is correctly created.
-
 
 ### Inserting data
 
@@ -190,7 +189,6 @@ INSERT INTO bookings (customer_id, hotel_id, checkin_date, nights) VALUES (1, 1,
   - The `Royal Cosmos Hotel` has 5 rooms, its postcode is `TR209AX`
   - The `Pacific Petal Motel` has 15 rooms, its postcode is `BN180TG`
 - Try to insert a booking for a customer id which does not exist in the `customers` table (for example ID `100`). What is happening and why?
-  
 
 ### Retrieving data
 

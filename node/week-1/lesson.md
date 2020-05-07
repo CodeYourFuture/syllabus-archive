@@ -1,14 +1,22 @@
 ![](https://img.shields.io/badge/status-review-orange.svg)
 
-# Node 1
+# Node - Week 1
 
-**What we will learn today?**
+---
 
-* [What is a server?](#what-is-a-server)
-* [Node and its ecosystem](#node-and-its-ecosystem)
-* [HTTP](#http)
-* [Express](#express)
-* [Workshop](#workshop)
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## Contents
+
+- [What is a server?](#what-is-a-server)
+- [Node and its ecosystem](#node-and-its-ecosystem)
+- [HTTP](#http)
+- [Express](#express)
+- [Workshop](#workshop)
 
 ---
 
@@ -38,12 +46,12 @@ files it needs to display the website properly.
 
 ## What is it used for?
 
-* web servers, so creating dynamic websites
-* set up a local web development environment
-* easier to build desktop applications with Electron: Slack, Visual Code, Atom
-* some of the biggest companies use Node.js in production: Netflix, Walmart,
+- web servers, so creating dynamic websites
+- set up a local web development environment
+- easier to build desktop applications with Electron: Slack, Visual Code, Atom
+- some of the biggest companies use Node.js in production: Netflix, Walmart,
   IBM, etc.
-* JavaScript everywhere (used to be PHP, Python, JavaScript, MySQL, Apache, now
+- JavaScript everywhere (used to be PHP, Python, JavaScript, MySQL, Apache, now
   JavaScript full stack)
 
 ## A simple Node.js server
@@ -53,7 +61,7 @@ files it needs to display the website properly.
 ```js
 const http = require("http");
 
-const server = http.createServer(function(req, res) {
+const server = http.createServer(function (req, res) {
   res.end("Hello World!");
 });
 
@@ -67,7 +75,7 @@ console.log("Node.js web server at port 5000 is running..");
 ```js
 const http = require("http");
 
-const server = http.createServer(function(req, res) {
+const server = http.createServer(function (req, res) {
   if (req.url === "/") {
     //check the URL of the current request
     console.log("New request to main page at " + Date());
@@ -124,11 +132,11 @@ Buckle up and start the [express workshop](./workshop.html).
 
 ## Group Research Topics
 
-* Security: (https, same origin, cookies, xss etc..)
-* Performance: Request lifecycle (from browser to server and back), Performance
+- Security: (https, same origin, cookies, xss etc..)
+- Performance: Request lifecycle (from browser to server and back), Performance
   considerations and optimisations
-* HTTP and REST: (headers, status codes, Cookies, REST)
-* Node internals: Node event loop, Node core modules, async/sync (non-blocking
+- HTTP and REST: (headers, status codes, Cookies, REST)
+- Node internals: Node event loop, Node core modules, async/sync (non-blocking
   operations)
 
 The research will be on a Github repo. One member of the group will be
@@ -141,22 +149,22 @@ for it (that the main repo's owner will have to review and merge).
 
 Take a look at the following links to learn more about Node.js.
 
-* Read: [The art of node](https://github.com/maxogden/art-of-node/#the-art-of-node)
-* Read: [Node Resources](https://node.cool#resources)
+- Read: [The art of node](https://github.com/maxogden/art-of-node/#the-art-of-node)
+- Read: [Node Resources](https://node.cool#resources)
 
 More about HTTP:
 [Tutsplus tutorial](https://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039)
 
 More about JSON:
 
-* https://en.wikipedia.org/wiki/JSON
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+- https://en.wikipedia.org/wiki/JSON
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
 Heroku:
 
-* [Deploying from Git](https://devcenter.heroku.com/articles/git)
-* [Deploying Node Apps](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
+- [Deploying from Git](https://devcenter.heroku.com/articles/git)
+- [Deploying Node Apps](https://devcenter.heroku.com/articles/getting-started-with-nodejs#set-up)
 
 {% include "./homework.md" %}
 {% include "../../others/escalation-policy.md" %}

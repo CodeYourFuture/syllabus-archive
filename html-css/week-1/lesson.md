@@ -1,8 +1,12 @@
 # HTML/CSS 1
 
+---
+
 **Teaching this lesson?**
 
 Read the Mentors Notes [here](./mentors.md)
+
+---
 
 ## What will we learn today?
 

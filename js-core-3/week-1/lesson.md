@@ -4,35 +4,35 @@
 
 **What will we learn today?**
 
-* [Tracing Code](#tracing-code)
-* [Testing](#testing-our-code)
-* [Unit Testing](#unit-testing)
-* [Unit Testing Frameworks - JEST](#jest)
-* [Test-driven Development](#test-driven-development)
-* More on Testing
-  * [Test coverage](#test-coverage)
-  * [Refactoring](#refactoring)
-  * [Modules](#modules)
+- [Tracing Code](#tracing-code)
+- [Testing](#testing-our-code)
+- [Unit Testing](#unit-testing)
+- [Unit Testing Frameworks - JEST](#jest)
+- [Test-driven Development](#test-driven-development)
+- More on Testing
+  - [Test coverage](#test-coverage)
+  - [Refactoring](#refactoring)
+  - [Modules](#modules)
 
 > Fork and Clone the [js-exercises-tdd repo](https://github.com/CodeYourFuture/js-exercises-tdd)
 
 ## Tracing Code
 
-What is Code? Computer code is a **set of rules or instructions**. It is made up of words and numbers and when you put them in the **right order** it will tell your computer what you want it to do. 
+What is Code? Computer code is a **set of rules or instructions**. It is made up of words and numbers and when you put them in the **right order** it will tell your computer what you want it to do.
 
 Let's trace these code samples together:
 
-- [Sample 1](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/01-greet-people/greet-people.js) 
+- [Sample 1](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/01-greet-people/greet-people.js)
 
-- [Sample 2](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/02-remove-vowels/remove-vowels.js) 
+- [Sample 2](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/02-remove-vowels/remove-vowels.js)
 
-- [Sample 3](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/03-remove-vowels-from-array/remove-vowels-in-array.js) 
+- [Sample 3](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/03-remove-vowels-from-array/remove-vowels-in-array.js)
 
 ## Testing our code
 
 We have just traced the output of some code on paper, but how do ensure that the code actually does what it is supposed to do when we run it.
 
-> Discussion: How have we been testing our code so far? How do ensure it is *correct*. What is "*correct*" anyhow?
+> Discussion: How have we been testing our code so far? How do ensure it is _correct_. What is "_correct_" anyhow?
 
 In many organisations, there are full teams dedicated to **testing** and ensuring that the code written behaves correctly, to report **bugs** and make sure that they are fixed on time. In general, **Quality Assurance** is a responsibility of everyone in a team starting from Project Manager, Scrum Masters, Developers and Testers.
 
@@ -44,7 +44,7 @@ There are typically several levels of testing when working on a project:
 
 [This answer from Stack OverFlow](https://stackoverflow.com/a/4904533) has a good explanation of types of testing. The defintions for Functional, e2e and UAT are often mean different things in different teams, the responisibility for them also falls on different individuals depending on the team.
 
-*Unit testing* though is always the responsibility of the Developer, and it is a very important skill for any professional developer to be able to write tests, and also write code that is testable.
+_Unit testing_ though is always the responsibility of the Developer, and it is a very important skill for any professional developer to be able to write tests, and also write code that is testable.
 
 > Discussion: What is testable code?
 
@@ -52,24 +52,24 @@ There are typically several levels of testing when working on a project:
 var result;
 
 function getMentorInfo(mentors, name) {
-    var greeting = 'Hello ';
+  var greeting = "Hello ";
 
-    result = mentors.find(function (person) {
-        return person.name === name;
-    });
+  result = mentors.find(function (person) {
+    return person.name === name;
+  });
 
-    var mentorTitle = 'Junior Developer';
+  var mentorTitle = "Junior Developer";
 
-    if (result.yearsOfExp > 10) {
-        mentorTitle = 'Senior Developer';
-    } else if (result.yearsOfExp > 20) {
-        mentorTitle = 'Very Senior Developer';
-    }
+  if (result.yearsOfExp > 10) {
+    mentorTitle = "Senior Developer";
+  } else if (result.yearsOfExp > 20) {
+    mentorTitle = "Very Senior Developer";
+  }
 
-    result.jobTitle = mentorTitle;
-    result.fullName = result.title + ' ' + result.name;
+  result.jobTitle = mentorTitle;
+  result.fullName = result.title + " " + result.name;
 
-    return result;
+  return result;
 }
 
 /*
@@ -148,8 +148,9 @@ function result to an expected value.
 Remember that one function can be used as an argument when a second function is called. In this instance, the function we are testing would represent our first function, and our `equals()` function would represent the second, like so...
 
 ```js
-equals(myNewFunction(arg1, arg2, etc), expectedOutput)
+equals(myNewFunction(arg1, arg2, etc), expectedOutput);
 ```
+
 As you can see in this example, instead of using a number as the first argument to the `equals()` function, we have used a function instead; the one we wish to test.
 
 > Exercise: Write tests for the the exercises under `II.write-tests`
@@ -186,7 +187,7 @@ You can see the test output and the fact that the test passed.
 Tests cases in Jest have the following structure:
 
 ```js
-test("test description", function() {
+test("test description", function () {
   // Test instructions
 });
 ```
@@ -227,7 +228,6 @@ When developing following TDD, you normally follow this sequence:
 3. Write the simplest code to make the test pass (Green)
 4. Refactor
 5. Repeat
-
 
 Read more on the [Wikipedia article](https://en.wikipedia.org/wiki/Test-driven_development) and the resources at the end.
 

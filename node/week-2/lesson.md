@@ -1,15 +1,23 @@
 ![](https://img.shields.io/badge/status-review-orange.svg)
 
-# Node 2
+# Node - Week 2
 
-**What we will learn today?**
+---
 
-* [Middleware](#middleware)
-* [Templating](#templating)
-* [Workshop](#workshop)
-* [Callbacks](#callbacks)
-* [APIs](#apis)
-* [Deploying to Heroku](#deploying-to-heroku)
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## Contents
+
+- [Middleware](#middleware)
+- [Templating](#templating)
+- [Workshop](#workshop)
+- [Callbacks](#callbacks)
+- [APIs](#apis)
+- [Deploying to Heroku](#deploying-to-heroku)
 
 ---
 
@@ -48,11 +56,11 @@ Fork and Clone the [express-workshop-2](https://github.com/CodeYourFuture/expres
 
 Let's have a look at the repo we've just forked.
 
-* **Package.json**: Remember how in the last lesson we added a _package.json_
+- **Package.json**: Remember how in the last lesson we added a _package.json_
   file and added dependencies like _express_ to it.
 
-  * What command did we use to create a _package.json_ file
-  * How did we add dependencies to it?
+  - What command did we use to create a _package.json_ file
+  - How did we add dependencies to it?
 
   Today, the project comes with a package file already - this lists all the
   packages we need to run the project (instead of adding installed packages to
@@ -60,17 +68,17 @@ Let's have a look at the repo we've just forked.
   dependencies in `package.json`). Now, we can run `npm install`, and the
   dependencies will be installed.
 
-* **Server.js** - this is the entry point for our application. Let's walk
+- **Server.js** - this is the entry point for our application. Let's walk
   through the code and remember what it does.
-  * What is **Express Static Middleware** used for?
-  * What routes are defined?
-  * What **Port** does the server run on?
+  - What is **Express Static Middleware** used for?
+  - What routes are defined?
+  - What **Port** does the server run on?
 
 Let's run the server and check it in the browser. This is what you should see on your browser:
 
 ![](../assets/blog-screenshot.png)
 
-* The theme used for this website is based on Bootstrap. You can get more open
+- The theme used for this website is based on Bootstrap. You can get more open
   source Bootsrap-based themes from
   [StartBootstrap](https://startbootstrap.com/template-categories/all/)
 
@@ -124,9 +132,9 @@ app.set("view engine", "handlebars");
 
 > Let's look at the folder `views/layouts/main.handlebars`
 
-* There is a **placeholder for body** where the "body" get injected - can you
+- There is a **placeholder for body** where the "body" get injected - can you
   find it?
-* Notice the _index.handlebars_, _my-cv.handlebars_ and _admin.handlebars_.
+- Notice the _index.handlebars_, _my-cv.handlebars_ and _admin.handlebars_.
 
 Then add these routes:
 
@@ -163,7 +171,7 @@ static files? **Express** and **Handlebars** allow you to pass data between the
    ```js
    app.get("/", (req, res) => {
      res.render("index", {
-       title: "Etzali Profile" // insert your name instead
+       title: "Etzali Profile", // insert your name instead
      });
    });
    ```
@@ -173,14 +181,14 @@ static files? **Express** and **Handlebars** allow you to pass data between the
 
    ```html
    <div class="row">
-       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-           <div class="site-heading">
-               <!-- Notice the change in the next line -->
-               <h1>{{title}}</h1>
-               <hr class="small">
-               <span class="subheading">A modern Website built in Node</span>
-           </div>
+     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+       <div class="site-heading">
+         <!-- Notice the change in the next line -->
+         <h1>{{title}}</h1>
+         <hr class="small" />
+         <span class="subheading">A modern Website built in Node</span>
        </div>
+     </div>
    </div>
    ```
 
@@ -215,20 +223,22 @@ For now, we will finish by using the **each** helper.
 ### Dynamically loading the templates
 
 {% raw %}
+
 ```html
 {{#each posts}}
-    <div class="post-preview">
-        <a href="post.html">
-            <h2 class="post-title">
-                {{this.title}}
-            </h2>
-            <h3 class="post-subtitle">
-                {{this.summary}}
-            </h3>
-        </a>
-    </div>
+<div class="post-preview">
+  <a href="post.html">
+    <h2 class="post-title">
+      {{this.title}}
+    </h2>
+    <h3 class="post-subtitle">
+      {{this.summary}}
+    </h3>
+  </a>
+</div>
 {{/each}}
 ```
+
 {% endraw %}
 
 In the `route`, let's load the file in `data/posts.json`:
@@ -244,7 +254,7 @@ app.get("/", (req, res) => {
     // send the json to the Template to render
     res.render("index", {
       title: "Etzali Profile", // insert your name instead
-      posts: postsJson
+      posts: postsJson,
     });
   };
   fs.readFile(filePath, callbackFunction);
@@ -262,7 +272,7 @@ callbacks when we looked at array methods such as `.forEach()`, `.map()` and
 
 ```js
 const evenNumbers = [2, 4, 6, 8];
-evenNumbers.forEach(num => {
+evenNumbers.forEach((num) => {
   console.log(num);
 });
 ```
@@ -293,10 +303,10 @@ delay(logRandom);
 
 **Key points**
 
-* Functions can be passed as arguments to other other function
-* Functions that are passed as arguments are called **callbacks**
-* Callbacks may be executed immediately or later
-* If a callback is executed later, its return value is lost
+- Functions can be passed as arguments to other other function
+- Functions that are passed as arguments are called **callbacks**
+- Callbacks may be executed immediately or later
+- If a callback is executed later, its return value is lost
 
 > **Exercise**: What other Asynchronous operations have we recently used in the
 > Node code we've written?
@@ -323,11 +333,11 @@ The code to do so, will look something similar to this:
 
 ```js
 var oReq = new XMLHttpRequest();
-oReq.addEventListener("load", function() {
+oReq.addEventListener("load", function () {
   var oReq2 = new XMLHttpRequest();
-  oReq2.addEventListener("load", function() {
+  oReq2.addEventListener("load", function () {
     var oReq3 = new XMLHttpRequest();
-    oReq2.addEventListener("load", function() {
+    oReq2.addEventListener("load", function () {
       // 4. Now we finally have all the info we need and we can the info we retrieved from the three API calls.
     });
     oReq3.open("GET", BRANCH_INFO_URL); // 3. third url for branch info
@@ -397,7 +407,7 @@ focus on their core product without the distraction of maintaining servers,
 hardware, or infrastructure.
 
 1. [Signup for an account](https://signup.heroku.com/) on Heroku
-   * It will send a verification to your email so make sure you've entered a
+   - It will send a verification to your email so make sure you've entered a
      valid email
 1. Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 1. We need to do a small tweak to our app to be ready to be deployed on Heroku.
@@ -405,7 +415,7 @@ hardware, or infrastructure.
 On server.js, add the `process.env.PORT` bit of code
 
 ```js
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
 });
 ```

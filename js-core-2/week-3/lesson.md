@@ -1,8 +1,12 @@
 # JavaScript Core II - 3
 
-## Teaching this lesson?
+---
+
+**Teaching this lesson?**
 
 Read the Mentors Notes [here](./mentors.md)
+
+---
 
 ## Contents
 

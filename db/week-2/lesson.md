@@ -1,19 +1,29 @@
 # Database 2: More SQL and integration with NodeJS
 
-**What will we learn today?**
+---
 
-* Revision from last week
-* [More SQL](#more-sql)
-  * Changing the definition of a table
-  * Dropping a table
-  * Updating a row
-  * Deleting a row
-  * Join tables
-  * Other useful operations
-* [Integration with NodeJS](#integration-with-nodejs)
-  * Introduction to node-postgres
-  * Loading data from a database with a GET endpoint
-* [Homework](#homework)
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## What will we learn today?
+
+- Revision from last week
+- [More SQL](#more-sql)
+  - Changing the definition of a table
+  - Dropping a table
+  - Updating a row
+  - Deleting a row
+  - Join tables
+  - Other useful operations
+- [Integration with NodeJS](#integration-with-nodejs)
+  - Introduction to node-postgres
+  - Loading data from a database with a GET endpoint
+- [Homework](#homework)
+
+---
 
 ## More SQL
 
@@ -66,7 +76,6 @@ DROP TABLE customers;
 - Create a new table `test`
 - Drop the table `test`
 
-
 ### Updating a row
 
 The general construction to update a row is:
@@ -103,7 +112,6 @@ DELETE FROM bookings WHERE id=4;
 ```
 
 **NOTE:** If you don't supply a `WHERE` clause with `DELETE` or `UPDATE` the command will be applied to **all** the rows in the table which is rarely what you want.
-
 
 #### Exercise 4
 
@@ -148,7 +156,6 @@ WHERE customers.id=1;
 - Retrieve all the bookings along with customer data for bookings starting in 2020
 - Retrieve the customer names, booking start dates and number of nights for all customers who booked the hotel name `Jade Peaks Hotel`
 - Retrieve all the booking start dates with customer names and hotel names for all bookings for more than 5 nights
-
 
 ### Other useful operations
 
@@ -199,14 +206,13 @@ LIMIT 3;
 - Retrieve all hotels which have the word `Hotel` in their name
 - Retrieve the booking start date, customer name, hotel name for the top 5 bookings ordered by number of nights in descending order
 
-
 ## Integration with NodeJS
 
 ### Introduction to node-postgres
 
-*"node-postgres is a collection of node.js modules for interfacing with your PostgreSQL database."* - [https://node-postgres.com/](https://node-postgres.com/)
+_"node-postgres is a collection of node.js modules for interfacing with your PostgreSQL database."_ - [https://node-postgres.com/](https://node-postgres.com/)
 
-In the following, we will use *node-postgres* to...
+In the following, we will use _node-postgres_ to...
 
 1. Connect to a database
 2. Send SQL query to the database and get results

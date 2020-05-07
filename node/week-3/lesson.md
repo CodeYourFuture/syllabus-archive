@@ -1,16 +1,24 @@
 ![](https://img.shields.io/badge/status-draft-darkred.svg)
 
-# Node 3
+# Node - Week 3
 
-** What we will learn today?**
+---
 
-* [Node Recap](#node-recap)
-* [Best Practices](#best-practices)
-* [Node Process Managers](#node-process-managers)
-* [REST](#rest)
-* [Security](#security)
-* [Authentication](#authentication)
-* [Hotel Workshop](#hotel-workshop)
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## Contents
+
+- [Node Recap](#node-recap)
+- [Best Practices](#best-practices)
+- [Node Process Managers](#node-process-managers)
+- [REST](#rest)
+- [Security](#security)
+- [Authentication](#authentication)
+- [Hotel Workshop](#hotel-workshop)
 
 ---
 
@@ -22,15 +30,15 @@ Javascript has evolved from the browser to be used in the backend. It does not n
 
 When you are working with frameworks it is always helpful to use their documentation.
 
-* [Express Documentation](https://expressjs.com)
-* [Node.js Documentation](https://nodejs.org/api/http.html)
+- [Express Documentation](https://expressjs.com)
+- [Node.js Documentation](https://nodejs.org/api/http.html)
 
 ### Middleware
 
 Middleware allow us to process requests to add functionalities that are not built in to Express, for example logging, authentication, etc.
 
-> * Express Documentation: [Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
-> * Video: [body-parser](https://www.youtube.com/watch?v=vKlybue_yMQ) which makes it easier to work with POST requests and forms.
+> - Express Documentation: [Using Middleware](https://expressjs.com/en/guide/using-middleware.html)
+> - Video: [body-parser](https://www.youtube.com/watch?v=vKlybue_yMQ) which makes it easier to work with POST requests and forms.
 
 ### Routing
 
@@ -39,7 +47,7 @@ Routing refers to how an application’s endpoints (URIs) respond to the client 
 Simple example
 
 ```js
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("hello world");
 });
 ```
@@ -52,12 +60,12 @@ function ensureAuthenticated(req, res, next) {
   else res.redirect("/login");
 }
 
-app.get("/account", ensureAuthenticated, function(req, res) {
+app.get("/account", ensureAuthenticated, function (req, res) {
   res.send("welcome user!");
 });
 ```
 
-> * Express Documentation: [Routing](https://expressjs.com/en/guide/routing.html)
+> - Express Documentation: [Routing](https://expressjs.com/en/guide/routing.html)
 
 ## Best Practices
 
@@ -69,14 +77,14 @@ These process managers monitor for any changes in your node.js application and a
 
 > Popular PMs include:
 >
-> * [nodemon](http://nodemon.io/)
-> * [pm2](https://expressjs.com/en/advanced/pm.html#pm2)
+> - [nodemon](http://nodemon.io/)
+> - [pm2](https://expressjs.com/en/advanced/pm.html#pm2)
 
 ## REST
 
 REST is a convention of how to design your API, whether it is for your own frontend, or other frontends and clients.
 
-> * Read: Resource naming in [REST](http://www.restapitutorial.com/lessons/restfulresourcenaming.html) convention
+> - Read: Resource naming in [REST](http://www.restapitutorial.com/lessons/restfulresourcenaming.html) convention
 
 ## Security
 
@@ -86,9 +94,9 @@ When you take your website to production there is a whole range of things to con
 
 Node has built in support for HTTPS, and once you have your own certificates you can use this feature. However sometimes when you deploy to `cloud` Platform Platform as a Service (PaaS) providers such as Heroku, they provide SSL and configure it for you automatically.
 
-> * Read: [Node: HTTPS](https://nodejs.org/api/https.html)
-> * Read/Watch: [What is an SSL Certificate?](https://www.globalsign.com/en/ssl-information-center/what-is-an-ssl-certificate/)
-> * Read: [Heroku SSL](https://devcenter.heroku.com/articles/ssl)
+> - Read: [Node: HTTPS](https://nodejs.org/api/https.html)
+> - Read/Watch: [What is an SSL Certificate?](https://www.globalsign.com/en/ssl-information-center/what-is-an-ssl-certificate/)
+> - Read: [Heroku SSL](https://devcenter.heroku.com/articles/ssl)
 
 ## Authentication
 
@@ -96,8 +104,8 @@ Sometimes you need to add user functionality for your website. To do this you ca
 
 > For more information read:
 >
-> * [OAuth 2.0 Authorization Framework: Bearer Token Usage](https://tools.ietf.org/html/rfc6750)
-> * [Bearer Strategy](https://github.com/jaredhanson/passport-http-bearer)
+> - [OAuth 2.0 Authorization Framework: Bearer Token Usage](https://tools.ietf.org/html/rfc6750)
+> - [Bearer Strategy](https://github.com/jaredhanson/passport-http-bearer)
 
 ## Hotel Workshop
 

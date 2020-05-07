@@ -3,10 +3,11 @@
 # JS Core III - 2
 
 ** What we will learn today?**
-* [Debugging](#good-design)
-* [Good Design](#good-design)
-* [Async and Sync revisited](#async-vs-sync)
-* [Intro to ES6](#intro-to-es6)
+
+- [Debugging](#good-design)
+- [Good Design](#good-design)
+- [Async and Sync revisited](#async-vs-sync)
+- [Intro to ES6](#intro-to-es6)
 
 ---
 
@@ -15,12 +16,14 @@
 Debugging is the process of finding and resolving defects or problems within a computer program that prevent correct operation of computer software or a system.
 
 ## Syntax bugs
+
 A syntax bug is an error caused by something the programmer has typed – it could be a spelling mistake or a command that the computer doesn’t understand.
 
 ## Logical bugs
+
 A logical bug is an error which means that even though the computer is able to carry out its instructions, it doesn’t act as the programmer intended or the user expects.
 
-> Exercise: This website ([https://kabaros.github.io/dom-ajax-repo-solution](https://kabaros.github.io/dom-ajax-repo-solution)) has *bugs*. Use Chrome Developer Tools to find out what is causing these issues.
+> Exercise: This website ([https://kabaros.github.io/dom-ajax-repo-solution](https://kabaros.github.io/dom-ajax-repo-solution)) has _bugs_. Use Chrome Developer Tools to find out what is causing these issues.
 
 > Follow this tutorial about [Debugging with Chrome](https://developers.google.com/web/tools/chrome-devtools/javascript/)
 
@@ -35,22 +38,24 @@ There are three main principles you need to know now: clarity, reusability and
 extensibility. There are also others, but they are deeply related to these
 three.
 
-* Ease of Maintenance / Clarity
-  * Naming
-  * Commenting
-  * Clear logic
-  * Concise
-  * Formatting
-  * Avoiding Redundancy
+- Ease of Maintenance / Clarity
 
-* Reusability
-  * DRY
-  * Single Reponsibility
-    * Avoiding global state (scope)
-    * Predictability and Ease of testing
+  - Naming
+  - Commenting
+  - Clear logic
+  - Concise
+  - Formatting
+  - Avoiding Redundancy
 
-* Extensibility
-  * Avoiding being unnecessarily specific (e.g. magic numbers)
+- Reusability
+
+  - DRY
+  - Single Reponsibility
+    - Avoiding global state (scope)
+    - Predictability and Ease of testing
+
+- Extensibility
+  - Avoiding being unnecessarily specific (e.g. magic numbers)
 
 Now let's take a look at a bigger example of a badly written function
 
@@ -128,15 +133,15 @@ What is wrong with this function?
 > appropriate improvements to the code.
 
 # Async vs Sync
+
 ToDO: Trace async code on paper
 
 - Different ways of doing async in JavaScript
 
-
 # Intro to ES6
 
 ECMAScript 2015 (or ES6) is a significant update to JavaScript that introduces
-new syntax for writing complex applications. 
+new syntax for writing complex applications.
 
 ## const and let
 
@@ -145,8 +150,7 @@ The `let` and `const` keywords are also used for variable creation, but the
 variables created using these keywords have different scope. Var has "function
 scope", whereas let and const have "block scope".
 
-> Exercise: This **badly designed** function will throw the error `message is
-> not defined`. What is the problem, and how could we fix it?
+> Exercise: This **badly designed** function will throw the error `message is not defined`. What is the problem, and how could we fix it?
 
 ```js
 function compareNumbers(m, n) {
@@ -213,7 +217,7 @@ function greeting(name) {
 ES6 also has a new way of declaring functions. Let's see how it works.
 
 ```js
-// before 
+// before
 function sum(a, b, c) {
   return a + b + c;
 }
@@ -221,11 +225,11 @@ function sum(a, b, c) {
 // ES6
 const sum = (a, b, c) => {
   return a + b + c;
-}
+};
 ```
 
-If the function only contains one expression, the curly braces and the `return` 
-are optional and we can write the whole function in one line. 
+If the function only contains one expression, the curly braces and the `return`
+are optional and we can write the whole function in one line.
 
 ```js
 const sum = (a, b, c) => a + b + c;
@@ -235,43 +239,41 @@ const sum = (a, b, c) => a + b + c;
 > if gender is 'female' or not, and use it in sayGreeting. Let's try and make
 > the code as compact as possible together using ES6 features.
 
+## Default parameters
 
-## Default parameters 
+ES6 allows us to declare defaults for function arguments. The default value is
+used when the argument/parameter is either missing or `undefined`.
 
-ES6 allows us to declare defaults for function arguments. The default value is 
-used when the argument/parameter is either missing or `undefined`. 
-
-This function returns the sum of three numbers. Let's assume we want to use the 
-same function with only two arguments: 
+This function returns the sum of three numbers. Let's assume we want to use the
+same function with only two arguments:
 
 ```js
 // without default parameter
 const sum = (a, b, c) => {
   c = c || 0;
   return a + b + c;
-}
+};
 
-console.log(sum(1, 3, 4)) // 8
-console.log(sum(2, 5)) // NaN
+console.log(sum(1, 3, 4)); // 8
+console.log(sum(2, 5)); // NaN
 
-// with default parameter 
+// with default parameter
 const sum = (a, b, c = 0) => {
   return a + b + c;
-}
-console.log(sum(2, 5)) // 7
+};
+console.log(sum(2, 5)); // 7
 ```
-
 
 ## Destructuring
 
-In ES6 we can extract data from objects or arrays using destructuring. 
+In ES6 we can extract data from objects or arrays using destructuring.
 
 ```js
-// before 
+// before
 var chicken = {
-  name: 'Maggie', 
-  age: 2
-}
+  name: "Maggie",
+  age: 2,
+};
 
 var name = chicken.name;
 var age = chicken.age;
@@ -281,25 +283,22 @@ var numbers = [1, 2];
 var firstNumber = numbers[0];
 var secondNumber = numbers[1];
 
-
 // in ES6
 const chicken = {
-  name: 'Maggie', 
-  age: 2
-}
+  name: "Maggie",
+  age: 2,
+};
 
 const { name, age } = chicken;
 
 const numbers = [1, 2];
 
 const [firstNumber, secondNumber] = numbers;
-
 ```
-
 
 # Resources
 
-* [ES6 features](http://es6-features.org/)
-* [Let and const](http://wesbos.com/let-vs-const/)
+- [ES6 features](http://es6-features.org/)
+- [Let and const](http://wesbos.com/let-vs-const/)
 
 {% include "./homework.md" %}

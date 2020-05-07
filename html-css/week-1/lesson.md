@@ -1,5 +1,9 @@
 # HTML/CSS 1
 
+**Teaching this lesson?**
+
+Read the [Mentor Notes here](./mentors.md)
+
 **What will we learn today?**
 
 - [Semantic HTML tags](#html-syntax)

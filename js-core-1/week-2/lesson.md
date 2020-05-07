@@ -2,27 +2,33 @@
 
 # JavaScript Core I - 2
 
-* [Expressions](#expressions)
-* [Booleans](#booleans)
-* [Comparison Operators](#comparison-operators)
-* [Conditionals](#conditionals)
-* [Logical Operators](#logical-operators)
-* [Loops](#loops)
-* [Arrays](#arrays)
-* [Extra exercises](#extra-exercises)
+**Teaching this lesson?**
+
+Read the [Mentor Notes here](./mentors.md)
+
+**Contents**
+
+- [Expressions](#expressions)
+- [Booleans](#booleans)
+- [Comparison Operators](#comparison-operators)
+- [Conditionals](#conditionals)
+- [Logical Operators](#logical-operators)
+- [Loops](#loops)
+- [Arrays](#arrays)
+- [Extra exercises](#extra-exercises)
 
 **Learning Objectives**
 
 By the end of this class, you should be able to answer these questions:
 
-* What are expressions and statements (and what's the difference)?
-* What are conditionals?
-* What are `for` and `while` loops (and what's the difference)?
-* How do you use expressions with conditionals?
-* What are comparator operators and how do you use them?
-* What are logical operators and how do you use them?
-* What functionality does the `assert` module provide?
-* What are arrays and how can you interact with them?
+- What are expressions and statements (and what's the difference)?
+- What are conditionals?
+- What are `for` and `while` loops (and what's the difference)?
+- How do you use expressions with conditionals?
+- What are comparator operators and how do you use them?
+- What are logical operators and how do you use them?
+- What functionality does the `assert` module provide?
+- What are arrays and how can you interact with them?
 
 ---
 
@@ -85,11 +91,11 @@ This console allows you to run expressions in the console line by line and is a 
 
 In your VS Code terminal, run the command `node` and run the following expressions. What are their outputs? Is there anything you didn't expect? (To exit the node REPL, you have to click <kbd>Ctrl+d</kbd> or <kbd>Cmd+D</kbd> on Mac)
 
-* `1 + 2`
-* `"hello"`
-* `let favouriteColour = "purple"`
-* `favouriteColour`
-* `console.log(favouriteColour)`
+- `1 + 2`
+- `"hello"`
+- `let favouriteColour = "purple"`
+- `favouriteColour`
+- `console.log(favouriteColour)`
 
 ## Booleans
 
@@ -211,8 +217,8 @@ Like humans, computer programs make decisions based on the information given to 
 
 For example:
 
-* In a game, if the player has 0 lives, then the game is over
-* In a weather app, if rain is forecast, a picture of rain clouds is shown
+- In a game, if the player has 0 lives, then the game is over
+- In a weather app, if rain is forecast, a picture of rain clouds is shown
 
 The most common type of conditional is the **if statement**.
 
@@ -294,11 +300,11 @@ function numberChecker(num) {
 
 Create a function that gives you a message depending on your mood! It should:
 
-* take one input
-* return "Good job, you're doing great!" if you pass in "happy"
-* return "Every cloud has a silver lining" if you pass in "sad"
-* return "Beep beep boop" if you pass in a number
-* return "I'm sorry, I'm still learning about feelings!" if you pass in anything else
+- take one input
+- return "Good job, you're doing great!" if you pass in "happy"
+- return "Every cloud has a silver lining" if you pass in "sad"
+- return "Beep beep boop" if you pass in a number
+- return "I'm sorry, I'm still learning about feelings!" if you pass in anything else
 
 ## Logical Operators
 
@@ -326,22 +332,22 @@ We can test expressions with logical operators in a node console too.
 
 Type the following expressions into your node REPL and note the output. Anything you didn't expect?
 
-* `let num = 10`
-* `num > 5 && num < 15`
-* `num < 10 || num === 10`
-* `false || true`
-* `!true`
-* `let greaterThan5 = num > 5`
-* `!greaterThan5`
-* `!(num === 10)`
+- `let num = 10`
+- `num > 5 && num < 15`
+- `num < 10 || num === 10`
+- `false || true`
+- `!true`
+- `let greaterThan5 = num > 5`
+- `!greaterThan5`
+- `!(num === 10)`
 
 ### Exercise (15 mins)
 
 In pairs, write a function that checks a username is of an acceptable format for a user type. The function must:
 
-* take two parameters: one for the username and one for the user type
-* if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
-* if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
+- take two parameters: one for the username and one for the user type
+- if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
+- if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
 
 ## Loops
 
@@ -375,10 +381,9 @@ for (let i = 0; i < 20; i++) {
 
 Write two functions that:
 
-* Take one number `n` as a parameter
-* Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
-* The first version of the function should use `while` and the second one `for`.
-
+- Take one number `n` as a parameter
+- Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- The first version of the function should use `while` and the second one `for`.
 
 ## Arrays
 
@@ -437,18 +442,18 @@ In the node REPL, enter the following array:
 
 1. Which index do you need to return:
 
-  - strawberry
-  - kiwi
-  - orange
-  - banana
+- strawberry
+- kiwi
+- orange
+- banana
 
 2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
 ### Exercise (10 mins)
 
 1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
-Sample array: [20, 20, 30, 40, 50, 50, 50]
-2. After removing the duplicate elements the function should return 4 as the new length of the array. 
+   Sample array: [20, 20, 30, 40, 50, 50, 50]
+2. After removing the duplicate elements the function should return 4 as the new length of the array.
 
 ### Exercise (5 mins)
 

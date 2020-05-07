@@ -2,6 +2,12 @@
 
 # JavaScript Core I - 3
 
+**Teaching this lesson?**
+
+Read the [Mentor Notes here](./mentors.md)
+
+**Contents**
+
 - [Array properties](#array-properties)
 - [Manipulating arrays](#manipulating-arrays)
 - [Array methods](#array-methods)

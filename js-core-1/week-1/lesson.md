@@ -2,7 +2,11 @@
 
 # JavaScript Core I - 1
 
-[Mentor Notes](./mentors.md)
+**Teaching this lesson?**
+
+Read the [Mentor Notes here](./mentors.md)
+
+**Contents**
 
 - [Hello World](#hello-world)
 - [Variables](#variables)

@@ -357,6 +357,8 @@ In pairs, write a function that checks a username is of an acceptable format for
 
 When we're writing programs, we often find that we want to repeat a bit of code over and over, or repeat it but change something about it each time. To save ourselves from writing all that code, we can use a **loop**. JavaScript has two kinds of loops, a `while` loop and a `for` loop.
 
+### while loop
+
 A `while` loop is a way to repeat code until some condition is evaluated to `false`. For example:
 
 ```js
@@ -368,6 +370,16 @@ while (i < 20) {
 ```
 
 It's important that the condition inside the parenthesis becomes false at some point - otherwise, we'll have what's known as an infinite loop!
+
+### Exercise (10 minutes)
+
+Write a function that:
+
+- Takes one number `n` as a parameter
+- Adds all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- You should use a while loop
+
+### for loop
 
 The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value.
 
@@ -381,13 +393,13 @@ for (let i = 0; i < 20; i++) {
 }
 ```
 
-### Exercise (15 minutes)
+### Exercise (10 minutes)
 
-Write two functions that:
+Write a function, similar to the last exercise, that:
 
-- Take one number `n` as a parameter
-- Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
-- The first version of the function should use `while` and the second one `for`.
+- Takes one number `n` as a parameter
+- Adds all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- You should use an if loop
 
 ## Arrays
 

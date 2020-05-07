@@ -2,15 +2,20 @@
 
 # JavaScript Core II - 1
 
-**What we will learn today?**
+## Teaching this lesson?
 
-* [Objects](#objects)
-* [Objects Get and Set](#objects-get-and-set)
-* [More complex objects](#more-complex-objects)
-* [Object methods](#object-methods)
-* [Arrays of Objects](#arrays-of-objects)
-* [Object built-in methods](#object-built-in-methods)
-* [Loop through an object](#loop-through-an-object)
+Read the Mentors Notes [here](./mentors.md)
+
+## Contents
+
+- [Objects](#objects)
+- [Objects Get and Set](#objects-get-and-set)
+- [More complex objects](#more-complex-objects)
+- [Object methods](#object-methods)
+- [Arrays of Objects](#arrays-of-objects)
+- [Object built-in methods](#object-built-in-methods)
+- [Loop through an object](#loop-through-an-object)
+
 ---
 
 > In-class exercises can also be found on [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 4**.
@@ -23,37 +28,42 @@ How would we describe the above laptop as a JavaScript object?
 
 ```js
 let laptop = {
-    brand: "Lenovo",
-    screenSize: 13,
-    isTouchscreen: true
+  brand: "Lenovo",
+  screenSize: 13,
+  isTouchscreen: true,
 };
 ```
 
 ### Exercise (1)
+
 Describe your own laptop as a JavaScript object. Try to think of as many properties as you can!
 
 Example:
+
 ```js
 let laptop = {
-    brand: "Lenovo",
-    screenSize: 13,
-    isTouchscreen: true
+  brand: "Lenovo",
+  screenSize: 13,
+  isTouchscreen: true,
 };
 ```
 
 ### Exercise (2)
+
 Think of 5 different real world "things" that you can describe with a JavaScript object
 Assign each of them to a separate variable
 
 Example:
+
 ```js
 let jumper = {
-    color: "blue",
-    isCotton: true
+  color: "blue",
+  isCotton: true,
 };
 ```
 
 ### Exercise (3)
+
 ```js
 /*
 The objects below have some syntax issues - try and fix them all!
@@ -77,18 +87,20 @@ let phone = {
 ```
 
 Useful words to remember when talking about objects:
+
 - **object literal**: anything that has a set of `{...}` around a set of properties is an object literal
 - **property** or **key**: `brand`, `screenSize` and `isTouchScreen` are properties/keys of the object
 - **values**: `"Lenovo"`, `13` and `true` are values of the object's properties
 
-
 ### Exercise (4)
+
 Choose a few nearby colleagues and one mentor, and go through each variable you
 declared above in Part 1, 2 or 3, reading everything that happens out loud.
 
 Make sure each member of your group has read at least one variable!
 
 Make sure you use words like:
+
 - object literal
 - property / key
 - value
@@ -104,11 +116,12 @@ Let's take one of the objects we looked at earlier..
 
 ```js
 let laptop = {
-    brand: "Lenovo",
-    screenSize: 13,
-    isTouchscreen: true
+  brand: "Lenovo",
+  screenSize: 13,
+  isTouchscreen: true,
 };
 ```
+
 > Try to `console.log(laptop)`. The output might depend on your environment!
 
 To find out the value of an object's property, you can use the dot notation..
@@ -120,10 +133,11 @@ console.log(laptop.brand);
 You can also use the bracket notation (although this is rarely used, it's good to know):
 
 ```js
-console.log(laptop['brand']);
+console.log(laptop["brand"]);
 ```
 
 #### Exercise (1)
+
 Console.log the values of each property of "kitten"
 
 ```js
@@ -132,11 +146,12 @@ Console.log the values of each property of "kitten"
 */
 
 let kitten = {
-    ageMonths: 3,
-    isFemale: true,
-    furColour: "brown"
+  ageMonths: 3,
+  isFemale: true,
+  furColour: "brown",
 };
 ```
+
 #### Exercise (2)
 
 ```js
@@ -175,9 +190,9 @@ It's strongly recommended you always use the same **type** when re-assigning an 
 
 ```js
 let laptop = {
-    brand: "Lenovo",
-    screenSize: 13,
-    isTouchscreen: true
+  brand: "Lenovo",
+  screenSize: 13,
+  isTouchscreen: true,
 };
 
 // DON'T DO THIS
@@ -210,8 +225,8 @@ Write code in the space provided so that the expected values output
 */
 
 let dog = {
-    name: 'Billy',
-    wantsToPlay: false
+  name: "Billy",
+  wantsToPlay: false,
 };
 
 // WRITE CODE BELOW THIS LINE
@@ -227,22 +242,25 @@ console.log(dog.wantsToPlay);
 ```
 
 ## More Complex Objects
- Object properties can even be assigned other objects, arrays or variables too. The example below shows an object with keys that have been assigned a variable, an array, and an object.
+
+Object properties can even be assigned other objects, arrays or variables too. The example below shows an object with keys that have been assigned a variable, an array, and an object.
 
 ```js
 let kittenName = "Feathers";
 
 let kitten = {
-    name: kittenName,
-    toyCollection: ['blue ball', 'green ball', 'hoover box'],
-    favoriteLocation: {
-        roomName: 'Living room',
-        napPlace: 'window',
-        idealTemperatureCelsius: 24
-    }
+  name: kittenName,
+  toyCollection: ["blue ball", "green ball", "hoover box"],
+  favoriteLocation: {
+    roomName: "Living room",
+    napPlace: "window",
+    idealTemperatureCelsius: 24,
+  },
 };
 ```
+
 #### Exercise (1)
+
 ```js
 /*
 Given the following house - follow the instructions below.
@@ -251,12 +269,12 @@ Make sure you run the file after and it outputs the correct results.
 */
 
 let house = {
-    address: "1 Kinning Park",
-    previousOwners: ["Claire M.", "John A."],
-    currentOwner: {
-      firstName: "Margaret",
-      lastName: "Conway"
-    }
+  address: "1 Kinning Park",
+  previousOwners: ["Claire M.", "John A."],
+  currentOwner: {
+    firstName: "Margaret",
+    lastName: "Conway",
+  },
 };
 
 /*
@@ -269,17 +287,23 @@ let house = {
 // - change the previous owners of "house" to ["Brian M.", "Fiona S."]
 // - change the last name of the current owner of "house" to "Montgomery"
 
-
 /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-console.log(`Expected result: 51 Berkley Road. Actual result: ${house.address}`);
-console.log(`Expected result: Brian M., Fiona S. Actual result: ${house.previousOwners.toString()}`);
-console.log(`Expected result: Montgomery. Actual result: ${house.currentOwner.lastName}`);
+console.log(
+  `Expected result: 51 Berkley Road. Actual result: ${house.address}`
+);
+console.log(
+  `Expected result: Brian M., Fiona S. Actual result: ${house.previousOwners.toString()}`
+);
+console.log(
+  `Expected result: Montgomery. Actual result: ${house.currentOwner.lastName}`
+);
 ```
 
 #### Exercise (2)
+
 ```js
 /*
 Given the same "house" object again
@@ -288,17 +312,17 @@ Follow the instructions below and then run the file and make sure it outputs the
 */
 
 let house = {
-    address: "1 Kinning Park",
-    previousOwners: ["Claire M.", "John A."],
-    currentOwner: {
-      firstName: "Margaret",
-      lastName: "Conway"
-    }
+  address: "1 Kinning Park",
+  previousOwners: ["Claire M.", "John A."],
+  currentOwner: {
+    firstName: "Margaret",
+    lastName: "Conway",
+  },
 };
 
 let newCurrentOwner = {
-    firstName: "Georgina",
-    lastName: "Hernandez"
+  firstName: "Georgina",
+  lastName: "Hernandez",
 };
 
 /*
@@ -311,12 +335,17 @@ let newCurrentOwner = {
 // - from the list of previous owners, replace only "John A." with "Stephen B."
 // - give the house a new property called 'isForSale' with the value 'false'
 
-
 /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
 */
-console.log(`Did you correctly assign the new owner using the given variable?","Expected result: true. Actual result: " ${(house.currentOwner === newCurrentOwner)}`);
-console.log(`Expected result: Claire M., Stephen B. Actual result: ${house.previousOwners.toString()}`);
+console.log(
+  `Did you correctly assign the new owner using the given variable?","Expected result: true. Actual result: " ${
+    house.currentOwner === newCurrentOwner
+  }`
+);
+console.log(
+  `Expected result: Claire M., Stephen B. Actual result: ${house.previousOwners.toString()}`
+);
 console.log(`Expected result: false. Actual result: ${house.isForSale}`);
 ```
 
@@ -332,23 +361,23 @@ Write the code for the functions as per the description above them
 */
 
 let kinningParkHouse = {
-    address: "1 Kinning Park",
-    price: 180000,
-    currentOwner: {
-      firstName: "Margaret",
-      lastName: "Conway",
-      email: "margaret@fake-emails.com"
-    }
+  address: "1 Kinning Park",
+  price: 180000,
+  currentOwner: {
+    firstName: "Margaret",
+    lastName: "Conway",
+    email: "margaret@fake-emails.com",
+  },
 };
 
 let parkAvenueHouse = {
-    address: "50 Park Avenue",
-    price: 195000,
-    currentOwner: {
-      firstName: "Marie",
-      lastName: "McDonald",
-      email: "marie.m@real-emails.com"
-    }
+  address: "50 Park Avenue",
+  price: 195000,
+  currentOwner: {
+    firstName: "Marie",
+    lastName: "McDonald",
+    email: "marie.m@real-emails.com",
+  },
 };
 
 /*
@@ -358,39 +387,47 @@ let parkAvenueHouse = {
 */
 
 // returns the full name (first name + last name) of the owner of the house
-function getOwnerFullName(house) {
-
-}
+function getOwnerFullName(house) {}
 
 // returns an array of the owners' email addresses of the two houses
-function getEmailAddresses(house1, house2) {
-
-}
+function getEmailAddresses(house1, house2) {}
 
 // returns the address for the cheapest house out of the two
-function getCheapestAddress(house1, house2) {
-
-}
+function getCheapestAddress(house1, house2) {}
 
 /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
 */
-console.log(`Expected result: Margaret Conway. Actual result: ${getOwnerFullName(kinningParkHouse)}`);
-console.log(`Expected result: margaret@fake-emails.com, marie.m@real-emails.com. Actual result: ${getEmailAddresses(kinningParkHouse, parkAvenueHouse)}`);
-console.log(`Expected result: 1 Kinning Park. Actual result: ${getCheapestAddress(parkAvenueHouse, kinningParkHouse)}`);
+console.log(
+  `Expected result: Margaret Conway. Actual result: ${getOwnerFullName(
+    kinningParkHouse
+  )}`
+);
+console.log(
+  `Expected result: margaret@fake-emails.com, marie.m@real-emails.com. Actual result: ${getEmailAddresses(
+    kinningParkHouse,
+    parkAvenueHouse
+  )}`
+);
+console.log(
+  `Expected result: 1 Kinning Park. Actual result: ${getCheapestAddress(
+    parkAvenueHouse,
+    kinningParkHouse
+  )}`
+);
 ```
 
 ## Object Methods
 
-Besides having specific properties, objects in the real world can also do things. For example, a computer can display something on the screen, a person can say their names etc... In Javascript, we do this using 'methods'. A method is a function attached to a particular object. You have already used some predefined methods before, for example *toUpperCase()* on a string or *filter()* on an array.
+Besides having specific properties, objects in the real world can also do things. For example, a computer can display something on the screen, a person can say their names etc... In Javascript, we do this using 'methods'. A method is a function attached to a particular object. You have already used some predefined methods before, for example _toUpperCase()_ on a string or _filter()_ on an array.
 
 ```js
 let athlete = {
-    name: 'Usain Bolt',
-    goldMedals: 25,
-    sayHi: function() {
-        return "Hi everybody!";
-    }
+  name: "Usain Bolt",
+  goldMedals: 25,
+  sayHi: function () {
+    return "Hi everybody!";
+  },
 };
 ```
 
@@ -400,15 +437,15 @@ How do we call this method?
 athlete.sayHi(); // returns "Hi everybody!"
 ```
 
-An object method can also rely on the other properties of the object to do more complex calculation. To reference the current object in the body of the method, we will use the keyword *this*. Let's take an example.
+An object method can also rely on the other properties of the object to do more complex calculation. To reference the current object in the body of the method, we will use the keyword _this_. Let's take an example.
 
 ```js
 let athlete = {
-    name: 'Usain Bolt',
-    goldMedals: 25,
-    sayName: function() {
-        return "My name is " + this.name;
-    }
+  name: "Usain Bolt",
+  goldMedals: 25,
+  sayName: function () {
+    return "My name is " + this.name;
+  },
 };
 
 athlete.sayName(); // returns "My name is Usain Bolt"
@@ -418,11 +455,11 @@ Knowing this, you can have methods which modify existing properties of your obje
 
 ```js
 let athlete = {
-    name: 'Usain Bolt',
-    goldMedals: 25,
-    winNewMedal: function() {
-        this.goldMedals = this.goldMedals + 1;
-    }
+  name: "Usain Bolt",
+  goldMedals: 25,
+  winNewMedal: function () {
+    this.goldMedals = this.goldMedals + 1;
+  },
 };
 
 athlete.winNewMedal();
@@ -433,16 +470,16 @@ As methods are just functions attached to objects, they can also take parameters
 
 ```js
 let athlete = {
-    name: 'Usain Bolt',
-    goldMedals: 25,
-    silverMedals: 7,
-    winNewMedal: function(medal) {
-        if (medal === "gold") {
-            this.goldMedals = this.goldMedals + 1;
-        } else {
-            this.silverMedals = this.silverMedals + 1;
-        }
+  name: "Usain Bolt",
+  goldMedals: 25,
+  silverMedals: 7,
+  winNewMedal: function (medal) {
+    if (medal === "gold") {
+      this.goldMedals = this.goldMedals + 1;
+    } else {
+      this.silverMedals = this.silverMedals + 1;
     }
+  },
 };
 
 athlete.winNewMedal("silver");
@@ -450,8 +487,8 @@ console.log(athlete.goldMedals); // prints "25"
 console.log(athlete.silverMedals); // prints "8"
 ```
 
-
 #### Exercise (1)
+
 ```js
 /*
 
@@ -462,21 +499,24 @@ A person named Alice is defined below.
 */
 
 let person = {
-    name: "Alice",
-    age: 25
+  name: "Alice",
+  age: 25,
 };
-
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-
-console.log(`Expected result: Hello everybody. Actual result: ${person.greet()}`);
-console.log(`Expected result: 'My name is Alice'. Actual result: ${person.sayName()}`);
+console.log(
+  `Expected result: Hello everybody. Actual result: ${person.greet()}`
+);
+console.log(
+  `Expected result: 'My name is Alice'. Actual result: ${person.sayName()}`
+);
 ```
 
 #### Exercise (2)
+
 The following code contains syntax errors - try and fix them!
 Once you fix them, run this file, it should output the correct values!
 
@@ -499,6 +539,7 @@ let person = {
     }
 };
 ```
+
 #### Exercise (3)
 
 ```js
@@ -536,7 +577,6 @@ console.log(`Expected result: 26. Actual result: ${person.age}`);
 #### Exercise (4)
 
 ```js
-
 /*
 Alice has a list of good friends.
 
@@ -544,8 +584,8 @@ Define a method "makeFriend" to add a new friend to her list.
 */
 
 let person = {
-    name: "Alice",
-    friends: ["John", "Nina"]
+  name: "Alice",
+  friends: ["John", "Nina"],
 };
 
 /*
@@ -554,7 +594,9 @@ DO NOT EDIT ANYTHING BELOW THIS LINE
 
 person.makeFriend("Bob");
 
-console.log(`Expected result: 'John,Nina,Bob'. Actual result: ${person.friends}`);
+console.log(
+  `Expected result: 'John,Nina,Bob'. Actual result: ${person.friends}`
+);
 ```
 
 #### Exercise (5)
@@ -571,59 +613,68 @@ only if the inserted amount is greater or equal than the price of the coffee!
 */
 
 let coffeeMachine = {
-    brand: "Super Coffee",
-    prices: {
-        cappuccino: 2.40,
-        blackCoffee: 1.50,
-        flatWhite: 3.00
-    },
-    insertedAmount: 0,
-    insertMoney: function(amount) {
-
-    },
-    getCoffee: function(coffee) {
-
-    }
+  brand: "Super Coffee",
+  prices: {
+    cappuccino: 2.4,
+    blackCoffee: 1.5,
+    flatWhite: 3.0,
+  },
+  insertedAmount: 0,
+  insertMoney: function (amount) {},
+  getCoffee: function (coffee) {},
 };
-
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-coffeeMachine.insertMoney(2.40);
-console.log(`Expected result: 'Please take your cappuccino'. Actual result: ${coffeeMachine.getCoffee('cappuccino')}`);
+coffeeMachine.insertMoney(2.4);
+console.log(
+  `Expected result: 'Please take your cappuccino'. Actual result: ${coffeeMachine.getCoffee(
+    "cappuccino"
+  )}`
+);
 
-coffeeMachine.insertMoney(1.50);
-console.log(`Expected result: 'Please take your blackCoffee'. Actual result: ${coffeeMachine.getCoffee('blackCoffee')}`);
+coffeeMachine.insertMoney(1.5);
+console.log(
+  `Expected result: 'Please take your blackCoffee'. Actual result: ${coffeeMachine.getCoffee(
+    "blackCoffee"
+  )}`
+);
 
-coffeeMachine.insertMoney(4.00);
-console.log(`Expected result: 'Please take your flatWhite'. Actual result: ${coffeeMachine.getCoffee('flatWhite')}`);
+coffeeMachine.insertMoney(4.0);
+console.log(
+  `Expected result: 'Please take your flatWhite'. Actual result: ${coffeeMachine.getCoffee(
+    "flatWhite"
+  )}`
+);
 
-coffeeMachine.insertMoney(2.40);
-console.log(`Expected result: 'Sorry you don't have enough money for a flatWhite'. Actual result: ${coffeeMachine.getCoffee('flatWhite')}`);
-
-
+coffeeMachine.insertMoney(2.4);
+console.log(
+  `Expected result: 'Sorry you don't have enough money for a flatWhite'. Actual result: ${coffeeMachine.getCoffee(
+    "flatWhite"
+  )}`
+);
 ```
 
- ## Arrays of objects
+## Arrays of objects
 
 In the past weeks, you've learned about using arrays of numbers, arrays of string etc... In the following, we will learn how to use arrays of objects.
 
 ```js
 let kitten1 = {
-    name: 'Fluffy',
-    weeksOld: 2
+  name: "Fluffy",
+  weeksOld: 2,
 };
 
 let kitten2 = {
-    name: 'Megatron',
-    weeksOld: 1
+  name: "Megatron",
+  weeksOld: 1,
 };
 
 let kitten3 = {
-    name: 'Billy',
-    weeksOld: 5
+  name: "Billy",
+  weeksOld: 5,
 };
 
 let kittens = [kitten1, kitten2, kitten3];
@@ -633,20 +684,20 @@ You can also use all the functions for arrays that you learned before: find, som
 
 ```js
 function isYoungerThan3Weeks(kitten) {
-    return kitten.weeksOld <= 3;
+  return kitten.weeksOld <= 3;
 }
 
-kittens.filter(isYoungerThan3Weeks);    // returns [kitten1, kitten2];
+kittens.filter(isYoungerThan3Weeks); // returns [kitten1, kitten2];
 ```
 
 What if we want to get an array of all the kitties names?
 
 ```js
 function getName(kitten) {
-    return kitten.name;
+  return kitten.name;
 }
 
-kittens.map(getName);   // returns ["Fluffy", "Megatron", "Billy"]
+kittens.map(getName); // returns ["Fluffy", "Megatron", "Billy"]
 ```
 
 ### Exercise (1)
@@ -783,36 +834,36 @@ and returns the number of restaurants in this area.
 */
 
 let restaurant1 = {
-    name: "Paesano",
-    totalSeats: 10,
-    numberOfCustomers: 8,
-    address: {
-        city: "Glasgow",
-        area: "center"
-    },
-    menu: ["pizza", "calzone", "salad"]
+  name: "Paesano",
+  totalSeats: 10,
+  numberOfCustomers: 8,
+  address: {
+    city: "Glasgow",
+    area: "center",
+  },
+  menu: ["pizza", "calzone", "salad"],
 };
 
 let restaurant2 = {
-    name: "Ubiquitous Chip",
-    totalSeats: 20,
-    numberOfCustomers: 10,
-    address: {
-        city: "Glasgow",
-        area: "west"
-    },
-    menu: ["salad", "chocolate cake", "roast lamb"]
+  name: "Ubiquitous Chip",
+  totalSeats: 20,
+  numberOfCustomers: 10,
+  address: {
+    city: "Glasgow",
+    area: "west",
+  },
+  menu: ["salad", "chocolate cake", "roast lamb"],
 };
 
 let restaurant3 = {
-    name: "Monkeyz",
-    totalSeats: 15,
-    numberOfCustomers: 8,
-    address: {
-        city: "Glasgow",
-        area: "center"
-    },
-    menu: ["stew", "chocolate cake", "panini"]
+  name: "Monkeyz",
+  totalSeats: 15,
+  numberOfCustomers: 8,
+  address: {
+    city: "Glasgow",
+    area: "center",
+  },
+  menu: ["stew", "chocolate cake", "panini"],
 };
 
 let restaurants = [restaurant1, restaurant2, restaurant3];
@@ -822,37 +873,47 @@ DO NOT EDIT ANYTHING ABOVE THIS LINE
 WRITE YOUR CODE BELOW
 */
 
-
 let restaurantFinderApplication = {
-    applicationName: "Restaurant Finder",
-    applicationVersion: "1.0",
-    restaurants: restaurants,
-    findAvailableRestaurants: function(numberOfPeople) {
-        // Complete here
-    },
-    findRestaurantServingDish: function(dishName) {
-        // Complete here
-    },
-    countNumberOfRestaurantsInArea: function(area) {
-        // Complete here
-    }
+  applicationName: "Restaurant Finder",
+  applicationVersion: "1.0",
+  restaurants: restaurants,
+  findAvailableRestaurants: function (numberOfPeople) {
+    // Complete here
+  },
+  findRestaurantServingDish: function (dishName) {
+    // Complete here
+  },
+  countNumberOfRestaurantsInArea: function (area) {
+    // Complete here
+  },
 };
-
 
 /*
 DO NOT EDIT ANYTHING BELOW THIS LINE
 */
 
-let restaurantsAvailableFor5People = restaurantFinderApplication.findAvailableRestaurants(5);
-console.log(`Find available restaurants for 5 people: Expected result: Ubiquitous Chip,Monkeyz, actual result: ${restaurantsAvailableFor5People}`);
+let restaurantsAvailableFor5People = restaurantFinderApplication.findAvailableRestaurants(
+  5
+);
+console.log(
+  `Find available restaurants for 5 people: Expected result: Ubiquitous Chip,Monkeyz, actual result: ${restaurantsAvailableFor5People}`
+);
 
-let restaurantsServingSalad = restaurantFinderApplication.findRestaurantServingDish("salad");
-console.log(`Find restaurants serving salad: Expected result: Paesano,Ubiquitous Chip, actual result: ${restaurantsServingSalad}`);
+let restaurantsServingSalad = restaurantFinderApplication.findRestaurantServingDish(
+  "salad"
+);
+console.log(
+  `Find restaurants serving salad: Expected result: Paesano,Ubiquitous Chip, actual result: ${restaurantsServingSalad}`
+);
 
-let numberOfRestaurantsInCityCentre = restaurantFinderApplication.countNumberOfRestaurantsInArea("center");
-console.log(`Number of restaurants in city centre: Expected result: 2, actual result: ${numberOfRestaurantsInCityCentre}`);
-
+let numberOfRestaurantsInCityCentre = restaurantFinderApplication.countNumberOfRestaurantsInArea(
+  "center"
+);
+console.log(
+  `Number of restaurants in city centre: Expected result: 2, actual result: ${numberOfRestaurantsInCityCentre}`
+);
 ```
+
 ## Object built-in methods
 
 Since we started JavaScript, we have used `console.log` to print things to our console.
@@ -864,15 +925,16 @@ These are what we call built-in methods, and they're part of the JavaScript lang
 Like arrays, objects have built-in methods that can help us. In this lesson, we will learn about `Object.keys()` and `Object.values()`.
 
 ### Object.keys()
+
 This method goes into our object, and returns the object property names as an array.
 
 Here is an example output for using `.keys()`:
 
 ```js
 let footballClubs = {
-  chelsea_fc: 'England',
-  fc_barcelona: 'Spain',
-  ac_milan: 'Italy'
+  chelsea_fc: "England",
+  fc_barcelona: "Spain",
+  ac_milan: "Italy",
 };
 
 console.log(Object.keys(footballClubs));
@@ -880,20 +942,22 @@ console.log(Object.keys(footballClubs));
 ```
 
 ### Object.values()
+
 This method goes into our object, and returns the values of every property as an array.
 
 Here is an example output for using `.values()`:
 
 ```js
 let footballClubs = {
-  chelsea_fc: 'England',
-  fc_barcelona: 'Spain',
-  ac_milan: 'Italy'
+  chelsea_fc: "England",
+  fc_barcelona: "Spain",
+  ac_milan: "Italy",
 };
 
 console.log(Object.values(footballClubs));
 // prints [ 'England', 'Spain', 'Italy' ]
 ```
+
 ### Exercise (1)
 
 ```js
@@ -985,41 +1049,39 @@ Use the provided console.log statements below and follow the instructions above 
 */
 
 let storeBranches = {
-
   glasgow: {
-    manager: 'Andrew',
-    assistant: 'Laura',
+    manager: "Andrew",
+    assistant: "Laura",
     interns: {
-      head_intern: 'Mozafar',
-      intern: 'James'
-    }
+      head_intern: "Mozafar",
+      intern: "James",
+    },
   },
 
   edinburgh: {
-    director: 'Kelly',
-    manager: 'Sally',
-    assistant: 'Derek',
+    director: "Kelly",
+    manager: "Sally",
+    assistant: "Derek",
     interns: {
-      head_intern: 'John',
-      intern: 'Sarah'
-    }
-  }
-}
-
+      head_intern: "John",
+      intern: "Sarah",
+    },
+  },
+};
 
 // ONLY EDIT BELOW THIS LINE
 
 // # 1
 // prints [ 'glasgow', 'edinburgh' ]
-console.log()
+console.log();
 
 // # 2
 // prints [ 'manager', 'assistant', 'interns' ]
-console.log()
+console.log();
 
 // # 3
 // prints [ 'head_intern', 'intern' ]
-console.log()
+console.log();
 
 // ONLY EDIT ABOVE THIS LINE
 ```
@@ -1033,13 +1095,13 @@ Once in a while it will be required to loop through objects. You can achieve thi
 The `for...in` statement iterates over all distinct properties of an object.
 
 Example:
-```js 
 
+```js
 const flowers = {
-    tulip: 20, 
-    rose: 10,
-    lily: 15,
-}
+  tulip: 20,
+  rose: 10,
+  lily: 15,
+};
 
 for (const key in flowers) {
   console.log(`${key}: ${flowers[key]}`);
@@ -1049,7 +1111,6 @@ for (const key in flowers) {
 // tulip: 20
 // rose: 10
 // lily: 15
-
 ```
 
 ### Convert object into an array and loop through the array
@@ -1062,15 +1123,17 @@ Example:
 
 ```js
 const flowers = {
-    tulip: 20,
-    rose: 10,
-    lily: 15,
-}
+  tulip: 20,
+  rose: 10,
+  lily: 15,
+};
 
 // Looping through the array created from Object.keys
 const flowerKeys = Object.keys(flowers);
 
-flowerKeys.forEach(key=>{console.log(`${key}: ${flowers[key]}`)});
+flowerKeys.forEach((key) => {
+  console.log(`${key}: ${flowers[key]}`);
+});
 
 // Prints
 // tulip: 20
@@ -1081,21 +1144,19 @@ flowerKeys.forEach(key=>{console.log(`${key}: ${flowers[key]}`)});
 #### Exercise (1)
 
 ```js
-
 // You are given an object of student names and grades
 // Loop through all the students' grades and console log the name and grade of the ones with grade more than 18
 // Try to use both methods shown above to achieve this
 
 const studentGrades = {
-    tom: 20,
-    george: 17,
-    abdul: 19
-}
+  tom: 20,
+  george: 17,
+  abdul: 19,
+};
 
 // Prints
 // TOM - 20
-// ABDUL - 19 
-
+// ABDUL - 19
 ```
 
 {% include "./homework.md" %}

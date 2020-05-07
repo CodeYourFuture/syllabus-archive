@@ -2,21 +2,24 @@
 
 # JavaScript Core II - 2
 
-**What we will learn today?**
+## Teaching this lesson?
 
-- [JavaScript Core II - 2](#javascript-core-ii---2)
-  - [JS in the Browser](#js-in-the-browser)
-    - [The DOM](#the-dom)
-    - [Access DOM elements](#access-dom-elements)
-      - [Preparation for exercises](#preparation-for-exercises)
-      - [Exercise (1)](#exercise-1)
-    - [Attach events to DOM elements](#attach-events-to-dom-elements)
-      - [Exercise (2)](#exercise-2)
-      - [Exercise (3)](#exercise-3)
-    - [Create DOM elements](#create-dom-elements)
-      - [Exercise (4)](#exercise-4)
-    - [Manipulate DOM elements](#manipulate-dom-elements)
-      - [Exercise (5)](#exercise-5)
+Read the Mentors Notes [here](./mentors.md)
+
+## Contents
+
+- [JS in the Browser](#js-in-the-browser)
+  - [The DOM](#the-dom)
+  - [Access DOM elements](#access-dom-elements)
+    - [Preparation for exercises](#preparation-for-exercises)
+    - [Exercise (1)](#exercise-1)
+  - [Attach events to DOM elements](#attach-events-to-dom-elements)
+    - [Exercise (2)](#exercise-2)
+    - [Exercise (3)](#exercise-3)
+  - [Create DOM elements](#create-dom-elements)
+    - [Exercise (4)](#exercise-4)
+  - [Manipulate DOM elements](#manipulate-dom-elements)
+    - [Exercise (5)](#exercise-5)
 
 ---
 

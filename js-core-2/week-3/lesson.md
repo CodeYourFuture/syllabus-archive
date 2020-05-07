@@ -1,18 +1,21 @@
 # JavaScript Core II - 3
 
-**What we will learn today?**
+## Teaching this lesson?
 
-- [JavaScript Core II - 3](#javascript-core-ii---3)
-  - [Synchronous and Asynchronous programming](#synchronous-and-asynchronous-programming)
-    - [A real life example](#a-real-life-example)
-    - [A Javascript example](#a-javascript-example)
-    - [The Callstack](#the-callstack)
-    - [Callbacks](#callbacks)
-      - [Exercise (1)](#exercise-1)
-  - [How does the web work?](#how-does-the-web-work)
-    - [Client/Server architecture](#clientserver-architecture)
-    - [HTTP Requests](#http-requests)
-      - [Exercise (2)](#exercise-2)
+Read the Mentors Notes [here](./mentors.md)
+
+## Contents
+
+- [Synchronous and Asynchronous programming](#synchronous-and-asynchronous-programming)
+  - [A real life example](#a-real-life-example)
+  - [A Javascript example](#a-javascript-example)
+  - [The Callstack](#the-callstack)
+  - [Callbacks](#callbacks)
+    - [Exercise (1)](#exercise-1)
+- [How does the web work?](#how-does-the-web-work)
+  - [Client/Server architecture](#clientserver-architecture)
+  - [HTTP Requests](#http-requests)
+    - [Exercise (2)](#exercise-2)
 
 ---
 

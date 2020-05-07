@@ -2,11 +2,11 @@
 
 # JavaScript Core I - 2
 
-**Teaching this lesson?**
+## Teaching this lesson?
 
-Read the [Mentor Notes here](./mentors.md)
+Read the Mentors Notes [here](./mentors.md)
 
-**Contents**
+## Contents
 
 - [Expressions](#expressions)
 - [Booleans](#booleans)
@@ -17,7 +17,7 @@ Read the [Mentor Notes here](./mentors.md)
 - [Arrays](#arrays)
 - [Extra exercises](#extra-exercises)
 
-**Learning Objectives**
+## Learning Objectives
 
 By the end of this class, you should be able to answer these questions:
 

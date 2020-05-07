@@ -2,11 +2,11 @@
 
 # JavaScript Core I - 3
 
-**Teaching this lesson?**
+## Teaching this lesson?
 
-Read the [Mentor Notes here](./mentors.md)
+Read the Mentors Notes [here](./mentors.md)
 
-**Contents**
+## Contents
 
 - [Array properties](#array-properties)
 - [Manipulating arrays](#manipulating-arrays)
@@ -16,7 +16,7 @@ Read the [Mentor Notes here](./mentors.md)
 - [Array filter](#array-find)
 - [Array find](#array-find)
 
-**Learning Objectives**
+## Learning Objectives
 
 By the end of this class, you should be able to answer these questions:
 

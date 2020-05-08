@@ -139,51 +139,8 @@ As you can see, this is much easier to read than both the straight `React.create
 
 ## Let's Create A React App
 
-The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://create-react-app.dev/). It sets up files like we saw in the previous example, so that you don't have to.
-
-> **Exercise C**: Install & set up a Create React App by following the steps below
-
-```
-npx create-react-app pokedex
-cd pokedex
-```
-
-Open the `pokedex` directory in your editor. Notice that create-react-app has created a bunch of folders for you. We will be working with the `pokedex` application for the rest of the module.
-
-### Starting the app
-
-We have now installed a React application starter kit using a tool called Create-React-App. The official documentation is available [here](https://create-react-app.dev/docs/getting-started).
-
-To start running your application, open your terminal and run:
-
-```
-npm start
-```
-
-This does two things:
-
-1. Run a program on your computer that *watches* your files and updates your application when you make changes. It also runs some checks for common bugs or problems in your code. An error message will be shown in your browser if it detects that there is a problem
-2. Opens a web browser with a link to your React app so that you can develop and test the changes you made
-
-### Stopping the app
-
-You might notice that once you have run `npm start` your terminal will look different. This is because it is running the *watcher* program. If you have a slower computer we recommend that you *stop* the program when you are not using your React app.
-
-To stop the program, open your terminal and press `Ctrl-C` (it's the same on Windows, Mac & Linux). Unfortunately, closing your terminal will **not** stop the program from running.
-
-Once you have stopped running the program, your React app **will stop working**. To start it again, open your terminal and run `npm start`.
-
-### Installing stop-runaway-react-effects
-
-We need to install another package that will help us later in the module.
-
-| **Exercise** |
-| :--- |
-| 1. Stop the React app from running, by following the instructions above. |
-| 2. In your terminal, run: `npm install stop-runaway-react-effects` |
-| 3. Once this has this finished, open the `src/index.js` file in your editor. Don't worry about understanding the code in this file, we'll learn about it later. |
-| 4. Add an extra line **at the top of the file** with this code: `import 'stop-runaway-react-effects/hijack';`. If it is not on **line 1** of the file, it will **not** work. |
-| 5. Run `npm start` again to start the React app again. |
+> **Exercise**
+> If you have not already, follow [the instructions to create a React app](https://docs.codeyourfuture.io/students/guides/creating-a-react-app).
 
 ## React Components
 

@@ -19,11 +19,14 @@
 - JSX section
   - Open the Babel REPL (https://babeljs.io/repl/) - demonstrate that there isn't any magic in JSX
   - Just React.createElement calls with syntax sugar
-- CRA exercise
-  - This can take time as everyone is downloading from npm at the same time
-    - Consider asking students to install ahead of the class
-  - CRA can consume a lot of resources (especially on older laptops) so emphasise stopping/starting
-    - This is the first time that students will have encountered a daemon, so may need some explanation
+- Installing Create-React-App
+  - This should be set as homework ahead of the lesson
+    - Saves time waiting for everyone to install
+    - Also saves CPU cycles on slower computers, which may affect video calls
+  - CRA can consume a lot of resources (especially on older laptops) so emphasize stopping/starting
+  - This is the first time that students will have encountered a file watcher/daemon background process
+    - So take some time to demonstrate how to start and stop the app
+    - Recommend that students with slower computers stop the app when they are not using it
 - Installing `stop-runaway-react-effects`
   - A package to prevent accidental infinite `useEffect` loops
   - It **must** be imported before the `react` import so that `useEffect` can be monkey-patched

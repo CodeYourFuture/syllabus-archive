@@ -226,7 +226,7 @@ Phew! That was a lot of work just to render an image! But we're not quite done y
     }
   ```
 
-| **Exercise** |
+| **Exercise B** |
 | :--- |
 | 1. Did you spot where the bug was? Discuss with a group of 2 - 3 students where you think the bug is. |
 | 2. Report back to the rest of the class where you think the bug happened. |
@@ -278,9 +278,9 @@ If you see a red squiggly line underneath your `useEffect` dependencies array, y
 
 | **Exercise A** |
 | :--- |
-| Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js). |
-| Click the "Fetch image for 2019" button and wait for the image to load. |
-| Now click the "Fetch image for 2020" button. Do you think this is a good user experience? Explain what you think is wrong to a Teaching Assistant. |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js). |
+| 2. Click the "Fetch image for 2019" button and wait for the image to load. |
+| 3. Now click the "Fetch image for 2020" button. Do you think this is a good experience for the user? Explain what you think is wrong to a Teaching Assistant. |
 
 In the application above, the image from 2020 takes a while to load. This makes it feel like the app is broken: the user might think that they didn't actually click the 2020 button or that it is not working correctly. We are not telling the user that *something* is happening, it's just taking a bit of time to load.
 

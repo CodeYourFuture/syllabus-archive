@@ -2,10 +2,6 @@
 
 ### Data fetching (advanced)
 
-- Can explain what the effect of unmounting a component
-- Cleaning up effects
-  - Recognise when an effect could cause a memory leak
-  - Be able to prevent an effect causing a memory leak using the unsubscribe function of `useEffect()`
 - Allow effects to update in response to prop changes
   - Explain why a component with an effect dependent on props is broken with empty `useEffect()` dependencies (`[]`)
   - Be able to fix a component with an effect dependent on props using the `useEffect()` dependencies

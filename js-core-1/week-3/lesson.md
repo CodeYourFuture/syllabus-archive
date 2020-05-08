@@ -152,7 +152,7 @@ undefined
 
 Did you notice how calling the concat method did not change `arr`? This is because `concat`, like most array methods, returns a _new_ array, it does not alter the one you called the method on.
 
-If you wan to use the array returned by calling `.concat()` you should store it in a new variable.
+If you want to use the array returned by calling `.concat()` you should store it in a new variable.
 
 ```js
 let arr = [1, 2, 3];
@@ -212,7 +212,7 @@ There is a string method `.split()`. In an interactive console try using the str
 - Combine it with another array filled with the names from another table
 - `console.log` the names in alphabetical order
 - Create a new value with the 2nd, 3rd and 4th people in it
-- Create a function that takes a `name` and an array of names and returns a string. If the name is not in an array, it should retuern `<name> is not sitting at the table with <people in the array>`. If the name is in the array, it should return `<name> is sitting at the table with <people in the array>`.
+- Create a function that takes a `name` and an array of names and returns a string. If the name is not in an array, it should return `<name> is not sitting at the table with <people in the array>`. If the name is in the array, it should return `<name> is sitting at the table with <people in the array>`.
 
 ## Array map
 
@@ -222,7 +222,7 @@ Imagine you have an array of names...
 let mentors = ["Daniel ", "irina ", " Gordon", "ashleigh "];
 ```
 
-You notice that he names are not formatted consistently. To fix the array you decide you need to trim whitespace and convert to lowercase. How do you do that for every value in the array?
+You notice that the names are not formatted consistently. To fix the array you decide you need to trim whitespace and convert to lowercase. How do you do that for every value in the array?
 
 We can write a function that changes one name:
 
@@ -322,6 +322,11 @@ function abracaFunction(yourFunc) {
 This function does not need to be modified. Can you pass in a _callback function_ which will mutate `abracaArray` such that it:
 
 - Upper cases all letters in the array
+
+### Exercise - extra credit
+
+Modify your callback function from the previous exercise so that it also:
+
 - Sorts `abracaArray` in alphabetical order
 
 ### Exercise (10 minutes)

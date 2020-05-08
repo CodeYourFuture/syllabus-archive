@@ -266,7 +266,9 @@ To help you understand this better, try "playing computer" again, but this time 
 
 ### ESLint rules for React Hooks
 
-As you may have noticed, VSCode highlighted the empty dependencies array when you changed the URL passed to `fetch` in `BestPokemonFetcher`. This is because your React application is using the rules from [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), a package created by the developers who make React. It helps you to find bugs in React Hooks code by highlighting places where you might be missing dependencies.
+As you may have noticed, VSCode highlighted the empty dependencies array when you changed the URL passed to `fetch` in `BestPokemonFetcher`.
+
+This is because your React application is using the rules from [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), a package created by the developers who make React. It helps you to find bugs in React Hooks code by highlighting places where you might be missing dependencies.
 
 If you see a red squiggly line underneath your `useEffect` dependencies array, you can hover your mouse over and it will tell you which variable is missing so you can add it to the dependencies array. Here's an example:
 

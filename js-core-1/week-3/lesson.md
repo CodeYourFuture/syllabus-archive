@@ -329,12 +329,6 @@ Modify your callback function from the previous exercise so that it also:
 
 - Sorts `abracaArray` in alphabetical order
 
-### Exercise (10 minutes)
-
-- Create a function that takes a `birthYear`, and returns the age of someone
-- With an array of ages, create another array filled with their birth years `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`
-- `console.log` the birth years array
-
 ## Array forEach
 
 The `.forEach()` method is similar to `.map()` except it does not return a new array. Therefore `.forEach()` is only useful if you want to perform _side effects_.
@@ -382,6 +376,12 @@ names.map(formatName).forEach(function (name, index) {
   console.log(index + ": " + name);
 });
 ```
+
+### Exercise (10 minutes)
+
+- Create a function that takes a `birthYear`, and returns the age of someone
+- With an array of ages, create another array filled with their birth years `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`
+- `console.log` the birth years array
 
 ### Exercise (5 minutes)
 

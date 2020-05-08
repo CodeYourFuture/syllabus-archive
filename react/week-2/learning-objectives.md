@@ -13,9 +13,9 @@ Create a simple counter component, demonstrating knowledge of React state.
 
 - Be able to use state variables
   - Initialise with a value with `useState(initialValue)`
-  - Destructure state variable into `[state, setState]`
+  - Destructure state variable into `[stateValue, setStateValue]`
   - Render state variables to the view
-  - Update with a new value with `setState(newValue)`
+  - Update with a new value with `setStateValue(newValue)`
 - Identify when to use props or state
 
 ### Data fetching

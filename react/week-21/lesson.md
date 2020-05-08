@@ -1,6 +1,6 @@
 # React 3
 
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
 
 **What will we learn today?**
 
@@ -8,23 +8,26 @@
 - [Unmounting](#unmounting)
 - [The Circle of Life](#the-circle-of-life)
 - [Fetching Data in React](#fetching-data-in-react)
-- [Default Props](#default-props)
-- [Refs](#refs)
+- [Working with forms in React](#working-with-forms-in-react)
 
 ## Recap
 
-Last week we looked at using props and state to create React components that change with user input ([interactive example](https://stackblitz.com/edit/react-pezgpe)):
+Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/7j21mrq08x)):
 
 ```js
 class Counter extends Component {
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
+    super(props);
+    this.state = { count: 0 };
   }
 
   increment = () => {
-    this.setState({ count: ++this.state.count })
-  }
+    this.setState((previousState) => {
+      return {
+        count: previousState.count + 1
+      };
+    });
+  };
 
   render() {
     return (
@@ -32,83 +35,78 @@ class Counter extends Component {
         Count: {this.state.count}
         <button onClick={this.increment}>Click me!</button>
       </div>
-    )
+    );
   }
 }
 ```
 
 ## Unmounting
 
-So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://stackblitz.com/edit/react-ldakkv)):
+So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://codesandbox.io/s/xmo8oo514)):
 
 ```js
-const IsShown = () => (
-  <p>I'm shown when true ✅</p>
-)
-const IsNotShwon = () => (
-  <p>I'm shown when false ☑️</p>
-)
+const Message = () => (
+  <p>I'm shown when this.state.isShown is true ✅</p>
+);
 
 class Toggle extends Component {
   constructor(props) {
-    super(props)
-    this.state = { isShown: false }
+    super(props);
+    this.state = { isShown: false };
   }
 
   toggle = () => {
-    this.setState({ isShown: !this.state.isShown })
-  }
+    this.setState((previousState) => { 
+    	return { isShown: !previousState.isShown } 
+	 });
+  };
 
   render() {
     return (
       <div>
-        {this.state.isShown ? <IsShown /> : <IsNotShown />}
+        {this.state.isShown ? <Message /> : null}
         <button onClick={this.toggle}>Toggle</button>
       </div>
-    )
+    );
   }
 }
 ```
 
-If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is important in larger applications as it can free up resources (CPU & memory) that aren't being used any more.
+If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is because `this.state.isShown` is `false` which means the Toggle component returns `null` for that part of the JSX. If you return `null` in JSX then React will render nothing at all.
 
 ## The Circle of Life
 
 When a component is within the DOM, we call it *mounted*. When a component is removed from the DOM, we call it *unmounted*. When we change state like in the unmounting example above, we can switch between these statuses. This gives us a clue that components go through a *lifecycle* of different statuses. We have seen 2 of the statuses: mounting and unmounting, there is also a third called *updating*.
 
-We can hook into this lifecycle through special component methods that are added by React's `Component` class. They are run at different points of the lifecycle, often before and after they change to a different status. The method names are contain `will` or `did` based on whether they run before or after a status change.
+We can hook into this lifecycle through special component methods that are added by React's `Component` class. They are run at different points of the lifecycle, often before and after they change to a different status. The method names contain `will` or `did` based on whether they run before or after a status change.
 
 This diagram shows the React component lifecycle:
 
-![React component lifecycle](../assets/lifecycle.jpg)
+![React component lifecycle](../assets/lifecycle.png)
 
-Let's look at how we can use one of the lifecycle methods ([interactive example](https://stackblitz.com/edit/react-sf6spn)):
+Let's look at how we can use one of the lifecycle methods ([interactive example](https://codesandbox.io/s/m5z2v36x1y)):
 
 ```js
 class Lifecycle extends Component {
   componentDidMount() {
-    console.log('componentDidMount')
+    console.log('componentDidMount');
   }
 
   render() {
-    return <div>Hello World</div>
+    return <div>Hello World</div>;
   }
 }
 ```
 
-> **Exercise:**
-> Open the `my-hotel` application from the last 2 weeks
-> 1. Implement the lifecycle hook methods in the `BookingsMessage` component and add a `console.log` to each of them. Try interacting with the component and see what order the logs appear
-> 2. The `componentWillUnmount` method will never be called. Can you explain why?
-> 3. Return `false` from `shouldComponentUpdate` in `BookingsMessage`. Try incrementing the number of bookings and explain what happens (change it back to return `true` after you are done!)
+> **Exercise A**
+> Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file
+> 1. Add a `constructor` method to the `CaughtPokemon` component. Within this method add a `console.log('constructor')`
+> 2. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
+> 3. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
+> 4. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
+> 5. The `componentWillUnmount` method will never be called. Can you explain why?
 
 We'll now focus on a few of the lifecycle hooks and see how they are used.
-
-### `shouldComponentUpdate`
-
-This method runs when a component's props have changed, which would normally trigger a re-render. I say normally because this lifecycle hook lets us control whether the component should update (or re-render). If you want the component to render, then the method should return `true`. If not, then it should return `false`.
-
-Why would we want to prevent a component from re-rendering? In some circumstances, it can be used to improve performance. If you have a component that is re-rendering *a lot* and it doesn't really need to, then returning false from `shouldComponentUpdate` is a good way to improve performance.
 
 ### `componentDidMount` and `componentWillUnmount`
 
@@ -118,120 +116,148 @@ The `componentWillUnmount` method runs when a component has been unmounted from 
 
 To look at these in more detail, we'll create a Clock component in an exercise.
 
-> **Exercise:**
-> Open the `my-hotel` React application from last week
-> 1. Create a new `Clock` component and copy/paste in the code below ([interactive version](https://stackblitz.com/edit/react-7zvt98)):
+> **Exercise B**
+> Open the `pokedex` React application again
+> 1. Create a new file called `Clock.js` in the `src` directory
+> 2. Copy and paste in the code below ([interactive version](https://codesandbox.io/s/p9q2wq069j)):
 
 ```js
+import React, { Component } from 'react';
+
 class Time extends Component {
   constructor(props) {
-    super(props)
-    this.state = { date: new Date() }
+    super(props);
+    this.state = { date: new Date() };
   }
+  
+  tick = () => {
+    console.log('tick');
+    this.setState({
+      date: new Date()
+    });
+  };
+  
   render() {
     return (
       <div>{this.state.date.toLocaleTimeString()}</div>
-    )
+    );
   }
 }
+
 class Clock extends Component {
   constructor(props) {
-    super(props)
-    this.state = { isShowingClock: true }
+    super(props);
+    this.state = { isShowingClock: true };
   }
-  toggle = () => this.setState({ isShowingClock: !this.state.isShowingClock })
+  
+  toggle = () => {
+    this.setState((previousState) => {
+      return { isShowingClock: !previousState.isShowingClock };
+    });
+  };
+  
   render() {
     return (
       <div>
         {this.state.isShowingClock && <Time />}
         <button onClick={this.toggle}>Toggle time</button>
       </div>
-    )
+    );
   }
 }
+
+export default Clock;
 ```
 
-> 2. Render the `Clock` component in the `App` component
-> 4. Add a `componentDidMount` method to the `Time` component and use `setInterval` to call `this.tick` every second (1000 milliseconds)
-> 5. Implement the `tick` method, and set the `date` state to the current date (hint: `new Date()`)
-> 6. Add a `console.log` to the `tick` method. Try clicking the "Toggle time" button and look at what happens in the console. What do you think the problem is here? How can we fix it?
-> 7. Assign the return value of `setInterval` to `this.timer`
-> 8. In `componentWillUnmount`, remove the timer by calling `clearInterval(this.timer)`
-> 9. Try playing around with the toggle, like in step 6. How have we solved the problem?
+> 3. In `App.js` import the `Clock` component with `import Clock from './Clock'`
+> 4. Then render the `Clock` component in the `App` component (hint: `<Clock />`)
+> 5. Now change the `Time` component (notice that there are 2 components defined in this file) add a `componentDidMount` method
+> 6. Within the `componentDidMount` method use `setInterval` to call `this.tick` every 1000 milliseconds (hint: `setInterval(this.tick, 1000)`)
+> 7. Now open the JavaScript console your web browser. What is happening? Can you explain why?
+> 8. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it?
+> 9. Change the `componentDidMount` method to assign `this.timer` to the output of `setInterval` (hint: `this.timer = setInterval(this.tick, 1000)`)
+> 10. Add a `componentWillUnmount` method to the `Time` component
+> 11. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)`
+> 12. Try clicking the "Toggle time" button again, like in step 9. How have we solved the problem?
 
 ## Fetching Data in React
 
 Most web applications will load data from the server. How do we do this in React? The component lifecycle is very important - we don't want to be calling our API at the wrong time, or multiple times with the same data!
 
-If we tried to fetch data in our `render` method, it would make a request every time props or state changed. This would create lots of unnecessary requests. As we saw above, `componentDidMount` is called only once when the component is first rendered and so it is an ideal place for making requests. Let's look at an example:
+If we tried to fetch data in our `render` method, it would make a request every time props or state changed. This would create lots of unnecessary requests. As we saw above, `componentDidMount` is called only once when the component is first rendered and so it is an ideal place for making requests. Let's look at an example ([interactive example](https://codesandbox.io/s/4rkovwq0kw)):
 
 ```js
-class PokemonFetcher extends Component {
+class MartianPhotoFetcher extends Component {
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.id}`)
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`);
   }
+
   render() {
-    // const name = ???
-    return <div>Pokemon name: {name}</div>
+    // We don't don't what the img src is when we render :(
+    return <img src={src} />;
   }
 }
 ```
 
-This example isn't very useful! We can't use the data returned from the server in `render` because the request is asynchronous :( We need React to re-render once the request is resolved - a perfect use for state! Let's look at an example ([interactive example](https://stackblitz.com/edit/react-e6rvtz))
+This example isn't very useful! We can't use the data returned from the server in `render` because the request is asynchronous :( We need React to re-render once the request is resolved - a perfect use for state! Let's look at an example ([interactive example](https://codesandbox.io/s/5kk53yx6ll))
 
 ```js
-class PokemonFetcher extends Component {
+class MartianPhotoFetcher extends Component {
   constructor(props) {
-    super(props)
-    this.state = { name: null }
+    super(props);
+    this.state = {
+      imgSrc: null
+    };
   }
-
+  
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ name: data.name })
-      })
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          imgSrc: data.photos[0].img_src
+        })
+      });
   }
-
+  
   render() {
-    return <div>Pokemon name: {this.state.name}</div>
+    return <img src={this.state.imgSrc} />;
   }
 }
 ```
 
-Now we can see the name of the Pokemon that we fetched from the server!
+Now we can see the Martian photo that we fetched from the server!
 
-However we have a bit of a problem - when we first render the component, we don't have the Pokemon's name yet. We first have to initialise it to `null` in the constructor. This shows us that we're missing something from our UI - a *loading status*.
+However we have a bit of a problem - when we first render the component, we don't have the photo `src` yet. We first have to initialise it to `null` in the constructor. This shows us that we're missing something from our UI - a *loading status*.
 
-Let's look at showing a different UI when the request is loading ([interactive example](https://stackblitz.com/edit/react-j86faz)):
+Let's look at showing a different UI when the request is loading ([interactive example](https://codesandbox.io/s/93zr0xz32r)):
 
 ```js
-class PokemonFetcher extends Component {
+class MartianPhotoFetcher extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isLoading: true,
-      name: null
-    }
+      imgSrc: null
+    };
   }
-
+  
   componentDidMount() {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${this.props.id}`)
-      .then((res) => res.json())
-      .then((data) => {
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`)
+      .then(res => res.json())
+      .then(data => {
         this.setState({
           isLoading: false,
-          name: data.name
+          imgSrc: data.photos[0].img_src
         })
-      })
+      });
   }
-
+  
   render() {
     if (this.state.isLoading) {
-      return <div>Loading... 🤔</div>
+      return <span>Loading... 👽</span>;
     } else {
-      return <div>Pokemon name: {this.state.name}</div>
+      return <img src={this.state.imgSrc} />;
     }
   }
 }
@@ -243,18 +269,18 @@ Here are the steps that the component takes:
 - In `render`, show a loading message because `isLoading` is true
 - Once rendered, `componentDidMount` will trigger the API request
 - When the request resolves, we set the `isLoading` state to false and set the data that we want
-- Changing state triggers a re-render, and because `isLoading` is false we render out the Pokemon's name
+- Changing state triggers a re-render, and because `isLoading` is false we render the Martian photo
 
-We can still improve our component! What happens if we make a request that fails? Our request will error, but we won't show the error in the browser. Let's see how we can fix it ([interactive example](https://stackblitz.com/edit/react-cukrzr)).
+We can still improve our component! What happens if we make a request that fails? Our request will error, but we won't show the error in the browser. Let's see how we can fix it ([interactive example](https://codesandbox.io/s/6v9qo90r2r)).
 
 First we have to deal with annoying quirk of `fetch` - it doesn't reject the promise on HTTP errors. We can fix this by adding another `.then` before we convert to JSON:
 
 ```js
 .then((res) => {
   if (res.status >= 200 && res.status < 300) {
-    return res
+    return res;
   } else {
-    throw new Error('HTTP error')
+    throw new Error('HTTP error');
   }
 })
 ```
@@ -266,7 +292,7 @@ Now we can add our solution - a `.catch` on the `fetch` call. Here we reset the 
   this.setState({
     isLoading: false,
     err: err
-  })
+  });
 })
 ```
 
@@ -275,90 +301,172 @@ Now we can check if there's an error in state and render out an error message:
 ```js
 render() {
   if (this.state.isLoading) {
-    return <div>Loading... 🤔</div>
-  } else if (this.state.err) {
-    return <div>Something went wrong 😭</div>
+    return <span>Loading... 👽</span>;
+  } else if (this.state.error) {
+    return <span>Something went wrong 😭</span>;
   } else {
-    return <div>Pokemon name: {this.state.name}</div>
+    return <img src={this.state.imgSrc} />;
   }
 }
 ```
 
-> **Exercise:**
-> Open your `my-hotel` application again
+> **Exercise C**
+> Open the `pokedex` React application again and open the `src/BestPokemon.js` file
+> 1. If you haven't already, convert the `BestPokemon` component to a class component
+> 2. Create a `constructor` method (hint: remember to call `super(props)`)
+> 3. Set the initial state to have a key named `pokemonNames` that is assigned to an empty array `[]`
+> 4. Add a `componentDidMount` method to the component
+> 5. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do?
+> 6. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`)
+> 8. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`
+> 9. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`)
+> 10. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`)
+> 11. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it)
+> 12. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?
+> 13. Add an `isLoading` piece of state, which is initialised to `true`
+> 14. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
+> 15. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
+> 16. **(STRETCH GOAL)** Add some error handling which renders an error message
+> 17. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
 
-> Convert the `SpecialDeals` component to fetch data from http://www.mocky.io/v2/5a9ad31d3400002c00a39a3c.
-> Make sure that you include a loading state and error handling.
+## Working with forms in React
 
-## Default Props
+Modern web applications often involve interacting with forms such as creating an account, adding a blog post or posting a comment. This would involve using inputs, buttons and various form elements and being able to get the values entered by users to do something with it (like display them on a page or send them in a POST request). So, how do we do this in React?
 
-Last week we looked at how we can pass props to our components, but so far we've had to pass a value for every prop. But React has a way of giving a "default" value for a prop, so that you don't always have to pass it. This makes props more useful as "initial configuration" for our component.
-
-Let's revisit an example from React week 1 with an application that says a greeting to a mentor. We could improve the app by allowing the greeting and the mentor's name to be passed as props:
-
-```js
-const Greeting = (props) => <span>{props.greeting}</span>
-const Mentor = (props) => <span>{props.name}</span>
-
-const App = () => (
-  <div>
-    <Greeting greeting="Hello" />
-    <Mentor name="Lucy" />
-  </div>
-)
-```
-
-Passing a prop every time we want to use `Greeting` is a bit annoying. We want to always use "Hello" as our greeting, unless we explicitly override it with a prop. We can do this with `defaultProps` ([interactive example](https://stackblitz.com/edit/react-bbwbnv)):
-
-```js
-const Greeting = (props) => <span>{props.greeting}</span>
-Greeting.defaultProps = {
-  greeting: 'Hello'
-}
-```
-
-Or we can use the class/static properties syntax ([interactive example](https://stackblitz.com/edit/react-72dj65)):
+A popular pattern for building forms and collect user data is the *controlled component* pattern. A pattern is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
 
 ```js
-class Greeting extends Component {
-  static defaultProps = {
-    greeting: 'Hello'
+class SimpleReminder extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reminder: ""
+    };
   }
 
-  render() {
-    return <span>{this.props.greeting}</span>
-  }
-}
-```
-
-## Refs
-
-As we have seen, React manages the DOM for us. That means we generally don't have to worry about keeping track of DOM nodes, or manipulating them directly. However sometimes you need to be able to access a DOM node that React is managing. Some common use cases are managing browser focus and integrating with third party libraries like a jQuery plugin.
-
-We can do this with a *ref*. Let's look at an example that will change browser focus to an input when a button is clicked ([interactive example](https://stackblitz.com/edit/react-nbezfm)):
-
-```js
-class InputFocuser extends Component {
-  setInputRef = (input) => {
-    this.input = input
-  }
-
-  focusInput = () => {
-    this.input.focus()
-  }
+  handleChange = event => {
+    this.setState({
+      reminder: event.target.value
+    });
+  };
 
   render() {
     return (
       <div>
-        <input type="text" ref={this.setInputRef} />
-        <button onClick={this.focusInput}>Focus</button>
+        <input
+          type="text"
+          placeholder="Some reminder"
+          value={this.state.reminder}
+          onChange={this.handleChange}
+        />
+        <p>Today I need to remember to... {this.state.reminder}</p>
       </div>
-    )
+    );
   }
 }
 ```
 
-The key method here is `setInputRef`. It is called by React when rendering the `<input>`, and passes a reference to the real DOM node as an argument. We remember the reference by assigning it to `this.input`. Then when the button is clicked we can call the `focus` method (a vanilla method, not part of React) on the input DOM node.
+We're controlling the `value` of the input by using the value from the `reminder` state. This means that we can only change the value by updating the state. It is done using the `onChange` attribute and the method `handleChange` which is called every time the input value changes (typically when a new character is added or removed). If you didn't call `this.setState()` in the `handleChange` method, then the input's value would never change and it would appear as if you couldn't type in the input! Finally, the value we keep in the `reminder` state is displayed on the screen as today's reminder. 
+
+In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `this.setState()`, for example by calling `toUpperCase()` on the string.
+
+Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
+
+```js
+class CreateAccountForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      email: "",
+      password: ""
+    };
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
+  submit = () => {
+    console.log("Do something with the form values...");
+    console.log(`Username = ${this.state.username}`);
+    console.log(`Email = ${this.state.email}`);
+    console.log(`Password = ${this.state.password}`);
+  };
+
+  render() {
+    return (
+      <div>
+        <div>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+        </div>
+        <button type="submit" onClick={this.submit}>
+          Create account
+        </button>
+      </div>
+    );
+  }
+}
+```
+
+We now have three different inputs named `username`, `email` and `password`, and we keep each entered value in a state with the same name. The method `handleChange` is reused to keep track of each change of value. The trick here is to use the name of the input element to update the corresponding state. Finally, when the user clicks on the submit button, the `submit` method is called to process the values. They are currently just displayed in the console but you could imagine validating the format of these values and sending them in a POST request.
+
+**Additional note:** Have you seen this strange syntax in the `setState` of `handleChange`? It's called a computed property name. In a Javascript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as: 
+
+```
+const myFirstKey = "key1";
+const myFirstValue = "value1";
+const dynamicKeyObject = { [myFirstKey]: myFirstValue };
+console.log(dynamicKeyObject); // => { key1: "value1" }
+```
+
+> **Exercise D**
+> Open the `pokedex` React application again and open the `src/CaughtPokemon.js` file. In this exercise, instead of recording the number of caught Pokemons, we are going to record the names of each Pokemon you caught.
+> 1. Make sure the `CaughtPokemon` component is written as a class component
+> 2. Add an `<input>` in the `render` method before the `button` (hint: `<input type="text" />`)
+> 3. Add a `value` property to the `<input>` set to the state `pokemonNameInput`
+> 4. Initialize the state `pokemonNameInput` in the constructor to an empty string `''` (you can try to set something else than an empty string and verify that this value is correctly displayed in your input)
+> 5. Create a new `handleInputChange` method
+> 6. Add a `onChange` handler to the `<input>` that will call `this.handleInputChange`
+> 7. Add a parameter called `event` to the `handleInputChange` method and add a `console.log` with `event.target.value`. In your browser, try writting something in the `<input>`. What do you see in the JavaScript console?
+> 8. Use `setState` in `handleInputChange` to record `event.target.value` in the state `pokemonNameInput`. In your browser, try writting something in the `<input>`. What do you see this time in the JavaScript console?
+> 9. We are now going to save the user input when clicking on the `<button>`. Initialize `caughtPokemon` to an empty array `[]` instead of 0 in the `constructor`. In the `render`, use `.length` to display the number of items in the state array `caughtPokemon` (hint: it should still display `0` on the screen). Finally, delete the content of `catchPokemon` method (it should be empty, we will rewrite it later).
+> 10. In `catchPokemon` method, create a variable `newCaughtPokemon` set to the state `caughtPokemon` and add the value of the state `pokemonNameInput` to it (hint: use `push()` to add a new item in an array).
+> 11. In `catchPokemon` method, use `setState` to record the variable `newCaughtPokemon` in the state `caughtPokemon`. Open your browser, enter a pokemon name in the `<input>` and click on the button. Can you see the number of caught pokemon incrementing as you click on the button?
+> 12. We are now going to display the names of the caught pokemon. In the `render` method, add a `<ul>` element and use the `.map()` method on the `caughtPokemon` state to loop over each pokemon and return a `<li>` element for each.
+> 13. Empty the `<input>` after clicking on the button. For this, in `catchPokemon` method, set the state of `pokemonNameInput` to an empty string `''`.
+> 14: **(STRETCH GOAL)** Make sure the user cannot add a pokemon to the `caughtPokemon` state if the value of `pokemonNameInput` state is empty.
+
+
+## Further Reading
+
+There is a new update to React, which adds a new feature called *Hooks*. It allows you to access the special super powers of state and lifecycle in regular function components. There is an extensive guide in the [official React tutorial](https://reactjs.org/docs/hooks-intro.html).
 
 # Homework
 

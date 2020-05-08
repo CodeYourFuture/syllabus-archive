@@ -542,11 +542,7 @@ const MartianPhotoFetcher = () => {
 
   return (
     <div>
-      {movies.length > 0 ? (
-        <div>There are {movies.length} to display</div>
-      ) : (
-        <p>Sorry, there are no movies to display</p>
-      )}
+      // TODO: update this example
     </div>
   );
 };

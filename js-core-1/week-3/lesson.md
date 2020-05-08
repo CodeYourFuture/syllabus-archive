@@ -517,7 +517,7 @@ Create a function which accepts an array of "messy" strings. Example:
   "JaMEs",
   "eLAmIn",
   23,
-  "IsMeal",
+  "IsMael",
   67,
   19,
   "ElaMIN",
@@ -527,9 +527,9 @@ Create a function which accepts an array of "messy" strings. Example:
 This function should:
 
 - Remove all non-string entries
-- Only upper case the first letter of all strings and add an exclamation mark to the end
+- Change the strings to upper case, and add an exclamation mark to the end
 
-If you're using the above example, you should expect to return an array with 2x `Elamin!`, 1x `Sanyia!`, 2x `Ismael!` and 1x `James!`.
+If you're using the above example, you should expect to return an array with 2x `ELAMIN!`, 1x `SANYIA!`, 2x `ISMAEL!` and 1x `JAMES!`.
 
 {% include "./homework.md" %}
 

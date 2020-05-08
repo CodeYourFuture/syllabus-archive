@@ -12,57 +12,59 @@
 
 ## Recap
 
-<!-- TODO: check this after reviewing updates to week 2 -->
-
-Last week we looked at using props and state to create React components that change with user input ([interactive example]()): <!-- TODO: update with relevant interactive example -->
+Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/react-3-state-recap-38x3b?file=/src/Counter.js)):
 
 ```js
+import React, { useState } from "react";
+
 function Counter() {
   const [count, setCount] = useState(0);
 
   function increment() {
-    setCount(count + 1)
+    setCount(count + 1);
   }
 
   return (
     <div>
-      Count: {count}
-      <button onClick={increment}>Click me!</button>
+      <p>You clicked {count} times</p>
+      <button onClick={increment}>Click me</button>
     </div>
   );
 }
+
+export default Counter;
 ```
 
-We also looked at fetching data in our React components: <!-- TODO: update with relevant interactive example -->
+We also looked at fetching data in our React components ([interactive example](https://codesandbox.io/s/react-3-recap-h2p24?file=/src/MartianPhotoFetcher.js)):
 
 ```js
-function DataFetcher() {
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+import React, { useState, useEffect } from "react";
+
+const MartianPhotoFetcher = () => {
+  const [marsPhotos, setMarsPhotos] = useState();
 
   useEffect(() => {
-    fetch('URL')
+    fetch(
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`
+    )
       .then(res => res.json())
-      .then(data => {
-        setData(data)
-        setError(null)
-      })
-      .catch(err => {
-        setError(err)
-        setData(null)
-      })
+      .then(data => setMarsPhotos(data));
   }, []);
 
-  if (!data) {
-    return 'Loading...'
+  if (!marsPhotos) {
+    return null;
   } else {
     return (
-      <div>
-        Your data is {data.thing}
-      </div>
-    )
+      <img
+        src={marsPhotos.photos[0].img_src}
+        alt="Mars Rover"
+        style={{ width: "100%" }}
+      />
+    );
   }
-}
+};
+
+export default MartianPhotoFetcher;
 ```
 
 ## Updating Data Fetching when Props Change

@@ -22,7 +22,8 @@ Emphasize that the rule likely knows best, so if it suggests adding a dependency
 
 ### Interactive Example Index
 
-<!-- TODO: add recap examples here -->
+- [State recap](https://codesandbox.io/s/react-3-state-recap-38x3b?file=/src/Counter.js)
+- [Data fetching recap](https://codesandbox.io/s/react-3-recap-h2p24?file=/src/MartianPhotoFetcher.js)
 - [Effects with prop updates (not working)](https://codesandbox.io/s/fetch-with-prop-updates-starting-point-x1dox?file=/src/App.js) (used in "playing computer" exercise)
 - [Effects with prop updates (working)](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js)
 - [`BestPokemonSelector` component](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/BestPokemonSelector.js) for copying into dependencies array exercise

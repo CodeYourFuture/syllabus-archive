@@ -2,12 +2,8 @@
 
 **What will we learn today?**
 
-<!-- TODO: update these after making the changes -->
-
 - [Recap](#recap)
-- [Unmounting](#unmounting)
-- [The Circle of Life](#the-circle-of-life)
-- [Fetching Data in React](#fetching-data-in-react)
+- [Updating Data Fetching when Props Change](#updating-data-fetching-when-props-change)
 - [Working with forms in React](#working-with-forms-in-react)
 
 ## Recap

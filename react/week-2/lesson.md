@@ -4,11 +4,22 @@
 
 **What will we learn today?**
 
-- [Recap](#recap)
-- [Class Components](#class-components)
-- [Passing Functions as Props](#passing-functions-as-props)
-- [Reacting to Changes](#reacting-to-changes)
-- [State](#state)
+- [React 2](#react-2)
+  - [Recap](#recap)
+  - [Class Components](#class-components)
+    - [Class Methods](#class-methods)
+  - [Passing Functions as Props](#passing-functions-as-props)
+  - [Reacting to Changes](#reacting-to-changes)
+  - [State](#state)
+    - [When do you use Props or State?](#when-do-you-use-props-or-state)
+    - [Container components](#container-components)
+  - [React Hooks](#react-hooks)
+    - [What are hooks?](#what-are-hooks)
+    - [Why React hooks, over Class component state and methods?](#why-react-hooks-over-class-component-state-and-methods)
+    - [Counter Example - with hooks](#counter-example---with-hooks)
+    - [Setting multiple states](#setting-multiple-states)
+  - [Further Reading](#further-reading)
+- [Homework](#homework)
 
 ## Recap
 
@@ -428,6 +439,66 @@ In real world applications, the things we want to remember in state follow the *
 To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
 
 Container components usually have some state and handler methods. Because of this they must use the `class` syntax. Presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
+
+## React Hooks
+
+React is continously updated with features all the time, one that stands out the most are **React Hooks**, released in React v16.8.
+
+### What are hooks?
+
+**Hooks** are functions that enable you manipulate the React state (and other lifecycle features, which you will be learning next week).
+
+### Why React hooks, over Class component state and methods?
+
+- Code is less complex - being able to make your code more readable in the long term, make it more maintainable
+- Hooks are reusable - unlike methods that scoped within in a class components, you are able to create your own and reuse them elsewhere you in the code. Keeping your code DRY (Don't Repeat Yourself)
+
+
+### Counter Example - with hooks
+
+```js
+import React, { useState } from 'react';
+
+function Counter() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+Here, `useState` is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. `useState` returns a pair: the current state i.e. `count` and a function that lets you update it i.e. `setCount`.
+
+Note that variable `count` and function `setCount` come from destructured arrays (a JavaScript feature). The initial value of count is `0` and whenever we press on the button, it will fire the setCount function to increment by 1.
+
+### Setting multiple states
+
+```js
+function ExampleWithManyStates() {
+  // Declare multiple state variables!
+  const [age, setAge] = useState(0);
+  const [fruit, setFruit] = useState('Oranges');
+  
+  return (
+    <div>
+      <p> Hi! I am Alex </p>
+      <p> {`I am ${age} years old`} </p>
+      <p> {`I prefer to eat ${fruit}`} </p>      
+      <button onClick={() => setAge(age + 1)}>Add 1 year</button>
+      <button onClick={() => setFruit('Apples')}>Change to Apples</button>
+    </div>
+  )
+}
+```
+
+Notice that as before the initial state to a value inside `useState` in this case we have `0` and `Oranges`, with value `0` has the same behaviour as the counter example before. With value `Oranges`, it can turned into the value `Apple`. Stick to using the same data type, as it is best practice.
 
 ## Further Reading
 

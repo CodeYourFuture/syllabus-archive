@@ -18,6 +18,8 @@
     - [Why React hooks, over Class component state and methods?](#why-react-hooks-over-class-component-state-and-methods)
     - [Counter Example - with hooks](#counter-example---with-hooks)
     - [Setting multiple states](#setting-multiple-states)
+  - [Fetching data in React](#fetching-data-in-react)
+    - [The `useEffect` hook](#the-useeffect-hook)
   - [Further Reading](#further-reading)
 - [Homework](#homework)
 
@@ -499,6 +501,57 @@ function ExampleWithManyStates() {
 ```
 
 Notice that as before the initial state to a value inside `useState` in this case we have `0` and `Oranges`, with value `0` has the same behaviour as the counter example before. With value `Oranges`, it can turned into the value `Apple`. Stick to using the same data type, as it is best practice.
+
+## Fetching data in React
+
+Often when you create a React app, you will want to get data from an API, and display it inside your components.
+How do we do this in React? Where does the API call go, and when should we trigger it?
+
+**Where:** Most likely at the top of the component tree, inside a 'container' component as explained above. You can then flow the data down into your child components as props.
+**When:** When the component is first loaded into the DOM. We call this 'mounting'.
+**How:** With a handy new hook called `useEffect`
+
+### The `useEffect` hook
+
+Just like `useState`, the `useEffect` hook is a special function that all function components have access to. This is the syntax to follow to fetch data on mount:
+
+```js
+useEffect(() => {
+  // Make your API call here!
+}, []); // Don't forget these empty square brackets
+```
+
+And here is a more complete example:
+
+```js
+import React, { useState, useEffect } from "react";
+
+const TvShowContainer = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch("http://example.com/movies.json").then((response) => {
+      setMovies(response.json());
+    });
+  });
+
+  return (
+    <div>
+      {movies.length > 0 ? (
+        <div>There are {movies.length} to display</div>
+      ) : (
+        <p>Sorry, there are no movies to display</p>
+      )}
+    </div>
+  );
+};
+
+export default TvShowContainer;
+```
+
+In the code above, we're saying to React “When this component is mounted, call this API, and when you receive a response, save it inside of the 'movies' state”.
+
+This is a very common pattern which will come in very useful!
 
 ## Further Reading
 

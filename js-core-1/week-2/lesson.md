@@ -400,7 +400,7 @@ Write a function, similar to the last exercise, that:
 
 - Takes one number `n` as a parameter
 - Adds all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
-- You should use an if loop
+- You should use an for loop
 
 ## Arrays
 
@@ -457,14 +457,15 @@ In the node REPL, enter the following array:
 > const fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
 ```
 
-Which index do you need to return:
+1. Now, using the correct indexes, get the following values from the array:
 
 - strawberry
 - kiwi
 - orange
 - banana
 
-Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
+
+2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
 ### Exercise (5 mins)
 
@@ -479,7 +480,7 @@ function secondMatchesAmy(array) {
 }
 ```
 
-### Using if loops with arrays
+### Using for loops with arrays
 
 We can use the power of loops to run some code for each element in our array.
 

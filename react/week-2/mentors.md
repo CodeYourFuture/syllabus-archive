@@ -34,9 +34,9 @@
 ### Interactive Example Index
 
 - [Recap](https://codesandbox.io/s/7zvk9n1950)
-- [Class Components](https://codesandbox.io/s/1zmoz1817j)
-- [Class Method in React](https://codesandbox.io/s/13omkro30j)
-- [Passing Functions as Props](https://codesandbox.io/s/zqlnmo16y3)
+- [Function reference vs function call recap](https://jsbin.com/xudukezaje/edit?js,console)
+- [Event Handlers](https://codesandbox.io/s/event-handlers-cc3h7?file=/src/ClickLogger.js)
+- [Passing Functions as Props](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/ClickLoggerApp.js)
 - [Counter rendering with ReactDOM (not working)](https://codesandbox.io/s/voqzrx5ny)
 - [Counter rendering with ReactDOM](https://codesandbox.io/s/llow115pll)
 - [Counter (starting refactor)](https://codesandbox.io/s/pjlro5rop7)

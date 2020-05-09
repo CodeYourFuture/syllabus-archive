@@ -85,7 +85,7 @@ function logWhenClicked() {
 buttonElement.addEventListener('click', logWhenClicked)
 ```
 
-We still need to listen events in React, but event handlers are set up in a slightly different way ([interactive example]()):
+We still need to listen events in React, but event handlers are set up in a slightly different way ([interactive example](https://codesandbox.io/s/event-handlers-cc3h7?file=/src/ClickLogger.js)):
 
 ```js
 function ClickLogger() {
@@ -117,7 +117,7 @@ Just like with `addEventListener` we pass the function reference to `onClick` in
 
 Sometimes we need to pass a function to another component as a prop, so that it can handle the event.
 
-A common example for this is a Button component. This component adds some styling to a normal `<button>`, but still needs to be able to pass an event handler function to `onClick`. Let's look at an example ([interactive example](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/App.js)):
+A common example for this is a Button component. This component adds some styling to a normal `<button>`, but still needs to be able to pass an event handler function to `onClick`. Let's look at an example ([interactive example](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/ClickLoggerApp.js)):
 
 ```js
 const ClickLoggerApp = () => {

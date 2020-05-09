@@ -50,149 +50,104 @@ const HelloMentor = () => (
 );
 ```
 
-## Class Components
+## Handling events
 
-So far we have looked at components which are just functions (which are called *functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://codesandbox.io/s/1zmoz1817j)):
+So far we have only looked at React apps that are "static": they don't respond to user input. This week we will look at making our apps *dynamic*.
 
-```js
-import React, { Component } from 'react';
+### Recap: First Class Functions in JavaScript
 
-// Class component
-class Greeting extends Component {
-  render() {
-    return (
-      <div>Hello</div>
-    );
-  }
-}
-
-// Functional component
-const Greeting = () => {
-  return (
-    <div>Hello</div>
-  )
-};
-```
-
-Instead of getting props through the first argument of the component function, the class component gets props from `this.props`:
-
-```js
-class Mentor extends Component {
-  render() {
-    return (
-      <div>{this.props.name}</div>
-    );
-  }
-}
-```
-
-So when do we use the `class` keyword and when do we use function components? Class components have special super powers called *state* and *lifecycle* (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of *state* or *lifecycle*.
-
-Here are the steps to follow to convert from a functional component into a class component:
-
-1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react';`
-2. Create a new `class` that extends the component: `class MyComponentName extends Component {}`
-3. Inside the class, create a render method: `render() {}`
-4. Copy and paste the contents of the functional component into the `render` method
-5. Replace any references to `props` with `this.props`
-6. Delete the old functional component
-
-> **Exercise A**
-> Open the `pokedex` React application that you created last week
->
-> 1. Convert the `Logo` component from a functional component into a class component
-> 2. Convert the `CaughtPokemon` component into a class component
-> 3. Convert the `BestPokemon` component into a class component
-
-### Class Methods
-
-One of the super powers that class components have is how we can add more functions within the class scope. These are called *methods* ([interactive example](https://codesandbox.io/s/13omkro30j)):
-
-```js
-import React, { Component } from 'react';
-
-class Hello extends Component {
-  sayHello = () => {
-    console.log('Hello from Hello component!');
-  }
-
-  render() {
-    return (
-      <button onClick={this.sayHello}>Say hello</button>
-    );
-  }
-}
-```
-
-Notice how we use a slightly different syntax for the `sayHello` method than the `render` method? There is a reason for this, but it is quite complicated and mostly irrelevant. The rule of thumb is to always use this syntax:
-
-```js
-methodName = () => {
-  // ...
-};
-```
-
-**Except** for the `render` method (and a handful of others which we'll talk about later).
-
-> **Exercise B**
-> Open the `pokedex` React application and open the `Logo.js` file
->
-> 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
-> 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
-> 3. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above)
-> 4. In your web browser, try clicking on the image. What do you see in the JavaScript console?
-
-## Passing Functions as Props
-
-Remember that functions in JavaScript are "first class" - that means we can pass a *reference* to a function (as a variable) and then call it elsewhere.
+Before we look more at React we need to recap a concept in JavaScript. You may remember that functions in JavaScript are "first class" - that means we can pass a *reference* to a function (as a variable) and then call it elsewhere. Let's look at an example ([interactive example](https://jsbin.com/xudukezaje/edit?js,console)):
 
 ```js
 function hello() {
-  return 'Hello!';
+  return "Hello!";
 }
-```
 
-In the example above `hello` is a *reference* to a function. The functions are not called until we use parentheses:
-
-```js
 console.log(hello);   // Logs: "ƒ hello() {}"
 console.log(hello()); // Logs: "Hello!"
 ```
 
-This is important in React as we can pass the reference to the function as a prop, and then call the function from the child component ([interactive example](https://codesandbox.io/s/zqlnmo16y3)):
+In the example above `hello` is a **reference** to a function. In the first `console.log` we log out the whole function. The function is **not called** until we use parentheses (`()`), so we only log the string `"Hello!"` in the second `console.log`.
+
+This is a really important and useful in React, as we can make a function and pass it to React so that it can call it when a user interacts with our app.
+
+### Event Handlers in Components
+
+In previous lessons we learned how to attach event listeners with `addEventListener`:
 
 ```js
-class App extends Component {
-  logWhenClicked = () => {
-    console.log('Button was clicked!');
-  }
-
-  render() {
-    return (
-      <div>
-        <FancyButton handleClick={this.logWhenClicked} />
-      </div>
-    );
-  }
+// Create an event handler
+function logWhenClicked() {
+  console.log('buttonElement was clicked!')
 }
 
-const FancyButton = (props) => (
-  <button
-    className="my-fancy-classname"
-    onClick={props.handleClick}
-  >
+// Listen for events and call the event handler when triggered
+buttonElement.addEventListener('click', logWhenClicked)
+```
+
+We still need to listen events in React, but event handlers are set up in a slightly different way ([interactive example]()):
+
+```js
+function ClickLogger() {
+  function logWhenClicked() {
+    console.log("Button was clicked!")
+  }
+
+  return <button onClick={logWhenClicked}>Click me!</button>
+}
+```
+
+You might find it a little strange that we have a function inside a function. But this is a normal thing to do in JavaScript! `logWhenClicked` is within the *scope* of our `ClickLogger` component.
+
+Every element in React has some special props that start with `on` that can be assigned to a function which will be called when the event is triggered. In this example we are using `onClick`, but we'll also see `onSubmit` later in the module. A full list of special event handler props is available [here](https://reactjs.org/docs/events.html#reference).
+
+Just like with `addEventListener` we pass the function reference to `onClick` instead of calling the function. Think of it like this: we give the function to React, so that React can call our function when the element is clicked.
+
+| **Exercise** |
+| :--- |
+| 1. Open the `pokedex` React application from last week and open the `Logo.js` file. |
+| 2. Add a function named `logWhenClicked` within the `Logo` component. (Hint: look at the example above). |
+| 3. In the `logWhenClicked` function, `console.log` a message (it doesn't matter what the message is). |
+| 4. Add an `onClick` handler to the `<img>` that will call `logWhenClicked`. (Hint: look at the `ClickLogger` component above). |
+| 5. In your web browser, try clicking on the logo image. What do you see in the JavaScript console? |
+| 6. In a group of 2 - 3 students, discuss what would happen if you changed your code to `onClick={logWhenClicked()}`. Can you explain why? |
+| 7. Report your discussion back to the rest of the class. |
+
+### Passing Functions as Props
+
+Sometimes we need to pass a function to another component as a prop, so that it can handle the event.
+
+A common example for this is a Button component. This component adds some styling to a normal `<button>`, but still needs to be able to pass an event handler function to `onClick`. Let's look at an example ([interactive example](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/App.js)):
+
+```js
+const ClickLoggerApp = () => {
+  function logWhenClicked() {
+    console.log("Button was clicked");
+  }
+
+  return (
+    <div>
+      <FancyButton handleClick={logWhenClicked} />
+      <p>Then look in the console.</p>
+    </div>
+  );
+};
+
+const FancyButton = props => (
+  <button className="my-fancy-classname" onClick={props.handleClick}>
     Click Me!
   </button>
 );
 ```
 
-> **Exercise C**
-> Open the `pokedex` React application
-> 1. Open the `Logo.js` component and copy the `logWhenClicked` method. Then delete it from the `Logo` component.
-> 2. Change the `onClick` handler to `this.props.handleClick`
-> 3. Paste the `logWhenClicked` method into the component in `App.js`
-> 4. Then pass the `logWhenClicked` method as a prop to the `Logo` component (hint: look at the `App` example above)
-> 5. Try clicking the image in your web browser again. Does it still work? Can you explain why to the person sitting next to you?
+| **Exercise** |
+| :--- |
+| 1. Open the `pokedex` React application and open the `Logo.js` file. |
+| 2. Copy and paste the `logWhenClicked` function from the `Logo` component to the `App` component. |
+| 3. Pass the `logWhenClicked` function **reference** as a prop to the `Logo` component. (Hint: look at the `ClickLoggerApp` component above for an example). |
+| 4. In the `Logo` component change the `onClick` prop so that it passes `props.handleClick`. (Hint: look at the `FancyButton` component above for an example). |
+| 5. In a group of 2 - 3 students, discuss what you think will happen when you click the logo image now. Can you explain why? |
+| 6. Report back to the rest of the class what you thought was going to happen and why. |
 
 ## Reacting to Changes
 

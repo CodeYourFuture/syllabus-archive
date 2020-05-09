@@ -1,4 +1,4 @@
-# React Classes (Optional)
+# React Class Components (Optional)
 
 **What will we learn today?**
 

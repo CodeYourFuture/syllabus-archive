@@ -1,4 +1,4 @@
-# Mentor's Notes - Class Components
+# Mentor's Notes - React Class Components
 
 - Class components section
   - Students often get tripped on converting between functional & class components

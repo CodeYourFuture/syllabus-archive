@@ -40,18 +40,18 @@ class Mentor extends Component {
 }
 ```
 
-Here are the steps to follow to convert from a functional component into a class component:
+Here are the steps to follow to convert from a function component into a class component:
 
 1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react';`
 2. Create a new `class` that extends the component: `class MyComponentName extends Component {}`
 3. Inside the class, create a render method: `render() {}`
-4. Copy and paste the contents of the functional component into the `render` method
+4. Copy and paste the contents of the function component into the `render` method
 5. Replace any references to `props` with `this.props`
 6. Delete the old function component
 
 > **Exercise A**
 > Open the `pokedex` React application that you created last week
-> 1. Convert the `Logo` component from a functional component into a class component
+> 1. Convert the `Logo` component from a function component into a class component
 > 2. Convert the `CaughtPokemon` component into a class component
 > 3. Convert the `BestPokemon` component into a class component
 

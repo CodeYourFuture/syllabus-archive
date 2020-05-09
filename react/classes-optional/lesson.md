@@ -2,7 +2,11 @@
 
 **What will we learn today?**
 
-<!-- TODO: Add ToC -->
+- [Class Components](#class-components)
+- [State in Class Components](#state-in-class-components)
+- [Unmounting](#unmounting)
+- [Class Component Lifecycle](#class-component-lifecycle)
+- [Fetching Data with Class Components](#fetching-data-with-class-components)
 
 ## Class Components
 
@@ -102,7 +106,7 @@ methodName = () => {
 | 4. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above). |
 | 5. In your web browser, try clicking on the image. What do you see in the JavaScript console? |
 
-## State in class components
+## State in Class Components
 
 Accessing state in class components is a bit different than with function components. We're going to use the `Counter` component we looked at previously:
 
@@ -353,7 +357,7 @@ class Toggle extends Component {
 
 If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is because `this.state.isShown` is `false` which means the Toggle component returns `null` for that part of the JSX. If you return `null` in JSX then React will render nothing at all.
 
-## The Circle of Life
+## Class Component Lifecycle
 
 When a class component is within the DOM, we call it *mounted*. When a component is removed from the DOM, we call it *unmounted*. When we change state like in the unmounting example above, we can switch between these statuses. This gives us a clue that components go through a *lifecycle* of different statuses. We have seen 2 of the statuses: mounting and unmounting, there is also a third called *updating*.
 
@@ -407,7 +411,7 @@ To look at these in more detail, we'll create a Clock component in an exercise.
 | 8. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)` |
 | 9. Try clicking the "Toggle time" button again, like in step 5. How have we solved the problem? |
 
-## Fetching Data in React
+## Fetching Data with Class Components
 
 Data fetching with class components is also a bit different than with Hooks. The problem is similar to accessing state, because we can't use `useEffect` inside our class components. Instead we can use the class component lifecycle.
 

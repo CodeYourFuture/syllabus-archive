@@ -407,9 +407,9 @@ Write a function, similar to the last exercise, that:
 If you ever find yourself writing code like this...
 
 ```js
-let mentor1 = "Daniel";
-let mentor2 = "Irina";
-let mentor3 = "Rares";
+const mentor1 = "Daniel";
+const mentor2 = "Irina";
+const mentor3 = "Rares";
 ```
 
 ...then it's probably time to use an **array**!
@@ -423,9 +423,9 @@ let mentors = ["Daniel", "Irina", "Rares"];
 Arrays can hold any type of value (although almost always you only have one data type per array).
 
 ```js
-let testScores = [16, 49, 85];
-let grades = ["F", "D", "A"];
-let greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
+const testScores = [16, 49, 85];
+const grades = ["F", "D", "A"];
+const greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 ```
 
 You can access elements in an array using the **index** of an element with **bracket notation**
@@ -442,7 +442,7 @@ students[3]; // "Nahidul"
 You can also _assign_ new values to parts of an array:
 
 ```js
-let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
+const students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
 
 students[2] = "Bianca";
 
@@ -454,7 +454,7 @@ console.log(students); // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
 In the node REPL, enter the following array:
 
 ```sh
-> let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
+> const fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
 ```
 
 Which index do you need to return:
@@ -486,11 +486,11 @@ We can use the power of loops to run some code for each element in our array.
 When we do this say we **iterate** over an array.
 
 ```js
-let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 for(let i = 0; i < daysOfWeek.length; i++){
-    let dayMessage = "day is: " + daysOfWeek[i];
-    let indexMessage = "index is: " + i;
+    const dayMessage = "day is: " + daysOfWeek[i];
+    const indexMessage = "index is: " + i;
     console.log(indexMessage, dayMessage);
 }
 ```

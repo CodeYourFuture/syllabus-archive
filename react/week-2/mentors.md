@@ -13,6 +13,13 @@
 - Passing functions as props
   - This concept isn't really that much different from the section above, but passing across components does often confuse students
 
+### Re-Rendering Components
+
+- Re-rendering demo
+  - Focus on the `Counter` component primarily, in particular the `console.log`
+  - The code in `index.js` is just a way of forcing a re-render **without using state**. But we don't really want students to learn these concepts, so they are hidden away
+  - The idea is to separate the ideas so they can be understood separately
+
 ### State
 
 - This section takes a bit of a risk - it deliberately shows the wrong way trying to do state, then refactors to fix it

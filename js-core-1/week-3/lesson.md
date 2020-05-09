@@ -366,7 +366,7 @@ names.forEach(function (name, index) {
 ### Exercise (10 minutes)
 
 - Create a function that takes a `birthYear`, and returns the age of someone
-- With an array of ages, create another array filled with their birth years `[ 1964, 2008, 1999, 2005, 1978, 1985, 1919 ]`
+- You are given an array with year that 7 people were born, `[1964, 2008, 1999, 2005, 1978, 1985, 1919]`. Take this array and create another array containing their ages.
 - `console.log` the birth years array
 
 ### Exercise (5 minutes)

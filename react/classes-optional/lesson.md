@@ -555,3 +555,7 @@ render() {
 | 13. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before. |
 | 14. **(STRETCH GOAL)** Add some error handling which renders an error message. |
 | 15. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API). |
+
+## Further Reading
+
+- [Converting a class component to a function component with Hooks](https://dev.to/subdeveloper/migrating-from-class-components-to-react-hooks-4lp3)

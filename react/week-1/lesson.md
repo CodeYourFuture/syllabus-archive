@@ -450,10 +450,10 @@ Or calculating new values:
 > 5. Change the `Logo` function to access the first argument and call it `props`. Use `console.log` to inspect the `props` variable
 > 6. Change the usage of `appName` in the `<h1>` to be `props.appName` instead. Does this fix the problem? Why?
 > 7. Now open the `BestPokemon.js` file
-> 8. Copy the `pokemonNames` variable and then delete it
-> 9. Paste the `pokemonNames` variable into `App.js`
-> 10. Pass the `pokemonNames` variable as a prop to `BestPokemon`
-> 11. In the `BestPokemon.js` file replace the existing usage of `pokemonNames` with the `pokemonNames` prop. You should still see the Pokemon names in your web browser
+> 8. Copy the `abilities` variable and then delete it from `BestPokemon.js`
+> 9. Paste the `abilities` variable into `App.js`
+> 10. Pass the `abilities` variable as a prop to `BestPokemon` from `App.js`
+> 11. In the `BestPokemon.js` file replace the existing usage of `abilities` with the `abilities` **prop**. You should still see the Pokemon ability names in your web browser
 > 12. **(STRETCH GOAL)** Repeat the process with the `date` variable in the `CaughtPokemon.js` file
 
 ## Further Reading

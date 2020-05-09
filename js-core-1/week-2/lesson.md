@@ -457,7 +457,7 @@ In the node REPL, enter the following array:
 > const fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
 ```
 
-1. Now, using the correct indexes, get the following values from the array:
+Now, using the correct indexes, get the following values from the array:
 
 - strawberry
 - kiwi
@@ -465,7 +465,7 @@ In the node REPL, enter the following array:
 - banana
 
 
-2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
+Then, replace 'apple' with 'raspberry', and replace 'fig' with 'pineapple'.
 
 ### Exercise (5 mins)
 

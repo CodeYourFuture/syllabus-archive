@@ -79,8 +79,8 @@ function double(num) {
 A statement is some code that performs an action. Here are some examples:
 
 ```js
-let sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
-let greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
+const sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
+const greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
 console.log(2 * 4); // action: logs the result of `2 * 4` to the console
 sayGreeting(greeting); // action: calls the function `sayGreeting` with the parameter `greeting`
 ```
@@ -417,7 +417,7 @@ const mentor3 = "Rares";
 Arrays are data structures that hold a list of values. We call these values the **elements** of the array.
 
 ```js
-let mentors = ["Daniel", "Irina", "Rares"];
+const mentors = ["Daniel", "Irina", "Rares"];
 ```
 
 Arrays can hold any type of value (although almost always you only have one data type per array).
@@ -433,7 +433,7 @@ You can access elements in an array using the **index** of an element with **bra
 **🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero-based indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
 
 ```js
-let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
+const students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
 
 students[0]; // "Ahmed"
 students[3]; // "Nahidul"
@@ -517,7 +517,7 @@ How can you combine the two functions to return an array of even and squared num
 3. Have you learned anything new during this exercise?
 
 ```js
-let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 function workingDay(day) {
   return day + " is a working day";
@@ -529,11 +529,11 @@ function weekendDay(day) {
 
 for (let i = 0; i < daysOfWeek.length; i++) {
   if (i < 5) {
-    let d = workingDay(daysOfWeek[i]);
-    console.log(d);
+    let day = workingDay(daysOfWeek[i]);
+    console.log(day);
   } else {
-    let e = weekendDay(daysOfWeek[i]);
-    console.log(e);
+    let day = weekendDay(daysOfWeek[i]);
+    console.log(day);
   }
 }
 ```
@@ -545,8 +545,8 @@ for (let i = 0; i < daysOfWeek.length; i++) {
 3. Have you learned anything new during this exercise?
 
 ```js
-let a = 4;
-let b = 8;
+const a = 4;
+const b = 8;
 
 const multiplyNumbers = function (a, b) {
   return a * b;
@@ -558,11 +558,11 @@ const addNumbers = function (a, b, c) {
 
 for (let i = 0; i < 5; ++i) {
   if (i < 3) {
-    const d = addNumbers(i, 2, a);
-    console.log(d);
+    const day = addNumbers(i, 2, a);
+    console.log(day);
   } else {
-    const e = multiplyNumbers(i, 4);
-    console.log(e);
+    const day = multiplyNumbers(i, 4);
+    console.log(day);
   }
 }
 ```

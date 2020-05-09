@@ -20,7 +20,7 @@ class Greeting extends Component {
   }
 }
 
-// Functional component
+// Function component
 const Greeting = () => {
   return (
     <div>Hello</div>
@@ -40,8 +40,6 @@ class Mentor extends Component {
 }
 ```
 
-So when do we use the `class` keyword and when do we use function components? Class components have special super powers called *state* and *lifecycle* (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of *state* or *lifecycle*.
-
 Here are the steps to follow to convert from a functional component into a class component:
 
 1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react';`
@@ -57,9 +55,15 @@ Here are the steps to follow to convert from a functional component into a class
 > 2. Convert the `CaughtPokemon` component into a class component
 > 3. Convert the `BestPokemon` component into a class component
 
+### When you should use function components or class components?
+
+Classes are an older method for creating components in React. Even though they are older, they will still continue to work for a long time. Because of this, there are **many** React components written using classes. You will likely still encounter them when developing with React.
+
+Before Hooks were released classes were the only way to access state and lifecycle (similar to effects). The rule of thumb now is that new components should be written using function components with Hooks, but class components don't need to be updated.
+
 ### Class Methods
 
-One of the super powers that class components have is how we can add more functions within the class scope. These are called *methods* ([interactive example](https://codesandbox.io/s/13omkro30j)):
+Class *methods* are similar to nested "handler" functions inside function components. Let's take a look at an example ([interactive example](https://codesandbox.io/s/13omkro30j)):
 
 ```js
 import React, { Component } from 'react';
@@ -77,6 +81,8 @@ class Hello extends Component {
 }
 ```
 
+Unlike nested functions, we can't use just the name of the function in the `onClick` prop. We have to use `this` first, because the method is attached to the class.
+
 Notice how we use a slightly different syntax for the `sayHello` method than the `render` method? There is a reason for this, but it is quite complicated and mostly irrelevant. The rule of thumb is to always use this syntax:
 
 ```js
@@ -84,6 +90,7 @@ methodName = () => {
   // ...
 }
 ```
+
 **Except** for the `render` method (and a handful of others which we'll talk about later).
 
 > **Exercise B**

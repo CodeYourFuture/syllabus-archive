@@ -70,7 +70,7 @@ Did you notice how we use `[0]` to get the first value? In programming we count 
 You can also **set** a value using bracket notation and an assignment operator (`=`).
 
 ```js
-let scores = [80, 41, 47];
+const scores = [80, 41, 47];
 
 scores[2] = 29; // Change the last score
 scores[3] = 51; // Add a new score
@@ -121,11 +121,11 @@ Arrays also have several methods that you can use.
 _An array method that sorts the values in an array into ascending alphabetical or numerical order._
 
 ```js
-let unorderedLetters = ["z", "v", "b", "f", "g"];
-let orderedLetters = unorderedLetters.sort();
+const unorderedLetters = ["z", "v", "b", "f", "g"];
+const orderedLetters = unorderedLetters.sort();
 
-let unorderedNumbers = [8, 5, 1, 4, 2];
-let orderedNumbers = unorderedNumbers.sort();
+const unorderedNumbers = [8, 5, 1, 4, 2];
+const orderedNumbers = unorderedNumbers.sort();
 
 console.log(orderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
 console.log(unorderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
@@ -155,8 +155,8 @@ Did you notice how calling the concat method did not change `arr`? This is becau
 If you want to use the array returned by calling `.concat()` you should store it in a new variable.
 
 ```js
-let arr = [1, 2, 3];
-let newArr = arr.concat(4);
+const arr = [1, 2, 3];
+const newArr = arr.concat(4);
 
 console.log(newArr); // logs [1, 2, 3, 4]
 ```
@@ -182,7 +182,7 @@ undefined
 _Returns true if a value is in the array._
 
 ```js
-let mentors = ["Daniel", "Irini", "Ashleigh", "Rob", "Etzali"];
+const mentors = ["Daniel", "Irini", "Ashleigh", "Rob", "Etzali"];
 
 function isAMentor(name) {
   return mentors.includes(name);
@@ -219,7 +219,7 @@ There is a string method `.split()`. In an interactive console try using the str
 Imagine you have an array of names...
 
 ```sh
-let mentors = ["Daniel ", "irina ", " Gordon", "ashleigh "];
+const mentors = ["Daniel ", "irina ", " Gordon", "ashleigh "];
 ```
 
 You notice that the names are not formatted consistently. To fix the array you decide you need to trim whitespace and convert to lowercase. How do you do that for every value in the array?
@@ -245,8 +245,8 @@ function double(number) {
   return number * 2;
 }
 
-let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map(double);
+const numbers = [1, 2, 3];
+const numbersDoubled = numbers.map(double);
 ```
 
 The `map()` method runs the function we provided (`double`) on each item in the array and uses the return values to create a new array. In the example `numbersDoubled` is a new array containing `[2, 4, 6]`.
@@ -260,8 +260,8 @@ We'll see callback functions used a lot more in the coming weeks.
 Often, when a function is only needed for a map operation, developers will declare the callback function inside of the method call. Let's try copying and pasting the function declaration inside of the `.map()` method call.
 
 ```js
-let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map(function double(number) {
+const numbers = [1, 2, 3];
+const numbersDoubled = numbers.map(function double(number) {
   return number * 2;
 });
 ```
@@ -269,8 +269,8 @@ let numbersDoubled = numbers.map(function double(number) {
 We can make this shorter by removing the function name to declare an _anonymous function_. We can do this because we are not using the function anywhere else in the code, so we do not need the function name to reference it.
 
 ```js
-let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map(function (number) {
+const numbers = [1, 2, 3];
+const numbersDoubled = numbers.map(function (number) {
   return number * 2;
 });
 ```
@@ -278,8 +278,8 @@ let numbersDoubled = numbers.map(function (number) {
 We can make this code even shorter still. In the latest versions of JavaScript a way of declaring functions was introduced called _arrow functions_.
 
 ```js
-let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map((number) => {
+const numbers = [1, 2, 3];
+const numbersDoubled = numbers.map((number) => {
   return number * 2;
 });
 ```
@@ -289,8 +289,8 @@ The arrow function syntax lets you declare a function without the `function` key
 There is one last thing you can do to make your code shorter. If you remove the braces (`{}`) from an arrow function, the body of the function will be returned without needing to write the `return` keyword.
 
 ```js
-let numbers = [1, 2, 3];
-let numbersDoubled = numbers.map((number) => number * 2);
+const numbers = [1, 2, 3];
+const numbersDoubled = numbers.map((number) => number * 2);
 ```
 
 In the example above, the expression `number * 2` is automatically returned because it comes directly after the `=>` arrow (instead of coming after curly braces). This is called an `implicit return`.
@@ -352,7 +352,7 @@ These are all example of _side effects_. Of course, from time to time, we will n
 Say we want to log to the console a list of names.
 
 ```js
-let names = ["Daniel", "mozafar", "irina"];
+const names = ["Daniel", "mozafar", "irina"];
 ```
 
 We can use `.forEach()` to go through the array, item by item, and call a function we provide.
@@ -382,7 +382,7 @@ You can drive in the UK at the age of 17.
 Imagine you have an array of students' test scores:
 
 ```js
-let testScores = [90, 50, 100, 66, 25, 80, 81];
+const testScores = [90, 50, 100, 66, 25, 80, 81];
 ```
 
 You want to show only the test scores that are higher than 80. How do you do that for every value in the array?
@@ -402,7 +402,7 @@ To find out which scores were greater than 80, you'd have to run this function a
 _Runs every item in the array through a condition that we set, and returns a new array with the values that match the condition_.
 
 ```js
-let highTestScores = testScores.filter(isHighScore);
+const highTestScores = testScores.filter(isHighScore);
 
 console.log(highTestScores); // logs [90, 100, 81]
 ```
@@ -420,7 +420,7 @@ Create a function which:
 Imagine you have an array of names:
 
 ```js
-let names = ["Daniel", "James", "Irina", "Mozafar", "Ashleigh"];
+const names = ["Daniel", "James", "Irina", "Mozafar", "Ashleigh"];
 ```
 
 How would you find the first name that's longer than 6 characters?
@@ -440,7 +440,7 @@ To find the first item that satisfies the predicate you would have to go through
 _Searches through the array and returns the value of the first item that satisfies a predicate function._
 
 ```js
-let longName = names.find(isLongName);
+const longName = names.find(isLongName);
 
 console.log(longName); // logs Mozafar
 ```
@@ -470,7 +470,7 @@ function log(name, index) {
   console.log(index + ": " + name);
 }
 
-let namesFormatted = names.map(formatName);
+const namesFormatted = names.map(formatName);
 namesFormatted.forEach(log);
 ```
 

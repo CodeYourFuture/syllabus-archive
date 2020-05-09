@@ -25,6 +25,7 @@
   - [Week 2 - Reacting to Changes](/react/week-2/lesson.md)
   - [Week 3 - Fetching Data](/react/week-3/lesson.md)
   - [Routing (optional)](/react/week-4/lesson.md)
+  - [Class components (optional)](/react/classes-optional/lesson.md)
 - [Node](/node/index.md)
   - [Week 1 - Node and Express 101](/node/week-1/lesson.md)
   - [Week 2 - Middleware, Templating and APIs](/node/week-2/lesson.md)

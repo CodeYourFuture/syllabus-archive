@@ -26,7 +26,12 @@ Emphasize that the rule likely knows best, so if it suggests adding a dependency
 - [Data fetching recap](https://codesandbox.io/s/react-3-recap-h2p24?file=/src/MartianPhotoFetcher.js)
 - [Effects with prop updates (not working)](https://codesandbox.io/s/fetch-with-prop-updates-starting-point-x1dox?file=/src/App.js) (used in "playing computer" exercise)
 - [Effects with prop updates (working)](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js)
-- [`BestPokemonSelector` component](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/BestPokemonSelector.js) for copying into dependencies array exercise
 - [Fetch with loading state (on initial load)](https://codesandbox.io/s/fetch-with-loading-state-part-1-7bi9z?file=/src/FetchWithLoadingState.js)
 - [Fetch with loading state (between prop changes)](https://codesandbox.io/s/fetch-with-loading-state-part-2-dvu6k?file=/src/FetchWithLoadingState.js)
 <!-- TODO: add form examples here -->
+
+### Exercise solutions
+
+- [`BestPokemonSelector` component](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/BestPokemonSelector.js) for copying into dependencies array exercise
+- [`BestPokemonSelector` exercise (starting point after copy/pasting)](https://codesandbox.io/s/bestpokemonselector-exercise-starting-point-yt3cw?file=/src/BestPokemonSelector.js)
+- [`BestPokemonSelector` exercise (completed)](https://codesandbox.io/s/bestpokemonselector-exercise-finishing-point-pcfwp?file=/src/BestPokemonSelector.js)

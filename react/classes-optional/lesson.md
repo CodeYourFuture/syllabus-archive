@@ -49,11 +49,12 @@ Here are the steps to follow to convert from a function component into a class c
 5. Replace any references to `props` with `this.props`
 6. Delete the old function component
 
-> **Exercise A**
-> Open the `pokedex` React application that you created last week
-> 1. Convert the `Logo` component from a function component into a class component
-> 2. Convert the `CaughtPokemon` component into a class component
-> 3. Convert the `BestPokemon` component into a class component
+| **Exercise** |
+| :--- |
+| 1. Open the `pokedex` React application that you created last week. |
+| 2. Convert the `Logo` component from a function component into a class component. |
+| 3. Convert the `CaughtPokemon` component into a class component. |
+| 4. Convert the `BestPokemon` component into a class component. |
 
 ### When you should use function components or class components?
 
@@ -93,12 +94,13 @@ methodName = () => {
 
 **Except** for the `render` method (and a handful of others which we'll talk about later).
 
-> **Exercise B**
-> Open the `pokedex` React application and open the `Logo.js` file
-> 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
-> 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
-> 3. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above)
-> 4. In your web browser, try clicking on the image. What do you see in the JavaScript console?
+| **Exercise B** |
+| :--- |
+| 1. Open the `pokedex` React application and open the `Logo.js` file. |
+| 2. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax). |
+| 3. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is). |
+| 4. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above). |
+| 5. In your web browser, try clicking on the image. What do you see in the JavaScript console? |
 
 ## State in class components
 
@@ -307,15 +309,16 @@ Let's recap what we've learnt about React state:
 - We can change state using the `this.setState()` method and by passing the piece of state we want to update (e.g. `this.setState({ something: 'hi' })`)
 - If we need to read the previous state to be able to calculate the new state, then we must use a callback function with `this.setState()` (e.g. `this.setState((previousState) => { return { something: previousState.something + 1 } })`)
 
-> **Exercise**
-> Open the `pokedex` React application and open the `CaughtPokemon.js` file
-> 1. Set the initial state by assigning the `state` class property to an object. Then make the initial state have 0 `caughtPokemon`
-> 2. Change the `CaughtPokemon` component to render `this.state.caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser?
-> 3. Add a `<button>` with the text "Catch Pokemon" to the `CaughtPokemon` component
-> 4. Create an `catchPokemon` method within the `CaughtPokemon` class
-> 5. Add a `onClick` handler to the `<button>` we just created that will call the `catchPokemon` method
-> 6. Within the `catchPokemon` method, use `this.setState()` to change `caughtPokemon` to 1
-> 7. Update the `catchPokemon` method to increase the number of `caughtPokemon` by 1 every time the button is clicked (hint: we need to use the previous state to calculate the new state)
+| **Exercise** |
+| :--- |
+| 1. Open the `pokedex` React application and open the `CaughtPokemon.js` file. |
+| 2. Set the initial state by assigning the `state` class property to an object. Then make the initial state have 0 `caughtPokemon`. |
+| 3. Change the `CaughtPokemon` component to render `this.state.caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser? |
+| 4. Add a `<button>` with the text "Catch Pokemon" to the `CaughtPokemon` component. |
+| 5. Create an `catchPokemon` method within the `CaughtPokemon` class. |
+| 6. Add a `onClick` handler to the `<button>` we just created that will call the `catchPokemon` method. |
+| 7. Within the `catchPokemon` method, use `this.setState()` to change `caughtPokemon` to 1. |
+| 8. Update the `catchPokemon` method to increase the number of `caughtPokemon` by 1 every time the button is clicked (hint: we need to use the previous state to calculate the new state). |
 
 ## Unmounting
 
@@ -374,12 +377,13 @@ class Lifecycle extends Component {
 }
 ```
 
-> **Exercise A**
-> Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file
-> 1. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
-> 2. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
-> 3. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
-> 4. The `componentWillUnmount` method will never be called. Can you explain why?
+| **Exercise** |
+| :--- |
+| 1. Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file. |
+| 2. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method. |
+| 3. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods. |
+| 4. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear? |
+| 5. The `componentWillUnmount` method will never be called. Can you explain why? |
 
 We'll now focus on a few of the lifecycle hooks and see how they are used.
 
@@ -391,67 +395,17 @@ The `componentWillUnmount` method runs when a component has been unmounted from 
 
 To look at these in more detail, we'll create a Clock component in an exercise.
 
-> **Exercise B**
-> Open the `pokedex` React application again
-> 1. Create a new file called `Clock.js` in the `src` directory
-> 2. Copy and paste in the code below ([interactive version](https://codesandbox.io/s/toggleable-clock-with-class-components-p9q2wq069j?file=/src/Clock.js)):
-
-```js
-import React, { Component } from 'react';
-
-class Time extends Component {
-  state = {
-    date: new Date()
-  };
-
-  tick = () => {
-    console.log('tick');
-    this.setState({
-      date: new Date()
-    });
-  };
-
-  render() {
-    return (
-      <div>{this.state.date.toLocaleTimeString()}</div>
-    );
-  }
-}
-
-class Clock extends Component {
-  state = {
-    isShowingClock: true
-  };
-
-  toggle = () => {
-    this.setState((previousState) => {
-      return { isShowingClock: !previousState.isShowingClock };
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        {this.state.isShowingClock && <Time />}
-        <button onClick={this.toggle}>Toggle time</button>
-      </div>
-    );
-  }
-}
-
-export default Clock;
-```
-
-> 3. In `App.js` import the `Clock` component with `import Clock from './Clock'`
-> 4. Then render the `Clock` component in the `App` component (hint: `<Clock />`)
-> 5. Now change the `Time` component (notice that there are 2 components defined in this file) add a `componentDidMount` method
-> 6. Within the `componentDidMount` method use `setInterval` to call `this.tick` every 1000 milliseconds (hint: `setInterval(this.tick, 1000)`)
-> 7. Now open the JavaScript console your web browser. What is happening? Can you explain why?
-> 8. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it?
-> 9. Change the `componentDidMount` method to assign `this.timer` to the output of `setInterval` (hint: `this.timer = setInterval(this.tick, 1000)`)
-> 10. Add a `componentWillUnmount` method to the `Time` component
-> 11. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)`
-> 12. Try clicking the "Toggle time" button again, like in step 9. How have we solved the problem?
+| **Exercise** |
+| :--- |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/toggleable-clock-with-class-components-p9q2wq069j?file=/src/Clock.js). |
+| 2. Now change the `Time` component (notice that there are 2 components defined in this file) add a `componentDidMount` method. |
+| 3. Within the `componentDidMount` method use `setInterval` to call `this.tick` every 1000 milliseconds (hint: `setInterval(this.tick, 1000)`). |
+| 4. Now open the JavaScript console your web browser. What is happening? Can you explain why? |
+| 5. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it? |
+| 6. Change the `componentDidMount` method to assign `this.timer` to the output of `setInterval` (hint: `this.timer = setInterval(this.tick, 1000)`) |
+| 7. Add a `componentWillUnmount` method to the `Time` component |
+| 8. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)` |
+| 9. Try clicking the "Toggle time" button again, like in step 5. How have we solved the problem? |
 
 ## Fetching Data in React
 
@@ -579,20 +533,21 @@ render() {
 }
 ```
 
-> **Exercise C**
-> Open the `pokedex` React application again and open the `src/BestPokemon.js` file
-> 1. If you haven't already, convert the `BestPokemon` component to a class component
-> 2. Set the initial state to have a key named `pokemonNames` that is assigned to an empty array `[]`
-> 3. Add a `componentDidMount` method to the component
-> 4. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do?
-> 5. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`)
-> 6. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`
-> 7. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`)
-> 8. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`)
-> 9. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it)
-> 10. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?
-> 11. Add an `isLoading` piece of state, which is initialised to `true`
-> 12. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
-> 13. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
-> 14. **(STRETCH GOAL)** Add some error handling which renders an error message
-> 15. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
+| **Exercise** |
+| :--- |
+| 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file. |
+| 1. If you haven't already, convert the `BestPokemon` component to a class component. |
+| 2. Set the initial state to have a key named `pokemonNames` that is assigned to an empty array `[]`. |
+| 3. Add a `componentDidMount` method to the component. |
+| 4. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do? |
+| 5. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`) |
+| 6. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`. |
+| 7. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`). |
+| 8. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`). |
+| 9. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it). |
+| 10. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?. |
+| 11. Add an `isLoading` piece of state, which is initialised to `true`. |
+| 12. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`. |
+| 13. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before. |
+| 14. **(STRETCH GOAL)** Add some error handling which renders an error message. |
+| 15. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API). |

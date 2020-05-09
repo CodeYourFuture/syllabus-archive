@@ -28,7 +28,7 @@ You can do this by
 2. Go to the `Files changed` tab
 3. Move your cursor to the line number you want to comment on
 4. Click the blue `+` symbol
-5. Write your commend
+5. Write your comment
 6. Click submit
 
 You can find an example of the blue `x` here:
@@ -52,14 +52,14 @@ Add a comment in their Pull Request to let them know that you like what they've 
 Code style is about finding writing code that is easy to understand.
 
 - Does code use variable names that are related to what the variable does?
-  - `let apple = "apple"` is good
+  - `let fruit = "apple"` is good
   - `let xyd = "apple"` is bad
 - Does code use function names that are related to what the function does?
   - `function getFilms()` is good
   - `function doWork()` is bad
 - Is the code well indented?
   - See [here](https://courses.cs.washington.edu/courses/cse154/18au/resources/styleguide/js/spacing-indentation-js.html) for an example
-- Does the code use comments to email what is happening on parts that are hard to understand?
+- Does the code use comments to explain what is happening on parts that are hard to understand?
 - Does the code use `functions` well to break up the code into easy to understand parts?
 - Is the same code duplicated in multiple places through the project?
   - They should use a function instead the code is easy to understand

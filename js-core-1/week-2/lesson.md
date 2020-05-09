@@ -357,6 +357,8 @@ In pairs, write a function that checks a username is of an acceptable format for
 
 When we're writing programs, we often find that we want to repeat a bit of code over and over, or repeat it but change something about it each time. To save ourselves from writing all that code, we can use a **loop**. JavaScript has two kinds of loops, a `while` loop and a `for` loop.
 
+### while loop
+
 A `while` loop is a way to repeat code until some condition is evaluated to `false`. For example:
 
 ```js
@@ -366,8 +368,19 @@ while (i < 20) {
   i++;
 }
 ```
+Notice the line **i++** - this is the same as saying **i = i + 1** It does exactly the same thing but it is just more convenient to write.
 
 It's important that the condition inside the parenthesis becomes false at some point - otherwise, we'll have what's known as an infinite loop!
+
+### Exercise (10 minutes)
+
+Write a function that:
+
+- Takes one number `n` as a parameter
+- Adds all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- You should use a while loop
+
+### for loop
 
 The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value.
 
@@ -381,27 +394,27 @@ for (let i = 0; i < 20; i++) {
 }
 ```
 
-### Exercise (15 minutes)
+### Exercise (10 minutes)
 
-Write two functions that:
+Write a function, similar to the last exercise, that:
 
-- Take one number `n` as a parameter
-- Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
-- The first version of the function should use `while` and the second one `for`.
+- Takes one number `n` as a parameter
+- Adds all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- You should use an for loop
 
 ## Arrays
 
 If you ever find yourself writing code like this...
 
 ```js
-let mentor1 = "Daniel";
-let mentor2 = "Irina";
-let mentor3 = "Rares";
+const mentor1 = "Daniel";
+const mentor2 = "Irina";
+const mentor3 = "Rares";
 ```
 
 ...then it's probably time to use an **array**!
 
-Arrays are data structures that hold a list of values.
+Arrays are data structures that hold a list of values. We call these values the **elements** of the array.
 
 ```js
 let mentors = ["Daniel", "Irina", "Rares"];
@@ -410,9 +423,9 @@ let mentors = ["Daniel", "Irina", "Rares"];
 Arrays can hold any type of value (although almost always you only have one data type per array).
 
 ```js
-let testScores = [16, 49, 85];
-let grades = ["F", "D", "A"];
-let greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
+const testScores = [16, 49, 85];
+const grades = ["F", "D", "A"];
+const greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 ```
 
 You can access elements in an array using the **index** of an element with **bracket notation**
@@ -429,7 +442,7 @@ students[3]; // "Nahidul"
 You can also _assign_ new values to parts of an array:
 
 ```js
-let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
+const students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
 
 students[2] = "Bianca";
 
@@ -441,23 +454,18 @@ console.log(students); // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
 In the node REPL, enter the following array:
 
 ```sh
-> let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
+> const fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
 ```
 
-1. Which index do you need to return:
+1. Now, using the correct indexes, get the following values from the array:
 
 - strawberry
 - kiwi
 - orange
 - banana
 
+
 2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
-
-### Exercise (10 mins)
-
-1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
-   Sample array: [20, 20, 30, 40, 50, 50, 50]
-2. After removing the duplicate elements the function should return 4 as the new length of the array.
 
 ### Exercise (5 mins)
 
@@ -472,7 +480,27 @@ function secondMatchesAmy(array) {
 }
 ```
 
-### Exercise (20 mins)
+### Using for loops with arrays
+
+We can use the power of loops to run some code for each element in our array.
+
+When we do this say we **iterate** over an array.
+
+```js
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+for(let i = 0; i < daysOfWeek.length; i++){
+    const dayMessage = "day is: " + daysOfWeek[i];
+    const indexMessage = "index is: " + i;
+    console.log(indexMessage, dayMessage);
+}
+```
+
+### Exercise (10 mins)
+
+Write a function which takes your **students** array as an input. In the function, use a for loop to **iterate** over the array and print the name of each student to the console.
+
+### Exercise - extra credit (20 mins)
 
 In pairs, write a function which squares all numbers in an array and returns the array of squared numbers.
 
@@ -483,6 +511,34 @@ How can you combine the two functions to return an array of even and squared num
 ## Extra exercises
 
 ### Playing computer I
+
+1. Working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. Have you learned anything new during this exercise?
+
+```js
+let daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+function workingDay(day) {
+  return day + " is a working day";
+}
+
+function weekendDay(day) {
+  return day + " is at the weekend!";
+}
+
+for (let i = 0; i < daysOfWeek.length; i++) {
+  if (i < 5) {
+    let d = workingDay(daysOfWeek[i]);
+    console.log(d);
+  } else {
+    let e = weekendDay(daysOfWeek[i]);
+    console.log(e);
+  }
+}
+```
+
+### Playing computer II
 
 1. Working in pairs or groups, you have to predict the output of this program without executing it.
 2. What is printed to the console?
@@ -511,7 +567,7 @@ for (let i = 0; i < 5; ++i) {
 }
 ```
 
-### Playing computer II
+### Playing computer III
 
 1. Again, working in pairs or groups, you have to predict the output of this program without executing it.
 2. What is printed to the console?
@@ -554,6 +610,8 @@ for (let i = 0; i < 10; ++i) {
 - Assert: to determine whether something is `true` or not `true`, more precisely `false`
 - Duplicate: exact copies of something (e.g. two or more files, numbers, directory can be exactly the same)
 - Index: numbers that let you know an item's position inside an array
+- Element: another name for an item in an array
+- Iterate: to repeat some code multiple times, as we do when we use a loop
 - REPL: (Read-Eval-Print-Loop) an interactive way to execute code you write inside the console
 - Zero-based Index: an `array` starting at `0` and not at `1`
 

@@ -50,3 +50,7 @@
 - [Multiple Counters with hard-coded setState](https://codesandbox.io/s/v8165mq503)
 - [Multiple Counters with dynamic setState](https://codesandbox.io/s/qxz27q9y4)
 - [When to use props or state](https://codesandbox.io/s/9wl90npk4)
+
+### Exercise solutions
+
+- [`BestPokemonFetcher` exercise (completed)](https://codesandbox.io/s/bestpokemonfetcher-exercise-finishing-point-ght8k?file=/src/BestPokemonFetcher.js)

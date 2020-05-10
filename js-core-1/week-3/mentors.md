@@ -7,6 +7,5 @@
 Feel free to duplicate these slides. 
 
 If you do one better and share your improved versions here. That'd be splendid! Thanks!
->>>>>>> Stashed changes
 
 ## Notes

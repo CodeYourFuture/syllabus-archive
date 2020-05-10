@@ -14,12 +14,21 @@
     - [When do you use Props or State?](#when-do-you-use-props-or-state)
     - [Container components](#container-components)
   - [React Hooks](#react-hooks)
-    - [What are hooks?](#what-are-hooks)
-    - [Why React hooks, over Class component state and methods?](#why-react-hooks-over-class-component-state-and-methods)
-    - [Counter Example - with hooks](#counter-example---with-hooks)
-    - [Setting multiple states](#setting-multiple-states)
+    - [What are Hooks?](#what-are-hooks)
+    - [What is State?](#what-is-state)
+    - [How is state different to a variable?](#how-is-state-different-to-a-variable)
+    - [Why are hooks important?](#why-are-hooks-important)
+    - [Hooks - using state variables](#hooks---using-state-variables)
+    - [Destructuring](#destructuring)
+      - [Destructuring - Objects](#destructuring---objects)
+      - [Destructuring - Arrays](#destructuring---arrays)
+    - [Hooks - using State Hooks](#hooks---using-state-hooks)
+    - [What component owns the state?](#what-component-owns-the-state)
+      - [State is stored locally](#state-is-stored-locally)
+      - [Setting Multiple States](#setting-multiple-states)
+    - [State passed down as props](#state-passed-down-as-props)
   - [Further Reading](#further-reading)
-- [Homework](#homework)
+  - [Glossary](#glossary)
 
 ## Recap
 
@@ -442,31 +451,258 @@ Container components usually have some state and handler methods. Because of thi
 
 ## React Hooks
 
-React is continously updated with features all the time, one that stands out the most are **React Hooks**, released in React v16.8.
+### What are Hooks?
 
-### What are hooks?
+**Hooks** are functions that enable you to update and manipulate the components `state`.
 
-**Hooks** are functions that enable you manipulate the React state (and other lifecycle features, which you will be learning next week).
+### What is State?
 
-### Why React hooks, over Class component state and methods?
+**State** is needed when you want some part of your software to remember something at the start and when something changes.
 
-- Code is less complex - being able to make your code more readable in the long term, make it more maintainable
-- Hooks are reusable - unlike methods that scoped within in a class components, you are able to create your own and reuse them elsewhere you in the code. Keeping your code DRY (Don't Repeat Yourself)
+In React, `state` is part of components that can change upon a user interaction. Developers can decide to add `state` to a component, to update, manipulate and store values locally to that specific component. All components with state, have a starting state and a change in state.
 
+Example:
 
-### Counter Example - with hooks
+1. **Starting state** is set as
+   
+   `state = { buttonPressed: **false** }`
 
-```js
+2. **User presses** the button, is the user interaction
+
+3. **State changed** from use interaction
+
+   `state = { buttonPressed: **true** }`
+
+### How is state different to a variable?
+
+State is a variable, but not all variables are states.
+
+Remember those words **updates**, **manipulate** and **store**. State has a specific way they need to be manipulated, whilst being stored locally in a React component.
+
+Variables in general, are not given an explicit way they are manipulated and don't have to be locally stored into a component.
+
+Don't worry if you don't fully understand this concept yet, we hope with more demos, it should help ground your knowledge in the future.
+
+### Why are hooks important?
+
+- Easier to Handle State - the code for hooks is more readable, makes it simpler for other developers to understand and less problems when making future changes
+- Hooks are Reusable - custom hooks can be created and can be used elsewhere you in the code. Keeping your code DRY (Don't Repeat Yourself)
+
+### Hooks - using state variables
+
+```jsx static
 import React, { useState } from 'react';
 
-function Counter() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
+const Counter = () => {
+  const [ count ] = useState(0); // 1)
+
+  return <p>You clicked { count } times</p> // 2)
+}
+```
+
+1\) `useState` is a React hook. In this example it [destructures](#destructuring) a variable called `count`. The number `0` is passed into `useState` and will be used as the *initial* value in `count`.
+
+2\) Here we pass `count` the **state variable** into a set of curly braces to give `{ count }`. As no changes have been made to `count`, it will use the initial value `0`. To give us "You clicked 0 times".
+
+### Destructuring
+
+#### Destructuring - Objects
+
+Another thing you've picked up is the special syntax `{ useState }`. This is known as **object destructuring**, or we can say the object **destructures**, where we grab the key of an object and declare it as variable/function. 
+
+Normal access objects using dot notation.
+
+```js static
+const person = {
+  name: "Jessica",
+  age: 28,
+  isDeveloper: true,
+}
+
+// Accessing with `dot` notation
+const name = person.name
+const age = person.age
+const name = person.developer
+
+console.log(name) // "Jessica"
+console.log(age) // 28
+console.log(developer) // true
+```
+
+With `object destructuring` keys are of the objects are variables.
+
+```js static
+const person = {
+  name: "Jessica",
+  age: 28,
+  developer: true,
+}
+
+// Accessing with `object destructuring` notation
+const { name, age, developer } = name
+
+console.log(name) // "Jessica"
+console.log(age) // 28
+console.log(developer) // true
+```
+
+#### Destructuring - Arrays
+
+The same concept applies to array, known as **array destructuring** and can be seen for the state variable `[count]`.However instead of grabbing the key. The first index of the array is the **state variable**.
+
+```js static
+const person = ["Jessica", 28, true]
+
+// Accessing arrays with index notation
+const name = person[0]
+const age = person[1]
+const name = person[2]
+
+console.log(name) // "Jessica"
+console.log(age) // 28
+console.log(developer) // true
+```
+Below `array destructuring` is different from `object destructuring`, where the order of the destructed values or callback functions matter.
+
+```js static
+const person = ["Jessica", 28, true]
+
+// Accessing with `array destructuring` notation
+const [ name, age, developer ] = name
+
+console.log(name) // "Jessica"
+console.log(age) // 28
+console.log(developer) // true
+```
+
+For more details on [destructuring](https://wesbos.com/destructuring-objects).
+
+### Hooks - using State Hooks
+
+```jsx static
+import React, { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0); // 1)
+
+  const incrementCount = () => setCount(count + 1) // 2a) 
 
   return (
     <div>
+      <button onClick={incrementCount}> {/* 2b) */}
+        Click me
+      </button>
+      <p>You clicked {count} times</p> {/* 3) */}
+    </div>
+  );
+}
+```
+
+1\) From `useState` we can get a destructured function `setCount` called the **state method** - 1st index is the state variable, 2nd index is the state method.
+
+2a\) We create a function called `incrementCount` that manipulates `setCount` to add `1` to the current `count` value.
+
+2b\) Here `incrementCount` can be called whenever a *user* clicks on the button. The count variable will change from `0` to `1`.
+
+3\) React will re-render the paragraph tag `<p>` and apply the changes made to `count`. This will change the paragraph text to change from "You clicked **0** times" to "You clicked **1** times".
+
+You can continue to click on the button and each time it's been clicked, the count value is will increment by 1.
+
+### What component owns the state?
+
+#### State is stored locally
+
+```jsx static
+import React, { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  const incrementCount = () => setCount(count + 1)
+
+  return (
+    <div>
+      <button onClick={incrementCount}>
+        Click me
+      </button>
       <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
+    </div>
+  );
+}
+
+const App = () => (
+  <div>
+    <Counter /> {/* 1) */}
+    <Counter />
+    <Counter /> {/* 2) */}
+  </div>
+)
+```
+
+1\) When we click on the button "Click Me" of the 1st `Counter` component, you will notice that only that first `Counter` will increment to give a message "You clicked **1** times".
+
+2\) The same behaviour occurs for the 3rd `Counter` component. It increments independently from the rest. Why is that? Remember that here we reusing the same component 3 times and that each `Counter` component has state locally scoped to the instance of that component - i.e. local state do not interfere does another component's state.
+
+#### Setting Multiple States
+
+```js
+function ExampleWithManyStates() {
+  const [age, setAge] = useState(0);
+  const [fruit, setFruit] = useState('Oranges');
+
+  const incrementAge = () => setAge(age + 1) 
+  const giveFruit = name => setFruit(name) // 1)
+  
+  return (
+    <div>
+      <p> Hi! I am Alex </p>
+      <p> I am {age} years old </p>
+      <p> I prefer to eat {fruit} </p>      
+      <button onClick={incrementAge}>Add 1 year</button>
+      <button onClick={() => giveFruit('Apples')}>Change to Apples</button> {/* 2) */}
+    </div>
+  )
+}
+```
+
+1\) This additional function now takes parameter `name`, and passes this onto the `setFruit` state method.
+
+2\) Methods that require an argument, need to declare at the start with an anonymous function.
+
+**✘ - Do not call functions too early**
+
+```jsx
+<button onClick={giveFruit('Apples')}>Change to Apples</button>
+```
+
+Note that calls the function too early, meaning the function is fired before any user interaction.
+
+**✔ - Do return a callback of state method**
+
+```jsx
+<button onClick={() => giveFruit('Apples')}>Change to Apples</button>
+```
+
+Anonymous functions can be used to trigger state methods to fire upon user interaction.
+
+### State passed down as props
+
+```jsx static
+import React, { useState } from 'react';
+
+const MessageCount = number => (
+  <p>You clicked {number} times</p>
+)
+
+const Counter = () => {
+  const [count, setCount] = useState(0); // 1)
+
+  const incrementCount = () => setCount(count + 1)
+
+  return (
+    <div>
+      <MessageCount number={count} /> {/* 2) */}
+      <button onClick={incrementCount}>
         Click me
       </button>
     </div>
@@ -474,31 +710,9 @@ function Counter() {
 }
 ```
 
-Here, `useState` is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. `useState` returns a pair: the current state i.e. `count` and a function that lets you update it i.e. `setCount`.
+1\) `Counter` as the **parent** component that owns the state variable `count`, initially set at value `0`.
 
-Note that variable `count` and function `setCount` come from destructured arrays (a JavaScript feature). The initial value of count is `0` and whenever we press on the button, it will fire the setCount function to increment by 1.
-
-### Setting multiple states
-
-```js
-function ExampleWithManyStates() {
-  // Declare multiple state variables!
-  const [age, setAge] = useState(0);
-  const [fruit, setFruit] = useState('Oranges');
-  
-  return (
-    <div>
-      <p> Hi! I am Alex </p>
-      <p> {`I am ${age} years old`} </p>
-      <p> {`I prefer to eat ${fruit}`} </p>      
-      <button onClick={() => setAge(age + 1)}>Add 1 year</button>
-      <button onClick={() => setFruit('Apples')}>Change to Apples</button>
-    </div>
-  )
-}
-```
-
-Notice that as before the initial state to a value inside `useState` in this case we have `0` and `Oranges`, with value `0` has the same behaviour as the counter example before. With value `Oranges`, it can turned into the value `Apple`. Stick to using the same data type, as it is best practice.
+2\) `MessageCount` is the **child** component that receives value `0` to prop `number`.
 
 ## Further Reading
 
@@ -508,6 +722,8 @@ What happens if you forget to pass a prop to a component? Or if you pass the wro
 > Complete the FreeCodeCamp [exercise](https://learn.freecodecamp.org/front-end-libraries/react/) on `propTypes`:
 > 1. [Use PropTypes to Define the Props You Expect](https://learn.freecodecamp.org/front-end-libraries/react/use-proptypes-to-define-the-props-you-expect/)
 
-# Homework
+## Glossary
+- `prop`: is a value that is passed down from parent component to a child component, cannot be stored locally inside a react component
+- `state`: is a variable that is stored inside a component
 
 {% include "./homework.md" %}

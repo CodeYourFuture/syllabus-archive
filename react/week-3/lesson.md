@@ -357,73 +357,72 @@ If we didn't call `setReminder` in the `handleChange` function, then the input's
 
 In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `setReminder`, for example by calling `toUpperCase()` on the string.
 
+### Form with Multiple Fields
 
-Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
+Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/controlled-component-createaccountform-m7p083zn6p?file=/src/CreateAccountForm.js)):
 
 ```js
-class CreateAccountForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      email: "",
-      password: ""
-    };
-  }
+function CreateAccountForm() {
+  const [userData, setUserData] = useState({
+    username: "",
+    email: "",
+    password: ""
+  });
 
-  handleChange = event => {
-    this.setState({
+  function handleChange(event) {
+    const updatedUserData = {
+      ...userData,
       [event.target.name]: event.target.value
-    });
-  };
+    };
 
-  submit = () => {
-    console.log("Do something with the form values...");
-    console.log(`Username = ${this.state.username}`);
-    console.log(`Email = ${this.state.email}`);
-    console.log(`Password = ${this.state.password}`);
-  };
-
-  render() {
-    return (
-      <div>
-        <div>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </div>
-        <button type="submit" onClick={this.submit}>
-          Create account
-        </button>
-      </div>
-    );
+    setUserData(updatedUserData);
   }
+
+  function submit() {
+    console.log("Do something with the form values...");
+    console.log(`Username = ${userData.username}`);
+    console.log(`Email = ${userData.email}`);
+    console.log(`Password = ${userData.password}`);
+  }
+
+  return (
+    <div>
+      <div>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={userData.username}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          value={userData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={userData.password}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit" onClick={submit}>
+        Create account
+      </button>
+    </div>
+  );
 }
 ```
 
-We now have three different inputs named `username`, `email` and `password`, and we keep each entered value in a state with the same name. The method `handleChange` is reused to keep track of each change of value. The trick here is to use the name of the input element to update the corresponding state. Finally, when the user clicks on the submit button, the `submit` method is called to process the values. They are currently just displayed in the console but you could imagine validating the format of these values and sending them in a POST request.
+We now have three different inputs named `username`, `email` and `password`, and we keep each entered value in state as a field in an object. The method `handleChange` is reused to keep track of changes for **all** the values. The trick here is to use the `name` of the `<input>` element to update the corresponding state.
 
 **Additional note:** Have you seen this strange syntax in the `setState` of `handleChange`? It's called a computed property name. In a Javascript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as: 
 

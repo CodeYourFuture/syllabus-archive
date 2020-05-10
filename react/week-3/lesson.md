@@ -429,20 +429,7 @@ We now have three different inputs named `username`, `email` and `password`, and
 
 Did you spot the strange syntax in `handleChange`?
 
-Let's start with the second new bit of syntax first. The `[event.target.name]` bit is called a *computed property name*. Inside a JavaScript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as:
-
-```js
-const myFirstKey = "key1";
-const myFirstValue = "value1";
-
-const dynamicKeyObject = {
-  [myFirstKey]: myFirstValue
-};
-
-console.log(dynamicKeyObject); // => { key1: "value1" }
-```
-
-We are also using [object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals) syntax, which copies properties from one object to another. We are using this to update the state object but without *mutating* the original object.
+We are using [object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals) syntax, which copies properties from one object to another. We are using this to update the state object but without *mutating* the original object.
 
 Let's break this down into 2 steps. Here we create a **new** object based on another object, and **adding** a new property ([interactive example]()):
 
@@ -478,6 +465,19 @@ console.log(watsonAfterMoving);
 ```
 
 Notice how Watson "moves" from "123 Fake Road" to "221b Baker Street"? Because the `address` key is in both objects, the **second** one "wins" and overrides the other key.
+
+The second bit of new syntax (`[event.target.name]`) is called a *computed property name*. Inside a JavaScript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as:
+
+```js
+const theKey = "hat";
+const theValue = "Deerstalker Cap"
+
+const sherlockClothes = {
+  [theKey]: theValue
+};
+
+console.log(sherlockClothes); // => { hat: "Deerstalker Cap" }
+```
 
 We are combining all of the concepts above to make a new object, that has all the same properties as the `userData` object, except for the property that is computed from `event.target.name` for the key and `event.target.value` for the value.
 

@@ -431,7 +431,7 @@ Did you spot the strange syntax in `handleChange`?
 
 We are using [object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals) syntax, which copies properties from one object to another. We are using this to update the state object but without *mutating* the original object.
 
-Let's break this down into 2 steps. Here we create a **new** object based on another object, and **adding** a new property ([interactive example]()):
+Let's break this down into 2 steps. Here we create a **new** object based on another object, and **adding** a new property ([interactive example](https://jsbin.com/suyekiwezu/edit?js,console)):
 
 ```js
 const sherlock = {
@@ -447,7 +447,7 @@ console.log(sherlock);
 console.log(sherlockAfterMoving);
 ```
 
-We can also *override* a property if the keys are the same:
+We can also *override* a property if the keys are the same ([interactive example](https://jsbin.com/hiwuwobeza/edit?js,console)):
 
 ```js
 const watson = {
@@ -466,7 +466,7 @@ console.log(watsonAfterMoving);
 
 Notice how Watson "moves" from "123 Fake Road" to "221b Baker Street"? Because the `address` key is in both objects, the **second** one "wins" and overrides the other key.
 
-The second bit of new syntax (`[event.target.name]`) is called a *computed property name*. Inside a JavaScript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as:
+The second bit of new syntax (`[event.target.name]`) is called a *computed property name*. Inside a JavaScript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as ([interactive example](https://jsbin.com/jegerohati/edit?js,console)):
 
 ```js
 const theKey = "hat";

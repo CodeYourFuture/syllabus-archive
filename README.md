@@ -2,7 +2,7 @@
 
 This is the syllabus and course material for
 [CodeYourFuture](https://codeyourfuture.io/) (CYF),
-a not-for-profit volunteer-run coding school for refugees and asylum seekers.
+a not-for-profit volunteer-run coding school for refugees, asylum seekers and disadvantaged groups.
 
 During the course you will learn a technology stack that helps you build
 anything from a simple website to a powerful database-driven web application!

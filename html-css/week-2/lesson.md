@@ -2,13 +2,21 @@
 
 # HTML/CSS 2
 
-**What will we learn today?**
+---
 
-* [Responsive web design](#responsive-web-design)
-* [Media queries](#media-queries)
-* [Flexbox](#flexbox)
-* (Optional) Content layout: floats
-* (Optional) Content layout: relative and absolute positioning
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## What will we learn today?
+
+- [Responsive web design](#responsive-web-design)
+- [Media queries](#media-queries)
+- [Flexbox](#flexbox)
+- (Optional) Content layout: floats
+- (Optional) Content layout: relative and absolute positioning
 
 ---
 
@@ -34,10 +42,10 @@ As you learned in your homework assignment, media queries help us change the dis
 
 In this media query, we're assigning a red background color to the `<body>` element whenever the viewport is larger than `900px`, and we're viewing on a screen.
 
-* `@media` starts the media query
-* `screen` tells it to apply these styles to screen displays. Other displays
+- `@media` starts the media query
+- `screen` tells it to apply these styles to screen displays. Other displays
   might be `print`, for when a webpage is being printed.
-* `(min-width: 900px)` tells it to apply these styles when the viewport is
+- `(min-width: 900px)` tells it to apply these styles when the viewport is
   larger than `900px`
 
 Finally, we wrap all of our styles for this media query in brackets (`{` and `}`), just like a CSS rule.
@@ -56,16 +64,18 @@ You can see all the rules that can be applied to both the container and the chil
 [https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 > **Exercise:** Continue editing the "Bike for refugees" website by adding 3 boxes below Jumbotron, and using Flexbox, make sure they are arranged like in the sketch below:
-<img src="../assets/flexbox_practice.png">
+> <img src="../assets/flexbox_practice.png">
 
 You can start with something like the below, by just adding a container, and the 3 text pieces within it. Try to use flexbox to position the text elements within the container to match the picture:
 
 ```html
-<div>  <!-- CONTAINER START -->
-   <div> Check availability </div>
-   <div> Donate bikes </div>
-   <div> Volunteer with us </div>
-</div> <!-- CONTAINER END -->
+<div>
+  <!-- CONTAINER START -->
+  <div>Check availability</div>
+  <div>Donate bikes</div>
+  <div>Volunteer with us</div>
+</div>
+<!-- CONTAINER END -->
 ```
 
 Once that's done you can move on to creating boxes for each individual text piece, and again, using flexbox to position the text piece in the middle of its box.

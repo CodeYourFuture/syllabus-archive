@@ -2,27 +2,37 @@
 
 # JavaScript Core I - 2
 
-* [Expressions](#expressions)
-* [Booleans](#booleans)
-* [Comparison Operators](#comparison-operators)
-* [Conditionals](#conditionals)
-* [Logical Operators](#logical-operators)
-* [Loops](#loops)
-* [Arrays](#arrays)
-* [Extra exercises](#extra-exercises)
+---
 
-**Learning Objectives**
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## Contents
+
+- [Expressions](#expressions)
+- [Booleans](#booleans)
+- [Comparison Operators](#comparison-operators)
+- [Conditionals](#conditionals)
+- [Logical Operators](#logical-operators)
+- [Loops](#loops)
+- [Arrays](#arrays)
+- [Extra exercises](#extra-exercises)
+
+## Learning Objectives
 
 By the end of this class, you should be able to answer these questions:
 
-* What are expressions and statements (and what's the difference)?
-* What are conditionals?
-* What are `for` and `while` loops (and what's the difference)?
-* How do you use expressions with conditionals?
-* What are comparator operators and how do you use them?
-* What are logical operators and how do you use them?
-* What functionality does the `assert` module provide?
-* What are arrays and how can you interact with them?
+- What are expressions and statements (and what's the difference)?
+- What are conditionals?
+- What are `for` and `while` loops (and what's the difference)?
+- How do you use expressions with conditionals?
+- What are comparator operators and how do you use them?
+- What are logical operators and how do you use them?
+- What functionality does the `assert` module provide?
+- What are arrays and how can you interact with them?
 
 ---
 
@@ -69,8 +79,8 @@ function double(num) {
 A statement is some code that performs an action. Here are some examples:
 
 ```js
-let sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
-let greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
+const sum = 1 + 1; // action: assigns result of `1 + 1` to variable `sum`
+const greeting = "hello"; // action: assigns result of the expression "hello" to variable `greeting`
 console.log(2 * 4); // action: logs the result of `2 * 4` to the console
 sayGreeting(greeting); // action: calls the function `sayGreeting` with the parameter `greeting`
 ```
@@ -85,11 +95,11 @@ This console allows you to run expressions in the console line by line and is a 
 
 In your VS Code terminal, run the command `node` and run the following expressions. What are their outputs? Is there anything you didn't expect? (To exit the node REPL, you have to click <kbd>Ctrl+d</kbd> or <kbd>Cmd+D</kbd> on Mac)
 
-* `1 + 2`
-* `"hello"`
-* `let favouriteColour = "purple"`
-* `favouriteColour`
-* `console.log(favouriteColour)`
+- `1 + 2`
+- `"hello"`
+- `let favouriteColour = "purple"`
+- `favouriteColour`
+- `console.log(favouriteColour)`
 
 ## Booleans
 
@@ -211,8 +221,8 @@ Like humans, computer programs make decisions based on the information given to 
 
 For example:
 
-* In a game, if the player has 0 lives, then the game is over
-* In a weather app, if rain is forecast, a picture of rain clouds is shown
+- In a game, if the player has 0 lives, then the game is over
+- In a weather app, if rain is forecast, a picture of rain clouds is shown
 
 The most common type of conditional is the **if statement**.
 
@@ -294,11 +304,11 @@ function numberChecker(num) {
 
 Create a function that gives you a message depending on your mood! It should:
 
-* take one input
-* return "Good job, you're doing great!" if you pass in "happy"
-* return "Every cloud has a silver lining" if you pass in "sad"
-* return "Beep beep boop" if you pass in a number
-* return "I'm sorry, I'm still learning about feelings!" if you pass in anything else
+- take one input
+- return "Good job, you're doing great!" if you pass in "happy"
+- return "Every cloud has a silver lining" if you pass in "sad"
+- return "Beep beep boop" if you pass in a number
+- return "I'm sorry, I'm still learning about feelings!" if you pass in anything else
 
 ## Logical Operators
 
@@ -326,26 +336,28 @@ We can test expressions with logical operators in a node console too.
 
 Type the following expressions into your node REPL and note the output. Anything you didn't expect?
 
-* `let num = 10`
-* `num > 5 && num < 15`
-* `num < 10 || num === 10`
-* `false || true`
-* `!true`
-* `let greaterThan5 = num > 5`
-* `!greaterThan5`
-* `!(num === 10)`
+- `let num = 10`
+- `num > 5 && num < 15`
+- `num < 10 || num === 10`
+- `false || true`
+- `!true`
+- `let greaterThan5 = num > 5`
+- `!greaterThan5`
+- `!(num === 10)`
 
 ### Exercise (15 mins)
 
 In pairs, write a function that checks a username is of an acceptable format for a user type. The function must:
 
-* take two parameters: one for the username and one for the user type
-* if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
-* if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
+- take two parameters: one for the username and one for the user type
+- if the username starts with a capital letter _and_ has length between 5 and 10 characters long, it must return `"Username valid"`; otherwise, it must return `"Username invalid"`
+- if the user type is an `admin` _or_ a `manager`, all usernames must return `"Username valid"`
 
 ## Loops
 
 When we're writing programs, we often find that we want to repeat a bit of code over and over, or repeat it but change something about it each time. To save ourselves from writing all that code, we can use a **loop**. JavaScript has two kinds of loops, a `while` loop and a `for` loop.
+
+### while loop
 
 A `while` loop is a way to repeat code until some condition is evaluated to `false`. For example:
 
@@ -356,8 +368,19 @@ while (i < 20) {
   i++;
 }
 ```
+Notice the line **i++** - this is the same as saying **i = i + 1** It does exactly the same thing but it is just more convenient to write.
 
 It's important that the condition inside the parenthesis becomes false at some point - otherwise, we'll have what's known as an infinite loop!
+
+### Exercise (10 minutes)
+
+Write a function that:
+
+- Takes one number `n` as a parameter
+- Adds all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- You should use a while loop
+
+### for loop
 
 The `for` loop is similar to a while loop, but with a more specialized syntax. Programmers invented the for loop when they realized they were always doing the same three things: creating loop counter variables (like `i` above), incrementing them by some amount, and checking that they're less than a value.
 
@@ -371,39 +394,38 @@ for (let i = 0; i < 20; i++) {
 }
 ```
 
-### Exercise (15 minutes)
+### Exercise (10 minutes)
 
-Write two functions that:
+Write a function, similar to the last exercise, that:
 
-* Take one number `n` as a parameter
-* Add all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
-* The first version of the function should use `while` and the second one `for`.
-
+- Takes one number `n` as a parameter
+- Adds all numbers from `0` to `n`. For example, if the input is `3`, the output should be `0 + 1 + 2 + 3`
+- You should use an for loop
 
 ## Arrays
 
 If you ever find yourself writing code like this...
 
 ```js
-let mentor1 = "Daniel";
-let mentor2 = "Irina";
-let mentor3 = "Rares";
+const mentor1 = "Daniel";
+const mentor2 = "Irina";
+const mentor3 = "Rares";
 ```
 
 ...then it's probably time to use an **array**!
 
-Arrays are data structures that hold a list of values.
+Arrays are data structures that hold a list of values. We call these values the **elements** of the array.
 
 ```js
-let mentors = ["Daniel", "Irina", "Rares"];
+const mentors = ["Daniel", "Irina", "Rares"];
 ```
 
 Arrays can hold any type of value (although almost always you only have one data type per array).
 
 ```js
-let testScores = [16, 49, 85];
-let grades = ["F", "D", "A"];
-let greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
+const testScores = [16, 49, 85];
+const grades = ["F", "D", "A"];
+const greetings = ["Hello, how are you?", "Hi! Nice to meet you!"];
 ```
 
 You can access elements in an array using the **index** of an element with **bracket notation**
@@ -411,7 +433,7 @@ You can access elements in an array using the **index** of an element with **bra
 **🔔 Remember:** All arrays start at position 0! To access the first element in an array, you need to access index `0`, the second element at `1`, the fifth at `4` and so forth. This is called zero-based indexed arrays. There are some [very intense reasons for this](http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html), but most people just accept it and move on.
 
 ```js
-let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
+const students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
 
 students[0]; // "Ahmed"
 students[3]; // "Nahidul"
@@ -420,7 +442,7 @@ students[3]; // "Nahidul"
 You can also _assign_ new values to parts of an array:
 
 ```js
-let students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
+const students = ["Ahmed", "Maria", "Atanas", "Nahidul", "Jack"];
 
 students[2] = "Bianca";
 
@@ -432,23 +454,18 @@ console.log(students); // ["Ahmed", "Maria", "Bianca", "Nahidul", "Jack"]
 In the node REPL, enter the following array:
 
 ```sh
-> let fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
+> const fruits = ['banana', 'apple', 'strawberry', 'kiwi', 'fig', 'orange'];
 ```
 
-1. Which index do you need to return:
+Now, using the correct indexes, get the following values from the array:
 
-  - strawberry
-  - kiwi
-  - orange
-  - banana
+- strawberry
+- kiwi
+- orange
+- banana
 
-2. Replace 'apple' with 'raspberry' and 'fig' with 'pineapple'
 
-### Exercise (10 mins)
-
-1. Write a function to remove the duplicate elements of a given array and return the new length of the array.
-Sample array: [20, 20, 30, 40, 50, 50, 50]
-2. After removing the duplicate elements the function should return 4 as the new length of the array. 
+Then, replace 'apple' with 'raspberry', and replace 'fig' with 'pineapple'.
 
 ### Exercise (5 mins)
 
@@ -463,7 +480,27 @@ function secondMatchesAmy(array) {
 }
 ```
 
-### Exercise (20 mins)
+### Using for loops with arrays
+
+We can use the power of loops to run some code for each element in our array.
+
+When we do this say we **iterate** over an array.
+
+```js
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+for(let i = 0; i < daysOfWeek.length; i++){
+    const dayMessage = "day is: " + daysOfWeek[i];
+    const indexMessage = "index is: " + i;
+    console.log(indexMessage, dayMessage);
+}
+```
+
+### Exercise (10 mins)
+
+Write a function which takes your **students** array as an input. In the function, use a for loop to **iterate** over the array and print the name of each student to the console.
+
+### Exercise - extra credit (20 mins)
 
 In pairs, write a function which squares all numbers in an array and returns the array of squared numbers.
 
@@ -480,8 +517,36 @@ How can you combine the two functions to return an array of even and squared num
 3. Have you learned anything new during this exercise?
 
 ```js
-let a = 4;
-let b = 8;
+const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+function workingDay(day) {
+  return day + " is a working day";
+}
+
+function weekendDay(day) {
+  return day + " is at the weekend!";
+}
+
+for (let i = 0; i < daysOfWeek.length; i++) {
+  if (i < 5) {
+    let day = workingDay(daysOfWeek[i]);
+    console.log(day);
+  } else {
+    let day = weekendDay(daysOfWeek[i]);
+    console.log(day);
+  }
+}
+```
+
+### Playing computer II
+
+1. Working in pairs or groups, you have to predict the output of this program without executing it.
+2. What is printed to the console?
+3. Have you learned anything new during this exercise?
+
+```js
+const a = 4;
+const b = 8;
 
 const multiplyNumbers = function (a, b) {
   return a * b;
@@ -493,16 +558,16 @@ const addNumbers = function (a, b, c) {
 
 for (let i = 0; i < 5; ++i) {
   if (i < 3) {
-    const d = addNumbers(i, 2, a);
-    console.log(d);
+    const day = addNumbers(i, 2, a);
+    console.log(day);
   } else {
-    const e = multiplyNumbers(i, 4);
-    console.log(e);
+    const day = multiplyNumbers(i, 4);
+    console.log(day);
   }
 }
 ```
 
-### Playing computer II
+### Playing computer III
 
 1. Again, working in pairs or groups, you have to predict the output of this program without executing it.
 2. What is printed to the console?
@@ -545,6 +610,8 @@ for (let i = 0; i < 10; ++i) {
 - Assert: to determine whether something is `true` or not `true`, more precisely `false`
 - Duplicate: exact copies of something (e.g. two or more files, numbers, directory can be exactly the same)
 - Index: numbers that let you know an item's position inside an array
+- Element: another name for an item in an array
+- Iterate: to repeat some code multiple times, as we do when we use a loop
 - REPL: (Read-Eval-Print-Loop) an interactive way to execute code you write inside the console
 - Zero-based Index: an `array` starting at `0` and not at `1`
 

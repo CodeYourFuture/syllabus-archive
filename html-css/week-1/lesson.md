@@ -1,6 +1,14 @@
 # HTML/CSS 1
 
-**What will we learn today?**
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## What will we learn today?
 
 - [Semantic HTML tags](#html-syntax)
 - [CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`](#css-selectors)

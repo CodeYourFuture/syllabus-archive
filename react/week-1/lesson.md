@@ -139,19 +139,8 @@ As you can see, this is much easier to read than both the straight `React.create
 
 ## Let's Create A React App
 
-The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). It sets up files like we saw in the previous example, so that you don't have to.
-
-> **Exercise C**: Install & set up a Create React App by following the steps below
-
-```
-npm install -g create-react-app
-
-create-react-app pokedex
-cd pokedex
-npm start
-```
-
-The last command should open a web browser for you. This shows the application that we are going to be working on. Open the `pokedex` directory in your editor. Notice that create-react-app has created a bunch of folders for you. We will be working with the `pokedex` application for the rest of the module.
+> **Exercise**
+> If you have not already, follow [the instructions to create a React app](https://docs.codeyourfuture.io/students/guides/creating-a-react-app).
 
 ## React Components
 
@@ -341,9 +330,9 @@ Here we are using `Array.map` to turn an array of strings into an array of compo
 > 3. Create a new component named `CaughtPokemon`. Within this component return a `<p>` tag with the text "Caught 0 Pokemon on" (we're going to fill in today's date in the next step)
 > 4. Create a variable named `date` within the `CaughtPokemon` component, and assign it today's date (hint: `new Date().toLocaleDateString()`). Finally, render the `date` variable after the text "Caught 0 Pokemon on"
 > 5. Render the `CaughtPokemon` component within the `App` component (below `BestPokemon`)
-> 6. Within the `BestPokemon` component, create a variable named `pokemonNames` and assign it to an array with some Pokemon names (e.g. `['Squirtle', 'Bulbasaur', 'Charmander']`)
-> 7. Change the `BestPokemon` component to return a `<ul>` element instead of a `<p>` element
-> 8. Now use the `.map()` method on the `pokemonNames` variable to loop over each name and return a `<li>` element for each (hint: look at the mentors list example above)
+> 6. Within the `BestPokemon` component, create a variable named `abilities` and assign it to an array with some Pokemon abilities (e.g. `['Anticipation', 'Adaptability', 'Run-Away']`)
+> 7. Change the `BestPokemon` component to return a `<div>` element with the existing `<p>` element inside it. Then add a `<ul>` element underneath the `<p>` element
+> 8. Now use the `.map()` method on the `abilities` variable to loop over each name and return a `<li>` element for each (hint: look at the mentors list example above) within the `<ul>` element 
 
 ## Keys
 
@@ -461,10 +450,10 @@ Or calculating new values:
 > 5. Change the `Logo` function to access the first argument and call it `props`. Use `console.log` to inspect the `props` variable
 > 6. Change the usage of `appName` in the `<h1>` to be `props.appName` instead. Does this fix the problem? Why?
 > 7. Now open the `BestPokemon.js` file
-> 8. Copy the `pokemonNames` variable and then delete it
-> 9. Paste the `pokemonNames` variable into `App.js`
-> 10. Pass the `pokemonNames` variable as a prop to `BestPokemon`
-> 11. In the `BestPokemon.js` file replace the existing usage of `pokemonNames` with the `pokemonNames` prop. You should still see the Pokemon names in your web browser
+> 8. Copy the `abilities` variable and then delete it from `BestPokemon.js`
+> 9. Paste the `abilities` variable into `App.js`
+> 10. Pass the `abilities` variable as a prop to `BestPokemon` from `App.js`
+> 11. In the `BestPokemon.js` file replace the existing usage of `abilities` with the `abilities` **prop**. You should still see the Pokemon ability names in your web browser
 > 12. **(STRETCH GOAL)** Repeat the process with the `date` variable in the `CaughtPokemon.js` file
 
 ## Further Reading

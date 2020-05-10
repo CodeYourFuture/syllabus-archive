@@ -34,17 +34,49 @@
   - [Week 20 - More SQL and integration with NodeJS](/db/week-2/lesson.md)
   - [Week 21 - More integration with NodeJS](/db/week-3/lesson.md)
 
-## Workshops and other tutorials
+## Workshops
 
-- [Coding 101](/others/coding-101.md)
-- [Compiling SCSS](/html-css/compile-scss-instructions.md)
-- [Automatic deployment of sites with Netlify and GitHub](/others/deployment/1-for-html-module/workshop-1-basic-automatic-deployment-with-netlify-mentor-notes.md)
+- [Deploying Code Workshop](/others/deployment/1-for-html-module/workshop-1-basic-automatic-deployment-with-netlify-mentor-notes.md)
 - [Express Workshop](/node/week-1/workshop.md)
 - [Hotel Workshop](/node/week-3/workshop.md)
-- [MongoDB 101](/others/mongodb-101.md)
-- [AWS - DynamoDB](/others/aws-workshop-2.md)
-- [Java module](/others/java.md)
+- [AWS & DynamoDB Workshop](/others/aws-workshop-2.md)
+- [Github Desktop Workshop](/others/git-desktop-workshop.md)
+
+## Guides
+
+- [Compiling SCSS](/html-css/compile-scss-instructions.md)
+- [Coding 101](/others/coding-101.md)
+
+## Modules
+
+- [Java Module](/others/java.md)
+- [MongoDB Module](/others/mongodb-101.md)
 
 ## For Students
 
 - [Coding Standards and Best Practices](/others/coding-standards.md)
+
+## For Teachers
+
+- Teaching Notes
+  - [HTML/CSS - Week 1](/html-css/week-1/mentors.md)
+  - [HTML/CSS - Week 2](/html-css/week-2/mentors.md)
+  - [HTML/CSS - Week 3](/html-css/week-3/mentors.md)
+  - [JavaScript I - Week 1](/js-core-1/week-1/mentors.md)
+  - [JavaScript I - Week 2](/js-core-1/week-2/mentors.md)
+  - [JavaScript I - Week 3](/js-core-1/week-3/mentors.md)
+  - [JavaScript II - Week 1](/js-core-2/week-1/mentors.md)
+  - [JavaScript II - Week 2](/js-core-2/week-2/mentors.md)
+  - [JavaScript II - Week 3](/js-core-2/week-3/mentors.md)
+  - [JavaScript III - Week 1](/js-core-3/week-1/mentors.md)
+  - [JavaScript III - Week 2](/js-core-3/week-2/mentors.md)
+  - [JavaScript III - Week 3](/js-core-3/week-3/mentors.md)
+  - [React - Week 1](/react/week-1/mentors.md)
+  - [React - Week 2](/react/week-2/mentors.md)
+  - [React - Week 3](/react/week-3/mentors.md)
+  - [Node - Week 1](/node/week-1/mentors.md)
+  - [Node - Week 2](/node/week-2/mentors.md)
+  - [Node - Week 3](/node/week-3/mentors.md)
+  - [Databases - Week 1](/db/week-1/mentors.md)
+  - [Databases - Week 2](/db/week-2/mentors.md)
+  - [Databases - Week 3](/db/week-3/mentors.md)

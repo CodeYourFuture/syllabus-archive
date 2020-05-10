@@ -60,3 +60,4 @@ You should walk the students through the setup guide and use the rest of the les
 - We didn't think about `warnings` at all.
   - "Don't ignore errors and warnings"
   - "Start from the first warning"
+

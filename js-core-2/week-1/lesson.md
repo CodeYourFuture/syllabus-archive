@@ -1,6 +1,14 @@
 # JavaScript Core II - Week 1
 
-**What we will learn today?**
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## Contents
 
 - [Objects](#objects)
 - [Objects Get and Set](#objects-get-and-set)

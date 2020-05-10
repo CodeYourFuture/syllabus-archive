@@ -18,14 +18,9 @@
 ### Passing props
 
 - Pass values to components as React props
-  - Receive props in a component (both function and class components)
+  - Receive props in a function component
   - Pass functions as props and call them in child components
 
 ### Deployment
 
 - Build and deploy a React application (to Netlify/Now/Heroku/etc)
-
-### Out of scope
-
-- CSS-in-JS
-- In depth functional programming

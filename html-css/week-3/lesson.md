@@ -2,9 +2,19 @@
 
 # HTML/CSS 3
 
-* [HTML/CSS frameworks](#htmlcss-frameworks)
-* [Bootstrap 4](#bootstrap-4)
-* [Personal Websites](#personal-websites)
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## What will we learn today?
+
+- [HTML/CSS frameworks](#htmlcss-frameworks)
+- [Bootstrap 4](#bootstrap-4)
+- [Personal Websites](#personal-websites)
 
 ---
 
@@ -32,11 +42,11 @@ Did you know there are other open-source HTML/CSS frameworks you can try? Two po
 
 Over the last two weeks, you've been building personal websites as part of your homework. Now we want you to take those websites and apply the knowledge you've learned to make them as good as you can. Some ideas:
 
-* Add [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) to your site and use some of the components.
-* Use re-usable class names to reduce your CSS code.
-* [Validate your HTML code](https://validator.w3.org/#validate_by_input) to find and fix problems.
-* Add a second page and link to it from your first page.
-* Try to style the first article differently so that it stands out from the rest.
+- Add [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) to your site and use some of the components.
+- Use re-usable class names to reduce your CSS code.
+- [Validate your HTML code](https://validator.w3.org/#validate_by_input) to find and fix problems.
+- Add a second page and link to it from your first page.
+- Try to style the first article differently so that it stands out from the rest.
 
 By the end, you should have created a repository for your site on GitHub with all the commits you've made.
 
@@ -46,9 +56,9 @@ At the end of each module, we'll have a retrospective. What went right? What wen
 
 ## Resources
 
-* [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
-* [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
-* [Bootstrap 4 Documentation](https://getbootstrap.com/)
-* [Introduction](http://getbem.com/introduction/) and [Naming](http://getbem.com/naming/) with BEM Syntax for Reusable CSS
+- [HTML Forms](http://marksheet.io/html-forms.html) at Marksheet.io
+- [Building Forms](http://learn.shayhowe.com/html-css/building-forms/) at ShayHowe.com
+- [Bootstrap 4 Documentation](https://getbootstrap.com/)
+- [Introduction](http://getbem.com/introduction/) and [Naming](http://getbem.com/naming/) with BEM Syntax for Reusable CSS
 
 {% include "./homework.md" %}

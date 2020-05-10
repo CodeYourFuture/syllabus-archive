@@ -1,6 +1,14 @@
 # Database 3: More integration with NodeJS
 
-**What will we learn today?**
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
+## What will we learn today?
 
 - Revision from last week
 - [Recap integration of cyf_hotels DB with NodeJS](#recap-integration-of-cyf_hotels-db-with-nodejs)
@@ -11,6 +19,7 @@
   - [Deleting data](#deleting-data)
 - [Homework](#homework)
 
+---
 
 ## Recap integration of cyf_hotels DB with NodeJS
 
@@ -21,30 +30,31 @@ During the last class, we created a new NodeJS project called `cyf-hotels-api` w
 ```js
 const express = require("express");
 const app = express();
-const { Pool } = require('pg');
+const { Pool } = require("pg");
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'cyf_hotels',
-    password: '',
-    port: 5432
+  user: "postgres",
+  host: "localhost",
+  database: "cyf_hotels",
+  password: "",
+  port: 5432,
 });
 
-app.get("/hotels", function(req, res) {
-    pool.query('SELECT * FROM hotels')
-        .then(result => res.json(result.rows))
-        .catch(e => console.error(e));
+app.get("/hotels", function (req, res) {
+  pool
+    .query("SELECT * FROM hotels")
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
 });
 
-app.listen(3000, function() {
-    console.log("Server is listening on port 3000. Ready to accept requests!");
+app.listen(3000, function () {
+  console.log("Server is listening on port 3000. Ready to accept requests!");
 });
 ```
 
 ## CRUD operations with NodeJS and PostgreSQL
 
-*"The acronym CRUD refers to all of the major functions that are implemented in relational database applications. Each letter in the acronym can map to a standard Structured Query Language (SQL) statement and Hypertext Transfer Protocol (HTTP) method [...]."* - [Wikipedia](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+_"The acronym CRUD refers to all of the major functions that are implemented in relational database applications. Each letter in the acronym can map to a standard Structured Query Language (SQL) statement and Hypertext Transfer Protocol (HTTP) method [...]."_ - [Wikipedia](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
 
 <!-- ![table-diagram](crud.png) -->
 <p align="center">
@@ -68,23 +78,25 @@ npm install --save body-parser
 Then include it in the `server.js`:
 
 ```js
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 ```
 
 We can finally add our new endpoint to create a new hotel:
 
 ```js
-app.post("/hotels", function(req, res) {
-    const newHotelName = req.body.name;
-    const newHotelRooms = req.body.rooms;
-    const newHotelPostcode = req.body.postcode;
+app.post("/hotels", function (req, res) {
+  const newHotelName = req.body.name;
+  const newHotelRooms = req.body.rooms;
+  const newHotelPostcode = req.body.postcode;
 
-    const query = "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
+  const query =
+    "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
 
-    pool.query(query, [newHotelName, newHotelRooms, newHotelPostcode])
-        .then(() => res.send("Hotel created!"))
-        .catch(e => console.error(e));
+  pool
+    .query(query, [newHotelName, newHotelRooms, newHotelPostcode])
+    .then(() => res.send("Hotel created!"))
+    .catch((e) => console.error(e));
 });
 ```
 
@@ -97,34 +109,43 @@ What could go wrong with the code above? There is no validation of any user inpu
 Let's start by validating that the number of rooms is a positive number and if it doesn't, return an error.
 
 ```js
-if(!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
-    return res.status(400).send("The number of rooms should be a positive integer.");
+if (!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
+  return res
+    .status(400)
+    .send("The number of rooms should be a positive integer.");
 }
 ```
 
 Then we can validate the new hotel doesn't already exist in the database, thus preventing duplicate data.
 
 ```js
-app.post("/hotels", function(req, res) {
-    const newHotelName = req.body.name;
-    const newHotelRooms = req.body.rooms;
-    const newHotelPostcode = req.body.postcode;
+app.post("/hotels", function (req, res) {
+  const newHotelName = req.body.name;
+  const newHotelRooms = req.body.rooms;
+  const newHotelPostcode = req.body.postcode;
 
-    if(!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
-        return res.status(400).send("The number of rooms should be a positive integer.");
-    }
+  if (!Number.isInteger(newHotelRooms) || newHotelRooms <= 0) {
+    return res
+      .status(400)
+      .send("The number of rooms should be a positive integer.");
+  }
 
-    pool.query("SELECT * FROM hotels WHERE name=$1", [newHotelName])
-        .then(result => {
-            if(result.rows.length > 0) {
-                return res.status(400).send('An hotel with the same name already exists!');
-            } else {
-                const query = "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
-                pool.query(query, [newHotelName, newHotelRooms, newHotelPostcode])
-                    .then(() => res.send("Hotel created!"))
-                    .catch(e => console.error(e));
-            }
-        });
+  pool
+    .query("SELECT * FROM hotels WHERE name=$1", [newHotelName])
+    .then((result) => {
+      if (result.rows.length > 0) {
+        return res
+          .status(400)
+          .send("An hotel with the same name already exists!");
+      } else {
+        const query =
+          "INSERT INTO hotels (name, rooms, postcode) VALUES ($1, $2, $3)";
+        pool
+          .query(query, [newHotelName, newHotelRooms, newHotelPostcode])
+          .then(() => res.send("Hotel created!"))
+          .catch((e) => console.error(e));
+      }
+    });
 });
 ```
 
@@ -139,42 +160,44 @@ app.post("/hotels", function(req, res) {
 We already have one GET endpoint to load all the hotels in the database. However, we can improve this endpoint and add a couple of extra functionalities. First, we may want to order the list of hotels by name:
 
 ```js
-app.get("/hotels", function(req, res) {
-    pool.query("SELECT * FROM hotels ORDER BY name")
-        .then(result => res.json(result.rows))
-        .catch(e => console.error(e));
+app.get("/hotels", function (req, res) {
+  pool
+    .query("SELECT * FROM hotels ORDER BY name")
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
 });
 ```
 
 Another functionality which could be useful is to filter the hotel with a keyword to be able to search for a specific hotel name:
 
 ```js
-app.get("/hotels", function(req, res) {
-    const hotelNameQuery = req.query.name;
-    let query = `SELECT * FROM hotels ORDER BY name`;
-    
-    if(hotelNameQuery) {
-        query = `SELECT * FROM hotels WHERE name LIKE '%${hotelNameQuery}%' ORDER BY name`;
-    }
+app.get("/hotels", function (req, res) {
+  const hotelNameQuery = req.query.name;
+  let query = `SELECT * FROM hotels ORDER BY name`;
 
-    pool.query(query)
-        .then(result => res.json(result.rows))
-        .catch(e => console.error(e));
+  if (hotelNameQuery) {
+    query = `SELECT * FROM hotels WHERE name LIKE '%${hotelNameQuery}%' ORDER BY name`;
+  }
+
+  pool
+    .query(query)
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
 });
 ```
 
 In some case, you would want to load only a specific hotel by id. Let's define a new GET endpoint to load one specific hotel:
 
 ```js
-app.get("/hotels/:hotelId", function(req, res) {
-    const hotelId = req.params.hotelId;
+app.get("/hotels/:hotelId", function (req, res) {
+  const hotelId = req.params.hotelId;
 
-    pool.query("SELECT * FROM hotels WHERE id=$1", [hotelId])
-        .then(result => res.json(result.rows))
-        .catch(e => console.error(e));
+  pool
+    .query("SELECT * FROM hotels WHERE id=$1", [hotelId])
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
 });
 ```
-
 
 #### Exercise 2
 
@@ -183,19 +206,19 @@ app.get("/hotels/:hotelId", function(req, res) {
 - Add a new GET endpoint `/customers/:customerId` to load one customer by ID.
 - Add a new GET endpoint `/customers/:customerId/bookings` to load all the bookings of a specific customer. Returns the following information: check in date, number of nights, hotel name, hotel postcode.
 
-
 ### Updating data
 
 We can now implement an endpoint to update a customer record in the database. For this, we will use a PUT endpoint.
 
 ```js
-app.put("/customers/:customerId", function(req, res) {
-    const customerId = req.params.customerId;
-    const newEmail = req.body.email;
+app.put("/customers/:customerId", function (req, res) {
+  const customerId = req.params.customerId;
+  const newEmail = req.body.email;
 
-    pool.query("UPDATE customers SET email=$1 WHERE id=$2", [newEmail, customerId])
-        .then(() => res.send(`Customer ${customerId} updated!`))
-        .catch(e => console.error(e));
+  pool
+    .query("UPDATE customers SET email=$1 WHERE id=$2", [newEmail, customerId])
+    .then(() => res.send(`Customer ${customerId} updated!`))
+    .catch((e) => console.error(e));
 });
 ```
 
@@ -212,28 +235,31 @@ What can go wrong in the code above? Again, there is no validation! We could set
 To delete a record from the database, we will use a DELETE endpoint:
 
 ```js
-app.delete("/customers/:customerId", function(req, res) {
-    const customerId = req.params.customerId;
+app.delete("/customers/:customerId", function (req, res) {
+  const customerId = req.params.customerId;
 
-    pool.query("DELETE FROM customers WHERE id=$1", [customerId])
-        .then(() => res.send(`Customer ${customerId} deleted!`))
-        .catch(e => console.error(e));
+  pool
+    .query("DELETE FROM customers WHERE id=$1", [customerId])
+    .then(() => res.send(`Customer ${customerId} deleted!`))
+    .catch((e) => console.error(e));
 });
 ```
 
 However, if you try to delete a customer which already has some bookings, the previous endpoint will fail. Do you know why? You cannot delete a customer whose ID is used as a foreign key in another table (in this case, in the `bookings` table). Let's delete all the customer bookings first:
 
 ```js
-app.delete("/customers/:customerId", function(req, res) {
-    const customerId = req.params.customerId;
+app.delete("/customers/:customerId", function (req, res) {
+  const customerId = req.params.customerId;
 
-    pool.query("DELETE FROM bookings WHERE customer_id=$1", [customerId])
-        .then(() => {
-            pool.query("DELETE FROM customers WHERE id=$1", [customerId])
-                .then(() => res.send(`Customer ${customerId} deleted!`))
-                .catch(e => console.error(e));;
-        })
-        .catch(e => console.error(e));
+  pool
+    .query("DELETE FROM bookings WHERE customer_id=$1", [customerId])
+    .then(() => {
+      pool
+        .query("DELETE FROM customers WHERE id=$1", [customerId])
+        .then(() => res.send(`Customer ${customerId} deleted!`))
+        .catch((e) => console.error(e));
+    })
+    .catch((e) => console.error(e));
 });
 ```
 
@@ -242,18 +268,16 @@ app.delete("/customers/:customerId", function(req, res) {
 - Add the DELETE endpoint `/customers/:customerId` above and verify you can delete a customer along their bookings with Postman.
 - Add a new DELETE endpoint `/hotels/:hotelId` to delete a specific hotel. **A hotel can only be deleted if it doesn't appear in any of the customers' bookings! Make sure you add the corresponding validation before you try to delete a hotel.**
 
-
 ## Homework
 
-In the following homework, you will create new API endpoints in the NodeJS application `cyf-ecommerce-api` that you created for last week homework for the Database 2 class.
+All of the homework can be found in [this repository](https://github.com/CodeYourFuture/Databases-Homework).
 
-- If you don't have it already, add a new GET endpoint `/products` to load all the product names along with their supplier names.
-- Update the previous GET endpoint `/products` to filter the list of products by name using a query parameter, for example `/products?name=Cup`. This endpoint should still work even if you don't use the `name` query parameter!
-- Add a new GET endpoint `/customers/:customerId` to load a single customer by ID.
-- Add a new POST endpoint `/customers` to create a new customer. 
-- Adda new POST endpoint `/products` to create a new product (with a product name, a price and a supplier id). Check that the price is a positive integer and that the supplier ID exists in the database, otherwise return an error.
-- Add a new POST endpoint `/customers/:customerId/orders` to create a new order (including an order date, and an order reference) for a customer. Check that the customerId corresponds to an existing customer or return an error.
-- Add a new PUT endpoint `/customers/:customerId` to update an existing customer (name, address, city and country).
-- Add a new DELETE endpoint `/orders/:orderId` to delete an existing order along all the associated order items.
-- Add a new DELETE endpoint `/customers/:customerId` to delete an existing customer only if this customer doesn't have orders.
-- Add a new GET endpoint `/customers/:customerId/orders` to load all the orders along the  items in the orders of a specific customer. Especially, the following information should be returned: order references, order dates, product names, unit prices, suppliers and quantities.
+### Submission
+
+Create a new branch from `Master` to start working on this weeks homework. It should be called `[YOUR_NAME]/Week3`.
+
+When you have completed the homework create a pull request back to the `CodeYourFuture/Databases-Homework` repository so your teach can feedback on it.
+
+### Tasks
+
+You should complete all of the tasks in **Week 3** of the [Database Homework repository](https://github.com/CodeYourFuture/Databases-Homework).

@@ -442,22 +442,6 @@ const dynamicKeyObject = {
 console.log(dynamicKeyObject); // => { key1: "value1" }
 ```
 
-> **Exercise D**
-> Open the `pokedex` React application again and open the `src/CaughtPokemon.js` file. In this exercise, instead of recording the number of caught Pokemons, we are going to record the names of each Pokemon you caught.
-> 1. Make sure the `CaughtPokemon` component is written as a class component
-> 2. Add an `<input>` in the `render` method before the `button` (hint: `<input type="text" />`)
-> 3. Add a `value` property to the `<input>` set to the state `pokemonNameInput`
-> 4. Initialize the state `pokemonNameInput` in the constructor to an empty string `''` (you can try to set something else than an empty string and verify that this value is correctly displayed in your input)
-> 5. Create a new `handleInputChange` method
-> 6. Add a `onChange` handler to the `<input>` that will call `this.handleInputChange`
-> 7. Add a parameter called `event` to the `handleInputChange` method and add a `console.log` with `event.target.value`. In your browser, try writting something in the `<input>`. What do you see in the JavaScript console?
-> 8. Use `setState` in `handleInputChange` to record `event.target.value` in the state `pokemonNameInput`. In your browser, try writting something in the `<input>`. What do you see this time in the JavaScript console?
-> 9. We are now going to save the user input when clicking on the `<button>`. Initialize `caughtPokemon` to an empty array `[]` instead of 0 in the `constructor`. In the `render`, use `.length` to display the number of items in the state array `caughtPokemon` (hint: it should still display `0` on the screen). Finally, delete the content of `catchPokemon` method (it should be empty, we will rewrite it later).
-> 10. In `catchPokemon` method, create a variable `newCaughtPokemon` set to the state `caughtPokemon` and add the value of the state `pokemonNameInput` to it (hint: use `push()` to add a new item in an array).
-> 11. In `catchPokemon` method, use `setState` to record the variable `newCaughtPokemon` in the state `caughtPokemon`. Open your browser, enter a pokemon name in the `<input>` and click on the button. Can you see the number of caught pokemon incrementing as you click on the button?
-> 12. We are now going to display the names of the caught pokemon. In the `render` method, add a `<ul>` element and use the `.map()` method on the `caughtPokemon` state to loop over each pokemon and return a `<li>` element for each.
-> 13. Empty the `<input>` after clicking on the button. For this, in `catchPokemon` method, set the state of `pokemonNameInput` to an empty string `''`.
-> 14: **(STRETCH GOAL)** Make sure the user cannot add a pokemon to the `caughtPokemon` state if the value of `pokemonNameInput` state is empty.
 We are also using [object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals) syntax, which copies properties from one object to another. We are using this to update the state object but without *mutating* the original object.
 
 Let's break this down into 2 steps. Here we create a **new** object based on another object, and **adding** a new property ([interactive example]()):
@@ -496,6 +480,24 @@ console.log(watsonAfterMoving);
 Notice how Watson "moves" from "123 Fake Road" to "221b Baker Street"? Because the `address` key is in both objects, the **second** one "wins" and overrides the other key.
 
 We are combining all of the concepts above to make a new object, that has all the same properties as the `userData` object, except for the property that is computed from `event.target.name` for the key and `event.target.value` for the value.
+
+| **Exercise D** |
+| :--- |
+| 1. Open the `pokedex` React application again and open the `src/CaughtPokemon.js` file. In this exercise, instead of recording the number of caught Pokemons, we are going to record the names of each Pokemon you caught. |
+| 2. Make sure the `CaughtPokemon` component is written as a class component. |
+| 3. Add an `<input>` in the `render` method before the `button` (hint: `<input type="text" />`). |
+| 4. Add a `value` property to the `<input>` set to the state `pokemonNameInput`. |
+| 5. Initialize the state `pokemonNameInput` in the constructor to an empty string `''` (you can try to set something else than an empty string and verify that this value is correctly displayed in your input). |
+| 6. Create a new `handleInputChange` method. |
+| 7. Add a `onChange` handler to the `<input>` that will call `this.handleInputChange`. |
+| 8. Add a parameter called `event` to the `handleInputChange` method and add a `console.log` with `event.target.value`. In your browser, try writting something in the `<input>`. What do you see in the JavaScript console? |
+| 9. Use `setState` in `handleInputChange` to record `event.target.value` in the state `pokemonNameInput`. In your browser, try writting something in the `<input>`. What do you see this time in the JavaScript console? |
+| 10. We are now going to save the user input when clicking on the `<button>`. Initialize `caughtPokemon` to an empty array `[]` instead of 0 in the `constructor`. In the `render`, use `.length` to display the number of items in the state array `caughtPokemon` (hint: it should still display `0` on the screen). Finally, delete the content of `catchPokemon` method (it should be empty, we will rewrite it later). |
+| 11. In `catchPokemon` method, create a variable `newCaughtPokemon` set to the state `caughtPokemon` and add the value of the state `pokemonNameInput` to it (hint: use `push()` to add a new item in an array). |
+| 12. In `catchPokemon` method, use `setState` to record the variable `newCaughtPokemon` in the state `caughtPokemon`. Open your browser, enter a pokemon name in the `<input>` and click on the button. Can you see the number of caught pokemon incrementing as you click on the button? |
+| 13. We are now going to display the names of the caught pokemon. In the `render` method, add a `<ul>` element and use the `.map()` method on the `caughtPokemon` state to loop over each pokemon and return a `<li>` element for each. |
+| 14. Empty the `<input>` after clicking on the button. For this, in `catchPokemon` method, set the state of `pokemonNameInput` to an empty string `''`. |
+| 15: **(STRETCH GOAL)** Make sure the user cannot add a pokemon to the `caughtPokemon` state if the value of `pokemonNameInput` state is empty. |
 
 ## Further Reading
 

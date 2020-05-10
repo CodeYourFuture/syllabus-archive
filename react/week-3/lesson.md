@@ -325,42 +325,38 @@ function MartianImageFetcher(props) {
 
 Modern web applications often involve interacting with forms such as creating an account, adding a blog post or posting a comment. This would involve using inputs, buttons and various form elements and being able to get the values entered by users to do something with it (like display them on a page or send them in a POST request). So, how do we do this in React?
 
-A popular pattern for building forms and collect user data is the *controlled component* pattern. A pattern is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
+A popular pattern for building forms and collect user data is the *controlled component* pattern. A *pattern* is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/controlled-component-4jq1yqy8kx?file=/src/SimpleReminder.js)):
 
 ```js
-class SimpleReminder extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reminder: ""
-    };
+function SimpleReminder() {
+  const [reminder, setReminder] = useState("");
+
+  function handleChange(event) {
+    setReminder(event.target.value);
   }
 
-  handleChange = event => {
-    this.setState({
-      reminder: event.target.value
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          placeholder="Some reminder"
-          value={this.state.reminder}
-          onChange={this.handleChange}
-        />
-        <p>Today I need to remember to... {this.state.reminder}</p>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Some reminder"
+        value={reminder}
+        onChange={handleChange}
+      />
+      <p>Today I need to remember to... {reminder}</p>
+    </div>
+  );
 }
 ```
 
-We're controlling the `value` of the input by using the value from the `reminder` state. This means that we can only change the value by updating the state. It is done using the `onChange` attribute and the method `handleChange` which is called every time the input value changes (typically when a new character is added or removed). If you didn't call `this.setState()` in the `handleChange` method, then the input's value would never change and it would appear as if you couldn't type in the input! Finally, the value we keep in the `reminder` state is displayed on the screen as today's reminder. 
+We're controlling the `value` of the input by using the value from the `reminder` state. This means that we can only change the value by updating the state.
 
-In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `this.setState()`, for example by calling `toUpperCase()` on the string.
+It is done using the `onChange` attribute and the `handleChange` function which is called every time the input value changes (typically when a new character is added or removed).
+
+If we didn't call `setReminder` in the `handleChange` function, then the input's value would never change and it would appear as if you couldn't type in the input! Finally, the value we keep in the `reminder` state is displayed on the screen as today's reminder.
+
+In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `setReminder`, for example by calling `toUpperCase()` on the string.
+
 
 Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
 

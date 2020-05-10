@@ -485,16 +485,15 @@ We are combining all of the concepts above to make a new object, that has all th
 | :--- |
 | 1. Open the `pokedex` React application again and open the `src/CaughtPokemon.js` file. In this exercise, instead of recording the number of caught Pokemon, we are going to record the names of each Pokemon you caught. |
 | 2. Render an `<input>` before the `<button>` (hint: `<input type="text" />`). |
-| 3. Add a `value` property to the `<input>` set to the state `pokemonNameInput`. |
-| 4. Create a new state variable called `pokemonNameInput` and initialise to an empty string (`""`). If you want, you can try to set something else than an empty string and verify that this value is correctly displayed in your input. |
+| 3. Create a new state variable called `pokemonNameInput` and initialise to an empty string (`""`). |
+| 4. Add a `value` property to the `<input>` which passes the `pokemonNameInput` state variable. |
 | 5. Create a new `handleInputChange` function. |
 | 6. Add a `onChange` handler to the `<input>` that will call `handleInputChange`. |
 | 7. Add a parameter called `event` to the `handleInputChange` function and add a `console.log` with `event.target.value`. In your browser, try writing something in the `<input>`. What do you see in the JavaScript console? |
 | 8. Set the `pokemonNameInput` state variable to `event.target.value`. In your browser, try writing something in the `<input>`. What do you see? |
 | 9. We are now going to save the user input when clicking on the `<button>`. Change the `caughtPokemon` state variable so that it is initialised as an empty array `[]`. |
-| 10. There should now be an error in your app! To fix it, change from rendering `caughtPokemon` to `caughtPokemon.length`. Why did this fix the bug? |
-| 11. In your browser, click the "Catch Pokemon" button. What happens? Can you explain why? |
-| 11. To fix the bug, we need to change the `catchPokemon` function to add the `pokemonNameInput` state variable into the `caughtPokemon` array. (Hint: trying using the `.concat()` method, then calling `setCaughtPokemon`). |
+| 10. There should now be a bug in your app! The number of caught Pokemon has gone! To fix it, change from rendering `caughtPokemon` to `caughtPokemon.length`. Why did this fix the bug? |
+| 11. We now need to change the `catchPokemon` function to add the `pokemonNameInput` state variable into the `caughtPokemon` array. (Hint: trying using the `.concat()` method, then calling `setCaughtPokemon`). |
 | 12. Open your browser, type a Pokemon name into the `<input>` and click on the "Catch Pokemon" button. Can you see the number of caught Pokemon incrementing as you click on the button? |
 | 13. Now we are going to display the names of the caught Pokemon. Instead of rendering `caughtPokemon.length`, create a `<ul>` element and use the `.map()` method on the `caughtPokemon` state variable to loop over each Pokemon and return a `<li>` element for each. |
 | 14. Empty the `<input>` after clicking on the button. To do this, set the state of `pokemonNameInput` to an empty string `""` after we have added it to the `caughtPokemon` array in the `catchPokemon` function. |

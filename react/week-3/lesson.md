@@ -491,10 +491,8 @@ We are combining all of the concepts above to make a new object, that has all th
 | 6. Add a `onChange` handler to the `<input>` that will call `handleInputChange`. |
 | 7. Add a parameter called `event` to the `handleInputChange` function and add a `console.log` with `event.target.value`. In your browser, try writing something in the `<input>`. What do you see in the JavaScript console? |
 | 8. Set the `pokemonNameInput` state variable to `event.target.value`. In your browser, try writing something in the `<input>`. What do you see? |
-
 | 9. We are now going to save the user input when clicking on the `<button>`. Change the `caughtPokemon` state variable so that it is initialised as an empty array `[]`. |
 | 10. There should now be an error in your app! To fix it, change from rendering `caughtPokemon` to `caughtPokemon.length`. Why did this fix the bug? |
-
 | 11. In your browser, click the "Catch Pokemon" button. What happens? Can you explain why? |
 | 11. To fix the bug, we need to change the `catchPokemon` function to add the `pokemonNameInput` state variable into the `caughtPokemon` array. (Hint: trying using the `.concat()` method, then calling `setCaughtPokemon`). |
 | 12. Open your browser, type a Pokemon name into the `<input>` and click on the "Catch Pokemon" button. Can you see the number of caught Pokemon incrementing as you click on the button? |

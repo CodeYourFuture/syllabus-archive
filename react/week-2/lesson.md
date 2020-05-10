@@ -18,6 +18,8 @@
     - [Why React hooks, over Class component state and methods?](#why-react-hooks-over-class-component-state-and-methods)
     - [Counter Example - with hooks](#counter-example---with-hooks)
     - [Setting multiple states](#setting-multiple-states)
+  - [Fetching data in React](#fetching-data-in-react)
+    - [The `useEffect` hook](#the-useeffect-hook)
   - [Further Reading](#further-reading)
 - [Homework](#homework)
 
@@ -97,6 +99,7 @@ Here are the steps to follow to convert from a functional component into a class
 
 > **Exercise A**
 > Open the `pokedex` React application that you created last week
+>
 > 1. Convert the `Logo` component from a functional component into a class component
 > 2. Convert the `CaughtPokemon` component into a class component
 > 3. Convert the `BestPokemon` component into a class component
@@ -126,12 +129,14 @@ Notice how we use a slightly different syntax for the `sayHello` method than the
 ```js
 methodName = () => {
   // ...
-}
+};
 ```
+
 **Except** for the `render` method (and a handful of others which we'll talk about later).
 
 > **Exercise B**
 > Open the `pokedex` React application and open the `Logo.js` file
+>
 > 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
 > 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
 > 3. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above)
@@ -217,7 +222,7 @@ Note that this example is simplified compared to your `pokedex` application. To 
 This example isn't very useful yet as it doesn't do anything when clicking the button. Now let's listen for clicks on the button and increment the counter ([interactive version](https://codesandbox.io/s/llow115pll)):
 
 ```js
-let count = 0
+let count = 0;
 
 class Counter extends Component {
   // ...
@@ -226,7 +231,7 @@ function renderCounter(count) {
   // ...
 }
 
-renderCounter(count)
+renderCounter(count);
 
 document.getElementById('click-me').addEventListener('click', () => {
   count = count + 1
@@ -243,9 +248,9 @@ Let's take another look at the the counter example. What if you wanted to create
 You could add some more `count` global variables:
 
 ```js
-let count1 = 0
-let count2 = 0
-let count3 = 0
+let count1 = 0;
+let count2 = 0;
+let count3 = 0;
 ```
 
 What might be the problem here?
@@ -399,6 +404,7 @@ Let's recap what we've learnt about React state:
 
 > **Exercise D**
 > Open the `pokedex` React application and open the `CaughtPokemon.js` file
+>
 > 1. Add a `constructor` method to the `CaughtPokemon` component and remember to handle `props` correctly (hint: `super(props)`)
 > 2. Set the initial state by assigning `this.state` in the `constructor` method to an object. Then make the initial state have 0 `caughtPokemon`
 > 3. Change the `CaughtPokemon` component to render `this.state.caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser?
@@ -500,12 +506,61 @@ function ExampleWithManyStates() {
 
 Notice that as before the initial state to a value inside `useState` in this case we have `0` and `Oranges`, with value `0` has the same behaviour as the counter example before. With value `Oranges`, it can turned into the value `Apple`. Stick to using the same data type, as it is best practice.
 
+## Fetching data in React
+
+Often when you create a React app, you will want to get data from an API, and display it inside your components.
+How do we do this in React? Where does the API call go, and when should we trigger it?
+
+**Where:** Usually in a parent component, at the top of the component tree (see the note about 'container' components above). You can then flow the data down into your child components as props.
+**When:** When the component is first loaded into the DOM. We call this 'mounting'.
+**How:** With a handy new hook called `useEffect`.
+
+### The `useEffect` hook
+
+Just like `useState`, the `useEffect` hook is a special function that all function components can import and use as needed. This is the syntax to follow to fetch data when the component is first mounted:
+
+```js
+useEffect(() => {
+  // Make your API call here
+}, []); // Don't forget the empty array here!
+```
+
+And here is a more complete example:
+
+```js
+import React, { useState, useEffect } from 'react'; // remember to import the hook(s) you need!
+
+const MartianPhotoFetcher = () => {
+  const [marsPhotos, setMarsPhotos] = useState();
+
+  useEffect(() => {
+    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=DEMO_KEY`)
+      .then(res => res.json())
+      .then(data => setMarsPhotos(data));
+    });
+  });
+
+  return (
+    <div>
+      // TODO: update this example
+    </div>
+  );
+};
+
+export default MartianPhotoFetcher;
+```
+
+In the code above, we're saying to React “When this component is mounted, call the NASA photos API, and when you receive a response, save it inside of the 'marsPhotos' state”.
+
+This is a very common pattern which will come in very useful!
+
 ## Further Reading
 
 What happens if you forget to pass a prop to a component? Or if you pass the wrong type of data to a component? Sometimes React will just render an empty element but sometimes it could throw an error! This is why `propTypes` are useful. [This page on the React documentation](https://reactjs.org/docs/typechecking-with-proptypes.html) describes how to use `propTypes` in more detail.
 
 > **Exercise E**
 > Complete the FreeCodeCamp [exercise](https://learn.freecodecamp.org/front-end-libraries/react/) on `propTypes`:
+>
 > 1. [Use PropTypes to Define the Props You Expect](https://learn.freecodecamp.org/front-end-libraries/react/use-proptypes-to-define-the-props-you-expect/)
 
 # Homework

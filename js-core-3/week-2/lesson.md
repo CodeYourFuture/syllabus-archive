@@ -1,5 +1,13 @@
 # JavaScript Core III - Week 2
 
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
 ## Learning Objectives
 
 - The learner should understand what the acronym API means

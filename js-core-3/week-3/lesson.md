@@ -1,5 +1,13 @@
 # JavaScript Core III - Week 3
 
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
 ## Learning Objectives
 
 - The learner should understand the concept of variable scope and be able to define them in global, local, block and class scope

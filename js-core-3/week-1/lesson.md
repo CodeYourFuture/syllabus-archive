@@ -1,5 +1,13 @@
 # JavaScript Core III - Week 1
 
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
+
 ## Learning Objectives
 
 - The learner should understand the value of thorough and comprehensive debugging

@@ -140,6 +140,8 @@ const FancyButton = props => (
 );
 ```
 
+Notice how this is very similar to the example above where we created the handler and used it in the same component? The only difference here is that we are passing the function reference through a prop. We could even pass it through multiple components as props.
+
 | **Exercise** |
 | :--- |
 | 1. Open the `pokedex` React application and open the `Logo.js` file. |

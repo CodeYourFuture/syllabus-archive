@@ -23,16 +23,18 @@ Read the Mentors Notes [here](./mentors.md)
 
 ## Learning Objectives
 
-By the end of this class, you should be able to answer these questions:
+By the end of this class, you should be able to:
 
 - What are expressions and statements (and what's the difference)?
-- What are conditionals?
-- What are `for` and `while` loops (and what's the difference)?
-- How do you use expressions with conditionals?
-- What are comparator operators and how do you use them?
-- What are logical operators and how do you use them?
-- What functionality does the `assert` module provide?
-- What are arrays and how can you interact with them?
+- Define what expressions and statements are and describe the difference
+- Define what was a conditional is
+- Define what `for` and `while` loops are and define the difference
+- Write an if statement using a conditional
+- Define comparator operators and list the different types
+- Use comparator operators in an `if` statement
+- Define what a logical operator is and give examples
+- Write functionality that uses the `assert` module
+- Describe what an array is and write code that interacts with them
 
 ---
 
@@ -368,6 +370,7 @@ while (i < 20) {
   i++;
 }
 ```
+
 Notice the line **i++** - this is the same as saying **i = i + 1** It does exactly the same thing but it is just more convenient to write.
 
 It's important that the condition inside the parenthesis becomes false at some point - otherwise, we'll have what's known as an infinite loop!
@@ -464,7 +467,6 @@ Now, using the correct indexes, get the following values from the array:
 - orange
 - banana
 
-
 Then, replace 'apple' with 'raspberry', and replace 'fig' with 'pineapple'.
 
 ### Exercise (5 mins)
@@ -487,12 +489,20 @@ We can use the power of loops to run some code for each element in our array.
 When we do this say we **iterate** over an array.
 
 ```js
-const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const daysOfWeek = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
-for(let i = 0; i < daysOfWeek.length; i++){
-    const dayMessage = "day is: " + daysOfWeek[i];
-    const indexMessage = "index is: " + i;
-    console.log(indexMessage, dayMessage);
+for (let i = 0; i < daysOfWeek.length; i++) {
+  const dayMessage = "day is: " + daysOfWeek[i];
+  const indexMessage = "index is: " + i;
+  console.log(indexMessage, dayMessage);
 }
 ```
 
@@ -517,7 +527,15 @@ How can you combine the two functions to return an array of even and squared num
 3. Have you learned anything new during this exercise?
 
 ```js
-const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const daysOfWeek = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 function workingDay(day) {
   return day + " is a working day";

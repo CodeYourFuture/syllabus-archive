@@ -24,10 +24,12 @@ Read the Mentors Notes [here](./mentors.md)
 
 By the end of this class, you should be able to answer these questions:
 
-- How do you use array methods and properties to manipulate arrays?
-- How can you chain array methods?
-- What is a callback and how do you use it?
-- What is an anonymous function and how do you use it?
+- Describe what an array method is and use them to manipulate an array
+- Write code that chains array methods together
+- Define what a callback is
+- Write code that uses a callback to run code
+- Define what an anonymous function is
+- Write code that uses an anonymous function as a callback
 
 ---
 

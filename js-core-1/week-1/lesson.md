@@ -23,19 +23,18 @@ Read the Mentors Notes [here](./mentors.md)
 
 ## Learning Objectives
 
-By the end of this class, you should be able to answer these questions:
+By the end of this class, you should be able to:
 
-- What is `console.log()`?
-- What are the different primitive data types in JS?
-- What is `typeof` and how do you use it?
-- How do you assign data to variables using `let` and `const`?
-- How do you define, call and evaluate functions?
-- How do you manipulate strings with concatenation and interpolation techniques?
-- How do you manipulate numbers with mathematical operators and the `Math` library?
-- What is the difference between `console.log()` and `return`?
-- How do you call functions from within functions?
-- How do you search and read documentation if you're stuck?
-- How can you debug and step through code?
+- Use `console.log()` to print information to the console
+- List and describe the different primitive data types in JS
+- Use `typeof` to find the type of a variable
+- Assign data to variables using `let` and `const`
+- Write, call and evaluate functions in JavaScript
+- Manipulate strings with concatenation and interpolation techniques
+- Manipulate numbers with mathematical operators using the `Math` library
+- Define the difference between `console.log()` and `return`
+- Call functions within functions
+- Search and read documentation to help when you are stuck
 
 ---
 

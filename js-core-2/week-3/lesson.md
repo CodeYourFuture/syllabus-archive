@@ -23,7 +23,19 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
-![](https://img.shields.io/badge/status-draft-darkred.svg)
+## Learning Objectives
+
+By the end of this lesson students should be able to:
+
+- Define the difference between synchronous and asynchronous code
+- Describe why writing asynchronous code is important when working with the internet
+- Write code that is able to pass a function to another function as a parameter and run it
+- Use callbacks to run code at some point in the future
+- Define a clients and servers role in the client/server architecture
+- Understand how resources are loaded on the internet using GET and POST
+- List the steps that a browser does when loading a website from the internet
+
+---
 
 ## Synchronous and Asynchronous programming
 
@@ -31,7 +43,7 @@ In a synchronous programming model, tasks run one at a time. When a long running
 
 Asynchronous programming allows multiple actions to happen at the same time. When a long running action starts, the program can continue to run. When the action finishes the program will get notified and get access to the result returned.
 
-![](sync-vs-async.jpg)
+![](assets/sync-vs-async.jpg)
 
 ### A real life example
 
@@ -163,7 +175,7 @@ mainFunction(myCallbackFunction);
 
 ### Client/Server architecture
 
-![](client-server.png)
+![](assets/client-server.png)
 
 A **Client** is the typical web user's internet-connected devices and apps. This can be a web browser, a Slack app, your phone, etc.
 
@@ -175,7 +187,7 @@ The **server** communicates with **clients**.
 
 Client–server systems use the **request–response** model: a client sends a request to the server, which performs some action and sends a response back to the client, typically with a result or acknowledgement.
 
-![](request-response-architecture.png)
+![](assets/request-response-architecture.png)
 
 ### HTTP Requests
 

@@ -20,6 +20,10 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
+## Learning Objectives
+
+Learning objectives for this lesson can be found [here](./learning-objectives.md)
+
 ## Responsive Web Design
 
 When we build for the web, we're making websites that can be viewed in a phone, a laptop, a tablet and more. To ensure we're presenting a website that's easy to use on any device, we use Responsive Web Design techniques to modify how content is displayed depending on the viewport.

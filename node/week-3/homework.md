@@ -1,9 +1,9 @@
 # Homework
 
-1. Finish the [hotel workshop](https://github.com/CodeYourFuture/cyf-hotel) with your team, assigning trello tickets in your team trello page
+All of the homework for this week can be found in the Node Homework repository [here](https://github.com/CodeYourFuture/NodeJS-Homework) under the Week 3 folder
 
-## Prepare for the next class
+## Submission
 
-1. Read: <a href='https://en.wikipedia.org/wiki/Persistence_(computer_science)'>Persistence (computer science)</a>
-1. Watch: [What is Database & SQL?](https://www.youtube.com/watch?v=FR4QIeZaPeM)
-1. Learn some basic SQL with [khanacademy](https://www.khanacademy.org/computing/computer-programming/sql) or [codecademy](https://www.codecademy.com/learn/learn-sql) and ask any questions in the channel
+You should fork the [NodeJS-Homework](https://github.com/CodeYourFuture/NodeJS-Homework) repository, complete all of your work in those folders.
+
+Make sure you create a branch named `[YOUR_NAME]/Week3` to separate your work for each week.

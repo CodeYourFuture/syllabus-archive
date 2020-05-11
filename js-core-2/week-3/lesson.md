@@ -32,6 +32,7 @@ By the end of this lesson students should be able to:
 - Write code that is able to pass a function to another function as a parameter and run it
 - Use callbacks to run code at some point in the future
 - Define a clients and servers role in the client/server architecture
+- Understand the difference between a GET and POST request
 - Understand how resources are loaded on the internet using GET and POST
 - List the steps that a browser does when loading a website from the internet
 

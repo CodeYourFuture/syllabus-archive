@@ -16,6 +16,12 @@
 - [Making an Argument for Props](#making-an-argument-for-props)
 - [What Are Props?](#what-are-props)
 
+---
+
+{% include "./learning-objectives.md" %}
+
+---
+
 ## What is React?
 
 React is a JavaScript library created by Facebook. It is used for making complex, interactive user interfaces. It has become very popular in the last 5 years.

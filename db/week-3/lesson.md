@@ -25,9 +25,9 @@ Read the Mentors Notes [here](./mentors.md)
 
 By the end of this lesson students should be able to
 
-- Create an API endpoint in a NodeJS applicant to add data to a database
+- Create an API endpoint that can add data to a database
 - Write code that effectively validates data before adding it to a database
-- Create an API endpoint that can retrieve data from a database
+- Create an API endpoint that can retrieve data from a database with multiple parameters
 - Create an API endpoint that can update data in a database
 - Create an API endpoint that can delete data in a database
 

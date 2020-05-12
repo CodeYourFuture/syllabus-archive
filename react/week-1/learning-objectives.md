@@ -1,4 +1,4 @@
-## Learning Objectives - React Week 1
+## Learning Objectives
 
 ### Creating an app
 

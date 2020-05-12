@@ -7,3 +7,6 @@
 | [Week 2](./week-3/lesson.md) | Fetching Data | [Fetching Data Homework](./week-3/lesson.md#homework) |
 | [Week 4](./week-4/lesson.md) | Routing (optional) ||
 
+---
+
+{% include "./overall-learning-objectives.md" %}

@@ -23,24 +23,26 @@
   - [Further Reading](#further-reading)
 - [Homework](#homework)
 
+---
+
+{% include "./learning-objectives.md" %}
+
+---
+
 ## Recap
 
 Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/7zvk9n1950)):
 
 ```js
 // Greeting.js
-const Greeting = () => (
-  <span>Hello</span>
-);
+const Greeting = () => <span>Hello</span>;
 
 // Mentor.js
-const Mentor = (props) => (
-  <span>{props.name}</span>
-);
+const Mentor = (props) => <span>{props.name}</span>;
 
 // index.js
-import Greeting from './Greeting';
-import Mentor from './Mentor';
+import Greeting from "./Greeting";
+import Mentor from "./Mentor";
 
 const HelloMentor = () => (
   <div>
@@ -52,18 +54,18 @@ const HelloMentor = () => (
 
 ## Handling events
 
-So far we have only looked at React apps that are "static": they don't respond to user input. This week we will look at making our apps *dynamic*.
+So far we have only looked at React apps that are "static": they don't respond to user input. This week we will look at making our apps _dynamic_.
 
 ### Recap: First Class Functions in JavaScript
 
-Before we look more at React we need to recap a concept in JavaScript. You may remember that functions in JavaScript are "first class" - that means we can pass a *reference* to a function (as a variable) and then call it elsewhere. Let's look at an example ([interactive example](https://jsbin.com/xudukezaje/edit?js,console)):
+Before we look more at React we need to recap a concept in JavaScript. You may remember that functions in JavaScript are "first class" - that means we can pass a _reference_ to a function (as a variable) and then call it elsewhere. Let's look at an example ([interactive example](https://jsbin.com/xudukezaje/edit?js,console)):
 
 ```js
 function hello() {
   return "Hello!";
 }
 
-console.log(hello);   // Logs: "ƒ hello() {}"
+console.log(hello); // Logs: "ƒ hello() {}"
 console.log(hello()); // Logs: "Hello!"
 ```
 
@@ -78,11 +80,11 @@ In previous lessons we learned how to attach event listeners with `addEventListe
 ```js
 // Create an event handler
 function logWhenClicked() {
-  console.log('buttonElement was clicked!')
+  console.log("buttonElement was clicked!");
 }
 
 // Listen for events and call the event handler when triggered
-buttonElement.addEventListener('click', logWhenClicked)
+buttonElement.addEventListener("click", logWhenClicked);
 ```
 
 We still need to listen events in React, but event handlers are set up in a slightly different way ([interactive example](https://codesandbox.io/s/event-handlers-cc3h7?file=/src/ClickLogger.js)):
@@ -90,28 +92,28 @@ We still need to listen events in React, but event handlers are set up in a slig
 ```js
 function ClickLogger() {
   function logWhenClicked() {
-    console.log("Button was clicked!")
+    console.log("Button was clicked!");
   }
 
-  return <button onClick={logWhenClicked}>Click me!</button>
+  return <button onClick={logWhenClicked}>Click me!</button>;
 }
 ```
 
-You might find it a little strange that we have a function inside a function. But this is a normal thing to do in JavaScript! `logWhenClicked` is within the *scope* of our `ClickLogger` component.
+You might find it a little strange that we have a function inside a function. But this is a normal thing to do in JavaScript! `logWhenClicked` is within the _scope_ of our `ClickLogger` component.
 
 Every element in React has some special props that start with `on` that can be assigned to a function which will be called when the event is triggered. In this example we are using `onClick`, but we'll also see `onSubmit` later in the module. A full list of special event handler props is available [here](https://reactjs.org/docs/events.html#reference).
 
 Just like with `addEventListener` we pass the function reference to `onClick` instead of calling the function. Think of it like this: we give the function to React, so that React can call our function when the element is clicked.
 
-| **Exercise** |
-| :--- |
-| 1. Open the `pokedex` React application from last week and open the `Logo.js` file. |
-| 2. Add a function named `logWhenClicked` within the `Logo` component. (Hint: look at the example above). |
-| 3. In the `logWhenClicked` function, `console.log` a message (it doesn't matter what the message is). |
-| 4. Add an `onClick` handler to the `<img>` that will call `logWhenClicked`. (Hint: look at the `ClickLogger` component above). |
-| 5. In your web browser, try clicking on the logo image. What do you see in the JavaScript console? |
+| **Exercise**                                                                                                                              |
+| :---------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Open the `pokedex` React application from last week and open the `Logo.js` file.                                                       |
+| 2. Add a function named `logWhenClicked` within the `Logo` component. (Hint: look at the example above).                                  |
+| 3. In the `logWhenClicked` function, `console.log` a message (it doesn't matter what the message is).                                     |
+| 4. Add an `onClick` handler to the `<img>` that will call `logWhenClicked`. (Hint: look at the `ClickLogger` component above).            |
+| 5. In your web browser, try clicking on the logo image. What do you see in the JavaScript console?                                        |
 | 6. In a group of 2 - 3 students, discuss what would happen if you changed your code to `onClick={logWhenClicked()}`. Can you explain why? |
-| 7. Report your discussion back to the rest of the class. |
+| 7. Report your discussion back to the rest of the class.                                                                                  |
 
 ### Passing Functions as Props
 
@@ -133,7 +135,7 @@ const ClickLoggerApp = () => {
   );
 };
 
-const FancyButton = props => (
+const FancyButton = (props) => (
   <button className="my-fancy-classname" onClick={props.handleClick}>
     Click Me!
   </button>
@@ -142,14 +144,14 @@ const FancyButton = props => (
 
 Notice how this is very similar to the example above where we created the handler and used it in the same component? The only difference here is that we are passing the function reference through a prop. We could even pass it through multiple components as props.
 
-| **Exercise** |
-| :--- |
-| 1. Open the `pokedex` React application and open the `Logo.js` file. |
-| 2. Copy and paste the `logWhenClicked` function from the `Logo` component to the `App` component. |
-| 3. Pass the `logWhenClicked` function **reference** as a prop to the `Logo` component. (Hint: look at the `ClickLoggerApp` component above for an example). |
+| **Exercise**                                                                                                                                                  |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1. Open the `pokedex` React application and open the `Logo.js` file.                                                                                          |
+| 2. Copy and paste the `logWhenClicked` function from the `Logo` component to the `App` component.                                                             |
+| 3. Pass the `logWhenClicked` function **reference** as a prop to the `Logo` component. (Hint: look at the `ClickLoggerApp` component above for an example).   |
 | 4. In the `Logo` component change the `onClick` prop so that it passes `props.handleClick`. (Hint: look at the `FancyButton` component above for an example). |
-| 5. In a group of 2 - 3 students, discuss what you think will happen when you click the logo image now. Can you explain why? |
-| 6. Report back to the rest of the class what you thought was going to happen and why. |
+| 5. In a group of 2 - 3 students, discuss what you think will happen when you click the logo image now. Can you explain why?                                   |
+| 6. Report back to the rest of the class what you thought was going to happen and why.                                                                         |
 
 ## Reacting to Changes
 
@@ -168,7 +170,7 @@ const Counter = (props) => (
 );
 
 function renderCounter() {
-  ReactDOM.render(<Counter count={count} />, document.getElementById('root'));
+  ReactDOM.render(<Counter count={count} />, document.getElementById("root"));
 }
 
 renderCounter(count);
@@ -190,10 +192,10 @@ function renderCounter(count) {
 
 renderCounter(count);
 
-document.getElementById('click-me').addEventListener('click', () => {
-  count = count + 1
-  renderCounter(count)
-})
+document.getElementById("click-me").addEventListener("click", () => {
+  count = count + 1;
+  renderCounter(count);
+});
 ```
 
 As you can see, the DOM automatically updates when you render. This is an incredibly powerful feature of React. Even better, React will figure out exactly the right bits of the DOM that need to be changed. This makes it extremely efficient and fast. This is concept is called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html).
@@ -218,7 +220,7 @@ What might be the problem here?
 
 What other approaches can we take?
 
-The solution that React provides for us is called *state*. It allows a component to "remember" some variables. Let's take a look at how we could rewrite the counter with React *state*.
+The solution that React provides for us is called _state_. It allows a component to "remember" some variables. Let's take a look at how we could rewrite the counter with React _state_.
 
 Let's start over and get rid of the global variables. **Generally having global variables is a bad idea**, since it is very easy to create a bug which affects the whole application.
 
@@ -229,10 +231,10 @@ const Counter = (props) => {
       Count: {props.count}
       <button>Click me!</button>
     </div>
-  )
+  );
 };
 
-ReactDOM.render(<Counter count={0} />, document.getElementById('root'));
+ReactDOM.render(<Counter count={0} />, document.getElementById("root"));
 ```
 
 Now we need to use one of the class component super powers - state. That means we'll have to convert our `Counter` component to use a class ([interactive example](https://codesandbox.io/s/pjlro5rop7)):
@@ -272,7 +274,7 @@ class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: props.count
+      count: props.count,
     };
   }
 
@@ -292,9 +294,9 @@ class Counter extends Component {
 
   increment = () => {
     this.setState({
-      count: 1
+      count: 1,
     });
-  }
+  };
 
   render() {
     return (
@@ -334,12 +336,12 @@ class Counter extends Component {
   }
 
   increment = () => {
-    this.setState(previousState => {
+    this.setState((previousState) => {
       return {
-        count: previousState.count + 1
+        count: previousState.count + 1,
       };
     });
-  }
+  };
 
   render() {
     // ...
@@ -347,7 +349,7 @@ class Counter extends Component {
 }
 ```
 
-Now we can count up as many times as we like! 
+Now we can count up as many times as we like!
 
 So when do we need to use a callback function for `this.setState`? If we are computing the new state based on the old state, then we need to use a callback function. Otherwise we can just use an object. This is because React can 'delay' `this.setState` executing for performance reasons. By using a callback function, we ensure that we are computing the new state with the correct version of the old state and not an outdated one.
 
@@ -375,31 +377,29 @@ Let's recap what we've learnt about React state:
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
 
-Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or _mutate_) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
 
 ```js
 class Hello extends Component {
   render() {
-    this.props.name = 'Ali';
+    this.props.name = "Ali";
 
-    return (
-      <p>Hello {this.props.name}</p>
-    );
+    return <p>Hello {this.props.name}</p>;
   }
 }
 
-render(<Hello name="Mona" />, document.getElementById('root'));
+render(<Hello name="Mona" />, document.getElementById("root"));
 ```
 
-You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
+You'll see that we get an error. This is because React has made props _read-only_, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now _stale_ - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
 
-From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
+From this we can get a clue about when to use state. If data _changes over time_, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
 
 ### Container components
 
-In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of caught Pokemon in the exercise  increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
+In real world applications, the things we want to remember in state follow the _business logic_ required by our users. So for example the number of caught Pokemon in the exercise increases when you click on the button _Catch Pokemon_. Most of the time, business logic is about figuring out when and how to change state.
 
-To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
+To help us cleanly split up code that performs business logic from code that shows the user interface we split components into _presentational_ and _container_ components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
 
 Container components usually have some state and handler methods. Because of this they must use the `class` syntax. Presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
 
@@ -416,11 +416,10 @@ React is continously updated with features all the time, one that stands out the
 - Code is less complex - being able to make your code more readable in the long term, make it more maintainable
 - Hooks are reusable - unlike methods that scoped within in a class components, you are able to create your own and reuse them elsewhere you in the code. Keeping your code DRY (Don't Repeat Yourself)
 
-
 ### Counter Example - with hooks
 
 ```js
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
   // Declare a new state variable, which we'll call "count"
@@ -429,9 +428,7 @@ function Counter() {
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
     </div>
   );
 }
@@ -447,17 +444,17 @@ Note that variable `count` and function `setCount` come from destructured arrays
 function ExampleWithManyStates() {
   // Declare multiple state variables!
   const [age, setAge] = useState(0);
-  const [fruit, setFruit] = useState('Oranges');
-  
+  const [fruit, setFruit] = useState("Oranges");
+
   return (
     <div>
       <p> Hi! I am Alex </p>
       <p> {`I am ${age} years old`} </p>
-      <p> {`I prefer to eat ${fruit}`} </p>      
+      <p> {`I prefer to eat ${fruit}`} </p>
       <button onClick={() => setAge(age + 1)}>Add 1 year</button>
-      <button onClick={() => setFruit('Apples')}>Change to Apples</button>
+      <button onClick={() => setFruit("Apples")}>Change to Apples</button>
     </div>
-  )
+  );
 }
 ```
 
@@ -511,21 +508,21 @@ In the code above, we're saying to React “When this component is mounted, call
 
 This is a very common pattern which will come in very useful!
 
-| **Exercise** |
-| :--- |
-| 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file. |
-| 2. Create a new component called `BestPokemonFetcher`. |
-| 3. Change the `export default` to export `BestPokemonFetcher` instead of `BestPokemon`. We **don't** need to make any changes to the `BestPokemon` component. |
-| 4. In the new `BestPokemonFetcher` component, create a new state variable called `pokemon` and initialise it to `null`. <details><summary>Click here if you are stuck.</summary>Look at the State section to see how to create state variables.</details> |
-| 5. If there is no `pokemon` state (hint: `if (!pokemon) {}`), then return `null` so that the component renders nothing. |
-| 6. If there is some `pokemon` state (`else {}`), then render the `BestPokemon` component and pass the `pokemon` state variable as the `pokemon` prop (hint: `<BestPokemon pokemon={pokemon} />`). |
+| **Exercise**                                                                                                                                                                                                                                                                      |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file.                                                                                                                                                                                             |
+| 2. Create a new component called `BestPokemonFetcher`.                                                                                                                                                                                                                            |
+| 3. Change the `export default` to export `BestPokemonFetcher` instead of `BestPokemon`. We **don't** need to make any changes to the `BestPokemon` component.                                                                                                                     |
+| 4. In the new `BestPokemonFetcher` component, create a new state variable called `pokemon` and initialise it to `null`. <details><summary>Click here if you are stuck.</summary>Look at the State section to see how to create state variables.</details>                         |
+| 5. If there is no `pokemon` state (hint: `if (!pokemon) {}`), then return `null` so that the component renders nothing.                                                                                                                                                           |
+| 6. If there is some `pokemon` state (`else {}`), then render the `BestPokemon` component and pass the `pokemon` state variable as the `pokemon` prop (hint: `<BestPokemon pokemon={pokemon} />`).                                                                                 |
 | 7. Now add a `useEffect` to the `BestPokemonFetcher` component. Make sure you remember to add the empty array after the callback function. <details><summary>Click here if you are stuck.</summary>Look at the examples above to see how to add <code>useEffect</code>.</details> |
-| 8. Inside the `useEffect` callback, call the `fetch` function with this URL: `https://pokeapi.co/api/v2/pokemon/1/`. |
-| 9. Add a `.then` handler into the `fetch` function (remember this needs to come immediately after the `fetch` call) which converts the response from JSON (hint: `.then(res => res.json())`). |
-| 10. Add a second `.then` handler after the one we just added, where the callback function will receive an argument called `data`. |
-| 11. Within the second `.then` callback function, log out the data that we just received (hint: `console.log(data)`). Inspect the data in the dev tools console. Can you see any interesting values? (Hint: think about what the `BestPokemon` component expects as a prop) |
-| 12. Still within the second `.then` callback function, update the `pokemon` state variable. <details><summary>Click here is you are stuck.</summary>:ppl at the State section again to see how to set state variables to new values.</details> |
-| 13. What happens in your browser? Do you understand why? If not, discuss it with another student. If you are both stuck, ask a Teaching Assistant. |
+| 8. Inside the `useEffect` callback, call the `fetch` function with this URL: `https://pokeapi.co/api/v2/pokemon/1/`.                                                                                                                                                              |
+| 9. Add a `.then` handler into the `fetch` function (remember this needs to come immediately after the `fetch` call) which converts the response from JSON (hint: `.then(res => res.json())`).                                                                                     |
+| 10. Add a second `.then` handler after the one we just added, where the callback function will receive an argument called `data`.                                                                                                                                                 |
+| 11. Within the second `.then` callback function, log out the data that we just received (hint: `console.log(data)`). Inspect the data in the dev tools console. Can you see any interesting values? (Hint: think about what the `BestPokemon` component expects as a prop)        |
+| 12. Still within the second `.then` callback function, update the `pokemon` state variable. <details><summary>Click here is you are stuck.</summary>:ppl at the State section again to see how to set state variables to new values.</details>                                    |
+| 13. What happens in your browser? Do you understand why? If not, discuss it with another student. If you are both stuck, ask a Teaching Assistant.                                                                                                                                |
 
 ## Further Reading
 

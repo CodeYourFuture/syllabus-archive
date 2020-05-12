@@ -21,6 +21,18 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
+## Learning Objectives
+
+By the end of this lesson students should be able to
+
+- Create an API endpoint in a NodeJS applicant to add data to a database
+- Write code that effectively validates data before adding it to a database
+- Create an API endpoint that can retrieve data from a database
+- Create an API endpoint that can update data in a database
+- Create an API endpoint that can delete data in a database
+
+---
+
 ## Recap integration of cyf_hotels DB with NodeJS
 
 For this class, we will use the tables and data from [`cyf_hotels_exercise5.sql`](../week-1/cyf_hotels_exercise5.sql). To start from a clean state for your `cyf_hotels` database, run `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.

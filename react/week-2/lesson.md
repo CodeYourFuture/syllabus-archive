@@ -6,8 +6,6 @@
 
 - [React 2](#react-2)
   - [Recap](#recap)
-  - [Class Components](#class-components)
-    - [Class Methods](#class-methods)
   - [Passing Functions as Props](#passing-functions-as-props)
   - [Reacting to Changes](#reacting-to-changes)
   - [State](#state)
@@ -19,6 +17,8 @@
     - [Counter Example - with hooks](#counter-example---with-hooks)
     - [Setting multiple states](#setting-multiple-states)
   - [Further Reading](#further-reading)
+  - [Class Components](#class-components)
+    - [Class Methods](#class-methods)
 - [Homework](#homework)
 
 ## Recap
@@ -47,95 +47,6 @@ const HelloMentor = () => (
   </div>
 );
 ```
-
-## Class Components
-
-So far we have looked at components which are just functions (which are called *functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://codesandbox.io/s/1zmoz1817j)):
-
-```js
-import React, { Component } from 'react';
-
-// Class component
-class Greeting extends Component {
-  render() {
-    return (
-      <div>Hello</div>
-    );
-  }
-}
-
-// Functional component
-const Greeting = () => {
-  return (
-    <div>Hello</div>
-  )
-};
-```
-
-Instead of getting props through the first argument of the component function, the class component gets props from `this.props`:
-
-```js
-class Mentor extends Component {
-  render() {
-    return (
-      <div>{this.props.name}</div>
-    );
-  }
-}
-```
-
-So when do we use the `class` keyword and when do we use function components? Class components have special super powers called *state* and *lifecycle* (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of *state* or *lifecycle*.
-
-Here are the steps to follow to convert from a functional component into a class component:
-
-1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react';`
-2. Create a new `class` that extends the component: `class MyComponentName extends Component {}`
-3. Inside the class, create a render method: `render() {}`
-4. Copy and paste the contents of the functional component into the `render` method
-5. Replace any references to `props` with `this.props`
-6. Delete the old functional component
-
-> **Exercise A**
-> Open the `pokedex` React application that you created last week
-> 1. Convert the `Logo` component from a functional component into a class component
-> 2. Convert the `CaughtPokemon` component into a class component
-> 3. Convert the `BestPokemon` component into a class component
-
-### Class Methods
-
-One of the super powers that class components have is how we can add more functions within the class scope. These are called *methods* ([interactive example](https://codesandbox.io/s/13omkro30j)):
-
-```js
-import React, { Component } from 'react';
-
-class Hello extends Component {
-  sayHello = () => {
-    console.log('Hello from Hello component!');
-  }
-
-  render() {
-    return (
-      <button onClick={this.sayHello}>Say hello</button>
-    );
-  }
-}
-```
-
-Notice how we use a slightly different syntax for the `sayHello` method than the `render` method? There is a reason for this, but it is quite complicated and mostly irrelevant. The rule of thumb is to always use this syntax:
-
-```js
-methodName = () => {
-  // ...
-}
-```
-**Except** for the `render` method (and a handful of others which we'll talk about later).
-
-> **Exercise B**
-> Open the `pokedex` React application and open the `Logo.js` file
-> 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
-> 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
-> 3. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above)
-> 4. In your web browser, try clicking on the image. What do you see in the JavaScript console?
 
 ## Passing Functions as Props
 
@@ -507,6 +418,97 @@ What happens if you forget to pass a prop to a component? Or if you pass the wro
 > **Exercise E**
 > Complete the FreeCodeCamp [exercise](https://learn.freecodecamp.org/front-end-libraries/react/) on `propTypes`:
 > 1. [Use PropTypes to Define the Props You Expect](https://learn.freecodecamp.org/front-end-libraries/react/use-proptypes-to-define-the-props-you-expect/)
+
+
+## Class Components
+
+So far we have looked at components which are just functions (which are called *functional components*), but there is another way of creating React components using the `class` keyword. Let's look at an example ([interactive example](https://codesandbox.io/s/1zmoz1817j)):
+
+```js
+import React, { Component } from 'react';
+
+// Class component
+class Greeting extends Component {
+  render() {
+    return (
+      <div>Hello</div>
+    );
+  }
+}
+
+// Functional component
+const Greeting = () => {
+  return (
+    <div>Hello</div>
+  )
+};
+```
+
+Instead of getting props through the first argument of the component function, the class component gets props from `this.props`:
+
+```js
+class Mentor extends Component {
+  render() {
+    return (
+      <div>{this.props.name}</div>
+    );
+  }
+}
+```
+
+So when do we use the `class` keyword and when do we use function components? Class components have special super powers called *state* and *lifecycle* (which we will look at later). The rule of thumb is to use functional components, unless you need to use the special super powers of *state* or *lifecycle*.
+
+Here are the steps to follow to convert from a functional component into a class component:
+
+1. Import the `Component` variable by changing the React import to: `import React, { Component } from 'react';`
+2. Create a new `class` that extends the component: `class MyComponentName extends Component {}`
+3. Inside the class, create a render method: `render() {}`
+4. Copy and paste the contents of the functional component into the `render` method
+5. Replace any references to `props` with `this.props`
+6. Delete the old functional component
+
+> **Exercise A**
+> Open the `pokedex` React application that you created last week
+> 1. Convert the `Logo` component from a functional component into a class component
+> 2. Convert the `CaughtPokemon` component into a class component
+> 3. Convert the `BestPokemon` component into a class component
+
+### Class Methods
+
+One of the super powers that class components have is how we can add more functions within the class scope. These are called *methods* ([interactive example](https://codesandbox.io/s/13omkro30j)):
+
+```js
+import React, { Component } from 'react';
+
+class Hello extends Component {
+  sayHello = () => {
+    console.log('Hello from Hello component!');
+  }
+
+  render() {
+    return (
+      <button onClick={this.sayHello}>Say hello</button>
+    );
+  }
+}
+```
+
+Notice how we use a slightly different syntax for the `sayHello` method than the `render` method? There is a reason for this, but it is quite complicated and mostly irrelevant. The rule of thumb is to always use this syntax:
+
+```js
+methodName = () => {
+  // ...
+}
+```
+**Except** for the `render` method (and a handful of others which we'll talk about later).
+
+> **Exercise B**
+> Open the `pokedex` React application and open the `Logo.js` file
+> 1. Add a method named `logWhenClicked` to the `Logo` component (hint: remember to use the correct syntax)
+> 2. Within the `logWhenClicked` method, `console.log` a message (it doesn't matter what the message is)
+> 3. Add a `onClick` handler to the `<img>` that will call `this.logWhenClicked` (hint: look at the `Hello` component above)
+> 4. In your web browser, try clicking on the image. What do you see in the JavaScript console?
+
 
 # Homework
 

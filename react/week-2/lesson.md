@@ -113,7 +113,7 @@ const Counter = (props) => (
 );
 
 function renderCounter() {
-  ReactDOM.render(<Counter count={count} />, document.getElementById('root'));
+  ReactDOM.render(<Counter count={count} />, document.getElementById("root"));
 }
 
 renderCounter(count);
@@ -124,16 +124,18 @@ Note that this example is simplified compared to your `pokedex` application. To 
 This example isn't very useful yet as it doesn't do anything when clicking the button. Now let's listen for clicks on the button and increment the counter ([interactive version](https://codesandbox.io/s/llow115pll)):
 
 ```js
-let count = 0
+const Counter = (props) => (
+  <div>
+    Count: {props.count}
+    <button id="click-me">Click me!</button>
+  </div>
+);
 
-class Counter extends Component {
-  // ...
-}
+let count = 0;
+
 function renderCounter(count) {
   // ...
 }
-
-renderCounter(count)
 
 document.getElementById('click-me').addEventListener('click', () => {
   count = count + 1
@@ -150,9 +152,9 @@ Let's take another look at the the counter example. What if you wanted to create
 You could add some more `count` global variables:
 
 ```js
-let count1 = 0
-let count2 = 0
-let count3 = 0
+let count1 = 0;
+let count2 = 0;
+let count3 = 0;
 ```
 
 What might be the problem here?
@@ -177,26 +179,37 @@ const Counter = (props) => {
   )
 };
 
-ReactDOM.render(<Counter count={0} />, document.getElementById('root'));
+<Counter count={0} />;
 ```
 
-Now we need to add state. For this, we'll have to use a special function called `useState()`
-Next we'll change the component to use our new `count` state instead of `props` ([interactive example](https://codesandbox.io/s/42y7xqj700)):
+Now we need to add state. For this, we'll have to use a special function called a the `useState` hook.
+
+## React Hooks
+
+React is continously updated with features all the time, and one that stands out the most is **React Hooks**, released in React v16.8.
+
+### What are hooks?
+
+**Hooks** are functions that enable you manipulate the React state (and other lifecycle features, which you will be learning next week).
 
 ```js
-const Counter = (props) => {
+import React, { useState } from "react";
 
+const Counter = () => {
+  // Declare a new state variable called "count"
   const [count, setCount] = useState(0);
 
   return (
     <div>
-      Count: {count}
+      <p>You clicked {count} times</p>
       <button>Click me!</button>
     </div>
-  )
-};
-
+  );
+}
 ```
+
+Here, `useState` is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. `useState` returns a pair: the current state i.e. `count` and a function that lets you update it i.e. `setCount`.
+
 
 Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
 
@@ -304,43 +317,6 @@ To help us cleanly split up code that performs business logic from code that sho
 Container components usually have some state and event handler methods. 
 Presentational components on the other hand usually just receive props and display them.
 
-## React Hooks
-
-React is continously updated with features all the time, and one that stands out the most is **React Hooks**, released in React v16.8.
-
-### What are hooks?
-
-**Hooks** are functions that enable you manipulate the React state (and other lifecycle features, which you will be learning next week).
-
-### Why React hooks, over Class component state and methods?
-
-- Code is less complex - being able to make your code more readable in the long term, make it more maintainable
-- Hooks are reusable - unlike methods that scoped within in a class components, you are able to create your own and reuse them elsewhere you in the code. Keeping your code DRY (Don't Repeat Yourself)
-
-
-### Counter Example - with hooks
-
-```js
-import React, { useState } from 'react';
-
-function Counter() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-```
-
-Here, `useState` is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. `useState` returns a pair: the current state i.e. `count` and a function that lets you update it i.e. `setCount`.
-
-Note that variable `count` and function `setCount` come from destructured arrays (a JavaScript feature). The initial value of count is `0` and whenever we press on the button, it will fire the setCount function to increment by 1.
 
 ### Setting multiple states
 
@@ -348,21 +324,21 @@ Note that variable `count` and function `setCount` come from destructured arrays
 function ExampleWithManyStates() {
   // Declare multiple state variables!
   const [age, setAge] = useState(0);
-  const [fruit, setFruit] = useState('Oranges');
-  
+  const [fruit, setFruit] = useState("oranges");
+
   return (
     <div>
       <p> Hi! I am Alex </p>
       <p> {`I am ${age} years old`} </p>
-      <p> {`I prefer to eat ${fruit}`} </p>      
+      <p> {`I prefer to eat ${fruit}`} </p>
       <button onClick={() => setAge(age + 1)}>Add 1 year</button>
-      <button onClick={() => setFruit('Apples')}>Change to Apples</button>
+      <button onClick={() => setFruit("apples")}>Change to Apples</button>
     </div>
-  )
+  );
 }
 ```
 
-Notice that as before the initial state to a value inside `useState` in this case we have `0` and `Oranges`, with value `0` has the same behaviour as the counter example before. With value `Oranges`, it can turned into the value `Apple`. Stick to using the same data type, as it is best practice.
+Notice that the initial state is a value inside `useState`: in this case we have `0` and `oranges`. `setAge` has the same behaviour as `setCount` in the counter example before, whereas `setFruit` can turn the fruit value to `apple`. Notice how the initial values (`0` and `oranges`) and the new values (`1` and `apple`) stay the same data type: the age starts as a number and is stays a number, and the fruit starts as a string and remains a string after `setFruit` is called. It is best practice to try and maintain consistency in the data types used for different pieces of state.
 
 ## Further Reading
 

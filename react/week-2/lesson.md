@@ -225,58 +225,52 @@ Now that we have refactored to use React state, we can easily add multiple count
 const App = () => {
   return (
     <div>
-      <Counter count={0} />
-      <Counter count={0} />
-      <Counter count={0} />
+      <Counter />
+      <Counter />
+      <Counter />
     </div>
   );
 };
 ```
 
-This still isn't a particular useful application, because we can only still only count to 1! We need to change our `Counter` component so that it reads the previous state, then adds 1 onto that. We can do this by passing a callback function to `this.setState` ([interactive example](https://codesandbox.io/s/qxz27q9y4)):
+This still isn't a particular useful application, because we can only still only count to 1! We need to change our `Counter` component so that it reads the previous state, then adds 1 onto that. We can do this by using the value of `count` to calculate the counts after each click ([interactive example](https://codesandbox.io/s/qxz27q9y4)):
 
 ```js
-class Counter extends Component {
-  constructor(props) {
-    // ...
+const Counter = (props) => {
+
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
   }
 
-  increment = () => {
-    this.setState(previousState => {
-      return {
-        count: previousState.count + 1
-      };
-    });
-  }
+  return (
+    <div>
+      Count: {count}
+      <button onClick={increment}>Click me!</button>
+    </div>
+  )
+};
 
-  render() {
-    // ...
-  }
-}
 ```
 
 Now we can count up as many times as we like! 
 
-So when do we need to use a callback function for `this.setState`? If we are computing the new state based on the old state, then we need to use a callback function. Otherwise we can just use an object. This is because React can 'delay' `this.setState` executing for performance reasons. By using a callback function, we ensure that we are computing the new state with the correct version of the old state and not an outdated one.
-
 Let's recap what we've learnt about React state:
 
-- State is one of the class component super powers - you must use a class component to use state
-- We initialise state in the `constructor` method by assigning the `this.state` variable to an object with whatever initial state we want (e.g. `{ something: 'hello' }`)
-- We can read or render state by using the `this.state` variable (e.g. `this.state.something`)
-- We can change state using the `this.setState()` method and by passing the piece of state we want to update (e.g. `this.setState({ something: 'hi' })`)
-- If we need to read the previous state to be able to calculate the new state, then we must use a callback function with `this.setState()` (e.g. `this.setState((previousState) => { return { something: previousState.something + 1 } })`)
+- You can add State to components using the `useState()` hook provided by React.
+- The format to setup `useState()` is `const [value, setValue] = useState(initialValue)`;
+- We can change state using the `setValue` method and by passing the piece of state we want to update (e.g. `setCount(count + 1)`)
+
 
 > **Exercise D**
 > Open the `pokedex` React application and open the `CaughtPokemon.js` file
-> 1. Add a `constructor` method to the `CaughtPokemon` component and remember to handle `props` correctly (hint: `super(props)`)
-> 2. Set the initial state by assigning `this.state` in the `constructor` method to an object. Then make the initial state have 0 `caughtPokemon`
-> 3. Change the `CaughtPokemon` component to render `this.state.caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser?
-> 4. Add a `<button>` with the text "Catch Pokemon" to the `CaughtPokemon` component
-> 5. Create an `catchPokemon` method within the `CaughtPokemon` class
-> 6. Add a `onClick` handler to the `<button>` we just created that will call the `catchPokemon` method
-> 7. Within the `catchPokemon` method, use `this.setState()` to change `caughtPokemon` to 1
-> 8. Update the `catchPokemon` method to increase the number of `caughtPokemon` by 1 every time the button is clicked (hint: we need to use the previous state to calculate the new state)
+> 1. Create a new piece of state called `caughtPokemon` using the `useState` hook. Then make the initial state have 0 `caughtPokemon`
+> 2. Change the `CaughtPokemon` component to render `caughtPokemon` instead of hard-coding 0. Do you expect anything to have changed in your web browser?
+> 3. Add a `<button>` with the text "Catch Pokemon" to the `CaughtPokemon` component
+> 4. Create an `catchPokemon` method within the `CaughtPokemon` component
+> 5. Add an `onClick` handler to the `<button>` we just created that will call the `catchPokemon` method
+> 6. Within the `catchPokemon` method, use your hook to change `caughtPokemon` to increase the number of `caughtPokemon` by 1 every time the button is clicked.
 
 ### When do you use Props or State?
 
@@ -285,34 +279,34 @@ We've looked at the 2 main ways of managing data in our React components. But wh
 Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
 
 ```js
-class Hello extends Component {
-  render() {
-    this.props.name = 'Ali';
+const Hello = (props) => {
+  props.name = 'Ali';
 
     return (
-      <p>Hello {this.props.name}</p>
+      <p>Hello {props.name}</p>
     );
   }
 }
 
-render(<Hello name="Mona" />, document.getElementById('root'));
+<Hello name="Mona" />
 ```
 
-You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
+You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React wouldn't have a way of telling that you've changed the data. Our UI would now be *stale* - not up-to-date with the latest data - and would have no way of knowing that it has to re-render.
 
-From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
+From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. A good rule of thumb is to always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
 
 ### Container components
 
-In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of caught Pokemon in the exercise  increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
+In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of caught Pokemon in the exercise increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
 
 To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
 
-Container components usually have some state and handler methods. Because of this they must use the `class` syntax. Presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
+Container components usually have some state and event handler methods. 
+Presentational components on the other hand usually just receive props and display them.
 
 ## React Hooks
 
-React is continously updated with features all the time, one that stands out the most are **React Hooks**, released in React v16.8.
+React is continously updated with features all the time, and one that stands out the most is **React Hooks**, released in React v16.8.
 
 ### What are hooks?
 

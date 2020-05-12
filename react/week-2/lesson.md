@@ -70,21 +70,19 @@ This is important in React as we can pass the reference to the function as a pro
 ```js
 const App = () => {
 
-      <div>
-      </div>
-    );
-  }
+  const logWhenClicked = () => {
+    console.log("Button was clicked!");
   };
+
+  return (
+    <div>
       <FancyButton handleClick={logWhenClicked} />
     </div>
   );
 }
 
 const FancyButton = (props) => (
-  <button
-    className="my-fancy-classname"
-    onClick={props.handleClick}
-  >
+  <button className="my-fancy-classname" onClick={props.handleClick}>
     Click Me!
   </button>
 );
@@ -93,10 +91,10 @@ const FancyButton = (props) => (
 > **Exercise C**
 > Open the `pokedex` React application
 > 1. Open the `Logo.js` component and copy the `logWhenClicked` method. Then delete it from the `Logo` component.
-> 2. Change the `onClick` handler to `this.props.handleClick`
+> 2. Change the `onClick` handler to `props.handleClick`
 > 3. Paste the `logWhenClicked` method into the component in `App.js`
 > 4. Then pass the `logWhenClicked` method as a prop to the `Logo` component (hint: look at the `App` example above)
-> 5. Try clicking the image in your web browser again. Does it still work? Can you explain why to the person sitting next to you?
+> 5. Try clicking the image in your web browser again. Does it still work? Can you explain why to one of your classmates?
 
 ## Reacting to Changes
 
@@ -182,81 +180,44 @@ const Counter = (props) => {
 ReactDOM.render(<Counter count={0} />, document.getElementById('root'));
 ```
 
-Now we need to use one of the class component super powers - state. That means we'll have to convert our `Counter` component to use a class ([interactive example](https://codesandbox.io/s/pjlro5rop7)):
+Now we need to add state. For this, we'll have to use a special function called `useState()`
+Next we'll change the component to use our new `count` state instead of `props` ([interactive example](https://codesandbox.io/s/42y7xqj700)):
 
 ```js
-class Counter extends Component {
-  render() {
-    return (
-      <div>
-        Count: {this.props.count}
-        <button>Click me!</button>
-      </div>
-    );
-  }
-}
-```
+const Counter = (props) => {
 
-Next we'll change the component to use the count from `this.state` instead of `this.props` ([interactive example](https://codesandbox.io/s/42y7xqj700)):
+  const [count, setCount] = useState(0);
 
-```js
-class Counter extends Component {
-  render() {
-    return (
-      <div>
-        Count: {this.state.count}
-        <button>Click me!</button>
-      </div>
-    );
-  }
-}
-```
+  return (
+    <div>
+      Count: {count}
+      <button>Click me!</button>
+    </div>
+  )
+};
 
-This code has a bug! `this.state` is initialised as an empty object, and so `this.state.count` is undefined. We need to initialise it from props. We can do this in the class constructor ([interactive example](https://codesandbox.io/s/1oyxx4lzz7)):
-
-```js
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: props.count
-    };
-  }
-
-  render() {
-    // ...
-  }
-}
 ```
 
 Now the counter component is "remembering" its count, however it is stuck at 0. Next we'll look at how we change what the component is remembering ([interactive example](https://codesandbox.io/s/n714vmyk5l)):
 
 ```js
-class Counter extends Component {
-  constructor(props) {
-    // ...
-  }
+const Counter = (props) => {
 
-  increment = () => {
-    this.setState({
-      count: 1
-    });
-  }
+  const [count, setCount] = useState(0);
 
-  render() {
-    return (
-      <div>
-        Count: {this.state.count}
-        <button onClick={this.increment}>Click me!</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      Count: {count}
+      <button onClick={setCount(1)}>Click me!</button>
+    </div>
+  )
+};
+
 ```
 
-There's a couple of things happening here. We've added an click handler to the button, which will call the `increment` function when the button gets clicked. When the `increment` function is called, it calls `this.setState` function with the `count` set to 1.
+There's a couple of things happening here. We've added an click handler to the button, which will call the `setCount` function when the button gets clicked. When the `setCount` function is called, it will update our `count` state to `1`.
 
-`this.setState` is a special function provided by React's `Component`, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
+`useState` is a special function provided by React, and it is used to change what the component is "remembering". It will also tell React that the old value that is still shown in the DOM is outdated and needs to be updated. This will trigger React to re-render, like we did manually with the `renderCounter` function.
 
 Now that we have refactored to use React state, we can easily add multiple counters ([interactive example](https://codesandbox.io/s/v8165mq503)):
 

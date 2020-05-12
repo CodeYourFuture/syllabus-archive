@@ -50,36 +50,34 @@ const HelloMentor = () => (
 
 ## Passing Functions as Props
 
-Remember that functions in JavaScript are "first class" - that means we can pass a *reference* to a function (as a variable) and then call it elsewhere.
+Remember that functions in JavaScript are "first-class" - that means we can pass a *reference* to a function (as a variable) and then call it elsewhere.
 
 ```js
 function hello() {
-  return 'Hello!';
+  return "Hey there!";
 }
 ```
 
 In the example above `hello` is a *reference* to a function. The functions are not called until we use parentheses:
 
 ```js
-console.log(hello);   // Logs: "ƒ hello() {}"
-console.log(hello()); // Logs: "Hello!"
+console.log(hello); // Logs: "ƒ hello() {}"
+console.log(hello()); // Logs: "Hey there!"
 ```
 
 This is important in React as we can pass the reference to the function as a prop, and then call the function from the child component ([interactive example](https://codesandbox.io/s/zqlnmo16y3)):
 
 ```js
-class App extends Component {
-  logWhenClicked = () => {
-    console.log('Button was clicked!');
-  }
+const App = () => {
 
-  render() {
-    return (
       <div>
-        <FancyButton handleClick={this.logWhenClicked} />
       </div>
     );
   }
+  };
+      <FancyButton handleClick={logWhenClicked} />
+    </div>
+  );
 }
 
 const FancyButton = (props) => (

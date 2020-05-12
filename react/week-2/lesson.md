@@ -23,6 +23,12 @@
   - [Further Reading](#further-reading)
 - [Homework](#homework)
 
+---
+
+{% include "./learning-objectives.md" %}
+
+---
+
 ## Recap
 
 Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/7zvk9n1950)):

@@ -100,20 +100,7 @@ As you can see, this is much easier to read than both the straight `React.create
 
 ## Let's create a React app
 
-The Facebook team behind React have created a tool to help you create and set up React projects. It is called [Create React App](https://github.com/facebook/create-react-app). It sets up files like we saw in the previous example, so that you don't have to.
-
-> **Exercise C**: Install & set up a Create React App by following the steps below
-
-1. Open the command line and navigate to where you usually save projects
-2. Run the code below:
-
-```
-npx create-react-app pokedex
-cd pokedex
-npm start
-```
-
-The last command should open a web browser for you. This shows the application that we are going to be working on. Open the `pokedex` directory in your editor. Notice that create-react-app has created a bunch of folders for you. We will be working with the `pokedex` application for the rest of the module.
+> **Exercise C**: If you haven't already, [follow the instructions to create a React app named `pokedex`](https://docs.codeyourfuture.io/students/guides/creating-a-react-app).
 
 ## React Components
 

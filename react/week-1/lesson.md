@@ -17,9 +17,9 @@
   - [Embedding JavaScript into JSX](#embedding-javascript-into-jsx)
   - [Keys](#keys)
   - [Importing/Exporting Components](#importingexporting-components)
-  - [Making an Argument for Props](#making-an-argument-for-props)
-  - [What Are Props?](#what-are-props)
-  - [Further Reading](#further-reading)
+  - [Making an argument for Props](#making-an-argument-for-props)
+  - [What are Props?](#what-are-props)
+  - [Further reading](#further-reading)
       - [Credits](#credits)
 - [Homework](#homework)
 
@@ -66,7 +66,7 @@ There are no hard & fast rules for making components. UIs can be split up into c
 
 ## Rendering with React
 
-Remember how annoying it was to manage the DOM yourself in [our previous lesson](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-2/lesson.html)? The "vanilla" JavaScript APIs for updating the DOM are quite long and difficult to remember. React makes this easier by manipulating each DOM element itself, instead of you doing it manually. You give React a "description" of the DOM that you want and it will update the DOM for you. React _abstracts_ away the management of the DOM.
+Remember how annoying it was to manage the DOM yourself in [our previous lesson](https://codeyourfuture.github.io/syllabus-master/js-core-2/week-2/lesson.html)? The "vanilla" JavaScript APIs for updating the DOM are quite long and difficult to remember. React makes this easier by manipulating each DOM element itself, instead of you doing it manually. You give React a "description" of the DOM that you want and it will update the DOM for you. React *abstracts* away the management of the DOM.
 
 Let's take a look at an example. We are going to walk through how to render a `<div>` with the text "Hello World" within it.
 
@@ -93,9 +93,9 @@ ReactDOM.render(element, rootElement);
 
 ## JSX
 
-As you can see, React is already helping us a bit by cleaning up some of the verbose vanilla JS APIs. However in a typical React application you would still use a _lot_ of the `React.createElement` function. To improve the developer experience the React team developed **JSX**.
+As you can see, React is already helping us a bit by cleaning up some of the verbose vanilla JS APIs. However in a typical React application you would still use a *lot* of the `React.createElement` function. To improve the developer experience the React team developed **JSX**.
 
-JSX is a simple syntax _sugar_ that looks like HTML, but is actually converted to the `React.createElement` function when you run it.
+JSX is a simple syntax *sugar* that looks like HTML, but is actually converted to the `React.createElement` function when you run it.
 
 Using JSX ([interactive version](https://jsbin.com/gabujocuda/edit?html,output)):
 
@@ -135,7 +135,7 @@ There are 3 important parts in this code:
 
 1. First we import `React`. This is important because JSX is converted to `React.createElement` calls. If the `React` variable is undefined then this will fail.
 2. We create a React component called `HelloWorld`.
-3. We _render_ the `HelloWorld` component into a `div` with the id of `root`.
+3. We *render* the `HelloWorld` component into a `div` with the id of `root`.
 
 > **Exercise D:**
 > In the `pokedex` React app that you just created, open the `src/App.js` file
@@ -144,13 +144,13 @@ There are 3 important parts in this code:
 > 2. Import React variable from the React package
 > 3. Create a function named `App`, which will be our component
 > 4. Within the `App` function, return a `<h1>` element with the text "Welcome to the Pokedex". What do you see in your web browser?
-> 5. Create a `<div>` element that _wraps around_ the `<h1>` you just created
+> 5. Create a `<div>` element that *wraps around* the `<h1>` you just created
 > 6. Below the `<h1>` element (but within the `<div>`), create an `<img>` element. Then make its `src` attribute equal to `https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png`. What do you expect to see in your web browser?
 > 7. Now create a `<header>` element to wrap both the `<h1>` element **and** the `<img>` element
 
 #### Component Composition
 
-A component can be combined with another component so that both are rendered. This is called _composition_ ([interactive example](https://codesandbox.io/s/0x4wonqn00)):
+A component can be combined with another component so that both are rendered. This is called *composition* ([interactive example](https://codesandbox.io/s/0x4wonqn00)):
 
 ```js
 function Greeting() {
@@ -171,7 +171,7 @@ function HelloWorld() {
 }
 ```
 
-In the `HelloWorld` component we are using a reference to the `Greeting` and `Mentor` components. React reads these references when rendering `HelloWorld` and so it renders the `Greeting` and `Mentor` _child_ components.
+In the `HelloWorld` component we are using a reference to the `Greeting` and `Mentor` components. React reads these references when rendering `HelloWorld` and so it renders the `Greeting` and `Mentor` *child* components.
 
 We are also using some shorter syntax within the `HelloWorld` component. `<Greeting />` is just a shorter way of writing `<Greeting></Greeting>`, which is useful if we don't need to put anything inside the `Greeting` component.
 
@@ -184,7 +184,7 @@ Notice how the components that we write (`HelloWorld`, `Greeting`, `Mentor`) are
 > 2. Copy the `<header>` element and its contents and paste it into the `Logo` component
 > 3. Replace the `<header>` element in the `App` component with the new `Logo` component
 > 4. Create a new component function named `BestPokemon` and return a `<p>` element with some text saying which is your favourite Pokemon (e.g. "My favourite Pokemon is Squirtle")
-> 5. _Render_ your new `BestPokemon` component below the `Logo` component within the `App` component
+> 5. *Render* your new `BestPokemon` component below the `Logo` component within the `App` component
 
 #### Arrow Functions for shorter syntax
 
@@ -222,9 +222,9 @@ If we want to do this, we can still use arrow functions but we can't use the imp
 
 ## Embedding JavaScript into JSX
 
-So far all of the components we have looked at haven't been able to change - they are _hard-coded_. But this doesn't make very interesting websites, we want to be able to use variables with different data. We can insert variables (and some other things) into our React components.
+So far all of the components we have looked at haven't been able to change - they are *hard-coded*. But this doesn't make very interesting websites, we want to be able to use variables with different data. We can insert variables (and some other things) into our React components.
 
-Anything in the JSX that is inside curly braces `{}` is interpreted as a regular JavaScript _expression_. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://codesandbox.io/s/l910pqnjql)):
+Anything in the JSX that is inside curly braces `{}` is interpreted as a regular JavaScript *expression*. That means you can use every object or function from JavaScript that we have learned so far. Let's look at an example ([interactive example](https://codesandbox.io/s/l910pqnjql)):
 
 ```js
 const Greeting = () => {
@@ -380,9 +380,9 @@ The convention is to name component files exactly the same as the component (inc
 
 What's the problem with our `HelloMentor` component above?
 
-The component `HelloMentor` is very static. What if we want to say _hello_ to a different mentor? Currently, we would have to change the code too! This is easy in our tiny application but for "real" applications this might be more difficult.
+The component `HelloMentor` is very static. What if we want to say *hello* to a different mentor? Currently, we would have to change the code too! This is easy in our tiny application but for "real" applications this might be more difficult.
 
-Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? So we could reuse the `HelloMentor` component for different mentor names. This is what _props_ are for.
+Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? So we could reuse the `HelloMentor` component for different mentor names. This is what *props* are for.
 
 ## What are Props?
 

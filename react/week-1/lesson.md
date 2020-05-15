@@ -61,7 +61,7 @@ There are no hard & fast rules for making components. UIs can be split up into c
 - Components should have good, explicit names
   - This helps you to remember what the component's job is
 
-> **Exercise A**:
+> **Exercise A:**
 > Look at the example online shopping user interface in the [Thinking in React article](https://reactjs.org/docs/thinking-in-react.html) (the image at the top). Draw boxes around the components and give them names. Compare with the example components shown in the second image.
 
 ## Rendering with React
@@ -108,12 +108,12 @@ ReactDOM.render(element, rootElement);
 
 As you can see, this is much easier to read than both the straight `React.createElement` API and the vanilla JS API. Most people using React use JSX to write their components.
 
-> **Exercise B**
+> **Exercise B:**
 > Change the [JSX example from above](http://jsbin.com/gekahexige/edit?html,output) to instead render a `h1` tag with the text "Hello Code Your Future".
 
 ## Let's create a React app
 
-> **Exercise C**
+> **Exercise C:**
 > If you haven't already, follow [the instructions to create a React app] called `pokedex`(https://docs.codeyourfuture.io/students/guides/creating-a-react-app).
 
 ## React Components
@@ -137,7 +137,7 @@ There are 3 important parts in this code:
 2. We create a React component called `HelloWorld`.
 3. We _render_ the `HelloWorld` component into a `div` with the id of `root`.
 
-> **Exercise D**:
+> **Exercise D:**
 > In the `pokedex` React app that you just created, open the `src/App.js` file
 >
 > 1. Delete everything in the file except the line containing `export default App`. You should see an error in your terminal and in your web browser - don't panic! We're going to remake the `App` component ourselves
@@ -199,7 +199,9 @@ const HelloWorld = () => {
 This can be even shorter again if we use parentheses and implicit return:
 
 ```js
-const HelloWorld = () => <div>Hello World</div>;
+const HelloWorld = () => (
+  <div>Hello World</div>
+);
 ```
 
 Although this is shorter, it is less flexible as we cannot insert code that is **not** JSX. Like for example, a `console.log`:
@@ -227,7 +229,10 @@ Anything in the JSX that is inside curly braces `{}` is interpreted as a regular
 ```js
 const Greeting = () => {
   const greetingWord = "Hello";
-  return <span>{greetingWord}</span>;
+
+  return (
+    <span>{greetingWord}</span>
+  )
 };
 ```
 
@@ -236,7 +241,10 @@ Now instead of hard-coding the greeting in the `Greeting` component, we are usin
 ```js
 const Mentor = () => {
   const mentors = ["Ali", "Sub", "Loic", "Anthony", "Lucy", "Mozart"];
-  return <span>{mentors.join(", ")}</span>;
+
+  return (
+    <span>{mentors.join(", ")}</span>
+  )
 };
 ```
 
@@ -244,7 +252,9 @@ Now we have modified the `Mentor` component to use the `Array.join` method so th
 
 ```js
 const Addition = () => {
-  return <span>{1 + 2 + 3}</span>;
+  return (
+    <span>{1 + 2 + 3}</span>
+  )
 };
 ```
 
@@ -254,6 +264,7 @@ const Weather = () => {
     temperature: 5,
     location: "London",
   };
+
   return (
     <p>
       The temperature in {weatherData.location} is {weatherData.temperature}
@@ -284,7 +295,9 @@ const mentors = ["Ali", "Sub", "Loic", "Anthony", "Lucy", "Mozart"];
 const List = () => (
   <ul>
     {mentors.map((name) => {
-      return <li>{name}</li>;
+      return (
+        <li>{name}</li>
+      )
     })}
   </ul>
 );
@@ -314,7 +327,9 @@ const mentors = ["Ali", "Sub", "Loic", "Anthony", "Lucy", "Mozart"];
 const List = () => (
   <ul>
     {mentors.map((name, index) => {
-      return <li key={index}>{name}</li>;
+      return (
+        <li key={index}>{name}</li>;
+      )
     })}
   </ul>
 );
@@ -341,7 +356,9 @@ const HelloMentor = () => (
 We also need to export our components if we want to use them in other files:
 
 ```js
-const Greeting = () => <div>Hello</div>;
+const Greeting = () => (
+  <div>Hello</div>
+);
 
 export default Greeting;
 ```
@@ -359,7 +376,7 @@ The convention is to name component files exactly the same as the component (inc
 > 6. Import the `Logo` component into `App.js` (hint: look at the `HelloMentor` example above)
 > 7. Repeat this process with the `BestPokemon` and `CaughtPokemon` components. What do you think the files should be called?
 
-## Making an Argument for Props
+## Making an argument for Props
 
 What's the problem with our `HelloMentor` component above?
 
@@ -367,7 +384,7 @@ The component `HelloMentor` is very static. What if we want to say _hello_ to a 
 
 Instead wouldn't it be good if we could change which mentor we are saying hello to every time we render the component? So we could reuse the `HelloMentor` component for different mentor names. This is what _props_ are for.
 
-## What Are Props?
+## What are Props?
 
 Props are what we use in React to pass "arguments" to components. They are very similar to arguments in functions - you can "pass" props to components, and you can use those props within a component.
 
@@ -390,7 +407,9 @@ Now let's take a look at using props that we have passed to a component ([intera
 ```js
 const Mentor = (props) => {
   console.log(props);
-  return <span>{props.name}</span>;
+  return (
+    <span>{props.name}</span>;
+  )
 };
 ```
 
@@ -424,7 +443,7 @@ Or calculating new values:
 > 11. In the `BestPokemon.js` file replace the existing usage of `abilities` with the `abilities` **prop**. You should still see the Pokemon ability names in your web browser
 > 12. **(STRETCH GOAL)** Repeat the process with the `date` variable in the `CaughtPokemon.js` file
 
-## Further Reading
+## Further reading
 
 Fed up of having to provide a prop for every component? Do you want to make your component use a value most of the time, but it can be overridden with a prop? This is a good time to use `defaultProps`. [This page on the React documentation](https://reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values) describes in more detail.
 

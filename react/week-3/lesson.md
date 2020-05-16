@@ -1,333 +1,331 @@
 # React 3
 
-![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
-
 **What will we learn today?**
 
 - [Recap](#recap)
-- [Unmounting](#unmounting)
-- [The Circle of Life](#the-circle-of-life)
-- [Fetching Data in React](#fetching-data-in-react)
+- [Updating Data Fetching when Props Change](#updating-data-fetching-when-props-change)
 - [Working with forms in React](#working-with-forms-in-react)
+
+---
+
+{% include "./learning-objectives.md" %}
+
+---
 
 ## Recap
 
-Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/7j21mrq08x)):
+Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/react-3-state-recap-38x3b?file=/src/Counter.js)):
 
 ```js
-class Counter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function increment() {
+    setCount(count + 1);
   }
 
-  increment = () => {
-    this.setState((previousState) => {
-      return {
-        count: previousState.count + 1
-      };
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        Count: {this.state.count}
-        <button onClick={this.increment}>Click me!</button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={increment}>Click me</button>
+    </div>
+  );
 }
+
+export default Counter;
 ```
 
-## Unmounting
-
-So far we've looked at components that are always rendered in the browser. However (and this is often the case in large applications), we might want to control whether components are shown or not. Let's look at a Toggle component ([interactive example](https://codesandbox.io/s/xmo8oo514)):
+We also looked at fetching data in our React components ([interactive example](https://codesandbox.io/s/react-3-recap-h2p24?file=/src/MartianPhotoFetcher.js)):
 
 ```js
-const Message = () => (
-  <p>I'm shown when this.state.isShown is true ✅</p>
-);
+import React, { useState, useEffect } from "react";
 
-class Toggle extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isShown: false };
-  }
+const MartianPhotoFetcher = () => {
+  const [marsPhotos, setMarsPhotos] = useState();
 
-  toggle = () => {
-    this.setState((previousState) => { 
-    	return { isShown: !previousState.isShown } 
-	 });
-  };
-
-  render() {
-    return (
-      <div>
-        {this.state.isShown ? <Message /> : null}
-        <button onClick={this.toggle}>Toggle</button>
-      </div>
-    );
-  }
-}
-```
-
-If you open up dev tools, you will see that the element changes based on the `isShown` state. The hidden element is not hidden with CSS, it is actually removed from the DOM. This is because `this.state.isShown` is `false` which means the Toggle component returns `null` for that part of the JSX. If you return `null` in JSX then React will render nothing at all.
-
-## The Circle of Life
-
-When a component is within the DOM, we call it *mounted*. When a component is removed from the DOM, we call it *unmounted*. When we change state like in the unmounting example above, we can switch between these statuses. This gives us a clue that components go through a *lifecycle* of different statuses. We have seen 2 of the statuses: mounting and unmounting, there is also a third called *updating*.
-
-We can hook into this lifecycle through special component methods that are added by React's `Component` class. They are run at different points of the lifecycle, often before and after they change to a different status. The method names contain `will` or `did` based on whether they run before or after a status change.
-
-This diagram shows the React component lifecycle:
-
-![React component lifecycle](../assets/lifecycle.png)
-
-Let's look at how we can use one of the lifecycle methods ([interactive example](https://codesandbox.io/s/m5z2v36x1y)):
-
-```js
-class Lifecycle extends Component {
-  componentDidMount() {
-    console.log('componentDidMount');
-  }
-
-  render() {
-    return <div>Hello World</div>;
-  }
-}
-```
-
-> **Exercise A**
-> Open the `pokedex` application that we have been working on for the last 2 weeks and open the `CaughtPokemon.js` file
-> 1. Add a `constructor` method to the `CaughtPokemon` component. Within this method add a `console.log('constructor')`
-> 2. Add a `componentDidMount` method to the `CaughtPokemon` component. Within this method add a `console.log('componentDidMount')`. You don't need to return anything from this method
-> 3. Repeat the same step above with the `componentDidUpdate` and `componentWillUnmount` methods
-> 4. Try interacting with the `CaughtPokemon` component in your web browser (clicking the button) while looking at the JavaScript console. What order do the logs appear?
-> 5. The `componentWillUnmount` method will never be called. Can you explain why?
-
-We'll now focus on a few of the lifecycle hooks and see how they are used.
-
-### `componentDidMount` and `componentWillUnmount`
-
-The `componentDidMount` method runs after a component has finished rendering to the DOM. The component is now waiting for a props change or input from the user. It is called only once. We use this lifecycle hook to make changes outside of the component (sometimes these are called *side effects*).
-
-The `componentWillUnmount` method runs when a component has been unmounted from the DOM. It is used to "clean up" the component as it is no longer being shown. Often we need to close down or cancel the changes we made in `componentDidMount`.
-
-To look at these in more detail, we'll create a Clock component in an exercise.
-
-> **Exercise B**
-> Open the `pokedex` React application again
-> 1. Create a new file called `Clock.js` in the `src` directory
-> 2. Copy and paste in the code below ([interactive version](https://codesandbox.io/s/p9q2wq069j)):
-
-```js
-import React, { Component } from 'react';
-
-class Time extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { date: new Date() };
-  }
-  
-  tick = () => {
-    console.log('tick');
-    this.setState({
-      date: new Date()
-    });
-  };
-  
-  render() {
-    return (
-      <div>{this.state.date.toLocaleTimeString()}</div>
-    );
-  }
-}
-
-class Clock extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isShowingClock: true };
-  }
-  
-  toggle = () => {
-    this.setState((previousState) => {
-      return { isShowingClock: !previousState.isShowingClock };
-    });
-  };
-  
-  render() {
-    return (
-      <div>
-        {this.state.isShowingClock && <Time />}
-        <button onClick={this.toggle}>Toggle time</button>
-      </div>
-    );
-  }
-}
-
-export default Clock;
-```
-
-> 3. In `App.js` import the `Clock` component with `import Clock from './Clock'`
-> 4. Then render the `Clock` component in the `App` component (hint: `<Clock />`)
-> 5. Now change the `Time` component (notice that there are 2 components defined in this file) add a `componentDidMount` method
-> 6. Within the `componentDidMount` method use `setInterval` to call `this.tick` every 1000 milliseconds (hint: `setInterval(this.tick, 1000)`)
-> 7. Now open the JavaScript console your web browser. What is happening? Can you explain why?
-> 8. Keep looking at the JavaScript console and try clicking the "Toggle time" button. What do you think the problem is here? How can we fix it?
-> 9. Change the `componentDidMount` method to assign `this.timer` to the output of `setInterval` (hint: `this.timer = setInterval(this.tick, 1000)`)
-> 10. Add a `componentWillUnmount` method to the `Time` component
-> 11. In the `componentWillUnmount` method, remove the timer by calling `clearInterval(this.timer)`
-> 12. Try clicking the "Toggle time" button again, like in step 9. How have we solved the problem?
-
-## Fetching Data in React
-
-Most web applications will load data from the server. How do we do this in React? The component lifecycle is very important - we don't want to be calling our API at the wrong time, or multiple times with the same data!
-
-If we tried to fetch data in our `render` method, it would make a request every time props or state changed. This would create lots of unnecessary requests. As we saw above, `componentDidMount` is called only once when the component is first rendered and so it is an ideal place for making requests. Let's look at an example ([interactive example](https://codesandbox.io/s/4rkovwq0kw)):
-
-```js
-class MartianPhotoFetcher extends Component {
-  componentDidMount() {
-    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`);
-  }
-
-  render() {
-    // We don't don't what the img src is when we render :(
-    return <img src={src} />;
-  }
-}
-```
-
-This example isn't very useful! We can't use the data returned from the server in `render` because the request is asynchronous :( We need React to re-render once the request is resolved - a perfect use for state! Let's look at an example ([interactive example](https://codesandbox.io/s/5kk53yx6ll))
-
-```js
-class MartianPhotoFetcher extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      imgSrc: null
-    };
-  }
-  
-  componentDidMount() {
-    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}`)
+  useEffect(() => {
+    fetch(
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`
+    )
       .then(res => res.json())
-      .then(data => {
-        this.setState({
-          imgSrc: data.photos[0].img_src
-        })
-      });
+      .then(data => setMarsPhotos(data));
+  }, []);
+
+  if (!marsPhotos) {
+    return null;
+  } else {
+    return (
+      <img
+        src={marsPhotos.photos[0].img_src}
+        alt="Mars Rover"
+        style={{ width: "100%" }}
+      />
+    );
   }
-  
-  render() {
-    return <img src={this.state.imgSrc} />;
-  }
-}
+};
+
+export default MartianPhotoFetcher;
 ```
 
-Now we can see the Martian photo that we fetched from the server!
+## Updating Data Fetching when Props Change
 
-However we have a bit of a problem - when we first render the component, we don't have the photo `src` yet. We first have to initialise it to `null` in the constructor. This shows us that we're missing something from our UI - a *loading status*.
+Last week we looked at how we could fetch data from an API and render it in our React applications. However, there was a problem with the method that we learned before. To understand this problem we first have to understand the *lifecycle* of a component.
 
-Let's look at showing a different UI when the request is loading ([interactive example](https://codesandbox.io/s/93zr0xz32r)):
+### The Circle of Life
 
-```js
-class MartianPhotoFetcher extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      imgSrc: null
-    };
-  }
-  
-  componentDidMount() {
-    fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${this.props.date}&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          isLoading: false,
-          imgSrc: data.photos[0].img_src
-        })
-      });
-  }
-  
-  render() {
-    if (this.state.isLoading) {
-      return <span>Loading... 👽</span>;
-    } else {
-      return <img src={this.state.imgSrc} />;
+Let's take a look at an example:
+
+| **Exercise A** |
+| :--- |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-not-working-x1dox?file=/src/App.js). |
+| 2. Take 5 minutes to read the code. |
+| 3. Click the "Fetch image for 2019" button. **If you're feeling confident**: predict what is going to happen before you click the button. |
+| 4. Now click the "Fetch image for 2020" button. What did you expect to happen? What actually happened? Can you explain why? |
+
+Together let's "play computer" to break down exactly what is happening with these components:
+
+1. When the page loads, the `App` function component is called
+2. It doesn't have any `date` state already, so we initialise it to an empty string (`""`) with `useState`
+3. It renders the 2 buttons, but because `date` is an empty string, it does **not** render the `MartianImageFetcher` component. Instead `null` is returned, which means that nothing is rendered
+  ```js
+    function App() {
+      const [date, setDate] = useState("");
+
+      ...
+
+      return (
+        <div>
+          <button onClick={handle2019Click}>Fetch image for 2019</button>
+          <button onClick={handle2020Click}>Fetch image for 2020</button>
+
+          {date ? <MartianImageFetcher date={date} /> : null}
+        </div>
+      );
     }
+  ```
+4. When we click the "Fetch image for 2019" button, the `handle2019Click` click handler is called
+5. The state is set by `setDate` to be `"2019-01-01"`, and a re-render is triggered
+6. The `App` function component is called again
+7. This time, `useState` remembers that we have `date` state and it is set to `"2019-01-01"`
+  ```js
+    function App() {
+      ...
+
+      function handle2019Click() {
+        setDate("2019-01-01");
+      }
+
+      ...
+
+      return (
+        ...
+        <button onClick={handle2019Click}>Fetch image for 2019</button>
+        ...
+      );
+    }
+  ```
+8. Now `App` **does** render `MartianImageFetcher` and passes the `date` state as a prop (also named `date`)
+9. The `MartianImageFetcher` function component is called for the first time
+10. `useState` knows that we haven't got any `imgSrc` state so initialises it to `null`
+11. We queue an effect, which will run after we render for the first time
+12. Because the `imgSrc` state is set to `null`, we return `null`. This means that nothing is rendered
+  ```js
+    function MartianImageFetcher(props) {
+      const [imgSrc, setImgSrc] = useState(null);
+
+      useEffect(() => {
+        ...
+      }, []);
+
+      if (!imgSrc) {
+        return null;
+      } else {
+        return <img src={imgSrc} />;
+      }
+    }
+  ```
+13. Now that the component has rendered for the first time, the effect is run
+14. A `fetch` request is made to the NASA API (🚀!)
+15. When the request data comes back, we set the `imgSrc` state to a piece of the data, which triggers a re-render
+  ```js
+    function MartianImageFetcher(props) {
+      ...
+
+      useEffect(() => {
+        fetch(
+          `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${
+            props.date
+          }&api_key=gnesiqnKCJMm8UTYZYi86ZA5RAnrO4TAR9gDstVb`
+        )
+          .then(res => res.json())
+          .then(data => {
+            setImgSrc(data.photos[0].img_src);
+          });
+      }, []);
+
+      ...
+    }
+  ```
+16. The `MartianImageFetcher` function component is called again
+17. `useState` remembers that the `imgSrc` state is set to the data from the API
+18. This time, we do **not** queue an effect. We used an empty array (`[]`) as the `useEffect` dependencies argument which means that we only queue effects on the **first** render
+19. We do have `imgSrc` state set, so we render the image using the data from the API 🎉
+  ```js
+    function MartianImageFetcher(props) {
+      const [imgSrc, setImgSrc] = useState(null);
+
+      ...
+
+      if (!imgSrc) {
+        return null;
+      } else {
+        return <img src={imgSrc} />;
+      }
+    }
+  ```
+
+Phew! That was a lot of work just to render an image! But we're not quite done yet, we still need to find out what happens when we click the "Fetch image for 2020" button:
+
+1. In the `App` component, the `handle2020Click` click handler is called
+2. The `date` state is set to `"2020-01-01"` and a re-render is triggered
+3. The `App` function component is called again and the `date` state is set to `"2020-01-01"`
+4. The `date` prop that is passed to `MartianImageFetcher` is **different** which means that it has to re-render
+  ```js
+    function App() {
+      ...
+
+      function handle2020Click() {
+        setDate("2020-01-01");
+      }
+
+      ...
+
+      return (
+        ...
+        <div>
+          ...
+          <button onClick={handle2020Click}>Fetch image for 2020</button>
+          ...
+          {date ? <MartianImageFetcher={date} /> : null}
+          ...
+        </div>
+        ...
+      );
+    }
+  ```
+5. In the `MartianImageFetcher` component `useState` remembers that we already had `imgSrc` state. It is set to the image from 2019
+6. Again, we do **not** queue the effect because this is a re-render and `useEffect` has been passed an empty array `[]`
+7. Because `imgSrc` state has been set previously we render the image from 2019
+  ```js
+    function MartianImageFetcher(props) {
+      const [imgSrc, setImgSrc] = useState(null);
+
+      useEffect(() => {
+        ...
+      }, []);
+
+      return <img src={imgSrc} />;
+    }
+  ```
+
+| **Exercise B** |
+| :--- |
+| 1. Did you spot where the bug was? Discuss with a group of 2 - 3 students where you think the bug is. |
+| 2. Report back to the rest of the class where you think the bug happened. |
+
+The key that the `useEffect` in `MartianImageFetcher` is **only run once**. This is because we told React that the queue should be queued on the first render only. However, as we saw, sometimes you need the effect to run again when some data changes. In this case the `date` prop, changed from `"2019-01-01"` to `"2020-01-01"`, meaning that we have to fetch data different data. We call this a *dependency* of the effect.
+
+### `useEffect` dependencies array
+
+To solve this problem, we can tell React to queue the effect on the first render **and** when a dependency changes. We do this by adding the dependency variable to the array ([interactive example](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js)):
+
+```js
+function MartianImageFetcher(props) {
+  const [imgSrc, setImgSrc] = useState(null);
+
+  useEffect(() => {
+    ...
+  }, [props.date]);
+
+  ...
+}
+```
+
+Now when the `date` prop changes, React knows that the effect must be run again, this time with the 2020 data. Because of this behaviour, the second argument to `useEffect` is called the *dependencies argument*. We use it whenever we have something in our effect that *depends* on a variable outside of the effect function.
+
+To help you understand this better, try "playing computer" again, but this time think about what happens when we use `[props.date]` for the dependencies argument. Think carefully about what changes with step 6 after we click the 2020 button.
+
+| **Exercise** |
+| :--- |
+| 1. Open the `pokedex` React application from last week and open the `src/BestPokemon.js` file. |
+| 2. Copy the `BestPokemonSelector` component from [this CodeSandbox](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/BestPokemonSelector.js). Then paste it into `src/BestPokemon.js`. |
+| 3. Change the `default export` so that it exports `BestPokemonSelector` instead of `BestPokemonFetcher`. |
+| 4. Take a few minutes to read what the `BestPokemonSelector` component does. If you have questions, ask a Teaching Assistant to help. |
+| 5. In the `BestPokemonFetcher` component change the URL to use backticks (`` `...` ``) instead of double-quotes (`"`). Then replace the number 1 with `${props.pokemonId}`. What will this do? <details><summary>Click here if you don't know</summary>The URL will contain the pokemonId instead of always fetching the pokemon with id of 1</details> |
+| 6. Open your browser and find the `BestPokemonSelector` component. **Before you click the buttons**, think about what you expect will happen. Then click the "Fetch Bulbasaur" button to find out what actually happens. |
+| 7. Refresh the page. What happens now if you click the "Fetch Bulbasaur" button, then click the "Fetch Charmander" button? Is this what you expected? Explain to someone why this happens. |
+| 8. Fix the bug by adding `props.pokemonId` to the `useEffect` dependencies array in `BestPokemonFetcher`. Remember that you can test if the bug still happens by refreshing the page, clicking one of the buttons, then the other button. |
+
+### ESLint rules for React Hooks
+
+As you may have noticed, VSCode highlighted the empty dependencies array when you changed the URL passed to `fetch` in `BestPokemonFetcher`.
+
+This is because your React application is using the rules from [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), a package created by the developers who make React. It helps you to find bugs in React Hooks code by highlighting places where you might be missing dependencies.
+
+If you see a red squiggly line underneath your `useEffect` dependencies array, you can hover your mouse over and it will tell you which variable is missing so you can add it to the dependencies array. Here's an example:
+
+![React Hooks eslint rule](../assets/eslint-hooks-rule.png)
+
+### Loading state
+
+| **Exercise A** |
+| :--- |
+| 1. Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js). |
+| 2. Click the "Fetch image for 2019" button and wait for the image to load. |
+| 3. Now click the "Fetch image for 2020" button. Do you think this is a good experience for the user? Explain what you think is wrong to a Teaching Assistant. |
+
+In the application above, the image from 2020 takes a while to load. This makes it feel like the app is broken: the user might think that they didn't actually click the 2020 button or that it is not working correctly. We are not telling the user that *something* is happening, it's just taking a bit of time to load.
+
+We can fix this by adding a *loading state*. Let's take a look ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-1-7bi9z?file=/src/FetchWithLoadingState.js)):
+
+```js
+function MartianImageFetcher(props) {
+  ...
+
+  if (!imgSrc) {
+    return "Loading...";
+  } else {
+    return <img src={imgSrc} />;
   }
 }
 ```
 
-Here are the steps that the component takes:
+Previously, we were just rendering nothing (by returning `null`) when we didn't have any `imgSrc`. We can tell the user that this by instead rendering something telling them that we're still waiting for the data to come back.
 
-- Initialise `isLoading` to `true`
-- In `render`, show a loading message because `isLoading` is true
-- Once rendered, `componentDidMount` will trigger the API request
-- When the request resolves, we set the `isLoading` state to false and set the data that we want
-- Changing state triggers a re-render, and because `isLoading` is false we render the Martian photo
-
-We can still improve our component! What happens if we make a request that fails? Our request will error, but we won't show the error in the browser. Let's see how we can fix it ([interactive example](https://codesandbox.io/s/6v9qo90r2r)).
-
-First we have to deal with annoying quirk of `fetch` - it doesn't reject the promise on HTTP errors. We can fix this by adding another `.then` before we convert to JSON:
+There is still a problem though: when we click to fetch another image, we still have `imgSrc` set to the previous image. What we could do instead is set the `imgSrc` back to `null` when we know that we're fetching another image ([interactive example](https://codesandbox.io/s/fetch-with-loading-state-part-2-dvu6k?file=/src/FetchWithLoadingState.js)):
 
 ```js
-.then((res) => {
-  if (res.status >= 200 && res.status < 300) {
-    return res;
-  } else {
-    throw new Error('HTTP error');
-  }
-})
-```
+function MartianImageFetcher(props) {
+  ...
 
-Now we can add our solution - a `.catch` on the `fetch` call. Here we reset the loading state and add the error to state.
+  useEffect(() => {
+    setImgSrc(null);
 
-```js
-.catch((err) => {
-  this.setState({
-    isLoading: false,
-    err: err
-  });
-})
-```
+    ...
+  }, [props.date]);
 
-Now we can check if there's an error in state and render out an error message:
-
-```js
-render() {
-  if (this.state.isLoading) {
-    return <span>Loading... 👽</span>;
-  } else if (this.state.error) {
-    return <span>Something went wrong 😭</span>;
-  } else {
-    return <img src={this.state.imgSrc} />;
-  }
+  ...
 }
 ```
 
-> **Exercise C**
-> Open the `pokedex` React application again and open the `src/BestPokemon.js` file
-> 1. If you haven't already, convert the `BestPokemon` component to a class component
-> 2. Create a `constructor` method (hint: remember to call `super(props)`)
-> 3. Set the initial state to have a key named `pokemonNames` that is assigned to an empty array `[]`
-> 4. Add a `componentDidMount` method to the component
-> 5. Within the `componentDidMount` method call the `fetch()` function with this URL: `https://pokeapi.co/api/v2/pokedex/1/`. What will this do?
-> 6. Add a `.then()` handler into the `fetch` function (hint: remember this needs to come immediately after the `fetch()` call) which converts the response from JSON (hint: `.then(res => res.json())`)
-> 8. Add a second `.then()` handler after the one we just added, where the callback function will receive an argument called `data`
-> 9. Within the second `.then()` callback function, log out the data that we just received (hint: `console.log(data.pokemon_entries[0].pokemon_species.name)`)
-> 10. Now change the `console.log()` to log out an array instead, with the first, fourth and seventh Pokemon (hint: `console.log([data.pokemon_entries[0].pokemon_species.name, data.pokemon_entries[3].pokemon_species.name, data.pokemon_entries[6].pokemon_species.name])`)
-> 11. Now again within the `.then()` callback function, call `this.setState()` to set the `pokemonNames` key and assign it to the array that we just logged out (you can copy/paste it)
-> 12. Inside the `render` method, remove the old `pokemonNames` variable and replace it with `this.state.pokemonNames`. What do you see in your web browser?
-> 13. Add an `isLoading` piece of state, which is initialised to `true`
-> 14. When calling `this.setState()` inside the `.then()` handler, also set `isLoading` to `false`
-> 15. In the `render` method check if `this.state.isLoading` is `true` and return a loading message (e.g. `<span>Loading...</span>`). Otherwise if `this.state.isLoading` is `false` then render the loop as we did before
-> 16. **(STRETCH GOAL)** Add some error handling which renders an error message
-> 17. **(STRETCH GOAL)** Explore the data returned from the API. See if you can show some more interesting Pokemon information in your app (hint: try `console.log`ging different data returned from the API)
+| **Exercise B** |
+| :--- |
+| 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file. |
+| 2. In the `BestPokemonFetcher` component, instead of returning `null` if there is no `pokemon`, return `"Loading..."`. |
+| 3. Now add `setPokemon(null)` inside the `useEffect` callback, before the call to `fetch`. |
+| 4. Try clicking on the "Fetch Bulbasaur" and "Fetch Charmander" buttons quickly. Do you see the loading state? (It may only appear for a flash, the Pokemon API is very fast). |
 
 ## Working with forms in React
 

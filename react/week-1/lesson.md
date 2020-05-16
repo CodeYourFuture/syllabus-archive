@@ -116,6 +116,13 @@ As you can see, this is much easier to read than both the straight `React.create
 > **Exercise C:**
 > If you haven't already, follow [the instructions to create a React app] called `pokedex`(https://docs.codeyourfuture.io/students/guides/creating-a-react-app).
 
+### What got created?
+
+[
+![Diagram of folder layout created by create-react-app](../assets/diagram-of-folder-structure-for-create-react-app.png)
+](https://excalidraw.com/#json=5666421027635200,SRigco8_OhrCb94QSj4Wow)
+(click image for live diagram)
+
 ## React Components
 
 We looked at the beginning of the lesson at the concept of components. Now let's look at how components are made in React.

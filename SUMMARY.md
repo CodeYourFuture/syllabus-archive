@@ -47,6 +47,7 @@
 
 - [Compiling SCSS](/html-css/compile-scss-instructions.md)
 - [Coding 101](/others/coding-101.md)
+- [React Cheatsheet](/others/react-cheatsheet.md)
 
 ## Modules
 

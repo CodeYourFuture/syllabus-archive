@@ -1,5 +1,8 @@
-1. If you haven't already, complete the in-class exercises on your `pokedex` app
-2. Complete all of the lesson 1 exercises in the [cyf-hotel-react](https://github.com/CodeYourFuture/cyf-hotel-react#lesson-1) project
+All of the homework for this week can be found in the [CYF-React-Coursework](https://github.com/CodeYourFuture/CYF-React-Coursework) repository.
+
+You should complete all of the tasks in [Week 1](https://github.com/CodeYourFuture/CYF-React-Coursework/tree/master/week-1)
+
+Part of the homework is to complete all of the lesson 1 exercises in the [cyf-hotel-react](https://github.com/CodeYourFuture/cyf-hotel-react#lesson-1) project
 
 ### Prepare for the next class
 

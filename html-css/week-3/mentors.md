@@ -2,6 +2,11 @@
 
 This outline provides tips to help mentors guide students to the best answers or outcomes for the lesson topics and exercises.
 
+## Quiz
+
+- [HTML/CSS Quick Quiz - 19/05/2020](https://drive.google.com/open?id=1_6kJSfIqY2f5iltyH_SUXyfeUGXRLZiGKcecATavByA)
+  - Created by Scotland and Nate
+
 ## Open-source HTML/CSS Frameworks
 
 Using the [Navbar color schemes](https://getbootstrap.com/docs/4.0/components/navbar/#color-schemes), use the browser's dev tools to show how changing the navbar classes in the example website changes the look based on Bootstrap.

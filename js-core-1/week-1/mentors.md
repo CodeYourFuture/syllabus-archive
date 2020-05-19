@@ -7,6 +7,11 @@
 - [Week 1 Midweek Catch-up - JS Core 1 [Google Slides] - 01/05/2020](https://docs.google.com/presentation/d/1oscN2HfvQMKFkkQ1UBfGhP274S6fPT9f02Ibys1OW1E/edit#slide=id.p)
   - Created by Scotland and Richard Darby
 
+## Videos
+
+- [Functions, Variables and Bees - An Introduction to JS1-1 Concepts](https://www.youtube.com/watch?v=DQJu-t0YscY)
+  - Created by Scotland and Rares Matei
+
 ## What worked well
 
 [-]Having all the exercises for the module in the js-exercises repo works well.

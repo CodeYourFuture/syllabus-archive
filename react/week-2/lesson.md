@@ -371,38 +371,6 @@ Let's recap what we've learnt about React state:
 > 7. Within the `catchPokemon` method, use `this.setState()` to change `caughtPokemon` to 1
 > 8. Update the `catchPokemon` method to increase the number of `caughtPokemon` by 1 every time the button is clicked (hint: we need to use the previous state to calculate the new state)
 
-### When do you use Props or State?
-
-We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
-
-Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
-
-```js
-class Hello extends Component {
-  render() {
-    this.props.name = 'Ali';
-
-    return (
-      <p>Hello {this.props.name}</p>
-    );
-  }
-}
-
-render(<Hello name="Mona" />, document.getElementById('root'));
-```
-
-You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
-
-From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
-
-### Container components
-
-In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of caught Pokemon in the exercise  increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
-
-To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
-
-Container components usually have some state and handler methods. Because of this they must use the `class` syntax. Presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
-
 ## React Hooks
 
 ### What are Hooks?
@@ -668,6 +636,30 @@ const Counter = () => {
 
 2\) `MessageCount` is the **child** component that receives value `0` to prop `number`.
 
+### When do you use Props or State?
+
+We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
+
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
+
+```js
+class Hello extends Component {
+  render() {
+    this.props.name = 'Ali';
+
+    return (
+      <p>Hello {this.props.name}</p>
+    );
+  }
+}
+
+render(<Hello name="Mona" />, document.getElementById('root'));
+```
+
+You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
+
+From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
+
 ## Fetching data in React
 
 Often when you create a React app, you will want to get data from an API, and display it inside your components.
@@ -731,6 +723,14 @@ This is a very common pattern which will come in very useful!
 | 11. Within the second `.then` callback function, log out the data that we just received (hint: `console.log(data)`). Inspect the data in the dev tools console. Can you see any interesting values? (Hint: think about what the `BestPokemon` component expects as a prop) |
 | 12. Still within the second `.then` callback function, update the `pokemon` state variable. <details><summary>Click here is you are stuck.</summary>:ppl at the State section again to see how to set state variables to new values.</details> |
 | 13. What happens in your browser? Do you understand why? If not, discuss it with another student. If you are both stuck, ask a Teaching Assistant. |
+
+### Container components
+
+In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of caught Pokemon in the exercise  increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
+
+To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
+
+Container components usually have some state and handler methods. Because of this they must use the `class` syntax. Presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
 
 ## Further Reading
 

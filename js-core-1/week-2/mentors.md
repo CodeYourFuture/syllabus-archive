@@ -7,7 +7,7 @@
 
 ## Quiz
 
-- [Week 1 & 2 Quiz - 19/05/2020](https://docs.google.com/forms/d/1-jVH3eTZy6Cig8iEZqDTdLaFgJCgVKv8q5HIF5yDUQ0/edit?usp=sharing)
+- [Week 1 & 2 Quiz - 19/05/2020](https://drive.google.com/open?id=1c-aVAg4SilVvEJfT8FVlbRBZFdXb2FXAEF3yXtOBX-k)
   - Created by Scotland Volunteers
 
 ## Notes

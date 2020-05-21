@@ -1,386 +1,383 @@
-![](https://img.shields.io/badge/status-review-orange.svg)
+# JavaScript Core III - Week 1
 
-# JS Core III - 1
+---
 
-**What will we learn today?**
+**Teaching this lesson?**
 
-- [Tracing Code](#tracing-code)
-- [Testing](#testing-our-code)
-- [Unit Testing](#unit-testing)
-- [Unit Testing Frameworks - JEST](#jest)
-- [Test-driven Development](#test-driven-development)
-- More on Testing
-  - [Test coverage](#test-coverage)
-  - [Refactoring](#refactoring)
-  - [Modules](#modules)
+Read the Mentors Notes [here](./mentors.md)
 
-> Fork and Clone the [js-exercises-tdd repo](https://github.com/CodeYourFuture/js-exercises-tdd)
+---
 
-## Tracing Code
+## Learning Objectives
 
-What is Code? Computer code is a **set of rules or instructions**. It is made up of words and numbers and when you put them in the **right order** it will tell your computer what you want it to do.
+- The learner should understand the value of thorough and comprehensive debugging
+- The learner should be able to use error messages to debug simple logical or syntactical errors in their code
+- The learner should be able to logically step through their code to find bugs and errors
+- The learner should be able to predict where a program will fail
+- The learner should be able to modify an existing program to solve errors
 
-Let's trace these code samples together:
+## Agenda
 
-- [Sample 1](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/01-greet-people/greet-people.js)
+The purpose of this class is to introduce to the student:
 
-- [Sample 2](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/02-remove-vowels/remove-vowels.js)
+1. Debugging your code
+2. Consolidate learning for the project work
 
-- [Sample 3](https://github.com/CodeYourFuture/js-exercises-tdd/blob/master/II.write-tests/03-remove-vowels-from-array/remove-vowels-in-array.js)
+## 1. Debugging
 
-## Testing our code
+### Vocabulary
 
-We have just traced the output of some code on paper, but how do ensure that the code actually does what it is supposed to do when we run it.
+- `Syntax` & `Syntactical`
+- `Bug`
+- `Error`
 
-> Discussion: How have we been testing our code so far? How do ensure it is _correct_. What is "_correct_" anyhow?
+### Why is Debugging Important?
 
-In many organisations, there are full teams dedicated to **testing** and ensuring that the code written behaves correctly, to report **bugs** and make sure that they are fixed on time. In general, **Quality Assurance** is a responsibility of everyone in a team starting from Project Manager, Scrum Masters, Developers and Testers.
+When are projects are very small it's easy to see the problems and when something does break it's not to much of an issue. This isn't true when we start working on larger projects.
 
-There are typically several levels of testing when working on a project:
+The code that we write has real world uses and real world effects.
 
-- Unit testing
-- Integration testing
-- Functional, End to End testing and User Acceptance Testing (UAT)
+#### Y2K Bug
 
-[This answer from Stack OverFlow](https://stackoverflow.com/a/4904533) has a good explanation of types of testing. The defintions for Functional, e2e and UAT are often mean different things in different teams, the responisibility for them also falls on different individuals depending on the team.
+In 1999 the world faced a possibly very serious bug in the way that computer stored time. When computers stored the year they would only store the last two digits (e.g. 1999 is stored as just 99). This means that when the year 2000 happened lots of people were afraid that computer would think the year was the year 1900 instead of the year 2000.
 
-_Unit testing_ though is always the responsibility of the Developer, and it is a very important skill for any professional developer to be able to write tests, and also write code that is testable.
+Check out this very scary video [here](https://www.youtube.com/watch?v=ddzbxJasID4)
 
-> Discussion: What is testable code?
+Fortunately, a lot people put in a lot of work to stop the bug before it happened and averted catastrophe.
 
-```js
-var result;
+**Discuss**: Why did the Y2K bug happen? What oversights did the developers have?
 
-function getMentorInfo(mentors, name) {
-  var greeting = "Hello ";
+#### Therac-25
 
-  result = mentors.find(function (person) {
-    return person.name === name;
-  });
+Therac-25 was a machine used to administer radiation to cancer patients which malfunctioned because of a programmer error.
 
-  var mentorTitle = "Junior Developer";
+**Watch**: You can watch a quick video about the bug [here](https://www.youtube.com/watch?v=izGSOsAGIVQ)
 
-  if (result.yearsOfExp > 10) {
-    mentorTitle = "Senior Developer";
-  } else if (result.yearsOfExp > 20) {
-    mentorTitle = "Very Senior Developer";
-  }
+**Discuss**: Why did the Y2K bug happen? What oversights did the developers have?
 
-  result.jobTitle = mentorTitle;
-  result.fullName = result.title + " " + result.name;
+### The Debugging Mindset
 
-  return result;
+Debugging is a fact of life! Not everything will work the first time you do it and even when it does there will often be times when even if you feel like you've covered everything another bug may occur!
+
+**Task (5 Minutes)**
+In teams, the students should have quick discussion about the bugs that have occurred to them in the past. When they finish the class should regroup and gather together all the different types of bugs that have happened to them.
+
+### Types of Errors
+
+#### Syntax Errors
+
+These errors are usually quite simple to fix and happen when you've typed some code wrong or missed a character. These will normally happen as soon as you run your code.
+
+##### Examples of Syntax Errors
+
+How would we fix these syntax errors? Post your answers in Slack!
+
+- `SyntaxError: missing ) after condition`
+
+```javascript
+if (3 > Math.PI {
+  console.log("wait what?");
 }
-
-/*
-  var mentors = [
-      {
-          name: 'Irina',
-          title: 'Dr.',
-          yearsOfExperience: 10
-      }, {
-          name: 'Ashleigh',
-          title: 'Dame',
-          yearsOfExperience: 20
-      }, {
-          name: 'Etza',
-          title: 'Professor',
-          yearsOfExperience: 30
-      }
-  ];
-  
-  var result = getMentorInfo(mentors, 'Etza')
-  Trace the value of "result"
-*/
 ```
 
-## Unit Testing
+- `SyntaxError: missing variable name`
 
-Testing is a key skill for any software programmer. We need to make sure our
-software is thoroughly tested, otherwise bad things happen. Testing makes sure
-our programs behave like we intend them to do - **if we don't test, we can cause
-severe bugs**. Bad software can make planes crash, companies bankrupt, and users
-of your software really frustrated.
-
-There are different levels on which we can test software, for example
-integration testing, end-to-end testing, and unit testing. Today we will deal
-with unit testing, which is probably the most universal testing discipline.
-
-A unit test is exactly that - it tests a _unit_ of code. "Unit" can mean
-different things, but in JavaScript it usually refers to a single function.
-
-Remember when we talked about functions? Functions take _input_ (as arguments),
-do something with it (in the function body), and return _output_ (using the
-`return` statement). Ideally, a function should always return the same output if
-the same input is given. It makes it predictable and testable - and that's what
-we want!
-
-```
-         |-----------------|
-input => | doing something | => output
-         |-----------------|
+```javascript
+var = 1;
 ```
 
-So, when unit testing a function, we want to make sure that _for a certain
-input, we get the expected output_. For this we need to make sure that the
-output matches our expectations. In the simplest form that means we do an
-equality check:
+- `SyntaxError: missing } after function body`
 
-```js
-myFunction(input) === expectedOutput;
+```javascript
+var charge = function() {
+  if (sunny) {
+    useSolarCells();
+  } else {
+    promptBikeRide();
+};
 ```
 
-We can formalise this using another function that compares two values and
-complains when they do not match. Such a function is prepared in
-`unit-testing/equals.js`.
+#### Reference Errors
 
-We can use this function to simply compare to values:
+These errors most commonly happen when you try to access variable that has not been defined anywhere.
 
-```js
-equals(1, 1); // This should pass
-equals(1, 2); // This should fail
-equals("Hello", "Hello"); // This should pass
+##### Examples of Reference Errors
+
+How would we fix these reference errors? Post your answers in Slack!
+
+- `ReferenceError: "word" is not defined`
+
+```javascript
+var ward = "hello";
+word.substring(1);
 ```
 
-Now we can use this `equals()` function to test our own code by comparing a
-function result to an expected value.
+#### Type Errors
 
-Remember that one function can be used as an argument when a second function is called. In this instance, the function we are testing would represent our first function, and our `equals()` function would represent the second, like so...
+Type errors usually occur when you are trying to access a method or variable from an object that doesn't have that in it.
 
-```js
-equals(myNewFunction(arg1, arg2, etc), expectedOutput);
+##### Examples of Type Errors
+
+- `TypeError: document.getElByID is not a function`
+
+```javascript
+var submit = document.getElById("button");
 ```
 
-As you can see in this example, instead of using a number as the first argument to the `equals()` function, we have used a function instead; the one we wish to test.
+- `TypeError: numbers.map is not a function`
+  - Hint: what `type` is the number variable
 
-> Exercise: Write tests for the the exercises under `II.write-tests`
+```javascript
+var numbers = { a: 13, b: 37, c: 42 };
 
-### Unit testing frameworks
-
-There are lots of other things you might want to test for than two things being
-equal. You might want to test if a number is smaller or greater than another, if
-a function was called, if an error happened, or if one thing happened before
-another thing, or how long a function call took to execute.
-
-We don't have to build all these things ourselves. Instead there are _unit
-testing frameworks_ that take all that work off our shoulders. All we need to do
-is provide the code and the tests.
-
-### Jest
-
-The unit testing framework we are trying to day is called
-[Jest](https://facebook.github.io/jest/). It's created by Facebook and useful
-for all kinds of unit testing (especially testing React, which we will do in a
-later lesson).
-
-Look into your `jest/` folder. You will find a file there, `sum.test.js`. The
-suffix `.test.js` tells Jest that this file contains tests it should execute. To
-execute the test, run the following command in your terminal:
-
-```sh
-npm test
-```
-
-This command runs the test in `sum.test.js`, which tests the `sum()` function.
-You can see the test output and the fact that the test passed.
-
-Tests cases in Jest have the following structure:
-
-```js
-test("test description", function () {
-  // Test instructions
+numbers.map(function (num) {
+  return num * 2;
 });
 ```
 
-Jest provides a set of functions that you can use to write your actual tests.
-They are created in a way that imitates natural language, for example:
+- `TypeError: Cannot read property 'substring' of undefined`
 
-```
-_Expect_ sum of 1 and 2 _to be_ 3
-```
-
-becomes
-
-```js
-expect(sum(1, 2)).toBe(3);
+```javascript
+var name;
+name.substring(1);
 ```
 
-You can add multiple test statements in the same test case (a test case is one
-call of the `test` function, but you can also create multiple test cases in one
-file. It is important that you give all your test cases meaningful descriptions.
+### The Debugging Framework
 
-> _Exercise:_ Add another test case to `sum.test.js`. Is the sum of 10 and -10
-> really zero? Run the tests using Jest.
+When debugging you should always ask yourself a few key questions
 
-> _Exercise:_ Take the `findNeedle` function you have tested previously, copy it
-> into the `jest/` folder and call it `findNeedle.test.js`. Then write a test to
-> be used with Jest, similar to `sum.test.js`. Make sure you cover multiple
-> inputs and give all tests meaningful descriptions! Run the tests using Jest.
+- What did I expect to happen?
 
-## Test Driven Development
+You should very clearly be able to say exact what you expected to happen when you run your code. If you cannot do this, then you do not understand the problem well enough.
 
-Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements. [Wikipedia]
+- Is it actually broken?
 
-When developing following TDD, you normally follow this sequence:
+Sometime what you think is broken is actually working fine but not what you thought was going to happen. You should confirm with what the program is trying to do.
 
-1. Add a test
-2. Run all tests and see if the new test fails (Red)
-3. Write the simplest code to make the test pass (Green)
-4. Refactor
-5. Repeat
+- What happened instead?
 
-Read more on the [Wikipedia article](https://en.wikipedia.org/wiki/Test-driven_development) and the resources at the end.
+You should be able to quickly state what you were expecting to happen. Just saying "It Didn't Work" isn't enough! The more carefully you dissect the problem the more easily you'll be able to fix it.
 
-[Red Green Refactor](https://www.codecademy.com/articles/tdd-red-green-refactor)
+- What have I tried so far?
 
-> Exercise: Two mentors pair on a problem doing "ping pong" TDD. One writing the test, the other writing the implementation.
+Debugging is a process of loops and iteration. Think about what you've done so far and work out other ways that the code could have broken.
 
-## More on Testing
+#### Tools
 
-### Test coverage
+**Task (5 Minutes)**
 
-Test coverage describes the extent to which a code base is tested. When Jest
-runs your tests, it generates a so-called _coverage report_. This report tells
-you how many of your _lines of code_ are covered by tests, how many functions,
-statements, and branches.
+In teams, the students should have quick discussion about the ways that they have solved bugs or errors they've had in the past.
 
-> A branch is one of multiple ways a code control flow can go. For example, if
-> you have an `if() ... else ...`, both the "if" and the "else" branch must be
-> covered by tests.
+When they finish the discussion we should regroup and gather together all the ways that they have solved bugs in the past.
 
-We want to keep our code coverage as high as possible. Jest allows us to
-generate a coverage report when we run the following command in the terminal:
+##### Thinking like a computer
 
-```sh
-npm test -- --coverage
+The most important skill you can develop is thinking analytically and logically - exactly the same as a computer. In the exercises soon we will be using our logical skills to slowly step through a program to see what is going wrong.
+
+Remember that the computer will run your program line-by-line, from top to bottom, and that loops and functions may jump to a new location. If in doubt, try going through the program one line at a time - don't jump ahead, or guess what you _want_ your program to do, make sure you're reading what it actually _does_ do.
+
+When debugging, it can often be useful to write down what values variables have, either on paper, in comments, or by using `console.log` - this is particularly true in loops and functions, where variable values may change from iteration to iteration, or between calls!
+
+##### Test Often
+
+It is important when working on your code to test each part of your code separately and carefully. Make sure everything is working before you move on to the next part otherwise problems become harder to debug.
+
+##### Stackoverflow.com
+
+[Stackoverflow](https://stackoverflow.com/) is a crucial tool for lots of new developers in finding answers to their programming problems. While a lot of the information is very good there are several points to keep in mind.
+
+- Information goes out of date very quickly
+  - You have to make sure that what your looking at it new
+- Don't copy and paste code
+  - If you don't understand what your code does then there is no pointing using it since soon you won't be able to debug it
+- The Chosen Answer isn't always the right answer for you
+  - Always read all the responses to questions to find the correct answer for you
+
+##### Talking It Through (a.k.a Rubber Ducking)
+
+When you're stuck on a problem one of the key techniques you can use is talking through your problem with somebody else. Being forced to slow down and think is important and you'll often realise your problem whilst trying to explain it so somebody else.
+
+Nobody else around to ask? Still tell it to somebody! The act of talking helps you work through the problem. Traditionally, programmers use a [rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging).
+
+##### Using `console.log()` and the Console
+
+By this point you will have seen `console.log()` quite a lot when we see what is happening in our programs - this tool can also be one of the key tools in debugging our programs!
+
+When we're working on websites you can view the `Console` tool in Chrome by
+
+- Right Click
+- Inspect
+- Click the `Console` tab
+
+Here you'll see all of the messages that have been printed by the website when it was loading and running.
+
+##### Using the Chrome Debugger
+
+We know that JavaScript executes code line by line. How great would it be if we had a tool that allowed us to stop code execution on any line and inspect the values of our variables. Fortunately such a tool exists and it's called a debugger. Here we will use the Chrome debugger for JavaScript, however similar tools exist of all other popular browsers.
+
+To view the debugger go to the `Sources` tab of Chrome developer tools which we opened above.
+
+To tell the debugger to stop we need to create a `breakpoint`, it's an instruction to the debugger to stop execution and await instruction from us.
+
+We can place a debugger in one of two ways. We can either insert a line into our called saying
+
+```javascript
+debugger;
 ```
 
-> _Exercise:_ Check your code coverage for the tests you wrote. Is any of the
-> numbers below 100%? If so, try and bring it up to 100%!
+or we can click on the line number in the debugger tool itself.
 
-### Refactoring
+Let's say we have a simple piece of code below and we want to inspect the values of `x` and `y` before adding them.
 
-There are times when we want to make our code better without changing any
-functionality, for example because we just learnt about a better way to solve a
-certain problem (like, finding needles in haystacks). This is called
-_refactoring_.
+```javascript
+var x = 10;
+var y = 20;
 
-When previously **GREEN** code - working code! - suddenly does not work anymore,
-we call this a _regression_. Our existing tests can make sure that when we
-refactor, the functionality of our code actually stays the same, and does not
-regress.
+var z = x * y;
+```
 
-> Exercise: Refactor some of the exercise we've written tests for.
+To use debugger on above code we will save it in a file called `temp.js` and import it into an html file called `temp.html`.
 
-## Modules
+We can either use the `debugger` statement to pause the code
 
-So far, all our programs have been in their own single files. But Node programs
-can become really large, and having all our code in only one file will not be
-maintainable.
+```javascript
+var x = 10;
+var y = 20;
+debugger;
+var z = x * y;
+```
 
-We can therefore split our code into so-called _modules_. A module is basically
-a JavaScript file that makes its functionality available to other modules and
-programs.
+or by opening the file in the debugger using the file navigation on the right hand side and clicking on line 4. Note you can pause on line with code not empty lines.
 
-### Creating modules, exporting code
+![](./assets/breakpoint.png)
 
-It is really simple to take existing JavaScript code and turn it into a module
-by exporting its functionality:
+Once we have paused code execution, we can mouse over the the variables to see their values.
 
-```js
-function printName(name) {
-  console.log("My name is " + name);
+![](./assets/debug-value.png)
+
+Once we have finished inspecting the values, we can use the controls in the top right corner to tell the debugger what to do.
+
+![](./assets/controls.png)
+
+We can click the button with the blue triangle to tell the debugger to continue executing code until it hits the next breakpoint. Or if we want to execute code line by line ourselves, we can press the button with the curved arrow that will the debugger to execute the current line and stop on the next line.
+
+To remove a breakpoint you either remove the `debugger` statement or if you placed a breakpoint from the debugger itself, you can click that line number again to remove it.
+
+##### Comparing console.log and debugger
+
+As a developer you will likely use both tools to understand what your code is doing and help you fin and fix bugs. `console.log` can be a quick and easy way to check a value, but it can also be a bit inflexible since you can only inspect the value you log out in that one place.
+
+Using the debug tool to inspect values can be a bit slower than console logging out values. However, it is also more flexible since you can inspect any value and move execution yourself line by line.
+
+Try using both methods in your exercises and homeworks to get more familiar with them.
+
+##### ESLint in VSCode
+
+Often you will have code that is perfectly valid JavaScript, but it may possibly not do what you want it to do. For example, you might have misspelled a variable name and as a result the variable you wanted to using is now unused and the variable you using does not exist.
+
+To catch such problems, we can use a static code analysis tool or commonly known as a linter. The most common one in use today is `ESLint` and it allows us to configure different rules to look out for and alert us when one of them is broken by our code.
+
+You can use the ESLint extension for VSCode which you can [download here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+We have created a sample ESLint configuration to help you get started. You can download it [here](.eslintrc).
+
+```javascript
+{
+  "rules": {
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double"],
+    "eqeqeq": ["warn", "always"],
+    "no-unused-vars": ["warn"],
+    "no-redeclare": ["warn"],
+    "no-undef": ["warn"]
+  }
+}
+```
+
+`semi` warns you if you did not use a semi colon at the end of the line
+`quotes` ensures consistency by warning you if you did not use double quote marks
+`eqeqeq` ensures you use `===` and `!==` rather than `==` and `!=` since the latter can lead to errors
+`no-unused-vars` will warn you if you have unused variables in your code
+`no-redeclare` will warn you if you redeclare an existing variable
+`no-undef` will warn you if you try to use an undeclared variable or function
+
+You can see all rules and their explanations at [https://eslint.org/docs/rules/](https://eslint.org/docs/rules/). Many of them not make sense to you (they don't to me), but it can be a handy reference and over time your use and understanding of them will improve and increase.
+
+##### Summary
+
+- Bugs are a fact of life. No one produces bug free code.
+- Test regularly to find bugs early.
+- Having multiple bugs in code can make them harder to deal with. See previous rule
+- Use tools such a linters spot and prevent bugs early
+- Error messages might look scary, but they are your friend
+- Use tools such as console.log and debugger to find root of bugs
+
+### Exercise 1
+
+As a class we should step through solving all of the issues in this small piece of code. You should copy it into a code editor (e.g. VS Code) in a `.js` file so you can debug and run it easily. **Be sure to use The Debugging Framework that we discussed earlier**
+
+<!--
+
+These are the errors:
+
+• Homer string syntax: apostrophe not escaped (syntax)
+• for loop: off-by-one error on check (logical)
+• Incorrect calling of the function (other)
+• Typo (typerror on k) (other)
+
+-->
+
+```javascript
+
+let printValuesOf = (jsObject, keys) => {
+  for (let i = 0; i <= keys.length; i++) {
+    let key = keys[i];
+    console.log(jsObject[k]);
+  }
 }
 
-module.exports = printName;
-```
+let simpsonsCatchphrases = {
+  lisa: 'BAAAAAART!',
+  bart: 'Eat My Shorts!',
+  marge: 'Mmm~mmmmm',
+  homer: 'd'oh!',
+  maggie: '(Pacifier Suck)',
+};
 
-The key here is the line containing `module.exports`. As you see, this is an
-assignment, and whatever is assigned to `module.exports` will be made available
-to other modules and program when this file is imported.
+printValuesOf(simpsonsCatchphrases, 'lisa', 'bart', 'homer');
 
-### Using modules, importing code
+// Expected console output:
 
-But how do we make use of another module in our program? We need to _import_ it,
-and this is done using a function called `require()`.
+// BAAAAAART!
+// Eat My Shorts!
+// d'oh!
 
-> There are different module formats for JavaScript. The one we are using here,
-> which is natively supported by Node, is called **CommonJS**.
-
-```js
-var printName = require("./printName.js");
-```
-
-> The string passed to the `require()` function is a _path_ to the file you are
-> importing. `./` signifies the current directory, so the above command will
-> import a file called "printName.js" that is in the same directory as our
-> program.
-
-Assuming our program is in the same folder as `printName.js`, we can use the
-above code to import the functionality provided by that module and store it in
-the `printName` variable.
-
-We can then continue to use the `printName` function as if it we defined it in
-our own program!
+// Returns undefined
 
 ```
-var printName = require('./printName.js');
 
-printName();
-```
+Try to categorise the bugs found under:
 
-> Modules can not only export functions, but all variable types you already
-> learned about. Most commonly, they export a function or an object containing
-> multiple functions.
+1. Logical
+2. Syntactical
+3. Other (programmer/user error)
 
-> _Together:_ Edit the file `modules/main.js` and follow the instructions.
+### Exercise 2
 
-### Separating code and tests
+In your groups we want you to go through this program and find all of the bugs that are happening in this code.
 
-Exporting and importing modules is really useful for testing, too.
+You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/week-1/debugging-code)
 
-As a rule of thumb, we never want to mix our actual code with our tests. It is
-therefore common to put them in separate files. We are going to call the file
-containing the tests after the file containing the code to be tested, just
-appending `.test` at the end of the filename. Like so:
+## 2. Project Work
 
-```
-main.js               # Our main program
-main.test.js          # Tests for our main program
-someOtherCode.js      # A module called "someOtherCode"
-someOtherCode.test.js # Tests for the "someOtherCode" module
-```
+### Explanation
 
-> The naming is really up to convention - you can even put your tests in a
-> different folder! However, for Jest it is important to call test files
-> "\*.test.js".
+Over the next three weeks we're going to be building a website that will consolidate all of your knowledge so far in the course.
 
-# Glossary
+You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/tv-show-dom-project)
 
-You should know these terms by the end of this class: Testing, Quality Assurance, Unit Tests, Integration Tests, Refactoring, Regression Tests .. any more?
+### Getting Setup
 
-# Resources
+In your groups you should get the project setup using the exact instructions found [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/tv-show-dom-project/getting-started.md). Make sure you use your Teaching Assistants to help you!
 
-1. [JavaScript: The Good Parts by Douglas Crockford, chapter 4 - Functions](http://bdcampbell.net/javascript/book/javascript_the_good_parts.pdf)
-2. [MDN Objects basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
-3. [MDN OOP in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS)
-4. [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
-5. [Jest](https://facebook.github.io/jest/)
-6. [Modules](https://nodejs.org/api/modules.html)
-7. [Setup VS Code for Debugging](https://medium.com/software-developer/debugging-facebooks-jest-for-react-in-visual-studio-code-9059223e1e71)
-
-## Tracing code resources
-
-Check out these videos. They contain code that is not JavaScript being traced on paper.
-
-[Hand Tracing - Intro to Java Programming](https://www.youtube.com/watch?v=TZss5ukwN8s)
-
-[Tracing code by hand](https://www.youtube.com/watch?v=tJGrie7k97c)
-
-[Tracing a flowchart](https://www.youtube.com/watch?v=SEtNBShckCg)
-
-[Java Tracing Arrays Worksheet 1](https://www.youtube.com/watch?v=niwBxBUzDu4)
-
-[Nested loops](https://www.youtube.com/watch?v=5mxT9x5rgCg)
-
-{% include "./homework.md" %}
+{% include './homework.md' %}

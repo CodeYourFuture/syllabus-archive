@@ -1,4 +1,3 @@
-
 # What does this change?
 
 Module:
@@ -16,9 +15,8 @@ Week(s):
   [Rendered version](https://github.com/CodeYourFuture/syllabus/blob/YOUR_BRANCH_NAME/PATH/TO/THE/CHANGED/FILE.md)
 -->
 
-# Who needs to know about this?
+## Who needs to know about this?
 
 <!---
 Tag anyone who might want to be notified about this PR
 -->
-

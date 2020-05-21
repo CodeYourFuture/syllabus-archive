@@ -1,5 +1,7 @@
-# Mentor's Notes
+# Mentor Notes
 
-## Presentations
+## Delivery Resources
 
-## Notes
+## To Be Improved
+
+## Other Notes

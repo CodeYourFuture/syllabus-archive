@@ -1,4 +1,4 @@
-# JavaScript Core II - 3
+# JavaScript Core II - Week 3
 
 ---
 

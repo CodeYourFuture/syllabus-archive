@@ -3,7 +3,6 @@
 ## Responsive web design
 
 - [ ] Can: identify a diverse set of devices for the web (phone, tablet, laptop, desktop, tv, game console, etc.)
-
 - [ ] Can answer: What is responsive web design?
 - [ ] Can answer: what are some ways we might want to have a layout change as we reduce or increase screen size?
 

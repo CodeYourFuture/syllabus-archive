@@ -25,6 +25,18 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
+## Learning Objectives
+
+By the end of this lesson students should be able to:
+
+- Define what the DOM is and what it does
+- Use query selectors to retrieve elements from the DOM
+- Use event listeners to respond to events that happen on the DOM
+- Create DOM elements using JavaScript and add them to the DOM
+- Manipulate DOM elements using JavaScript to change their properties
+
+---
+
 > Please make sure you're working on the [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 5** during this class.
 
 ## JS in the Browser

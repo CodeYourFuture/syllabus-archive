@@ -20,6 +20,21 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
+## Learning Objectives
+
+By the end of this lesson students should be able to:
+
+- Define what an object is in JavaScript
+- Be able to write code that can use an object to store data
+- Be able to write code that changes the properties of an object
+- Be able to write code that can retrieve data from an object
+- Write and call methods inside JavaScript objects
+- Use Objects when contained inside an array
+- Write code that uses objects built-in methods
+- Write code that can iterate through an object
+
+---
+
 > In-class exercises can also be found on [js-exercises repo](https://github.com/CodeYourFuture/js-exercises) **Week 4**.
 
 ## Objects

@@ -6,6 +6,12 @@
 - [Updating Data Fetching when Props Change](#updating-data-fetching-when-props-change)
 - [Working with forms in React](#working-with-forms-in-react)
 
+---
+
+{% include "./learning-objectives.md" %}
+
+---
+
 ## Recap
 
 Last week we looked at using props and state to create React components that change with user input ([interactive example](https://codesandbox.io/s/react-3-state-recap-38x3b?file=/src/Counter.js)):

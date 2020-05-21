@@ -23,6 +23,12 @@
   - [Further Reading](#further-reading)
 - [Homework](#homework)
 
+---
+
+{% include "./learning-objectives.md" %}
+
+---
+
 ## Recap
 
 Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/7zvk9n1950)):
@@ -151,52 +157,31 @@ Notice how this is very similar to the example above where we created the handle
 | 5. In a group of 2 - 3 students, discuss what you think will happen when you click the logo image now. Can you explain why? |
 | 6. Report back to the rest of the class what you thought was going to happen and why. |
 
-## Reacting to Changes
+## Re-Rendering Components
 
-Now let's write a more interesting app that responds to some user input. We'll see how React will take care of updating the DOM for you.
+So far we've seen that when the page loads, React calls our function components. The JSX elements that are returned from the component functions are turned into the DOM for you by React.
 
-A counter is a common React example, showing the number of times a button has been clicked. First lets render a button and a counter which set to 0 clicks ([interactive example](https://codesandbox.io/s/voqzrx5ny)):
+To be able to react to changes, we need to *re-render* our function components to get different JSX elements. React can then update the DOM based on the new JSX elements.
 
-```js
-let count = 0;
-
-const Counter = (props) => (
-  <div>
-    Count: {props.count}
-    <button id="click-me">Click me!</button>
-  </div>
-);
-
-function renderCounter() {
-  ReactDOM.render(<Counter count={count} />, document.getElementById('root'));
-}
-
-renderCounter(count);
-```
-
-Note that this example is simplified compared to your `pokedex` application. To keep the code clean, some parts are split into separate files. In the `pokedex` application, you'll find the `ReactDOM.render` call in `index.js`.
-
-This example isn't very useful yet as it doesn't do anything when clicking the button. Now let's listen for clicks on the button and increment the counter ([interactive version](https://codesandbox.io/s/llow115pll)):
+Let's look at how a component is re-rendered ([interactive version](https://codesandbox.io/s/force-component-re-rendering-llow115pll?file=/src/Counter.js)):
 
 ```js
-let count = 0;
-
-class Counter extends Component {
-  // ...
-}
-function renderCounter(count) {
-  // ...
-}
-
-renderCounter(count);
-
-document.getElementById('click-me').addEventListener('click', () => {
-  count = count + 1
-  renderCounter(count)
-})
+const Counter = props => {
+  console.log(`Rendering. props.count is ${props.count}`);
+  return (
+    <div>
+      Count: {props.count}
+      <button id="click-me">Click me!</button>
+    </div>
+  );
+};
 ```
 
-As you can see, the DOM automatically updates when you render. This is an incredibly powerful feature of React. Even better, React will figure out exactly the right bits of the DOM that need to be changed. This makes it extremely efficient and fast. This is concept is called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html).
+If you look in the console, you'll see that the component is rendered once when the page loads. `props.count` starts at 0, so React inserts "Count: 0" into the DOM.
+
+But when you click the button, the function component is called again (or *re-rendered*) and this time `props.count` is **1**. React now **updates** the DOM to make sure it shows the correct number. Every time we click the button, the function component is called and React updates the DOM for us. We don't need to worry about changing the DOM ourselves!
+
+This is what makes React so powerful. Even better, React will figure out exactly the right bits of the DOM that need to be changed, a concept called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html). This makes it extremely efficient and fast.
 
 ## State
 

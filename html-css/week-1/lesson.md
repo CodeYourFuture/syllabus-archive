@@ -8,11 +8,17 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
-## What will we learn today?
+## Contents
 
 - [Semantic HTML tags](#html-syntax)
 - [CSS selectors, CSS cascade, Pseudo-classes such as `:hover`/`:focus`](#css-selectors)
 - [Box model: `margin`/`padding`/`border` etc...](#box-model)
+
+---
+
+## Learning Objectives
+
+Learning objectives for this lesson can be found [here](./learning-objectives.md)
 
 ---
 

@@ -1,6 +1,14 @@
-# React 1
+# React - Week 1
 
 ![Lesson Ready](https://img.shields.io/badge/status-ready-green.svg)
+
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
 
 **What will we learn today?**
 

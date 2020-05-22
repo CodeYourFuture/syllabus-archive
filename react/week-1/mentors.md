@@ -35,8 +35,7 @@
   - Originally this was written with class components first
     - However, students went home and googled and saw alternative syntaxes
     - This is a common theme in this first lesson - have to teach some stuff that is perhaps unnecessary just so that they're prepared when they see it at home
-- Making an argument for props section
-	- Relate to a situation in real life, something like: imagine what our boss might ask for with this small application. What could our boss ask for which would mean we would have to make changes to the code? 
+- Making an argument for props section - Relate to a situation in real life, something like: imagine what our boss might ask for with this small application. What could our boss ask for which would mean we would have to make changes to the code?
 - Exercises
   - Written to be quite step-by-step deliberately
     - Some students were distracted by the wording and not getting to the useful part of the exercise

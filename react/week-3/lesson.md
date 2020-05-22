@@ -1,4 +1,12 @@
-# React 3
+# React - Week 3
+
+---
+
+**Teaching this lesson?**
+
+Read the Mentors Notes [here](./mentors.md)
+
+---
 
 **What will we learn today?**
 

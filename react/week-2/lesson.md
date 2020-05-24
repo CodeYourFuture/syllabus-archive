@@ -457,20 +457,20 @@ How do we do this in React? Where does the API call go, and when should we trigg
 **When:** When the component is first loaded into the DOM. We call this 'mounting'.
 **How:** With a handy new hook called `useEffect`.
 
-### The `useEffect` hook
+### The `useEffect` Hook
 
 Just like `useState`, the `useEffect` hook is a special function that all function components can import and use as needed. This is the syntax to follow to fetch data when the component is first mounted:
 
 ```js
 useEffect(() => {
-  // Make your API call here
+  // Make your fetch API call here
 }, []); // Don't forget the empty array here!
 ```
 
 And here is a more complete example:
 
 ```js
-import React, { useState, useEffect } from 'react'; // remember to import the hook(s) you need!
+import React, { useState, useEffect } from 'react'; // remember to import the Hook(s) you need!
 
 const MartianPhotoFetcher = () => {
   const [marsPhotos, setMarsPhotos] = useState();
@@ -480,7 +480,7 @@ const MartianPhotoFetcher = () => {
       .then(res => res.json())
       .then(data => setMarsPhotos(data));
     });
-  });
+  }, []);
 
   return (
     <div>

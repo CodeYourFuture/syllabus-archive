@@ -554,8 +554,4 @@ What happens if you forget to pass a prop to a component? Or if you pass the wro
 >
 > 1. [Use PropTypes to Define the Props You Expect](https://learn.freecodecamp.org/front-end-libraries/react/use-proptypes-to-define-the-props-you-expect/)
 
-## Glossary
-- `prop`: is a value that is passed down from parent component to a child component, cannot be stored locally inside a react component
-- `state`: is a variable that is stored inside a component
-
 {% include "./homework.md" %}

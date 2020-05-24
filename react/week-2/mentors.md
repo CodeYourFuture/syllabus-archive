@@ -40,10 +40,11 @@
 
 ### Interactive Example Index
 
-- [Recap](https://codesandbox.io/s/7zvk9n1950)
+- [Recap](https://codesandbox.io/s/react-2-recap-7zvk9n1950?file=/src/HelloMentor.js)
 - [Function reference vs function call recap](https://jsbin.com/xudukezaje/edit?js,console)
 - [Event Handlers](https://codesandbox.io/s/event-handlers-cc3h7?file=/src/ClickLogger.js)
 - [Passing Functions as Props](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/ClickLoggerApp.js)
+- [Re-Rendering Components](https://codesandbox.io/s/force-component-re-rendering-llow115pll?file=/src/Counter.js)
 - [Counter rendering with ReactDOM (not working)](https://codesandbox.io/s/voqzrx5ny)
 - [Counter rendering with ReactDOM](https://codesandbox.io/s/llow115pll)
 - [Counter (starting refactor)](https://codesandbox.io/s/pjlro5rop7)

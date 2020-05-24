@@ -31,29 +31,31 @@
 
 ## Recap
 
-Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/7zvk9n1950)):
+Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/react-2-recap-7zvk9n1950?file=/src/HelloMentor.js)):
 
 ```js
 // Greeting.js
-const Greeting = () => (
-  <span>Hello</span>
-);
+function Greeting() {
+  return <span>Hello</span>;
+}
 
 // Mentor.js
-const Mentor = (props) => (
-  <span>{props.name}</span>
-);
+function Mentor(props) {
+  return <span>{props.name}</span>;
+}
 
 // index.js
 import Greeting from './Greeting';
 import Mentor from './Mentor';
 
-const HelloMentor = () => (
-  <div>
-    <Greeting />
-    <Mentor name="Ali" />
-  </div>
-);
+function HelloMentor() {
+  return (
+    <div>
+      <Greeting />
+      <Mentor name="Ali" />
+    </div>
+  );
+}
 ```
 
 ## Handling events
@@ -126,7 +128,7 @@ Sometimes we need to pass a function to another component as a prop, so that it 
 A common example for this is a Button component. This component adds some styling to a normal `<button>`, but still needs to be able to pass an event handler function to `onClick`. Let's look at an example ([interactive example](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/ClickLoggerApp.js)):
 
 ```js
-const ClickLoggerApp = () => {
+function ClickLoggerApp() {
   function logWhenClicked() {
     console.log("Button was clicked");
   }
@@ -137,13 +139,15 @@ const ClickLoggerApp = () => {
       <p>Then look in the console.</p>
     </div>
   );
-};
+}
 
-const FancyButton = props => (
-  <button className="my-fancy-classname" onClick={props.handleClick}>
-    Click Me!
-  </button>
-);
+function FancyButton(props) {
+  return (
+    <button className="my-fancy-classname" onClick={props.handleClick}>
+      Click Me!
+    </button>
+  );
+}
 ```
 
 Notice how this is very similar to the example above where we created the handler and used it in the same component? The only difference here is that we are passing the function reference through a prop. We could even pass it through multiple components as props.

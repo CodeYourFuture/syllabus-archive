@@ -12,31 +12,12 @@ Read the Mentors Notes [here](./mentors.md)
 
 **What will we learn today?**
 
-- [React 2](#react-2)
-  - [Recap](#recap)
-  - [Class Components](#class-components)
-    - [Class Methods](#class-methods)
-  - [Passing Functions as Props](#passing-functions-as-props)
-  - [Reacting to Changes](#reacting-to-changes)
-  - [State](#state)
-    - [When do you use Props or State?](#when-do-you-use-props-or-state)
-    - [Container components](#container-components)
-  - [React Hooks](#react-hooks)
-    - [What are Hooks?](#what-are-hooks)
-    - [What is State?](#what-is-state)
-    - [How is state different to a variable?](#how-is-state-different-to-a-variable)
-    - [Why are hooks important?](#why-are-hooks-important)
-    - [Hooks - using state variables](#hooks---using-state-variables)
-    - [Destructuring](#destructuring)
-      - [Destructuring - Objects](#destructuring---objects)
-      - [Destructuring - Arrays](#destructuring---arrays)
-    - [Hooks - using State Hooks](#hooks---using-state-hooks)
-    - [What component owns the state?](#what-component-owns-the-state)
-      - [State is stored locally](#state-is-stored-locally)
-      - [Setting Multiple States](#setting-multiple-states)
-    - [State passed down as props](#state-passed-down-as-props)
-  - [Further Reading](#further-reading)
-  - [Glossary](#glossary)
+- [Recap](#recap)
+- [Handling Events](#handling-events)
+- [Re-Rendering Components](#re-rendering-components)
+- [State](#state)
+- [Fetching Data in React](#fetching-data-in-react)
+- [Further Reading](#further-reading)
 
 ---
 
@@ -73,7 +54,7 @@ function HelloMentor() {
 }
 ```
 
-## Handling events
+## Handling Events
 
 So far we have only looked at React apps that are "static": they don't respond to user input. This week we will look at making our apps *dynamic*.
 
@@ -490,7 +471,7 @@ If we were allowed to change props, React doesn't have a way of telling that we'
 
 From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state.
 
-## Fetching data in React
+## Fetching Data in React
 
 Often when you create a React app, you will want to get data from an API, and display it inside your components.
 How do we do this in React? Where does the API call go, and when should we trigger it?

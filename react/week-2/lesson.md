@@ -170,22 +170,18 @@ To be able to react to changes, we need to *re-render* our function components t
 Let's look at how a component is re-rendered ([interactive version](https://codesandbox.io/s/force-component-re-rendering-llow115pll?file=/src/Counter.js)):
 
 ```js
-const Counter = props => {
-  console.log(`Rendering. props.count is ${props.count}`);
-  return (
-    <div>
-      Count: {props.count}
-      <button id="click-me">Click me!</button>
-    </div>
-  );
-};
+function Counter(props) {
+  console.log(`Rendering. props.count is ${props.likeCount}`);
+
+  return <button id="like-button">Likes: {props.likeCount}</button>;
+}
 ```
 
-If you look in the console, you'll see that the component is rendered once when the page loads. `props.count` starts at 0, so React inserts "Count: 0" into the DOM.
+If you look in the console, you'll see that the component is rendered once when the page loads. `props.likeCount` starts at 0, so React inserts "Count: 0" into the DOM.
 
-But when you click the button, the function component is called again (or *re-rendered*) and this time `props.count` is **1**. React now **updates** the DOM to make sure it shows the correct number. Every time we click the button, the function component is called and React updates the DOM for us. We don't need to worry about changing the DOM ourselves!
+But when you click the button, the function component is called again (or *re-rendered*). Don't worry about **how** this happens right now. This time `props.likeCount` is **1**. React now **updates** the DOM to make sure it shows the correct number. Every time we click the button, the function component is called and React updates the DOM for us.
 
-This is what makes React so powerful. Even better, React will figure out exactly the right bits of the DOM that need to be changed, a concept called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html). This makes it extremely efficient and fast.
+We don't need to worry about changing the DOM ourselves! This is what makes React so powerful. Even better, React will figure out exactly the right bits of the DOM that need to be changed, a concept called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html). This makes it extremely efficient and fast.
 
 ## State
 

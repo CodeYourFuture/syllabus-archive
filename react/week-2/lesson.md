@@ -282,48 +282,91 @@ In fact we can just write `React.useState` in our component if we want! But to t
 
 ### Using `useState`
 
+Now let's look at how we can use the `useState` Hook ([interactive example](https://codesandbox.io/s/initialising-and-rendering-usestate-variables-zgszi?file=/src/Counter.js)):
+
 ```js
 function Counter() {
-  const [count, setCount] = useState()
+  const [count, setCount] = useState(0);
+
+  return <p>You clicked {count} times</p>;
 }
 ```
 
-1. `useState` is a React hook. In this example it [destructures](#destructuring) a variable called `count`. The number `0` is passed into `useState` and will be used as the *initial* value in `count`.
+Let's break this down into small pieces. First, let's look at calling the `useState` function:
 
-2. Here we pass `count` the **state variable** into a set of curly braces to give `{ count }`. As no changes have been made to `count`, it will use the initial value `0`. To give us "You clicked 0 times".
+```js
+useState(0)
+```
 
-### Destructuring
+This initialises the state variable to 0. Any parameter passed to `useState` will be used as the initial value.
 
-#### Destructuring - Arrays
+Next, let's look at how we render the state variable in our component:
 
-The same concept applies to array, known as **array destructuring** and can be seen for the state variable `[count]`.However instead of grabbing the key. The first index of the array is the **state variable**.
+```js
+return <p>You clicked {count} times</p>;
+```
 
-```js static
-const person = ["Jessica", 28, true]
+`count` is just a variable, so to insert it into our JSX we treat it like any other variable: we use curly braces.
 
-// Accessing arrays with index notation
-const name = person[0]
-const age = person[1]
-const name = person[2]
+Finally, let's at how we get hold of the `count` variable:
+
+```js
+const [count, setCount] = useState(0);
+```
+
+To understand this bit of code, we first have to understand *destructuring*.
+
+### Destructuring Arrays
+
+Array destructuring is some syntax in JavaScript (not React!) that allows you to more easily access parts of an array. Let's look at how we could do this **without** destructuring ([interactive example](https://jsbin.com/lihajikesi/edit?js,console)):
+
+```js
+let person = ["Jessica", 28, true]
+
+// Index notation
+let name = person[0]
+let age = person[1]
+let isDeveloper = person[2]
 
 console.log(name) // "Jessica"
 console.log(age) // 28
-console.log(developer) // true
+console.log(isDeveloper) // true
 ```
-Below `array destructuring` is different from `object destructuring`, where the order of the destructed values or callback functions matter.
 
-```js static
-const person = ["Jessica", 28, true]
+Now let's update to using array destructuring ([interactive example]()):
 
-// Accessing with `array destructuring` notation
-const [ name, age, developer ] = name
+```js
+let person = ["Jessica", 28, true]
+
+// Array destructuring
+let [name, age, isDeveloper] = person
 
 console.log(name) // "Jessica"
 console.log(age) // 28
-console.log(developer) // true
+console.log(isDeveloper) // true
 ```
 
-For more details on [destructuring](https://wesbos.com/destructuring-objects).
+We are "grabbing" items in the array and assigning them to variables. Notice how the order of the destructuring matters. If we changed the order, then the code doesn't make sense any more!
+
+```js
+let person = ["Jessica", 28, true]
+
+let [age, isDeveloper, name] = person
+
+console.log(name) // true
+console.log(age) // "Jessica"
+console.log(isDeveloper) // 28
+```
+
+Now if we go back to our `useState` example:
+
+```js
+const [count, setCount] = useState(0);
+```
+
+We can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0.
+
+The second item in the array is a function that we will use to update our state. We'll take a look at this next.
 
 ### Hooks - using State Hooks
 
@@ -559,6 +602,8 @@ To help us cleanly split up code that performs business logic from code that sho
 Container components usually have some state and handler methods. Because of this they must use the `class` syntax. Presentational components on the other hand don't require the more verbose syntax. Instead they usually use the functional syntax.
 
 ## Further Reading
+
+[Array Destructuring](https://github.com/wesbos/es6-articles/blob/master/19%20-%20Destructing%20Arrays.md)
 
 What happens if you forget to pass a prop to a component? Or if you pass the wrong type of data to a component? Sometimes React will just render an empty element but sometimes it could throw an error! This is why `propTypes` are useful. [This page on the React documentation](https://reactjs.org/docs/typechecking-with-proptypes.html) describes how to use `propTypes` in more detail.
 

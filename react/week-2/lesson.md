@@ -472,7 +472,7 @@ And here is a more complete example:
 ```js
 import React, { useState, useEffect } from 'react'; // remember to import the Hook(s) you need!
 
-const MartianPhotoFetcher = () => {
+function MartianPhotoFetcher() {
   const [marsPhotos, setMarsPhotos] = useState();
 
   useEffect(() => {

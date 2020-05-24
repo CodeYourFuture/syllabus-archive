@@ -254,68 +254,45 @@ This component doesn't work! Every time it re-renders, we reset the `count` vari
 
 This **doesn't** mean that variables are useless. They are still useful for when we need to calculate a value during a render. State is a variable, but not all variables are state.
 
-### Why are hooks important?
+### React Hooks
 
-- Easier to Handle State - the code for hooks is more readable, makes it simpler for other developers to understand and less problems when making future changes
-- Hooks are Reusable - custom hooks can be created and can be used elsewhere you in the code. Keeping your code DRY (Don't Repeat Yourself)
+React has built-in functionality for initialising and updating state in our components. We will access state via a React *Hook* called `useState`.
 
-### Hooks - using state variables
+Hooks are a new-ish feature in React. You may find older tutorials that don't use Hooks, but don't panic. The concepts we learn here are the same whether or not you use Hooks. We are looking at Hooks first because they are simpler to learn for beginners.
 
-```jsx static
+### Importing `useState`
+
+To be able to access the `useState` Hook, we first need to import it from the React package. Let's look at an example ([interactive example](https://codesandbox.io/s/importing-usestate-hook-8jr9f?file=/src/App.js)):
+
+```js
 import React, { useState } from 'react';
 
-const Counter = () => {
-  const [ count ] = useState(0); // 1)
+console.log(useState)
+```
 
-  return <p>You clicked { count } times</p> // 2)
+If we look at the console, `useState` is just a function. It lives inside the React code that you installed when you created the app.
+
+To reference the `useState` function in our component, we need to import it from the React code. The curly braces around `useState` are a bit like writing:
+
+```js
+let useState = React.useState;
+```
+
+In fact we can just write `React.useState` in our component if we want! But to type a bit less code, we import it (using the curly braces) once and then can just use `useState`.
+
+### Using `useState`
+
+```js
+function Counter() {
+  const [count, setCount] = useState()
 }
 ```
 
-1\) `useState` is a React hook. In this example it [destructures](#destructuring) a variable called `count`. The number `0` is passed into `useState` and will be used as the *initial* value in `count`.
+1. `useState` is a React hook. In this example it [destructures](#destructuring) a variable called `count`. The number `0` is passed into `useState` and will be used as the *initial* value in `count`.
 
-2\) Here we pass `count` the **state variable** into a set of curly braces to give `{ count }`. As no changes have been made to `count`, it will use the initial value `0`. To give us "You clicked 0 times".
+2. Here we pass `count` the **state variable** into a set of curly braces to give `{ count }`. As no changes have been made to `count`, it will use the initial value `0`. To give us "You clicked 0 times".
 
 ### Destructuring
-
-#### Destructuring - Objects
-
-Another thing you've picked up is the special syntax `{ useState }`. This is known as **object destructuring**, or we can say the object **destructures**, where we grab the key of an object and declare it as variable/function. 
-
-Normal access objects using dot notation.
-
-```js static
-const person = {
-  name: "Jessica",
-  age: 28,
-  isDeveloper: true,
-}
-
-// Accessing with `dot` notation
-const name = person.name
-const age = person.age
-const name = person.developer
-
-console.log(name) // "Jessica"
-console.log(age) // 28
-console.log(developer) // true
-```
-
-With `object destructuring` keys are of the objects are variables.
-
-```js static
-const person = {
-  name: "Jessica",
-  age: 28,
-  developer: true,
-}
-
-// Accessing with `object destructuring` notation
-const { name, age, developer } = name
-
-console.log(name) // "Jessica"
-console.log(age) // 28
-console.log(developer) // true
-```
 
 #### Destructuring - Arrays
 

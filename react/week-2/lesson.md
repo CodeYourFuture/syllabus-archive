@@ -368,71 +368,64 @@ We can understand that `useState` is returning an array, with two items. The fir
 
 The second item in the array is a function that we will use to update our state. We'll take a look at this next.
 
-### Hooks - using State Hooks
+### Updating State
 
-```jsx static
-import React, { useState } from 'react';
+Our Counter isn't very useful right now! Let's make it more useful by getting `count` to actually count up ([interactive example](https://codesandbox.io/s/usestate-counter-lorv5?file=/src/Counter.js)):
 
-const Counter = () => {
-  const [count, setCount] = useState(0); // 1)
-
-  const incrementCount = () => setCount(count + 1) // 2a) 
-
-  return (
-    <div>
-      <button onClick={incrementCount}> {/* 2b) */}
-        Click me
-      </button>
-      <p>You clicked {count} times</p> {/* 3) */}
-    </div>
-  );
-}
-```
-
-1\) From `useState` we can get a destructured function `setCount` called the **state method** - 1st index is the state variable, 2nd index is the state method.
-
-2a\) We create a function called `incrementCount` that manipulates `setCount` to add `1` to the current `count` value.
-
-2b\) Here `incrementCount` can be called whenever a *user* clicks on the button. The count variable will change from `0` to `1`.
-
-3\) React will re-render the paragraph tag `<p>` and apply the changes made to `count`. This will change the paragraph text to change from "You clicked **0** times" to "You clicked **1** times".
-
-You can continue to click on the button and each time it's been clicked, the count value is will increment by 1.
-
-### What component owns the state?
-
-#### State is stored locally
-
-```jsx static
-import React, { useState } from 'react';
-
-const Counter = () => {
+```js
+function Counter() {
   const [count, setCount] = useState(0);
 
-  const incrementCount = () => setCount(count + 1)
+  function incrementCount() {
+    const newState = count + 1;
+    setCount(newState);
+  }
 
   return (
     <div>
-      <button onClick={incrementCount}>
-        Click me
-      </button>
+      <button onClick={incrementCount}>Click me</button>
       <p>You clicked {count} times</p>
     </div>
   );
 }
-
-const App = () => (
-  <div>
-    <Counter /> {/* 1) */}
-    <Counter />
-    <Counter /> {/* 2) */}
-  </div>
-)
 ```
 
-1\) When we click on the button "Click Me" of the 1st `Counter` component, you will notice that only that first `Counter` will increment to give a message "You clicked **1** times".
+Our component now has a `<button>`, which will call the `incrementCount` function when clicked:
 
-2\) The same behaviour occurs for the 3rd `Counter` component. It increments independently from the rest. Why is that? Remember that here we reusing the same component 3 times and that each `Counter` component has state locally scoped to the instance of that component - i.e. local state do not interfere does another component's state.
+```js
+<button onClick={incrementCount}>Click me</button>
+```
+
+The `incrementCount` function then calculates the **new** state by adding 1 onto the current `count`. And then calls `setCount` to set the new state:
+
+```js
+function incrementCount() {
+  const newState = count + 1;
+  setCount(newState);
+}
+```
+
+`setCount` does two things. First, it updates the state that our component is "remembering". Whatever you pass as the argument to `setCount` will be remembered as the new state.
+
+It also tells React that the old state that is **still shown in the DOM** is outdated and so the DOM needs to change. Because of this, React will re-render all of our components to figure out what to change in the DOM.
+
+This is the magic of React: we only need to tell React how we want to DOM to look and it figures out what to change.
+
+### Where Does State Live?
+
+We have talked about how a component "remembers" state. In fact, each component remembers **separate** state from other components. This means we can have multiple different Counters, each with a different state ([interactive example](https://codesandbox.io/s/multiple-counters-xm1x4?file=/src/App.js)):
+
+```js
+function App() {
+  return (
+    <div>
+      <Counter />
+      <Counter />
+      <Counter />
+    </div>
+  );
+}
+```
 
 #### Setting Multiple States
 

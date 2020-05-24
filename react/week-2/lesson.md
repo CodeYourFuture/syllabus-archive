@@ -39,29 +39,31 @@ Read the Mentors Notes [here](./mentors.md)
 
 ## Recap
 
-Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/7zvk9n1950)):
+Last week we looked at how to write a `HelloMentor` React component ([interactive example](https://codesandbox.io/s/react-2-recap-7zvk9n1950?file=/src/HelloMentor.js)):
 
 ```js
 // Greeting.js
-const Greeting = () => (
-  <span>Hello</span>
-);
+function Greeting() {
+  return <span>Hello</span>;
+}
 
 // Mentor.js
-const Mentor = (props) => (
-  <span>{props.name}</span>
-);
+function Mentor(props) {
+  return <span>{props.name}</span>;
+}
 
 // index.js
 import Greeting from './Greeting';
 import Mentor from './Mentor';
 
-const HelloMentor = () => (
-  <div>
-    <Greeting />
-    <Mentor name="Ali" />
-  </div>
-);
+function HelloMentor() {
+  return (
+    <div>
+      <Greeting />
+      <Mentor name="Ali" />
+    </div>
+  );
+}
 ```
 
 ## Handling events
@@ -134,7 +136,7 @@ Sometimes we need to pass a function to another component as a prop, so that it 
 A common example for this is a Button component. This component adds some styling to a normal `<button>`, but still needs to be able to pass an event handler function to `onClick`. Let's look at an example ([interactive example](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/ClickLoggerApp.js)):
 
 ```js
-const ClickLoggerApp = () => {
+function ClickLoggerApp() {
   function logWhenClicked() {
     console.log("Button was clicked");
   }
@@ -145,13 +147,15 @@ const ClickLoggerApp = () => {
       <p>Then look in the console.</p>
     </div>
   );
-};
+}
 
-const FancyButton = props => (
-  <button className="my-fancy-classname" onClick={props.handleClick}>
-    Click Me!
-  </button>
-);
+function FancyButton(props) {
+  return (
+    <button className="my-fancy-classname" onClick={props.handleClick}>
+      Click Me!
+    </button>
+  );
+}
 ```
 
 Notice how this is very similar to the example above where we created the handler and used it in the same component? The only difference here is that we are passing the function reference through a prop. We could even pass it through multiple components as props.
@@ -174,22 +178,18 @@ To be able to react to changes, we need to *re-render* our function components t
 Let's look at how a component is re-rendered ([interactive version](https://codesandbox.io/s/force-component-re-rendering-llow115pll?file=/src/Counter.js)):
 
 ```js
-const Counter = props => {
-  console.log(`Rendering. props.count is ${props.count}`);
-  return (
-    <div>
-      Count: {props.count}
-      <button id="click-me">Click me!</button>
-    </div>
-  );
-};
+function Counter(props) {
+  console.log(`Rendering. props.count is ${props.likeCount}`);
+
+  return <button id="like-button">Likes: {props.likeCount}</button>;
+}
 ```
 
-If you look in the console, you'll see that the component is rendered once when the page loads. `props.count` starts at 0, so React inserts "Count: 0" into the DOM.
+If you look in the console, you'll see that the component is rendered once when the page loads. `props.likeCount` starts at 0, so React inserts "Count: 0" into the DOM.
 
-But when you click the button, the function component is called again (or *re-rendered*) and this time `props.count` is **1**. React now **updates** the DOM to make sure it shows the correct number. Every time we click the button, the function component is called and React updates the DOM for us. We don't need to worry about changing the DOM ourselves!
+But when you click the button, the function component is called again (or *re-rendered*). Don't worry about **how** this happens right now. This time `props.likeCount` is **1**. React now **updates** the DOM to make sure it shows the correct number. Every time we click the button, the function component is called and React updates the DOM for us.
 
-This is what makes React so powerful. Even better, React will figure out exactly the right bits of the DOM that need to be changed, a concept called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html). This makes it extremely efficient and fast.
+We don't need to worry about changing the DOM ourselves! This is what makes React so powerful. Even better, React will figure out exactly the right bits of the DOM that need to be changed, a concept called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html). This makes it extremely efficient and fast.
 
 ## State
 
@@ -465,22 +465,22 @@ How do we do this in React? Where does the API call go, and when should we trigg
 **When:** When the component is first loaded into the DOM. We call this 'mounting'.
 **How:** With a handy new hook called `useEffect`.
 
-### The `useEffect` hook
+### The `useEffect` Hook
 
 Just like `useState`, the `useEffect` hook is a special function that all function components can import and use as needed. This is the syntax to follow to fetch data when the component is first mounted:
 
 ```js
 useEffect(() => {
-  // Make your API call here
+  // Make your fetch API call here
 }, []); // Don't forget the empty array here!
 ```
 
 And here is a more complete example:
 
 ```js
-import React, { useState, useEffect } from 'react'; // remember to import the hook(s) you need!
+import React, { useState, useEffect } from 'react'; // remember to import the Hook(s) you need!
 
-const MartianPhotoFetcher = () => {
+function MartianPhotoFetcher() {
   const [marsPhotos, setMarsPhotos] = useState();
 
   useEffect(() => {
@@ -488,7 +488,7 @@ const MartianPhotoFetcher = () => {
       .then(res => res.json())
       .then(data => setMarsPhotos(data));
     });
-  });
+  }, []);
 
   return (
     <div>

@@ -200,37 +200,59 @@ We don't need to worry about changing the DOM ourselves! This is what makes Reac
 
 ## State
 
-### What are Hooks?
+*State* a general concept in software engineering. It is used when part of your app needs to "remember" something that changes when people interact with it.
 
-**Hooks** are functions that enable you to update and manipulate the components `state`.
+Let's make up an imaginary example, where we have a button that toggles state between `true` and `false`:
 
-### What is State?
+1. We'll set the initial state (before any interaction as happened):
 
-**State** is needed when you want some part of your software to remember something at the start and when something changes.
+  ```js
+  state = {
+    buttonPressed: false
+  }
+  ```
 
-In React, `state` is part of components that can change upon a user interaction. Developers can decide to add `state` to a component, to update, manipulate and store values locally to that specific component. All components with state, have a starting state and a change in state.
+2. When the user presses the button, we need to *handle* the event by
+3. Updating the state:
 
-Example:
+  ```js
+  state = {
+    buttonPressed: true
+  }
+  ```
 
-1. **Starting state** is set as
-   
-   `state = { buttonPressed: **false** }`
-
-2. **User presses** the button, is the user interaction
-
-3. **State changed** from use interaction
-
-   `state = { buttonPressed: **true** }`
+This is a simple example, but if we had lots of bits of state, then we can make very complex apps.
 
 ### How is state different to a variable?
 
-State is a variable, but not all variables are states.
+In the code above it looked like we were using a variable called `state`. What's wrong with just using a variable?
 
-Remember those words **updates**, **manipulate** and **store**. State has a specific way they need to be manipulated, whilst being stored locally in a React component.
+Unfortunately we learned earlier that every time our components re-render, the function is called again. That means that any variables inside our components will be re-created ([interactive example](https://codesandbox.io/s/component-variables-resetting-on-re-render-101h1?file=/src/Counter.js)):
 
-Variables in general, are not given an explicit way they are manipulated and don't have to be locally stored into a component.
+```js
+function Counter() {
+  let count = 0;
 
-Don't worry if you don't fully understand this concept yet, we hope with more demos, it should help ground your knowledge in the future.
+  console.log(`Rendering. count is ${count}`);
+
+  function incrementCount() {
+    count = count + 1;
+  }
+
+  return (
+    <div>
+      Count is: {count}
+      <button id="click-me" onClick={incrementCount}>
+        Click me!
+      </button>
+    </div>
+  );
+}
+```
+
+This component doesn't work! Every time it re-renders, we reset the `count` variable back to 0. We need something to "remember" what the count value was before the re-render. Because of this, we need to use the method that React provides.
+
+This **doesn't** mean that variables are useless. They are still useful for when we need to calculate a value during a render. State is a variable, but not all variables are state.
 
 ### Why are hooks important?
 

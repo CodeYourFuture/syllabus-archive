@@ -314,7 +314,7 @@ console.log(age) // 28
 console.log(isDeveloper) // true
 ```
 
-Now let's update to using array destructuring ([interactive example]()):
+Now let's update to using array destructuring ([interactive example](https://jsbin.com/keparevoqe/edit?js,console)):
 
 ```js
 let person = ["Jessica", 28, true]

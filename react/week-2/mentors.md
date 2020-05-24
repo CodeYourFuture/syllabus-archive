@@ -45,15 +45,14 @@
 - [Event Handlers](https://codesandbox.io/s/event-handlers-cc3h7?file=/src/ClickLogger.js)
 - [Passing Functions as Props](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/ClickLoggerApp.js)
 - [Re-Rendering Components](https://codesandbox.io/s/force-component-re-rendering-llow115pll?file=/src/Counter.js)
-- [Counter rendering with ReactDOM (not working)](https://codesandbox.io/s/voqzrx5ny)
-- [Counter rendering with ReactDOM](https://codesandbox.io/s/llow115pll)
-- [Counter (starting refactor)](https://codesandbox.io/s/pjlro5rop7)
-- [Counter starting to use state](https://codesandbox.io/s/42y7xqj700)
-- [Counter with class constructor](https://codesandbox.io/s/1oyxx4lzz7)
-- [Counter with hard-coded setState](https://codesandbox.io/s/n714vmyk5l)
-- [Multiple Counters with hard-coded setState](https://codesandbox.io/s/v8165mq503)
-- [Multiple Counters with dynamic setState](https://codesandbox.io/s/qxz27q9y4)
-- [When to use props or state](https://codesandbox.io/s/9wl90npk4)
+- [Component variables resetting on re-render](https://codesandbox.io/s/component-variables-resetting-on-re-render-101h1?file=/src/Counter.js)
+- [Importing useState Hook](https://codesandbox.io/s/importing-usestate-hook-8jr9f?file=/src/App.js)
+- [Initialising and rendering useState variables](https://codesandbox.io/s/initialising-and-rendering-usestate-variables-zgszi?file=/src/Counter.js)
+- [Using array index syntax](https://jsbin.com/lihajikesi/edit?js,console)
+- [Using array destructuring](https://jsbin.com/keparevoqe/edit?js,console)
+- [Updating state](https://codesandbox.io/s/usestate-counter-lorv5?file=/src/Counter.js)
+- [Multiple state variables](https://codesandbox.io/s/multiple-state-variables-piq5w?file=/src/FruitCounter.js)
+- [When to Use Props or State](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)
 
 ### Exercise solutions
 

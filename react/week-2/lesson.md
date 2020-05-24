@@ -467,25 +467,28 @@ function FruitCounter() {
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
 
-Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/9wl90npk4)):
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)):
 
 ```js
-class Hello extends Component {
-  render() {
-    this.props.name = 'Ali';
-
-    return (
-      <p>Hello {this.props.name}</p>
-    );
+function Greeting(props) {
+  function handleThing() {
+    props.name = "Mozart";
   }
-}
 
-render(<Hello name="Mona" />, document.getElementById('root'));
+  return (
+    <div>
+      <p>Hello {props.name}</p>
+      <button onClick={handleThing}>Click me</button>
+    </div>
+  );
+}
 ```
 
-You'll see that we get an error. This is because React has made props *read-only*, which is a reminder to you that we shouldn't change props. If we were allowed to change props, React doesn't have a way of telling that you've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
+When you click the button, you might expect the `name` prop to change to "Mozart". But it doesn't! React has made props *read-only*, which is a reminder that we shouldn't change props.
 
-From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state. As you get more experience with React, you'll know sooner what should be props and what should be state.
+If we were allowed to change props, React doesn't have a way of telling that we've changed the data. Our UI is now *stale* - not up-to-date with the latest data - and has no way of knowing that it has to re-render.
+
+From this we can get a clue about when to use state. If data *changes over time*, then we need to use state. My rule of thumb is that I always use props until I know that it needs to change over time, then I convert it to state.
 
 ## Fetching data in React
 

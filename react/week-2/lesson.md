@@ -427,31 +427,41 @@ function App() {
 }
 ```
 
-#### Setting Multiple States
+### Setting Multiple States
+
+So far we've only seen an example with one state variable. But you can create multiple state variables if you want! Let's see an example ([interactive example](https://codesandbox.io/s/multiple-state-variables-piq5w?file=/src/FruitCounter.js)):
 
 ```js
-function ExampleWithManyStates() {
-  const [age, setAge] = useState(0);
-  const [fruit, setFruit] = useState('Oranges');
+function FruitCounter() {
+  const [fruit, setFruit] = useState("bananas");
+  const [count, setCount] = useState(0);
 
-  const incrementAge = () => setAge(age + 1) 
-  const giveFruit = name => setFruit(name) // 1)
-  
+  function handleOrangesClick() {
+    setFruit("oranges");
+  }
+  function handleBananasClick() {
+    setFruit("apples");
+  }
+
+  function incrementCount() {
+    setCount(count + 1);
+  }
+
   return (
     <div>
-      <p> Hi! I am Alex </p>
-      <p> I am {age} years old </p>
-      <p> I prefer to eat {fruit} </p>      
-      <button onClick={incrementAge}>Add 1 year</button>
-      <button onClick={() => giveFruit('Apples')}>Change to Apples</button> {/* 2) */}
+      <div>
+        Pick a fruit:
+        <button onClick={handleOrangesClick}>Oranges</button>
+        <button onClick={handleBananasClick}>Bananas</button>
+      </div>
+      <p>
+        We have {count} {fruit}
+      </p>
+      <button onClick={incrementCount}>Increment</button>
     </div>
-  )
+  );
 }
 ```
-
-1\) This additional function now takes parameter `name`, and passes this onto the `setFruit` state method.
-
-2\) Methods that require an argument, need to declare at the start with an anonymous function.
 
 **✘ - Do not call functions too early**
 

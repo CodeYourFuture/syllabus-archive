@@ -463,51 +463,6 @@ function FruitCounter() {
 }
 ```
 
-**✘ - Do not call functions too early**
-
-```jsx
-<button onClick={giveFruit('Apples')}>Change to Apples</button>
-```
-
-Note that calls the function too early, meaning the function is fired before any user interaction.
-
-**✔ - Do return a callback of state method**
-
-```jsx
-<button onClick={() => giveFruit('Apples')}>Change to Apples</button>
-```
-
-Anonymous functions can be used to trigger state methods to fire upon user interaction.
-
-### State passed down as props
-
-```jsx static
-import React, { useState } from 'react';
-
-const MessageCount = number => (
-  <p>You clicked {number} times</p>
-)
-
-const Counter = () => {
-  const [count, setCount] = useState(0); // 1)
-
-  const incrementCount = () => setCount(count + 1)
-
-  return (
-    <div>
-      <MessageCount number={count} /> {/* 2) */}
-      <button onClick={incrementCount}>
-        Click me
-      </button>
-    </div>
-  );
-}
-```
-
-1\) `Counter` as the **parent** component that owns the state variable `count`, initially set at value `0`.
-
-2\) `MessageCount` is the **child** component that receives value `0` to prop `number`.
-
 ### When do you use Props or State?
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?

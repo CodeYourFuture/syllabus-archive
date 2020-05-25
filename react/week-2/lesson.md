@@ -342,8 +342,7 @@ function Counter() {
   const [count, setCount] = useState(0);
 
   function incrementCount() {
-    const newState = count + 1;
-    setCount(newState);
+    setCount(count + 1);
   }
 
   return (

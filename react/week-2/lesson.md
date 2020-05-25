@@ -446,7 +446,7 @@ function FruitCounter() {
     setFruit("oranges");
   }
   function handleBananasClick() {
-    setFruit("apples");
+    setFruit("bananas");
   }
 
   function incrementCount() {

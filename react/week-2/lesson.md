@@ -198,24 +198,7 @@ We don't need to worry about changing the DOM ourselves! This is what makes Reac
 
 *State* is a general concept in software engineering. It is used when a part of your app needs to "remember" something that changes when people interact with it.
 
-Let's make up an imaginary example, where we have a button that toggles state between `true` and `false`:
-
-1. We'll set the initial state (before any interaction as happened):
-
-  ```js
-  state = {
-    buttonPressed: false
-  }
-  ```
-
-2. When the user presses the button, we need to *handle* the event by
-3. Updating the state:
-
-  ```js
-  state = {
-    buttonPressed: true
-  }
-  ```
+![State diagram](../assets/state-diagram.png)
 
 This is a simple example, but if we had lots of bits of state, then we can make very complex apps.
 

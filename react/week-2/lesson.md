@@ -417,6 +417,29 @@ function Counter() {
 
 On the second render, `count` is now set to 1. Every time we click the button, the whole cycle starts again.
 
+#### Don't Mutate State
+
+As we just learned, `setCount` updates the state for us, but it also notifies React of changes. Because of this we can't change (or *mutate*) state variables ourselves. In fact, React makes it impossible to modify (or *mutate*) state ([interactive example](https://codesandbox.io/s/dont-mutate-state-hex49?file=/src/Counter.js)):
+
+```js
+function Counter() {
+  let [count, setCount] = useState(0);
+
+  function handleClick() {
+    count = count + 1;
+  }
+
+  return (
+    <div>
+      Count: {count}
+      <button onClick={handleClick}>Click</button>
+    </div>
+  );
+}
+```
+
+Clicking the button doesn't do anything! React is letting us know that we have to use `setCount` to be able to update state.
+
 ### Where Does State Live?
 
 We have talked about how a component "remembers" state. In fact, each component *instance* remembers **separate** state from other components. This means we can have multiple different Counters, each with a different state ([interactive example](https://codesandbox.io/s/multiple-counters-xm1x4?file=/src/App.js)):
@@ -473,7 +496,7 @@ function FruitCounter() {
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
 
-Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)):
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. Just like state, React prevents you from mutating them. Let's have a look at an example ([interactive example](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)):
 
 ```js
 function Greeting(props) {

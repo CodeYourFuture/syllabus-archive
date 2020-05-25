@@ -386,33 +386,29 @@ In your groups you should get the project setup using the exact instructions fou
 ## Quiz (10 - 15 minutes)
 1. Give one reason why it is important to find bugs as soon as possible when developing code.
 2. Select which of the following statements about the debugging are**TRUE**.
-
-
+```
     A) If there are no errors in the console, then there are no bugs.
     B) Debugging only involves the person who wrote the code.
     C) You use the debugging framework when your code is not behaving as expected.
     D) Debuggers allow you to pause the execution of code.
-
-
+```
 3. What does the phrase to `Step through the code` mean? Why do we `step through code` as part of debugging?
 4. Which of the following types of errors can a linting tool help to detect?
-
-
+```
     A) Logic errors
     B) Reference errors
     C) User errors
     D) Syntax errors
-
+```
 5. What are the two ways you can set a breakpoint in the Chrome debugger?
 6. You see the following error thrown the in console. Which line is the error coming from?
-
-
+```
     Uncaught ReferenceError: foo is not defined
         at <anonymous>:4:17
+```        
 7. What are the four questions you ask yourself as part of the debugging framework?
 8. Use `console.log` to debug the following program. Which line has the error on it? How would you fix it?
-
-
+```
     1   var testArray = ["Test"];
     2
     3   function testFunction(testArray) {
@@ -422,13 +418,11 @@ In your groups you should get the project setup using the exact instructions fou
     7   }
     8
     9   testFunction();
-
+```
 9. You have the following ATM code that withdraws money from a user account. You have gotten reports that people using `withdraw` to add money to their account!
-
    - How are they doing this?
    - What would you change in this code to prevent them from doing this?
-
-
+```
     1    let accountBalance = 100;
     2
     3    function withdraw(amount) {
@@ -440,4 +434,5 @@ In your groups you should get the project setup using the exact instructions fou
     9    input = 10;
     10
     11   withdraw(input);
+```
 10. What is a syntactical error? Give an example of a syntactical error that you've seen in Javascript.

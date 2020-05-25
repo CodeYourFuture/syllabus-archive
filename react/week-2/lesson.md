@@ -182,7 +182,7 @@ Let's look at how a component is re-rendered ([interactive version](https://code
 function Counter(props) {
   console.log(`Rendering. props.count is ${props.likeCount}`);
 
-  return <button class="like-button">Likes: {props.likeCount}</button>;
+  return <button className="like-button">Likes: {props.likeCount}</button>;
 }
 ```
 
@@ -238,7 +238,7 @@ function Counter() {
   return (
     <div>
       Count is: {count}
-      <button class="click-me" onClick={incrementCount}>
+      <button className="click-me" onClick={incrementCount}>
         Click me!
       </button>
     </div>

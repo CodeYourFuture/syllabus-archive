@@ -219,37 +219,6 @@ Let's make up an imaginary example, where we have a button that toggles state be
 
 This is a simple example, but if we had lots of bits of state, then we can make very complex apps.
 
-### How is state different to a variable?
-
-In the code above it looked like we were using a variable called `state`. What's wrong with just using a variable?
-
-Unfortunately we learned earlier that every time our components re-render, the function is called again. That means that any variables inside our components will be re-created ([interactive example](https://codesandbox.io/s/component-variables-resetting-on-re-render-101h1?file=/src/Counter.js)):
-
-```js
-function Counter() {
-  let count = 0;
-
-  console.log(`Rendering. count is ${count}`);
-
-  function incrementCount() {
-    count = count + 1;
-  }
-
-  return (
-    <div>
-      Count is: {count}
-      <button id="click-me" onClick={incrementCount}>
-        Click me!
-      </button>
-    </div>
-  );
-}
-```
-
-This component doesn't work! Every time it re-renders, we reset the `count` variable back to 0. We need something to "remember" what the count value was before the re-render. Because of this, we need to use the method that React provides.
-
-This **doesn't** mean that variables are useless. They are still useful for when we need to calculate a value during a render. State is a variable, but not all variables are state.
-
 ### React Hooks
 
 React has built-in functionality for initialising and updating state in our components. We will access state via a React *Hook* called `useState`.

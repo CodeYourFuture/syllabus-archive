@@ -262,57 +262,9 @@ Finally, let's at how we get hold of the `count` variable:
 const [count, setCount] = useState(0);
 ```
 
-This creates a new state variable named `count`. To fully understand this bit of code, we first have to understand *destructuring*.
+To fully understand this bit of code, we first have to understand *destructuring*. Let's look at [this blog post by Wes Bos about array destructuring](https://github.com/CodeYourFuture/syllabus/pull/448/commits/85645dbca58df5b52ef9c32eeb0a00355d5ab378).
 
-### Destructuring Arrays
-
-Array destructuring is some syntax in JavaScript (not React!) that allows you to more easily access parts of an array. Let's look at how we could do this **without** destructuring ([interactive example](https://jsbin.com/lihajikesi/edit?js,console)):
-
-```js
-let person = ["Jessica", 28, true]
-
-// Index notation
-let name = person[0]
-let age = person[1]
-let isDeveloper = person[2]
-
-console.log(name) // "Jessica"
-console.log(age) // 28
-console.log(isDeveloper) // true
-```
-
-Now let's update to using array destructuring ([interactive example](https://jsbin.com/keparevoqe/edit?js,console)):
-
-```js
-let person = ["Jessica", 28, true]
-
-// Array destructuring
-let [name, age, isDeveloper] = person
-
-console.log(name) // "Jessica"
-console.log(age) // 28
-console.log(isDeveloper) // true
-```
-
-We are "grabbing" items in the array and assigning them to variables. Notice how the order of the destructuring matters. If we changed the order, then the code doesn't make sense any more!
-
-```js
-let person = ["Jessica", 28, true]
-
-let [age, isDeveloper, name] = person
-
-console.log(name) // true
-console.log(age) // "Jessica"
-console.log(isDeveloper) // 28
-```
-
-Now if we go back to our `useState` example:
-
-```js
-const [count, setCount] = useState(0);
-```
-
-We can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0 on the first render.
+Now we can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0 on the first render.
 
 The second item in the array is a function that we will use to update our state.
 

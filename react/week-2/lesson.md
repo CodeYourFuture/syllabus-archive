@@ -181,7 +181,7 @@ We don't need to worry about changing the DOM ourselves! This is what makes Reac
 
 ## State
 
-*State* a general concept in software engineering. It is used when part of your app needs to "remember" something that changes when people interact with it.
+*State* is a general concept in software engineering. It is used when a part of your app needs to "remember" something that changes when people interact with it.
 
 Let's make up an imaginary example, where we have a button that toggles state between `true` and `false`:
 

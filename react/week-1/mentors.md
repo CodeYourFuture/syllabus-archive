@@ -69,3 +69,7 @@
 - [Key prop for lists in React](https://codesandbox.io/s/pwp8ox4kn0)
 - [Importing/Exporting React Components](https://codesandbox.io/s/1z6xozl81l)
 - [Intro to Props](https://codesandbox.io/s/vmjy0o91m7)
+
+### Exercise solutions
+
+- [Exercise G: BestPokemon finishing point](https://codesandbox.io/s/bestpokemon-component-exercise-finishing-point-u12ke)

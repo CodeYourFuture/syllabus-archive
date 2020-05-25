@@ -120,7 +120,7 @@ A full list of special event handler props is available [here](https://reactjs.o
 
 Just like with `addEventListener` we pass the function reference to `onClick` instead of calling the function. Think of it like this: we give the function to React, so that React can call our function when the element is clicked.
 
-| **Exercise** |
+| **Exercise A** |
 | :--- |
 | 1. Open the `pokedex` React application from last week and open the `Logo.js` file. |
 | 2. Add a function named `logWhenClicked` within the `Logo` component. (Hint: look at the example above). |
@@ -161,7 +161,7 @@ function FancyButton(props) {
 
 Notice how this is very similar to the example above where we created the handler and used it in the same component? The only difference here is that we are passing the function reference through a prop. We could even pass it through multiple components as props.
 
-| **Exercise** |
+| **Exercise B** |
 | :--- |
 | 1. Open the `pokedex` React application and open the `Logo.js` file. |
 | 2. Copy and paste the `logWhenClicked` function from the `Logo` component to the `App` component. |
@@ -469,6 +469,14 @@ function FruitCounter() {
 }
 ```
 
+
+| **Exercise C** |
+| :--- |
+| 1. Open the `pokedex` React application and open the `CaughtPokemon.js` file. |
+| 2. Create a new state variable called `totalCaught` and initialise it to `0` |
+| 3. Add a button to the component with an `onClick` handler which increments the `totalCaught` count. Refer to the examples above to help you. |
+
+
 ### When do you use Props or State?
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
@@ -541,7 +549,7 @@ function MartianPhotoFetcher() {
             <img
               key={`mars-photo-${index}`}
               src={photo.img_src}
-              alt={photo.name}
+              alt={photo.camera.name}
             />
           )
       })}
@@ -557,7 +565,7 @@ In the code above, we're saying to React “When this component is mounted, call
 
 This is a very common pattern which will come in very useful!
 
-| **Exercise** |
+| **Exercise D** |
 | :--- |
 | 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file. |
 | 2. Add a new component inside `src/BestPokemon.js` called `BestPokemonFetcher`. |

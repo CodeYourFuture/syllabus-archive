@@ -103,7 +103,20 @@ function ClickLogger() {
 
 You might find it a little strange that we have a function inside a function. But this is a normal thing to do in JavaScript! `logWhenClicked` is within the *scope* of our `ClickLogger` component.
 
-Every element in React has some special props that start with `on` that can be assigned to a function which will be called when the event is triggered. In this example we are using `onClick`, but we'll also see `onSubmit` later in the module. A full list of special event handler props is available [here](https://reactjs.org/docs/events.html#reference).
+Every element in React has some special props that start with `on` that can be assigned to a function which will be called when the event is triggered.
+
+Here's a few examples:
+
+- `onClick` - the element was clicked
+- `onCopy` - the clipboard is used to copy some text
+- `onKeyDown` - a key is pressed down
+- `onBlur` - the element loses "focus"
+- `onChange` - only available for `<input>` & `<select>` (and a few others), triggered when changed
+- `onDoubleClick` - the element was double-clicked!
+- `onPlay` - a video starts playing
+- `onSubmit` - a form element is submitted
+
+A full list of special event handler props is available [here](https://reactjs.org/docs/events.html#reference).
 
 Just like with `addEventListener` we pass the function reference to `onClick` instead of calling the function. Think of it like this: we give the function to React, so that React can call our function when the element is clicked.
 
@@ -175,13 +188,15 @@ function Counter(props) {
 
 If you look in the console, you'll see that the component is rendered once when the page loads. `props.likeCount` starts at 0, so React inserts "Count: 0" into the DOM.
 
-But when you click the button, the function component is called again (or *re-rendered*). Don't worry about **how** this happens right now. This time `props.likeCount` is **1**. React now **updates** the DOM to make sure it shows the correct number. Every time we click the button, the function component is called and React updates the DOM for us.
+We won't look at how this works at the moment, but behind the scenes there is some code that will listen for clicks on the button and force React to update. That means when you click the button, the function component is called again (or *re-rendered*).
+
+Now `props.likeCount` is **1**. React now **updates** the DOM to make sure it shows the correct number. Every time we click the button, the function component is called and React updates the DOM for us.
 
 We don't need to worry about changing the DOM ourselves! This is what makes React so powerful. Even better, React will figure out exactly the right bits of the DOM that need to be changed, a concept called the ["virtual DOM"](https://reactjs.org/docs/faq-internals.html). This makes it extremely efficient and fast.
 
 ## State
 
-*State* a general concept in software engineering. It is used when part of your app needs to "remember" something that changes when people interact with it.
+*State* is a general concept in software engineering. It is used when a part of your app needs to "remember" something that changes when people interact with it.
 
 Let's make up an imaginary example, where we have a button that toggles state between `true` and `false`:
 
@@ -295,7 +310,7 @@ Finally, let's at how we get hold of the `count` variable:
 const [count, setCount] = useState(0);
 ```
 
-To understand this bit of code, we first have to understand *destructuring*.
+This creates a new state variable named `count`. To fully understand this bit of code, we first have to understand *destructuring*.
 
 ### Destructuring arrays
 
@@ -314,7 +329,7 @@ console.log(age) // 28
 console.log(isDeveloper) // true
 ```
 
-Now let's update to using array destructuring ([interactive example]()):
+Now let's update to using array destructuring ([interactive example](https://jsbin.com/keparevoqe/edit?js,console)):
 
 ```js
 let person = ["Jessica", 28, true]
@@ -345,9 +360,9 @@ Now if we go back to our `useState` example:
 const [count, setCount] = useState(0);
 ```
 
-We can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0.
+We can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0 on the first render.
 
-The second item in the array is a function that we will use to update our state. We'll take a look at this next.
+The second item in the array is a function that we will use to update our state.
 
 ### Updating State
 
@@ -390,11 +405,21 @@ function incrementCount() {
 
 It also tells React that the old state that is **still shown in the DOM** is outdated and so the DOM needs to change. Because of this, React will re-render all of our components to figure out what to change in the DOM.
 
-This is the magic of React: we only need to tell React how we want the DOM to look and it figures out what to change.
+When re-rendering, `useState` now gives us the **updated** state:
+
+```js
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  ...
+}
+```
+
+On the second render, `count` is now set to 1. Every time we click the button, the whole cycle starts again.
 
 ### Where does State live?
 
-We have talked about how a component "remembers" state. In fact, each component remembers **separate** state from other components. This means we can have multiple different Counters, each with a different state ([interactive example](https://codesandbox.io/s/multiple-counters-xm1x4?file=/src/App.js)):
+We have talked about how a component "remembers" state. In fact, each component *instance* remembers **separate** state from other components. This means we can have multiple different Counters, each with a different state ([interactive example](https://codesandbox.io/s/multiple-counters-xm1x4?file=/src/App.js)):
 
 ```js
 function App() {
@@ -421,7 +446,7 @@ function FruitCounter() {
     setFruit("oranges");
   }
   function handleBananasClick() {
-    setFruit("apples");
+    setFruit("bananas");
   }
 
   function incrementCount() {

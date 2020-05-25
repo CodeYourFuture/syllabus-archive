@@ -54,6 +54,7 @@
 - [Using array index syntax](https://jsbin.com/lihajikesi/edit?js,console)
 - [Using array destructuring](https://jsbin.com/keparevoqe/edit?js,console)
 - [Updating state](https://codesandbox.io/s/usestate-counter-lorv5?file=/src/Counter.js)
+- [Don't Mutate State](https://codesandbox.io/s/dont-mutate-state-hex49?file=/src/Counter.js)
 - [Multiple state variables](https://codesandbox.io/s/multiple-state-variables-piq5w?file=/src/FruitCounter.js)
 - [When to Use Props or State](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)
 

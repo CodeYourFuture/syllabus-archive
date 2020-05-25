@@ -198,57 +198,9 @@ We don't need to worry about changing the DOM ourselves! This is what makes Reac
 
 *State* is a general concept in software engineering. It is used when a part of your app needs to "remember" something that changes when people interact with it.
 
-Let's make up an imaginary example, where we have a button that toggles state between `true` and `false`:
-
-1. We'll set the initial state (before any interaction as happened):
-
-  ```js
-  state = {
-    buttonPressed: false
-  }
-  ```
-
-2. When the user presses the button, we need to *handle* the event by
-3. Updating the state:
-
-  ```js
-  state = {
-    buttonPressed: true
-  }
-  ```
+![State diagram](../assets/state-diagram.png)
 
 This is a simple example, but if we had lots of bits of state, then we can make very complex apps.
-
-### How is state different to a variable?
-
-In the code above it looked like we were using a variable called `state`. What's wrong with just using a variable?
-
-Unfortunately we learned earlier that every time our components re-render, the function is called again. That means that any variables inside our components will be re-created ([interactive example](https://codesandbox.io/s/component-variables-resetting-on-re-render-101h1?file=/src/Counter.js)):
-
-```js
-function Counter() {
-  let count = 0;
-
-  console.log(`Rendering. count is ${count}`);
-
-  function incrementCount() {
-    count = count + 1;
-  }
-
-  return (
-    <div>
-      Count is: {count}
-      <button id="click-me" onClick={incrementCount}>
-        Click me!
-      </button>
-    </div>
-  );
-}
-```
-
-This component doesn't work! Every time it re-renders, we reset the `count` variable back to 0. We need something to "remember" what the count value was before the re-render. Because of this, we need to use the method that React provides.
-
-This **doesn't** mean that variables are useless. They are still useful for when we need to calculate a value during a render. State is a variable, but not all variables are state.
 
 ### React Hooks
 
@@ -373,8 +325,7 @@ function Counter() {
   const [count, setCount] = useState(0);
 
   function incrementCount() {
-    const newState = count + 1;
-    setCount(newState);
+    setCount(count + 1);
   }
 
   return (
@@ -416,6 +367,29 @@ function Counter() {
 ```
 
 On the second render, `count` is now set to 1. Every time we click the button, the whole cycle starts again.
+
+#### Don't Mutate State
+
+As we just learned, `setCount` updates the state for us, but it also notifies React of changes. Because of this we can't change (or *mutate*) state variables ourselves. In fact, React makes it impossible to modify (or *mutate*) state ([interactive example](https://codesandbox.io/s/dont-mutate-state-hex49?file=/src/Counter.js)):
+
+```js
+function Counter() {
+  let [count, setCount] = useState(0);
+
+  function handleClick() {
+    count = count + 1;
+  }
+
+  return (
+    <div>
+      Count: {count}
+      <button onClick={handleClick}>Click</button>
+    </div>
+  );
+}
+```
+
+Clicking the button doesn't do anything! React is letting us know that we have to use `setCount` to be able to update state.
 
 ### Where Does State Live?
 
@@ -473,7 +447,7 @@ function FruitCounter() {
 
 We've looked at the 2 main ways of managing data in our React components. But when should we use props and when should we use state?
 
-Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. In fact, React makes it impossible to modify (or *mutate*) props. Let's have a look at an example ([interactive example](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)):
+Remember that props are like "arguments" to a component. It's good practice to make sure that you don't modify arguments after you receive them. Just like state, React prevents you from mutating them. Let's have a look at an example ([interactive example](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)):
 
 ```js
 function Greeting(props) {
@@ -562,7 +536,7 @@ This is a very common pattern which will come in very useful!
 
 ### Container components
 
-In real world applications, the things we want to remember in state follow the *business logic* required by our users. So for example the number of caught Pokemon in the exercise  increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
+In real world applications, the things we want to remember in state follow the [*business logic*](https://en.wikipedia.org/wiki/Business_logic) required by our users. So for example the number of caught Pokemon in the exercise  increases when you click on the button *Catch Pokemon*. Most of the time, business logic is about figuring out when and how to change state.
 
 To help us cleanly split up code that performs business logic from code that shows the user interface we split components into *presentational* and *container* components. Often we have components that don't do anything except manage state according to the business rules and render the right presentational components. On the other hand, we often have components that don't change any state, and just render using the provided props.
 

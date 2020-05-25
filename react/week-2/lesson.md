@@ -310,7 +310,7 @@ Finally, let's at how we get hold of the `count` variable:
 const [count, setCount] = useState(0);
 ```
 
-To understand this bit of code, we first have to understand *destructuring*.
+This creates a new state variable named `count`. To fully understand this bit of code, we first have to understand *destructuring*.
 
 ### Destructuring Arrays
 

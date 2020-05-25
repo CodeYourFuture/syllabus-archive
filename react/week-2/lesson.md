@@ -419,7 +419,7 @@ On the second render, `count` is now set to 1. Every time we click the button, t
 
 ### Where Does State Live?
 
-We have talked about how a component "remembers" state. In fact, each component remembers **separate** state from other components. This means we can have multiple different Counters, each with a different state ([interactive example](https://codesandbox.io/s/multiple-counters-xm1x4?file=/src/App.js)):
+We have talked about how a component "remembers" state. In fact, each component *instance* remembers **separate** state from other components. This means we can have multiple different Counters, each with a different state ([interactive example](https://codesandbox.io/s/multiple-counters-xm1x4?file=/src/App.js)):
 
 ```js
 function App() {

@@ -360,9 +360,9 @@ Now if we go back to our `useState` example:
 const [count, setCount] = useState(0);
 ```
 
-We can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0.
+We can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0 on the first render.
 
-The second item in the array is a function that we will use to update our state. We'll take a look at this next.
+The second item in the array is a function that we will use to update our state.
 
 ### Updating State
 
@@ -405,7 +405,17 @@ function incrementCount() {
 
 It also tells React that the old state that is **still shown in the DOM** is outdated and so the DOM needs to change. Because of this, React will re-render all of our components to figure out what to change in the DOM.
 
-This is the magic of React: we only need to tell React how we want to DOM to look and it figures out what to change.
+When re-rendering, `useState` now gives us the **updated** state:
+
+```js
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  ...
+}
+```
+
+On the second render, `count` is now set to 1. Every time we click the button, the whole cycle starts again.
 
 ### Where Does State Live?
 

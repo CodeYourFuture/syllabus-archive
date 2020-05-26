@@ -230,7 +230,7 @@ In fact we can just write `React.useState` in our component if we want! But to t
 
 ### Using `useState`
 
-Now let's look at how we can use the `useState` Hook ([interactive example](https://codesandbox.io/s/initialising-and-rendering-usestate-variables-zgszi?file=/src/Counter.js)):
+Now let's look at how we can use the `useState` Hook ([interactive example](https://github.com/wesbos/es6-articles/blob/master/19%20-%20Destructing%20Arrays.md)):
 
 ```js
 function Counter() {

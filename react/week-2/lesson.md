@@ -299,8 +299,7 @@ The `incrementCount` function then calculates the **new** state by adding 1 onto
 
 ```js
 function incrementCount() {
-  const newState = count + 1;
-  setCount(newState);
+  setCount(count + 1);
 }
 ```
 

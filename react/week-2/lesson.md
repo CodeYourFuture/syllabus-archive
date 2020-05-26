@@ -230,7 +230,7 @@ In fact we can just write `React.useState` in our component if we want! But to t
 
 ### Using `useState`
 
-Now let's look at how we can use the `useState` Hook ([interactive example](https://github.com/wesbos/es6-articles/blob/master/19%20-%20Destructing%20Arrays.md)):
+Now let's look at how we can use the `useState` Hook ([interactive example](https://codesandbox.io/s/initialising-and-rendering-usestate-variables-zgszi?file=/src/Counter.js)):
 
 ```js
 function Counter() {
@@ -262,7 +262,7 @@ Finally, let's at how we get hold of the `count` variable:
 const [count, setCount] = useState(0);
 ```
 
-To fully understand this bit of code, we first have to understand *destructuring*. Let's look at [this blog post by Wes Bos about array destructuring](https://github.com/CodeYourFuture/syllabus/pull/448/commits/85645dbca58df5b52ef9c32eeb0a00355d5ab378).
+To fully understand this bit of code, we first have to understand *destructuring*. Let's look at [this blog post by Wes Bos about array destructuring](https://github.com/wesbos/es6-articles/blob/master/19%20-%20Destructing%20Arrays.md).
 
 Now we can understand that `useState` is returning an array, with two items. The first item in the array is the current value of the `count` state. In our example it will be 0 on the first render.
 

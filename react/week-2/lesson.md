@@ -268,6 +268,9 @@ Now we can understand that `useState` is returning an array, with two items. The
 
 The second item in the array is a function that we will use to update our state.
 
+>**Note**: You can call the 2nd item in the `useState` array what you like, but it is widely accepted practice to name it *set* + *the state variable name*. Example: `setCount`, or `setUserIsLoggedIn`
+
+
 ### Updating State
 
 Our Counter isn't very useful right now! Let's make it more useful by getting `count` to actually count up ([interactive example](https://codesandbox.io/s/usestate-counter-lorv5?file=/src/Counter.js)):
@@ -319,6 +322,14 @@ function Counter() {
 ```
 
 On the second render, `count` is now set to 1. Every time we click the button, the whole cycle starts again.
+
+| **Exercise C** |
+| :--- |
+| 1. Open the `pokedex` React application and open the `CaughtPokemon.js` file. |
+| 2. Create a new state variable called `totalCaught` and initialise it to `0` |
+| 3. When you create the `totalCaught` state, you should also set the function that will update this state (hint: refer to the syntax of the `useState` hook)|
+| 4. Replace the number 0 in the JSX with your new `totalCaught` state.|
+
 
 #### Don't mutate State
 
@@ -396,11 +407,13 @@ function FruitCounter() {
 ```
 
 
-| **Exercise C** |
+| **Exercise D** |
 | :--- |
-| 1. Open the `pokedex` React application and open the `CaughtPokemon.js` file. |
-| 2. Create a new state variable called `totalCaught` and initialise it to `0` |
-| 3. Add a button to the component with an `onClick` handler which increments the `totalCaught` count. Refer to the examples above to help you. |
+| 1. Back in the `CaughtPokemon.js` file in your `pokedex` app |
+| 2. Add a button to the component with an `onClick` handler that calls a function called `incrementTotal`.|
+| 3. What do you think will happen when the button is clicked? Why is that? |
+| 4. Using the fruits example above, make changes to the `CaughtPokemon` component so that the `totalCaught` state is increased by 1 on each click.|
+<details><summary>Click here if you are stuck.</summary>The <code>incrementTotal</code> function you created gets called onClick, but so far, it doesn't actually do anything. To fix this, <code>incrementTotal</code> will need to call the function you set when you created the <code>totalCaught</code> state (the 2nd item in the useState array).</details>|
 
 
 ### When do you use Props or State?
@@ -451,7 +464,7 @@ useEffect(() => {
 }, []); // Don't forget the empty array here!
 ```
 
-And here is a more complete example:
+And here is a more complete example (see [interactive example](https://codesandbox.io/s/the-useeffect-hook-jtz5u?file=/src/MartianPhotoFetcher.js)):
 
 ```js
 import React, { useState, useEffect } from "react"; // remember to import the Hook(s) you need!
@@ -467,20 +480,23 @@ function MartianPhotoFetcher() {
       .then(data => setMarsPhotos(data));
   }, []);
 
-  return (
-    <div>
-      {marsPhotos.photos &&
-        marsPhotos.photos.map((photo, index) => {
-          return (
-            <img
-              key={`mars-photo-${index}`}
-              src={photo.img_src}
-              alt={photo.camera.name}
-            />
-          )
-      })}
-    </div>
-  );
+    if (marsPhotos.photos) {
+      return (
+        <div>
+          {marsPhotos.photos.map((photo, index) => {
+              return (
+                <img
+                  key={`mars-photo-${index}`}
+                  src={photo.img_src}
+                  alt={photo.camera.name}
+                />
+              )
+          })}
+        </div>
+      )
+    } else {
+      return <div>Loading...</div>
+    }
 }
 
 export default MartianPhotoFetcher;
@@ -491,7 +507,7 @@ In the code above, we're saying to React “When this component is mounted, call
 
 This is a very common pattern which will come in very useful!
 
-| **Exercise D** |
+| **Exercise E** |
 | :--- |
 | 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file. |
 | 2. Add a new component inside `src/BestPokemon.js` called `BestPokemonFetcher`. |
@@ -504,8 +520,69 @@ This is a very common pattern which will come in very useful!
 | 9. Add a `.then` handler into the `fetch` function (remember this needs to come immediately after the `fetch` call) which converts the response from JSON (hint: `.then(res => res.json())`). |
 | 10. Add a second `.then` handler after the one we just added, where the callback function will receive an argument called `data`. |
 | 11. Within the second `.then` callback function, log out the data that we just received (hint: `console.log(data)`). Inspect the data in the dev tools console. Can you see any interesting values? (Hint: think about what the `BestPokemon` component expects as a prop) |
-| 12. Still within the second `.then` callback function, update the `bestPokemon` state variable. <details><summary>Click here is you are stuck.</summary>Refer to the State section again to see how to set state variables to new values.</details> |
+| 12. Still within the second `.then` callback function, update the `bestPokemon` state variable. <details><summary>Click here if you are stuck.</summary>Refer to the State section again to see how to set state variables to new values.</details> |
 | 13. What happens in your browser? Do you understand why? If not, discuss it with another student. If you are both stuck, ask a Teaching Assistant. |
+
+### A note on conditional rendering
+In the `MartianPhotoFetch` component above, we have wrapped our JSX inside an `if` / `else` statement. This is common practice in React, as it allows us to show something different depending on the situation (for example if there is no data to display, show the user something else instead). 
+
+The syntax above is correct, but you may also see this done in 2 other ways:
+
+#### The ternary operator  `? :`
+The *ternary operator*  follows this structure `condition ? output1 : output2`.
+
+#### The double ampersand `&&` 
+The double ampersand `&&` is used when you don't have an `else`. The implication is that when the condition is not fulfilled, nothing will render. 
+
+Let's see what that looks like in our component:
+
+**with the ternary operator:**
+```js
+    return (
+      marsPhotos.photos ? (
+          <div>
+            {marsPhotos.photos.map((photo, index) => {
+                return (
+                  <img
+                    key={`mars-photo-${index}`}
+                    src={photo.img_src}
+                    alt={photo.camera.name}
+                  />
+                )
+            })}
+          </div>
+      ) : (
+        <div>Loading...</div>
+      )
+    )
+```
+
+**with `&&`:**
+```js
+    return (
+      marsPhotos.photos && (
+          <div>
+            {marsPhotos.photos.map((photo, index) => {
+                return (
+                  <img
+                    key={`mars-photo-${index}`}
+                    src={photo.img_src}
+                    alt={photo.camera.name}
+                  />
+                )
+            })}
+          </div>
+      )
+    )
+```
+
+You'll notice in the `&&` example above, we do not render a 'Loading...' message, because there is no alternative output (no 'else').
+
+| **Exercise F** |
+| :--- |
+| Go back to the `BesPokemon.js` file |
+| Change the `if` / `else` statement in your JSX to use the ternary operator instead |
+
 
 ### Container components
 
@@ -515,13 +592,19 @@ To help us cleanly split up code that performs business logic from code that sho
 
 Container components usually have some state and handler methods, while presentational components usually just receive props and render JSX using these props.
 
+| **Exercise G** |
+| :--- |
+| Take a look at the componenets in your Pokedex app - can you identify a good use case for a 'container' component? What about 'presentational' components? |
+| Discuss this with another student.|
+
+
 ## Further Reading
 
 [Array Destructuring](https://github.com/wesbos/es6-articles/blob/master/19%20-%20Destructing%20Arrays.md)
 
 What happens if you forget to pass a prop to a component? Or if you pass the wrong type of data to a component? Sometimes React will just render an empty element but sometimes it could throw an error! This is why `propTypes` are useful. [This page on the React documentation](https://reactjs.org/docs/typechecking-with-proptypes.html) describes how to use `propTypes` in more detail.
 
-> **Exercise E**
+> **Exercise H**
 > Complete the FreeCodeCamp [exercise](https://learn.freecodecamp.org/front-end-libraries/react/) on `propTypes`:
 >
 > 1. [Use PropTypes to Define the Props You Expect](https://learn.freecodecamp.org/front-end-libraries/react/use-proptypes-to-define-the-props-you-expect/)

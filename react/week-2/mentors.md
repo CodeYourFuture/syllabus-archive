@@ -15,10 +15,13 @@
 
 ### Re-Rendering Components
 
+- The goal of this section is to demonstrate React re-rendering but **without using state**
+  - I.e. showing that React will call component functions again to get updated JSX after props/state changes
+  - Teaching separately allows us to emphasis that setting state has 2 jobs: updating the state and triggering React to re-render
+  - It is also convenient to (briefly) discuss how the virtual DOM is efficient
 - Re-rendering demo
   - Focus on the `Counter` component primarily, in particular the `console.log`
-  - The code in `index.js` is just a way of forcing a re-render **without using state**. But we don't really want students to learn these concepts, so they are hidden away
-  - The idea is to separate the ideas so they can be understood separately
+  - The code in `index.js` is just a way of forcing a re-render without using state. But we don't really want students to learn the bad habits here (we want them to ultimately to learn state), so they are hidden away
 
 ### State
 
@@ -45,15 +48,15 @@
 - [Event Handlers](https://codesandbox.io/s/event-handlers-cc3h7?file=/src/ClickLogger.js)
 - [Passing Functions as Props](https://codesandbox.io/s/passing-functions-as-props-zqlnmo16y3?file=/src/ClickLoggerApp.js)
 - [Re-Rendering Components](https://codesandbox.io/s/force-component-re-rendering-llow115pll?file=/src/Counter.js)
-- [Counter rendering with ReactDOM (not working)](https://codesandbox.io/s/voqzrx5ny)
-- [Counter rendering with ReactDOM](https://codesandbox.io/s/llow115pll)
-- [Counter (starting refactor)](https://codesandbox.io/s/pjlro5rop7)
-- [Counter starting to use state](https://codesandbox.io/s/42y7xqj700)
-- [Counter with class constructor](https://codesandbox.io/s/1oyxx4lzz7)
-- [Counter with hard-coded setState](https://codesandbox.io/s/n714vmyk5l)
-- [Multiple Counters with hard-coded setState](https://codesandbox.io/s/v8165mq503)
-- [Multiple Counters with dynamic setState](https://codesandbox.io/s/qxz27q9y4)
-- [When to use props or state](https://codesandbox.io/s/9wl90npk4)
+- [Component variables resetting on re-render](https://codesandbox.io/s/component-variables-resetting-on-re-render-101h1?file=/src/Counter.js)
+- [Importing useState Hook](https://codesandbox.io/s/importing-usestate-hook-8jr9f?file=/src/App.js)
+- [Initialising and rendering useState variables](https://codesandbox.io/s/initialising-and-rendering-usestate-variables-zgszi?file=/src/Counter.js)
+- [Using array index syntax](https://jsbin.com/lihajikesi/edit?js,console)
+- [Using array destructuring](https://jsbin.com/keparevoqe/edit?js,console)
+- [Updating state](https://codesandbox.io/s/usestate-counter-lorv5?file=/src/Counter.js)
+- [Don't Mutate State](https://codesandbox.io/s/dont-mutate-state-hex49?file=/src/Counter.js)
+- [Multiple state variables](https://codesandbox.io/s/multiple-state-variables-piq5w?file=/src/FruitCounter.js)
+- [When to Use Props or State](https://codesandbox.io/s/when-to-use-props-or-state-9wl90npk4?file=/src/Greeting.js)
 
 ### Exercise solutions
 

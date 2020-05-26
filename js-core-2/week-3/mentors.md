@@ -19,7 +19,10 @@ The aim of this exercises to let the students explore the network tab and spendi
 
 When the class has submitted their lists open the network tab and see exactly what was requested by the website. Have a discussion around each of the GET requests. You can find the website in the exercise [here](https://codeyourfuture.github.io/Network-Tab-Example/).
 
-For students that go very quickly through the exercise send them to a complicated website and continue to let them explore through the exercises
+For students that go very quickly through the exercise send them to a complicated website and continue to let them explore through the exercises. Some ideas:
+
+- https://codeyourfuture.io/meet-the-team/ - Good because it has lots of images
+- https://www.bbc.co.uk/news - Lots of icons and images
 
 ### Exercise - POST Requests
 

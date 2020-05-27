@@ -13,7 +13,6 @@ Read the Mentors Notes [here](./mentors.md)
 - The learner should understand the value of thorough and comprehensive debugging
 - The learner should be able to use error messages to debug simple logical or syntactical errors in their code
 - The learner should be able to logically step through their code to find bugs and errors
-- The learner should be able to predict where a program will fail
 - The learner should be able to modify an existing program to solve errors
 
 ## Agenda
@@ -381,3 +380,70 @@ You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/
 In your groups you should get the project setup using the exact instructions found [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/tv-show-dom-project/getting-started.md). Make sure you use your Teaching Assistants to help you!
 
 {% include './homework.md' %}
+
+## Quiz (10 - 15 minutes)
+
+You can complete this quiz on Google Forms [here](https://docs.google.com/forms/d/e/1FAIpQLScYHmS7LOfI4ML3z2axEpZd2Zgvbe-9FBB5rsWoqqMcw2u6SA/viewform)
+
+1. Give one reason why it is important to find bugs as soon as possible when developing code.
+2. Select which of the following statements about the debugging are**TRUE**.
+
+```
+    A) If there are no errors in the console, then there are no bugs.
+    B) Debugging only involves the person who wrote the code.
+    C) You use the debugging framework when your code is not behaving as expected.
+    D) Debuggers allow you to pause the execution of code.
+```
+
+3. What does the phrase to `Step through the code` mean? Why do we `step through code` as part of debugging?
+4. Which of the following types of errors can a linting tool help to detect?
+
+```
+    A) Logic errors
+    B) Reference errors
+    C) User errors
+    D) Syntax errors
+```
+
+5. What are the two ways you can set a breakpoint in the Chrome debugger?
+6. You see the following error thrown the in console. Which line is the error coming from?
+
+```
+    Uncaught ReferenceError: foo is not defined
+        at <anonymous>:4:17
+```
+
+7. What are the four questions you ask yourself as part of the debugging framework?
+8. Use `console.log` to debug the following program. Which line has the error on it? How would you fix it?
+
+```
+    1   var testArray = ["Test"];
+    2
+    3   function testFunction(testArray) {
+    4       for (var i = 0; i < testArray.length; i++) {
+    5           console.log(testArray[i]);
+    6       }
+    7   }
+    8
+    9   testFunction();
+```
+
+9. You have the following ATM code that withdraws money from a user account. You have gotten reports that people using `withdraw` to add money to their account!
+   - How are they doing this?
+   - What would you change in this code to prevent them from doing this?
+
+```
+    1    let accountBalance = 100;
+    2
+    3    function withdraw(amount) {
+    4        accountBalance = accountBalance - amount;
+    5        console.log("You have " + accountBalance + " in your bank account");
+    6    }
+    7
+    8    // Users can change the value of the input variable.
+    9    input = 10;
+    10
+    11   withdraw(input);
+```
+
+10. What is a syntactical error? Give an example of a syntactical error that you've seen in Javascript.

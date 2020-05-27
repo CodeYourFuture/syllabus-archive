@@ -15,7 +15,7 @@
 - [JavaScript II](/js-core-2/index.md)
   - [Week 1 - Objects](/js-core-2/week-1/lesson.md)
   - [Week 2 - JS in the Browser](/js-core-2/week-2/lesson.md)
-  - [Week 3 - More JS in the Browser](/js-core-2/week-3/lesson.md)
+  - [Week 3 - Asynchronous and The Web](/js-core-2/week-3/lesson.md)
 - [JavaScript III](/js-core-3/index.md)
   - [Week 1 - Debugging](/js-core-3/week-1/lesson.md)
   - [Week 2 - APIs and Fetch](/js-core-3/week-2/lesson.md)

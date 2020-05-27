@@ -1,5 +1,10 @@
 # Mentor Notes
 
+## Resources
+
+- [Quiz - JS3 Week 1 - 27/05/2020](https://docs.google.com/forms/d/e/1FAIpQLScYHmS7LOfI4ML3z2axEpZd2Zgvbe-9FBB5rsWoqqMcw2u6SA/viewform)
+  - Created by London Volunteers and Louise Chow
+
 ## Lesson Aims
 
 The aim of this lesson is to teach the students the key skills they need to be able to debug their work.
@@ -52,16 +57,18 @@ The most important message to send is that the students should move at their own
 You should walk the students through the setup guide and use the rest of the lesson to make a start on the project in groups.
 
 ### Quiz
+
 You should reserve 10-15 minutes at the end of the lesson to run through the following summative assessment with the students. Have the students answer all the questions in the quiz and submit their answers before leaving for the day.
 
 ####Solutions
+
 1. Possible answers:
 
 
     - To prevent bugs being released into production and having negative consequences on users - such as with Therac-25.
     - Because finding bugs is harder the more complex the code gets. It is better to test little and often.
-2.
 
+2.
 
     A - False: A bug is when the program is not behaving as expected. This can be due to logic problems rather than compile or runtime errors.
     B - False: Rubber ducking is a common method to debug problems and can involve talking through the problem with another person.
@@ -70,12 +77,10 @@ You should reserve 10-15 minutes at the end of the lesson to run through the fol
 
 3.
 
-
     To `Step through the code` means to go line-by-line through the code and check what the state of the program is by looking at the values of variables or expressions on that line.
     We use this method when debugging, so that we can pinpoint on which line our program begins to behave unexpectedly.
 
 4.
-
 
     A - True (Some at least, though not all)
     B - True
@@ -84,11 +89,10 @@ You should reserve 10-15 minutes at the end of the lesson to run through the fol
 
 5.
 
-
     1. Add the word `debugger` into the line of code where you want to pause.
     2. Click on the line you want to pause on in the debugger tool
-6.
 
+6.
 
     Line 4
 
@@ -97,15 +101,15 @@ You should reserve 10-15 minutes at the end of the lesson to run through the fol
         return 1;
     }
     console.log(foo);
-7.
 
+7.
 
     1. What did I expect to happen?
     2. Is it actually broken?
     3. What happened instead?
     4. What have I tried so far?
-8.
 
+8.
 
     Line 9
 
@@ -120,8 +124,8 @@ You should reserve 10-15 minutes at the end of the lesson to run through the fol
     }
 
     testFunction(testArray);
-9.
 
+9.
 
     If you input a negative amount then your balance with credit. E.g. 100 - (-10) = 110
 
@@ -142,8 +146,8 @@ You should reserve 10-15 minutes at the end of the lesson to run through the fol
      input = -10;
 
      withdrawl(input);
-10.
 
+10.
 
     A syntactical error is an error that is caused when your code does not follow the rules of the language.
 
@@ -158,4 +162,3 @@ You should reserve 10-15 minutes at the end of the lesson to run through the fol
 - We didn't think about `warnings` at all.
   - "Don't ignore errors and warnings"
   - "Start from the first warning"
-

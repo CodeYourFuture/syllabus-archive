@@ -2,6 +2,11 @@
 
 {% include "./learning-objectives.md" %}
 
+## Resources
+
+- [Quiz - React Week 1 - 28/05/2020](https://docs.google.com/forms/d/e/1FAIpQLScF624jfjHCVzrqfu9sR-MWYyaZD3vRGHz3pDjUgbfyJ4vq_A/viewform)
+  - Created by Chris Owen
+
 ## Notes for mentors
 
 - Components - talk about the conceptual idea components, not just React components

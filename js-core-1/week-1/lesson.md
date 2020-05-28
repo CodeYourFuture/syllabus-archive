@@ -241,7 +241,7 @@ function double(number) {
 
 To use the function we need to:
 a) _call_ it with an input and
-b) assign the returned value to a variable
+b) do something with the returned value, for example assigning it to a variable
 
 ```js
 const result = double(2);

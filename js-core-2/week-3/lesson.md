@@ -218,3 +218,7 @@ HTTP is the language of the internet. In our case we're using Javascript, but yo
 > <img alt="preview-exercise-2-result" src="https://i.imgur.com/wbrtLNL.png" width="500">
 
 {% include "./homework.md" %}
+
+# JavaScript 2 Quiz
+
+An optional quiz can be found [here](https://docs.google.com/forms/d/e/1FAIpQLSfMCZZkEWexs_7PbuRMpUPXqjjyXv814mhl3OikBv39QsqKSg/viewform) which can be used to test students understanding. This can be done in class or set as homework.

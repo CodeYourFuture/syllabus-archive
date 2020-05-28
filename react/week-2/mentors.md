@@ -16,12 +16,12 @@
 ### Re-Rendering Components
 
 - The goal of this section is to demonstrate React re-rendering but **without using state**
-  - I.e. showing that React will call component functions again to get updated JSX after props/state changes
-  - Teaching separately allows us to emphasis that setting state has 2 jobs: updating the state and triggering React to re-render
+  - i.e. showing that React will call component functions again to get updated JSX after props/state changes
+  - Teaching separately allows us to emphasise that setting state has 2 jobs: updating the state and triggering React to re-render
   - It is also convenient to (briefly) discuss how the virtual DOM is efficient
 - Re-rendering demo
   - Focus on the `Counter` component primarily, in particular the `console.log`
-  - The code in `index.js` is just a way of forcing a re-render without using state. But we don't really want students to learn the bad habits here (we want them to ultimately to learn state), so they are hidden away
+  - The code in `index.js` is just a way of forcing a re-render without using state. But we don't really want students to learn the bad habits here (we want them to ultimately learn state), so they are hidden away.
 
 ### State
 

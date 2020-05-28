@@ -1,5 +1,10 @@
 # Mentor's Notes - React 2
 
+## Resources
+
+- [Quiz - React Week 2 - 28/05/2020](https://docs.google.com/forms/d/e/1FAIpQLSf3NisqE5bfJyMXm41W_kW9oSLQVUfaatvHS-gNTh-QXbjWJQ/viewform)
+  - Created by Chris Owen
+
 {% include "./learning-objectives.md" %}
 
 ## Notes for mentors

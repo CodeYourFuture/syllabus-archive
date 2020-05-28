@@ -799,33 +799,32 @@ let capitalCities = {
   canada: 'Ottawa'
 };
 
-let highScores = {
-  55: 'Alistair',
-  100: 'David',
-  89: 'Hannah',
-  34: ['Sergi', 'Frank',]
+let falafelWrap = {
+  calories: 550,
+  secretIngredient: "falafels",
+  isVeggie: true
 };
 
 // ONLY EDIT BELOW HERE
 
 let capitalCitiesKeys = ;
-let highScoresKeys = ;
+let falafelWrapKeys = ;
 let capitalCitiesValues = ;
-let highScoresValues = ;
+let falafelWrapValues = ;
 
 // ONLY EDIT ABOVE HERE
 
 console.log(capitalCitiesKeys);
 // prints [ 'scotland', 'kenya', 'australia', 'canada' ]
 
-console.log(highScoresKeys)
-// prints ['34, '55', '89', '100']
+console.log(falafelWrapKeys)
+// prints ['calories', 'secretIngredient', 'isVeggie']
 
 console.log(capitalCitiesValues);
 // prints [ 'Edinburgh', 'Nairobi', 'Canberra', 'Ottawa' ]
 
-console.log(highScoresValues)
-// prints [[ 'Sergi', 'Frank' ], 'Alistair, 'David', 'Hannah']
+console.log(falafelWrapValues)
+// prints [550, 'falafels', true]
 
 ```
 
@@ -913,32 +912,7 @@ console.log();
 
 ## Loop through an Object
 
-Once in a while it will be required to loop through objects. You can achieve this in various ways.
-
-### Use `for...in` statement
-
-The `for...in` statement iterates over all distinct properties of an object.
-
-Example:
-
-```js
-const flowers = {
-  tulip: 20,
-  rose: 10,
-  lily: 15,
-};
-
-for (const key in flowers) {
-  console.log(`${key}: ${flowers[key]}`);
-}
-
-// Prints
-// tulip: 20
-// rose: 10
-// lily: 15
-```
-
-### Convert object into an array and loop through the array
+Once in a while it will be required to loop through objects.
 
 Since we started JavaScript, we have used `console.log` to print things to our console.
 

@@ -1,5 +1,10 @@
 # Mentor's Notes - React 3
 
+## Resources
+
+- [Quiz - React Module - 28/04/2019](https://github.com/CodeYourFuture/react-quiz)
+  - Created by London and Ali Smith
+
 {% include "./learning-objectives.md" %}
 
 ## Notes for mentors

@@ -60,7 +60,7 @@ You should walk the students through the setup guide and use the rest of the les
 
 You should reserve 10-15 minutes at the end of the lesson to run through the following summative assessment with the students. Have the students answer all the questions in the quiz and submit their answers before leaving for the day.
 
-####Solutions
+#### Solutions
 
 1. Possible answers:
 

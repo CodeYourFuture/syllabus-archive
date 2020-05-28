@@ -2,6 +2,13 @@
 
 This outline provides tips to help mentors guide students to the best answers or outcomes for the lesson topics and exercises.
 
+## Presentations
+
+- [Week 2 - HTML & CSS 2 - Responsive Design [Google Slides] - 28/05/2020](https://docs.google.com/presentation/d/1REawHd4Uy-WGVDmrwvyLLtX-mEurrS15b9QyLn8lULo/edit)
+  - Created by Birmingham
+- [Week 2 - Flexbox & Media Queries [Google Slides] - 28/05/2020](https://docs.google.com/presentation/d/10Y7ev8w0OZSwuCDU3dUB3wertwVgRIwd0pWC5l5qS8Y/edit#slide=id.g854eaaa097_0_58)
+  - Created by Birmingham
+
 ## Responsive Web Design
 
 Devices to brainstorm together:

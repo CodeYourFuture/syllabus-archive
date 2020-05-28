@@ -2,6 +2,11 @@
 
 This outline provides tips to help mentors guide students to the best answers or outcomes for the lesson topics and exercises.
 
+## Presentations
+
+- [Week 1 - CSS [Google Slides] - 28/05/2020](https://docs.google.com/presentation/d/18gCQlySM5kNaK4og4-XF8kHlyJVZUrRcbRK1zXC5SBg/edit#slide=id.p)
+  - Created by Birmingham
+
 ## HTML Syntax
 
 This is an opportunity for any students who are struggling to get another pass at the basics. Even if it seems like some students get it quickly, try not to rush through this section.

@@ -8,6 +8,8 @@ The episode data is provided for you as an array of objects.
 
 The page of episodes should be generated using JavaScript (which will read the properties of each episode object).
 
+There is an ["intro" video](https://www.youtube.com/playlist?list=PL_uDxFTCuec_mNi3BgoUSd_hZbb2NWUWA) which shows **roughly** what you will build.  However, note that these do **not** replace these documents you are now reading.
+
 # Where do I get the episode data from?
 
 For the simple versions of this project, you will get the episode data by calling a provided function `getAllEpisodes()`. This will return you an array of objects, each of which represents an episode.

@@ -14,7 +14,7 @@
 
 ## What worked well
 
-[-]Having all the exercises for the module in the js-exercises repo works well.
+- Having all the exercises for the module in the js-exercises repo works well.
 
 ### Things to improve
 

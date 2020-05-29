@@ -4,6 +4,8 @@
 
 - [Quiz - React Week 1 - 28/05/2020](https://docs.google.com/forms/d/e/1FAIpQLScF624jfjHCVzrqfu9sR-MWYyaZD3vRGHz3pDjUgbfyJ4vq_A/viewform)
   - Created by Chris Owen
+- [Video - Job Listing Homework Introduction - 29/05/2020](https://youtu.be/-wLrSkSABzQ)
+  - Created by Subhav Gautam
 
 {% include "./learning-objectives.md" %}
 

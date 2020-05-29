@@ -9,7 +9,7 @@
 
 ## Videos
 
-- [Functions, Variables and Bees - An Introduction to JS1-1 Concepts](https://www.youtube.com/watch?v=DQJu-t0YscY)
+- [Functions, Variables and Bees - An Introduction to JS1-1 Concepts](https://youtu.be/58zaP4gumpA)
   - Created by Scotland and Rares Matei
 
 ## What worked well

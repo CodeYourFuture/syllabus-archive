@@ -180,7 +180,7 @@ Let's look at how a component is re-rendered ([interactive version](https://code
 
 ```js
 function Counter(props) {
-  console.log(`Rendering. props.count is ${props.likeCount}`);
+  console.log(`Rendering. props.likeCount is ${props.likeCount}`);
 
   return <button id="like-button">Likes: {props.likeCount}</button>;
 }

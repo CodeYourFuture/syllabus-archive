@@ -327,8 +327,8 @@ On the second render, `count` is now set to 1. Every time we click the button, t
 | :--- |
 | 1. Open the `pokedex` React application and open the `CaughtPokemon.js` file. |
 | 2. Create a new state variable called `totalCaught` and initialise it to `0` |
-| 3. When you create the `totalCaught` state, you should also set the function that will update this state (hint: refer to the syntax of the `useState` hook)|
-| 4. Replace the number 0 in the JSX with your new `totalCaught` state.|
+| 3. When you create the `totalCaught` state, you should also set the function that will update this state (hint: refer to the syntax of the `useState` hook). |
+| 4. Replace the number 0 in the JSX with your new `totalCaught` state. |
 
 
 #### Don't mutate State
@@ -412,8 +412,7 @@ function FruitCounter() {
 | 1. Back in the `CaughtPokemon.js` file in your `pokedex` app |
 | 2. Add a button to the component with an `onClick` handler that calls a function called `incrementTotal`.|
 | 3. What do you think will happen when the button is clicked? Why is that? |
-| 4. Using the fruits example above, make changes to the `CaughtPokemon` component so that the `totalCaught` state is increased by 1 on each click.|
-<details><summary>Click here if you are stuck.</summary>The <code>incrementTotal</code> function you created gets called onClick, but so far, it doesn't actually do anything. To fix this, <code>incrementTotal</code> will need to call the function you set when you created the <code>totalCaught</code> state (the 2nd item in the useState array).</details>|
+| 4. Using the fruits example above, make changes to the `CaughtPokemon` component so that the `totalCaught` state is increased by 1 on each click. <details><summary>Click here if you are stuck.</summary>The <code>incrementTotal</code> function you created gets called onClick, but so far, it doesn't actually do anything. To fix this, <code>incrementTotal</code> will need to call the function you set when you created the <code>totalCaught</code> state (the 2nd item in the useState array).</details> |
 
 
 ### When do you use Props or State?

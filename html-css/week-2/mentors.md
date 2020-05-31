@@ -9,6 +9,11 @@ This outline provides tips to help mentors guide students to the best answers or
 - [Week 2 - Flexbox & Media Queries [Google Slides] - 28/05/2020](https://docs.google.com/presentation/d/10Y7ev8w0OZSwuCDU3dUB3wertwVgRIwd0pWC5l5qS8Y/edit#slide=id.g854eaaa097_0_58)
   - Created by Birmingham
 
+## Articles
+
+- [History of Responsive Web Design](https://alistapart.com/article/responsive-web-design/)
+- [Most Common ViewPort Sizes](https://responsivedesign.is/develop/browser-feature-support/media-queries-for-common-device-breakpoints/)
+
 ## Responsive Web Design
 
 Devices to brainstorm together:

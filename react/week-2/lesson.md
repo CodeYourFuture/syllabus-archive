@@ -223,6 +223,7 @@ If we look at the console, `useState` is just a function. It lives inside the Re
 To reference the `useState` function in our component, we need to import it from the React code. The curly braces around `useState` are a bit like writing:
 
 ```js
+import React from 'react';
 let useState = React.useState;
 ```
 

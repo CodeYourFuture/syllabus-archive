@@ -2,10 +2,19 @@
 
 This outline provides tips to help mentors guide students to the best answers or outcomes for the lesson topics and exercises.
 
-## Quiz
+## Resources
+- [Bootstrap Demo](https://github.com/anthonytranDev/cyf-bootstrap)
+
+## Articles
+- [What is design system - Please scroll the bottom for explanation in the FAQs](
+https://enonic.com/blog/what-is-design-system)
+
+## Quizzes
 
 - [HTML/CSS Quick Quiz - 19/05/2020](https://drive.google.com/open?id=1_6kJSfIqY2f5iltyH_SUXyfeUGXRLZiGKcecATavByA)
   - Created by Scotland and Nate
+- [HTML/CSS Quick Quiz - 18/04/2020](https://drive.google.com/open?id=1x-5GVJMeSe-gauVC6rDOBAa--ltZJNPd5pE095zYmC4)
+  - Created by Manchester and Anthony Tran
 
 ## Open-source HTML/CSS Frameworks
 

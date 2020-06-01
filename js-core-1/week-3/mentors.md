@@ -2,7 +2,7 @@
 
 ## Presentations
 
-- [Week 3 - JS Core 1 [Google Slides] - 01/05/2020](https://drive.google.com/open?id=1QmAx-GEl-Rm1aNmdLfkjPhSFdPblPAa_JS_eVoSi-Vc)
+- [Week 3 - JS Core 1 [Google Slides] - 01/05/2020](https://drive.google.com/open?id=1q98KUoX5QQoFEDUl52hLxOnWkoCi2vGrehHjBBEnfdI)
   - Created by Manchester Volunteers
 
 ## Resources

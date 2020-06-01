@@ -278,6 +278,6 @@ The important parts of the the Network Tab is the
 > **Extra**
 >
 > 1. Did the `POST` requst succeed?
-> 2. Using the Details Panel, can you work out why the
+> 2. Using the Details Panel, can you work out why?
 
 {% include "./homework.md" %}

@@ -25,6 +25,17 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
+## Learning Objectives
+
+- Add and remove columns in a pre-existing table using PostgreSQL using `ALTER`
+- Rename tables and columns in a pre-existing table using PostgreSQL using `DELETE`
+- Update rows in a pre-existing table using PostgreSQL using `UPDATE`
+- Combine tables together using PostgreSQL using `INNER JOIN`
+- Connect a PostgreSQL database to a NodeJS application
+- Retrieve data from a PostgreSQL database in a NodeJS application
+
+---
+
 ## More SQL
 
 For the following, use the file [`cyf_hotels_exercise5.sql`](../week-1/cyf_hotels_exercise5.sql) from the previous class to reinitialise your database with `psql -d cyf_hotels -f cyf_hotels_exercise5.sql`.
@@ -61,7 +72,7 @@ For more examples, you can consult the following tutorial: [Postgres alter table
 
 - Add a column `date_of_birth` of type `DATE` in the `customers` table.
 - Rename the column `date_of_birth` to `birthdate` in the `customers` table.
-- Delete the column `birthdate` from the `customers` table.
+- Delete the column `birthdate` from the `customers` table
 
 ### Dropping a table
 

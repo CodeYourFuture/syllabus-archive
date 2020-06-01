@@ -29,6 +29,22 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
+## Learning Objectives
+
+By the end of this lesson students should be able to
+
+- Explain why databases are needed in Web Development
+- Define what SQL is and what it is used for
+- Describe what `table`, `rows` and `columns` are used for in a relational database
+- Install and create a database using PostgreSQL
+- Create a table in a database using PostgreSQL
+- Insert data into a table using PostgreSQL
+- Retrieve data from a table using PostgreSQL
+- Retrieve data from a table using conditionals in PostgreSQL
+- List the different kinds of data that can be held in a PostgreSQL database
+
+---
+
 ## Introduction to databases
 
 A database is a structured set of data held in a computer. It provides ways to store, retrieve and organize information.

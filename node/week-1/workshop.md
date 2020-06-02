@@ -173,7 +173,7 @@ method:
 const express = require("express");
 const app = express();
 
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
 });
 ```
@@ -222,7 +222,7 @@ and the handler function that tells it exactly what to do. Here's a simple
 ```js
 // req is the Request object, res is the Response object
 // (these are just variable names, they can be anything but it's a convention to call them req and res)
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("Hello World!");
 });
 ```
@@ -241,9 +241,9 @@ Update your `server.js` file with an empty `app.get()` function:
 const express = require("express");
 const app = express();
 
-app.get("/", function(req, res) {});
+app.get("/", function (req, res) {});
 
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
 });
 ```
@@ -265,11 +265,11 @@ Update your handler function like so:
 const express = require("express");
 const app = express();
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("Yay Node Girls!");
 });
 
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
 });
 ```
@@ -316,11 +316,11 @@ this method with different endpoints.
 For example:
 
 ```js
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("Hello World!");
 });
 
-app.get("/chocolate", function(req, res) {
+app.get("/chocolate", function (req, res) {
   res.send("Mm chocolate :O");
 });
 ```
@@ -379,7 +379,7 @@ should see this:
 
 ```html
 <div class="entry-container">
-    <!--PASTE YOUR CODE HERE!! -->
+  <!--PASTE YOUR CODE HERE!! -->
 </div>
 ```
 
@@ -388,14 +388,14 @@ should see this:
 ```html
 <h3>Create a blog post</h3>
 <form action="/create-post" method="POST">
-    <textarea name="blogpost" rows="10" cols="14"></textarea>
-    <button type="submit">Send</button>
+  <textarea name="blogpost" rows="10" cols="14"></textarea>
+  <button type="submit">Send</button>
 </form>
 ```
 
-* This form has a text area and a Send button.
-* The `action` attribute is the endpoint form data will be sent to.
-* The `name` attribute will be used later to reference the data.
+- This form has a text area and a Send button.
+- The `action` attribute is the endpoint form data will be sent to.
+- The `name` attribute will be used later to reference the data.
 
 When you hit Send, the form will send a `POST` request to the server, using
 whatever is in the `action` attribute as the endpoint. In our case it's
@@ -406,21 +406,21 @@ whatever is in the `action` attribute as the endpoint. In our case it's
 
 ### Receiving the blog post on the server
 
-* Data doesn't come through the server in one go; it flows to the server in a
+- Data doesn't come through the server in one go; it flows to the server in a
   **stream**. Think of a stream as water flowing from a tap into a bucket. Your
   job is to collect this water in the server.
 
-* If we were writing a pure Node server, we would have to think about how to
+- If we were writing a pure Node server, we would have to think about how to
   collect the stream of data properly. But luckily for us, Express handles all
   of that stuff under the hood.
 
-* All you need to do is define a route to deal with requests that come through
+- All you need to do is define a route to deal with requests that come through
   on the `/create-post` endpoint.
 
 Let's remind ourselves of a simple `GET` route in Express:
 
 ```js
-app.get("/hello-world", function(req, res) {
+app.get("/hello-world", function (req, res) {
   res.send("Hello there!");
 });
 ```
@@ -532,14 +532,14 @@ const fs = require("fs");
 The method we need to write to your hard drive is `fs.writeFile`.
 
 ```js
-fs.writeFile("path/to/file", yourData, function(error) {
+fs.writeFile("path/to/file", yourData, function (error) {
   // do something
 });
 ```
 
-* Argument 1: the location of the file you want to write to
-* Argument 2: the data you want to write
-* Argument 3: the callback function
+- Argument 1: the location of the file you want to write to
+- Argument 2: the data you want to write
+- Argument 3: the callback function
 
 The 'path/to/file' will be replaced with the actual path to the file you want to
 write to. If it doesn't exist, `fs.writeFile` cleverly creates one for you. But
@@ -551,13 +551,13 @@ To read data that's already there, you would use `fs.readFile`. The way to use
 `fs.readFile` is very similar to `fs.writeFile`:
 
 ```js
-fs.readFile("path/to/file", function(error, file) {
+fs.readFile("path/to/file", function (error, file) {
   // do something
 });
 ```
 
-* Argument 1: the location of the file you want to read from
-* Argument 2: the callback function
+- Argument 1: the location of the file you want to read from
+- Argument 2: the callback function
 
 You'll notice that `fs.readFile`'s callback function takes a second argument.
 That argument would be the file you're reading.
@@ -568,7 +568,7 @@ Let's read the data from the `posts.json` file. Make sure you've `require`d the
 Add this code to your server (put it anywhere after the `require`s for now):
 
 ```js
-fs.readFile(__dirname + "/data/posts.json", function(error, file) {
+fs.readFile(__dirname + "/data/posts.json", function (error, file) {
   console.log(file);
 });
 ```
@@ -609,19 +609,19 @@ own.
 
 Here's a breakdown of what you want to achieve:
 
-* When new blog post data comes through, read from `posts.json` to access its
+- When new blog post data comes through, read from `posts.json` to access its
   contents
-* Add your new blog post data to the old ones.
-* Write your new combined data back to the `posts.json` file.
+- Add your new blog post data to the old ones.
+- Write your new combined data back to the `posts.json` file.
 
 ### Things to remember
 
-* `fs.writeFile()` normally overwrites the target file you've given it. Chances
+- `fs.writeFile()` normally overwrites the target file you've given it. Chances
   are you don't want to lose all your old blog posts every time you get a new
   one, so think about how you can combine `fs.readFile()` and `fs.writeFile()`
   to prevent overwriting.
 
-* You will need to convert between JSON and a JavaScript object several times.
+- You will need to convert between JSON and a JavaScript object several times.
   `JSON.parse()` and `JSON.stringify()` are what you need.
 
 Oh by the way, if you want to get the current timestamp, use the JavaScript

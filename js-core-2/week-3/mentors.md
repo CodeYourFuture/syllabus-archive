@@ -8,3 +8,9 @@
 ## Presentations
 
 ## Notes
+
+### Exercise - Synchronous vs Asynchronous
+
+The aim of this exercise is to enable students to define the difference between synchronous and asynchronous code.
+
+This should be run in small groups and TAs should make sure that there's a dicussion about the order of the expected results. 

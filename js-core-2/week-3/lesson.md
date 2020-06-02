@@ -73,6 +73,17 @@ setTimeout(function () {
 console.log("Third action");
 ```
 
+### Exercise (1)
+```js
+const greekGods = ['Aphrodite', 'Ares', 'Artemis', 'Athena', 'Poseidon', 'Zeus'];
+
+// before running the code in your browser, discuss the expected order of each loop
+
+// synchronous - loop through the array of greek gods and print the index numbers and values to the console, e.g. '1. Ares'
+
+// asynchronous - same as before but the index and the value of the god at position 2 in array should be printed after 2 seconds. Use: setTimeout()
+```
+
 ### The Callstack
 
 How does JavaScript 'know' what order its code should be run in?
@@ -163,7 +174,7 @@ function myCallbackFunction() {
 mainFunction(myCallbackFunction);
 ```
 
-#### Exercise (1)
+#### Exercise (2)
 
 > - Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds).
 > - Update your code to make the colour change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
@@ -205,7 +216,7 @@ There are two main types of requests: **GET** and **POST**.
 
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
 
-#### Exercise (2)
+#### Exercise (3)
 
 > Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/MWwMgmW?editors)
 >

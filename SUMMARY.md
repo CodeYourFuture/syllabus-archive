@@ -34,6 +34,7 @@
   - [Week 1 - Introduction to SQL](/db/week-1/lesson.md)
   - [Week 2 - More SQL and integration with NodeJS](/db/week-2/lesson.md)
   - [Week 3 - More integration with NodeJS](/db/week-3/lesson.md)
+- [Final Project](/finalproject/index.md)
 
 ## Workshops
 

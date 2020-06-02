@@ -3,11 +3,12 @@
 This outline provides tips to help mentors guide students to the best answers or outcomes for the lesson topics and exercises.
 
 ## Resources
+
 - [Bootstrap Demo](https://github.com/anthonytranDev/cyf-bootstrap)
 
 ## Articles
-- [What is design system - Please scroll the bottom for explanation in the FAQs](
-https://enonic.com/blog/what-is-design-system)
+
+- [What is design system - Please scroll the bottom for explanation in the FAQs](https://enonic.com/blog/what-is-design-system)
 
 ## Quizzes
 

@@ -9,7 +9,7 @@
 
 ## Videos
 
-- [Cooking with JavaScript Objects [Google Slides] - 04/06/2020](https://www.youtube.com/watch?v=9mqdXm7ojYU)
+- [Cooking with JavaScript Objects - 04/06/2020](https://www.youtube.com/watch?v=9mqdXm7ojYU)
   - Created by Scotland Volunteers & Rares Matei
 
 ## Notes

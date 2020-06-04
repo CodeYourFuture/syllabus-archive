@@ -183,7 +183,7 @@ mainFunction(myCallbackFunction);
 >
 > Complete the exercises in this [CodePen](https://codepen.io/makanti/pen/abOreLg?editors=1011)
 
-#### Exercise (2)
+#### Exercise (3)
 
 > Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/MWwMgmW?editors)
 >
@@ -228,7 +228,6 @@ There are two main types of requests: **GET** and **POST**.
 
 HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other languages as well.
 
-=======
 ### The Network Tab
 
 The network tab is a useful tool that helps us understand how content is loaded on a website.

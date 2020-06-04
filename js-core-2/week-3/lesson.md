@@ -236,7 +236,7 @@ You can view it by `Right Click` > `Inspect` > `Network`.
 
 Take some time to look at the network tab when we open [this lesson](https://syllabus.codeyourfuture.io/js-core-2/week-3/lesson.html)/
 
-The important parts of the the Network Tab is the
+The important parts of the the Network Tab are:
 
 - [Network Log](https://developers.google.com/web/tools/chrome-devtools/network#load)
 - Timeline View
@@ -271,7 +271,7 @@ The important parts of the the Network Tab is the
 >
 > Go to your favorite website and take a look at the Network tab. Can you work out what each (or any) of the requests are doing?
 >
-> Warning! There will be **alot** of requests made on complicated websites.
+> Warning! There will be **a lot** of requests made on complicated websites.
 
 #### Exercise - POST Requests
 
@@ -288,7 +288,7 @@ The important parts of the the Network Tab is the
 >
 > **Extra**
 >
-> 1. Did the `POST` requst succeed?
+> 1. Did the `POST` request succeed?
 > 2. Using the Details Panel, can you work out why?
 
 {% include "./homework.md" %}

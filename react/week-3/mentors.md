@@ -33,10 +33,16 @@ Emphasize that the rule likely knows best, so if it suggests adding a dependency
 - [Effects with prop updates (working)](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js)
 - [Fetch with loading state (on initial load)](https://codesandbox.io/s/fetch-with-loading-state-part-1-7bi9z?file=/src/FetchWithLoadingState.js)
 - [Fetch with loading state (between prop changes)](https://codesandbox.io/s/fetch-with-loading-state-part-2-dvu6k?file=/src/FetchWithLoadingState.js)
-<!-- TODO: add form examples here -->
+- [Controlled component](https://codesandbox.io/s/controlled-component-4jq1yqy8kx?file=/src/SimpleReminder.js)
+- [Controlled component with multiple fields](https://codesandbox.io/s/controlled-component-createaccountform-m7p083zn6p?file=/src/CreateAccountForm.js)
+- [Object spread operator](https://jsbin.com/suyekiwezu/edit?js,console)
+- [Object spread operator with overrides](https://jsbin.com/hiwuwobeza/edit?js,console)
+- [Computed property names](https://jsbin.com/jegerohati/edit?js,console)
 
 ### Exercise solutions
 
 - [`BestPokemonSelector` component](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/BestPokemonSelector.js) for copying into dependencies array exercise
 - [`BestPokemonSelector` exercise (starting point after copy/pasting)](https://codesandbox.io/s/bestpokemonselector-exercise-starting-point-yt3cw?file=/src/BestPokemonSelector.js)
 - [`BestPokemonSelector` exercise (completed)](https://codesandbox.io/s/bestpokemonselector-exercise-finishing-point-pcfwp?file=/src/BestPokemonSelector.js)
+- [`CaughtPokemon` exercise (starting point)](https://codesandbox.io/s/caughtpokemon-form-exercise-starting-point-t5wul?file=/src/CaughtPokemon.js)
+- [`CaughtPokemon` exercise (completed)](https://codesandbox.io/s/caughtpokemon-form-component-wx99d?file=/src/CaughtPokemon.js)

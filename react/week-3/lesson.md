@@ -339,140 +339,179 @@ function MartianImageFetcher(props) {
 
 Modern web applications often involve interacting with forms such as creating an account, adding a blog post or posting a comment. This would involve using inputs, buttons and various form elements and being able to get the values entered by users to do something with it (like display them on a page or send them in a POST request). So, how do we do this in React?
 
-A popular pattern for building forms and collect user data is the *controlled component* pattern. A pattern is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/4jq1yqy8kx)):
+A popular pattern for building forms and collect user data is the *controlled component* pattern. A *pattern* is a repeated solution to a problem that is useful in multiple similar cases. Let's have a look at an example ([interactive example](https://codesandbox.io/s/controlled-component-4jq1yqy8kx?file=/src/SimpleReminder.js)):
 
 ```js
-class SimpleReminder extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      reminder: ""
-    };
+function SimpleReminder() {
+  const [reminder, setReminder] = useState("");
+
+  function handleChange(event) {
+    setReminder(event.target.value);
   }
 
-  handleChange = event => {
-    this.setState({
-      reminder: event.target.value
-    });
-  };
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Some reminder"
+        value={reminder}
+        onChange={handleChange}
+      />
+      <p>Today I need to remember to... {reminder}</p>
+    </div>
+  );
+}
+```
 
-  render() {
-    return (
+We're controlling the `value` of the input by using the value from the `reminder` state. This means that we can only change the value by updating the state.
+
+It is done using the `onChange` attribute and the `handleChange` function which is called every time the input value changes (typically when a new character is added or removed).
+
+If we didn't call `setReminder` in the `handleChange` function, then the input's value would never change and it would appear as if you couldn't type in the input! Finally, the value we keep in the `reminder` state is displayed on the screen as today's reminder.
+
+In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `setReminder`, for example by calling `toUpperCase()` on the string.
+
+### Form with Multiple Fields
+
+Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/controlled-component-createaccountform-m7p083zn6p?file=/src/CreateAccountForm.js)):
+
+```js
+function CreateAccountForm() {
+  const [userData, setUserData] = useState({
+    username: "",
+    email: "",
+    password: ""
+  });
+
+  function handleChange(event) {
+    const updatedUserData = {
+      ...userData,
+      [event.target.name]: event.target.value
+    };
+
+    setUserData(updatedUserData);
+  }
+
+  function submit() {
+    console.log("Do something with the form values...");
+    console.log(`Username = ${userData.username}`);
+    console.log(`Email = ${userData.email}`);
+    console.log(`Password = ${userData.password}`);
+  }
+
+  return (
+    <div>
       <div>
         <input
           type="text"
-          placeholder="Some reminder"
-          value={this.state.reminder}
-          onChange={this.handleChange}
+          name="username"
+          placeholder="Username"
+          value={userData.username}
+          onChange={handleChange}
         />
-        <p>Today I need to remember to... {this.state.reminder}</p>
       </div>
-    );
-  }
+      <div>
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          value={userData.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={userData.password}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit" onClick={submit}>
+        Create account
+      </button>
+    </div>
+  );
 }
 ```
 
-We're controlling the `value` of the input by using the value from the `reminder` state. This means that we can only change the value by updating the state. It is done using the `onChange` attribute and the method `handleChange` which is called every time the input value changes (typically when a new character is added or removed). If you didn't call `this.setState()` in the `handleChange` method, then the input's value would never change and it would appear as if you couldn't type in the input! Finally, the value we keep in the `reminder` state is displayed on the screen as today's reminder. 
+We now have three different inputs named `username`, `email` and `password`, and we keep each entered value in state as a field in an object. The method `handleChange` is reused to keep track of changes for **all** the values. The trick here is to use the `name` of the `<input>` element to update the corresponding state.
 
-In addition, instead of just saving the value of the input in the state, we could have also transformed the string before we set it with `this.setState()`, for example by calling `toUpperCase()` on the string.
 
-Let's have a look at a more complex example where we want to build a form to let users enter information to create a personal account ([interactive example](https://codesandbox.io/s/m7p083zn6p)):
+#### Updating an Object in State
+
+Did you spot the strange syntax in `handleChange`?
+
+We are using [object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals) syntax, which copies properties from one object to another. We are using this to update the state object but without *mutating* the original object.
+
+Let's break this down into 2 steps. Here we create a **new** object based on another object, and **adding** a new property ([interactive example](https://jsbin.com/suyekiwezu/edit?js,console)):
 
 ```js
-class CreateAccountForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      email: "",
-      password: ""
-    };
-  }
+const sherlock = {
+  name: 'Sherlock Holmes',
+};
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
+const sherlockAfterMoving = {
+  ...sherlock,
+  address: '221b Baker Street'
+};
 
-  submit = () => {
-    console.log("Do something with the form values...");
-    console.log(`Username = ${this.state.username}`);
-    console.log(`Email = ${this.state.email}`);
-    console.log(`Password = ${this.state.password}`);
-  };
-
-  render() {
-    return (
-      <div>
-        <div>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </div>
-        <button type="submit" onClick={this.submit}>
-          Create account
-        </button>
-      </div>
-    );
-  }
-}
+console.log(sherlock);
+console.log(sherlockAfterMoving);
 ```
 
-We now have three different inputs named `username`, `email` and `password`, and we keep each entered value in a state with the same name. The method `handleChange` is reused to keep track of each change of value. The trick here is to use the name of the input element to update the corresponding state. Finally, when the user clicks on the submit button, the `submit` method is called to process the values. They are currently just displayed in the console but you could imagine validating the format of these values and sending them in a POST request.
+We can also *override* a property if the keys are the same ([interactive example](https://jsbin.com/hiwuwobeza/edit?js,console)):
 
-**Additional note:** Have you seen this strange syntax in the `setState` of `handleChange`? It's called a computed property name. In a Javascript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as: 
+```js
+const watson = {
+  name: 'John Watson',
+  address: '123 Fake Road'
+};
 
+const watsonAfterMoving = {
+  ...watson,
+  address: '221b Baker Street'
+};
+
+console.log(watson);
+console.log(watsonAfterMoving);
 ```
-const myFirstKey = "key1";
-const myFirstValue = "value1";
-const dynamicKeyObject = { [myFirstKey]: myFirstValue };
-console.log(dynamicKeyObject); // => { key1: "value1" }
+
+Notice how Watson "moves" from "123 Fake Road" to "221b Baker Street"? Because the `address` key is in both objects, the **second** one "wins" and overrides the other key.
+
+The second bit of new syntax (`[event.target.name]`) is called a *computed property name*. Inside a JavaScript object, you can use a variable wrapped in square brackets which acts as a dynamic key, such as ([interactive example](https://jsbin.com/jegerohati/edit?js,console)):
+
+```js
+const theKey = "hat";
+const theValue = "Deerstalker Cap"
+
+const sherlockClothes = {
+  [theKey]: theValue
+};
+
+console.log(sherlockClothes); // => { hat: "Deerstalker Cap" }
 ```
 
-> **Exercise D**
-> Open the `pokedex` React application again and open the `src/CaughtPokemon.js` file. In this exercise, instead of recording the number of caught Pokemons, we are going to record the names of each Pokemon you caught.
-> 1. Make sure the `CaughtPokemon` component is written as a class component
-> 2. Add an `<input>` in the `render` method before the `button` (hint: `<input type="text" />`)
-> 3. Add a `value` property to the `<input>` set to the state `pokemonNameInput`
-> 4. Initialize the state `pokemonNameInput` in the constructor to an empty string `''` (you can try to set something else than an empty string and verify that this value is correctly displayed in your input)
-> 5. Create a new `handleInputChange` method
-> 6. Add a `onChange` handler to the `<input>` that will call `this.handleInputChange`
-> 7. Add a parameter called `event` to the `handleInputChange` method and add a `console.log` with `event.target.value`. In your browser, try writting something in the `<input>`. What do you see in the JavaScript console?
-> 8. Use `setState` in `handleInputChange` to record `event.target.value` in the state `pokemonNameInput`. In your browser, try writting something in the `<input>`. What do you see this time in the JavaScript console?
-> 9. We are now going to save the user input when clicking on the `<button>`. Initialize `caughtPokemon` to an empty array `[]` instead of 0 in the `constructor`. In the `render`, use `.length` to display the number of items in the state array `caughtPokemon` (hint: it should still display `0` on the screen). Finally, delete the content of `catchPokemon` method (it should be empty, we will rewrite it later).
-> 10. In `catchPokemon` method, create a variable `newCaughtPokemon` set to the state `caughtPokemon` and add the value of the state `pokemonNameInput` to it (hint: use `push()` to add a new item in an array).
-> 11. In `catchPokemon` method, use `setState` to record the variable `newCaughtPokemon` in the state `caughtPokemon`. Open your browser, enter a pokemon name in the `<input>` and click on the button. Can you see the number of caught pokemon incrementing as you click on the button?
-> 12. We are now going to display the names of the caught pokemon. In the `render` method, add a `<ul>` element and use the `.map()` method on the `caughtPokemon` state to loop over each pokemon and return a `<li>` element for each.
-> 13. Empty the `<input>` after clicking on the button. For this, in `catchPokemon` method, set the state of `pokemonNameInput` to an empty string `''`.
-> 14: **(STRETCH GOAL)** Make sure the user cannot add a pokemon to the `caughtPokemon` state if the value of `pokemonNameInput` state is empty.
+We are combining all of the concepts above to make a new object, that has all the same properties as the `userData` object, except for the property that is computed from `event.target.name` for the key and `event.target.value` for the value.
 
-
-## Further Reading
-
-There is a new update to React, which adds a new feature called *Hooks*. It allows you to access the special super powers of state and lifecycle in regular function components. There is an extensive guide in the [official React tutorial](https://reactjs.org/docs/hooks-intro.html).
+| **Exercise D** |
+| :--- |
+| 1. Open the `pokedex` React application again and open the `src/CaughtPokemon.js` file. In this exercise, instead of recording the number of caught Pokemon, we are going to record the names of each Pokemon you caught. |
+| 2. Render an `<input>` before the `<button>` (hint: `<input type="text" />`). |
+| 3. Create a new state variable called `pokemonNameInput` and initialise to an empty string (`""`). |
+| 4. Add a `value` property to the `<input>` which passes the `pokemonNameInput` state variable. |
+| 5. Create a new `handleInputChange` function. |
+| 6. Add a `onChange` handler to the `<input>` that will call `handleInputChange`. |
+| 7. Add a parameter called `event` to the `handleInputChange` function and add a `console.log` with `event.target.value`. In your browser, try writing something in the `<input>`. What do you see in the JavaScript console? |
+| 8. Set the `pokemonNameInput` state variable to `event.target.value`. In your browser, try writing something in the `<input>`. What do you see? |
+| 9. We are now going to save the user input when clicking on the `<button>`. Change the `caughtPokemon` state variable so that it is initialised as an empty array `[]`. |
+| 10. There should now be a bug in your app! The number of caught Pokemon has gone! To fix it, change from rendering `caughtPokemon` to `caughtPokemon.length`. Why did this fix the bug? |
+| 11. We now need to change the `catchPokemon` function to add the `pokemonNameInput` state variable into the `caughtPokemon` array. (Hint: trying using the `.concat()` method, then calling `setCaughtPokemon`). |
+| 12. Open your browser, type a Pokemon name into the `<input>` and click on the "Catch Pokemon" button. Can you see the number of caught Pokemon incrementing as you click on the button? |
+| 13. Now we are going to display the names of the caught Pokemon. Instead of rendering `caughtPokemon.length`, create a `<ul>` element and use the `.map()` method on the `caughtPokemon` state variable to loop over each Pokemon and return a `<li>` element for each. |
+| 14. Empty the `<input>` after clicking on the button. To do this, set the state of `pokemonNameInput` to an empty string `""` after we have added it to the `caughtPokemon` array in the `catchPokemon` function. |
+| 14: **(STRETCH GOAL)** Make sure the user cannot add a Pokemon to the `caughtPokemon` state if the value of `pokemonNameInput` state is empty. |
 
 # Homework
 

@@ -10,13 +10,20 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
-## Contents
+## Intro to Node on Glitch
 
-- [What is a server?](#what-is-a-server)
-- [Node and its ecosystem](#node-and-its-ecosystem)
-- [HTTP](#http)
-- [Express](#express)
-- [Workshop](#workshop)
+### Exercise: Make your own node server (on glitch)
+
+```
+All students should "remix" this one for a simple start: https://glitch.com/~cyf-simple-express
+Have them it read and modify it to do something different.
+1. Login to Glitch and ‘remix’ this project and rename to be yours
+2. e.g. say "Hello Miles", instead of "Hello Kash"
+3. Make it return an array of strings as json.
+4. Make it return the current time
+5. Advanced: make it return whatever you want! 3 minutes.
+6. Live Code
+```
 
 ## Get Started
 
@@ -237,7 +244,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", function (req, res) {
-  res.send("Yay Node Girls!");
+  res.send("Yay Node!");
 });
 
 app.listen(3000, function () {
@@ -278,20 +285,20 @@ congratulations! You just sent your first response from the server.
 # Step 5 - Routing
 
 At the moment our server only does one thing. When it receives a request from
-the `/` endpoint, it sends back the same response: "Yay Node Girls!".
+the `/` endpoint, it sends back the same response: "Yay Node!".
 
-> Try typing http://localhost:3000/nodegirls and see what happens.
+> Try typing http://localhost:3000/node and see what happens.
 
 However by making use of endpoints, we can make the server send different
 responses for different requests. This concept is called **routing**.
 
-### What is an endpoint?
+## What is an endpoint?
 
 An endpoint is the part of the URL which comes after `/`. For example:
 `/chocolate` is the "chocolate" endpoint. It's the URL to which you send a
 request.
 
-### What is URL?
+## What is URL?
 
 ![alt text](../assets/http1-url-structure.png)
 
@@ -314,173 +321,7 @@ app.get("/chocolate", function (req, res) {
 ```
 
 > **Exercise:** Add some code so that your server sends one message when the
-> endpoint is `/node` and another one when it's `/girls`.
-
-# Step 6 - Let us build an API
-
-**API** stands for Application Programming Interface.
-
-Read this description of what an API from [How To Geek](https://www.howtogeek.com/343877/what-is-an-api/).
-
-> Think of an API like a menu in a restaurant. The menu provides a list of dishes you can order, along with a description of each dish. When you specify what menu items you want, the restaurant’s kitchen does the work and provides you with some finished dishes. You don’t know exactly how the restaurant prepares that food, and you don’t really need to.
-> Similarly, an API lists a bunch of operations that developers can use, along with a description of what they do. The developer doesn’t necessarily need to know how, for example, an operating system builds and presents a “Save As” dialog box. They just need to know that it’s available for use in their app.
-
-An API does not have to be web-based. But in our work, since we are doing web development, we will work only with web based APIs, so you might as well hear the word **Web Service**, and we will communicate with those services using the protocol for Web: **HTTP**.
-
-> **Checkpoint:** Let us recap what we know about HTTP before continuing.
-
-## CRUD
-
-So what will we build? we will build a **CRUD** API. CRUD stands for Create, Retrieve, Update, Delete. If you think about it, this is what most applications do: Create some "resources", retrieve them (GET them), Update them or Delete them.
-
-Our **API** will manage Beyonce albums: Create a new album, retrieve a list of albums or a single album, update an existing album's information, or delete one.
-
-## Endpoints for Beyonce Songs
-
-We will build an API to manage Beyone albums. We will build these endpoints:
-
-`GET /albums` should return all the albums
-`GET /albums/:albumId` should return a single album (that matches the passed albumId)
-`POST /albums` should save a new album
-`PUT /albums/:albumId` should update the album (that matches the passed albumId)
-`DELETE /albums/:albumId` should delete the album (that matches the passed albumId)
-
-## GET /Albums
-
-1.  In `server.js` Add the endpoint for `GET /albums`.
-
-```js
-const albumsData = [
-  {
-    albumId: "10",
-    artistName: "Beyoncé",
-    collectionName: "Lemonade",
-    artworkUrl100:
-      "http://is1.mzstatic.com/image/thumb/Music20/v4/23/c1/9e/23c19e53-783f-ae47-7212-03cc9998bd84/source/100x100bb.jpg",
-    releaseDate: "2016-04-25T07:00:00Z",
-    primaryGenreName: "Pop",
-    url:
-      "https://www.youtube.com/embed/PeonBmeFR8o?rel=0&amp;controls=0&amp;showinfo=0",
-  },
-  {
-    albumId: "11",
-    artistName: "Beyoncé",
-    collectionName: "Dangerously In Love",
-    artworkUrl100:
-      "http://is1.mzstatic.com/image/thumb/Music/v4/18/93/6d/18936d85-8f6b-7597-87ef-62c4c5211298/source/100x100bb.jpg",
-    releaseDate: "2003-06-24T07:00:00Z",
-    primaryGenreName: "Pop",
-    url:
-      "https://www.youtube.com/embed/ViwtNLUqkMY?rel=0&amp;controls=0&amp;showinfo=0",
-  },
-];
-
-app.get("/albums", function (req, res) {
-  res.send(albumsData);
-});
-```
-
-2.  Test the endpoint with Postman. `GET /songs` should return a JSON reply with the array we specified.
-
-3.  Add another item to the array and test that the `GET /songs` returns three items. (Remember you need to close the server `ctrl+c` and run it again `node server.js`)
-
-# Step 7: GET /albums/:albumId
-
-Sometimes, we do not want to _list_ all the information in one request, maybe we only want to get the information related to a single album. Imagine if we have a page to display the details of one album, we could call the server and get all albums then filter the one we need _client-side_, but would it not be more effective to tell the server to just return the one album we are interested in?
-
-Let us add a new endpoint to return only a single album `GET /albums/:albumId`. In this case, _albumId_ will tell us what album we can return so the call will be something like `GET /albums/10` and that will return the album with that has _albumId_ 10 ()
-
-This endpoint has something different. The endpoint `/albums/:albumId` has a _dynamic_ part, the _albumId_ will vary depending on what the client send. If we call `/albums/12` then albumId is 12, if we call `/albums/10` then we will return the album with albumId 10 and so on.
-
-How can we achieve that using `express` - `req.params` will have the value of
-
-```js
-app.get("/albums/:albumId", function (req, res) {
-  // req.params.albumId will match the value in the url after /albums/
-  console.log(req.params.albumId);
-  // now we can use the value for req.params.albumId to find the album requested
-  // how do we "find" something in an array
-
-  // finish the code yourself - it should end with res.send(album) where album is the single album you found  based on the id
-});
-```
-
-## Step 7.1 - Install nodemon
-
-It is a bit annoying that we have to _kill_ and _restart_ our server every time we want to test our changes. There is a handy **npm package** that can help us with that task.
-
-`npm install --save-dev nodemon`
-
-Make sure the package is added to your _package.json_, add this line to the script:
-
-```js
-scripts: {
-  start: "node server.js",
-  dev: 'nodemon server.js'
-}
-```
-
-now from your terminal, use the command `npm run dev` and that will run the _server_ with `nodemon` which is a package that makes the server listen to code changes and automatically restart.
-
-# Step 8: Add a new album
-
-> Our analogy with the Restaurant menu is somewhat incomplete. In a restaurant, we only GET items from the menu. In the world of APIs, we also have the possibility to create items, we can provide _ingredients_ to create a new dish. In this case, we provide some data (a payload) and we use a different verb **POST** (Create) as opposed to GET.
-
-`POST /albums` should save a new album and return `200` with JSON `{ success: true }` to the user.
-
-```js
-// notice .post (not .get)
-app.post("/albums", function (req, res) {
-  console.log("POST /albums route");
-});
-```
-
-Let's start by testing using Postman. Do a `POST` request to the endpoint and make sure it prints the console.log message we have added.
-
-> In Postman, change the request `method` to `POST` instead of `GET` and test our endpoint. It should log the message to the terminal but the request will hang because we did not end it, i.e. we did not say `res.send(something)` > ![](../assets/postman-post-method.png)
-
-So what format does the client send the data with? It is up to us, but since we already are familiar with `json`, let us use it.
-
-In order for our _server-side_ to receive and use the data sent by the client. We will need to install and use a **middleware**.
-
-> Middleware: We will cover middleware in more details in the next class. For now, imagine them piece of code that process a request and pass them to the next middleware until one of them returns a response (with `res.send` for example)
-
-[Express Body Parser](https://github.com/expressjs/body-parser#examples) makes it easier for our _endpoints_ to receive and understand different formats of data.
-
-First install the package: `npm install body-parser --save`
-
-```js
-const bodyParser = require("body-parser");
-
-app.use(bodyParser.json()); // before our routes definition
-```
-
-Now we will receive the data as `req.body`.
-
-```js
-app.post("/albums", function (req, res) {
-  console.log("POST /albums route");
-  console.log(req.body);
-});
-```
-
-> Exercise: Use Postman to `POST` this data to `/albums` endpoint.
-
-![](../assets/postman-post.png)
-
-```json
-{
-  "albumId": "13",
-  "artistName": "Beyoncé",
-  "collectionName": "B'Day (Deluxe Edition)",
-  "artworkUrl100": "http://is5.mzstatic.com/image/thumb/Music/v4/6c/fc/6a/6cfc6a13-0633-f96b-9d72-cf56774beb4b/source/100x100bb.jpg",
-  "releaseDate": "2007-05-29T07:00:00Z",
-  "primaryGenreName": "Pop",
-  "url": "https://www.youtube.com/embed/RQ9BWndKEgs?rel=0&amp;controls=0&amp;showinfo=0"
-}
-```
-
-> Finish the code for the route `POST /albums` to add the album data to the albums list (how to amend to an array?)
+> endpoint is `/node` and another one when it's `/codeyourfuture`.
 
 {% include "./homework.md" %}
 {% include "../../others/escalation-policy.md" %}

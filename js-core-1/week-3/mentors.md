@@ -4,8 +4,6 @@
 
 - [Week 3 - JS Core 1 [Google Slides] - 01/05/2020](https://drive.google.com/open?id=1q98KUoX5QQoFEDUl52hLxOnWkoCi2vGrehHjBBEnfdI)
   - Created by Manchester Volunteers
-- [Arrays of Objects [Google Slides] - 04/06/2020](https://docs.google.com/presentation/d/1lM7ob_J99zr307zVXjNRqtuPDtby_rw6FS8QuQBPwjY/edit)
-  - Created by Scotland Volunteers
 
 ## Resources
 

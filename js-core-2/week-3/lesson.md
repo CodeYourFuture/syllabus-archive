@@ -73,6 +73,17 @@ setTimeout(function () {
 console.log("Third action");
 ```
 
+### Exercise (1)
+```js
+const greekGods = ['Aphrodite', 'Ares', 'Artemis', 'Athena', 'Poseidon', 'Zeus'];
+
+// before running the code in your browser, discuss the expected order of each loop
+
+// synchronous - loop through the array of greek gods and print the index numbers and values to the console, e.g. '1. Ares'
+
+// asynchronous - same as before but the index and the value of the god at position 2 in array should be printed after 2 seconds. Use: setTimeout()
+```
+
 ### The Callstack
 
 How does JavaScript 'know' what order its code should be run in?
@@ -163,7 +174,7 @@ function myCallbackFunction() {
 mainFunction(myCallbackFunction);
 ```
 
-#### Exercise (1)
+#### Exercise (2)
 
 > - Using setTimeout, change the background colour of the page after 5 seconds (5000 milliseconds).
 > - Update your code to make the colour change _every_ 5 seconds to something different. Hint: try searching for `setInterval`.
@@ -172,7 +183,7 @@ mainFunction(myCallbackFunction);
 >
 > Complete the exercises in this [CodePen](https://codepen.io/makanti/pen/abOreLg?editors=1011)
 
-#### Exercise (2)
+#### Exercise (3)
 
 > Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/MWwMgmW?editors)
 >
@@ -225,7 +236,7 @@ You can view it by `Right Click` > `Inspect` > `Network`.
 
 Take some time to look at the network tab when we open [this lesson](https://syllabus.codeyourfuture.io/js-core-2/week-3/lesson.html)/
 
-The important parts of the the Network Tab is the
+The important parts of the the Network Tab are:
 
 - [Network Log](https://developers.google.com/web/tools/chrome-devtools/network#load)
 - Timeline View
@@ -260,7 +271,7 @@ The important parts of the the Network Tab is the
 >
 > Go to your favorite website and take a look at the Network tab. Can you work out what each (or any) of the requests are doing?
 >
-> Warning! There will be **alot** of requests made on complicated websites.
+> Warning! There will be **a lot** of requests made on complicated websites.
 
 #### Exercise - POST Requests
 
@@ -277,7 +288,7 @@ The important parts of the the Network Tab is the
 >
 > **Extra**
 >
-> 1. Did the `POST` requst succeed?
+> 1. Did the `POST` request succeed?
 > 2. Using the Details Panel, can you work out why?
 
 {% include "./homework.md" %}

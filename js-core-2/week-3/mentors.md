@@ -11,6 +11,15 @@
 
 ## Notes
 
+### Exercise - Synchronous vs Asynchronous
+
+The aim of this exercise is to enable students to define the difference between synchronous and asynchronous code.This should be run in small groups and TAs should make sure that there's a dicussion about the order of the expected results.
+
+The main messages to be delivered here are:
+1. In *synchronous* programmes, if you have two lines of code (L1 followed by L2), then L2 cannot begin running until L1 has finished executing. You can imagine this as if you are in a line of people waiting to buy train tickets. You can't begin to buy a train ticket until all the people in front of you have finished buying theirs. Similarly, the people behind you can't start buying their tickets until you have bought yours.
+
+2. In *asynchronous* programmes, you can have two lines of code (L1 followed by L2), where L1 schedules some task to be run in the future, but L2 runs before L1's task completes. Picture eating at a sit-down restaurant. Other people order their food. You can also order your food. You don't have to wait for them to receive their food and finish eating before you order. Similarly, other people don't have to wait for you to get your food and finish eating before they can order. Everybody will get their food as soon as it is finished cooking.
+
 ### The Network Tab
 
 The most important part of the Network Tab to explain is the relationship between the HTML file and the requests that are subsequently made.

@@ -32,8 +32,8 @@ By the end of this lesson students should be able to:
 - Write code that is able to pass a function to another function as a parameter and run it
 - Use callbacks to run code at some point in the future
 - Define a client's and server's role in the client/server architecture
-- Understand the difference between a GET and POST request
-- Understand how resources are loaded on the internet using GET and POST
+- Describe the difference between a GET and POST request
+- Explain how resources are loaded on the internet using GET and POST
 - List the steps that a browser does when loading a website from the internet
 
 ---
@@ -183,6 +183,18 @@ mainFunction(myCallbackFunction);
 >
 > Complete the exercises in this [CodePen](https://codepen.io/makanti/pen/abOreLg?editors=1011)
 
+#### Exercise (2)
+
+> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/MWwMgmW?editors)
+>
+> - You are given a list of movie objects to work with<br/>
+> - Use setTimeout to imitate that some actions take time
+> - Remember that setTimeout behaves asynchronously
+>
+> All set, go! Work on the tasks given. Your result html will look like this:
+>
+> <img alt="preview-exercise-2-result" src="https://i.imgur.com/wbrtLNL.png" width="500">
+
 ## How does the web work?
 
 ### Client/Server architecture
@@ -214,19 +226,71 @@ There are two main types of requests: **GET** and **POST**.
 | GET          | Ask for a specified resource (e.g. show me that photo) |
 | POST         |     Send content to the server (e.g. post a photo)     |
 
-HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other laguages as well.
+HTTP is the language of the internet. In our case we're using Javascript, but you can send HTTP requests with other languages as well.
 
-#### Exercise (3)
+=======
+### The Network Tab
 
-> Complete the exercises in this [CodePen](https://codepen.io/textbook/pen/MWwMgmW?editors)
+The network tab is a useful tool that helps us understand how content is loaded on a website.
+
+You can view it by `Right Click` > `Inspect` > `Network`.
+
+Take some time to look at the network tab when we open [this lesson](https://syllabus.codeyourfuture.io/js-core-2/week-3/lesson.html)/
+
+The important parts of the the Network Tab is the
+
+- [Network Log](https://developers.google.com/web/tools/chrome-devtools/network#load)
+- Timeline View
+- [Resource Details](https://developers.google.com/web/tools/chrome-devtools/network#details)
+
+#### Exercise - GET Requests
+
+> Let's take a look at GET requests in the Browser.
 >
-> - You are given a list of movie objects to work with<br/>
-> - Use setTimeout to imitate that some actions take time
-> - Remember that setTimeout behaves asynchronously
+> Look at this repository here:
 >
-> All set, go! Work on the tasks given. Your result html will look like this:
+> - https://github.com/CodeYourFuture/Network-Tab-Example
 >
-> <img alt="preview-exercise-2-result" src="https://i.imgur.com/wbrtLNL.png" width="500">
+> In your groups, you should try to work out what you expect to see in the Network tab when we look at it. You should create a list of the requests that will be made in this format.
+>
+> **You are not allowed to open the website in a browser**
+>
+> e.g.
+>
+> 1. GET index.html
+> 2. GET format.de
+> 3. GET otherfile.se
+> 4. ...
+>
+> When you have completed the list you should share it on Slack
+>
+> You can see the website online here
+>
+> - https://codeyourfuture.github.io/Network-Tab-Example/
+>
+> **Extra**
+>
+> Go to your favorite website and take a look at the Network tab. Can you work out what each (or any) of the requests are doing?
+>
+> Warning! There will be **alot** of requests made on complicated websites.
+
+#### Exercise - POST Requests
+
+> Let's take a look at POST requests in the Browser.
+>
+> You can see the website online here
+>
+> - https://codeyourfuture.github.io/Network-Tab-Example/
+>
+> At the bottom of the page you will see a series of buttons. When you click a button on the website it will send a POST request to a server.
+>
+> 1. **Using only the Network tab** work out which button is sending a post request.
+> 2. What is in the `body` of the post request?
+>
+> **Extra**
+>
+> 1. Did the `POST` requst succeed?
+> 2. Using the Details Panel, can you work out why?
 
 {% include "./homework.md" %}
 

@@ -5,7 +5,10 @@
 - [Quiz - React Module - 28/04/2019](https://github.com/CodeYourFuture/react-quiz)
   - Created by London and Ali Smith
 
-{% include "./learning-objectives.md" %}
+## Solutions
+
+- [PokeDex In-Class - Exercise Solution](https://github.com/CodeYourFuture/pokedex-solution)
+  - Created by London and Ali Smith
 
 ## Notes for mentors
 

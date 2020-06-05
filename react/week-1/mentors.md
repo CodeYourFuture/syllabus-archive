@@ -7,7 +7,10 @@
 - [Video - Job Listing Homework Introduction - 29/05/2020](https://youtu.be/-wLrSkSABzQ)
   - Created by Subhav Gautam
 
-{% include "./learning-objectives.md" %}
+## Solutions
+
+- [PokeDex In-Class - Exercise Solution](https://github.com/CodeYourFuture/pokedex-solution)
+  - Created by London and Ali Smith
 
 ## Notes for mentors
 

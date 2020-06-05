@@ -5,9 +5,12 @@
 - [Quiz - React Week 2 - 28/05/2020](https://docs.google.com/forms/d/e/1FAIpQLSf3NisqE5bfJyMXm41W_kW9oSLQVUfaatvHS-gNTh-QXbjWJQ/viewform)
   - Created by Chris Owen
 
-{% include "./learning-objectives.md" %}
+## Solutions
 
-## Notes for mentors
+- [PokeDex In-Class - Exercise Solution](https://github.com/CodeYourFuture/pokedex-solution)
+  - Created by London and Ali Smith
+
+## Notes for Mentors
 
 ### Handling Events
 

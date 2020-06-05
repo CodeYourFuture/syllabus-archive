@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/status-review-orange.svg)
-
 # Node - Week 1
 
 ---
@@ -10,7 +8,90 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
+## Learning Objectives
+
+By the end of this lesson students should be able to:
+
+- Define what an API is used for
+- Use Glitch to deploy and edit `express` servers
+- Use `npm` to start a node server
+- Explain what `express` is and what it is used for
+- Use `express` to create an API that will accept a `GET` request that returns JSON
+- Implement routing to return different resources depending on URL
+  // - Implement query params to return different content (?query=ses)
+
+---
+
+## API Refresh (20 Minutes)
+
+```
+Group exercise (5 minutes)
+
+Exercise: Discuss known APIs
+
+1. Groups discuss any APIs they know about.
+2. What might you do with it?
+3. Announce answers to class.
+```
+
+Before we make our own API, let's look at and use some other APIs.
+
+Here's an example API that shows us the Sunrise and Sunset times of everywhere in the world.
+
+- [Root](https://sunrise-sunset.org/api)
+  - https://sunrise-sunset.org/api
+- [Example: Sunset time in Bethnal Green](https://api.sunrise-sunset.org/json?lat=51.5311&lng=0.0481)
+  - https://api.sunrise-sunset.org/json?lat=51.5311&lng=0.0481
+
+Next let's try an exercise
+
+```
+Group exercise 5 minutes: experiment with existing APIs
+
+Pick a couple of these and experiment with them, modify the requests, report your findings.
+- http://www.tvmaze.com/api
+  - e.g. http://api.tvmaze.com/shows/82/episodes
+- Sunrise/Sunset times: https://sunrise-sunset.org/api
+  - e.g. Sunset in Bethnal Green: https://api.sunrise-sunset.org/json?lat=51.5311&lng=0.0481
+- Google Books API: https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699
+- Star Wars API: https://swapi.co/
+  - e.g.https://swapi.co/api/people/1/
+- UK Police Data. https://data.police.uk/docs/
+  - e.g. street-level crimes, Old Street, London: https://data.police.uk/api/crimes-street/all-crime?lat=51.5268&lng=0.0866
+- iTunes Search API: https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
+  - e.g. All Beyonce's music videos: https://itunes.apple.com/search?term=beyonce&entity=musicVideo
+- CYF resource-library https://resource-library.codeyourfuture.io/api/resources
+- (Difficult) Wikipedia API: https://en.wikipedia.org/w/api.php?
+```
+
+So what's the big deal? I can see this information on web sites already!
+
+What's an API and how is it different from a web site?
+
 ## Intro to Node on Glitch
+
+## Running a very simple web-server
+
+Run the simplest web server code.
+
+We've made a really simple server about cats. You can check it out here:
+
+- [Source](https://glitch.com/~cyfcats)
+- [Live](https://cyfcats.glitch.me/)
+
+Let's inspect the different parts of the Node App and how Express works. Let's discuss
+
+- `require` on Line 1
+- `express()` on Line 2
+- `app.get()` on Line 10
+- `app.listen()` on Line 15
+- `response.sendFile()` on Line 6 and Line 7
+  ******\_\_\_\_******// Can we add a sendText or sendJson path?********\_\_\_\_********
+
+Can we work out what each those lines are doing?
+
+Now let's make a server ourselves from scratch.......
+//TODO Make server in-class worked example
 
 ### Exercise: Make your own node server (on glitch)
 
@@ -22,16 +103,15 @@ Have them it read and modify it to do something different.
 3. Make it return an array of strings as json.
 4. Make it return the current time
 5. Advanced: make it return whatever you want! 3 minutes.
-6. Live Code
 ```
+
+# Make a Node API
 
 ## Get Started
 
-Fork and clone the repo [https://github.com/CodeYourFuture/node-api-workshop](https://github.com/CodeYourFuture/node-api-workshop).
+Fork and clone the repo [https://github.com/CodeYourFuture/Node-Starter-Kit](https://github.com/CodeYourFuture/Node-Starter-Kit).
 
-It is an empty project that only includes a `.gitignore` file.
-
-> `.gitignore` will tell Git to ignore certain files or folders and not commit them to the repository.
+It is an empty project that includes all the details you need to get started building your first Node App.
 
 ### Download Postman
 
@@ -39,77 +119,24 @@ Postman is a tool that helps us test and develop APIs.
 
 > Download and install [Postman](https://www.getpostman.com/).
 
-# Step 1 - Setting up your project
+# Step 1 - Installing The Project
 
-When creating a Node.js project, you will be installing a lot of different _packages_ along the way. Packages contain code written by someone else that we can use out of the box. They provide a service for us. For example, we can install a package to talk to a database, send emails, draw graphics... anything!
-
-When you want to share your project with others, you need to have a list of the packages you installed, so that other people can install the same packages.
-
-In Node.js, this 'list' lives in a file named `package.json`. The packages you've installed are referred to as **dependencies**. Creating this file is the first step in setting up your Node.js project.
-
-## 1. Make a `package.json` file
-
-Let's start by creating the `package.json` file. We can add things to it as the project grows. The `package.json` file is easy to create from the command line.
-
-Type the following command into your terminal to get started:
-
-```sh
-$ npm init
-```
-
-This command will initialise a step-by-step process for creating a `package.json` file. You should see something like this:
-
-![starting npm init](https://raw.githubusercontent.com/node-girls/workshop-cms/master/readme-images/step1-npm-init01.png)
-
-It will ask you a bunch of questions.
-
-> You can skip most of the questions but change the `entry point` from
-> `(index.js)` to `server.js`.
-
-> The wizard asks you for the following information: `name`, `version`,
-> `description`, `main`, `test`, `repository`, `keywords`, `author`, `license` -
-> do you understand all of them?
-
-At the end of the wizard, you should see a new file called `package.json` in
-your project's folder.
-
-Here is an example `package.json` file for a project called
-[Passport](https://github.com/jaredhanson/passport/blob/master/package.json).
-
-### What is JSON?
-
-- JSON is a file format for saving data in a readable way
-- It is a really popular format for sending data across the web
-- JSON is a string representation of a Javascript object
-- JSON objects convert really easily to Javascript objects, and vice versa, with `JSON.parse()` and `JSON.stringify()`
-
-# Step 2 - Installing Express
-
-Before we write any code, you'll need to install the Express library. We're
-going to use the **[Node Package Manager (npm)](https://www.npmjs.com/)** to
-download it using the **`npm install`** command.
+We're going to use the **[Node Package Manager (npm)](https://www.npmjs.com/)** to
+setup the project using the **`npm install`** command.
 
 NPM is the place to go to download other Node code written by other people.
 There are thousands of open-source, 3rd-party Node modules (also known as
 _packages_) written by other people that you can download and use in your own projects.
 
-As we install Express, we'll need to update the `package.json` to add Express as
-a dependency. We do this so that other people working on the project will be able
-to install Express before running any of the code. This can be done by adding
-**`--save`** to the end of your command.
-
 Run the following command in your terminal:
 
 ```sh
-npm install express --save
+npm install
 ```
-
-Express should now be installed. Check your `package.json` file to make sure it
-has been added as a dependency. It will look like this:
 
 ![package.json screenshot](../assets/package.png)
 
-# Step 3 - Building the server
+# Step 2 - Building the server
 
 The first thing we need to do is build our server. You will always need to build
 a server when writing back-end code. A server can be built in pure Node.js, but
@@ -198,12 +225,12 @@ Under the `scripts` property, add `start: node server.js`. We can now run our se
 
 Go to the terminal and type `npm start` and make sure that the server still runs.
 
-# Step 4 - Communicating with the server
+# Step 3 - Communicating with the server
 
 Now that we've built the server, we need to communicate with it. We are going to
 control the server with **handler functions**.
 
-### What is a handler function?
+## What is a handler function?
 
 When a request reaches the server, we need a way of responding to it. In comes
 the handler function. The handler function is just a function which receives
@@ -282,7 +309,7 @@ congratulations! You just sent your first response from the server.
 > function. Restart your server, send the request again with Postman, then go to your terminal
 > to see what it looks like. You should see a lot of data come through.
 
-# Step 5 - Routing
+# Step 4 - Routing
 
 At the moment our server only does one thing. When it receives a request from
 the `/` endpoint, it sends back the same response: "Yay Node!".

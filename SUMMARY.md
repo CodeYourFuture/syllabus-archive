@@ -42,7 +42,7 @@
 ## Workshops
 
 - [Deploying Code Workshop](/others/deployment/1-for-html-module/workshop-1-basic-automatic-deployment-with-netlify-mentor-notes.md)
-- [Express Workshop](/node/week-1/workshop.md)
+- [Express Workshop](/node/workshop.md)
 - [Hotel Workshop](/node/week-3/workshop.md)
 - [AWS & DynamoDB Workshop](/others/aws-workshop-2.md)
 - [Github Desktop Workshop](/others/git-desktop-workshop.md)

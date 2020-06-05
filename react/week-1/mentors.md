@@ -9,7 +9,7 @@
 
 ## Solutions
 
-- [PokeDex In-Class - Exercise Solution](https://github.com/CodeYourFuture/pokedex-solution)
+- [PokeDex In-Class - Exercise Solution - 05/06/2020](https://github.com/CodeYourFuture/pokedex-solution)
   - Created by London and Ali Smith
 
 ## Notes for mentors

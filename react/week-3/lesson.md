@@ -265,7 +265,7 @@ Now when the `date` prop changes, React knows that the effect must be run again,
 
 To help you understand this better, try "playing computer" again, but this time think about what happens when we use `[props.date]` for the dependencies argument. Think carefully about what changes with step 6 after we click the 2020 button.
 
-| **Exercise** |
+| **Exercise C** |
 | :--- |
 | 1. Open the `pokedex` React application from last week and open the `src/BestPokemon.js` file. |
 | 2. Copy the `BestPokemonSelector` component from [this CodeSandbox](https://codesandbox.io/s/bestpokemonselector-component-mdz0o?file=/src/BestPokemonSelector.js). Then paste it into `src/BestPokemon.js`. |
@@ -288,7 +288,7 @@ If you see a red squiggly line underneath your `useEffect` dependencies array, y
 
 ### Loading state
 
-| **Exercise A** |
+| **Exercise D** |
 | :--- |
 | 1. Open [this CodeSandbox](https://codesandbox.io/s/fetch-with-prop-updates-working-64vw3?file=/src/App.js). |
 | 2. Click the "Fetch image for 2019" button and wait for the image to load. |
@@ -328,7 +328,7 @@ function MartianImageFetcher(props) {
 }
 ```
 
-| **Exercise B** |
+| **Exercise E** |
 | :--- |
 | 1. Open the `pokedex` React application again and open the `src/BestPokemon.js` file. |
 | 2. In the `BestPokemonFetcher` component, instead of returning `null` if there is no `pokemon`, return `"Loading..."`. |
@@ -495,7 +495,7 @@ console.log(sherlockClothes); // => { hat: "Deerstalker Cap" }
 
 We are combining all of the concepts above to make a new object, that has all the same properties as the `userData` object, except for the property that is computed from `event.target.name` for the key and `event.target.value` for the value.
 
-| **Exercise D** |
+| **Exercise F** |
 | :--- |
 | 1. Open the `pokedex` React application again and open the `src/CaughtPokemon.js` file. In this exercise, instead of recording the number of caught Pokemon, we are going to record the names of each Pokemon you caught. |
 | 2. Render an `<input>` before the `<button>` (hint: `<input type="text" />`). |

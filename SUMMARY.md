@@ -28,7 +28,7 @@
   - [Class components (optional)](/react/classes-optional/lesson.md)
 - [Node](/node/index.md)
   - [Week 1 - Node and Express 101](/node/week-1/lesson.md)
-  - [Week 2 - Middleware, Templating and APIs](/node/week-2/lesson.md)
+  - [Week 2 - Express and CRUD](/node/week-2/lesson.md)
   - [Week 3 - Advanced Node](/node/week-3/lesson.md)
 - [Databases](/db/index.md)
   - [Week 1 - Introduction to SQL](/db/week-1/lesson.md)

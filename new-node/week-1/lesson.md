@@ -18,7 +18,7 @@ By the end of this lesson students should be able to:
 - Explain what `express` is and what it is used for
 - Use `express` to create an API that will accept a `GET` request that returns JSON
 - Implement routing to return different resources depending on URL
-  // - Implement query params to return different content (?query=ses)
+- Implement query params to return different content (?query=ses)
 
 ---
 
@@ -86,12 +86,20 @@ Let's inspect the different parts of the Node App and how Express works. Let's d
 - `app.get()` on Line 10
 - `app.listen()` on Line 15
 - `response.sendFile()` on Line 6 and Line 7
-  ******\_\_\_\_******// Can we add a sendText or sendJson path?********\_\_\_\_********
 
 Can we work out what each those lines are doing?
 
+> In-Class Exercise
+>
+> As a class - try to make a simple express server.
+>
+> You can pick any theme you like but maybe try
+>
+> - The class' favorite foods
+> - The class' favorite songs
+> - or get ideas from the class!
+
 Now let's make a server ourselves from scratch.......
-//TODO Make server in-class worked example
 
 ### Exercise: Make your own node server (on glitch)
 
@@ -106,6 +114,10 @@ Have them it read and modify it to do something different.
 ```
 
 # Make a Node API
+
+The rest of today's lesson is a workshop.
+
+In small groups complete each of the steps below. At different points, the teacher will introduce new concepts.
 
 ## Get Started
 
@@ -349,6 +361,38 @@ app.get("/chocolate", function (req, res) {
 
 > **Exercise:** Add some code so that your server sends one message when the
 > endpoint is `/node` and another one when it's `/codeyourfuture`.
+
+# Step 5 - Query Parameters
+
+So, what is a query parameter?
+
+In simple terms, a query string is the part of a URL (Uniform Resource Locater) after the question mark (?). It is meant to send small amounts of information to the server via the url. This information is usually used as parameters to query a database, or maybe to filter results. It's really up to you what they're used for.
+
+Here is an example of a URL with query strings attached:
+
+> https://stackabuse.com/?page=2&limit=3
+
+## 1. Detect Query Parameters
+
+We're going to try sending different responses at different endpoints. Remember
+the `app.get()` method? To set up routing in your server, we just need to repeat
+this method with different endpoints.
+
+For example:
+
+```js
+app.get("/", function (req, res) {
+  let searchQuery = req.query.search;
+  res.send("Hello World! You searched for " + searchQuery);
+});
+```
+
+> **Exercise:** Add some code so that your server returns the amount of chocolate that you
+> want from `/chocolate` endpoint. For example
+>
+> http://localhost:3000/chocolate?amount=3
+>
+> Should return "Mm 3 chocolates :O"
 
 {% include "./homework.md" %}
 {% include "../../others/escalation-policy.md" %}

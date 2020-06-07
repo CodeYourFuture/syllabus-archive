@@ -10,7 +10,19 @@ Read the Mentors Notes [here](./mentors.md)
 
 ---
 
-# Let us build an API
+## Learning Objectives
+
+By the end of this lesson students should be able to:
+
+- Define what each part of CRUD is and what it does
+- Process a GET request using Express and Node to retrieve data from memory
+- Process a POST request using Express and Node and store data in memory
+- Process a DELETE request using Express and Node to remove data from memory
+- Install a third party library using `npm`
+
+---
+
+# Let's build an API
 
 **API** stands for Application Programming Interface.
 

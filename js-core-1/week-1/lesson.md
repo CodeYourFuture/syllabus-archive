@@ -38,8 +38,6 @@ By the end of this class, you should be able to:
 
 ---
 
-> Please make sure you've forked [the js-exercises repo](https://github.com/CodeYourFuture/js-exercises) at the start of the class. This is the repo we will use during the class, and for homework.
-
 ## Prerequisites
 
 1. Access to a Linux console (either on Mac, Ubuntu or by using Ubuntu WSL for Windows 10)

@@ -27,7 +27,7 @@
   - [Routing (optional)](/react/week-4/lesson.md)
 - [Node](/node/index.md)
   - [Week 16 - Node and Express 101](/node/week-1/lesson.md)
-  - [Week 17 - Middleware, Templating and APIs](/node/week-2/lesson.md)
+  - [Week 17 - CRUD with Express](/node/week-2/lesson.md)
   - [Week 18 - Advanced Node](/node/week-3/lesson.md)
 - [Databases](/db/index.md)
   - [Week 19 - Introduction to SQL](/db/week-1/lesson.md)

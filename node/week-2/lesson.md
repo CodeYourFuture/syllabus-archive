@@ -22,7 +22,72 @@ By the end of this lesson students should be able to:
 
 ---
 
-# Let's build an API
+## CRUD
+
+So what will we build? we will build a **CRUD** API. CRUD stands for Create, Retrieve, Update, Delete. If you think about it, this is what most applications do:
+
+- Create some "resources"
+- Retrieve them (GET them)
+- Update them
+- Delete them
+
+Below are three in-class exercises which can be used to demonstrate parts of the API workshop below.
+
+## (1) Get Exercise
+
+This is an in-class exercise which can be used to show how we might retrieve an element by ID using a GET request.
+
+### Objective
+
+Change a quote API server to allow GETting a quote according to the given ID.
+
+The id should be given in the URL structure like this:
+
+> /quotes/2
+
+You should use the starting project: [cyf-quotes-id-start](https://glitch.com/~cyf-quotes-id-start). This is because this project has quotes with IDs.
+
+When you remix the starting project, immediately rename it as your own.
+
+## (2) Post Exercise
+
+## Objective
+
+Change a quote API server to allow POSTs of new quotes.
+
+The new quotes should be added to your quotes list, which is just an array in memory.
+
+You can assume the POSTed quotes are all in the correct JSON format.
+
+The route should use the HTTP method POST and should use the URL:
+
+> /quotes
+
+You should use the starting project: [cyf-quotes-post-start](https://glitch.com/~cyf-quotes-post-start), NOT your own existing quote server. This is because our project has an HTML form for creating new quotes.
+
+When you remix our starting project, immediately rename it.
+
+Then you can visit / and submit the form there, when you are ready to try to submit new quotes!
+
+## (3) Delete Exercise
+
+## Objective
+
+Change a quote API server to allow updating a quote according to the given ID.
+
+The id should be given in the URL structure like this:
+
+/quotes/2
+
+You should use the `delete` HTTP method
+
+You should use this starting project: [cyf-quotes-id-start](https://glitch.com/~cyf-quotes-id-start), NOT your own existing quote server. This is because this project has quotes with IDs.
+
+When you remix the starting project, immediately rename it as your own.
+
+# Workshop - Let's build an API
+
+You can use this [Express Cheatsheet](https://github.com/nbogie/express-notes/blob/master/express-cheatsheet.md) to help you.
 
 **API** stands for Application Programming Interface.
 
@@ -35,20 +100,16 @@ An API does not have to be web-based. But in our work, since we are doing web de
 
 > **Checkpoint:** Let us recap what we know about HTTP before continuing.
 
-## CRUD
+## Objective
 
-So what will we build? we will build a **CRUD** API. CRUD stands for Create, Retrieve, Update, Delete. If you think about it, this is what most applications do:
+Our **API** will manage Beyoncé albums:
 
-- Create some "resources"
-- Retrieve them (GET them)
-- Update them
-- Delete them
+- Create a new album,
+- Retrieve a list of albums or a single album,
+- Update an existing album's information
+- Delete an album
 
-Our **API** will manage Beyonce albums: Create a new album, retrieve a list of albums or a single album, update an existing album's information, or delete one.
-
-## Endpoints for Beyonce Songs
-
-We will build an API to manage Beyonce albums. We will build these endpoints:
+We will build these endpoints:
 
 `GET /albums` should return all the albums
 `GET /albums/:albumId` should return a single album (that matches the passed albumId)
@@ -97,6 +158,8 @@ app.get("/albums", function (req, res) {
 
 # Step 7: GET /albums/:albumId
 
+**Complete in-class (1) GET Exercise at this point**
+
 Sometimes, we do not want to _list_ all the information in one request, maybe we only want to get the information related to a single album. Imagine if we have a page to display the details of one album, we could call the server and get all albums then filter the one we need _client-side_, but would it not be more effective to tell the server to just return the one album we are interested in?
 
 Let us add a new endpoint to return only a single album `GET /albums/:albumId`. In this case, _albumId_ will tell us what album we can return so the call will be something like `GET /albums/10` and that will return the album with that has _albumId_ 10 ()
@@ -134,6 +197,8 @@ scripts: {
 now from your terminal, use the command `npm run dev` and that will run the _server_ with `nodemon` which is a package that makes the server listen to code changes and automatically restart.
 
 # Step 8: Add a new album
+
+**Complete in-class (2) Post Exercise at this point**
 
 > Our analogy with the Restaurant menu is somewhat incomplete. In a restaurant, we only GET items from the menu. In the world of APIs, we also have the possibility to create items, we can provide _ingredients_ to create a new dish. In this case, we provide some data (a payload) and we use a different verb **POST** (Create) as opposed to GET.
 
@@ -192,6 +257,27 @@ app.post("/albums", function (req, res) {
 ```
 
 > Finish the code for the route `POST /albums` to add the album data to the albums list (how to amend to an array?)
+
+## Step 9: Delete an album
+
+**Complete in-class (3) DELETE Exercise at this point**
+
+Lets look back at our original objectives.
+
+> `DELETE /albums/:albumId` should delete the album (that matches the passed albumId)
+
+This means that `DELETE /albums/2` should delete an album with the id `2` and return `200` with JSON `{ success: true }` to the user.
+
+The code will look like this
+
+```js
+// notice .delete
+app.delete("/albums/:albumID", function (req, res) {
+  console.log("DELETE /albums route");
+});
+```
+
+Can you work out how to remove an album using this code?
 
 {% include "./homework.md" %}
 {% include "../../others/escalation-policy.md" %}

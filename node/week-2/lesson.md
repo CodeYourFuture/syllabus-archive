@@ -35,7 +35,7 @@ Below are three in-class exercises which can be used to demonstrate parts of the
 
 ## (1) Get Exercise
 
-This is an in-class exercise which can be used to show how we might retrieve an element by ID using a GET request.
+This is an Teacher led exercise which can be used to show how we might retrieve an element by ID using a GET request.
 
 ### Objective
 
@@ -50,6 +50,8 @@ You should use the starting project: [cyf-quotes-id-start](https://glitch.com/~c
 When you remix the starting project, immediately rename it as your own.
 
 ## (2) Post Exercise
+
+This is an Teacher led exercise which can be used to show how we might add an element to an array
 
 ## Objective
 
@@ -70,6 +72,8 @@ When you remix our starting project, immediately rename it.
 Then you can visit / and submit the form there, when you are ready to try to submit new quotes!
 
 ## (3) Delete Exercise
+
+This is an Teacher led exercise which can be used to show how we might remove an element to an array
 
 ## Objective
 

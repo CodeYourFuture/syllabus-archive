@@ -291,6 +291,10 @@ app.listen(3000, function () {
 });
 ```
 
+> Exercise: Try to `console.log` the `request` object inside the handler
+> function. Restart your server, send the request again with Postman, then go to your terminal
+> to see what it looks like. You should see a lot of data come through.
+
 ## 2. Check it out in Postman
 
 Quit your server in the terminal with `ctrl + c`. Then restart it to run your
@@ -304,7 +308,7 @@ Now, open Postman, and send a `GET` request to
 `http://localhost:3000`. If you see your message in Postman,
 congratulations! You just sent your first response from the server.
 
-> Checkpoint: Do you understand all these terms?
+> Checkpoint: Do you understand all these terms? You should be able to see examples of them in Postman
 
 - [ ] Client
 - [ ] Server
@@ -316,10 +320,6 @@ congratulations! You just sent your first response from the server.
 - [ ] HTTP
 - [ ] HTTP Response Codes
 - [ ] HTTP Request Methods (or Verbs)
-
-> Exercise: Try to `console.log` the `request` object inside the handler
-> function. Restart your server, send the request again with Postman, then go to your terminal
-> to see what it looks like. You should see a lot of data come through.
 
 # Step 4 - Routing
 

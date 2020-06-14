@@ -14,8 +14,8 @@ Read the Mentors Notes [here](./mentors.md)
 
 By the end of this lesson students should be able to:
 
-- Process an UPDATE request using Express and Node to update data in memory
-- Upload your Node APP
+- Process an PUT request using Express and Node to update data in memory
+- Upload their node app to the internet so it can be accessed anywhere
 
 ---
 

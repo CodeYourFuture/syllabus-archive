@@ -195,7 +195,7 @@ Now, let's do the same using the Atlas GUI.
 
 Replication in MongoDB is used to increase redundancy and data availability. In its essence it's a way for 3 or more (or even 2 with some caveats..) servers to keep the same copy of data.
 
-![replication diagram](http://cyf-mongodb.com/img/replica-set-read-write-operations-primary.bakedsvg.svg)
+![replication diagram](./assets/operations.png)
 
 Writes always go to the primary and get propagated *asynchronously* to the secondaries.
 

@@ -49,7 +49,7 @@ MongoDB is fairly popular, but it is not *the most* popular DBMS. More popular
 
 With MongoDB, the JSON-like objects are called "**documents**". These documents are put in named groups called "**collections**". Each database in MongoDB is a named group of collections.
 
-![Database with collections and documents](http://cyf-mongodb.com/img/database.png)
+![Database with collections and documents](./assets/database.png)
 
 For example, in this lesson, we will use a database called `music`. In this database, there is one collection: `tracks`. The collection has documents like this:
 

@@ -2,10 +2,6 @@
 
 ## Presentations
 
-## Videos
+## Quiz
 
-## What worked well
-
-### Things to improve
-
-### Other thoughts
+## Notes

@@ -373,7 +373,7 @@ You can complete this quiz on Google Forms [here](https://docs.google.com/forms/
 
 # 2. Project Work
 
-The project work can take up to 1-2 hours to give an overview and get everyone setup.
+The project work should take between 60 and 90 minutes to give an overview and get everyone setup.
 
 ## Explanation
 

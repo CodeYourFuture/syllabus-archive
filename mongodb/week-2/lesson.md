@@ -44,15 +44,11 @@ Now that we know how to read databases, collections, and documents, let's learn 
 
 MongoDB Atlas is an online service for hosting a MongoDB database server. Luckily, there is a free version for simple projects like ours. Let's sign up for an account so we can create our own database.
 
-1.  Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas).
-
-2.  Click the "Try Free" button at the top of the page.
-
-3.  Enter your email address, your name, and a new password, then agree to the terms and click "Get started free".
-
-4.  When you see a popup, click the "Build my first cluster" button. It might ask you some questions and give you some tips, but you can skip those.
-
-5.  Click the "Create Cluster" button at the bottom of the page.
+1. Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas).
+2. Click the "Try Free" button at the top of the page.
+3. Enter your email address, your name, and a new password, then agree to the terms and click "Get started free".
+4. When you see a popup, click the "Build my first cluster" button. It might ask you some questions and give you some tips, but you can skip those.
+5. Click the "Create Cluster" button at the bottom of the page.
 
 This actually creates a group of servers called a "cluster". However, it might take a few minutes for the cluster to be ready. While it is being prepared, let's make an Express server to connect to one of the servers in the cluster.
 

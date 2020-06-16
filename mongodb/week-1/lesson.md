@@ -159,7 +159,9 @@ Which is the callback function?
 
 ## Connecting to a database from an Express server
 
-In the rest of this lesson, we will use an Express server on Glitch that connects to a MongoDB server. Let's start by remixing this Glitch web app: https://glitch.com/~cyf-db-lesson-1
+In the rest of this lesson, we will use an Express server on Glitch that connects to a MongoDB server.
+
+Let's start by remixing this Glitch web app: https://glitch.com/~cyf-db-lesson-1
 
 After you do that, take a look at the file `server.js`. Some of this should look familiar to you from previous lessons. However, there is some new code, such as this line near the top:
 

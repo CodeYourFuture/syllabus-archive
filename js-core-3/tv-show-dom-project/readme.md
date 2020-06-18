@@ -63,6 +63,7 @@ This project challenge is split into various levels of difficulty. You should ch
 - [level 100](./level-100.md)
 - [level 200](./level-200.md)
 - [level 300](./level-300.md)
+- [level 350](./level-350.md)
 - [level 400](./level-400.md)
 - [level 500](./level-500.md)
 - [level 999 (further work)](./level-999.md)

@@ -379,10 +379,10 @@ The project work should take between 60 and 90 minutes to give an overview and g
 
 Over the next three weeks we're going to be building a website that will consolidate all of your knowledge so far in the course.
 
-You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/tv-show-dom-project)
+You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/master/js-core-3/tv-show-dom-project)
 
 ## Getting Setup
 
-In your groups you should get the project setup using the exact instructions found [here](https://github.com/CodeYourFuture/syllabus/tree/london/js-core-3/tv-show-dom-project/getting-started.md). Make sure you use your Teaching Assistants to help you!
+In your groups you should get the project setup using the exact instructions found [here](https://github.com/CodeYourFuture/syllabus/tree/master/js-core-3/tv-show-dom-project/getting-started.md). Make sure you use your Teaching Assistants to help you!
 
 {% include './homework.md' %}

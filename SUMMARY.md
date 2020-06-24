@@ -40,6 +40,7 @@
   - [Week 3 - Advanced MongoDB](/mongodb/week-3/lesson.md)
 - [Final Project](/finalproject/intro.md)
   - [Introduction](/finalproject/intro.md)
+  - [Roles](/finalproject/roles.md)
   - [First Week](/finalproject/firstweek.md)
   - [Final Week](/finalproject/finalweek.md)
 

@@ -42,3 +42,27 @@ Live Coding from scratch is really important here since the students will be doi
 A completed example of this exercise can be found [here](https://codeyourfuture.github.io/syllabus-london/js-core-3/week-2/js-core-3/week-1/completed_country_website)
 
 ## To Be Improved
+
+## Quiz Answers
+
+1. Application Programming Interface
+2. Semi-private examples: Facebook, Twitter, Fitbit. Public examples: TFL, anything not requiring `auth` here: https://github.com/public-apis/public-apis
+3. `GET` request typically reads data from the API server, whereas `POST` request typically creates or modifies data
+4. Something like:
+
+```
+const h1Element = document.createElement('h1');
+h1Element.innerText = content;
+container.appendChild(h1Element);
+```
+
+N.B: innerHTML can be accepted but should be discouraged due to security considerations (i.e. sanitisation of API payload required first)
+5. `document.onload` fires whenever the DOM tree is ready, whereas `window.onload` is fired whenever the entire page loads, including external content (images, CSS, scripts etc.)
+6. A Promise
+7. The `then` function is executed whenever the asynchronous request completes successfully; the `catch` function is executed if an error arises during the request
+8. The HTTP status code, and the `content-type`
+9. 
+  1. Ok
+  2. Created
+  3: Resource not found
+10. 429 means that you have sent too many request to the server. The header may include a `Retry-After` field, indicating how long to wait before it will service that request.

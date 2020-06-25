@@ -455,7 +455,7 @@ class AddressBook {
   // Implement the lookup method
 }
 
-const myAddresBook = new AddressBook();
+const myAddressBook = new AddressBook();
 
 myAddressBook.store("bart", "bart@simpsons.com");
 myAddressBook.store("maggie", "maggie@simpsons.com");

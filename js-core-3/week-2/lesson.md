@@ -137,7 +137,7 @@ An API is a special type of program what acts as a **gatekeeper** to all of this
 
 #### Types of APIs:
 
-- Internal: for other development teams within a company to consume (e.g. microservices).
+- Internal: for other development teams within an organisation to consume (e.g. microservices).
 - Semi-private: for clients who paid for the API.
 - Public: for everyone on the web (but may or may not need an account to use).
 

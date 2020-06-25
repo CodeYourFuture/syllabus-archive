@@ -45,7 +45,7 @@ _Answer in a thread on Slack_
 
 In this session we will look at how computer talk to each other using the web.
 
-At the core of the web is the URL, which stands for Uniform Resource Locator. We use the term resource to mean anything that a server might return such as webpage, CSS, JavaScript, image, data etc. A good way to think of a URL is as an address. It allows us to refer to webpages, images, data etc that is stored on servers elsewhere.
+At the core of the web is the URL, which stands for Uniform Resource Locator. We use the term resource to mean anything that a server might return such as webpage, CSS, JavaScript, image, data etc. A good way to think of a URL is as an address. It allows us to refer to webpages, images, data etc. that is stored on servers elsewhere.
 
 ### Methods
 
@@ -59,7 +59,7 @@ The main difference between `GET` and `POST` is that a `POST` method has a body,
 
 ### Headers
 
-Each request and response sent has meta data, information about the data, at the beginning called a `header`. The `header` contains information such as a
+Each HTTP request and response sent has metadata, information about the data, at the beginning called a `header`. The `header` contains information such as a:
 
 - status code indicating whether a request was successful
 - content type which indicates what the request or response contains
@@ -137,7 +137,7 @@ An API is a special type of program what acts as a **gatekeeper** to all of this
 
 #### Types of APIs:
 
-- Private: for employees only under a company network for internal use.
+- Internal: for other development teams within a company to consume (e.g. microservices).
 - Semi-private: for clients who paid for the API.
 - Public: for everyone on the web (but may or may not need an account to use).
 
@@ -153,7 +153,7 @@ This endpoint will get location of all of the Bikepoints in London.
 
 https://api.tfl.gov.uk/BikePoint
 
-That's a lot of Bikes! It would be better if we could search for a location. Luckily this API let's us search for places.
+That's a lot of bikes! It would be better if we could search for a location. Luckily this API let's us search for places.
 
 https://api.tfl.gov.uk/BikePoint/Search?query=Clerkenwell
 
@@ -186,7 +186,7 @@ Hint: Use your browser to access the endpoints
     Which of the following statements below about APIs is false?
 
     A) Public APIs can be accessed by anyone on the Internet.
-    B) You must use Javascript to access an API.
+    B) You must use JavaScript to access an API.
     C) APIs can control access to data or features of an application.
     D) You can change data via an API.
 
@@ -203,7 +203,7 @@ Hint: Use your browser to access the endpoints
 
 ### Explanation
 
-- Fetch is a function to request from other places on the web
+- Fetch is a function to request resources from other places on the web (using the [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview) protocol)
 - Fetch is defined in the browser which means it can be used without using an external library (`window.fetch`)
 - Fetch is available in nearly all browser but it's good to check which ones it won't work in
   - We can use this website to help us - [caniuse.com](https://caniuse.com/#feat=fetch))
@@ -445,3 +445,20 @@ Complete the rest of this code to connect to the following API: `https://dog.ceo
 
 
 {% include './homework.md' %}
+
+## Quiz (10 - 15 minutes)
+
+1. What does API stand for?
+2. Give an example of a semi-private API and a public API
+3. What is the difference between a GET and a POST request?
+4. How might you add a new `h1` tag containing a string obtained from an API onto your webpage?
+   Assume that the `content` variable defines the obtained string, and the `container` variable holds the DOM node that is to be inserted into.
+5. What is the difference between `window.onload` and `document.onload`?
+6. What does `fetch` return when called?
+7. When are the functions in the `then` and `catch` methods of a promise executed?
+8. What are two useful bits of information the header of an HTTP response contain?
+9. What do the following error codes mean?
+   1. 200
+   2. 201
+   3. 404
+10. What should you do if you receive a 429 status code from an API during development? How might you resolve this?

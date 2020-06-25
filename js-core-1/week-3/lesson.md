@@ -118,25 +118,38 @@ daniel
 
 Arrays also have several methods that you can use.
 
-### `.sort()`
+### `.sort()`
 
-_An array method that sorts the values in an array into ascending alphabetical or numerical order._
+_An array method that, by default, sorts the values in an array into ascending order based on the [Unicode table](https://www.rapidtables.com/code/text/unicode-characters.html): as a simplified summary, it sorts numbers before letters and capital letters before lowercase letters_
 
 ```js
-const unorderedLetters = ["z", "v", "b", "f", "g"];
-const orderedLetters = unorderedLetters.sort();
+const unorderedArray = ["a", "Z", "b", 13, 9];
+const orderedArray = unorderedArray.sort();
 
-const unorderedNumbers = [8, 5, 1, 4, 2];
-const orderedNumbers = unorderedNumbers.sort();
-
-console.log(orderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
-console.log(unorderedLetters); // logs [ 'b', 'f', 'g', 'v', 'z' ]
-
-console.log(orderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
-console.log(unorderedNumbers); // logs [ 1, 2, 4, 5, 8 ]
+console.log(orderedArray); // logs [ 13, 9, "Z", "a", "b" ]
+console.log(unorderedArray); // logs [ 13, 9, "Z", "a", "b" ]
 ```
 
 > When you call this array method it uses the array on the left side of the dot as an input, and it sorts that array also returning it. Note how both ordered and unordered arrays are sorted now!
+
+_You can change how the sort method works by using your own sorting function. This function compares every pair of values in the array; if your function returns a number below 0, the first element in the pair will be sorted earlier, if it returns a number greater than 0, the second element in the pair will be sorted earlier, and if it returns 0 then nothing will change._
+
+```js
+const unorderedNumbers = [234, 12, 65, 3, 92];
+
+const orderedNumbersAscending = unorderedNumbers.sort(function(a, b) {
+  return a - b;
+});
+
+const orderedNumbersDescending = unorderedNumbers.sort(function(a, b) {
+  return b - a;
+});
+
+console.log(orderedNumbersAscending) // logs [ 3, 12, 65, 92, 234 ]
+console.log(orderedNumbersDescending) // logs [ 234, 92, 65, 12, 3 ]
+```
+
+> Most often you will pass a function to the sort method in order to sort a list of numbers, so keep the above example in mind!
 
 ### `.concat()`
 

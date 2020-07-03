@@ -15,7 +15,7 @@ Read the Mentors Notes [here](./mentors.md)
 By the end of this lesson students should be able to:
 
 - Process an PUT request using Express and Node to update data in memory
-- Upload their node app to the internet so it can be accessed anywhere
+- Upload their node app to the internet so it can be accessed anywhere using Heroku
 
 ---
 
@@ -68,6 +68,47 @@ app.put("/albums/:albumID", function (req, res) {
 ```
 
 Remember, you have got to **update** the album, not add it to the list
+
+## Heroku
+
+We use can use Heroku to host our APIs online (similar in the way you might have used Netlify in the past).
+
+This can be a little tricky however the documentation is good.
+
+https://devcenter.heroku.com/articles/getting-started-with-nodejs
+
+Work in pairs and with Teaching Assistants to get your homework from the previous two weeks working online.
+
+You should complete all of the following sections:
+
+- Introduction
+- Set up
+- Deploy the app
+- View logs
+- Define a Procfile
+- Run the app locally
+
+Now when you use
+
+```
+git push heroku master
+```
+
+After making a `commit` your updated website with my made available online.
+
+## City Guide and Paired Programming
+
+In this exercises you should split into groups of two people.
+
+You can find the [challenge](https://github.com/CodeYourFuture/cyf-node-challenges/tree/master/challenge-london-mini-guide) here.
+
+### Rules
+
+1. One of you will be leading on building the React application
+2. One of you will be leading on building the Node.js Application
+3. It is **very important** that you do not move onto the next level of the challenge until **both** of you have completed the level.
+   - e.g. Both of you have to finish Level 100 before continuing onto Level 200.
+4. You must work
 
 {% include "./homework.md" %}
 

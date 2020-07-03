@@ -104,11 +104,11 @@ You can find the [challenge](https://github.com/CodeYourFuture/cyf-node-challeng
 
 ### Rules
 
-1. One of you will be leading on building the React application
-2. One of you will be leading on building the Node.js Application
+1. One of you will be leading on building the React (Server) application
+2. One of you will be leading on building the Node.js (Client) Application
 3. It is **very important** that you do not move onto the next level of the challenge until **both** of you have completed the level.
    - e.g. Both of you have to finish Level 100 before continuing onto Level 200.
-4. You must work
+   - If one of you gets stuck - help each other!
 
 {% include "./homework.md" %}
 

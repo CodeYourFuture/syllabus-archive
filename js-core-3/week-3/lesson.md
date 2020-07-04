@@ -607,10 +607,10 @@ quicker();
 
 ### Explanation
 
-For the test of the days we'll be working together on our group project
+For the rest of the days we'll be working together on our group project
 
 You can find the project [here](https://github.com/CodeYourFuture/syllabus/tree/master/js-core-3/tv-show-dom-project)
 
-Students should group into teams based on the Level that they are working on currently.
+Students should get into groups based on the Level that they are working on currently. They should help each other on any of the tasks that they are stuck on and continue to work on their projects. Teaching Assistants can also offer help at this time with specific problems.
 
 {% include './homework.md' %}

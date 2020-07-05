@@ -3,6 +3,5 @@
 
 ### Prepare for the next class
 
-1. Follow the official [React tutorial](https://reactjs.org/tutorial/tutorial.html) (up to the "Completing the Game" section)
-2. Watch the [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) on Egghead.io
-3. Read [Props vs State](https://kentcdodds.com/blog/props-vs-state)
+1. Watch the [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) on Egghead.io
+2. Read [Props vs State](https://kentcdodds.com/blog/props-vs-state)

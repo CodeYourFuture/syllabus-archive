@@ -4,6 +4,6 @@ All of the homework for this week can be found in the Node Homework repository [
 
 ## Submission
 
-You should fork the [NodeJS-Homework](https://github.com/CodeYourFuture/NodeJS-Homework) repository, complete all of your work in those folders.
+You should complete the tasks in [NodeJS-Homework](https://github.com/CodeYourFuture/NodeJS-Homework) repository.
 
-Make sure you create a branch named `[YOUR_NAME]/Week3` to separate your work for each week.
+Make sure you create a branch named `[YOUR_NAME]/Week3` for work that you want to submit.

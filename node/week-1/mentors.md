@@ -2,18 +2,14 @@
 
 ## Presentations
 
-- [Week 1 - Node [Self-Hosted Slides] - 21/06/2020](https://node-week-1.jji.immo/#0)
-  - Created by London and Jim
-
 ## Notes
 
-### London (24/06/2020)
+### Running a very simple web-server
 
-- Glitch and Codesandbox had issues
-  - Possible non starters.
-  - Didn't have reload button (code sandbox).
-  - Groups tended to just rely on the one student whose setup was working. or work locally.
-- Last exercise needs rework
-  - Don't just return the data sent by user
-  - "Why would you do this?"
-- Breakout room exercises could have been more difficult
+In the in-class exercise it's important to go through the steps off
+
+1. Viewing a simple Node Server
+2. Creating a simple Node Server as a class
+3. Editing a simple Node Server individually (or small groups)
+
+This slow exposure to a new topic should give the students time to learn through repetition.

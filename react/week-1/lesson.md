@@ -472,6 +472,4 @@ Fed up of having to provide a prop for every component? Do you want to make your
 
 Inspiration & examples for this module were taken from [Kent C. Dodd's](https://twitter.com/kentcdodds) [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) course.
 
-# Homework
-
 {% include "./homework.md" %}

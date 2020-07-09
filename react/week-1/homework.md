@@ -3,5 +3,4 @@
 
 ### Prepare for the next class
 
-1. Watch the [Beginner's Guide to ReactJS](https://egghead.io/courses/the-beginner-s-guide-to-reactjs) on Egghead.io
-2. Read [Props vs State](https://kentcdodds.com/blog/props-vs-state)
+1. Read [Props vs State](https://kentcdodds.com/blog/props-vs-state)

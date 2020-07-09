@@ -1,1 +1,7 @@
 # Homework
+
+You can find the homework for this week here:
+
+https://github.com/CodeYourFuture/MongoDB-Homework
+
+You should complete all of Week 2.

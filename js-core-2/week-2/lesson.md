@@ -85,7 +85,7 @@ document.querySelectorAll("p");
 ```
 
 Both `.querySelector` and `querySelectorAll` accept a CSS selector as an input.
-`.querySelector` selects only the first element it finds, `querySelectorAll` selects all elements (it returns an array).
+`.querySelector` selects only the first element it finds, `querySelectorAll` selects all elements (it returns a `NodeList`, which you can think of as being similar to an array; it is an ordered sequence of DOM elements which you can loop through like with an array. The difference is that many common array methods like `.map` or `.concat` can't be used on a `NodeList`).
 
 #### Preparation for exercises
 
@@ -201,7 +201,7 @@ paragraph.innerText = "How are you?"; // now we can see the text displaying on t
 ```
 
 We've been using `document.querySelector` to retrieve a single element.
-To retrieve an array of multiple elements (that match a specific class name for example, or a specific tag) we use `document.querySelectorAll`.
+To retrieve a list of multiple elements (that match a specific class name for example, or a specific tag) we use `document.querySelectorAll`.
 
 ```js
 //change the background of all the paragraph items on our page

@@ -1,7 +1,5 @@
 # Final Project - First Week
 
-## Learning Objectives
-
 ## Overview
 
 - Welcome
@@ -59,7 +57,7 @@ Afterwards, post a team summary in the main class channel.
 In your teams, you should decide the time you want to share your stand-up message and who is responsible for sharing them with the wider team.
 ```
 
-### Minimum Viable Product (1 Hour)
+### Minimum Viable Product (60 minutes)
 
 Then we can do some high-level design. You should be able to answer all of these questions by the end of this exercise.
 
@@ -92,9 +90,13 @@ If you haven't finished, make sure that you finish these by the end of the week.
 
 In this project we will be working in `Sprints`.
 
-A Sprint is a unit of time where teams believe they can deliver
+A Sprint is a unit of time (normally a week or two weeks) where teams believe they can deliver by the end of the time given to them.
 
-Decide what you’re each going to be doing during the following week and where you want to be by the next class.
+```txt
+Work with your project manager to begin to split the work into tasks that each person in the team can work on. These tasks should be as small as possible.
+```
+
+After you've completed the task you should decide what you’re each going to be doing during the following week and what you want to have completed.
 
 Make sure that you assigned everybody tasks on your Project Management board.
 

@@ -67,7 +67,7 @@ Then we can do some high-level design. You should be able to answer all of these
   - i.e. the simplest possible thing we could build that lets us make some progress towards the business goals?
 - What tasks will users be carrying out?
 - What information will they need to have and/or provide to do that?
-  - This will allow you to figure what pages you could have and which endpoints they’ll need to use.
+  - This will allow you to figure what pages you could have and which endpoints you'll need to use.
 - What entities/resources/data are we going to have in the system?
 - What information do we need to store to achieve the goals?
   - This will allow you to figure out what collections you’ll likely have in the database.
@@ -83,7 +83,7 @@ This will give you an idea of what work needs to get done during the week, which
 Make sure you identify the "edges" between different tasks (e.g. you have to agree on an API so that the backend and frontend match up, or on the props passed between a parent component and a child component) so that you know who has to collaborate with whom to make sure it all fits together, and will be able to identify the impacts of one part getting blocked.
 
 ```txt
-At the end of this exercise you should add all the answers to these questions to a Google Doc and share with the rest of the class.
+At the end of this exercise you should add all the answers to a Google Doc and share with the rest of the class.
 
 If you haven't finished, make sure that you finish these by the end of the week.
 ```

@@ -42,7 +42,7 @@
   - [Introduction](/finalproject/intro.md)
   - [Roles](/finalproject/roles.md)
   - [Projects](/finalproject/roles.md)
-  - [Preparation](/finalproject/roles.md)
+  - [Preparation](/finalproject/prep.md)
   - [Week 1 - Getting Started & Agile](/finalproject/week-1/lesson.md)
   - [Week 2 - Demonstrations & Planning](/finalproject/week-2/lesson.md)
   - [Week 3 - Demonstrations & Planning](/finalproject/week-2/lesson.md)

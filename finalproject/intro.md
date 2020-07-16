@@ -47,14 +47,12 @@ The product owner would either be a representative from the partner organisation
 
 We’re going to run the final projects in weekly “sprints”, planning out what we’re going to do as teams and as individuals. Each week will therefore look something like:
 
-- **Daily standup**: post a daily message in the team Slack channel to let the rest of the team know what you’re working on, what progress you’ve made (even, and perhaps _especially_, if it’s none so far) and share anything that’s blocking you[^1]. Set a time for this and stick to it. Afterwards, post a team summary in the main class channel.
+- **Daily standup**: post a daily message in the team Slack channel to let the rest of the team know what you’re working on, what progress you’ve made (even, and perhaps _especially_, if it’s none so far) and share anything that’s blocking you. Set a time for this and stick to it. Afterwards, post a team summary in the main class channel.
 
 - **Mid-week check-in**: you should have at least one Slack call with the whole team and a mentor during the week to sync on progress, escalate any blockers and make sure that you’re still heading in the right direction.
-- **Sunday classes**: we’ll continue to meet on Sundays, spending the time on:
+- **Classes**: we’ll continue to meet on Sundays, spending the time on:
   - **Demo**: integrate all of your work together and share your progress so far with the mentors.
   - **Retrospective**: what’s gone well this week? What’s gone badly? What are you going to do differently next week to make things better?
   - **User research**: show what you’ve built and what you’re planning to build next to potential users (other students, mentors, etc.) and use any feedback they have to improve your plans.
   - **Sprint planning**: decide what you’re each going to be doing during the following week and where you want to be by the next class.
   - **Technical support**: mentors will be on hand to help you get unstuck from any blocking technical issues.
-
-The first and final weeks’ Sunday classes will be slightly different, so they’re detailed below.

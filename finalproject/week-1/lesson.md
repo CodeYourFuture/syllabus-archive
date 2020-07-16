@@ -26,6 +26,20 @@ Once you have your team and your assignment, start by sorting out the basic admi
 
 ## Agile Development
 
+### Daily Stand-ups
+
+Post a daily message in the team Slack channel to let the rest of the team know what you’re working on, what progress you’ve made (even, and perhaps _especially_, if it’s none so far) and share anything that’s blocking you.
+
+Set a time for this and stick to it.
+
+Afterwards, post a team summary in the main class channel.
+
+### Sprints
+
+### Mid-week Check-ins
+
+You should have at least one Slack call with the whole team and a mentor during the week to sync on progress, escalate any blockers and make sure that you’re still heading in the right direction.
+
 ## Project Roles
 
 Now that we understand Agile Development we should assign ourselves roles in the

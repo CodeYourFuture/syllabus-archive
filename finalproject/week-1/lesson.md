@@ -1,18 +1,41 @@
-# Final Project
+# Final Project - First Week
 
-## First week
+## Learning Objectives
+
+## Overview
+
+- Getting Setup
+- Agile Development
+- Project Roles
+- Minimum Viable Product
+
+## Welcome
+
+## Getting Setup (15 minutes)
 
 Once you have your team and your assignment, start by sorting out the basic administrative requirements:
 
-- Team name! This will be your identity, use it in all communications/presentations
-- Public Slack channel (name should start with #ldn5-)
-- GitHub repository (pick one member to own the repo, everyone else is a [collaborator](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository))
-  - You can fork [this starter kit](https://github.com/textbook/starter-kit-cyf) for a basic React/Express/MongoDB app
-  - Create a [project board](https://help.github.com/en/articles/about-project-boards) in the repo (or e.g. Trello board) for your tasks and stories
+1. Give your team a name!
+   - This will be your identity, use it in all communications/presentations.
+2. Create a public Slack channel
+   - The name should start with your class name (e.g. #ldn6, #nw3, #wm1...)
+3. Create a GitHub repository
+   - Pick one member to own the repo, everyone else is a [collaborator](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository))
+   - You can fork [this starter kit](https://github.com/CodeYourFuture/cyf-final-project-starter-kit) for a basic React/Express/MongoDB app
+   - Create a [project board](https://help.github.com/en/articles/about-project-boards) in the repo (or e.g. Trello board) for your tasks and stories
+
+## Agile Development
+
+## Project Roles
+
+Now that we understand Agile Development we should assign ourselves roles in the
+
+## Minimum Viable Product
 
 Then we can do some high-level design, think about:
 
-- What’s the minimal viable product (MVP), i.e. the simplest possible thing we could build that lets us make some progress towards the business goals?
+- What’s the minimal viable product (MVP)
+  - i.e. the simplest possible thing we could build that lets us make some progress towards the business goals?
 - What tasks will users be carrying out? What information will they need to have and/or provide to do that? This will allow you to figure what pages you could have and which endpoints they’ll need to use.
 - What entities/resources are we going to have in the system? What information do we need to store to achieve the goals? This will allow you to figure out what collections you’ll likely have in the database.
 - What are we going to need to expose to the React app? Where is that the same as the above (i.e. you’re just going to have an endpoint for a resource) and where might it be different (i.e. there will be some kind of calculation or aggregation between the database and the frontend)? This will allow you to figure out what the REST API is going to look like.

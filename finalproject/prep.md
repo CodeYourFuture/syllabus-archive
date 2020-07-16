@@ -4,4 +4,6 @@
 
 ## Teams
 
+Before class starts
+
 ## Support

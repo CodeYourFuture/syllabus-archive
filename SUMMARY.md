@@ -41,8 +41,12 @@
 - [Final Project](/finalproject/intro.md)
   - [Introduction](/finalproject/intro.md)
   - [Roles](/finalproject/roles.md)
-  - [First Week](/finalproject/firstweek.md)
-  - [Final Week](/finalproject/finalweek.md)
+  - [Projects](/finalproject/roles.md)
+  - [Preparation](/finalproject/roles.md)
+  - [Week 1 - Getting Started & Agile](/finalproject/week-1/lesson.md)
+  - [Week 2 - Demonstrations & Planning](/finalproject/week-2/lesson.md)
+  - [Week 3 - Demonstrations & Planning](/finalproject/week-2/lesson.md)
+  - [Week 4 - Wrapping up & Consolidation](/finalproject/week-4/lesson.md)
 
 ## Workshops
 

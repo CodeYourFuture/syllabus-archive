@@ -4,8 +4,8 @@
 
 ## Overview
 
+- Welcome
 - Getting Setup
-  - Role Assignment
 - Agile Development
   - Daily Stand-ups
   - Sprints
@@ -27,44 +27,39 @@ Once you have your team and your assignment, start by sorting out the basic admi
 ```txt
 2. Create a public Slack channel
    - The name should start with your class name (e.g. #ldn6, #nw3, #wm1...)
+   - Invite all of your team members to it
 ```
 
 ```txt
 3. Create a GitHub repository
-   - Pick one member to own the repo, everyone else is a [collaborator](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository))
+   - Pick one member to own the repo,
+   - Everyone else should be invited as a [collaborator](https://help.github.com/en/articles/inviting-collaborators-to-a-personal-repository))
    - You can fork [this starter kit](https://github.com/CodeYourFuture/cyf-final-project-starter-kit) for a basic React/Express/MongoDB app
-   - Create a [project board](https://help.github.com/en/articles/about-project-boards) in the repo (or e.g. Trello board) for your tasks and stories
 ```
 
-### Role Assignment (15 minutes)
+## Agile Development (60 minutes)
 
-## Agile Development (45 minutes)
+### Project Management Boards (5 minutes)
+
+Project Management boards are a tool that you can use to help you organise how you work.
+
+```txt
+Create a [project board](https://help.github.com/en/articles/about-project-boards) in the repo for your tasks and stories
+```
 
 ### Daily Stand-ups
 
-Post a daily message in the team Slack channel to let the rest of the team know what you’re working on, what progress you’ve made (even, and perhaps _especially_, if it’s none so far) and share anything that’s blocking you.
+Every day you should post a message in the team's Slack channel to let the rest of the team know what you’re working on, what progress you’ve made (even, and perhaps _especially_, if it’s none so far) and share anything that’s blocking you.
 
 Set a time for this and stick to it.
 
 Afterwards, post a team summary in the main class channel.
 
 ```txt
-In your teams you should at what time you want to share your stand-ups and who is responsible for sharing them with the wider team.
+In your teams, you should decide the time you want to share your stand-up message and who is responsible for sharing them with the wider team.
 ```
 
-### Sprints
-
-### Mid-week Check-ins
-
-You should have at least one Slack call with the whole team and a mentor during the week to sync on progress, escalate any blockers and make sure that you’re still heading in the right direction.
-
-Your student Project Manager is responsible for organising these meetings.
-
-```txt
-In your teams you should decide at what time and day you want to have your mid-week meetings.
-```
-
-## Minimum Viable Product (1 Hour)
+### Minimum Viable Product (1 Hour)
 
 Then we can do some high-level design. You should be able to answer all of these questions by the end of this exercise.
 
@@ -89,7 +84,19 @@ Make sure you identify the "edges" between different tasks (e.g. you have to agr
 
 ```txt
 At the end of this exercise you should add all the answers to these questions to a Google Doc and share with the rest of the class.
+
+If you haven't finished, make sure that you finish these by the end of the week.
 ```
+
+### Sprint Planning (60 minutes)
+
+In this project we will be working in `Sprints`.
+
+A Sprint is a unit of time where teams believe they can deliver
+
+Decide what you’re each going to be doing during the following week and where you want to be by the next class.
+
+Make sure that you assigned everybody tasks on your Project Management board.
 
 ## Prepare for next week
 

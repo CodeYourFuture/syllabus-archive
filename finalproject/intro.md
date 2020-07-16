@@ -9,7 +9,7 @@ Technical skills:
 - How to `build a complete full-stack application`
 - Understanding `how each part of an application relates` to each other
 - What it means to work on a `feature`
-- How to work with `GIT in a team setting`
+- How to work with `Git` in a team setting
 - How to write `readable code`
 
 Communication skills:
@@ -50,7 +50,7 @@ We’re going to run the final projects in weekly “sprints”, planning out wh
 - **Daily standup**: post a daily message in the team Slack channel to let the rest of the team know what you’re working on, what progress you’ve made (even, and perhaps _especially_, if it’s none so far) and share anything that’s blocking you. Set a time for this and stick to it. Afterwards, post a team summary in the main class channel.
 
 - **Mid-week check-in**: you should have at least one Slack call with the whole team and a mentor during the week to sync on progress, escalate any blockers and make sure that you’re still heading in the right direction.
-- **Classes**: we’ll continue to meet on Sundays, spending the time on:
+- **Classes**: we’ll continue to meet on class days where we will be spending time on:
   - **Demo**: integrate all of your work together and share your progress so far with the mentors.
   - **Retrospective**: what’s gone well this week? What’s gone badly? What are you going to do differently next week to make things better?
   - **User research**: show what you’ve built and what you’re planning to build next to potential users (other students, mentors, etc.) and use any feedback they have to improve your plans.

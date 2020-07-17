@@ -108,7 +108,7 @@ To create a text index in the shell: `db.listingsAndReviews.createIndex( { name
 
 Now, let's do the same using the Atlas GUI.
 
-#### Exercise
+#### Exercise 1
 
 Search for the document using the index.
 
@@ -187,7 +187,7 @@ What's the output like?
 
 More information: <https://docs.mongodb.com/manual/aggregation/>
 
-#### Exercise:
+#### Exercise 2
 
 Now, let's do the same using the Atlas GUI.
 
@@ -293,7 +293,7 @@ WriteCommandError({
 
 Database operations need to be inside our session if we want to benefit from transactions
 
-### Exercise
+#### Exercise 3
 
 Transfer 40 monads from account 1 to account 2. Observe how it works perfectly fine.
 

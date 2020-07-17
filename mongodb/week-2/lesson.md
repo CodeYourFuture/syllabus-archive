@@ -267,7 +267,7 @@ When you have entered a few actors, click the Insert button to add the document.
 
 That is how you can add a document easily with MongoDB Atlas.
 
-#### Excercise
+#### Exercise 1
 
 Try adding two new films to your database. Give each of them a title, year, and a few actors.
 
@@ -317,7 +317,7 @@ Here, when the user sends a `POST` request to `/films`, the server creates a 
 
 To try it, restart your server first: go to your terminal shell, press `ctrl+c` to stop the server, press the `up` key to go to your previous command, and then press `enter`. Now, try sending a `POST` request to `localhost:3000/films` with Postman, and then check your collection on Atlas.
 
-#### Exercise
+#### Exercise 2
 
 Update the new endpoint to take query parameters `title`, `year`, and `actors` and create and return a new film with those fields and values. Make sure that only those fields are added. If a query parameter is missing, return a `400` error. Make sure that the year is a number in the database (not a string). Let the actors be separated by commas.
 
@@ -437,7 +437,7 @@ Now, when we make a `PUT` request to `/films`, the server changes the year of
 
 To try it, restart your server again (in the terminal: `ctrl+c`, `up`, `enter`) and make a `PUT` request to `localhost:3000/films` in Postman.
 
-#### Exercise
+#### Exercise 3
 
 Change the new endpoint to `/films/:id`, and make it take a JSON object body and replace the document that has that `id`.
 
@@ -540,7 +540,7 @@ When a user sends a `DELETE` request to `/films/Princess Mononoke`, for examp
 
 To try it, restart your server, find a film title in your database, and send a `DELETE` request to `/films/<put the film title here>` in Postman.
 
-#### Exercise
+#### Exercise 4
 
 Change the new endpoint to `/films/:id`. Make it delete only the object with the given `id`.
 

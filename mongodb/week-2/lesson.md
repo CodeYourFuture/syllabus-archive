@@ -267,7 +267,7 @@ When you have entered a few actors, click the Insert button to add the document.
 
 That is how you can add a document easily with MongoDB Atlas.
 
-#### Excercise
+#### Exercise
 
 Try adding two new films to your database. Give each of them a title, year, and a few actors.
 

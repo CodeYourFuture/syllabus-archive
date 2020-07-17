@@ -58,46 +58,7 @@ In the last lesson, we made an Express server on Glitch. In this lesson, however
 
 Running a local server is the way most professional developers work, so it is important for you to learn.
 
-Here, we will start by opening a terminal shell:
-
-- On Mac, open the Terminal app in the `Applications/Utilities` directory.
-- On Ubuntu, press `ctrl+alt+t`.
-- On Windows, you can try the [Windows Subsystem for Linux](https://devblogs.microsoft.com/commandline/bash-on-ubuntu-on-windows-download-now-3/). If this does not work, you can try Git BASH, which you can get by downloading [Git for Windows](https://gitforwindows.org/).
-
-In the shell, let's make a new directory for our Express server project. You can
-
-- list directories by entering `ls` in the shell,
-- change directories with `cd` (for example, `cd Desktop` to go to a `Desktop` directory), and
-- make a new directory with `mkdir` (for example, `mkdir cyf-db-lesson-2` to make an `cyf-db-lesson-2` directory).
-
-Now, let's check if you already have Node and Node Pacakage Manager (NPM) installed. These will let you run a JavaScript server and add packages like Express to your project. To check for Node and NPM, run this in the terminal shell:
-
-```js
-npm --version
-
-```
-
-If you see a version number (for example, `6.9.0`), you should be ready. Otherwise, try downloading Node from [here](https://nodejs.org/en/) and installing it. It should also install NPM automatically.
-
-Once `npm --version` works, you can add Express. Inside of your new project directory, run this in the shell:
-
-```js
-npm install express
-
-```
-
-If it works, you should see a bunch of technical stuff appear on the screen. You can ignore most of it for now. However, at the bottom, you should see something like this:
-
-```js
-+ express@4.17.1
-added 50 packages from 37 contributors and audited 126 packages in 2.263s
-found 0 vulnerabilities
-
-```
-
-This basically means that NPM successfully added Express to your project directory.
-
-Doing this also added two things to our directory: `node_modules` and `package-lock.json`. `node_modules` is a directory that has (1) the Express package and (2) any other NPM packages that it needs. `package-lock.json` is a file that has the versions of these NPM packages. You can usually just ignore `node_modules` and `package-lock.json`.
+Follow [these instructions for making a node app and installing Express.js](https://expressjs.com/en/starter/installing.html). When prompted, set the "entry point" to be `server.js`. If you miss the chance, you can edit `package.json` to fix this.
 
 Now that we have Express ready, let's start writing our JavaScript. Open your favourite code editor (for example, Visual Studio Code) and create a new file with this:
 
@@ -368,7 +329,7 @@ There are several options you can use. The one that we will use in this lesson i
 
 However, `result` here is different than the one for `insertOne`. Let's investigate.
 
-#### Updating a document - investigating findOneAndUpdate's `result` in the documentation 
+#### Updating a document - investigating findOneAndUpdate's `result` in the documentation
 
 To see what this is, let's go to the [API Reference](https://mongodb.github.io/node-mongodb-native/3.5/api/) tab we opened earlier.
 

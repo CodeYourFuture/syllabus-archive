@@ -126,7 +126,7 @@ This will show `Hello!` after one second, `Goodbye!` after another second, a
 
 These nested callback functions can be confusing, but they are important to understand before continuing.
 
-#### Exercises:
+#### Exercise 1
 
 (1) Look at this code:
 
@@ -151,11 +151,17 @@ Which is the callback function?
 - (b) `showString`
 - (c) `setTimeout`
 
-(2) Rewrite the code in the previous exercise so that there are no new function names.
+#### Exercise 2
 
-(3) Write a new function `sayHiAndRun(callback)` that takes a callback function, prints `Hi!`, and then runs the callback function.
+Rewrite the code in the previous exercise so that there are no new function names.
 
-(4) Which other functions that you learned in CYF lessons take a callback function as an argument?
+#### Exercise 3
+
+Write a new function `sayHiAndRun(callback)` that takes a callback function, prints `Hi!`, and then runs the callback function.
+
+#### Exercise 4
+
+Which other functions that you learned in CYF lessons take a callback function as an argument?
 
 ## Connecting to a database from an Express server
 
@@ -313,7 +319,7 @@ When the page refreshes, you should see JSON text for some tracks like this (wit
 
 We told Express to respond with an array, and Express automatically turned it into JSON text. Notice that the value for `_id` is a string, but remember from earlier that it was something like `ObjectId("5cf2eb7d1c9d4400006fca92")`. What happened? The `ObjectId` object gets translated into a string whenever you turn it into JSON text.
 
-#### Exercise:
+#### Exercise 5
 
 Make a new Express endpoint on the server for `/books`. There is another database on the MongoDB server named `literature` and a collection named `books`. Connect to that collection on this endpoint and return all the documents. How many of them are there?
 
@@ -354,7 +360,7 @@ app.get("/", function (request, response) {
 
 Now, when the user goes to `/`, they will get only the tracks by Justice.
 
-#### Exercise:
+#### Exercise 6
 
 Make a new endpoint for `/tracks/search`. When a user requests it with the query parameter `artist`, return only the tracks with that query parameter's value. For example, if you go to `/tracks/search?artist=Sebastian`, it should show only the tracks by Sebastian.
 
@@ -391,11 +397,13 @@ app.get("/", function (request, response) {
 
 Now, the user will only get only the tracks by Justice from the year 2007.
 
-#### Exercises:
+#### Exercise 7
 
-1. Update your endpoint `/tracks/search` so that it works with the query parameter `year`, too. For example, if you go to `/tracks/search?artist=Sebastian&year=2006`, it should show only the tracks by Sebastian from the year 2006.
+Update your endpoint `/tracks/search` so that it works with the query parameter `year`, too. For example, if you go to `/tracks/search?artist=Sebastian&year=2006`, it should show only the tracks by Sebastian from the year 2006.
 
-2. Update the `/tracks/search` endpoint so that it works with any combination of the query parameters `title`, `artist`, `album`, and `year`. For example, if you go to `/tracks/search?artist=Sebastian&album=Total`, it should show only the track by Sebastian on the album *Total*.
+#### Exercise 8
+
+Update the `/tracks/search` endpoint so that it works with any combination of the query parameters `title`, `artist`, `album`, and `year`. For example, if you go to `/tracks/search?artist=Sebastian&album=Total`, it should show only the track by Sebastian on the album *Total*.
 
 ## IDs
 
@@ -466,13 +474,17 @@ app.get("/", function (request, response) {
 
 Now, we should only get the one track with that ID (not an array).
 
-#### Exercises
+#### Exercise 9
 
-1. Add an endpoint `/tracks/:id` that returns only the track with the given ID. For example, if you go to `/tracks/5cf2eb7d1c9d4400006fca92`, you should get only the track with the ID `5cf2eb7d1c9d4400006fca92`. Make sure that it does not return an array. Make sure that `/tracks/search` still works.
+Add an endpoint `/tracks/:id` that returns only the track with the given ID. For example, if you go to `/tracks/5cf2eb7d1c9d4400006fca92`, you should get only the track with the ID `5cf2eb7d1c9d4400006fca92`. Make sure that it does not return an array. Make sure that `/tracks/search` still works.
 
-2. What happens when you give a 24-character ID that does not exist in the database? For example, try going to `/tracks/0123456789abcdef01234567`. Update the endpoint so that it returns a `404` status when this happens.
+#### Exercise 10
 
-3. What happens when you try to give an ID that is not 24 characters long or has non-hexadecimal characters? For example, try going to `/tracks/foobar`. Update the `/tracks/:id` endpoint so that it returns a `400` status when there is that kind of error.
+What happens when you give a 24-character ID that does not exist in the database? For example, try going to `/tracks/0123456789abcdef01234567`. Update the endpoint so that it returns a `404` status when this happens.
+
+#### Exercise 11
+
+What happens when you try to give an ID that is not 24 characters long or has non-hexadecimal characters? For example, try going to `/tracks/foobar`. Update the `/tracks/:id` endpoint so that it returns a `400` status when there is that kind of error.
 
 ## Optional: search operations
 
@@ -661,9 +673,12 @@ This would get tracks from a year *greater than or equal to* 2006.
 
 Following this pattern, you can also use `$lt` for field values *less than* something, and you can use `$lte` for field values *less than or equal to* something.
 
-#### Exercises:
+#### Exercise 12
 
-1.  Add an endpoint `/tracks/new` that returns only the tracks released after 2010.
-2.  Add an endpoint `/tracks/old` that returns only the tracks released before 2000.
+Add an endpoint `/tracks/new` that returns only the tracks released after 2010.
+
+#### Exercise 13
+
+Add an endpoint `/tracks/old` that returns only the tracks released before 2000.
 
 {% include "./homework.md" %}

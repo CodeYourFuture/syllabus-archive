@@ -366,7 +366,11 @@ This will update the first document that matches `searchObject` with the field
 
 There are several options you can use. The one that we will use in this lesson is `returnOriginal`. If your options include `returnOriginal: false`, then you can get the updated document (not the original one) from `result`.
 
-However, `result` here is different than the one for `insertOne`. To see what this is, let's go to the [API Reference](https://mongodb.github.io/node-mongodb-native/3.5/api/) tab we opened earlier.
+However, `result` here is different than the one for `insertOne`. Let's investigate.
+
+#### Updating a document - investigating findOneAndUpdate's `result` in the documentation 
+
+To see what this is, let's go to the [API Reference](https://mongodb.github.io/node-mongodb-native/3.5/api/) tab we opened earlier.
 
 On this page, on the left side bar, we can see many objects we can use from the `mongodb` package. We want to find information about the `findOneAndUpdate` function, which is on a `Collection`, so let's click the "Collection" link. This opens many properties that a `Collection` has, including its methods (functions). Find and click the link for `findOneAndUpdate`.
 
@@ -377,6 +381,8 @@ Now, we can see the description of what our callback function and its arguments 
 Finally, we can see the properties of `result`. Notice the first property, `value`, which will be our updated document. We can use this to return the updated document to the user.
 
 Note: at the time of writing this lesson, the docs have some problems. For example, the description of the `value` property says that it is from the `findAndModify` command, but it is really from the `findAndUpdateOne` command for us. Mistakes like these are not uncommon in documentation. (If you are stuck on something, and docs do not help, a good place to ask for help is [Stack Overflow](https://stackoverflow.com/).)
+
+#### Updating a document - back to the code...
 
 Now, we know how to use `result`. For example, we can do this:
 

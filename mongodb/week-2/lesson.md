@@ -366,13 +366,13 @@ This will update the first document that matches `searchObject` with the field
 
 There are several options you can use. The one that we will use in this lesson is `returnOriginal`. If your options include `returnOriginal: false`, then you can get the updated document (not the original one) from `result`.
 
-However, `result` here is different than the one for `insertOne`. To see what this is, let's go to the [API Reference](http://mongodb.github.io/node-mongodb-native/3.2/api/) tab we opened earlier.
+However, `result` here is different than the one for `insertOne`. To see what this is, let's go to the [API Reference](https://mongodb.github.io/node-mongodb-native/3.5/api/) tab we opened earlier.
 
 On this page, on the left side bar, we can see many objects we can use from the `mongodb` package. We want to find information about the `findOneAndUpdate` function, which is on a `Collection`, so let's click the "Collection" link. This opens many properties that a `Collection` has, including its methods (functions). Find and click the link for `findOneAndUpdate`.
 
-Here, we can see description of the function and its arguments. For example, you can see a list of options we can use. We can also see a column with the arguments types. We want to see what we can do with the `result` argument of the callback function, so click the type for `callback`: "[Collection~findAndModifyCallback](http://mongodb.github.io/node-mongodb-native/3.2/api/Collection.html#~findAndModifyCallback)".
+Here, we can see description of the function and its arguments. For example, you can see a list of options we can use. We can also see a column with the arguments types. We want to see what we can do with the `result` argument of the callback function, so click the type for `callback`: "[Collection~findAndModifyCallback](https://mongodb.github.io/node-mongodb-native/3.5/api/Collection.html#~findAndModifyCallback)".
 
-Now, we can see the description of what our callback function and its arguments should be. Click on the type of `result` so we can find out more about it: "[Collection~findAndModifyWriteOpResult](http://mongodb.github.io/node-mongodb-native/3.2/api/Collection.html#~findAndModifyWriteOpResult)".
+Now, we can see the description of what our callback function and its arguments should be. Click on the type of `result` so we can find out more about it: "[Collection~findAndModifyWriteOpResult](https://mongodb.github.io/node-mongodb-native/3.5/api/Collection.html#~findAndModifyWriteOpResult)".
 
 Finally, we can see the properties of `result`. Notice the first property, `value`, which will be our updated document. We can use this to return the updated document to the user.
 

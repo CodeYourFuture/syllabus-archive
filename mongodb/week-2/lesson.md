@@ -230,7 +230,7 @@ That is how you can add a document easily with MongoDB Atlas.
 
 #### Exercise 1
 
-Try adding two new films to your database. Give each of them a title, year, and a few actors.
+Try adding two new films to your database, using the Atlas web interface. Give each of them a title, year, and a few actors.
 
 ### Creating a document with the MongoDB Node Driver
 
